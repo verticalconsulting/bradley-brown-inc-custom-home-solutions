@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SEOHead from "@/components/SEOHead";
 import { base44 } from "@/api/base44Client";
 import { MapPin, Maximize2, Calendar, SlidersHorizontal } from "lucide-react";
+import PullToRefresh from "@/components/PullToRefresh";
 
 const categoryFilters = [
   { value: "all", label: "All Projects" },
@@ -27,18 +28,27 @@ export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const loadProjects = () => {
     base44.entities.Project.filter({ status: "published" }, "-year_completed", 50)
       .then(data => setProjects(data.length ? data : placeholderProjects))
       .catch(() => setProjects(placeholderProjects))
       .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadProjects();
   }, []);
 
   const filtered = activeFilter === "all"
     ? projects
     : projects.filter(p => p.category === activeFilter);
 
+  const handleRefresh = async () => {
+    loadProjects();
+  };
+
   return (
+    <PullToRefresh onRefresh={handleRefresh}>
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Project Portfolio – Custom Homes & Renovations in Mississippi"
@@ -122,5 +132,6 @@ export default function Portfolio() {
         )}
       </div>
     </div>
+    </PullToRefresh>
   );
 }
