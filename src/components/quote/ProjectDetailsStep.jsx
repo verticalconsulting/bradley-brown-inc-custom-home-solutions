@@ -41,17 +41,25 @@ export default function ProjectDetailsStep({ data, onChange }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Budget Range</label>
-          <select value={data.budget_range || ""} onChange={e => update("budget_range", e.target.value)} className={inputClass}>
-            <option value="">Select a budget range</option>
-            {budgetOptions.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-          </select>
+          <Select value={data.budget_range || ""} onValueChange={val => update("budget_range", val)}>
+            <SelectTrigger className="w-full border-[#E2D9CC] focus:ring-[#C4922A]/30 focus:border-[#C4922A]">
+              <SelectValue placeholder="Select a budget range" />
+            </SelectTrigger>
+            <SelectContent>
+              {budgetOptions.map(o => <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>)}
+            </SelectContent>
+          </Select>
         </div>
         <div>
           <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Desired Timeline</label>
-          <select value={data.timeline || ""} onChange={e => update("timeline", e.target.value)} className={inputClass}>
-            <option value="">When do you want to start?</option>
-            {timelineOptions.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-          </select>
+          <Select value={data.timeline || ""} onValueChange={val => update("timeline", val)}>
+            <SelectTrigger className="w-full border-[#E2D9CC] focus:ring-[#C4922A]/30 focus:border-[#C4922A]">
+              <SelectValue placeholder="When do you want to start?" />
+            </SelectTrigger>
+            <SelectContent>
+              {timelineOptions.map(o => <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>)}
+            </SelectContent>
+          </Select>
         </div>
         <div>
           <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Project Description *</label>
