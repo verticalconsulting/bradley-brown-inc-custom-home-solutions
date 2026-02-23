@@ -137,6 +137,7 @@ export default function Layout({ children, currentPageName }) {
 
       <main className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">{children}</main>
 
+      <BottomTabBar currentPageName={currentPageName} />
       <footer className="bg-[#1E2D3D] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
