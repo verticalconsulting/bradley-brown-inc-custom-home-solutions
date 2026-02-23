@@ -135,7 +135,7 @@ export default function Layout({ children, currentPageName }) {
         )}
       </nav>
 
-      <main>{children}</main>
+      <main className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">{children}</main>
 
       <footer className="bg-[#1E2D3D] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
