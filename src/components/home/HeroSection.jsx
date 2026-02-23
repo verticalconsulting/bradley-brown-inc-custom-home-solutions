@@ -1,0 +1,53 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { ChevronRight, Play } from "lucide-react";
+
+export default function HeroSection() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80')` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1E2D3D]/75 via-[#1E2D3D]/55 to-[#1E2D3D]/85" />
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
+        <div className="inline-flex items-center gap-2 bg-[#C4922A]/20 border border-[#C4922A]/40 rounded-full px-4 py-1.5 mb-6">
+          <span className="w-2 h-2 bg-[#C4922A] rounded-full" />
+          <span className="text-[#F5D78E] text-sm font-medium">Central Mississippi's Premier Builder Since 1995</span>
+        </div>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+          Building Your
+          <span className="block text-[#C4922A]">Dream Home</span>
+        </h1>
+
+        <p className="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Custom home construction, renovations, and additions crafted with integrity, precision, and 30+ years of Mississippi expertise.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            to={createPageUrl("QuoteAssistant")}
+            className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-lg"
+          >
+            Get a Free Quote <ChevronRight className="w-5 h-5" />
+          </Link>
+          <Link
+            to={createPageUrl("Portfolio")}
+            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all"
+          >
+            <Play className="w-5 h-5" /> View Our Work
+          </Link>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-1">
+            <div className="w-1.5 h-3 bg-white/60 rounded-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
