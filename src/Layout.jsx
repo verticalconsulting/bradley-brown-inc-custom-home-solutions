@@ -43,6 +43,16 @@ export default function Layout({ children, currentPageName }) {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
+            {isChildPage && (
+              <button
+                onClick={() => navigate(-1)}
+                className={`md:hidden flex items-center gap-1 text-sm font-medium mr-2 transition-colors ${transparent ? "text-white" : "text-[#1E2D3D]"} hover:text-[#C4922A]`}
+                aria-label="Go back"
+              >
+                <ChevronLeft className="w-5 h-5" />
+                <span>Back</span>
+              </button>
+            )}
             <Link to={createPageUrl("Home")} className="flex items-center gap-2 flex-shrink-0">
               <div className="w-9 h-9 bg-[#C4922A] rounded flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-sm">BB</span>
