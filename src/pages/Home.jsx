@@ -7,7 +7,6 @@ import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import CTABanner from "@/components/home/CTABanner";
-import GoogleReviews from "@/components/home/GoogleReviews";
 import PullToRefresh from "@/components/PullToRefresh";
 
 export default function Home() {
@@ -29,7 +28,6 @@ export default function Home() {
         <ServicesPreview />
         <FeaturedProjects />
         <TestimonialsCarousel />
-        <GoogleReviews />
         <CTABanner />
       </div>
     </PullToRefresh>
