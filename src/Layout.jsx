@@ -208,7 +208,8 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Portfolio", page: "Portfolio" },
                 { label: "Contact Us", page: "Contact" },
                 { label: "Get a Quote", page: "QuoteAssistant" },
-                { label: "Agent Chat", page: "AgentChat" }].
+                { label: "Agent Chat", page: "AgentChat" },
+                { label: "Client CRM", page: "CRM" }].
                 map((item) =>
                 <li key={item.page}>
                     <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>

@@ -54,6 +54,7 @@ import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
 import QuoteAssistant from './pages/QuoteAssistant';
 import Services from './pages/Services';
+import CRM from './pages/CRM';
 import __Layout from './Layout.jsx';
 
 
@@ -65,6 +66,7 @@ export const PAGES = {
     "Portfolio": Portfolio,
     "QuoteAssistant": QuoteAssistant,
     "Services": Services,
+    "CRM": CRM,
 }
 
 export const pagesConfig = {
