@@ -51,8 +51,9 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
-import Services from './pages/Services';
 import QuoteAssistant from './pages/QuoteAssistant';
+import Services from './pages/Services';
+import AgentChat from './pages/AgentChat';
 import __Layout from './Layout.jsx';
 
 
@@ -61,8 +62,9 @@ export const PAGES = {
     "Contact": Contact,
     "Home": Home,
     "Portfolio": Portfolio,
-    "Services": Services,
     "QuoteAssistant": QuoteAssistant,
+    "Services": Services,
+    "AgentChat": AgentChat,
 }
 
 export const pagesConfig = {
