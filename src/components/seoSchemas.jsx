@@ -1,0 +1,97 @@
+const SITE_URL = "https://bradleybrownhomes.com"; // Update to your live domain
+
+export const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+  "name": "Bradley Brown Inc.",
+  "alternateName": "Bradley Brown Custom Homes",
+  "description": "Bradley Brown Inc. is Central Mississippi's premier custom home builder, offering custom home construction, renovations, room additions, and outdoor living spaces since 1995.",
+  "url": SITE_URL,
+  "telephone": "+16012345678",
+  "email": "info@bradleybrownhomes.com",
+  "foundingDate": "1995",
+  "priceRange": "$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Jackson",
+    "addressRegion": "MS",
+    "postalCode": "39201",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 32.2988,
+    "longitude": -90.1848
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Jackson, Mississippi" },
+    { "@type": "City", "name": "Madison, Mississippi" },
+    { "@type": "City", "name": "Ridgeland, Mississippi" },
+    { "@type": "City", "name": "Brandon, Mississippi" },
+    { "@type": "City", "name": "Flowood, Mississippi" },
+    { "@type": "City", "name": "Pearl, Mississippi" },
+    { "@type": "City", "name": "Clinton, Mississippi" }
+  ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "09:00", "closes": "13:00" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "87",
+    "bestRating": "5"
+  }
+};
+
+export const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Construction Services – Bradley Brown Inc.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Service",
+        "name": "Custom Home Building",
+        "description": "Full-service custom home construction in Central Mississippi, designed and built to your exact specifications.",
+        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "250000" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Service",
+        "name": "Home Renovation & Remodeling",
+        "description": "Expert kitchen, bathroom, and full home renovations for Central Mississippi homeowners.",
+        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "25000" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Service",
+        "name": "Room Additions",
+        "description": "Seamless home additions and room expansions that match your existing home's style.",
+        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "75000" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Service",
+        "name": "Outdoor Living Spaces",
+        "description": "Custom patios, outdoor kitchens, pergolas, and pool surrounds for Mississippi homeowners.",
+        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "15000" }
+      }
+    }
+  ]
+};
