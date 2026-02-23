@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import SEOHead from "@/components/SEOHead";
+import { localBusinessSchema } from "@/components/seoSchemas";
 import { base44 } from "@/api/base44Client";
 import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
 

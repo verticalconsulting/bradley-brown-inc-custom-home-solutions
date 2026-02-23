@@ -1,4 +1,6 @@
 import React from "react";
+import SEOHead from "@/components/SEOHead";
+import { localBusinessSchema } from "@/components/seoSchemas";
 import HeroSection from "@/components/home/HeroSection";
 import TrustSignals from "@/components/home/TrustSignals";
 import ServicesPreview from "@/components/home/ServicesPreview";

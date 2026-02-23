@@ -1,4 +1,6 @@
 import React from "react";
+import SEOHead from "@/components/SEOHead";
+import { servicesSchema, localBusinessSchema } from "@/components/seoSchemas";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Home, Wrench, Plus, Leaf, Check, ChevronRight, Phone } from "lucide-react";

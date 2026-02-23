@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 import { base44 } from "@/api/base44Client";
 import { MapPin, Maximize2, Calendar, SlidersHorizontal } from "lucide-react";
 
