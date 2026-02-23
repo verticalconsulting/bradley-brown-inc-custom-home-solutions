@@ -8,8 +8,11 @@ export default function Layout({ children, currentPageName }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isHomePage = currentPageName === "Home";
+  const topLevelPages = ["Home", "Services", "Portfolio", "About", "Contact"];
+  const isChildPage = !topLevelPages.includes(currentPageName);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
