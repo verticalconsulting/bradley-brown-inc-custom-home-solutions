@@ -56,6 +56,7 @@ import QuoteAssistant from './pages/QuoteAssistant';
 import Services from './pages/Services';
 import CRM from './pages/CRM';
 import Legal from './pages/Legal';
+import TikTokSync from './pages/TikTokSync';
 import __Layout from './Layout.jsx';
 
 
@@ -69,6 +70,7 @@ export const PAGES = {
     "Services": Services,
     "CRM": CRM,
     "Legal": Legal,
+    "TikTokSync": TikTokSync,
 }
 
 export const pagesConfig = {
