@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Phone, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, ChevronLeft } from "lucide-react";
+import BottomTabBar from "@/components/BottomTabBar";
 
 export default function Layout({ children, currentPageName }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
