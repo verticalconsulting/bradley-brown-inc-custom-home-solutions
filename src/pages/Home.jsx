@@ -7,6 +7,7 @@ import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import CTABanner from "@/components/home/CTABanner";
+import GoogleReviews from "@/components/home/GoogleReviews";
 
 export default function Home() {
   return (
