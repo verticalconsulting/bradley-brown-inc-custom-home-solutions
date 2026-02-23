@@ -1,4 +1,4 @@
-const SITE_URL = "https://bradleybrownhomes.com"; // Update to your live domain
+const SITE_URL = "https://bradleybrowninc.com"; // Update to your live domain
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
