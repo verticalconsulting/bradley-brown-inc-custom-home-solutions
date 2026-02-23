@@ -3,6 +3,37 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Menu, X, Phone, ChevronRight, ChevronLeft } from "lucide-react";
 import BottomTabBar from "@/components/BottomTabBar";
+import VisitorChatWidget from "@/components/chat/VisitorChatWidget";
+
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/f24741364_bb-logo-black-B-transparent.jpg";
+
+const associations = [
+  {
+    name: "Licensed & Insured",
+    img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/a21f22f37_licensed-insured.png",
+    url: null,
+  },
+  {
+    name: "MS Board of Contractors",
+    img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/f98532894_ms-contractor.png",
+    url: "https://www.msboc.us",
+  },
+  {
+    name: "Home Builders Association of MS",
+    img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/103c2c527_mshba.png",
+    url: "https://www.mshba.com",
+  },
+  {
+    name: "NAHB",
+    img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/532a0ecba_nahb.png",
+    url: "https://www.nahb.org",
+  },
+  {
+    name: "Better Business Bureau",
+    img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/f47b53e12_bbb.png",
+    url: "https://www.bbb.org",
+  },
+];
 
 export default function Layout({ children, currentPageName }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,7 +67,6 @@ export default function Layout({ children, currentPageName }) {
   const transparent = isHomePage && !scrolled;
   const navBg = transparent ? "bg-transparent" : "bg-white shadow-md";
   const textColor = transparent ? "text-white" : "text-[#1E2D3D]";
-  const logoColor = transparent ? "text-white" : "text-[#1E2D3D]";
 
   return (
     <div className="min-h-screen bg-[#FAFAF8]">
@@ -54,13 +84,11 @@ export default function Layout({ children, currentPageName }) {
               </button>
             )}
             <Link to={createPageUrl("Home")} className="flex items-center gap-2 flex-shrink-0">
-              <div className="w-9 h-9 bg-[#C4922A] rounded flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-sm">BB</span>
-              </div>
-              <div>
-                <div className={`font-bold leading-tight text-sm md:text-base transition-colors ${logoColor}`}>Bradley Brown Inc.</div>
-                <div className="text-[#C4922A] text-xs leading-tight">Custom Home Builder</div>
-              </div>
+              <img
+                src={LOGO_URL}
+                alt="Bradley Brown Inc."
+                className={`h-10 md:h-12 w-auto object-contain transition-all ${transparent ? "brightness-0 invert" : ""}`}
+              />
             </Link>
 
             <div className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -138,18 +166,16 @@ export default function Layout({ children, currentPageName }) {
       <main className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">{children}</main>
 
       <BottomTabBar currentPageName={currentPageName} />
+
+      {/* Global chat widget (hidden on agent page) */}
+      {currentPageName !== "AgentChat" && <VisitorChatWidget />}
+
       <footer className="bg-[#1E2D3D] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             <div className="sm:col-span-2 lg:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-9 h-9 bg-[#C4922A] rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">BB</span>
-                </div>
-                <div>
-                  <div className="font-bold text-white">Bradley Brown Inc.</div>
-                  <div className="text-[#C4922A] text-xs">Custom Home Builder</div>
-                </div>
+              <div className="mb-4">
+                <img src={LOGO_URL} alt="Bradley Brown Inc." className="h-14 w-auto object-contain brightness-0 invert" />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
                 Building Central Mississippi's dream homes with craftsmanship, integrity, and attention to detail since 1995.
@@ -182,6 +208,7 @@ export default function Layout({ children, currentPageName }) {
                   { label: "Portfolio", page: "Portfolio" },
                   { label: "Contact Us", page: "Contact" },
                   { label: "Get a Quote", page: "QuoteAssistant" },
+                  { label: "Agent Chat", page: "AgentChat" },
                 ].map(item => (
                   <li key={item.page}>
                     <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-[#C4922A] text-sm transition-colors">{item.label}</Link>
@@ -190,7 +217,27 @@ export default function Layout({ children, currentPageName }) {
               </ul>
             </div>
           </div>
-          <div className="mt-10 pt-8 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+
+          {/* Associations */}
+          <div className="mt-10 pt-8 border-t border-slate-700">
+            <p className="text-slate-500 text-xs uppercase tracking-wider mb-4">Memberships & Certifications</p>
+            <div className="flex flex-wrap items-center gap-4 md:gap-6">
+              {associations.map(a => (
+                a.url ? (
+                  <a key={a.name} href={a.url} target="_blank" rel="noopener noreferrer" title={a.name}
+                    className="opacity-70 hover:opacity-100 transition-opacity">
+                    <img src={a.img} alt={a.name} className="h-12 w-auto object-contain" />
+                  </a>
+                ) : (
+                  <div key={a.name} title={a.name} className="opacity-70">
+                    <img src={a.img} alt={a.name} className="h-12 w-auto object-contain" />
+                  </div>
+                )
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 text-sm">© 2026 Bradley Brown Inc. All rights reserved.</p>
             <p className="text-slate-500 text-sm">Licensed & Insured · Mississippi General Contractor #MC-2024</p>
           </div>
