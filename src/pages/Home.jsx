@@ -21,6 +21,7 @@ export default function Home() {
       <ServicesPreview />
       <FeaturedProjects />
       <TestimonialsCarousel />
+      <GoogleReviews />
       <CTABanner />
     </div>
   );
