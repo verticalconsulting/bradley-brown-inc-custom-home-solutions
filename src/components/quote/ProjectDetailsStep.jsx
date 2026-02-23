@@ -1,5 +1,5 @@
 import React from "react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import MobileSelectDrawer from "@/components/quote/MobileSelectDrawer";
 
 const budgetOptions = [
   { value: "under_250k", label: "Under $250,000" },
@@ -41,25 +41,23 @@ export default function ProjectDetailsStep({ data, onChange }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Budget Range</label>
-          <Select value={data.budget_range || ""} onValueChange={val => update("budget_range", val)}>
-            <SelectTrigger className="w-full border-[#E2D9CC] focus:ring-[#C4922A]/30 focus:border-[#C4922A]">
-              <SelectValue placeholder="Select a budget range" />
-            </SelectTrigger>
-            <SelectContent>
-              {budgetOptions.map(o => <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>)}
-            </SelectContent>
-          </Select>
+          <MobileSelectDrawer
+            placeholder="Select a budget range"
+            value={data.budget_range || ""}
+            onChange={val => update("budget_range", val)}
+            options={budgetOptions}
+            label="Budget Range"
+          />
         </div>
         <div>
           <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Desired Timeline</label>
-          <Select value={data.timeline || ""} onValueChange={val => update("timeline", val)}>
-            <SelectTrigger className="w-full border-[#E2D9CC] focus:ring-[#C4922A]/30 focus:border-[#C4922A]">
-              <SelectValue placeholder="When do you want to start?" />
-            </SelectTrigger>
-            <SelectContent>
-              {timelineOptions.map(o => <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>)}
-            </SelectContent>
-          </Select>
+          <MobileSelectDrawer
+            placeholder="When do you want to start?"
+            value={data.timeline || ""}
+            onChange={val => update("timeline", val)}
+            options={timelineOptions}
+            label="Desired Timeline"
+          />
         </div>
         <div>
           <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Project Description *</label>
