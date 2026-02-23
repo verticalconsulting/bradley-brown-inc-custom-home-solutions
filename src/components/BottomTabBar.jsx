@@ -24,10 +24,10 @@ export default function BottomTabBar({ currentPageName }) {
               key={page}
               to={createPageUrl(page)}
               className={`flex flex-col items-center justify-center gap-0.5 py-2.5 flex-1 text-xs font-medium transition-colors ${
-                active ? "text-[#C4922A]" : "text-slate-500"
+                active ? "text-sky-400" : "text-slate-500"
               }`}
             >
-              <Icon className={`w-5 h-5 ${active ? "text-[#C4922A]" : "text-slate-400"}`} />
+              <Icon className={`w-5 h-5 ${active ? "text-sky-400" : "text-slate-400"}`} />
               {label}
             </Link>
           );
