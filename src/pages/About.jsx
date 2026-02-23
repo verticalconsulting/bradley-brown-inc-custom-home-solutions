@@ -36,6 +36,11 @@ const team = [
 export default function About() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
+      <SEOHead
+        title="About Us – 30+ Years Building Central Mississippi Homes"
+        description="Learn about Bradley Brown Inc., Central Mississippi's trusted home builder since 1995. Meet the team and discover our commitment to craftsmanship, integrity, and client partnerships."
+        schema={localBusinessSchema}
+      />
       <div className="relative bg-[#1E2D3D] py-14 md:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"

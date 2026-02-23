@@ -40,6 +40,10 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
+      <SEOHead
+        title="Project Portfolio – Custom Homes & Renovations in Mississippi"
+        description="Browse our portfolio of custom homes, kitchen & bath renovations, room additions, and outdoor living projects built across Jackson, Madison, Ridgeland, Brandon, and Central Mississippi."
+      />
       <div className="bg-[#1E2D3D] py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-[#C4922A] font-semibold text-sm uppercase tracking-wider mb-2">Our Portfolio</p>

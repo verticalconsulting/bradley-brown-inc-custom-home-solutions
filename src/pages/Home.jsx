@@ -11,6 +11,11 @@ import CTABanner from "@/components/home/CTABanner";
 export default function Home() {
   return (
     <div>
+      <SEOHead
+        title="Custom Home Builder in Central Mississippi"
+        description="Bradley Brown Inc. builds dream homes across Jackson, Madison, Ridgeland, Brandon & surrounding areas. Custom homes, renovations, additions, and outdoor living since 1995."
+        schema={localBusinessSchema}
+      />
       <HeroSection />
       <TrustSignals />
       <ServicesPreview />

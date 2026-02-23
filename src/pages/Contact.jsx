@@ -28,6 +28,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
+      <SEOHead
+        title="Contact Us – Get a Free Consultation"
+        description="Contact Bradley Brown Inc. to discuss your custom home, renovation, or addition project in Central Mississippi. Call (601) 234-5678 or send us a message."
+        schema={localBusinessSchema}
+      />
       <div className="bg-[#1E2D3D] py-14 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-[#C4922A] font-semibold text-sm uppercase tracking-wider mb-2">Get in Touch</p>
