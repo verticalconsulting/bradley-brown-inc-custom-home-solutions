@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Phone, ChevronRight, ChevronLeft } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook } from "lucide-react";
 import BottomTabBar from "@/components/BottomTabBar";
 import VisitorChatWidget from "@/components/chat/VisitorChatWidget";
 
@@ -189,8 +189,29 @@ export default function Layout({ children, currentPageName }) {
                   info@bradleybrownhomes.com
                 </a>
                 <p className="text-slate-500 text-sm">Jackson, Mississippi & Surrounding Areas</p>
-              </div>
-            </div>
+                <div className="mt-5 flex gap-3">
+                  <a
+                    href="https://www.facebook.com/BradleyBrownInc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-sky-400 transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@bb859876"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-sky-400 transition-colors"
+                    aria-label="TikTok"
+                  >
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.1 1.75 2.9 2.9 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.26 6.26 0 0 0-1-.08A6.26 6.26 0 0 0 5 20.1a6.26 6.26 0 0 0 10.86-3.47V8.26a8.26 8.26 0 0 0 3.73 1.48v-3.15z"/>
+                    </svg>
+                  </a>
+                </div>
+                </div>
             <div>
               <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h4>
               <ul className="space-y-2">
