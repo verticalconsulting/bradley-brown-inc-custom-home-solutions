@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook, Settings } from "lucide-react";
 import BottomTabBar from "@/components/BottomTabBar";
 import VisitorChatWidget from "@/components/chat/VisitorChatWidget";
 
@@ -104,6 +105,14 @@ export default function Layout({ children, currentPageName }) {
                   {link.label}
                 </Link>
               )}
+              <Link
+                to={createPageUrl("AccountSettings")}
+                className={`text-sm font-medium transition-colors hover:text-sky-400 ${
+                currentPageName === "AccountSettings" ? "text-sky-400" : textColor}`
+                title="Account Settings"
+              >
+                <Settings className="w-5 h-5" />
+              </Link>
             </div>
 
             <div className="flex items-center gap-3">
@@ -164,7 +173,11 @@ export default function Layout({ children, currentPageName }) {
         }
       </nav>
 
-      <main className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">{children}</main>
+      <main className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">
+        <AnimatePresence mode="wait">
+          {children}
+        </AnimatePresence>
+      </main>
 
       <BottomTabBar currentPageName={currentPageName} />
 
