@@ -108,7 +108,7 @@ export default function Layout({ children, currentPageName }) {
               <Link
                 to={createPageUrl("AccountSettings")}
                 className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                currentPageName === "AccountSettings" ? "text-sky-400" : textColor}`
+                currentPageName === "AccountSettings" ? "text-sky-400" : textColor}`}
                 title="Account Settings"
               >
                 <Settings className="w-5 h-5" />
