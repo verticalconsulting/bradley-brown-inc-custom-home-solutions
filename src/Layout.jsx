@@ -211,7 +211,6 @@ export default function Layout({ children, currentPageName }) {
                     </svg>
                   </a>
                 </div>
-                </div>
             <div>
               <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h4>
               <ul className="space-y-2">
