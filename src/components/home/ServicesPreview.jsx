@@ -28,7 +28,7 @@ export default function ServicesPreview() {
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <p className="text-[#C4922A] font-semibold text-sm uppercase tracking-wider mb-2">What We Do</p>
+          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">What We Do</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Our Services</h2>
           <p className="text-slate-500 mt-3 max-w-xl mx-auto">From the foundation to the finishing touches, we handle every aspect of your construction project.</p>
         </div>
@@ -37,9 +37,9 @@ export default function ServicesPreview() {
           {display.map((service, i) => {
             const Icon = iconMap[service.icon] || Home;
             return (
-              <div key={i} className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-[#C4922A] hover:shadow-lg transition-all duration-300 bg-white">
-                <div className="w-12 h-12 bg-amber-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#C4922A] transition-colors">
-                  <Icon className="w-6 h-6 text-[#C4922A] group-hover:text-white transition-colors" />
+              <div key={i} className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white">
+                <div className="w-12 h-12 bg-sky-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-sky-400 transition-colors">
+                  <Icon className="w-6 h-6 text-sky-400 group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="font-bold text-[#1E2D3D] mb-2">{service.name}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{service.short_description}</p>
@@ -51,7 +51,7 @@ export default function ServicesPreview() {
         <div className="text-center mt-10">
           <Link
             to={createPageUrl("Services")}
-            className="inline-flex items-center gap-2 text-[#C4922A] font-semibold hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-sky-400 font-semibold hover:gap-3 transition-all"
           >
             View All Services <ChevronRight className="w-4 h-4" />
           </Link>

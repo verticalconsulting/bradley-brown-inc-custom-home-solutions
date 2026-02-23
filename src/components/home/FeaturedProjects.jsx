@@ -27,7 +27,7 @@ export default function FeaturedProjects() {
     <section className="py-16 md:py-24 bg-[#FAFAF8]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <p className="text-[#C4922A] font-semibold text-sm uppercase tracking-wider mb-2">Our Work</p>
+          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Work</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Featured Projects</h2>
           <p className="text-slate-500 mt-3 max-w-xl mx-auto">A glimpse of the homes and spaces we've crafted across Central Mississippi.</p>
         </div>
@@ -42,7 +42,7 @@ export default function FeaturedProjects() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-3 left-3">
-                  <span className="bg-[#C4922A] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                  <span className="bg-sky-400 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                     {categoryLabels[project.category] || project.category}
                   </span>
                 </div>
