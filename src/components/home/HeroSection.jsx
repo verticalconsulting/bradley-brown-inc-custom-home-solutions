@@ -29,7 +29,7 @@ export default function HeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            to={createPageUrl("QuoteAssistant")} className="bg-sky-500 text-white px-8 py-4 text-lg font-semibold rounded-[10px] inline-flex items-center justify-center gap-2 hover:bg-[#A37820] transition-all hover:scale-105 shadow-lg">
+            to={createPageUrl("QuoteAssistant")} className="bg-sky-500 text-[#ffffff] px-8 py-4 text-lg font-semibold rounded-[10px] inline-flex items-center justify-center gap-2 hover:bg-[#1a73ef] transition-all hover:scale-105 shadow-lg">
 
 
             Get a Free Quote <ChevronRight className="w-5 h-5" />
