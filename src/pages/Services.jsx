@@ -19,24 +19,24 @@ const services = [
     name: "Home Renovations",
     description: "Breathe new life into your existing home with expert renovations. Whether it's a full home remodel or a single room transformation, our team delivers exceptional craftsmanship.",
     features: ["Kitchen & bath remodels", "Basement finishing", "Flooring & tile work", "Electrical & plumbing updates", "Custom cabinetry", "Painting & trim work"],
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
-    price: "Starting at $25,000",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/31b031d9-2d3e-4f27-3859-edc447039100/logo",
+    price: "Starting at $15,000",
   },
   {
     icon: Plus,
-    name: "Room Additions",
-    description: "Need more space? We seamlessly integrate additions into your existing home structure, creating new living areas that feel like they were always part of the original design.",
+    name: "Office Remodel",
+    description: "Need an updated home office? We design luxury with efficiency.",
     features: ["Master suite additions", "Family room expansions", "Sunroom construction", "In-law suites", "Garage conversions", "Second story additions"],
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-    price: "Starting at $75,000",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/8fa9542f-abce-4de1-6d95-5ebe09c2dd00/small",
+    price: "Starting at $5,000",
   },
   {
     icon: Leaf,
     name: "Outdoor Living",
     description: "Mississippi's climate is made for outdoor living. We design and build beautiful outdoor spaces that extend your home's footprint and enhance your lifestyle year-round.",
     features: ["Covered patios & porches", "Outdoor kitchens", "Decks & pergolas", "Pool surrounds", "Landscape integration", "Outdoor lighting systems"],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    price: "Starting at $15,000",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/87585406-af1b-4e1b-b10e-cacbebcc5a00/small",
+    price: "Starting at $10,000",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function Services() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Construction Services – Custom Homes, Renovations & Additions"
-        description="Bradley Brown Inc. offers custom home building, kitchen and bath renovations, room additions, and outdoor living construction across Central Mississippi. Starting at $15,000."
+        description="Bradley Brown Inc. offers custom home building, kitchen and bath renovations, home office upgrades, room additions, and outdoor living construction across Central Mississippi. Starting at $6,000."
         schema={servicesSchema}
       />
       <div className="bg-[#1E2D3D] py-14 md:py-20">
