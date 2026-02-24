@@ -23,6 +23,13 @@ export default function Contact() {
       project_type: form.project_type,
       status: "new",
     });
+    base44.analytics.track({
+      eventName: "contact_form_submitted",
+      properties: {
+        project_type: form.project_type,
+        has_phone: !!form.phone,
+      },
+    });
     setSubmitted(true);
     setLoading(false);
   };
