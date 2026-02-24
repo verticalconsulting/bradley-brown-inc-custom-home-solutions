@@ -48,6 +48,7 @@
  * The mainPage value must match a key in the PAGES object exactly.
  */
 import About from './pages/About';
+import AccountSettings from './pages/AccountSettings';
 import AgentChat from './pages/AgentChat';
 import CRM from './pages/CRM';
 import Contact from './pages/Contact';
@@ -57,12 +58,12 @@ import Portfolio from './pages/Portfolio';
 import QuoteAssistant from './pages/QuoteAssistant';
 import Services from './pages/Services';
 import TikTokSync from './pages/TikTokSync';
-import AccountSettings from './pages/AccountSettings';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
     "About": About,
+    "AccountSettings": AccountSettings,
     "AgentChat": AgentChat,
     "CRM": CRM,
     "Contact": Contact,
@@ -72,7 +73,6 @@ export const PAGES = {
     "QuoteAssistant": QuoteAssistant,
     "Services": Services,
     "TikTokSync": TikTokSync,
-    "AccountSettings": AccountSettings,
 }
 
 export const pagesConfig = {

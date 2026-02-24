@@ -50,7 +50,7 @@ export default function Services() {
       />
       <div className="bg-[#1E2D3D] py-14 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-[#C4922A] font-semibold text-sm uppercase tracking-wider mb-2">What We Offer</p>
+          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">What We Offer</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Our Services</h1>
           <p className="text-slate-300 mt-4 max-w-xl mx-auto">Comprehensive construction services for Central Mississippi homeowners, from foundation to finish.</p>
         </div>

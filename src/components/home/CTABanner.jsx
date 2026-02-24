@@ -8,8 +8,8 @@ export default function CTABanner() {
     <section className="bg-sky-600 py-16 md:py-24 from-[#C4922A] to-[#A37820]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <Sparkles className="w-5 h-5 text-amber-200" />
-          <span className="text-amber-100 text-sm font-medium">AI-Powered Estimates in Minutes</span>
+          <Sparkles className="w-5 h-5 text-sky-200" />
+          <span className="text-sky-100 text-sm font-medium">AI-Powered Estimates in Minutes</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Ready to Build Your Dream Home?

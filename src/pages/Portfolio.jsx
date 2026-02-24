@@ -56,7 +56,7 @@ export default function Portfolio() {
       />
       <div className="bg-[#1E2D3D] py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-[#C4922A] font-semibold text-sm uppercase tracking-wider mb-2">Our Portfolio</p>
+          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Portfolio</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Our Work Speaks For Itself</h1>
           <p className="text-slate-300 mt-4 max-w-xl mx-auto">Browse through our completed projects across Central Mississippi.</p>
         </div>
