@@ -30,7 +30,7 @@ export default function Contact() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Contact Us – Get a Free Consultation"
-        description="Contact Bradley Brown Inc. to discuss your custom home, renovation, or addition project in Central Mississippi. Call (601) 234-5678 or send us a message."
+        description="Contact Bradley Brown Inc. to discuss your custom home, renovation, or addition project in Central Mississippi. Call (601) 954-1306 or send us a message."
         schema={localBusinessSchema}
       />
       <div className="bg-[#1E2D3D] py-14 md:py-20">
@@ -50,8 +50,8 @@ export default function Contact() {
             </p>
             <div className="space-y-5">
               {[
-                { icon: Phone, label: "Phone", content: <a href="tel:+16012345678" className="text-slate-500 hover:text-sky-500 transition-colors">(601) 234-5678</a> },
-                { icon: Mail, label: "Email", content: <a href="mailto:info@bradleybrownhomes.com" className="text-slate-500 hover:text-sky-500 transition-colors">info@bradleybrownhomes.com</a> },
+                { icon: Phone, label: "Phone", content: <a href="tel:+16019541306" className="text-slate-500 hover:text-sky-500 transition-colors">(601) 954-1306</a> },
+                { icon: Mail, label: "Email", content: <a href="mailto:bradleybrowninc@gmail.com" className="text-slate-500 hover:text-sky-500 transition-colors">bradleybrowninc@gmail.com</a> },
                 { icon: MapPin, label: "Service Area", content: <p className="text-slate-500">Rankin, Hinds & Madison Counties, MS</p> },
                 { icon: Clock, label: "Business Hours", content: <><p className="text-slate-500">Mon–Fri: 8am–5pm</p><p className="text-slate-500">Sat: 9am–1pm (by appointment)</p></> },
               ].map(({ icon: Icon, label, content }) => (
