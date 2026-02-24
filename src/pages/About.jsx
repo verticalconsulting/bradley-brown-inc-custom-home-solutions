@@ -16,19 +16,19 @@ const team = [
   {
     name: "Bradley Brown",
     title: "Founder & Master Builder",
-    bio: "With over 30 years in construction, Bradley founded the company with a simple mission: build homes you're proud to live in. His hands-on approach and eye for detail define the company's culture.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    bio: "Bradley Brown Inc is owned by Brad Brown, who brings decades of experience in custom home building, remodeling, and just about everything under the sun when it relates to construction. He pays attention to the details and treats every project like it's his own. While not always the cheapest, what you get is fine craftsmanship that is built to last..",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/3776a11c-d485-454e-4841-ba2d5e3e4400/small",
   },
   {
-    name: "Marcus Thompson",
+    name: "Walker Magee",
     title: "Project Manager",
-    bio: "Marcus has 15+ years of experience coordinating complex builds. He ensures every project runs on time, on budget, and exceeds expectations.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+    bio: "Walker has many talents and is able to tackle complex builds. He ensures every project runs on time, on budget, and exceeds expectations.",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/5b865f0c-642e-4f7e-8b61-ded808961a00/small",
   },
   {
-    name: "Lisa Brown",
-    title: "Design Consultant",
-    bio: "Lisa brings an interior design perspective to every project, helping clients select finishes and layouts that are both beautiful and functional.",
+    name: "",
+    title: "Architecture Design",
+    bio: "This role is filled based on the projects needs and genre of architecture..",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
   },
 ];
