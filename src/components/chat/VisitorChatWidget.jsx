@@ -130,12 +130,14 @@ export default function VisitorChatWidget() {
                 <Sparkles className="w-4 h-4" />
                 {sending ? "Starting..." : "Chat with AI Assistant"}
               </button>
-              <button
-                onClick={goToWhatsApp}
+              <a
+                href={base44.agents.getWhatsAppConnectURL("home_advisor")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
               >
-                <Phone className="w-4 h-4" /> Continue on WhatsApp
-              </button>
+                <Phone className="w-4 h-4" /> Chat with AI on WhatsApp
+              </a>
             </div>
           ) : (
             <>
