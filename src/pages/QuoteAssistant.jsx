@@ -49,6 +49,16 @@ export default function QuoteAssistant() {
     setStep(4);
     setLoading(true);
 
+    base44.analytics.track({
+      eventName: "quote_request_submitted",
+      properties: {
+        project_type: data.project_type,
+        location: data.location,
+        budget_range: data.budget_range || null,
+        has_phone: !!data.phone,
+      },
+    });
+
     const record = await base44.entities.QuoteRequest.create({
       name: data.name,
       email: data.email,
