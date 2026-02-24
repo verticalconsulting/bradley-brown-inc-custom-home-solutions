@@ -58,6 +58,7 @@ import Portfolio from './pages/Portfolio';
 import QuoteAssistant from './pages/QuoteAssistant';
 import Services from './pages/Services';
 import TikTokSync from './pages/TikTokSync';
+import ScheduleVisit from './pages/ScheduleVisit';
 import __Layout from './Layout.jsx';
 
 
@@ -73,6 +74,7 @@ export const PAGES = {
     "QuoteAssistant": QuoteAssistant,
     "Services": Services,
     "TikTokSync": TikTokSync,
+    "ScheduleVisit": ScheduleVisit,
 }
 
 export const pagesConfig = {
