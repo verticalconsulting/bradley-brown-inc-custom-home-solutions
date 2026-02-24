@@ -198,8 +198,8 @@ export default function Layout({ children, currentPageName }) {
                 <a href="tel:+16019541306" className="flex items-center gap-2 text-slate-300 hover:text-sky-400 text-sm transition-colors">
                   <Phone className="w-4 h-4" /> (601) 954-1306
                 </a>
-                <a href="mailto:info@bradleybrownhomes.com" className="block text-slate-300 hover:text-sky-400 text-sm transition-colors">
-                  info@bradleybrownhomes.com
+                <a href="mailto:bradleybrowninc@gmail.com" className="block text-slate-300 hover:text-sky-400 text-sm transition-colors">
+                  bradleybrowninc@gmail.com
                 </a>
                 <p className="text-slate-500 text-sm">Jackson, Mississippi & Surrounding Areas</p>
                 <div className="mt-5 flex gap-3">
