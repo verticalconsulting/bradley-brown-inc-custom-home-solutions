@@ -1,0 +1,82 @@
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
+
+Deno.serve(async (req) => {
+    try {
+        const base44 = createClientFromRequest(req);
+        const { name, email, phone, project_type, location, date, time, notes } = await req.json();
+
+        if (!name || !email || !date || !time) {
+            return Response.json({ error: 'Missing required fields: name, email, date, time' }, { status: 400 });
+        }
+
+        const accessToken = await base44.asServiceRole.connectors.getAccessToken("googlecalendar");
+
+        // Build start/end datetime
+        const startDateTime = new Date(`${date}T${time}:00`);
+        const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // 1 hour
+
+        const event = {
+            summary: `Site Visit - ${name}`,
+            description: [
+                `Client: ${name}`,
+                `Email: ${email}`,
+                phone ? `Phone: ${phone}` : null,
+                project_type ? `Project Type: ${project_type}` : null,
+                location ? `Location: ${location}` : null,
+                notes ? `Notes: ${notes}` : null,
+            ].filter(Boolean).join('\n'),
+            start: {
+                dateTime: startDateTime.toISOString(),
+                timeZone: 'America/Chicago',
+            },
+            end: {
+                dateTime: endDateTime.toISOString(),
+                timeZone: 'America/Chicago',
+            },
+            attendees: [{ email }],
+            reminders: {
+                useDefault: false,
+                overrides: [
+                    { method: 'email', minutes: 24 * 60 },
+                    { method: 'popup', minutes: 60 },
+                ],
+            },
+        };
+
+        const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events?sendUpdates=all', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(event),
+        });
+
+        if (!response.ok) {
+            const err = await response.json();
+            return Response.json({ error: err.error?.message || 'Failed to create calendar event' }, { status: 500 });
+        }
+
+        const createdEvent = await response.json();
+
+        // Save to QuoteRequest entity if applicable
+        await base44.asServiceRole.entities.QuoteRequest.create({
+            name,
+            email,
+            phone: phone || '',
+            project_type: project_type || 'other',
+            location: location || '',
+            description: `Site visit scheduled for ${date} at ${time}. ${notes || ''}`.trim(),
+            status: 'contacted',
+        });
+
+        return Response.json({
+            success: true,
+            eventId: createdEvent.id,
+            eventLink: createdEvent.htmlLink,
+            message: `Site visit scheduled for ${date} at ${time}. A calendar invite has been sent to ${email}.`,
+        });
+    } catch (error) {
+        return Response.json({ error: error.message }, { status: 500 });
+    }
+});
