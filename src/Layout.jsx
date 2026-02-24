@@ -117,11 +117,11 @@ export default function Layout({ children, currentPageName }) {
 
             <div className="flex items-center gap-3">
               <a
-                href="tel:+16012345678"
+                href="tel:+16019541306"
                 className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-sky-400 ${textColor}`}>
 
                 <Phone className="w-4 h-4" />
-                (601) 234-5678
+                (601) 954-1306
               </a>
               <Link
                 to={createPageUrl("QuoteAssistant")} className="bg-sky-400 text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors">
@@ -157,9 +157,9 @@ export default function Layout({ children, currentPageName }) {
                 </Link>
             )}
               <div className="pt-3 border-t border-gray-100 space-y-2">
-                <a href="tel:+16012345678" className="flex items-center gap-2 px-3 py-2 text-[#1E2D3D] font-medium">
+                <a href="tel:+16019541306" className="flex items-center gap-2 px-3 py-2 text-[#1E2D3D] font-medium">
                   <Phone className="w-4 h-4 text-sky-400" />
-                  (601) 234-5678
+                  (601) 954-1306
                 </a>
                 <Link
                 to={createPageUrl("QuoteAssistant")}
@@ -195,8 +195,8 @@ export default function Layout({ children, currentPageName }) {
                 Building Central Mississippi's dream homes with craftsmanship, integrity, and attention to detail since 1995.
               </p>
               <div className="mt-5 space-y-2">
-                <a href="tel:+16012345678" className="flex items-center gap-2 text-slate-300 hover:text-sky-400 text-sm transition-colors">
-                  <Phone className="w-4 h-4" /> (601) 234-5678
+                <a href="tel:+16019541306" className="flex items-center gap-2 text-slate-300 hover:text-sky-400 text-sm transition-colors">
+                  <Phone className="w-4 h-4" /> (601) 954-1306
                 </a>
                 <a href="mailto:info@bradleybrownhomes.com" className="block text-slate-300 hover:text-sky-400 text-sm transition-colors">
                   info@bradleybrownhomes.com
