@@ -7,7 +7,7 @@ import { MapPin, ChevronRight } from "lucide-react";
 const placeholderProjects = [
   { title: "Ridgewood Estate", category: "custom_home", location: "Ridgeland, MS", square_footage: 3800, images: ["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"] },
   { title: "Madison Kitchen & Bath Remodel", category: "renovation", location: "Madison, MS", square_footage: 1200, images: ["https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80"] },
-  { title: "Lakeside Master Suite Addition", category: "addition", location: "Brandon, MS", square_footage: 650, images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80"] },
+  { title: "Barnaminum Man Cave", category: "addition", location: "Brandon, MS", square_footage: 650, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"] },
 ];
 
 const categoryLabels = { custom_home: "Custom Home", renovation: "Renovation", addition: "Addition", outdoor: "Outdoor Living" };
@@ -37,7 +37,7 @@ export default function FeaturedProjects() {
             <div key={i} className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
               <div className="relative h-56 md:h-64 overflow-hidden">
                 <img
-                  src={project.images?.[0] || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"}
+                  src={project.images?.[0] || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
