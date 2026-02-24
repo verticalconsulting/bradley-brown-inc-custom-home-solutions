@@ -58,8 +58,8 @@ export default function Contact() {
             </p>
             <div className="space-y-5">
               {[
-                { icon: Phone, label: "Phone", content: <a href="tel:+16019541306" className="text-slate-500 hover:text-sky-500 transition-colors">(601) 954-1306</a> },
-                { icon: Mail, label: "Email", content: <a href="mailto:bradleybrowninc@gmail.com" className="text-slate-500 hover:text-sky-500 transition-colors">bradleybrowninc@gmail.com</a> },
+                { icon: Phone, label: "Phone", content: <a href="tel:+16019541306" onClick={() => base44.analytics.track({ eventName: "contact_phone_clicked" })} className="text-slate-500 hover:text-sky-500 transition-colors">(601) 954-1306</a> },
+                { icon: Mail, label: "Email", content: <a href="mailto:bradleybrowninc@gmail.com" onClick={() => base44.analytics.track({ eventName: "contact_email_clicked" })} className="text-slate-500 hover:text-sky-500 transition-colors">bradleybrowninc@gmail.com</a> },
                 { icon: MapPin, label: "Service Area", content: <p className="text-slate-500">Rankin, Hinds & Madison Counties, MS</p> },
                 { icon: Clock, label: "Business Hours", content: <><p className="text-slate-500">Mon–Fri: 8am–5pm</p><p className="text-slate-500">Sat: 9am–1pm (by appointment)</p></> },
               ].map(({ icon: Icon, label, content }) => (
