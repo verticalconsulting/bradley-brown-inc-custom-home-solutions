@@ -119,7 +119,8 @@ export default function Layout({ children, currentPageName }) {
             <div className="flex items-center gap-3">
               <a
                 href="tel:+16019541306"
-                className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-sky-400 ${textColor}`}>
+                                onClick={() => base44.analytics.track({ eventName: "nav_phone_clicked" })}
+                                className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-sky-400 ${textColor}`}>
 
                 <Phone className="w-4 h-4" />
                 (601) 954-1306
