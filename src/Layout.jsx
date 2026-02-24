@@ -59,12 +59,13 @@ export default function Layout({ children, currentPageName }) {
   }, [location.pathname]);
 
   const navLinks = [
-  { label: "Home", page: "Home" },
-  { label: "Services", page: "Services" },
-  { label: "Portfolio", page: "Portfolio" },
-  { label: "About", page: "About" },
-  { label: "Contact", page: "Contact" },
-  { label: "Legal", page: "Legal" }];
+    { label: "Home", page: "Home" },
+    { label: "Services", page: "Services" },
+    { label: "Portfolio", page: "Portfolio" },
+    { label: "About", page: "About" },
+    { label: "Contact", page: "Contact" },
+    { label: "Schedule Visit", page: "ScheduleVisit" },
+    { label: "Legal", page: "Legal" }];
 
 
   const transparent = isHomePage && !scrolled;
