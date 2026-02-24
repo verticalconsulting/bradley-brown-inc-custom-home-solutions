@@ -1,14 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { ChevronRight, Play } from "lucide-react";
 
+const slides = [
+  {
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/96500063-1bcf-423f-425e-941733454800/public",
+    headline: "Building Your",
+    highlight: "Dream Home",
+  },
+  {
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb",
+    headline: "Man Caves &",
+    highlight: "Barndominiums",
+  },
+];
+
 export default function HeroSection() {
+  const [current, setCurrent] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setCurrent(prev => (prev + 1) % slides.length);
+        setFading(false);
+      }, 600);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const slide = slides[current];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb')` }} />
+      {/* Background images */}
+      {slides.map((s, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
+          style={{
+            backgroundImage: `url('${s.image}')`,
+            opacity: i === current ? 1 : 0,
+          }}
+        />
+      ))}
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#1E2D3D]/75 via-[#1E2D3D]/55 to-[#1E2D3D]/85" />
 
@@ -18,9 +55,12 @@ export default function HeroSection() {
           <span className="text-sky-400 text-sm font-medium">Central Mississippi's Premier Builder Since 1995</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-          Building Your
-          <span className="text-sky-400 block">Dream Home</span>
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 transition-opacity duration-500"
+          style={{ opacity: fading ? 0 : 1 }}
+        >
+          {slide.headline}
+          <span className="text-sky-400 block">{slide.highlight}</span>
         </h1>
 
         <p className="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -30,16 +70,24 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to={createPageUrl("QuoteAssistant")} className="bg-sky-500 text-[#ffffff] px-8 py-4 text-lg font-semibold rounded-[10px] inline-flex items-center justify-center gap-2 hover:bg-[#1a73ef] transition-all hover:scale-105 shadow-lg">
-
-
             Get a Free Quote <ChevronRight className="w-5 h-5" />
           </Link>
           <Link
             to={createPageUrl("Portfolio")}
             className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all">
-
             <Play className="w-5 h-5" /> View Our Work
           </Link>
+        </div>
+
+        {/* Slide dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { setFading(true); setTimeout(() => { setCurrent(i); setFading(false); }, 600); }}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? "bg-sky-400 w-6" : "bg-white/40"}`}
+            />
+          ))}
         </div>
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -48,6 +96,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }
