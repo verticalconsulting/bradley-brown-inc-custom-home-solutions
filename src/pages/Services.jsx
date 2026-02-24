@@ -64,23 +64,23 @@ export default function Services() {
             return (
               <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                 <div className={isEven ? "order-1" : "order-1 md:order-2"}>
-                  <div className="w-12 h-12 bg-amber-50 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-[#C4922A]" />
+                  <div className="w-12 h-12 bg-sky-50 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-sky-500" />
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D] mb-4">{service.name}</h2>
                   <p className="text-slate-500 leading-relaxed mb-6">{service.description}</p>
                   <ul className="grid grid-cols-2 gap-2 mb-6">
                     {service.features.map(feature => (
                       <li key={feature} className="flex items-center gap-2 text-sm text-slate-600">
-                        <Check className="w-4 h-4 text-[#C4922A] flex-shrink-0" /> {feature}
+                        <Check className="w-4 h-4 text-sky-500 flex-shrink-0" /> {feature}
                       </li>
                     ))}
                   </ul>
                   <div className="flex items-center gap-4 flex-wrap">
-                    <span className="text-[#C4922A] font-semibold">{service.price}</span>
+                    <span className="text-sky-500 font-semibold">{service.price}</span>
                     <Link
                       to={createPageUrl("QuoteAssistant")}
-                      className="inline-flex items-center gap-1 bg-[#C4922A] text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#A37820] transition-colors"
+                      className="inline-flex items-center gap-1 bg-sky-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-sky-600 transition-colors"
                     >
                       Get a Quote <ChevronRight className="w-4 h-4" />
                     </Link>
@@ -100,7 +100,7 @@ export default function Services() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Not Sure Which Service You Need?</h2>
           <p className="text-slate-300 mb-8">Our team is happy to consult with you about your project and recommend the best approach.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-[#C4922A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#A37820] transition-colors">
+            <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
               Get AI-Powered Estimate <ChevronRight className="w-4 h-4" />
             </Link>
             <a href="tel:+16012345678" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">

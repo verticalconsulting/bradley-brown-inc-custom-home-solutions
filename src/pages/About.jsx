@@ -80,14 +80,14 @@ export default function About() {
       <div className="bg-[#1E2D3D]/5 py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-[#C4922A] font-semibold text-sm uppercase tracking-wider mb-2">What Drives Us</p>
+            <p className="text-sky-500 font-semibold text-sm uppercase tracking-wider mb-2">What Drives Us</p>
             <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D]">Our Core Values</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="bg-white p-6 rounded-xl border border-[#E2D9CC] text-center hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-6 h-6 text-[#C4922A]" />
+              <div key={title} className="bg-white p-6 rounded-xl border border-gray-100 text-center hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-sky-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon className="w-6 h-6 text-sky-500" />
                 </div>
                 <h3 className="font-bold text-[#1E2D3D] mb-2">{title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{description}</p>
@@ -99,7 +99,7 @@ export default function About() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-20">
         <div className="text-center mb-12">
-          <p className="text-[#C4922A] font-semibold text-sm uppercase tracking-wider mb-2">Meet the Team</p>
+          <p className="text-sky-500 font-semibold text-sm uppercase tracking-wider mb-2">Meet the Team</p>
           <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D]">The People Behind Your Home</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
@@ -108,23 +108,23 @@ export default function About() {
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-[#C4922A]/20"
+                className="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-sky-400/20"
               />
               <h3 className="font-bold text-[#1E2D3D]">{member.name}</h3>
-              <p className="text-[#C4922A] text-sm font-medium mb-2">{member.title}</p>
+              <p className="text-sky-500 text-sm font-medium mb-2">{member.title}</p>
               <p className="text-slate-500 text-sm leading-relaxed">{member.bio}</p>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="bg-[#C4922A] py-12">
+      <div className="bg-sky-600 py-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Work With Us?</h2>
-          <p className="text-amber-100 mb-8">Let's start a conversation about your project.</p>
+          <p className="text-sky-100 mb-8">Let's start a conversation about your project.</p>
           <Link
             to={createPageUrl("Contact")}
-            className="inline-flex items-center gap-2 bg-white text-[#C4922A] px-8 py-4 rounded-lg font-bold hover:bg-amber-50 transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-sky-600 px-8 py-4 rounded-lg font-bold hover:bg-sky-50 transition-colors"
           >
             Get in Touch <ChevronRight className="w-5 h-5" />
           </Link>
