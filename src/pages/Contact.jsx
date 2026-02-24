@@ -50,14 +50,14 @@ export default function Contact() {
             </p>
             <div className="space-y-5">
               {[
-                { icon: Phone, label: "Phone", content: <a href="tel:+16012345678" className="text-slate-500 hover:text-[#C4922A] transition-colors">(601) 234-5678</a> },
-                { icon: Mail, label: "Email", content: <a href="mailto:info@bradleybrownhomes.com" className="text-slate-500 hover:text-[#C4922A] transition-colors">info@bradleybrownhomes.com</a> },
+                { icon: Phone, label: "Phone", content: <a href="tel:+16012345678" className="text-slate-500 hover:text-sky-500 transition-colors">(601) 234-5678</a> },
+                { icon: Mail, label: "Email", content: <a href="mailto:info@bradleybrownhomes.com" className="text-slate-500 hover:text-sky-500 transition-colors">info@bradleybrownhomes.com</a> },
                 { icon: MapPin, label: "Service Area", content: <p className="text-slate-500">Rankin, Hinds & Madison Counties, MS</p> },
                 { icon: Clock, label: "Business Hours", content: <><p className="text-slate-500">Mon–Fri: 8am–5pm</p><p className="text-slate-500">Sat: 9am–1pm (by appointment)</p></> },
               ].map(({ icon: Icon, label, content }) => (
                 <div key={label} className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-[#C4922A]" />
+                  <div className="w-10 h-10 bg-sky-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-sky-500" />
                   </div>
                   <div>
                     <p className="font-semibold text-[#1E2D3D] mb-0.5">{label}</p>
@@ -68,7 +68,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6 md:p-8 border border-[#E2D9CC]">
+          <div className="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
             {submitted ? (
               <div className="text-center py-10">
                 <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
@@ -82,26 +82,26 @@ export default function Contact() {
                   <div>
                     <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Your Name *</label>
                     <input required type="text" value={form.name} onChange={e => update("name", e.target.value)}
-                      className="w-full border border-[#E2D9CC] rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C4922A]/30 focus:border-[#C4922A]"
+                      className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400"
                       placeholder="John Smith" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Phone</label>
                     <input type="tel" value={form.phone} onChange={e => update("phone", e.target.value)}
-                      className="w-full border border-[#E2D9CC] rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C4922A]/30 focus:border-[#C4922A]"
+                      className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400"
                       placeholder="(601) 000-0000" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Email *</label>
                   <input required type="email" value={form.email} onChange={e => update("email", e.target.value)}
-                    className="w-full border border-[#E2D9CC] rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C4922A]/30 focus:border-[#C4922A]"
+                    className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400"
                     placeholder="john@example.com" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Project Type</label>
                   <select value={form.project_type} onChange={e => update("project_type", e.target.value)}
-                    className="w-full border border-[#E2D9CC] rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C4922A]/30 focus:border-[#C4922A] bg-white">
+                    className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400 bg-white">
                     <option value="custom_home">Custom Home</option>
                     <option value="renovation">Renovation</option>
                     <option value="addition">Room Addition</option>
@@ -112,11 +112,11 @@ export default function Contact() {
                 <div>
                   <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Tell Us About Your Project</label>
                   <textarea value={form.message} onChange={e => update("message", e.target.value)} rows={4}
-                    className="w-full border border-[#E2D9CC] rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C4922A]/30 focus:border-[#C4922A] resize-none"
+                    className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400 resize-none"
                     placeholder="Tell us about your project, budget range, timeline, etc." />
                 </div>
                 <button type="submit" disabled={loading}
-                  className="w-full bg-[#C4922A] hover:bg-[#A37820] text-white py-3 rounded-lg font-semibold transition-colors disabled:opacity-60">
+                  className="w-full bg-sky-500 hover:bg-sky-600 text-white py-3 rounded-lg font-semibold transition-colors disabled:opacity-60">
                   {loading ? "Sending..." : "Send Message"}
                 </button>
               </form>
