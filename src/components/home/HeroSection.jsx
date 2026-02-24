@@ -5,7 +5,7 @@ import { ChevronRight, Play } from "lucide-react";
 
 const slides = [
   {
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/96500063-1bcf-423f-425e-941733454800/public",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80",
     headline: "Building Your",
     highlight: "Dream Home",
   },
