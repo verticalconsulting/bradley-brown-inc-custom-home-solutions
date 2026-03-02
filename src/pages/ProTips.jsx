@@ -39,6 +39,28 @@ export default function ProTips() {
     setLoading(false);
   };
 
+  const handleEdit = (post) => {
+    setEditingPost({ id: post.id, title: post.title, content: post.content, image_url: post.image_url || "" });
+  };
+
+  const handleSave = async () => {
+    setSaving(true);
+    await base44.entities.BlogPost.update(editingPost.id, {
+      title: editingPost.title,
+      content: editingPost.content,
+      image_url: editingPost.image_url,
+    });
+    await loadPosts();
+    setEditingPost(null);
+    setSaving(false);
+  };
+
+  const handleDelete = async (postId) => {
+    if (!window.confirm("Delete this tip permanently?")) return;
+    await base44.entities.BlogPost.delete(postId);
+    await loadPosts();
+  };
+
   const handleGenerate = async () => {
     setGenerating(true);
     await base44.functions.invoke("generateProTip", {});
