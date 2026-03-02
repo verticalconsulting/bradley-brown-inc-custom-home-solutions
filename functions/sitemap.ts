@@ -1,6 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
 
-const SITE_URL = "https://bradleybrownhomes.com"; // Update to your live domain
+const SITE_URL = "https://custom-home-builder.bradleybrowninc.com";
 
 Deno.serve(async (req) => {
   const base44 = createClientFromRequest(req);
@@ -17,11 +17,20 @@ Deno.serve(async (req) => {
 
   const staticPages = [
     { url: "/", priority: "1.0", changefreq: "weekly" },
-    { url: "/services", priority: "0.9", changefreq: "monthly" },
-    { url: "/portfolio", priority: "0.8", changefreq: "weekly" },
-    { url: "/about", priority: "0.7", changefreq: "monthly" },
-    { url: "/contact", priority: "0.8", changefreq: "monthly" },
-    { url: "/quote-assistant", priority: "0.9", changefreq: "monthly" },
+    { url: "/Services", priority: "0.9", changefreq: "monthly" },
+    { url: "/Portfolio", priority: "0.8", changefreq: "weekly" },
+    { url: "/About", priority: "0.7", changefreq: "monthly" },
+    { url: "/Contact", priority: "0.8", changefreq: "monthly" },
+    { url: "/QuoteAssistant", priority: "0.9", changefreq: "monthly" },
+    { url: "/ProTips", priority: "0.8", changefreq: "weekly" },
+    { url: "/ScheduleVisit", priority: "0.8", changefreq: "monthly" },
+    { url: "/SmallBathroomIdeas", priority: "0.8", changefreq: "monthly" },
+    { url: "/LuxuryHomeRenovations", priority: "0.8", changefreq: "monthly" },
+    { url: "/LandingCoreServices", priority: "0.9", changefreq: "monthly" },
+    { url: "/LandingEmergencyRepair", priority: "0.9", changefreq: "monthly" },
+    { url: "/LandingBrandonRemodelers", priority: "0.9", changefreq: "monthly" },
+    { url: "/LandingPricing", priority: "0.8", changefreq: "monthly" },
+    { url: "/LandingTrust", priority: "0.8", changefreq: "monthly" },
   ];
 
   const urlEntries = [

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { Lightbulb, RefreshCw, ChevronRight, Calendar } from "lucide-react";
+import { Lightbulb, RefreshCw, ChevronRight, Calendar, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";
 import SEOHead from "@/components/SEOHead";
@@ -52,8 +54,8 @@ export default function ProTips() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
-        title="Pro Tips – Home Remodeling Advice | Bradley Brown Inc."
-        description="Expert home remodeling tips, how-to guides, and practical advice from Bradley Brown Inc., Central Mississippi's trusted custom home builder."
+        title="Pro Tips — Home Remodeling Advice | Bradley Brown Inc."
+        description="Expert home remodeling tips for Brandon, MS homeowners — bathrooms, kitchens, luxury renovations & more from Central Mississippi's trusted contractor since 1995."
       />
 
       {/* Hero */}
@@ -77,6 +79,25 @@ export default function ProTips() {
               {generating ? "Generating new tip…" : "Generate New Pro Tip"}
             </button>
           )}
+        </div>
+      </div>
+
+      {/* Keyword-gap pages */}
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-2">
+        <div className="bg-sky-50 border border-sky-200 rounded-xl p-5">
+          <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Featured Guides</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              { label: "Small Bathroom Remodeling Ideas", page: "SmallBathroomIdeas", desc: "6 contractor-tested ideas to maximize a small bath" },
+              { label: "Luxury Home Renovations", page: "LuxuryHomeRenovations", desc: "Premium finishes, project management & timeline expectations" },
+              { label: "Emergency Home Repairs — Brandon, MS", page: "LandingEmergencyRepair", desc: "Urgent? Call (601) 954-1306 — same-week service available" },
+            ].map((g) => (
+              <Link key={g.page} to={createPageUrl(g.page)} className="block bg-white border border-sky-100 rounded-lg p-4 hover:border-sky-400 transition-colors">
+                <p className="font-semibold text-[#1E2D3D] text-xs mb-1">{g.label}</p>
+                <p className="text-slate-500 text-xs">{g.desc}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
