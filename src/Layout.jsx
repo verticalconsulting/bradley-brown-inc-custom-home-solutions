@@ -183,7 +183,6 @@ export default function Layout({ children, currentPageName }) {
         </AnimatePresence>
       </main>
 
-      <StickyCallButton />
       <BottomTabBar currentPageName={currentPageName} />
 
       {/* Global chat widget (hidden on agent page) */}
@@ -281,7 +280,7 @@ export default function Layout({ children, currentPageName }) {
 
           <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 text-sm">© 2026 Bradley Brown Inc. All rights reserved.</p>
-            <p className="text-slate-500 text-sm">Licensed & Insured · Mississippi General Contractor #MC-2024</p>
+            <p className="text-slate-500 text-sm">Licensed & Insured · Mississippi General Contractor · Serving Brandon, MS & Central Mississippi</p>
           </div>
         </div>
       </footer>
