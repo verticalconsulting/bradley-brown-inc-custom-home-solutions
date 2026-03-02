@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { createPageUrl } from "@/utils";
 import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook, Settings } from "lucide-react";
-import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
 import BottomTabBar from "@/components/BottomTabBar";
 import VisitorChatWidget from "@/components/chat/VisitorChatWidget";
