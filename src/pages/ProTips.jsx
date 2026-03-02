@@ -13,6 +13,8 @@ export default function ProTips() {
   const [generating, setGenerating] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [activeSlug, setActiveSlug] = useState(null);
+  const [editingPost, setEditingPost] = useState(null); // { id, title, content, image_url }
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     loadPosts();
