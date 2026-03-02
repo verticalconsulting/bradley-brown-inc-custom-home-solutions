@@ -83,8 +83,10 @@ export default function Services() {
             const Icon = service.icon;
             const isEven = i % 2 === 0;
             return (
-              <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+              <div key={i}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                 <div className={isEven ? "order-1" : "order-1 md:order-2"}>
+...
                   <div className="w-12 h-12 bg-sky-50 rounded-lg flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-sky-500" />
                   </div>
