@@ -59,6 +59,7 @@ import QuoteAssistant from './pages/QuoteAssistant';
 import ScheduleVisit from './pages/ScheduleVisit';
 import Services from './pages/Services';
 import TikTokSync from './pages/TikTokSync';
+import ProTips from './pages/ProTips';
 import __Layout from './Layout.jsx';
 
 
@@ -75,6 +76,7 @@ export const PAGES = {
     "ScheduleVisit": ScheduleVisit,
     "Services": Services,
     "TikTokSync": TikTokSync,
+    "ProTips": ProTips,
 }
 
 export const pagesConfig = {
