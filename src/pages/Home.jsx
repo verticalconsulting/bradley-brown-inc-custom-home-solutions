@@ -19,8 +19,8 @@ export default function Home() {
     <PullToRefresh onRefresh={handleRefresh}>
       <div>
         <SEOHead
-          title="Custom Home Builder in Central Mississippi"
-          description="Bradley Brown Inc. builds dream homes across Jackson, Madison, Ridgeland, Brandon & surrounding areas. Custom homes, renovations, additions, and outdoor living since 1995."
+          title="Home Remodeling in Brandon MS | Bradley Brown Inc"
+          description="Brandon, MS's trusted home remodeler & custom builder since 1995. Kitchen remodels, additions, whole-home renovations. Licensed & insured. Call (601) 954-1306 for a free estimate."
           schema={localBusinessSchema}
         />
         <HeroSection />
