@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { Lightbulb, RefreshCw, ChevronRight, Calendar, Phone } from "lucide-react";
+import { Lightbulb, RefreshCw, ChevronRight, Calendar, Phone, Pencil, Trash2, X, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { format } from "date-fns";
