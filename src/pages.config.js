@@ -56,9 +56,9 @@ import Home from './pages/Home';
 import Legal from './pages/Legal';
 import Portfolio from './pages/Portfolio';
 import QuoteAssistant from './pages/QuoteAssistant';
+import ScheduleVisit from './pages/ScheduleVisit';
 import Services from './pages/Services';
 import TikTokSync from './pages/TikTokSync';
-import ScheduleVisit from './pages/ScheduleVisit';
 import __Layout from './Layout.jsx';
 
 
@@ -72,9 +72,9 @@ export const PAGES = {
     "Legal": Legal,
     "Portfolio": Portfolio,
     "QuoteAssistant": QuoteAssistant,
+    "ScheduleVisit": ScheduleVisit,
     "Services": Services,
     "TikTokSync": TikTokSync,
-    "ScheduleVisit": ScheduleVisit,
 }
 
 export const pagesConfig = {

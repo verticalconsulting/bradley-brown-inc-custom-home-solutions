@@ -118,7 +118,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="bg-sky-600 py-12">
+      <div id="testimonials" className="bg-sky-600 py-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Work With Us?</h2>
           <p className="text-sky-100 mb-8">Let's start a conversation about your project.</p>
