@@ -4,10 +4,10 @@ import { useEffect } from "react";
  * SEOHead - Dynamically sets page title, meta description, and JSON-LD structured data.
  * Usage: <SEOHead title="..." description="..." schema={...} />
  */
-export default function SEOHead({ title, description, schema }) {
+export default function SEOHead({ title, description, schema, canonical }) {
   useEffect(() => {
     // Title
-    document.title = title ? `${title} | Bradley Brown Inc.` : "Bradley Brown Inc. – Custom Home Builder in Central Mississippi";
+    document.title = title || "Bradley Brown Inc. – Custom Home Builder in Central Mississippi";
 
     // Meta description
     let metaDesc = document.querySelector('meta[name="description"]');
@@ -31,6 +31,17 @@ export default function SEOHead({ title, description, schema }) {
     setOG("og:title", title);
     setOG("og:description", description || "");
     setOG("og:type", "website");
+
+    // Canonical URL
+    let canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      if (!canonicalTag) {
+        canonicalTag = document.createElement("link");
+        canonicalTag.setAttribute("rel", "canonical");
+        document.head.appendChild(canonicalTag);
+      }
+      canonicalTag.setAttribute("href", canonical);
+    }
 
     // JSON-LD structured data
     const existingScript = document.getElementById("__json-ld__");

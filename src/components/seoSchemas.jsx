@@ -1,4 +1,4 @@
-const SITE_URL = "https://bradleybrowninc.com"; // Update to your live domain
+const SITE_URL = "https://custom-home-builder.bradleybrowninc.com";
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -7,22 +7,27 @@ export const localBusinessSchema = {
   "alternateName": "Bradley Brown Custom Homes",
   "description": "Bradley Brown Inc. is Central Mississippi's premier custom home builder, offering custom home construction, renovations, room additions, and outdoor living spaces since 1995.",
   "url": SITE_URL,
-  "telephone": "+16012345678",
-  "email": "info@bradleybrownhomes.com",
+  "telephone": "+16019541306",
+  "email": "bradleybrowninc@gmail.com",
   "foundingDate": "1995",
   "priceRange": "$$$",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Jackson",
+    "addressLocality": "Brandon",
     "addressRegion": "MS",
-    "postalCode": "39201",
+    "postalCode": "39042",
     "addressCountry": "US"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 32.2988,
-    "longitude": -90.1848
+    "latitude": 32.2729,
+    "longitude": -89.9923
   },
+  "sameAs": [
+    "https://www.facebook.com/BradleyBrownInc",
+    "https://www.tiktok.com/@bb859876",
+    "https://www.bbb.org"
+  ],
   "areaServed": [
     { "@type": "City", "name": "Jackson, Mississippi" },
     { "@type": "City", "name": "Madison, Mississippi" },
