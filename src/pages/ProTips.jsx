@@ -234,6 +234,22 @@ export default function ProTips() {
                 />
               )}
               <div className="p-6 md:p-8">
+                {isAdmin && (
+                  <div className="flex gap-2 mb-4">
+                    <button
+                      onClick={() => handleEdit(post)}
+                      className="flex items-center gap-1 text-xs bg-sky-50 hover:bg-sky-100 text-sky-600 px-3 py-1.5 rounded-lg font-medium"
+                    >
+                      <Pencil className="w-3 h-3" /> Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(post.id)}
+                      className="flex items-center gap-1 text-xs bg-red-50 hover:bg-red-100 text-red-500 px-3 py-1.5 rounded-lg font-medium"
+                    >
+                      <Trash2 className="w-3 h-3" /> Delete
+                    </button>
+                  </div>
+                )}
                 <div className="flex items-center gap-2 text-slate-400 text-xs mb-3">
                   <Calendar className="w-3.5 h-3.5" />
                   {format(new Date(post.created_date), "MMMM d, yyyy")}
