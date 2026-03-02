@@ -184,6 +184,7 @@ export default function Layout({ children, currentPageName }) {
         </AnimatePresence>
       </main>
 
+      <StickyCallButton />
       <BottomTabBar currentPageName={currentPageName} />
 
       {/* Global chat widget (hidden on agent page) */}
