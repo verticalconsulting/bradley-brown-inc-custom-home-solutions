@@ -60,6 +60,11 @@ import ScheduleVisit from './pages/ScheduleVisit';
 import Services from './pages/Services';
 import TikTokSync from './pages/TikTokSync';
 import ProTips from './pages/ProTips';
+import LandingCoreServices from './pages/LandingCoreServices';
+import LandingEmergencyRepair from './pages/LandingEmergencyRepair';
+import LandingBrandonRemodelers from './pages/LandingBrandonRemodelers';
+import LandingPricing from './pages/LandingPricing';
+import LandingTrust from './pages/LandingTrust';
 import __Layout from './Layout.jsx';
 
 
@@ -77,6 +82,11 @@ export const PAGES = {
     "Services": Services,
     "TikTokSync": TikTokSync,
     "ProTips": ProTips,
+    "LandingCoreServices": LandingCoreServices,
+    "LandingEmergencyRepair": LandingEmergencyRepair,
+    "LandingBrandonRemodelers": LandingBrandonRemodelers,
+    "LandingPricing": LandingPricing,
+    "LandingTrust": LandingTrust,
 }
 
 export const pagesConfig = {
