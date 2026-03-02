@@ -87,47 +87,46 @@ export default function Services() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                   <div className={isEven ? "order-1" : "order-1 md:order-2"}>
                     <div className="w-12 h-12 bg-sky-50 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-sky-500" />
+                      <Icon className="w-6 h-6 text-sky-500" />
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D] mb-4">{service.name}</h2>
+                    <p className="text-slate-500 leading-relaxed mb-6">{service.description}</p>
+                    <ul className="grid grid-cols-2 gap-2 mb-6">
+                      {service.features.map(feature => (
+                        <li key={feature} className="flex items-center gap-2 text-sm text-slate-600">
+                          <Check className="w-4 h-4 text-sky-500 flex-shrink-0" /> {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex items-center gap-4 flex-wrap">
+                      <span className="text-sky-500 font-semibold">{service.price}</span>
+                      <Link
+                        to={createPageUrl("QuoteAssistant")}
+                        className="inline-flex items-center gap-1 bg-sky-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-sky-600 transition-colors"
+                      >
+                        Get a Quote <ChevronRight className="w-4 h-4" />
+                      </Link>
+                    </div>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D] mb-4">{service.name}</h2>
-                  <p className="text-slate-500 leading-relaxed mb-6">{service.description}</p>
-                  <ul className="grid grid-cols-2 gap-2 mb-6">
-                    {service.features.map(feature => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-slate-600">
-                        <Check className="w-4 h-4 text-sky-500 flex-shrink-0" /> {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex items-center gap-4 flex-wrap">
-                    <span className="text-sky-500 font-semibold">{service.price}</span>
-                    <Link
-                      to={createPageUrl("QuoteAssistant")}
-                      className="inline-flex items-center gap-1 bg-sky-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-sky-600 transition-colors"
-                    >
-                      Get a Quote <ChevronRight className="w-4 h-4" />
-                    </Link>
+                  <div className={`rounded-xl overflow-hidden shadow-lg ${isEven ? "order-2" : "order-2 md:order-1"}`}>
+                    <img src={service.image} alt={`${service.name} in Brandon MS by Bradley Brown Inc.`} className="w-full h-64 md:h-80 object-cover" loading="lazy" width="800" height="640" />
                   </div>
                 </div>
-                <div className={`rounded-xl overflow-hidden shadow-lg ${isEven ? "order-2" : "order-2 md:order-1"}`}>
-                  <img src={service.image} alt={`${service.name} in Brandon MS by Bradley Brown Inc.`} className="w-full h-64 md:h-80 object-cover" loading="lazy" width="800" height="640" />
-                </div>
+                {service.faq && (
+                  <div className="mt-6 border-t border-gray-100 pt-6">
+                    <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Common Questions</h3>
+                    <div className="space-y-3">
+                      {service.faq.map((f, fi) => (
+                        <div key={fi}>
+                          <p className="text-sm font-semibold text-slate-700">Q: {f.q}</p>
+                          <p className="text-sm text-slate-500 mt-0.5">A: {f.a}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-              {/* FAQ for this service */}
-              {service.faq && (
-                <div className="mt-6 border-t border-gray-100 pt-6">
-                  <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Common Questions</h3>
-                  <div className="space-y-3">
-                    {service.faq.map((f, fi) => (
-                      <div key={fi}>
-                        <p className="text-sm font-semibold text-slate-700">Q: {f.q}</p>
-                        <p className="text-sm text-slate-500 mt-0.5">A: {f.a}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          );
+            );
           })}
         </div>
 
