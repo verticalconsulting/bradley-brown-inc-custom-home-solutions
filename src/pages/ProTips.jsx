@@ -77,6 +77,58 @@ export default function ProTips() {
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
+      {/* Edit Modal */}
+      {editingPost && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col">
+            <div className="flex items-center justify-between p-5 border-b">
+              <h2 className="font-bold text-[#1E2D3D]">Edit Tip</h2>
+              <button onClick={() => setEditingPost(null)}><X className="w-5 h-5 text-slate-400" /></button>
+            </div>
+            <div className="overflow-y-auto p-5 space-y-4 flex-1">
+              <div>
+                <label className="block text-xs font-semibold text-slate-600 mb-1">Title</label>
+                <input
+                  className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
+                  value={editingPost.title}
+                  onChange={e => setEditingPost(p => ({ ...p, title: e.target.value }))}
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-600 mb-1">Image URL</label>
+                <input
+                  className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
+                  placeholder="https://..."
+                  value={editingPost.image_url}
+                  onChange={e => setEditingPost(p => ({ ...p, image_url: e.target.value }))}
+                />
+                {editingPost.image_url && (
+                  <img src={editingPost.image_url} alt="preview" className="mt-2 h-32 w-full object-cover rounded-lg" />
+                )}
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-600 mb-1">Content (Markdown)</label>
+                <textarea
+                  className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 font-mono"
+                  rows={14}
+                  value={editingPost.content}
+                  onChange={e => setEditingPost(p => ({ ...p, content: e.target.value }))}
+                />
+              </div>
+            </div>
+            <div className="flex justify-end gap-3 p-5 border-t">
+              <button onClick={() => setEditingPost(null)} className="px-4 py-2 text-sm text-slate-500 hover:text-slate-700">Cancel</button>
+              <button
+                onClick={handleSave}
+                disabled={saving}
+                className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg text-sm font-semibold disabled:opacity-60"
+              >
+                <Check className="w-4 h-4" /> {saving ? "Saving…" : "Save Changes"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <SEOHead
         title="Pro Tips — Home Remodeling Advice | Bradley Brown Inc."
         description="Expert home remodeling tips for Brandon, MS homeowners — bathrooms, kitchens, luxury renovations & more from Central Mississippi's trusted contractor since 1995."
