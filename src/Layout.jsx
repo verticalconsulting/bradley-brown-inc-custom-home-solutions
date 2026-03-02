@@ -64,6 +64,7 @@ export default function Layout({ children, currentPageName }) {
     { label: "Portfolio", page: "Portfolio" },
     { label: "About", page: "About" },
     { label: "Contact", page: "Contact" },
+    { label: "Pro Tips", page: "ProTips" },
     { label: "Schedule Visit", page: "ScheduleVisit" },
     { label: "Legal", page: "Legal" }];
 
