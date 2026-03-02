@@ -65,6 +65,8 @@ import LandingEmergencyRepair from './pages/LandingEmergencyRepair';
 import LandingBrandonRemodelers from './pages/LandingBrandonRemodelers';
 import LandingPricing from './pages/LandingPricing';
 import LandingTrust from './pages/LandingTrust';
+import SmallBathroomIdeas from './pages/SmallBathroomIdeas';
+import LuxuryHomeRenovations from './pages/LuxuryHomeRenovations';
 import __Layout from './Layout.jsx';
 
 
@@ -87,6 +89,8 @@ export const PAGES = {
     "LandingBrandonRemodelers": LandingBrandonRemodelers,
     "LandingPricing": LandingPricing,
     "LandingTrust": LandingTrust,
+    "SmallBathroomIdeas": SmallBathroomIdeas,
+    "LuxuryHomeRenovations": LuxuryHomeRenovations,
 }
 
 export const pagesConfig = {

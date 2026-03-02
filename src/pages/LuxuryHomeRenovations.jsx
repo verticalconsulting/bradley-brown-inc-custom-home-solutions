@@ -1,0 +1,202 @@
+import React from "react";
+import { Phone, ChevronRight, CheckCircle, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import SEOHead from "@/components/SEOHead";
+import LandingCTABar from "@/components/landing/LandingCTABar";
+import LandingFAQ from "@/components/landing/LandingFAQ";
+import { base44 } from "@/api/base44Client";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "name": "Bradley Brown Inc.",
+      "telephone": "+16019541306",
+      "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
+      "priceRange": "$$$$"
+    },
+    {
+      "@type": "Service",
+      "name": "Luxury Home Renovations",
+      "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+      "areaServed": "Brandon, MS and Central Mississippi",
+      "description": "High-end kitchen and bathroom renovations, custom millwork, designer finishes, and whole-home luxury transformations in Central Mississippi."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://custom-home-builder.bradleybrowninc.com" },
+        { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://custom-home-builder.bradleybrowninc.com/ProTips" },
+        { "@type": "ListItem", "position": 3, "name": "Luxury Home Renovations", "item": "https://custom-home-builder.bradleybrowninc.com/LuxuryHomeRenovations" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What qualifies as a luxury renovation?", "acceptedAnswer": { "@type": "Answer", "text": "Luxury renovations typically involve premium materials (natural stone, custom cabinetry, hardwood), dedicated project management, architectural detailing, and a focus on craftsmanship over speed. Budget typically starts at $100,000+." } },
+        { "@type": "Question", "name": "How long does a luxury whole-home renovation take?", "acceptedAnswer": { "@type": "Answer", "text": "A full luxury renovation in Central Mississippi typically runs 4–12 months depending on scope, permitting, and material lead times. We provide a phased timeline before work begins." } }
+      ]
+    }
+  ]
+};
+
+const faqs = [
+  { question: "What qualifies as a luxury renovation?", answer: "Luxury renovations prioritize premium materials (natural stone, custom cabinetry, hardwood floors), dedicated project management, architectural detailing, and uncompromising craftsmanship. Budget typically starts at $100,000 for a meaningful luxury transformation." },
+  { question: "How long does a luxury whole-home renovation take?", answer: "A full luxury renovation typically runs 4–12 months. Custom millwork, stone fabrication, and specialty finishes all have production lead times. We build a phased schedule and stick to it — with weekly progress updates." },
+  { question: "Do you have a design team or do I need to hire my own architect?", answer: "We work closely with architects and interior designers, and can recommend trusted local collaborators. We also have an in-house design-assist process for clients who want guidance without a full architect fee." },
+  { question: "How do you ensure quality on a high-end project?", answer: "Every luxury project gets a dedicated project manager on-site daily. We use premium-grade subcontractors, conduct multi-point quality inspections at each phase, and don't move forward until the previous phase meets our standard." },
+  { question: "Do luxury renovations add value to my home?", answer: "High-quality renovations consistently outperform the market in Central Mississippi. Kitchen and bath renovations typically return 60–80% of cost in appraised value — and dramatically improve your quality of life in the meantime." },
+];
+
+const phases = [
+  { phase: "Discovery & Design", desc: "We start with a detailed consultation to understand your vision, lifestyle, and budget. We review existing plans, walk the home, and develop a design brief before any demolition begins." },
+  { phase: "Material Selection", desc: "We guide you through material selection — tile, stone, cabinetry, fixtures, hardware, flooring — with access to our trade accounts for pricing below retail. Lead time planning is built in so nothing delays your project." },
+  { phase: "Permitting & Pre-Construction", desc: "We pull all required permits, confirm structural conditions, and pre-order long-lead items before demo day. No surprises after walls are open." },
+  { phase: "Construction & Daily Oversight", desc: "A dedicated project manager oversees your project daily. You get weekly photo reports and are consulted before any field decisions are made. Our crews are licensed, background-checked, and experienced with high-end finishes." },
+  { phase: "Finish Work & Punch List", desc: "We don't consider a project done until every detail is right. Our punch-list process is rigorous — we walk the project with you before final payment and handle anything that isn't perfect." },
+];
+
+export default function LuxuryHomeRenovations() {
+  const handleCall = () => base44.analytics.track({ eventName: "phone_click", properties: { source: "luxury_reno_page" } });
+
+  return (
+    <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
+      <SEOHead
+        title="Luxury Home Renovations in Brandon, MS — Bradley Brown Inc"
+        description="Premium kitchen, bath & whole-home renovations in Central Mississippi. Custom millwork, designer finishes, dedicated project management. Call (601) 954-1306."
+        schema={schema}
+      />
+
+      {/* Hero */}
+      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?w=1200&q=80')" }} />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/40 rounded-full px-3 py-1 mb-3">
+            <Star className="w-3.5 h-3.5 text-amber-400" />
+            <span className="text-amber-300 text-xs font-medium">Premium Craftsmanship</span>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+            Luxury Home Renovations in Brandon, MS
+          </h1>
+          <p className="text-slate-300 mt-4 text-base max-w-xl mx-auto">
+            Custom materials, dedicated project management, and zero-compromise craftsmanship. Bradley Brown Inc. sets the standard for high-end renovations in Central Mississippi.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+              <Phone className="w-5 h-5" /> (601) 954-1306
+            </a>
+            <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
+              Free Consultation <ChevronRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12 space-y-14">
+
+        {/* Intro */}
+        <div className="prose prose-slate max-w-none">
+          <p className="text-slate-600 leading-relaxed text-base">Not every renovation is the same — and neither is every contractor. At Bradley Brown Inc., we specialize in renovations where the details matter: custom millwork, natural stone, designer tile, precision finish carpentry, and the kind of project management that keeps a complex job on time and on budget.</p>
+          <p className="text-slate-600 leading-relaxed">We've been building and renovating homes in Central Mississippi since 1995. Our luxury renovation clients choose us because we've earned trust on simpler projects first — and because we treat a $400,000 renovation with the same accountability as a $40,000 one.</p>
+        </div>
+
+        {/* What we do */}
+        <div>
+          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Luxury Renovation Services</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { title: "Kitchen Transformation", desc: "Custom cabinetry, quartz or natural stone countertops, high-end appliances, under-cabinet lighting, and statement islands. Starting at $60,000." },
+              { title: "Master Bath Overhaul", desc: "Freestanding soaking tubs, heated floors, steam showers, custom tile work, and spa-grade fixtures. Starting at $30,000." },
+              { title: "Whole-Home Renovation", desc: "Coordinated multi-room renovation with consistent design language, premium finishes, and single-point project management. Custom quote." },
+              { title: "Custom Millwork & Built-Ins", desc: "Built-in bookcases, coffered ceilings, wainscoting, crown molding, and statement fireplaces crafted by skilled finish carpenters." },
+              { title: "Luxury Outdoor Living", desc: "Full outdoor kitchens, covered pavilions, pergolas with integrated lighting, and pool surrounds that extend your home's luxury to the outdoors." },
+              { title: "Home Office & Media Room", desc: "Purpose-built home offices with custom built-ins, media rooms with acoustic treatment, and dedicated spaces that work as hard as you do." },
+            ].map((s) => (
+              <div key={s.title} className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+                <h3 className="font-bold text-[#1E2D3D] text-sm mb-1">{s.title}</h3>
+                <p className="text-slate-500 text-xs leading-snug">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Process */}
+        <div>
+          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Our Luxury Renovation Process</h2>
+          <div className="space-y-4">
+            {phases.map((p, i) => (
+              <div key={i} className="flex items-start gap-4 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+                <div className="w-8 h-8 bg-amber-400 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-white text-sm">{i + 1}</div>
+                <div>
+                  <h3 className="font-bold text-[#1E2D3D] text-sm mb-1">{p.phase}</h3>
+                  <p className="text-slate-500 text-sm">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Timeline expectations */}
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+          <h2 className="font-bold text-[#1E2D3D] mb-3">Realistic Timeline Expectations</h2>
+          <div className="space-y-2 text-sm">
+            {[
+              { scope: "Luxury kitchen remodel", timeline: "6–10 weeks" },
+              { scope: "Master bath transformation", timeline: "4–6 weeks" },
+              { scope: "Multi-room renovation (3–5 rooms)", timeline: "3–6 months" },
+              { scope: "Whole-home luxury renovation", timeline: "6–12 months" },
+            ].map((row) => (
+              <div key={row.scope} className="flex justify-between items-center border-b border-amber-100 pb-2">
+                <span className="text-slate-700">{row.scope}</span>
+                <span className="font-semibold text-amber-700">{row.timeline}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-amber-600 mt-3">* Timelines include permitting, material lead times, and final punch list. Custom or imported materials may extend timelines.</p>
+        </div>
+
+        {/* Mid-page CTA */}
+        <div className="bg-[#1E2D3D] rounded-2xl p-6 md:p-8 text-center">
+          <p className="text-white font-bold text-lg mb-2">Start Your Luxury Renovation</p>
+          <p className="text-slate-300 text-sm mb-5">Call us at (601) 954-1306 or request a free consultation. We serve Brandon, Madison, Ridgeland, Flowood, and all of Central Mississippi.</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+              <Phone className="w-4 h-4" /> (601) 954-1306
+            </a>
+            <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+              Schedule a Site Visit <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <div>
+          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6 text-center">Frequently Asked Questions</h2>
+          <LandingFAQ faqs={faqs} />
+        </div>
+
+        {/* Internal links */}
+        <div className="bg-slate-50 border border-gray-200 rounded-xl p-5">
+          <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Services & Pages</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: "View Our Portfolio", page: "Portfolio" },
+              { label: "All Services", page: "Services" },
+              { label: "Get an AI Estimate", page: "QuoteAssistant" },
+              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+              { label: "More Pro Tips", page: "ProTips" },
+            ].map((link) => (
+              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+                <ChevronRight className="w-3 h-3" /> {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <LandingCTABar headline="Ready for a luxury renovation? Let's talk details." />
+    </div>
+  );
+}
