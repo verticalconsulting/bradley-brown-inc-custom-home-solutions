@@ -175,6 +175,12 @@ export default function ProTips() {
                 <div className="prose prose-slate prose-sm max-w-none prose-headings:text-[#1E2D3D] prose-a:text-sky-600">
                   <ReactMarkdown>{post.content}</ReactMarkdown>
                 </div>
+                {/* Internal links after each post */}
+                <div className="mt-6 pt-5 border-t border-gray-100 flex flex-wrap gap-2">
+                  <Link to={createPageUrl("Services")} className="text-xs text-sky-600 hover:underline font-medium">→ Our Services</Link>
+                  <Link to={createPageUrl("QuoteAssistant")} className="text-xs text-sky-600 hover:underline font-medium">→ Get a Free Quote</Link>
+                  <a href="tel:+16019541306" className="text-xs text-green-600 hover:underline font-medium flex items-center gap-1"><Phone className="w-3 h-3" /> Call (601) 954-1306</a>
+                </div>
               </div>
             </article>
           ))
