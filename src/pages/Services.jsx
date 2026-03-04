@@ -70,7 +70,7 @@ export default function Services() {
       <div className="bg-[#1E2D3D] py-14 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Brandon, MS & Central Mississippi</p>
-          <h1 className="text-3xl md:text-5xl font-bold text-white">Home Remodeling & Construction Services</h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-white">Expert Home Remodeling Services in Brandon, MS</h1>
           <p className="text-slate-300 mt-4 max-w-xl mx-auto">Licensed, insured, and trusted since 1995. Serving Brandon, Flowood, Pearl, Madison, Ridgeland, Jackson & surrounding areas.</p>
           <a href="tel:+16019541306" className="mt-6 hidden md:inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
             <Phone className="w-4 h-4" /> (601) 954-1306 — Free Estimate
