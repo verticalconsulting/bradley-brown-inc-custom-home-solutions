@@ -53,20 +53,20 @@ import AgentChat from './pages/AgentChat';
 import CRM from './pages/CRM';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
+import LandingBrandonRemodelers from './pages/LandingBrandonRemodelers';
+import LandingCoreServices from './pages/LandingCoreServices';
+import LandingEmergencyRepair from './pages/LandingEmergencyRepair';
+import LandingPricing from './pages/LandingPricing';
+import LandingTrust from './pages/LandingTrust';
 import Legal from './pages/Legal';
+import LuxuryHomeRenovations from './pages/LuxuryHomeRenovations';
 import Portfolio from './pages/Portfolio';
+import ProTips from './pages/ProTips';
 import QuoteAssistant from './pages/QuoteAssistant';
 import ScheduleVisit from './pages/ScheduleVisit';
 import Services from './pages/Services';
-import TikTokSync from './pages/TikTokSync';
-import ProTips from './pages/ProTips';
-import LandingCoreServices from './pages/LandingCoreServices';
-import LandingEmergencyRepair from './pages/LandingEmergencyRepair';
-import LandingBrandonRemodelers from './pages/LandingBrandonRemodelers';
-import LandingPricing from './pages/LandingPricing';
-import LandingTrust from './pages/LandingTrust';
 import SmallBathroomIdeas from './pages/SmallBathroomIdeas';
-import LuxuryHomeRenovations from './pages/LuxuryHomeRenovations';
+import TikTokSync from './pages/TikTokSync';
 import __Layout from './Layout.jsx';
 
 
@@ -77,20 +77,20 @@ export const PAGES = {
     "CRM": CRM,
     "Contact": Contact,
     "Home": Home,
+    "LandingBrandonRemodelers": LandingBrandonRemodelers,
+    "LandingCoreServices": LandingCoreServices,
+    "LandingEmergencyRepair": LandingEmergencyRepair,
+    "LandingPricing": LandingPricing,
+    "LandingTrust": LandingTrust,
     "Legal": Legal,
+    "LuxuryHomeRenovations": LuxuryHomeRenovations,
     "Portfolio": Portfolio,
+    "ProTips": ProTips,
     "QuoteAssistant": QuoteAssistant,
     "ScheduleVisit": ScheduleVisit,
     "Services": Services,
-    "TikTokSync": TikTokSync,
-    "ProTips": ProTips,
-    "LandingCoreServices": LandingCoreServices,
-    "LandingEmergencyRepair": LandingEmergencyRepair,
-    "LandingBrandonRemodelers": LandingBrandonRemodelers,
-    "LandingPricing": LandingPricing,
-    "LandingTrust": LandingTrust,
     "SmallBathroomIdeas": SmallBathroomIdeas,
-    "LuxuryHomeRenovations": LuxuryHomeRenovations,
+    "TikTokSync": TikTokSync,
 }
 
 export const pagesConfig = {
