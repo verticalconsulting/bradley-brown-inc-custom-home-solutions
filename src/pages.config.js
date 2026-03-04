@@ -67,6 +67,9 @@ import ScheduleVisit from './pages/ScheduleVisit';
 import Services from './pages/Services';
 import SmallBathroomIdeas from './pages/SmallBathroomIdeas';
 import TikTokSync from './pages/TikTokSync';
+import RenovationLoans from './pages/RenovationLoans';
+import HomeAdditionIdeas from './pages/HomeAdditionIdeas';
+import EnergyEfficientUpgrades from './pages/EnergyEfficientUpgrades';
 import __Layout from './Layout.jsx';
 
 
@@ -91,6 +94,9 @@ export const PAGES = {
     "Services": Services,
     "SmallBathroomIdeas": SmallBathroomIdeas,
     "TikTokSync": TikTokSync,
+    "RenovationLoans": RenovationLoans,
+    "HomeAdditionIdeas": HomeAdditionIdeas,
+    "EnergyEfficientUpgrades": EnergyEfficientUpgrades,
 }
 
 export const pagesConfig = {
