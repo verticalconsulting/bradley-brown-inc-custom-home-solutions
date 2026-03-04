@@ -14,14 +14,29 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await base44.entities.QuoteRequest.create({
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      description: form.message,
-      project_type: form.project_type,
-      status: "new",
-    });
+
+    await Promise.all([
+      base44.entities.QuoteRequest.create({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        description: form.message,
+        project_type: form.project_type,
+        status: "new",
+      }),
+      fetch("https://formspree.io/f/mykgnqee", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          project_type: form.project_type,
+          message: form.message,
+        }),
+      }),
+    ]);
+
     base44.analytics.track({
       eventName: "contact_form_submitted",
       properties: {
