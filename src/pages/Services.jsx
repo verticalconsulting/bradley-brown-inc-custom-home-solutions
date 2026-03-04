@@ -56,9 +56,10 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
-        title="Home Remodeling Services Brandon MS | Bradley Brown Inc"
-        description="Kitchen remodels, bathroom renovations, custom homes, room additions & outdoor living in Brandon, MS. Licensed & insured. Free estimates. Call (601) 954-1306."
+        title="Expert Home Remodeling Services in Brandon, MS | Bradley Brown Inc"
+        description="Expert home remodeling services in Brandon, MS — kitchen remodeling, bathroom renovations, room additions & custom homes. Licensed & insured since 1995. Free estimates. Call (601) 954-1306."
         schema={servicesSchema}
+        canonical="https://custom-home-builder.bradleybrowninc.com/services"
       />
       {/* Mobile click-to-call above fold */}
       <div className="md:hidden sticky top-16 z-40 bg-green-500 text-white py-2.5 px-4 text-center text-sm font-semibold">
