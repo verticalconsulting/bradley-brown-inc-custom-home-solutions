@@ -165,6 +165,9 @@ export default function ProTips() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
               { label: "Small Bathroom Remodeling Ideas", page: "SmallBathroomIdeas", desc: "6 contractor-tested ideas to maximize a small bath" },
+              { label: "Home Addition Ideas", page: "HomeAdditionIdeas", desc: "Master suites, sunrooms, in-law suites & more" },
+              { label: "Energy-Efficient Home Upgrades", page: "EnergyEfficientUpgrades", desc: "Save on bills & claim federal tax credits" },
+              { label: "Renovation Loan Options", page: "RenovationLoans", desc: "FHA 203k, HELOC, home equity loans & more" },
               { label: "Luxury Home Renovations", page: "LuxuryHomeRenovations", desc: "Premium finishes, project management & timeline expectations" },
               { label: "Emergency Home Repairs — Brandon, MS", page: "LandingEmergencyRepair", desc: "Urgent? Call (601) 954-1306 — same-week service available" },
             ].map((g) => (
