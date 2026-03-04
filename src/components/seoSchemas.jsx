@@ -46,6 +46,17 @@ export const localBusinessSchema = {
     "ratingValue": "4.9",
     "reviewCount": "87",
     "bestRating": "5"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Home Remodeling Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kitchen Remodeling in Brandon, MS" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bathroom Renovation in Brandon, MS" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Room Additions in Brandon, MS" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Home Building in Central Mississippi" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Outdoor Living Spaces & Decks" } }
+    ]
   }
 };
 
