@@ -176,7 +176,7 @@ export default function VisitorChatWidget() {
                     }`}>
                       {msg.role === "assistant" ? (
                         <ReactMarkdown className="prose prose-sm max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 text-gray-800">
-                          {msg.content}
+                          {msg.content.replace("[ESCALATE_TO_BRAD]", "").trim()}
                         </ReactMarkdown>
                       ) : (
                         <p>{msg.content}</p>
