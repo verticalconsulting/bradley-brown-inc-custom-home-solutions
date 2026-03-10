@@ -59,19 +59,36 @@ export default function QuoteAssistant() {
       },
     });
 
-    const record = await base44.entities.QuoteRequest.create({
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      project_type: data.project_type,
-      location: data.location,
-      square_footage_estimate: data.square_footage_estimate || undefined,
-      budget_range: data.budget_range || undefined,
-      timeline: data.timeline || undefined,
-      description: data.description,
-      features_selected: data.features_selected,
-      status: "new",
-    });
+    const [record] = await Promise.all([
+      base44.entities.QuoteRequest.create({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        project_type: data.project_type,
+        location: data.location,
+        square_footage_estimate: data.square_footage_estimate || undefined,
+        budget_range: data.budget_range || undefined,
+        timeline: data.timeline || undefined,
+        description: data.description,
+        features_selected: data.features_selected,
+        status: "new",
+      }),
+      fetch("https://formspree.io/f/xeeranrd", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          project_type: data.project_type,
+          location: data.location,
+          budget_range: data.budget_range || "",
+          timeline: data.timeline || "",
+          description: data.description,
+          features_selected: (data.features_selected || []).join(", "),
+        }),
+      }),
+    ]);
 
     const response = await base44.functions.invoke("generateQuoteEstimate", {
       project_type: data.project_type,

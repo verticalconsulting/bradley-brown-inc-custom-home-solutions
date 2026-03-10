@@ -1,6 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
 
-const SITE_URL = "https://custom-home-builder.bradleybrowninc.com";
+const SITE_URL = "https://bradleybrowninc.com";
 
 Deno.serve(async (req) => {
   const base44 = createClientFromRequest(req);

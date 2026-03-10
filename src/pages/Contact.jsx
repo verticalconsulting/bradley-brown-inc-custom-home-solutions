@@ -24,7 +24,7 @@ export default function Contact() {
         project_type: form.project_type,
         status: "new",
       }),
-      fetch("https://formspree.io/f/mykgnqee", {
+      fetch("https://formspree.io/f/xeeranrd", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -60,8 +60,8 @@ export default function Contact() {
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Get in Touch</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Contact Bradley Brown Inc.</h1>
           <p className="text-slate-300 mt-4 max-w-xl mx-auto">Serving Brandon, Flowood, Pearl, Madison, Ridgeland, Jackson & all of Central Mississippi. Free estimates — no obligation.</p>
-          <a href="tel:+16019541306" className="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
-            <Phone className="w-4 h-4" /> Call Now: (601) 954-1306
+          <a href="tel:+18443514154" className="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
+            <Phone className="w-4 h-4" /> Call Now: (844) 351-4154
           </a>
         </div>
       </div>
@@ -75,8 +75,9 @@ export default function Contact() {
             </p>
             <div className="space-y-5">
               {[
-                { icon: Phone, label: "Phone", content: <a href="tel:+16019541306" onClick={() => base44.analytics.track({ eventName: "contact_phone_clicked" })} className="text-slate-500 hover:text-sky-500 transition-colors">(601) 954-1306</a> },
+                { icon: Phone, label: "Phone", content: <a href="tel:+18443514154" onClick={() => base44.analytics.track({ eventName: "contact_phone_clicked" })} className="text-slate-500 hover:text-sky-500 transition-colors">(844) 351-4154</a> },
                 { icon: Mail, label: "Email", content: <a href="mailto:bradleybrowninc@gmail.com" onClick={() => base44.analytics.track({ eventName: "contact_email_clicked" })} className="text-slate-500 hover:text-sky-500 transition-colors">bradleybrowninc@gmail.com</a> },
+                { icon: MapPin, label: "Address", content: <p className="text-slate-500">104 Tiffany Drive, Brandon, MS 39042</p> },
                 { icon: MapPin, label: "Service Area", content: <p className="text-slate-500">Brandon, Flowood, Pearl, Richland, Jackson, Madison, Ridgeland, Clinton, Byram & surrounding areas within 50 miles of Brandon, MS</p> },
                 { icon: Clock, label: "Business Hours", content: <><p className="text-slate-500">Mon–Fri: 8am–6pm</p><p className="text-slate-500">Sat: 9am–3pm</p></> },
               ].map(({ icon: Icon, label, content }) => (
@@ -162,7 +163,7 @@ export default function Contact() {
         </div>
         {/* NAP */}
         <div className="mt-4 text-sm text-slate-500 text-center">
-          <strong className="text-slate-700">Bradley Brown Inc.</strong> · Brandon, MS 39042 · <a href="tel:+16019541306" className="text-sky-600 font-medium">(601) 954-1306</a> · bradleybrowninc@gmail.com
+          <strong className="text-slate-700">Bradley Brown Inc.</strong> · 104 Tiffany Drive, Brandon, MS 39042 · <a href="tel:+18443514154" className="text-sky-600 font-medium">(844) 351-4154</a> · bradleybrowninc@gmail.com
         </div>
       </div>
     </div>

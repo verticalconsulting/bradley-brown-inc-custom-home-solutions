@@ -3,7 +3,7 @@ import { base44 } from "@/api/base44Client";
 import { MessageCircle, X, Send, ChevronDown, Phone, Sparkles } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
-const WHATSAPP_NUMBER = "16019541306";
+const WHATSAPP_NUMBER = "18443514154";
 
 export default function VisitorChatWidget() {
   const [open, setOpen] = useState(false);
