@@ -58,6 +58,16 @@ export default function VisitorChatWidget() {
     setSending(false);
   };
 
+  const forwardToBrad = async (allMessages) => {
+    await base44.functions.invoke("forwardChatToBrad", {
+      visitorName: name,
+      visitorEmail: email,
+      conversationSummary: null,
+      messages: allMessages,
+      pageUrl: window.location.href,
+    });
+  };
+
   const sendMessage = async () => {
     if (!input.trim() || !conversation || sending) return;
     setSending(true);
@@ -69,8 +79,15 @@ export default function VisitorChatWidget() {
       role: "user",
       content: text,
     });
-    setMessages(updated.messages || []);
+    const newMessages = updated.messages || [];
+    setMessages(newMessages);
     setSending(false);
+
+    // Check if agent triggered escalation
+    const lastAssistant = [...newMessages].reverse().find(m => m.role === "assistant");
+    if (lastAssistant?.content?.includes("[ESCALATE_TO_BRAD]")) {
+      await forwardToBrad(newMessages);
+    }
   };
 
   const goToWhatsApp = () => {
