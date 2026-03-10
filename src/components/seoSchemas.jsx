@@ -1,4 +1,4 @@
-const SITE_URL = "https://custom-home-builder.bradleybrowninc.com";
+const SITE_URL = "https://bradleybrowninc.com";
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
