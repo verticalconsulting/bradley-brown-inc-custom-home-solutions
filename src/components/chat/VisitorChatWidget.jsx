@@ -97,7 +97,7 @@ export default function VisitorChatWidget() {
   const visibleMessages = messages.filter(m => m.role === "user" || m.role === "assistant");
 
   return (
-    <div className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-[60] flex flex-col items-end gap-3">
+    <div className="fixed bottom-20 left-4 md:bottom-6 md:left-6 z-[60] flex flex-col items-start gap-3">
       {open && (
         <div className="w-80 md:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden" style={{ maxHeight: "520px" }}>
           {/* Header */}
