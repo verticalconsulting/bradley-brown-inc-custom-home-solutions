@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
 
     const message = `New chat on Bradley Brown Inc! ${visitor_name || 'Visitor'} wants to message you. Page: ${page_url || 'N/A'}`;
 
-    const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
+    const twilioUrl = "https://forward-message-3536-921x3d.twil.io/forward-message";
     const body = new URLSearchParams();
     body.append('To', visitor_phone);
     body.append('Body', message);

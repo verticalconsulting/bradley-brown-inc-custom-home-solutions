@@ -22,13 +22,13 @@ Deno.serve(async (req) => {
       return Response.json({ error: "Missing 'to' or 'message'" }, { status: 400 });
     }
 
-    const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
+    const forwardUrl = "https://forward-message-3536-921x3d.twil.io/forward-message";
     const body = new URLSearchParams();
     body.append('To', to);
     body.append('Body', message);
     body.append('From', fromNumber);
 
-    const twilioResponse = await fetch(twilioUrl, {
+    const twilioResponse = await fetch(forwardUrl, {
       method: 'POST',
       headers: {
         'Authorization': 'Basic ' + btoa(`${accountSid}:${authToken}`),

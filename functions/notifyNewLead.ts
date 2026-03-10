@@ -24,7 +24,7 @@ Deno.serve(async (req) => {
 
     const message = `🏠 NEW LEAD - Bradley Brown Inc!\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nProject: ${projectType}\nDetails: ${description.substring(0, 100)}`;
 
-    const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
+    const twilioUrl = "https://forward-message-3536-921x3d.twil.io/forward-message";
     const body = new URLSearchParams();
     body.append('To', adminPhone);
     body.append('From', fromNumber);
