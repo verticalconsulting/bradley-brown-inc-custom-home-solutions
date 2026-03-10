@@ -24,17 +24,19 @@ export default function Contact() {
         project_type: form.project_type,
         status: "new",
       }),
-      fetch("https://formspree.io/f/xeeranrd", {
-        method: "POST",
-        headers: { "Accept": "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          project_type: form.project_type,
-          message: form.message,
-        }),
-      }),
+      (() => {
+        const fd = new FormData();
+        fd.append("name", form.name);
+        fd.append("email", form.email);
+        fd.append("phone", form.phone);
+        fd.append("project_type", form.project_type);
+        fd.append("message", form.message);
+        return fetch("https://formspree.io/f/xeeranrd", {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: fd,
+        });
+      })(),
     ]);
 
     base44.analytics.track({
