@@ -259,7 +259,7 @@ export default function Layout({ children, currentPageName }) {
               </div>
             </div>
             <div>
-              <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h4>
+              <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h3>
               <ul className="space-y-2">
                 {["Custom Homes", "Renovations", "Room Additions", "Outdoor Living", "Design & Consultation"].map((s) =>
                 <li key={s}>
@@ -269,7 +269,7 @@ export default function Layout({ children, currentPageName }) {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Company</h4>
+              <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Company</h3>
               <ul className="space-y-2">
                 {[
                 { label: "Our Story", page: "About" },
