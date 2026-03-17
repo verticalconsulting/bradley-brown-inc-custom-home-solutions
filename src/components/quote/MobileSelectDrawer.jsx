@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from "@/components/useMediaQuery";
 import {
   Select,
@@ -17,7 +17,7 @@ import { ChevronDown, Check } from "lucide-react";
 
 export default function MobileSelectDrawer({ placeholder, value, onChange, options, label }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const selectedLabel = value ? options.find(o => o.value === value)?.label : null;
 
