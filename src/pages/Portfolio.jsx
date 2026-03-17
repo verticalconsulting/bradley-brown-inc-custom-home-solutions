@@ -16,7 +16,7 @@ const categoryLabels = { custom_home: "Custom Home", renovation: "Renovation", a
 
 const placeholderProjects = [
   { title: "Ridgewood Estate", category: "custom_home", location: "Ridgeland, MS", square_footage: 2800, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/96500063-1bcf-423f-425e-941733454800/public"] },
-  { title: "Modern Kitchen & Bath Remodel", category: "renovation", location: "Madison, MS", square_footage: 1200, year_completed: 2024, images: ["https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80"] },
+  { title: "Modern Kitchen & Bath Remodel", category: "renovation", location: "Madison, MS", square_footage: 1200, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/9f3f2199-635d-4432-efa0-fb7fda530e00/large"] },
   { title: "Barndominium Builds", category: "barndominium", location: "Brandon, MS", square_footage: 2500, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/public"] },
   { title: "Colonial Dream Home", category: "custom_home", location: "Flowood, MS", square_footage: 4200, year_completed: 2023, images: ["https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"] },
   { title: "Backyard Oasis Patio", category: "outdoor", location: "Pearl, MS", square_footage: 800, year_completed: 2024, images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"] },
