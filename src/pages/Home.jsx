@@ -23,7 +23,7 @@ export default function Home() {
           title="Home Remodeling in Brandon, MS | Bradley Brown Inc — Since 1995"
           description="Trusted home remodeling in Brandon, MS since 1995. Kitchen remodels, bathroom renovations, room additions & custom homes. Licensed & insured. Free estimate — call (601) 954-1306."
           schema={localBusinessSchema}
-          canonical="https://custom-home-builder.bradleybrowninc.com"
+          canonical="https://bradleybrowninc.com"
         />
         <HeroSection />
         <TrustSignals />
