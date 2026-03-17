@@ -6,6 +6,7 @@ import { pagesConfig } from './pages.config'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import SEODashboard from './pages/SEODashboard';
+import FunnelAnalysis from './pages/FunnelAnalysis';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
@@ -60,6 +61,7 @@ const AuthenticatedApp = () => {
         />
       ))}
       <Route path="/SEODashboard" element={<LayoutWrapper currentPageName="SEODashboard"><SEODashboard /></LayoutWrapper>} />
+      <Route path="/FunnelAnalysis" element={<LayoutWrapper currentPageName="FunnelAnalysis"><FunnelAnalysis /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
