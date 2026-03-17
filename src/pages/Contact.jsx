@@ -129,14 +129,19 @@ export default function Contact() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Project Type</label>
-                  <select value={form.project_type} onChange={e => update("project_type", e.target.value)}
-                    className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400 bg-white">
-                    <option value="custom_home">Custom Home</option>
-                    <option value="renovation">Renovation</option>
-                    <option value="addition">Room Addition</option>
-                    <option value="outdoor">Outdoor Living</option>
-                    <option value="other">Other</option>
-                  </select>
+                  <MobileSelectDrawer
+                    label="Project Type"
+                    placeholder="Select project type"
+                    value={form.project_type}
+                    onChange={val => update("project_type", val)}
+                    options={[
+                      { value: "custom_home", label: "Custom Home" },
+                      { value: "renovation",  label: "Renovation" },
+                      { value: "addition",    label: "Room Addition" },
+                      { value: "outdoor",     label: "Outdoor Living" },
+                      { value: "other",       label: "Other" },
+                    ]}
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Tell Us About Your Project</label>
