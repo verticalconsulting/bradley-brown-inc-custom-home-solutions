@@ -163,8 +163,8 @@ export default function Layout({ children, currentPageName }) {
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`md:hidden p-2 rounded transition-colors ${textColor}`}
-                aria-label="Toggle menu">
+                className={`md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded transition-colors ${textColor}`}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}>
 
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>

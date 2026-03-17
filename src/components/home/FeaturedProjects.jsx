@@ -6,7 +6,7 @@ import { MapPin, ChevronRight } from "lucide-react";
 
 const placeholderProjects = [
   { title: "Ridgewood Estate", category: "custom_home", location: "Ridgeland, MS", square_footage: 3800, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/9f3f2199-635d-4432-efa0-fb7fda530e00/imagegallery"] },
-  { title: "Madison Kitchen & Bath Remodel", category: "renovation", location: "Madison, MS", square_footage: 1200, images: ["hhttps://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/imagegallery"] },
+  { title: "Madison Kitchen & Bath Remodel", category: "renovation", location: "Madison, MS", square_footage: 1200, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/imagegallery"] },
   { title: "Barnaminum Man Cave", category: "addition", location: "Brandon, MS", square_footage: 650, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"] },
 ];
 
