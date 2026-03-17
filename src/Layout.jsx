@@ -206,8 +206,16 @@ export default function Layout({ children, currentPageName }) {
       </nav>
 
       <main className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">
-        <AnimatePresence mode="wait">
-          {children}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={location.pathname}
+            initial={{ x: 40, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -40, opacity: 0 }}
+            transition={{ duration: 0.22, ease: "easeInOut" }}
+          >
+            {children}
+          </motion.div>
         </AnimatePresence>
       </main>
 
