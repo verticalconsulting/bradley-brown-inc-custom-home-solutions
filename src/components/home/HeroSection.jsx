@@ -80,13 +80,18 @@ export default function HeroSection() {
         </div>
 
         {/* Slide dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {slides.map((_, i) => (
+        <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Slides">
+          {slides.map((s, i) => (
             <button
               key={i}
+              role="tab"
+              aria-selected={i === current}
+              aria-label={`Slide ${i + 1}: ${s.headline} ${s.highlight}`}
               onClick={() => { setFading(true); setTimeout(() => { setCurrent(i); setFading(false); }, 600); }}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? "bg-sky-400 w-6" : "bg-white/40"}`}
-            />
+              className={`min-w-[44px] min-h-[44px] flex items-center justify-center -m-2 p-2`}
+            >
+              <span className={`block rounded-full transition-all duration-300 ${i === current ? "bg-sky-400 w-6 h-2.5" : "bg-white/40 w-2.5 h-2.5"}`} />
+            </button>
           ))}
         </div>
 

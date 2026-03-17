@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { createPageUrl } from "@/utils";
 import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook, Settings } from "lucide-react";
 import { base44 } from "@/api/base44Client";
