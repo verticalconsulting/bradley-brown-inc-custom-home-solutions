@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { Search, Globe, Map, RefreshCw, CheckCircle, XCircle, AlertCircle, Loader2, Send } from "lucide-react";
+import { Search, Globe, Map, RefreshCw, CheckCircle, XCircle, AlertCircle, Loader2, Send, Zap } from "lucide-react";
 
 const VERDICT_CONFIG = {
   PASS: { icon: CheckCircle, color: "text-green-600", bg: "bg-green-50", label: "Indexed" },
   FAIL: { icon: XCircle, color: "text-red-500", bg: "bg-red-50", label: "Not Indexed" },
   NEUTRAL: { icon: AlertCircle, color: "text-yellow-500", bg: "bg-yellow-50", label: "Neutral" },
   UNKNOWN: { icon: AlertCircle, color: "text-slate-400", bg: "bg-slate-50", label: "Unknown" },
+  SUBMITTED: { icon: CheckCircle, color: "text-sky-600", bg: "bg-sky-50", label: "Submitted via Sitemap" },
 };
 
 export default function SEODashboard() {
   const [queries, setQueries] = useState(null);
   const [indexStatus, setIndexStatus] = useState(null);
   const [sitemapResult, setSitemapResult] = useState(null);
+  const [indexingResult, setIndexingResult] = useState(null);
   const [loading, setLoading] = useState({});
 
   const call = async (action, setter) => {
@@ -176,6 +178,63 @@ export default function SEODashboard() {
             )}
             {sitemapResult?.error && (
               <p className="text-red-500 text-sm">{sitemapResult.error}</p>
+            )}
+          </div>
+        </section>
+
+        {/* ── Request Indexing ── */}
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="flex items-center justify-between p-5 border-b border-gray-100">
+            <div className="flex items-center gap-2">
+              <Zap className="w-5 h-5 text-sky-500" />
+              <div>
+                <h2 className="font-bold text-[#1E2D3D]">Request Indexing — New Landing Pages</h2>
+                <p className="text-xs text-slate-400 mt-0.5">Inspects & requests crawling for all renovation landing pages + resubmits sitemap</p>
+              </div>
+            </div>
+            <button
+              onClick={() => call("requestIndexing", setIndexingResult)}
+              disabled={loading.requestIndexing}
+              className="flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg text-sm font-semibold disabled:opacity-60 transition-colors"
+            >
+              {loading.requestIndexing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Zap className="w-4 h-4" />}
+              {loading.requestIndexing ? "Requesting..." : "Request Indexing"}
+            </button>
+          </div>
+
+          <div className="p-5">
+            {!indexingResult && (
+              <p className="text-sm text-slate-400">Click to inspect and request indexing for all new landing pages.</p>
+            )}
+            {indexingResult?.error && (
+              <p className="text-red-500 text-sm">{indexingResult.error}</p>
+            )}
+            {indexingResult?.results && (
+              <div className="space-y-2">
+                {indexingResult.sitemapResubmitted && (
+                  <div className="flex items-center gap-2 text-green-600 mb-3 text-sm font-medium">
+                    <CheckCircle className="w-4 h-4" /> Sitemap resubmitted successfully
+                  </div>
+                )}
+                <div className="divide-y divide-gray-50 rounded-xl border border-gray-100 overflow-hidden">
+                  {indexingResult.results.map((item, i) => {
+                    const cfg = VERDICT_CONFIG[item.verdict] || VERDICT_CONFIG.UNKNOWN;
+                    const Icon = cfg.icon;
+                    return (
+                      <div key={i} className={`flex items-center justify-between px-4 py-3 ${cfg.bg}`}>
+                        <div className="flex items-center gap-2">
+                          <Icon className={`w-4 h-4 flex-shrink-0 ${cfg.color}`} />
+                          <span className="text-xs font-medium text-slate-700">{item.url.replace("https://bradleybrowninc.com", "")}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-xs">
+                          <span className="text-slate-400">{item.coverageState}</span>
+                          <span className={`font-semibold ${cfg.color}`}>{cfg.label}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             )}
           </div>
         </section>

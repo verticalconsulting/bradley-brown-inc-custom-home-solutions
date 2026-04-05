@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.20';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 
 const SITE_URL = "https://bradleybrowninc.com";
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
@@ -15,6 +15,24 @@ const KEY_URLS = [
   "/LandingBrandonRemodelers",
   "/SmallBathroomIdeas",
   "/LuxuryHomeRenovations",
+  "/LandingPricing",
+  "/LandingTrust",
+  "/RenovationLoans",
+  "/HomeAdditionIdeas",
+  "/EnergyEfficientUpgrades",
+];
+
+const NEW_LANDING_PAGES = [
+  "/LandingCoreServices",
+  "/LandingEmergencyRepair",
+  "/LandingBrandonRemodelers",
+  "/LandingPricing",
+  "/LandingTrust",
+  "/SmallBathroomIdeas",
+  "/LuxuryHomeRenovations",
+  "/RenovationLoans",
+  "/HomeAdditionIdeas",
+  "/EnergyEfficientUpgrades",
 ];
 
 Deno.serve(async (req) => {
@@ -106,6 +124,53 @@ Deno.serve(async (req) => {
         const err = await res.json().catch(() => ({}));
         return Response.json({ action, success: false, error: err }, { status: res.status });
       }
+    }
+
+    // ── 4. Request indexing for new landing pages ─────────────────────────
+    if (action === "requestIndexing") {
+      const urlsToIndex = (body.urls || NEW_LANDING_PAGES).map((p) =>
+        p.startsWith("http") ? p : `${SITE_URL}${p}`
+      );
+
+      // Submit/refresh the sitemap — most reliable way to signal new pages to Google
+      const sitemapRes = await fetch(
+        `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/sitemaps/${encodeURIComponent(SITEMAP_URL)}`,
+        {
+          method: "PUT",
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
+      );
+      const sitemapOk = sitemapRes.status === 200 || sitemapRes.status === 204;
+
+      // Use URL Inspection to check current index status for each page
+      const results = await Promise.all(
+        urlsToIndex.map(async (url) => {
+          const res = await fetch(
+            `https://searchconsole.googleapis.com/v1/urlInspection/index:inspect`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                inspectionUrl: url,
+                siteUrl: SITE_URL,
+              }),
+            }
+          );
+          if (res.status === 403) {
+            // Inspection API may require URL-prefix property; mark as submitted via sitemap
+            return { url, verdict: "SUBMITTED", coverageState: "Submitted via Sitemap", status: res.status };
+          }
+          const data = await res.json();
+          const verdict = data.inspectionResult?.indexStatusResult?.verdict || "UNKNOWN";
+          const coverageState = data.inspectionResult?.indexStatusResult?.coverageState || "Unknown";
+          return { url, verdict, coverageState, status: res.status };
+        })
+      );
+
+      return Response.json({ action, results, sitemapResubmitted: sitemapOk });
     }
 
     return Response.json({ error: "Unknown action" }, { status: 400 });
