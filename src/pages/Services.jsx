@@ -11,7 +11,7 @@ const services = [
     name: "Custom Home Building",
     description: "Your dream home, built from the ground up. We work closely with you throughout the entire design and construction process, ensuring every detail reflects your vision and lifestyle.",
     features: ["Full architectural consultation", "Custom floor plans", "Premium material selection", "Regular progress updates", "Industry-leading warranty", "Post-build support"],
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/logo",
     price: "Starting at $250,000",
   },
   {
@@ -19,7 +19,7 @@ const services = [
     name: "Home Renovations & Remodeling",
     description: "Breathe new life into your existing home with expert renovations. Whether it's a full home remodel, kitchen overhaul, bathroom transformation, or finish work, our team delivers exceptional craftsmanship at every stage.",
     features: ["Kitchen & bath remodels", "Whole-home renovations", "Flooring & tile work", "Electrical & plumbing updates", "Custom cabinetry", "Painting & trim work"],
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/logo",
     price: "Starting at $15,000",
     faq: [
       { q: "How long does a kitchen remodel take?", a: "Typically 4–8 weeks depending on scope. We give you a realistic timeline upfront." },
@@ -31,7 +31,7 @@ const services = [
     name: "Room Additions & Home Office Remodel",
     description: "Need more space? Whether it's a master suite addition, in-law suite, sunroom, or a dedicated home office, we design and build additions that blend seamlessly with your existing home's architecture.",
     features: ["Master suite additions", "Family room expansions", "Sunroom construction", "In-law suites", "Garage conversions", "Home office remodels"],
-    image: "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=800&q=80",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/76d5990e-fde6-4281-e9c7-387dda7f1300/logo",
     price: "Starting at $5,000",
     faq: [
       { q: "Will an addition match my existing home?", a: "Absolutely — we match materials, rooflines, and finishes so the addition looks like it was always there." },
@@ -43,7 +43,7 @@ const services = [
     name: "Outdoor Living Spaces & Decks",
     description: "Mississippi's climate is made for outdoor living. We design and build beautiful outdoor spaces — from covered patios to full outdoor kitchens and custom decks — that extend your home's footprint and enhance your lifestyle year-round.",
     features: ["Covered patios & porches", "Outdoor kitchens", "Decks & pergolas", "Pool surrounds", "Landscape integration", "Outdoor lighting systems"],
-    image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/c97c56d2-0c0c-40ca-15b1-892d6e909800/logo",
     price: "Starting at $10,000",
     faq: [
       { q: "What's the most popular outdoor project in Mississippi?", a: "Covered back porches with outdoor kitchens — perfect for year-round entertaining in Central Mississippi's climate." },
@@ -59,7 +59,7 @@ export default function Services() {
         title="Expert Home Remodeling Services in Brandon, MS | Bradley Brown Inc"
         description="Expert home remodeling services in Brandon, MS — kitchen remodeling, bathroom renovations, room additions & custom homes. Licensed & insured since 1995. Free estimates. Call (601) 954-1306."
         schema={servicesSchema}
-        canonical="https://custom-home-builder.bradleybrowninc.com/services"
+        canonical="https://bradleybrowninc.com/services"
       />
       {/* Mobile click-to-call above fold */}
       <div className="md:hidden sticky top-16 z-40 bg-green-500 text-white py-2.5 px-4 text-center text-sm font-semibold">
