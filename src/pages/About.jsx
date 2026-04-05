@@ -26,10 +26,10 @@ const team = [
     image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/5b865f0c-642e-4f7e-8b61-ded808961a00/small",
   },
   {
-    name: "",
-    title: "Architecture Design",
-    bio: "This role is filled based on the projects needs and genre of architecture..",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+    name: "Ethan Brown",
+    title: "Associate",
+    bio: "Ethan is a skilled associate that can handle any task",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/de934f0e-b2f3-4d77-5e78-af5adf1f5800/logo",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function About() {
       <div className="relative bg-[#1E2D3D] py-14 md:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/large')" }}
+          style={{ backgroundImage: "url('https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/og')" }}
         />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Story</p>
