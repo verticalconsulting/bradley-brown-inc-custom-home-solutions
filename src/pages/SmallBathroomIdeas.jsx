@@ -27,7 +27,7 @@ const schema = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://radleybrowninc.com/ProTips" },
+        { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://bradleybrowninc.com/ProTips" },
         { "@type": "ListItem", "position": 3, "name": "Small Bathroom Remodeling Ideas", "item": "https://bradleybrowninc.com/SmallBathroomIdeas" }
       ]
     },

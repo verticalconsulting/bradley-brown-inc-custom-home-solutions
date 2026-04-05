@@ -33,8 +33,8 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://custom-home-builder.bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Brandon MS Remodelers", "item": "https://custom-home-builder.bradleybrowninc.com/LandingBrandonRemodelers" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
+        { "@type": "ListItem", "position": 2, "name": "Brandon MS Remodelers", "item": "https://bradleybrowninc.com/LandingBrandonRemodelers" }
       ]
     }
   ]

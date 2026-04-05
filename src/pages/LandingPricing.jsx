@@ -22,8 +22,8 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://custom-home-builder.bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://custom-home-builder.bradleybrowninc.com/LandingPricing" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
+        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://bradleybrowninc.com/LandingPricing" }
       ]
     },
     {

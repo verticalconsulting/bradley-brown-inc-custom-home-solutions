@@ -17,7 +17,7 @@ const schema = {
       "name": "Bradley Brown Inc.",
       "telephone": "+16019541306",
       "email": "bradleybrowninc@gmail.com",
-      "url": "https://custom-home-builder.bradleybrowninc.com",
+      "url": "https://bradleybrowninc.com",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
       "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
       "priceRange": "$$$",
@@ -37,8 +37,8 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://custom-home-builder.bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Core Services", "item": "https://custom-home-builder.bradleybrowninc.com/LandingCoreServices" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
+        { "@type": "ListItem", "position": 2, "name": "Core Services", "item": "https://bradleybrowninc.com/LandingCoreServices" }
       ]
     },
     {

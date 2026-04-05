@@ -24,8 +24,8 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://custom-home-builder.bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Why Trust Us", "item": "https://custom-home-builder.bradleybrowninc.com/LandingTrust" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
+        { "@type": "ListItem", "position": 2, "name": "Why Trust Us", "item": "https://bradleybrowninc.com/LandingTrust" }
       ]
     },
     {

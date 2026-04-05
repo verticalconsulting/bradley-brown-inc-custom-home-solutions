@@ -29,8 +29,8 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://custom-home-builder.bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Emergency Repair", "item": "https://custom-home-builder.bradleybrowninc.com/LandingEmergencyRepair" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
+        { "@type": "ListItem", "position": 2, "name": "Emergency Repair", "item": "https://bradleybrowninc.com/LandingEmergencyRepair" }
       ]
     },
     {

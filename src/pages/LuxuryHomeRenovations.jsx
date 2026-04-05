@@ -27,9 +27,9 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://custom-home-builder.bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://custom-home-builder.bradleybrowninc.com/ProTips" },
-        { "@type": "ListItem", "position": 3, "name": "Luxury Home Renovations", "item": "https://custom-home-builder.bradleybrowninc.com/LuxuryHomeRenovations" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
+        { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://bradleybrowninc.com/ProTips" },
+        { "@type": "ListItem", "position": 3, "name": "Luxury Home Renovations", "item": "https://bradleybrowninc.com/LuxuryHomeRenovations" }
       ]
     },
     {
