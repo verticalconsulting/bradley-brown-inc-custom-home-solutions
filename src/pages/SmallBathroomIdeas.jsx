@@ -26,9 +26,9 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://custom-home-builder.bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://custom-home-builder.bradleybrowninc.com/ProTips" },
-        { "@type": "ListItem", "position": 3, "name": "Small Bathroom Remodeling Ideas", "item": "https://custom-home-builder.bradleybrowninc.com/SmallBathroomIdeas" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
+        { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://radleybrowninc.com/ProTips" },
+        { "@type": "ListItem", "position": 3, "name": "Small Bathroom Remodeling Ideas", "item": "https://bradleybrowninc.com/SmallBathroomIdeas" }
       ]
     },
     {
@@ -53,37 +53,37 @@ const ideas = [
   {
     title: "1. Go Full Walk-In Shower (No Tub)",
     body: "Eliminating the bathtub is the single best square-footage move in a small bathroom. A curbless, walk-in shower with large-format tile and a frameless glass panel makes the space feel 2x bigger. If it's not your only bathroom, remove the tub. We see this upgrade regularly in Brandon and Flowood homes and homeowners never look back.",
-    img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=75",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/249ced48-7f89-419a-f51d-80cfdcff5c00/large",
     alt: "Walk-in shower in a small bathroom remodel by Bradley Brown Inc., Brandon MS"
   },
   {
     title: "2. Use Large-Format Tile — 24×24 or Larger",
     body: "Small tile = more grout lines = smaller-looking room. Large-format porcelain tile (24×24 or even 12×24 laid horizontally) reduces visual noise and tricks the eye into perceiving more space. Use the same tile on the floor and into the shower for a seamless, spa-like feel. We source tiles at wholesale pricing for our clients.",
-    img: "https://images.unsplash.com/photo-1620626011761-996317702b08?w=600&q=75",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d7c80483-87a5-4d63-9866-0029bb6d1300/large",
     alt: "Large format tile bathroom renovation in Central Mississippi"
   },
   {
     title: "3. Wall-Mounted Vanity + Floating Storage",
     body: "A wall-hung vanity with 8–12 inches of clearance below it gives the eye a clear path across the floor, making the room appear wider. Pair it with open floating shelves (instead of a medicine cabinet that juts out) to maximize vertical space without closing the room in.",
-    img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=75",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/1cdab79b-f084-4cfb-de1e-0727c2bd9700/logo",
     alt: "Wall mounted vanity small bathroom remodel Brandon Mississippi"
   },
   {
     title: "4. Extend Tile to the Ceiling in the Shower",
     body: "Stopping tile at shoulder height creates a visual 'cap' that makes the room feel shorter. Running tile all the way to the ceiling draws the eye up, adds drama, and makes the shower feel like a luxury spa. For a small bathroom, this is one of the highest-impact, lowest-cost decisions you can make.",
-    img: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=75",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/1cdab79b-f084-4cfb-de1e-0727c2bd9700/logo",
     alt: "Floor to ceiling tile bathroom renovation Mississippi"
   },
   {
     title: "5. Strategic Mirror Placement",
     body: "A large mirror (or mirrored medicine cabinet with frameless edge) spanning the full width above the vanity reflects light and doubles the perceived depth of the room. For an extra-tight space, a mirror on a side wall — angled slightly — can make the room feel 30–40% larger visually.",
-    img: "https://images.unsplash.com/photo-1603825491103-bd638b1873b4?w=600&q=75",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/e1e04d36-a036-486c-14c3-ec07cc111500/logo",
     alt: "Large mirror bathroom remodeling idea for small bathrooms"
   },
   {
     title: "6. Recessed Niches Instead of Shower Shelves",
     body: "Stick-out shower shelves or caddies eat into your standing space. A recessed niche (cut between studs during construction) gives you all the storage with zero intrusion into the shower footprint. We build these into every shower we tile — they're inexpensive to add during a remodel and look incredibly polished.",
-    img: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=75",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b859f7f3-7950-4d17-e5cb-a2936ba53b00/large",
     alt: "Recessed shower niche built by Bradley Brown Inc."
   },
 ];
