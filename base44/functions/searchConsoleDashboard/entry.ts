@@ -3,11 +3,12 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 const SITE_URL = "https://bradleybrowninc.com";
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 
-const KEY_URLS = [
+const ALL_PAGES = [
   "/",
   "/Services",
   "/Portfolio",
   "/Contact",
+  "/About",
   "/QuoteAssistant",
   "/ScheduleVisit",
   "/LandingCoreServices",
@@ -22,17 +23,12 @@ const KEY_URLS = [
   "/EnergyEfficientUpgrades",
 ];
 
-const NEW_LANDING_PAGES = [
-  "/LandingCoreServices",
-  "/LandingEmergencyRepair",
-  "/LandingBrandonRemodelers",
-  "/LandingPricing",
-  "/LandingTrust",
-  "/SmallBathroomIdeas",
-  "/LuxuryHomeRenovations",
-  "/RenovationLoans",
-  "/HomeAdditionIdeas",
-  "/EnergyEfficientUpgrades",
+const CUSTOM_HOME_KEYWORDS = [
+  "custom home", "custom homes", "home builder", "home builders",
+  "build a home", "build a house", "new home construction", "new construction",
+  "home construction", "general contractor", "custom house", "luxury home",
+  "home building", "house builder", "build custom home", "construction company",
+  "brandon ms builder", "mississippi home builder", "central mississippi",
 ];
 
 Deno.serve(async (req) => {
@@ -47,129 +43,164 @@ Deno.serve(async (req) => {
     const body = await req.json().catch(() => ({}));
     const action = body.action || "getQueries";
 
-    // ── 1. Get top search queries ──────────────────────────────────────────
+    const scApiBase = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}`;
+
+    async function searchAnalytics(payload) {
+      const res = await fetch(`${scApiBase}/searchAnalytics/query`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      return res.json();
+    }
+
+    // ── 1. All top queries ──────────────────────────────────────────────────
     if (action === "getQueries") {
       const endDate = new Date().toISOString().split("T")[0];
       const startDate = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
-
-      const res = await fetch(
-        `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/searchAnalytics/query`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            startDate,
-            endDate,
-            dimensions: ["query"],
-            rowLimit: 25,
-            orderBy: [{ fieldName: "clicks", sortOrder: "DESCENDING" }],
-          }),
-        }
-      );
-      const data = await res.json();
+      const data = await searchAnalytics({
+        startDate, endDate,
+        dimensions: ["query"],
+        rowLimit: 50,
+        orderBy: [{ fieldName: "clicks", sortOrder: "DESCENDING" }],
+      });
       return Response.json({ action, rows: data.rows || [], startDate, endDate });
     }
 
-    // ── 2. Get index / coverage status for key URLs ────────────────────────
+    // ── 2. Custom home construction traffic ─────────────────────────────────
+    if (action === "getCustomHomeQueries") {
+      const endDate = new Date().toISOString().split("T")[0];
+      const startDate = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+      const data = await searchAnalytics({
+        startDate, endDate,
+        dimensions: ["query"],
+        rowLimit: 500,
+        orderBy: [{ fieldName: "impressions", sortOrder: "DESCENDING" }],
+      });
+      const rows = data.rows || [];
+      const filtered = rows.filter(r => {
+        const q = (r.keys[0] || "").toLowerCase();
+        return CUSTOM_HOME_KEYWORDS.some(kw => q.includes(kw));
+      });
+      const totalClicks = filtered.reduce((s, r) => s + r.clicks, 0);
+      const totalImpressions = filtered.reduce((s, r) => s + r.impressions, 0);
+      const avgPosition = filtered.length ? filtered.reduce((s, r) => s + r.position, 0) / filtered.length : 0;
+      return Response.json({ action, rows: filtered.slice(0, 50), totalClicks, totalImpressions, avgPosition, startDate, endDate, allQueriesCount: rows.length });
+    }
+
+    // ── 3. Per-page keyword breakdown ───────────────────────────────────────
+    if (action === "getPageKeywords") {
+      const endDate = new Date().toISOString().split("T")[0];
+      const startDate = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+      const payload = {
+        startDate, endDate,
+        dimensions: ["page", "query"],
+        rowLimit: 500,
+        orderBy: [{ fieldName: "impressions", sortOrder: "DESCENDING" }],
+      };
+      if (body.page) {
+        payload.dimensionFilterGroups = [{ filters: [{ dimension: "page", operator: "contains", expression: body.page }] }];
+      }
+      const data = await searchAnalytics(payload);
+      const rows = data.rows || [];
+      const pageMap = {};
+      for (const row of rows) {
+        const [page, query] = row.keys;
+        const path = page.replace(SITE_URL, "") || "/";
+        if (!pageMap[path]) pageMap[path] = { path, queries: [], clicks: 0, impressions: 0 };
+        pageMap[path].queries.push({ query, clicks: row.clicks, impressions: row.impressions, position: row.position, ctr: row.ctr });
+        pageMap[path].clicks += row.clicks;
+        pageMap[path].impressions += row.impressions;
+      }
+      const pages = Object.values(pageMap)
+        .sort((a, b) => b.impressions - a.impressions)
+        .map(p => ({ ...p, queries: p.queries.sort((a, b) => b.impressions - a.impressions).slice(0, 15) }));
+      return Response.json({ action, pages, startDate, endDate });
+    }
+
+    // ── 4. Index status check ───────────────────────────────────────────────
     if (action === "getIndexStatus") {
       const results = await Promise.all(
-        KEY_URLS.map(async (path) => {
+        ALL_PAGES.map(async (path) => {
           const fullUrl = `${SITE_URL}${path}`;
-          const res = await fetch(
-            `https://searchconsole.googleapis.com/v1/urlInspection/index:inspect`,
-            {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${accessToken}`,
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                inspectionUrl: fullUrl,
-                siteUrl: SITE_URL,
-              }),
-            }
-          );
-          const data = await res.json();
-          const result = data.inspectionResult || {};
+          const res = await fetch(`https://searchconsole.googleapis.com/v1/urlInspection/index:inspect`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+            body: JSON.stringify({ inspectionUrl: fullUrl, siteUrl: SITE_URL }),
+          });
+          const d = await res.json();
           return {
-            url: fullUrl,
-            path,
-            verdict: result.indexStatusResult?.verdict || "UNKNOWN",
-            lastCrawlTime: result.indexStatusResult?.lastCrawlTime || null,
-            coverageState: result.indexStatusResult?.coverageState || "Unknown",
+            url: fullUrl, path,
+            verdict: d.inspectionResult?.indexStatusResult?.verdict || "UNKNOWN",
+            lastCrawlTime: d.inspectionResult?.indexStatusResult?.lastCrawlTime || null,
+            coverageState: d.inspectionResult?.indexStatusResult?.coverageState || "Unknown",
           };
         })
       );
       return Response.json({ action, results });
     }
 
-    // ── 3. Submit sitemap ──────────────────────────────────────────────────
+    // ── 5. Submit sitemap only ──────────────────────────────────────────────
     if (action === "submitSitemap") {
-      const res = await fetch(
-        `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/sitemaps/${encodeURIComponent(SITEMAP_URL)}`,
-        {
-          method: "PUT",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
-
-      if (res.status === 200 || res.status === 204) {
-        return Response.json({ action, success: true, sitemapUrl: SITEMAP_URL });
-      } else {
-        const err = await res.json().catch(() => ({}));
-        return Response.json({ action, success: false, error: err }, { status: res.status });
-      }
+      const res = await fetch(`${scApiBase}/sitemaps/${encodeURIComponent(SITEMAP_URL)}`, {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      if (res.status === 200 || res.status === 204) return Response.json({ action, success: true, sitemapUrl: SITEMAP_URL });
+      const err = await res.json().catch(() => ({}));
+      return Response.json({ action, success: false, error: err }, { status: res.status });
     }
 
-    // ── 4. Request indexing for new landing pages ─────────────────────────
-    if (action === "requestIndexing") {
-      const urlsToIndex = (body.urls || NEW_LANDING_PAGES).map((p) =>
-        p.startsWith("http") ? p : `${SITE_URL}${p}`
-      );
-
-      // Submit/refresh the sitemap — most reliable way to signal new pages to Google
-      const sitemapRes = await fetch(
-        `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/sitemaps/${encodeURIComponent(SITEMAP_URL)}`,
-        {
-          method: "PUT",
-          headers: { Authorization: `Bearer ${accessToken}` },
-        }
-      );
+    // ── 6. Resubmit all pages ───────────────────────────────────────────────
+    if (action === "resubmitAllPages") {
+      const sitemapRes = await fetch(`${scApiBase}/sitemaps/${encodeURIComponent(SITEMAP_URL)}`, {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
       const sitemapOk = sitemapRes.status === 200 || sitemapRes.status === 204;
 
-      // Use URL Inspection to check current index status for each page
       const results = await Promise.all(
-        urlsToIndex.map(async (url) => {
-          const res = await fetch(
-            `https://searchconsole.googleapis.com/v1/urlInspection/index:inspect`,
-            {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${accessToken}`,
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                inspectionUrl: url,
-                siteUrl: SITE_URL,
-              }),
-            }
-          );
-          if (res.status === 403) {
-            // Inspection API may require URL-prefix property; mark as submitted via sitemap
-            return { url, verdict: "SUBMITTED", coverageState: "Submitted via Sitemap", status: res.status };
-          }
-          const data = await res.json();
-          const verdict = data.inspectionResult?.indexStatusResult?.verdict || "UNKNOWN";
-          const coverageState = data.inspectionResult?.indexStatusResult?.coverageState || "Unknown";
-          return { url, verdict, coverageState, status: res.status };
+        ALL_PAGES.map(async (path) => {
+          const url = `${SITE_URL}${path}`;
+          const res = await fetch(`https://searchconsole.googleapis.com/v1/urlInspection/index:inspect`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+            body: JSON.stringify({ inspectionUrl: url, siteUrl: SITE_URL }),
+          });
+          if (res.status === 403) return { url, path, verdict: "SUBMITTED", coverageState: "Submitted via Sitemap", status: 403 };
+          const d = await res.json();
+          return {
+            url, path,
+            verdict: d.inspectionResult?.indexStatusResult?.verdict || "UNKNOWN",
+            coverageState: d.inspectionResult?.indexStatusResult?.coverageState || "Unknown",
+            lastCrawlTime: d.inspectionResult?.indexStatusResult?.lastCrawlTime || null,
+            status: res.status,
+          };
         })
       );
+      return Response.json({ action, results, sitemapResubmitted: sitemapOk });
+    }
 
+    // ── Legacy requestIndexing alias ────────────────────────────────────────
+    if (action === "requestIndexing") {
+      const urlsToIndex = (body.urls || ALL_PAGES).map(p => p.startsWith("http") ? p : `${SITE_URL}${p}`);
+      const sitemapRes = await fetch(`${scApiBase}/sitemaps/${encodeURIComponent(SITEMAP_URL)}`, {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      const sitemapOk = sitemapRes.status === 200 || sitemapRes.status === 204;
+      const results = await Promise.all(
+        urlsToIndex.map(async (url) => {
+          const res = await fetch(`https://searchconsole.googleapis.com/v1/urlInspection/index:inspect`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+            body: JSON.stringify({ inspectionUrl: url, siteUrl: SITE_URL }),
+          });
+          if (res.status === 403) return { url, verdict: "SUBMITTED", coverageState: "Submitted via Sitemap", status: 403 };
+          const d = await res.json();
+          return { url, verdict: d.inspectionResult?.indexStatusResult?.verdict || "UNKNOWN", coverageState: d.inspectionResult?.indexStatusResult?.coverageState || "Unknown", status: res.status };
+        })
+      );
       return Response.json({ action, results, sitemapResubmitted: sitemapOk });
     }
 
