@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
+import { ShieldCheck } from "lucide-react";
 import SEOQueryTable from "@/components/seo/SEOQueryTable";
 import SEOIndexStatus from "@/components/seo/SEOIndexStatus";
 import SEOPageKeywords from "@/components/seo/SEOPageKeywords";
@@ -9,6 +10,25 @@ import { Search, Globe, Map, RefreshCw, Loader2, Home, Send, Zap } from "lucide-
 export default function SEODashboard() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState({});
+  const [user, setUser] = useState(null);
+  const [authChecked, setAuthChecked] = useState(false);
+
+  useEffect(() => {
+    base44.auth.me().then(u => { setUser(u); setAuthChecked(true); }).catch(() => setAuthChecked(true));
+  }, []);
+
+  if (!authChecked) return null;
+  if (!user || user.role !== "admin") {
+    return (
+      <div className="min-h-screen bg-[#FAFAF8] pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <ShieldCheck className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+          <h2 className="text-xl font-bold text-[#1E2D3D]">Admin Access Required</h2>
+          <p className="text-slate-500 text-sm mt-1">This page is restricted to administrators.</p>
+        </div>
+      </div>
+    );
+  }
 
   const call = async (action, extraBody = {}) => {
     setLoading(l => ({ ...l, [action]: true }));

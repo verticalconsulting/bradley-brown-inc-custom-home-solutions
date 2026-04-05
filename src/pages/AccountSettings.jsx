@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
@@ -11,12 +11,17 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Trash2, LogOut } from "lucide-react";
+import { Trash2, LogOut, Search, BarChart2, ChevronRight, ShieldCheck } from "lucide-react";
 
 export default function AccountSettings() {
   const navigate = useNavigate();
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    base44.auth.me().then(setUser).catch(() => {});
+  }, []);
 
   const handleDeleteAccount = async () => {
     setDeleting(true);
@@ -40,6 +45,38 @@ export default function AccountSettings() {
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
         <h1 className="text-3xl md:text-4xl font-bold text-[#1E2D3D] mb-2">Account Settings</h1>
         <p className="text-slate-600 mb-8">Manage your account and preferences.</p>
+
+        {/* Admin Tools — only visible to admins */}
+        {user?.role === "admin" && (
+          <div className="bg-white rounded-2xl shadow-md border border-[#E2D9CC] overflow-hidden mb-6">
+            <div className="p-6 md:p-8 border-b border-gray-100 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-sky-500" />
+              <h2 className="text-lg font-semibold text-[#1E2D3D]">Admin Tools</h2>
+            </div>
+            <div className="divide-y divide-gray-100">
+              <Link to="/SEODashboard" className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-colors group">
+                <div className="flex items-center gap-3">
+                  <Search className="w-5 h-5 text-sky-500" />
+                  <div>
+                    <p className="font-medium text-[#1E2D3D] text-sm">SEO Dashboard</p>
+                    <p className="text-xs text-slate-400">Search Console queries, indexing & page keywords</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-sky-500 transition-colors" />
+              </Link>
+              <Link to="/FunnelAnalysis" className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-colors group">
+                <div className="flex items-center gap-3">
+                  <BarChart2 className="w-5 h-5 text-indigo-500" />
+                  <div>
+                    <p className="font-medium text-[#1E2D3D] text-sm">Funnel Analysis</p>
+                    <p className="text-xs text-slate-400">GA4 consultation funnel & conversion tracking</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-indigo-500 transition-colors" />
+              </Link>
+            </div>
+          </div>
+        )}
 
         <div className="bg-white rounded-2xl shadow-md border border-[#E2D9CC] overflow-hidden">
           {/* Logout Section */}
