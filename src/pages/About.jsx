@@ -44,7 +44,7 @@ export default function About() {
       <div className="relative bg-[#1E2D3D] py-14 md:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80')" }}
+          style={{ backgroundImage: "url('https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/large')" }}
         />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Story</p>
@@ -57,8 +57,8 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
             <img
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80"
-              alt="Bradley Brown at a construction site"
+              src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/large"
+              alt="Bradley Brown and wife"
               className="rounded-xl shadow-lg w-full h-80 object-cover"
             />
           </div>
