@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vertical Consulting Network — Technology consulting, digital marketing, web development, and nonprofit services across Mississippi and beyond.">
+    <meta name="keywords" content="technology consulting, DevOps, digital marketing, web development, nonprofit technology, Mississippi">
+    <meta name="author" content="Vertical Consulting">
+    <title>Vertical Consulting Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0c0f14;
+            --surface: #141820;
+            --surface-hover: #1a2030;
+            --border: #1e2538;
+            --border-hover: #2a3654;
+            --text: #e8eaf0;
+            --text-muted: #7a8299;
+            --accent: #4f8ff7;
+            --accent-dim: #2a4a8a;
+            --green: #34d399;
+            --green-dim: rgba(52, 211, 153, 0.1);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            opacity: 0.025;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            z-index: 9999;
+        }
+
+        .glow-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.07;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-orb.blue { background: #4f8ff7; top: -200px; right: -100px; }
+        .glow-orb.green { background: #34d399; bottom: -200px; left: -100px; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            animation: fadeUp 0.6s ease-out both;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: var(--green-dim);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.25rem;
+        }
+        .badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+        }
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* Category Labels */
+        .category {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 2.5rem 0 1rem;
+            animation: fadeUp 0.6s ease-out both;
+        }
+        .category h2 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+        .category::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Link Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.25s ease;
+            animation: fadeUp 0.5s ease-out both;
+        }
+        .card:hover {
+            background: var(--surface-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .card-body { flex: 1; min-width: 0; }
+        .card-domain {
+            font-size: 0.92rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .card-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+
+        .card-arrow {
+            color: var(--text-muted);
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .card:hover .card-arrow {
+            color: var(--accent);
+            transform: translateX(3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            animation: fadeUp 0.6s ease-out both;
+        }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        @media (max-width: 700px) {
+            .grid { grid-template-columns: 1fr; }
+            .container { padding: 2rem 1rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="glow-orb blue"></div>
+    <div class="glow-orb green"></div>
+
+    <div class="container">
+        <header>
+            <div class="badge">All Systems Active</div>
+            <h1>Vertical Consulting <em>Network</em></h1>
+            <p class="subtitle">Technology consulting, digital marketing, cloud infrastructure, and web development — serving businesses and nonprofits across Mississippi and beyond.</p>
+        </header>
+
+        <!-- Technology & SaaS -->
+        <div class="category"><h2>Technology &amp; SaaS</h2></div>
+        <div class="grid">
+            <a href="https://verticalconsulting.net" target="_blank" rel="noopener" class="card" style="animation-delay:0.08s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#4f8ff7,#2563eb)">V</div>
+                <div class="card-body">
+                    <div class="card-domain">verticalconsulting.net</div>
+                    <div class="card-desc">Technology consulting &amp; digital services</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://strongtowervault.com" target="_blank" rel="noopener" class="card" style="animation-delay:0.12s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">S</div>
+                <div class="card-body">
+                    <div class="card-domain">strongtowervault.com</div>
+                    <div class="card-desc">Enterprise password vault solution</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://ai-hughes.net" target="_blank" rel="noopener" class="card" style="animation-delay:0.16s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">AI</div>
+                <div class="card-body">
+                    <div class="card-domain">ai-hughes.net</div>
+                    <div class="card-desc">AI research, automation &amp; DevOps insights</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://gridcommand.app" target="_blank" rel="noopener" class="card" style="animation-delay:0.20s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)">G</div>
+                <div class="card-body">
+                    <div class="card-domain">gridcommand.app</div>
+                    <div class="card-desc">Infrastructure command &amp; control platform</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://integraconnect.work" target="_blank" rel="noopener" class="card" style="animation-delay:0.24s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#10b981,#059669)">IC</div>
+                <div class="card-body">
+                    <div class="card-domain">integraconnect.work</div>
+                    <div class="card-desc">DevOps engineering &amp; cloud operations</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+        </div>
+
+        <!-- Home Services -->
+        <div class="category"><h2>Home Services</h2></div>
+        <div class="grid">
+            <a href="https://bradleybrowninc.com" target="_blank" rel="noopener" class="card" style="animation-delay:0.28s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#ef4444,#dc2626)">BB</div>
+                <div class="card-body">
+                    <div class="card-domain">bradleybrowninc.com</div>
+                    <div class="card-desc">Home remodeling &amp; renovation services</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://mercyelitegutters.org" target="_blank" rel="noopener" class="card" style="animation-delay:0.32s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#f97316,#ea580c)">ME</div>
+                <div class="card-body">
+                    <div class="card-domain">mercyelitegutters.org</div>
+                    <div class="card-desc">Gutter installation &amp; repair services</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://myelitegutters.com" target="_blank" rel="noopener" class="card" style="animation-delay:0.36s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#fb923c,#f97316)">EG</div>
+                <div class="card-body">
+                    <div class="card-domain">myelitegutters.com</div>
+                    <div class="card-desc">Elite gutter solutions</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+        </div>
+
+        <!-- Nonprofit & Ministry -->
+        <div class="category"><h2>Nonprofit &amp; Ministry</h2></div>
+        <div class="grid">
+            <a href="https://mercyhouseworks.org" target="_blank" rel="noopener" class="card" style="animation-delay:0.40s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">MH</div>
+                <div class="card-body">
+                    <div class="card-domain">mercyhouseworks.org</div>
+                    <div class="card-desc">Adult &amp; Teen Challenge recovery programs</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://sacredgroveatc.com" target="_blank" rel="noopener" class="card" style="animation-delay:0.44s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#34d399,#059669)">SG</div>
+                <div class="card-body">
+                    <div class="card-domain">sacredgroveatc.com</div>
+                    <div class="card-desc">Sacred Grove recovery &amp; faith-based ministry</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://vehicledonationms.com" target="_blank" rel="noopener" class="card" style="animation-delay:0.48s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#60a5fa,#3b82f6)">VD</div>
+                <div class="card-body">
+                    <div class="card-domain">vehicledonationms.com</div>
+                    <div class="card-desc">Vehicle donation program — Mississippi</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://vehicledonationms.org" target="_blank" rel="noopener" class="card" style="animation-delay:0.52s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#818cf8,#6366f1)">VD</div>
+                <div class="card-body">
+                    <div class="card-domain">vehicledonationms.org</div>
+                    <div class="card-desc">Tax-deductible vehicle donations</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://superthriftdeals.org" target="_blank" rel="noopener" class="card" style="animation-delay:0.56s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#fbbf24,#f59e0b)">ST</div>
+                <div class="card-body">
+                    <div class="card-domain">superthriftdeals.org</div>
+                    <div class="card-desc">SuperThrift deals &amp; community thrift store</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+        </div>
+
+        <!-- Sports & Recreation -->
+        <div class="category"><h2>Sports &amp; Recreation</h2></div>
+        <div class="grid">
+            <a href="https://dbatpearlcamps.com" target="_blank" rel="noopener" class="card" style="animation-delay:0.60s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">DB</div>
+                <div class="card-body">
+                    <div class="card-domain">dbatpearlcamps.com</div>
+                    <div class="card-desc">D-BAT Pearl baseball camps &amp; training</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+        </div>
+
+        <!-- Personal -->
+        <div class="category"><h2>Personal</h2></div>
+        <div class="grid">
+            <a href="https://5hughes.com" target="_blank" rel="noopener" class="card" style="animation-delay:0.64s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">5H</div>
+                <div class="card-body">
+                    <div class="card-domain">5hughes.com</div>
+                    <div class="card-desc">The Hughes family — personal site</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+            <a href="https://jaxsenhughes.com" target="_blank" rel="noopener" class="card" style="animation-delay:0.68s">
+                <div class="card-icon" style="background:linear-gradient(135deg,#e879f9,#c026d3)">JH</div>
+                <div class="card-body">
+                    <div class="card-domain">jaxsenhughes.com</div>
+                    <div class="card-desc">Jaxsen Hughes — personal portfolio</div>
+                </div>
+                <svg class="card-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5-5 5 5"/></svg>
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 <a href="https://verticalconsulting.net">Vertical Consulting</a>. All rights reserved. Built in Mississippi.</p>
+        </footer>
+    </div>
+</body>
+</html>
