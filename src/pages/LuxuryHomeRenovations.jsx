@@ -67,6 +67,7 @@ export default function LuxuryHomeRenovations() {
         title="Luxury Home Renovations in Brandon, MS — Bradley Brown Inc"
         description="Premium kitchen, bath & whole-home renovations in Central Mississippi. Custom millwork, designer finishes, dedicated project management. Call (601) 954-1306."
         schema={schema}
+        canonical="https://bradleybrowninc.com/LuxuryHomeRenovations"
       />
 
       {/* Hero */}

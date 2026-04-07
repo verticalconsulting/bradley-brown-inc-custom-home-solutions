@@ -32,7 +32,7 @@ export default function SEOHead({ title, description, schema, canonical }) {
     setOG("og:description", description || "");
     setOG("og:type", "website");
 
-    // Canonical URL
+    // Canonical URL — always set or remove
     let canonicalTag = document.querySelector('link[rel="canonical"]');
     if (canonical) {
       if (!canonicalTag) {
@@ -41,6 +41,8 @@ export default function SEOHead({ title, description, schema, canonical }) {
         document.head.appendChild(canonicalTag);
       }
       canonicalTag.setAttribute("href", canonical);
+    } else {
+      if (canonicalTag) canonicalTag.remove();
     }
 
     // JSON-LD structured data
@@ -59,7 +61,7 @@ export default function SEOHead({ title, description, schema, canonical }) {
       const script = document.getElementById("__json-ld__");
       if (script) script.remove();
     };
-  }, [title, description, JSON.stringify(schema)]);
+  }, [title, description, canonical, JSON.stringify(schema)]);
 
   return null;
 }

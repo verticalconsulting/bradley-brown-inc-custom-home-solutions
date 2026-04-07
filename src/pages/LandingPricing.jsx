@@ -63,6 +63,7 @@ export default function LandingPricing() {
         title="Home Remodeling Cost in Brandon, MS — Bradley Brown"
         description="Transparent pricing for kitchens, baths & custom homes in Brandon, MS. Call (601) 954-1306 for a free estimate."
         schema={schema}
+        canonical="https://bradleybrowninc.com/LandingPricing"
       />
       <StickyCallButton />
 

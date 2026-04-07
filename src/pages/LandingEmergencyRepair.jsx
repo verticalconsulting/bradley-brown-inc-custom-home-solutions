@@ -60,6 +60,7 @@ export default function LandingEmergencyRepair() {
         title="Emergency Home Repairs — Call Bradley Brown Now"
         description="Urgent home repairs in Brandon, MS — storm damage, leaks & structural issues. Call (601) 954-1306 for fast response."
         schema={schema}
+        canonical="https://bradleybrowninc.com/LandingEmergencyRepair"
       />
       <StickyCallButton />
 

@@ -77,7 +77,7 @@ export default function EnergyEfficientUpgrades() {
         title="Energy-Efficient Home Upgrades in Brandon, MS | Save on Bills"
         description="Top energy-efficient home upgrades for Brandon, MS homeowners — HVAC, insulation, windows, solar & more. Reduce bills, increase home value & claim federal tax credits."
         schema={energySchema}
-        canonical="https://custom-home-builder.bradleybrowninc.com/energy-efficient-home-upgrades"
+        canonical="https://bradleybrowninc.com/EnergyEfficientUpgrades"
       />
 
       <div className="bg-[#1E2D3D] py-14 md:py-20">

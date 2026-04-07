@@ -60,7 +60,7 @@ export default function RenovationLoans() {
         title="Renovation Loans for New Homes in Brandon, MS | Financing Guide"
         description="Compare renovation loans for new homes in Brandon, MS — FHA 203k, HELOC, home equity loans & personal loans. Find the best financing option for your remodeling project."
         schema={renovationLoansSchema}
-        canonical="https://custom-home-builder.bradleybrowninc.com/renovation-loans"
+        canonical="https://bradleybrowninc.com/RenovationLoans"
       />
 
       <div className="bg-[#1E2D3D] py-14 md:py-20">
