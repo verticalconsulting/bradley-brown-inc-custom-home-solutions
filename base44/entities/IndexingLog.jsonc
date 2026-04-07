@@ -1,0 +1,70 @@
+{
+  "name": "IndexingLog",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "description": "Action performed (submitSitemap, resubmitAllPages, getIndexStatus)"
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "sitemap_submitted": {
+      "type": "boolean"
+    },
+    "total_pages": {
+      "type": "number"
+    },
+    "indexed_count": {
+      "type": "number"
+    },
+    "unknown_count": {
+      "type": "number"
+    },
+    "error_count": {
+      "type": "number"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "http_status": {
+      "type": "number"
+    },
+    "page_results": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Per-page index results"
+    },
+    "triggered_by": {
+      "type": "string",
+      "description": "Email of admin who triggered the action"
+    }
+  },
+  "required": [
+    "action"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
