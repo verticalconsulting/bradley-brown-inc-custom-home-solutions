@@ -97,6 +97,7 @@ export default function SmallBathroomIdeas() {
         title="Small Bathroom Remodeling Ideas — Brandon, MS | Bradley Brown Inc"
         description="6 practical small bathroom remodeling ideas from Central Mississippi's trusted contractor. Walk-in showers, large-format tile & more. Call (601) 954-1306."
         schema={schema}
+        canonical="https://bradleybrowninc.com/SmallBathroomIdeas"
       />
 
       {/* Hero */}

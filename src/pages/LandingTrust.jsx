@@ -78,6 +78,7 @@ export default function LandingTrust() {
         title="Why Trust Bradley Brown Inc. — Certified MS Builder"
         description="Licensed MS contractor since 1995. 4.9★ rated, BBB member, NAHB & MSHBA certified. Call (601) 954-1306."
         schema={schema}
+        canonical="https://bradleybrowninc.com/LandingTrust"
       />
       <StickyCallButton />
 

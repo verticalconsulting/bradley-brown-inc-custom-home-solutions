@@ -137,6 +137,20 @@ Deno.serve(async (req) => {
           };
         })
       );
+      const indexedCount = results.filter(r => r.verdict === "PASS" || r.verdict === "INDEXED").length;
+      const unknownCount = results.filter(r => r.verdict === "UNKNOWN").length;
+
+      await base44.asServiceRole.entities.IndexingLog.create({
+        action: "getIndexStatus",
+        success: true,
+        total_pages: results.length,
+        indexed_count: indexedCount,
+        unknown_count: unknownCount,
+        error_count: 0,
+        page_results: results,
+        triggered_by: user.email,
+      });
+
       return Response.json({ action, results });
     }
 
@@ -146,8 +160,16 @@ Deno.serve(async (req) => {
         method: "PUT",
         headers: { Authorization: `Bearer ${accessToken}` },
       });
-      if (res.status === 200 || res.status === 204) return Response.json({ action, success: true, sitemapUrl: SITEMAP_URL });
-      const err = await res.json().catch(() => ({}));
+      const success = res.status === 200 || res.status === 204;
+      const err = success ? null : await res.json().catch(() => ({}));
+      await base44.asServiceRole.entities.IndexingLog.create({
+        action: "submitSitemap",
+        success,
+        http_status: res.status,
+        error_message: success ? null : JSON.stringify(err?.error?.message || err),
+        triggered_by: user.email,
+      });
+      if (success) return Response.json({ action, success: true, sitemapUrl: SITEMAP_URL });
       return Response.json({ action, success: false, error: err }, { status: res.status });
     }
 
@@ -178,6 +200,23 @@ Deno.serve(async (req) => {
           };
         })
       );
+
+      const indexedCount = results.filter(r => r.verdict === "PASS" || r.verdict === "INDEXED").length;
+      const unknownCount = results.filter(r => r.verdict === "UNKNOWN").length;
+      const errorCount = results.filter(r => r.verdict === "FAIL" || (r.status && r.status >= 400 && r.status !== 403)).length;
+
+      await base44.asServiceRole.entities.IndexingLog.create({
+        action: "resubmitAllPages",
+        success: sitemapOk,
+        sitemap_submitted: sitemapOk,
+        total_pages: results.length,
+        indexed_count: indexedCount,
+        unknown_count: unknownCount,
+        error_count: errorCount,
+        page_results: results,
+        triggered_by: user.email,
+      });
+
       return Response.json({ action, results, sitemapResubmitted: sitemapOk });
     }
 

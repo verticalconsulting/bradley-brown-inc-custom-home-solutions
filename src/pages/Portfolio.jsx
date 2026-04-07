@@ -53,6 +53,7 @@ export default function Portfolio() {
       <SEOHead
         title="Project Portfolio – Custom Homes & Renovations in Mississippi"
         description="Browse our portfolio of custom homes, kitchen & bath renovations, room additions, and outdoor living projects built across Jackson, Madison, Ridgeland, Brandon, and Central Mississippi."
+        canonical="https://bradleybrowninc.com/Portfolio"
       />
       <div className="bg-[#1E2D3D] py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">

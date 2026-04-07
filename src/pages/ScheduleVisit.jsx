@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
+import SEOHead from "@/components/SEOHead";
 import { Calendar, Clock, User, Mail, Phone, MapPin, CheckCircle, Loader2 } from "lucide-react";
 
 const PROJECT_TYPES = [
@@ -85,6 +86,11 @@ export default function ScheduleVisit() {
 
     return (
         <div className="min-h-screen bg-[#FAFAF8] pt-20">
+            <SEOHead
+                title="Schedule a Free Site Visit — Bradley Brown Inc."
+                description="Book a free on-site consultation with Bradley Brown Inc. in Brandon, MS. We'll come to you — no obligation."
+                canonical="https://bradleybrowninc.com/ScheduleVisit"
+            />
             {/* Header */}
             <div className="bg-[#1E2D3D] py-10 md:py-14">
                 <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">

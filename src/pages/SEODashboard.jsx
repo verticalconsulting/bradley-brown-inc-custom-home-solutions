@@ -5,6 +5,7 @@ import SEOQueryTable from "@/components/seo/SEOQueryTable";
 import SEOIndexStatus from "@/components/seo/SEOIndexStatus";
 import SEOPageKeywords from "@/components/seo/SEOPageKeywords";
 import SEOCustomHomeAnalysis from "@/components/seo/SEOCustomHomeAnalysis";
+import SEOIndexingLog from "@/components/seo/SEOIndexingLog";
 import { Search, Globe, Map, RefreshCw, Loader2, Home, Send, Zap } from "lucide-react";
 
 export default function SEODashboard() {
@@ -159,6 +160,9 @@ export default function SEODashboard() {
             )}
           </div>
         </section>
+
+        {/* ── Indexing Activity Log ── */}
+        <SEOIndexingLog />
 
       </div>
     </div>

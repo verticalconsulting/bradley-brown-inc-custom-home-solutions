@@ -40,6 +40,7 @@ export default function About() {
         title="About Us – 30+ Years Building Central Mississippi Homes"
         description="Learn about Bradley Brown Inc., Central Mississippi's trusted home builder since 1995. Meet the team and discover our commitment to craftsmanship, integrity, and client partnerships."
         schema={localBusinessSchema}
+        canonical="https://bradleybrowninc.com/About"
       />
       <div className="relative bg-[#1E2D3D] py-14 md:py-24 overflow-hidden">
         <div

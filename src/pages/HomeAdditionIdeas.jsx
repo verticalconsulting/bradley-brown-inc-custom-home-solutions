@@ -71,7 +71,7 @@ export default function HomeAdditionIdeas() {
         title="Home Addition Ideas for Brandon, MS | Room Additions & Expansions"
         description="Explore the best home addition ideas for Brandon, MS homeowners. Master suites, sunrooms, in-law suites, garage conversions & outdoor kitchens. Get a free estimate from Bradley Brown Inc."
         schema={additionsSchema}
-        canonical="https://custom-home-builder.bradleybrowninc.com/home-addition-ideas"
+        canonical="https://bradleybrowninc.com/HomeAdditionIdeas"
       />
 
       <div className="bg-[#1E2D3D] py-14 md:py-20">

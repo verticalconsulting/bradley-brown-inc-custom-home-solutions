@@ -62,6 +62,7 @@ export default function LandingBrandonRemodelers() {
         title="Brandon, MS Home Remodelers — Bradley Brown Inc."
         description="Bradley Brown Inc. — Brandon & Central MS home remodelers. 30+ yrs. Call (601) 954-1306 for a free estimate."
         schema={schema}
+        canonical="https://bradleybrowninc.com/LandingBrandonRemodelers"
       />
       <StickyCallButton />
 
