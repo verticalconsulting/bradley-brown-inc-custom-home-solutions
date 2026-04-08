@@ -318,7 +318,13 @@ export default function Layout({ children, currentPageName }) {
                 { label: "AI Estimator", page: "QuoteAssistant" },
                 { label: "Renovation Loans", page: "RenovationLoans" },
                 { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-                { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" }].
+                { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+                { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
+                { label: "Pricing Guide", page: "LandingPricing" },
+                { label: "Why Trust Us", page: "LandingTrust" },
+                { label: "Brandon Remodelers", page: "LandingBrandonRemodelers" },
+                { label: "Core Services", page: "LandingCoreServices" },
+                { label: "Emergency Repair", page: "LandingEmergencyRepair" }].
                 map((item) =>
                 <li key={item.page}>
                     <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>

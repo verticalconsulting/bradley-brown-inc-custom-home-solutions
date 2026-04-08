@@ -144,15 +144,20 @@ export default function EnergyEfficientUpgrades() {
         </div>
 
         <div className="mt-10 flex flex-wrap gap-3">
-          <Link to={createPageUrl("Services")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
-            <ChevronRight className="w-3.5 h-3.5" /> View All Services
-          </Link>
-          <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
-            <ChevronRight className="w-3.5 h-3.5" /> Get a Free Estimate
-          </Link>
-          <Link to={createPageUrl("HomeAdditionIdeas")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
-            <ChevronRight className="w-3.5 h-3.5" /> Home Addition Ideas
-          </Link>
+          {[
+            { label: "View All Services", page: "Services" },
+            { label: "Get a Free Estimate", page: "QuoteAssistant" },
+            { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+            { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
+            { label: "Renovation Loans", page: "RenovationLoans" },
+            { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+            { label: "Portfolio", page: "Portfolio" },
+            { label: "Contact Us", page: "Contact" },
+          ].map((link) => (
+            <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+              <ChevronRight className="w-3.5 h-3.5" /> {link.label}
+            </Link>
+          ))}
         </div>
       </div>
 

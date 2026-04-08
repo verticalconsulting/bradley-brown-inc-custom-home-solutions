@@ -183,6 +183,26 @@ export default function LandingTrust() {
         </div>
       </div>
 
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
+        <div className="bg-slate-50 border border-gray-200 rounded-xl p-5">
+          <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Pages</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: "View All Services", page: "Services" },
+              { label: "Our Portfolio", page: "Portfolio" },
+              { label: "About Us", page: "About" },
+              { label: "Get a Free Estimate", page: "QuoteAssistant" },
+              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+              { label: "Pricing Guide", page: "LandingPricing" },
+              { label: "Contact Us", page: "Contact" },
+            ].map((link) => (
+              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+                <ChevronRight className="w-3 h-3" /> {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
       <LandingCTABar headline="Ready to work with Mississippi's most trusted builder?" />
     </div>
   );

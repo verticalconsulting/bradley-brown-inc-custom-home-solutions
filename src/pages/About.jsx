@@ -119,6 +119,28 @@ export default function About() {
         </div>
       </div>
 
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-10">
+        <div className="bg-slate-50 border border-gray-200 rounded-xl p-5">
+          <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: "Our Services", page: "Services" },
+              { label: "Portfolio", page: "Portfolio" },
+              { label: "Contact Us", page: "Contact" },
+              { label: "Get a Free Estimate", page: "QuoteAssistant" },
+              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+              { label: "Pro Tips", page: "ProTips" },
+              { label: "Why Trust Us", page: "LandingTrust" },
+              { label: "Pricing Guide", page: "LandingPricing" },
+            ].map((link) => (
+              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+                <ChevronRight className="w-3 h-3" /> {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div id="testimonials" className="bg-sky-600 py-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Work With Us?</h2>
