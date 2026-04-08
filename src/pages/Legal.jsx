@@ -112,13 +112,13 @@ export default function Legal() {
               <p className="mt-2">
                 Bradley Brown Inc.<br />
                 Email: info@bradleybrownhomes.com<br />
-                Phone: (601) 234-5678
-              </p>
-            </div>
-          </div>
-        </section>
+                Phone: (844) 351-4154
+                </p>
+                </div>
+                </div>
+                </section>
 
-        {/* Terms & Conditions */}
+                {/* Terms & Conditions */}
         <section id="terms" className="mb-16">
           <h1 className="text-3xl font-bold text-[#1E2D3D] mb-6 flex items-center gap-3">
             Terms & Conditions
@@ -156,7 +156,7 @@ export default function Legal() {
               </p>
               <p className="mt-2">
                 Email: info@bradleybrownhomes.com<br />
-                Phone: (601) 234-5678<br />
+                Phone: (844) 351-4154<br />
                 Hours: Monday-Friday, 9am-5pm CST
               </p>
             </div>
@@ -207,7 +207,7 @@ export default function Legal() {
               <p className="mt-2">
                 Bradley Brown Inc.<br />
                 Email: info@bradleybrownhomes.com<br />
-                Phone: (601) 234-5678
+                Phone: (844) 351-4154
               </p>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function Legal() {
               </p>
               <p className="font-semibold text-gray-800 mb-3">HELP</p>
               <p className="text-gray-700">
-                Or contact us directly at (601) 234-5678 or info@bradleybrownhomes.com
+                Or contact us directly at (844) 351-4154 or info@bradleybrownhomes.com
               </p>
             </div>
 

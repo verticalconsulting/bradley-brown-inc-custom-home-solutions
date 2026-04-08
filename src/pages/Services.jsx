@@ -57,14 +57,14 @@ export default function Services() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Expert Home Remodeling Services in Brandon, MS | Bradley Brown Inc"
-        description="Expert home remodeling services in Brandon, MS — kitchen remodeling, bathroom renovations, room additions & custom homes. Licensed & insured since 1995. Free estimates. Call (601) 954-1306."
+        description="Expert home remodeling services in Brandon, MS — kitchen remodeling, bathroom renovations, room additions & custom homes. Licensed & insured since 1995. Free estimates. Call (844) 351-4154."
         schema={servicesSchema}
         canonical="https://bradleybrowninc.com/services"
       />
       {/* Mobile click-to-call above fold */}
       <div className="md:hidden sticky top-16 z-40 bg-green-500 text-white py-2.5 px-4 text-center text-sm font-semibold">
-        <a href="tel:+16019541306" className="flex items-center justify-center gap-2">
-          <Phone className="w-4 h-4" /> Call for a Free Estimate: (601) 954-1306
+        <a href="tel:+18443514154" className="flex items-center justify-center gap-2">
+          <Phone className="w-4 h-4" /> Call for a Free Estimate: (844) 351-4154
         </a>
       </div>
       <div className="bg-[#1E2D3D] py-14 md:py-20">
@@ -72,8 +72,8 @@ export default function Services() {
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Brandon, MS & Central Mississippi</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Expert Home Remodeling Services in Brandon, MS</h1>
           <p className="text-slate-300 mt-4 max-w-xl mx-auto">Licensed, insured, and trusted since 1995. Serving Brandon, Flowood, Pearl, Madison, Ridgeland, Jackson & surrounding areas.</p>
-          <a href="tel:+16019541306" className="mt-6 hidden md:inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
-            <Phone className="w-4 h-4" /> (601) 954-1306 — Free Estimate
+          <a href="tel:+18443514154" className="mt-6 hidden md:inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
+            <Phone className="w-4 h-4" /> (844) 351-4154 — Free Estimate
           </a>
         </div>
       </div>
@@ -159,8 +159,8 @@ export default function Services() {
             <Link to={createPageUrl("ContactForm")} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
               Get a Free Estimate <ChevronRight className="w-4 h-4" />
             </Link>
-            <a href="tel:+16019541306" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-              <Phone className="w-4 h-4" /> Call (601) 954-1306
+            <a href="tel:+18443514154" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+              <Phone className="w-4 h-4" /> Call (844) 351-4154
             </a>
           </div>
         </div>
