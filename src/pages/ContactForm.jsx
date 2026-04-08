@@ -40,9 +40,6 @@ export default function ContactForm() {
       },
     });
 
-    // Submit to Formspree first so the event object is fresh
-    await handleSubmit(e);
-
     // Save to database
     await base44.entities.QuoteRequest.create({
       name: formData.name,
@@ -53,6 +50,9 @@ export default function ContactForm() {
       description: formData.message,
       status: "new",
     });
+
+    // Submit to Formspree
+    await handleSubmit(e);
   };
 
   return (
