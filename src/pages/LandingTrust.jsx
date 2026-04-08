@@ -1,5 +1,6 @@
 import React from "react";
-import { Phone, Award, Shield, Star, CheckCircle, ChevronRight } from "lucide-react";
+import { Phone, Award, Shield, CheckCircle, ChevronRight } from "lucide-react";
+import TestimonialSlider from "@/components/TestimonialSlider";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
@@ -45,14 +46,7 @@ const schema = {
   ]
 };
 
-const testimonials = [
-  { name: "Sarah M.", location: "Brandon, MS", text: "Bradley Brown built our custom home in Brandon and the craftsmanship is incredible. Every detail was perfect. 10/10 would recommend.", rating: 5, project: "Custom Home" },
-  { name: "James T.", location: "Flowood, MS", text: "Renovated our entire kitchen and two bathrooms. On time, on budget, and the quality is outstanding. We've already referred three neighbors.", rating: 5, project: "Kitchen & Bath Remodel" },
-  { name: "Karen L.", location: "Madison, MS", text: "The most professional contractor we've ever worked with. They treated our home like it was their own. Zero regrets.", rating: 5, project: "Whole-Home Renovation" },
-  { name: "Mike R.", location: "Pearl, MS", text: "Brad's crew built our outdoor living space and screened porch. Best investment we've made. Outstanding work.", rating: 5, project: "Outdoor Living" },
-  { name: "Lisa P.", location: "Ridgeland, MS", text: "Honest, transparent, and genuinely talented builders. Our room addition came in on budget and looks like it was always part of the house.", rating: 5, project: "Room Addition" },
-  { name: "David H.", location: "Jackson, MS", text: "I've used Bradley Brown twice now. First a bathroom remodel, then a full kitchen gut. Both times — perfect results.", rating: 5, project: "Remodeling" },
-];
+
 
 const badges = [
   { name: "Licensed & Insured", img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/a21f22f37_licensed-insured.png" },
@@ -141,19 +135,12 @@ export default function LandingTrust() {
 
         {/* Testimonials */}
         <div id="testimonials">
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">What Our Clients Say</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
-                <div className="flex gap-0.5 mb-2">
-                  {Array(t.rating).fill(0).map((_, j) => <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />)}
-                </div>
-                <p className="text-slate-600 text-sm leading-relaxed italic mb-3">"{t.text}"</p>
-                <p className="text-xs font-semibold text-slate-700">{t.name} · {t.location}</p>
-                <p className="text-xs text-sky-500">{t.project}</p>
-              </div>
-            ))}
-          </div>
+          <TestimonialSlider
+            variant="light"
+            limit={6}
+            title="What Our Clients Say"
+            subtitle="500+ homes built across Central Mississippi. Here's what homeowners say about working with us."
+          />
         </div>
 
         {/* Trust signals */}

@@ -5,7 +5,7 @@ import HeroSection from "@/components/home/HeroSection";
 import TrustSignals from "@/components/home/TrustSignals";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
-import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
+import TestimonialSlider from "@/components/TestimonialSlider";
 import CTABanner from "@/components/home/CTABanner";
 import ServiceAreaSection from "@/components/home/ServiceAreaSection";
 import PullToRefresh from "@/components/PullToRefresh";
@@ -30,7 +30,7 @@ export default function Home() {
         <ServicesPreview />
         <FeaturedProjects />
         <ServiceAreaSection />
-        <TestimonialsCarousel />
+        <TestimonialSlider featuredOnly={true} limit={6} />
         <CTABanner />
       </div>
     </PullToRefresh>
