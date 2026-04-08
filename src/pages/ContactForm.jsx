@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
+import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { ChevronRight, Send } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
@@ -14,6 +15,7 @@ const projectTypes = [
 ];
 
 export default function ContactForm() {
+  const navigate = useNavigate();
   const [state, handleSubmit] = useForm("xeeranrd");
   const [formData, setFormData] = useState({
     name: "",
@@ -51,8 +53,9 @@ export default function ContactForm() {
       status: "new",
     });
 
-    // Submit to Formspree
+    // Submit to Formspree then redirect
     await handleSubmit(e);
+    navigate("/thank-you");
   };
 
   return (

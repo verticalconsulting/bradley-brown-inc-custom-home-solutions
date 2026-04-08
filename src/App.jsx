@@ -8,6 +8,7 @@ import PageNotFound from './lib/PageNotFound';
 import SEODashboard from './pages/SEODashboard';
 import FunnelAnalysis from './pages/FunnelAnalysis';
 import ContactForm from './pages/ContactForm';
+import ThankYou from './pages/ThankYou';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
@@ -64,6 +65,7 @@ const AuthenticatedApp = () => {
       <Route path="/SEODashboard" element={<LayoutWrapper currentPageName="SEODashboard"><SEODashboard /></LayoutWrapper>} />
       <Route path="/FunnelAnalysis" element={<LayoutWrapper currentPageName="FunnelAnalysis"><FunnelAnalysis /></LayoutWrapper>} />
       <Route path="/ContactForm" element={<LayoutWrapper currentPageName="ContactForm"><ContactForm /></LayoutWrapper>} />
+      <Route path="/thank-you" element={<LayoutWrapper currentPageName="ThankYou"><ThankYou /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
