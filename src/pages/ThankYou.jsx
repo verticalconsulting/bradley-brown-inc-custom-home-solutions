@@ -10,6 +10,13 @@ export default function ThankYou() {
         title="Thank You — Bradley Brown Inc."
         description="Thank you for contacting Bradley Brown Inc. We'll get back to you within 24 hours."
       />
+      <script dangerouslySetInnerHTML={{ __html: `
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17864041271/ZBa_CIf-jpccELfGnsZC',
+          'value': 50,
+          'currency': 'USD'
+        });
+      `}} />
 
       <div className="max-w-xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
         <div className="bg-white rounded-2xl shadow-md border border-[#E2D9CC] p-8 md:p-12">

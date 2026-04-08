@@ -48,6 +48,15 @@ export default function ScheduleVisit() {
         if (res.data?.success) {
             setSuccess(res.data);
             base44.analytics.track({ eventName: "site_visit_scheduled", properties: { project_type: form.project_type } });
+            
+            // Track Google Ads Conversion
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'conversion', {
+                    'send_to': 'AW-17864041271/wbLkCPOBj5ccELfGnsZC',
+                    'value': 100,
+                    'currency': 'USD'
+                });
+            }
         } else {
             setError(res.data?.error || "Something went wrong. Please try again.");
         }

@@ -149,8 +149,17 @@ export default function Layout({ children, currentPageName }) {
             <div className="flex items-center gap-3">
               <a
                 href="tel:+18443514154"
-                                onClick={() => base44.analytics.track({ eventName: "nav_phone_clicked" })}
-                                className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-sky-400 ${textColor}`}>
+                onClick={() => {
+                  base44.analytics.track({ eventName: "nav_phone_clicked" });
+                  if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'conversion', {
+                      'send_to': 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
+                      'value': 30,
+                      'currency': 'USD'
+                    });
+                  }
+                }}
+                className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-sky-400 ${textColor}`}>
 
                 <Phone className="w-4 h-4" />
                 (844) 351-4154
@@ -189,7 +198,18 @@ export default function Layout({ children, currentPageName }) {
                 </Link>
             )}
               <div className="pt-3 border-t border-gray-100 space-y-2">
-                <a href="tel:+18443514154" className="flex items-center gap-2 px-3 py-2 text-[#1E2D3D] font-medium">
+                <a 
+                  href="tel:+18443514154" 
+                  onClick={() => {
+                    if (typeof window.gtag === 'function') {
+                      window.gtag('event', 'conversion', {
+                        'send_to': 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
+                        'value': 30,
+                        'currency': 'USD'
+                      });
+                    }
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 text-[#1E2D3D] font-medium">
                   <Phone className="w-4 h-4 text-sky-400" />
                   (844) 351-4154
                 </a>
@@ -235,7 +255,18 @@ export default function Layout({ children, currentPageName }) {
                 Building Central Mississippi's dream homes with craftsmanship, integrity, and attention to detail since 1995.
               </p>
               <div className="mt-5 space-y-2">
-                <a href="tel:+18443514154" className="flex items-center gap-2 text-slate-300 hover:text-sky-400 text-sm transition-colors">
+                <a 
+                  href="tel:+18443514154"
+                  onClick={() => {
+                    if (typeof window.gtag === 'function') {
+                      window.gtag('event', 'conversion', {
+                        'send_to': 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
+                        'value': 30,
+                        'currency': 'USD'
+                      });
+                    }
+                  }}
+                  className="flex items-center gap-2 text-slate-300 hover:text-sky-400 text-sm transition-colors">
                   <Phone className="w-4 h-4" /> (844) 351-4154
                 </a>
                 <a href="mailto:bradleybrowninc@gmail.com" className="block text-slate-300 hover:text-sky-400 text-sm transition-colors">
