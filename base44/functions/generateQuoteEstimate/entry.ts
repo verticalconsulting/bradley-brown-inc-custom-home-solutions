@@ -163,7 +163,7 @@ Return ONLY valid JSON matching the schema.
      * This helps force more reliable parsing than plain JSON mode alone.
      */
     const response = await openai.chat.completions.create({
-      model: 'gpt-4o',
+      model: 'gpt-5.4-mini',
       temperature: 0.4,
       max_tokens: 1100,
       response_format: {
