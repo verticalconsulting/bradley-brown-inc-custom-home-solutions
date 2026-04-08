@@ -20,7 +20,7 @@ export default function LandingCTABar({ headline = "Ready to Get Started?" }) {
         <Phone className="w-5 h-5" /> (601) 954-1306
       </a>
       <Link
-        to={createPageUrl("QuoteAssistant")}
+        to={createPageUrl("ContactForm")}
         className="flex items-center gap-1.5 bg-sky-400 hover:bg-sky-500 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
       >
         Free Estimate <ChevronRight className="w-4 h-4" />

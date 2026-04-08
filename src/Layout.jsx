@@ -156,7 +156,7 @@ export default function Layout({ children, currentPageName }) {
                 (844) 351-4154
               </a>
               <Link
-                to={createPageUrl("QuoteAssistant")} className="bg-sky-400 text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors">
+                to={createPageUrl("ContactForm")} className="bg-sky-400 text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors">
 
 
                 Get a Quote <ChevronRight className="w-3 h-3" />
@@ -194,7 +194,7 @@ export default function Layout({ children, currentPageName }) {
                   (844) 351-4154
                 </a>
                 <Link
-                to={createPageUrl("QuoteAssistant")}
+                to={createPageUrl("ContactForm")}
                 className="block bg-sky-400 text-white px-4 py-3 rounded-lg text-center font-semibold hover:bg-sky-500 transition-colors">
 
                   Get a Free Quote →
@@ -283,7 +283,8 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Our Story", page: "About" },
                 { label: "Portfolio", page: "Portfolio" },
                 { label: "Contact Us", page: "Contact" },
-                { label: "Get a Quote", page: "QuoteAssistant" },
+                { label: "Get a Quote", page: "ContactForm" },
+                { label: "AI Estimator", page: "QuoteAssistant" },
                 { label: "Renovation Loans", page: "RenovationLoans" },
                 { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
                 { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" }].

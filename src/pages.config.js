@@ -52,6 +52,7 @@ import AccountSettings from './pages/AccountSettings';
 import AgentChat from './pages/AgentChat';
 import CRM from './pages/CRM';
 import Contact from './pages/Contact';
+import ContactForm from './pages/ContactForm';
 import EnergyEfficientUpgrades from './pages/EnergyEfficientUpgrades';
 import Home from './pages/Home';
 import HomeAdditionIdeas from './pages/HomeAdditionIdeas';
@@ -79,6 +80,7 @@ export const PAGES = {
     "AgentChat": AgentChat,
     "CRM": CRM,
     "Contact": Contact,
+    "ContactForm": ContactForm,
     "EnergyEfficientUpgrades": EnergyEfficientUpgrades,
     "Home": Home,
     "HomeAdditionIdeas": HomeAdditionIdeas,

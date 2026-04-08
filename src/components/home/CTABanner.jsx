@@ -19,7 +19,7 @@ export default function CTABanner() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            to={createPageUrl("QuoteAssistant")} className="bg-gray-200 text-[#0752df] px-8 py-4 text-lg font-bold rounded-3xl inline-flex items-center justify-center gap-2 hover:bg-amber-50 transition-colors shadow-lg">
+            to={createPageUrl("ContactForm")} className="bg-gray-200 text-[#0752df] px-8 py-4 text-lg font-bold rounded-3xl inline-flex items-center justify-center gap-2 hover:bg-amber-50 transition-colors shadow-lg">
 
 
             Start Your Free Quote <ChevronRight className="w-5 h-5" />

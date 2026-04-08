@@ -102,7 +102,7 @@ export default function Services() {
                     <div className="flex items-center gap-4 flex-wrap">
                       <span className="text-sky-500 font-semibold">{service.price}</span>
                       <Link
-                        to={createPageUrl("QuoteAssistant")}
+                        to={createPageUrl("ContactForm")}
                         className="inline-flex items-center gap-1 bg-sky-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-sky-600 transition-colors"
                       >
                         Get a Quote <ChevronRight className="w-4 h-4" />
@@ -137,7 +137,8 @@ export default function Services() {
           <div className="flex flex-wrap gap-3">
             {[
               { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-              { label: "Get an AI Estimate", page: "QuoteAssistant" },
+              { label: "Get an Estimate", page: "ContactForm" },
+              { label: "AI Estimator", page: "QuoteAssistant" },
               { label: "View Our Portfolio", page: "Portfolio" },
               { label: "Pro Tips & Remodeling Advice", page: "ProTips" },
               { label: "Contact Us", page: "Contact" },
@@ -155,8 +156,8 @@ export default function Services() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Not Sure Which Service You Need?</h2>
           <p className="text-slate-300 mb-8">Our team is happy to consult with you about your project and recommend the best approach.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
-              Get AI-Powered Estimate <ChevronRight className="w-4 h-4" />
+            <Link to={createPageUrl("ContactForm")} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
+              Get a Free Estimate <ChevronRight className="w-4 h-4" />
             </Link>
             <a href="tel:+16019541306" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
               <Phone className="w-4 h-4" /> Call (601) 954-1306
