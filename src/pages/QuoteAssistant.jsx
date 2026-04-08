@@ -34,7 +34,7 @@ export default function QuoteAssistant() {
     if (step === 0) return !!data.project_type;
     if (step === 1) return !!data.location && !!data.description;
     if (step === 2) return true;
-    if (step === 3) return !!data.name && !!data.email;
+    if (step === 3) return !!data.name && !!data.email && !!data.phone;
     return true;
   };
 
@@ -113,8 +113,12 @@ export default function QuoteAssistant() {
 
       if (record?.id) {
         await base44.entities.QuoteRequest.update(record.id, {
-          ai_analysis: result.analysis,
-          ai_estimate: result.analysis.estimate_range,
+        ai_analysis: result.analysis,
+        ai_estimate: result.analysis.estimate_range,
+        ai_midpoint: result.analysis.likely_midpoint || null,
+        ai_finish_tier: result.analysis.finish_tier || null,
+        ai_timeline: result.analysis.timeline || null,
+        ai_confidence: result.analysis.confidence || null,
         });
       }
     } catch (err) {
@@ -160,7 +164,11 @@ export default function QuoteAssistant() {
           )}
           {step === 4 && (
             <>
-              <EstimateResult analysis={analysis} loading={loading} contactName={data.name} />
+              <EstimateResult
+                analysis={analysis}
+                loading={loading}
+                error={error}
+                contactName={data.name}/>
               {error && (
                 <p className="text-red-500 text-sm text-center mt-4">{error}</p>
               )}
