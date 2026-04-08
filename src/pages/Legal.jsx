@@ -44,7 +44,10 @@ export default function Legal() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Privacy Policy */}
         <section id="privacy" className="mb-16">
-          <h1 className="text-3xl font-bold text-[#1E2D3D] mb-6">Privacy Policy</h1>
+          <h1 className="text-3xl font-bold text-[#1E2D3D] mb-6 flex items-center gap-3">
+            Privacy Policy
+            <a href="#privacy" className="text-gray-300 hover:text-sky-400 transition-colors text-xl font-normal" title="Link to Privacy Policy">#</a>
+          </h1>
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 space-y-6 text-gray-700 leading-relaxed">
             <p>
               <strong>Effective Date: January 1, 2024</strong>
@@ -117,7 +120,10 @@ export default function Legal() {
 
         {/* Terms & Conditions */}
         <section id="terms" className="mb-16">
-          <h1 className="text-3xl font-bold text-[#1E2D3D] mb-6">Terms & Conditions</h1>
+          <h1 className="text-3xl font-bold text-[#1E2D3D] mb-6 flex items-center gap-3">
+            Terms & Conditions
+            <a href="#terms" className="text-gray-300 hover:text-sky-400 transition-colors text-xl font-normal" title="Link to Terms & Conditions">#</a>
+          </h1>
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 space-y-6 text-gray-700 leading-relaxed">
             <p>
               <strong>Effective Date: January 1, 2024</strong>
@@ -209,7 +215,10 @@ export default function Legal() {
 
         {/* SMS Opt-In */}
         <section id="sms-optin" className="mb-16">
-          <h1 className="text-3xl font-bold text-[#1E2D3D] mb-6">SMS Opt-In & Consent</h1>
+          <h1 className="text-3xl font-bold text-[#1E2D3D] mb-6 flex items-center gap-3">
+            SMS Opt-In & Consent
+            <a href="#sms-optin" className="text-gray-300 hover:text-sky-400 transition-colors text-xl font-normal" title="Link to SMS Opt-In">#</a>
+          </h1>
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 space-y-6">
             
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
