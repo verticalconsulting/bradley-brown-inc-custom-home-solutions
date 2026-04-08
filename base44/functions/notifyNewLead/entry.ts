@@ -39,12 +39,12 @@ Deno.serve(async (req) => {
       body: body.toString(),
     });
 
-    const result = await twilioResponse.json();
+    const resultText = await twilioResponse.text();
 
     if (twilioResponse.ok) {
-      return Response.json({ status: "success", sid: result.sid });
+      return Response.json({ status: "success", message: resultText });
     } else {
-      return Response.json({ status: "error", error: result.message }, { status: 500 });
+      return Response.json({ status: "error", error: resultText }, { status: 500 });
     }
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
