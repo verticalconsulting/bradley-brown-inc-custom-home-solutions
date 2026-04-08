@@ -72,7 +72,7 @@ export default function LuxuryHomeRenovations() {
 
       {/* Hero */}
       <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?w=1200&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/herocover')" }} />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/40 rounded-full px-3 py-1 mb-3">
             <Star className="w-3.5 h-3.5 text-amber-400" />
