@@ -65,7 +65,7 @@ const ideas = [
   {
     title: "3. Wall-Mounted Vanity + Floating Storage",
     body: "A wall-hung vanity with 8–12 inches of clearance below it gives the eye a clear path across the floor, making the room appear wider. Pair it with open floating shelves (instead of a medicine cabinet that juts out) to maximize vertical space without closing the room in.",
-    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/1cdab79b-f084-4cfb-de1e-0727c2bd9700/logo",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/2bca08e7-738b-4377-7c65-ab5eaf8ae300/herobanner",
     alt: "Wall mounted vanity small bathroom remodel Brandon Mississippi"
   },
   {
