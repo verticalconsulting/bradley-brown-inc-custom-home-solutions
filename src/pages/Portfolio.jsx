@@ -19,7 +19,7 @@ const placeholderProjects = [
   { title: "Modern Kitchen & Bath Remodel", category: "renovation", location: "Madison, MS", square_footage: 1200, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/large"] },
   { title: "Barndominium Builds", category: "barndominium", location: "Brandon, MS", square_footage: 2500, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/public"] },
   { title: "Luxury Kitchen Renovation", category: "renovation", location: "Flowood, MS", square_footage: 2800, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/herocover"] },
-  { title: "Backyard Oasis Patio", category: "outdoor", location: "Pearl, MS", square_footage: 800, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/87585406-af1b-4e1b-b10e-cacbebcc5a00/crophero"] },
+  { title: "Office Addition", category: "outdoor", location: "Pearl, MS", square_footage: 800, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6c9b1767-038f-4dfc-fcc3-a97c611b7700/large"] },
   { title: "Craftsman Masonry", category: "custom_home", location: "Clinton, MS", square_footage: 2900, year_completed: 2022, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/31b031d9-2d3e-4f27-3859-edc447039100/large"] },
 ];
 
