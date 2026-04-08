@@ -16,11 +16,11 @@ const categoryLabels = { custom_home: "Custom Home", renovation: "Renovation", a
 
 const placeholderProjects = [
   { title: "Ridgewood Estate", category: "custom_home", location: "Ridgeland, MS", square_footage: 2800, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/logo"] },
-  { title: "Modern Kitchen & Bath Remodel", category: "renovation", location: "Madison, MS", square_footage: 1200, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/c4ec26d7-5988-4f1f-895c-3ac621f14200/imagegallery"] },
+  { title: "Modern Kitchen & Bath Remodel", category: "renovation", location: "Madison, MS", square_footage: 1200, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/large"] },
   { title: "Barndominium Builds", category: "barndominium", location: "Brandon, MS", square_footage: 2500, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/public"] },
   { title: "Wood Flooring Renovation", category: "renovation", location: "Flowood, MS", square_footage: 2800, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/f050475b-3a2c-4f16-7a29-e2b3e1bb9b00/imagegallery"] },
-  { title: "Backyard Oasis Patio", category: "outdoor", location: "Pearl, MS", square_footage: 800, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/c97c56d2-0c0c-40ca-15b1-892d6e909800/logo"] },
-  { title: "Craftsman Style Build", category: "custom_home", location: "Clinton, MS", square_footage: 2900, year_completed: 2022, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/5c1b9df5-e880-46fa-c409-8892bdc26e00/logo"] },
+  { title: "Backyard Oasis Patio", category: "outdoor", location: "Pearl, MS", square_footage: 800, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/87585406-af1b-4e1b-b10e-cacbebcc5a00/crophero"] },
+  { title: "Craftsman Masonry", category: "custom_home", location: "Clinton, MS", square_footage: 2900, year_completed: 2022, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/31b031d9-2d3e-4f27-3859-edc447039100/large"] },
 ];
 
 export default function Portfolio() {
