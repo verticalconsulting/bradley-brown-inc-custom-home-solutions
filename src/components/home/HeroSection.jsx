@@ -5,9 +5,9 @@ import { ChevronRight, Play } from "lucide-react";
 
 const slides = [
   {
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/herocover",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/herocover",
     headline: "Building Your",
-    highlight: "Dream Home",
+    highlight: "Dream Home Kitchen",
   },
   {
     image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb",
