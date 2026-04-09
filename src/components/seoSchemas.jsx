@@ -10,6 +10,11 @@ export const localBusinessSchema = {
   "telephone": "+18443514154",
   "email": "bradleybrowninc@gmail.com",
   "foundingDate": "1995",
+  "image": [
+    "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large",
+    "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/large",
+    "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/7b34280a-4da6-4735-a990-074941b06e00/large"
+  ],
   "priceRange": "$$$",
   "address": {
     "@type": "PostalAddress",
