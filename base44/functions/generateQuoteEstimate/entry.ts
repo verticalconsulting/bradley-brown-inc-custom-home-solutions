@@ -27,12 +27,11 @@ function normalizeProjectType(projectType?: string): string {
   return projectType;
 }
 
-/**
- * Try to estimate sqft if missing.
- * These are rough heuristics so the AI has something usable.
- */
-function inferSquareFootage(projectType: string, description = ''): string {
-  const text = `${projectType} ${description}`.toLowerCase();
+function inferSquareFootage(
+  projectType?: string,
+  description: string = ''
+): string {
+  const text = `${projectType || ''} ${description}`.toLowerCase();
 
   if (text.includes('kitchen')) return '150-300';
   if (text.includes('bath')) return '40-120';
@@ -164,7 +163,6 @@ Return ONLY valid JSON matching the schema.
      */
     const response = await openai.chat.completions.create({
       model: 'gpt-5',
-      temperature: 0.4,
       max_completion_tokens: 1100,
       response_format: {
         type: 'json_schema',
