@@ -25,7 +25,7 @@ export default function CTABanner() {
             Start Your Free Quote <ChevronRight className="w-5 h-5" />
           </Link>
           <a
-            href="tel:+16019541306" className="text-white px-8 py-4 text-lg font-bold rounded-2xl inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 transition-colors">Call (601) 954-1306
+            href="tel:+18443514154" className="text-white px-8 py-4 text-lg font-bold rounded-2xl inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 transition-colors">Call (844) 351-4154
 
 
 
