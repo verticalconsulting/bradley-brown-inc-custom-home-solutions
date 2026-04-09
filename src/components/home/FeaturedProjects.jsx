@@ -5,9 +5,11 @@ import { base44 } from "@/api/base44Client";
 import { MapPin, ChevronRight } from "lucide-react";
 
 const placeholderProjects = [
-  { title: "Ridgewood Estate", category: "custom_home", location: "Ridgeland, MS", square_footage: 3800, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large"] },
-  { title: "Madison Kitchen & Bath Remodel", category: "renovation", location: "Madison, MS", square_footage: 1200, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/imagegallery"] },
-  { title: "Barnaminum Man Cave", category: "addition", location: "Brandon, MS", square_footage: 650, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"] },
+  { title: "Office Addition", category: "addition", location: "Brandon, MS", square_footage: 500, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6c9b1767-038f-4dfc-fcc3-a97c611b7700/heromobile"] },
+  { title: "County Custom Built", category: "custom_home", location: "Canton, MS", square_footage: 3200, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large"] },
+  { title: "Luxury Kitchen", category: "renovation", location: "Madison, MS", square_footage: 800, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/large"] },
+  { title: "Belhaven Master Bath", category: "renovation", location: "Jackson, MS", square_footage: 550, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/large"] },
+  { title: "Outdoor Oasis", category: "outdoor", location: "Ridgeland, MS", square_footage: 900, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/a550b013-bf54-4156-5f21-ebabe8869600/large"] },
 ];
 
 const categoryLabels = { custom_home: "Custom Home", renovation: "Renovation", addition: "Addition", outdoor: "Outdoor Living" };
@@ -32,7 +34,7 @@ export default function FeaturedProjects() {
           <p className="text-slate-500 mt-3 max-w-xl mx-auto">A glimpse of the homes and spaces we've crafted across Central Mississippi.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {display.map((project, i) => (
             <div key={i} className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
               <div className="relative h-56 md:h-64 overflow-hidden">
