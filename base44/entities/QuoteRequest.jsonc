@@ -1,0 +1,99 @@
+{
+  "name": "QuoteRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "project_type": {
+      "type": "string",
+      "enum": [
+        "custom_home",
+        "renovation",
+        "addition",
+        "outdoor",
+        "other"
+      ]
+    },
+    "location": {
+      "type": "string"
+    },
+    "square_footage_estimate": {
+      "type": "number"
+    },
+    "budget_range": {
+      "type": "string"
+    },
+    "timeline": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "photo_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ai_estimate": {
+      "type": "string"
+    },
+    "ai_analysis": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "proposal_sent",
+        "in_progress",
+        "won",
+        "lost"
+      ],
+      "default": "new"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "features_selected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "project_type"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "data.email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {},
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
