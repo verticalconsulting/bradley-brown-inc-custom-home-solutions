@@ -5,10 +5,8 @@ import { base44 } from "@/api/base44Client";
 import { MapPin, ChevronRight } from "lucide-react";
 
 const placeholderProjects = [
-  { title: "Office Addition", category: "addition", location: "Brandon, MS", square_footage: 500, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6c9b1767-038f-4dfc-fcc3-a97c611b7700/heromobile"] },
   { title: "County Custom Built", category: "custom_home", location: "Canton, MS", square_footage: 3200, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large"] },
   { title: "Luxury Kitchen", category: "renovation", location: "Madison, MS", square_footage: 800, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/large"] },
-  { title: "Belhaven Master Bath", category: "renovation", location: "Jackson, MS", square_footage: 550, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/large"] },
   { title: "Outdoor Oasis", category: "outdoor", location: "Ridgeland, MS", square_footage: 900, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/a550b013-bf54-4156-5f21-ebabe8869600/large"] },
 ];
 
@@ -19,6 +17,7 @@ export default function FeaturedProjects() {
 
   useEffect(() => {
     base44.entities.Project.filter({ featured: true, status: "published" }, "-created_date", 3)
+
       .then(data => setProjects(data.length ? data : placeholderProjects))
       .catch(() => setProjects(placeholderProjects));
   }, []);
