@@ -1,0 +1,64 @@
+{
+  "name": "SiteImage",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "Descriptive name for the image"
+    },
+    "url": {
+      "type": "string",
+      "description": "Full image URL"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "hero",
+        "logo",
+        "team",
+        "association",
+        "general",
+        "cta",
+        "background"
+      ],
+      "description": "Where this image is used"
+    },
+    "location": {
+      "type": "string",
+      "description": "Which page or component uses this image (e.g. Home Hero, Layout Footer)"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "label",
+    "url"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
