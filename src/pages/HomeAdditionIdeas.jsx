@@ -81,8 +81,8 @@ export default function HomeAdditionIdeas() {
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
             The 6 best room additions and home expansions for Mississippi homeowners — with real cost ranges and ROI estimates.
           </p>
-          <a href="tel:+16019541306" className="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
-            <Phone className="w-4 h-4" /> Free Addition Estimate: (601) 954-1306
+          <a href="tel:+18443514154" className="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
+            <Phone className="w-4 h-4" /> Free Addition Estimate: (844) 351-4154
           </a>
         </div>
       </div>
