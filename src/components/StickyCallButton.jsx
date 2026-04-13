@@ -5,6 +5,13 @@ import { base44 } from "@/api/base44Client";
 export default function StickyCallButton() {
   const handleClick = () => {
     base44.analytics.track({ eventName: "phone_click", properties: { source: "sticky_button" } });
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
+        value: 30,
+        currency: 'USD'
+      });
+    }
   };
 
   return (

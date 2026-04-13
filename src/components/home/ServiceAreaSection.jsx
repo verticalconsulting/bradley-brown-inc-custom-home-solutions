@@ -35,9 +35,18 @@ export default function ServiceAreaSection() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
           <a
             href="tel:+18443514154"
+            onClick={() => {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'conversion', {
+                  send_to: 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
+                  value: 30,
+                  currency: 'USD'
+                });
+              }
+            }}
             className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md"
           >
-            <Phone className="w-4 h-4" /> Call (601) 954-1306
+            <Phone className="w-4 h-4" /> Call (844) 351-4154
           </a>
           <Link
             to={createPageUrl("Contact")}
