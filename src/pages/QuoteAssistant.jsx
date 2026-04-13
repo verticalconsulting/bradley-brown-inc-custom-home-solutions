@@ -113,7 +113,7 @@ export default function QuoteAssistant() {
 
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
-          send_to: 'AW-17864041271/ai-quote-label',
+          send_to: 'AW-17864041271/aquote_form',
           value: 75,
           currency: 'USD'
         });
