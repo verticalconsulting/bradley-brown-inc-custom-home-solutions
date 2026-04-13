@@ -93,7 +93,7 @@ export default function HomeAdditionIdeas() {
           {additions.map((addition, i) =>
           <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <img src="https://media.base44.com/images/public/699c758479c46f0580553750/2c805dcb3_CoveredPatio-OutdoorKitchen__1_.png"
+                <img src="https://media.base44.com/images/public/699c758479c46f0580553750/234f1870c_Cozy_rustic_patio_at_twilight.png"
 
               alt={`${addition.title} in Brandon MS by Bradley Brown Inc`} className="w-full h-56 md:h-full object-cover"
 
