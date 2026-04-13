@@ -157,8 +157,8 @@ export default function HomeAdditionIdeas() {
             <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
               Get Free Estimate <ChevronRight className="w-4 h-4" />
             </Link>
-            <a href="tel:+16019541306" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-              <Phone className="w-4 h-4" /> Call (601) 954-1306
+            <a href="tel:+18443514154" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+              <Phone className="w-4 h-4" /> Call (844) 351-4154
             </a>
           </div>
         </div>
