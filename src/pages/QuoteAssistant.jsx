@@ -111,6 +111,14 @@ export default function QuoteAssistant() {
 
       setAnalysis(result.analysis);
 
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-17864041271/ai-quote-label',
+          value: 75,
+          currency: 'USD'
+        });
+      }
+
       if (record?.id) {
         await base44.entities.QuoteRequest.update(record.id, {
         ai_analysis: result.analysis,
