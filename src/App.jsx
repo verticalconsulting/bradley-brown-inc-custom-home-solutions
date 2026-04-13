@@ -8,6 +8,7 @@ import PageNotFound from './lib/PageNotFound';
 import SEODashboard from './pages/SEODashboard';
 import SiteImages from './pages/SiteImages';
 import BlogAdmin from './pages/BlogAdmin';
+import ConversionDashboard from './pages/ConversionDashboard';
 import Leads from './pages/Leads';
 import FunnelAnalysis from './pages/FunnelAnalysis';
 import ContactForm from './pages/ContactForm';
@@ -72,6 +73,7 @@ const AuthenticatedApp = () => {
       <Route path="/Leads" element={<LayoutWrapper currentPageName="Leads"><Leads /></LayoutWrapper>} />
       <Route path="/SiteImages" element={<LayoutWrapper currentPageName="SiteImages"><SiteImages /></LayoutWrapper>} />
       <Route path="/BlogAdmin" element={<LayoutWrapper currentPageName="BlogAdmin"><BlogAdmin /></LayoutWrapper>} />
+      <Route path="/ConversionDashboard" element={<LayoutWrapper currentPageName="ConversionDashboard"><ConversionDashboard /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
