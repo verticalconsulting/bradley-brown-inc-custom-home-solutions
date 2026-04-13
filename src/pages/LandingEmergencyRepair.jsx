@@ -13,7 +13,7 @@ const schema = {
     {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "name": "Bradley Brown Inc.",
-      "telephone": "+16019541306",
+      "telephone": "+18443514154",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
@@ -36,7 +36,7 @@ const schema = {
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "Do you handle emergency home repairs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Call (601) 954-1306 during business hours (Mon–Fri 8am–6pm, Sat 9am–3pm). We prioritize urgent repair calls and can often schedule same-week service." } },
+        { "@type": "Question", "name": "Do you handle emergency home repairs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Call (844) 351-4154 during business hours (Mon–Fri 8am–6pm, Sat 9am–3pm). We prioritize urgent repair calls and can often schedule same-week service." } },
         { "@type": "Question", "name": "What counts as an emergency repair?", "acceptedAnswer": { "@type": "Answer", "text": "Storm damage, roof leaks, structural cracks, water intrusion, broken windows, and anything that risks your home's safety or habitability." } }
       ]
     }
@@ -44,7 +44,7 @@ const schema = {
 };
 
 const faqs = [
-  { question: "Do you handle emergency home repairs?", answer: "Yes. Call (601) 954-1306 during business hours — Mon–Fri 8am–6pm and Sat 9am–3pm. We prioritize urgent calls and work to schedule same-week or next-day service for serious issues." },
+  { question: "Do you handle emergency home repairs?", answer: "Yes. Call (844) 351-4154 during business hours — Mon–Fri 8am–6pm and Sat 9am–3pm. We prioritize urgent calls and work to schedule same-week or next-day service for serious issues." },
   { question: "What types of urgent repairs do you handle?", answer: "Storm damage, roof leaks, water intrusion, structural damage, broken windows, foundation cracks, collapsed ceilings, and fire/flood damage repairs." },
   { question: "How quickly can you respond?", answer: "For urgent situations, call us directly at (601) 954-1306 for the fastest response. We'll assess the situation and get someone out as quickly as possible." },
   { question: "Do you work with insurance companies?", answer: "Yes, we have experience working with homeowner insurance claims for storm and water damage. We can document the damage and provide itemized estimates for your adjuster." },
@@ -58,7 +58,7 @@ export default function LandingEmergencyRepair() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Emergency Home Repairs — Call Bradley Brown Now"
-        description="Urgent home repairs in Brandon, MS — storm damage, leaks & structural issues. Call (601) 954-1306 for fast response."
+        description="Urgent home repairs in Brandon, MS — storm damage, leaks & structural issues. Call (844) 351-4154 for fast response."
         schema={schema}
         canonical="https://bradleybrowninc.com/LandingEmergencyRepair"
       />
@@ -66,7 +66,7 @@ export default function LandingEmergencyRepair() {
 
       {/* Urgent top banner */}
       <div className="sticky top-16 md:top-20 z-40 bg-red-600 text-white py-2 px-4 text-center text-sm font-semibold">
-        <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2">
+        <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2">
           <AlertTriangle className="w-4 h-4" /> Urgent? Call Now: (601) 954-1306 — Hours: Mon–Fri 8am–6pm, Sat 9am–3pm
         </a>
       </div>
@@ -85,7 +85,7 @@ export default function LandingEmergencyRepair() {
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
             Storm damage, roof leaks, structural issues — don't wait. Bradley Brown Inc. responds fast to urgent repairs across Brandon, MS and Central Mississippi.
           </p>
-          <a href="tel:+16019541306" onClick={handleCall} className="mt-8 inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full font-bold text-xl transition-colors shadow-xl">
+          <a href="tel:+18443514154" onClick={handleCall} className="mt-8 inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full font-bold text-xl transition-colors shadow-xl">
             <Phone className="w-6 h-6" /> Call Now: (601) 954-1306
           </a>
           <p className="text-slate-400 text-xs mt-3">Mon–Fri 8am–6pm · Sat 9am–3pm · Same-week service available</p>
