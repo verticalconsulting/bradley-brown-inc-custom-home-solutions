@@ -14,7 +14,7 @@ const schema = {
     {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "name": "Bradley Brown Inc.",
-      "telephone": "+16019541306",
+      "telephone": "+18443514154",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
       "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
       "priceRange": "$$$",
@@ -60,15 +60,15 @@ export default function LandingBrandonRemodelers() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Brandon, MS Home Remodelers — Bradley Brown Inc."
-        description="Bradley Brown Inc. — Brandon & Central MS home remodelers. 30+ yrs. Call (601) 954-1306 for a free estimate."
+        description="Bradley Brown Inc. — Brandon & Central MS home remodelers. 30+ yrs. Call (844) 351-4154 for a free estimate."
         schema={schema}
         canonical="https://bradleybrowninc.com/LandingBrandonRemodelers"
       />
       <StickyCallButton />
 
       <div className="sticky top-16 md:top-20 z-40 bg-green-500 text-white py-2 px-4 text-center text-sm font-semibold">
-        <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2">
-          <Phone className="w-4 h-4" /> Local Brandon, MS Contractor — Call: (601) 954-1306
+        <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2">
+          <Phone className="w-4 h-4" /> Local Brandon, MS Contractor — Call: (844) 351-4154
         </a>
       </div>
 
@@ -87,8 +87,8 @@ export default function LandingBrandonRemodelers() {
             Central Mississippi's most trusted home builder and remodeler since 1995. Licensed, local, and proud to serve Brandon and surrounding communities.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
-              <Phone className="w-5 h-5" /> (601) 954-1306
+            <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+              <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
             <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Free Estimate <ChevronRight className="w-5 h-5" />
