@@ -92,6 +92,12 @@ export default function EnergyEfficientUpgrades() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
 
+        {/* Intro */}
+        <div className="prose prose-slate max-w-none mb-8">
+          <p className="text-slate-600 leading-relaxed text-base">Mississippi's hot, humid summers make energy efficiency one of the smartest investments a Brandon homeowner can make. The right upgrades — from better insulation to high-efficiency HVAC systems — can cut your monthly utility bills by hundreds of dollars while also increasing your home's resale value. And thanks to the Inflation Reduction Act, many of these upgrades now qualify for federal tax credits of up to 30%.</p>
+          <p className="text-slate-600 leading-relaxed">At Bradley Brown Inc., we incorporate energy-efficient building practices into every project we build or renovate. Below are the six best energy upgrades for Central Mississippi homeowners — ranked by annual savings, upfront cost, and available incentives. <a href="tel:+18443514154" className="text-sky-600 font-semibold">Call (844) 351-4154</a> to discuss which upgrades make the most sense for your home.</p>
+        </div>
+
         <div className="bg-green-50 border border-green-200 rounded-xl p-5 mb-10">
           <div className="flex items-start gap-3">
             <Leaf className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -141,6 +147,25 @@ export default function EnergyEfficientUpgrades() {
               </div>
             );
           })}
+        </div>
+
+        {/* FAQ */}
+        <div className="mt-12">
+          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6">Frequently Asked Questions — Energy Upgrades in Brandon, MS</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Which energy upgrade has the best ROI for Mississippi homes?", a: "Attic insulation and HVAC upgrades consistently offer the highest ROI in Central Mississippi due to the extreme summer heat. Proper attic insulation can pay for itself in 3–5 years through energy savings alone." },
+              { q: "Can I claim federal tax credits for energy upgrades in 2025?", a: "Yes. The Inflation Reduction Act (IRA) offers a 30% federal tax credit on qualifying upgrades including HVAC systems, insulation, windows, doors, and solar panels through 2032. Consult your CPA for eligibility details." },
+              { q: "Does Bradley Brown Inc. handle energy-efficient upgrades?", a: "Yes. We incorporate spray foam insulation, energy-efficient windows, high-efficiency HVAC prep work, and air sealing into our renovation and new construction projects. We can advise on the upgrades that make the most sense for your home and budget." },
+              { q: "Is solar worth it in Mississippi?", a: "Mississippi has strong solar potential due to high sun hours. With the 30% federal tax credit, the typical payback period is 7–10 years. Net metering is available through most Mississippi utilities, allowing you to sell excess power back to the grid." },
+              { q: "What's the fastest energy upgrade I can make?", a: "LED lighting throughout the home is the fastest and cheapest upgrade — it can be completed in a day and delivers immediate savings on every electric bill, with bulbs lasting 15–25 years." },
+            ].map((item, i) => (
+              <div key={i} className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+                <h3 className="font-semibold text-[#1E2D3D] text-sm mb-2">{item.q}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 flex flex-wrap gap-3">

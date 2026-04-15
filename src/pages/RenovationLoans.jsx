@@ -75,6 +75,11 @@ export default function RenovationLoans() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
 
+        <div className="prose prose-slate max-w-none mb-8">
+          <p className="text-slate-600 leading-relaxed">Financing a home renovation in Brandon, MS doesn't have to be overwhelming. Whether you're planning a kitchen remodel, a room addition, or a full custom home build, understanding your loan options upfront can save you thousands of dollars and help you start your project with confidence. This guide breaks down the five most common renovation financing options available to Mississippi homeowners — including pros, cons, and what each is best suited for.</p>
+          <p className="text-slate-600 leading-relaxed">At Bradley Brown Inc., we've worked with hundreds of Central Mississippi homeowners on projects of every size and budget. While we don't provide financing directly, we help you scope your project so your renovation fits your loan — and we'll connect you with lenders we trust. Call <a href="tel:+16019541306" className="text-sky-600 font-semibold">(601) 954-1306</a> to talk through your project and financing options.</p>
+        </div>
+
         <div className="bg-sky-50 border border-sky-200 rounded-xl p-5 mb-10">
           <p className="text-sky-800 text-sm font-medium">
             <strong>Bradley Brown Inc. works with homeowners at all budget levels.</strong> While we don't provide financing directly, we can help you plan your project scope to fit your loan amount. <a href="tel:+16019541306" className="underline font-bold">Call (601) 954-1306</a> to discuss your project.
@@ -132,6 +137,25 @@ export default function RenovationLoans() {
           <p className="text-xs text-slate-400 mt-4">*Ranges based on typical Central Mississippi projects. Contact us for a free estimate specific to your home.</p>
         </div>
 
+        {/* FAQ */}
+        <div className="mt-12">
+          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6">Frequently Asked Questions — Renovation Financing in Mississippi</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Can I finance a renovation if I don't have equity?", a: "Yes. Personal renovation loans (unsecured) don't require home equity. FHA 203(k) loans are also available with as little as 3.5% down for buyers. Talk to your lender about options based on your credit score and income." },
+              { q: "How do I know how much to borrow?", a: "We recommend getting a detailed written estimate from your contractor before applying. At Bradley Brown Inc., we provide itemized estimates so you know exactly what to finance — no surprises after you close on your loan." },
+              { q: "Is a HELOC or home equity loan better for renovations?", a: "It depends on your project. A HELOC is better for phased projects where you draw funds over time. A home equity loan is better for a single large project with a fixed budget, since you get all the money upfront at a fixed rate." },
+              { q: "Do renovation loans cover labor and materials?", a: "Most renovation loans — including FHA 203(k), HomeStyle, and home equity products — cover both labor and materials for qualifying improvements. Personal loans can be used for any purpose." },
+              { q: "How does Bradley Brown Inc. work with financed projects?", a: "We provide itemized written estimates compatible with most lender requirements, can communicate directly with your loan officer if needed, and ensure all work meets code so your lender's inspection goes smoothly." },
+            ].map((item, i) => (
+              <div key={i} className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+                <h3 className="font-semibold text-[#1E2D3D] text-sm mb-2">{item.q}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-10 flex flex-wrap gap-3">
           <Link to={createPageUrl("Services")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> View Our Services
@@ -141,6 +165,12 @@ export default function RenovationLoans() {
           </Link>
           <Link to={createPageUrl("ProTips")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> Pro Remodeling Tips
+          </Link>
+          <Link to={createPageUrl("HomeAdditionIdeas")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+            <ChevronRight className="w-3.5 h-3.5" /> Home Addition Ideas
+          </Link>
+          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+            <ChevronRight className="w-3.5 h-3.5" /> Schedule a Site Visit
           </Link>
         </div>
       </div>

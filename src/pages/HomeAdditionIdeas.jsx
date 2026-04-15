@@ -89,6 +89,12 @@ export default function HomeAdditionIdeas() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-16">
 
+        {/* Intro */}
+        <div className="prose prose-slate max-w-none mb-10">
+          <p className="text-slate-600 leading-relaxed text-base">Adding square footage is one of the smartest investments a Mississippi homeowner can make — especially when moving would cost more than expanding. Whether you need a private master suite, space for aging parents, a dedicated home office, or simply a bigger kitchen to gather around, a well-planned addition can transform your home and its resale value. Below we break down the six most popular home additions in Brandon, MS and Central Mississippi — with realistic cost ranges, ROI estimates, and what to consider before you start.</p>
+          <p className="text-slate-600 leading-relaxed">Bradley Brown Inc. has been building additions across Rankin, Hinds, and Madison counties since 1995. We handle everything from initial design through permits, construction, and final inspection. <a href="tel:+18443514154" className="text-sky-600 font-semibold">Call (844) 351-4154</a> for a free consultation on your project.</p>
+        </div>
+
         <div className="grid grid-cols-1 gap-10">
           {additions.map((addition, i) => (
             <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
@@ -136,6 +142,25 @@ export default function HomeAdditionIdeas() {
           </div>
         </div>
 
+        {/* FAQ */}
+        <div className="mt-12">
+          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6">Frequently Asked Questions — Home Additions in Brandon, MS</h2>
+          <div className="space-y-4">
+            {[
+              { q: "How long does a home addition take to build?", a: "Most additions take 2–5 months from permit approval to completion. Larger additions like full second-floor expansions or in-law suites with separate entrances can run 5–8 months. We provide a detailed timeline before we break ground." },
+              { q: "Do home additions require permits in Mississippi?", a: "Yes. All additions require building permits and inspections in Mississippi. Bradley Brown Inc. handles all permitting, code compliance, and inspector coordination — you don't have to navigate this yourself." },
+              { q: "What's the most cost-effective home addition?", a: "Garage conversions typically offer the highest ROI because they don't require a new foundation. A garage conversion to a home office, gym, or guest suite can cost $20,000–$50,000 and recover 60–75% of cost in home value." },
+              { q: "Will my addition match the existing home?", a: "We design every addition to match your existing roofline, exterior materials, and interior finishes. When it's done, it should look like it was always there — not like it was added later." },
+              { q: "Can I finance a home addition?", a: "Yes. Home additions can be financed through home equity loans, HELOCs, FHA 203(k) loans, or construction loans. We'll help you scope the project to align with your budget. See our Renovation Loans guide for details." },
+            ].map((item, i) => (
+              <div key={i} className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+                <h3 className="font-semibold text-[#1E2D3D] text-sm mb-2">{item.q}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-8 flex flex-wrap gap-3">
           <Link to={createPageUrl("Services")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> All Services
@@ -145,6 +170,12 @@ export default function HomeAdditionIdeas() {
           </Link>
           <Link to={createPageUrl("RenovationLoans")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> Renovation Financing Options
+          </Link>
+          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+            <ChevronRight className="w-3.5 h-3.5" /> Schedule a Free Site Visit
+          </Link>
+          <Link to={createPageUrl("LandingPricing")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+            <ChevronRight className="w-3.5 h-3.5" /> Pricing Guide
           </Link>
         </div>
       </div>
