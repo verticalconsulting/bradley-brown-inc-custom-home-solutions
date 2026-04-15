@@ -30,7 +30,9 @@ export default function Home() {
         <ServicesPreview />
         <FeaturedProjects />
         <ServiceAreaSection />
-        <TestimonialSlider featuredOnly={true} limit={6} />
+        <div id="testimonials">
+          <TestimonialSlider featuredOnly={true} limit={6} />
+        </div>
         <CTABanner />
       </div>
     </PullToRefresh>

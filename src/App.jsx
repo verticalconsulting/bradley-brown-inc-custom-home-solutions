@@ -10,6 +10,7 @@ import SiteImages from './pages/SiteImages';
 import BlogAdmin from './pages/BlogAdmin';
 import ConversionDashboard from './pages/ConversionDashboard';
 import HistoricHomeRestoration from './pages/HistoricHomeRestoration';
+import Quote from './pages/Quote';
 import Leads from './pages/Leads';
 import FunnelAnalysis from './pages/FunnelAnalysis';
 import AdminRoute from './components/AdminRoute';
@@ -77,6 +78,7 @@ const AuthenticatedApp = () => {
       <Route path="/BlogAdmin" element={<LayoutWrapper currentPageName="BlogAdmin"><AdminRoute><BlogAdmin /></AdminRoute></LayoutWrapper>} />
       <Route path="/ConversionDashboard" element={<LayoutWrapper currentPageName="ConversionDashboard"><AdminRoute><ConversionDashboard /></AdminRoute></LayoutWrapper>} />
       <Route path="/projects/historic-home-restoration" element={<LayoutWrapper currentPageName="HistoricHomeRestoration"><HistoricHomeRestoration /></LayoutWrapper>} />
+      <Route path="/quote" element={<LayoutWrapper currentPageName="ContactForm"><Quote /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
