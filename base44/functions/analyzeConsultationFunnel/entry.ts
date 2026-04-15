@@ -14,19 +14,51 @@ Deno.serve(async (req) => {
 
     // ── 1. List GA4 properties ─────────────────────────────────────────────
     if (action === "listProperties") {
-      const res = await fetch(
-        "https://analyticsadmin.googleapis.com/v1beta/properties?filter=parent:accounts/-",
-        {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        }
+      // First, get all accounts
+      const accountsRes = await fetch(
+        "https://analyticsadmin.googleapis.com/v1beta/accounts",
+        { headers: { Authorization: `Bearer ${accessToken}` } }
       );
-      const data = await res.json();
-      const properties = (data.properties || []).map(p => ({
-        name: p.name, // e.g. "properties/123456"
-        displayName: p.displayName,
-        propertyId: p.name.split("/")[1],
-      }));
-      return Response.json({ action, properties });
+      const accountsData = await accountsRes.json();
+      console.log("Accounts response:", JSON.stringify(accountsData));
+
+      const accounts = accountsData.accounts || [];
+      let allProperties = [];
+
+      // For each account, list properties
+      for (const account of accounts) {
+        const accountId = account.name.split("/")[1];
+        const propsRes = await fetch(
+          `https://analyticsadmin.googleapis.com/v1beta/properties?filter=parent:${account.name}`,
+          { headers: { Authorization: `Bearer ${accessToken}` } }
+        );
+        const propsData = await propsRes.json();
+        console.log(`Properties for ${account.name}:`, JSON.stringify(propsData));
+        const props = (propsData.properties || []).map(p => ({
+          name: p.name,
+          displayName: p.displayName,
+          propertyId: p.name.split("/")[1],
+          accountId,
+        }));
+        allProperties = allProperties.concat(props);
+      }
+
+      // Fallback: try listing without account filter if nothing found
+      if (allProperties.length === 0) {
+        const fallbackRes = await fetch(
+          "https://analyticsadmin.googleapis.com/v1beta/properties?filter=parent:accounts/~all",
+          { headers: { Authorization: `Bearer ${accessToken}` } }
+        );
+        const fallbackData = await fallbackRes.json();
+        console.log("Fallback properties:", JSON.stringify(fallbackData));
+        allProperties = (fallbackData.properties || []).map(p => ({
+          name: p.name,
+          displayName: p.displayName,
+          propertyId: p.name.split("/")[1],
+        }));
+      }
+
+      return Response.json({ action, properties: allProperties });
     }
 
     // ── 2. Analyze funnel ──────────────────────────────────────────────────
