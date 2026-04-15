@@ -11,6 +11,7 @@ import BlogAdmin from './pages/BlogAdmin';
 import ConversionDashboard from './pages/ConversionDashboard';
 import Leads from './pages/Leads';
 import FunnelAnalysis from './pages/FunnelAnalysis';
+import AdminRoute from './components/AdminRoute';
 import ContactForm from './pages/ContactForm';
 import ThankYou from './pages/ThankYou';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
@@ -66,14 +67,14 @@ const AuthenticatedApp = () => {
           }
         />
       ))}
-      <Route path="/SEODashboard" element={<LayoutWrapper currentPageName="SEODashboard"><SEODashboard /></LayoutWrapper>} />
-      <Route path="/FunnelAnalysis" element={<LayoutWrapper currentPageName="FunnelAnalysis"><FunnelAnalysis /></LayoutWrapper>} />
+      <Route path="/SEODashboard" element={<LayoutWrapper currentPageName="SEODashboard"><AdminRoute><SEODashboard /></AdminRoute></LayoutWrapper>} />
+      <Route path="/FunnelAnalysis" element={<LayoutWrapper currentPageName="FunnelAnalysis"><AdminRoute><FunnelAnalysis /></AdminRoute></LayoutWrapper>} />
       <Route path="/ContactForm" element={<LayoutWrapper currentPageName="ContactForm"><ContactForm /></LayoutWrapper>} />
       <Route path="/thank-you" element={<LayoutWrapper currentPageName="ThankYou"><ThankYou /></LayoutWrapper>} />
-      <Route path="/Leads" element={<LayoutWrapper currentPageName="Leads"><Leads /></LayoutWrapper>} />
-      <Route path="/SiteImages" element={<LayoutWrapper currentPageName="SiteImages"><SiteImages /></LayoutWrapper>} />
-      <Route path="/BlogAdmin" element={<LayoutWrapper currentPageName="BlogAdmin"><BlogAdmin /></LayoutWrapper>} />
-      <Route path="/ConversionDashboard" element={<LayoutWrapper currentPageName="ConversionDashboard"><ConversionDashboard /></LayoutWrapper>} />
+      <Route path="/Leads" element={<LayoutWrapper currentPageName="Leads"><AdminRoute><Leads /></AdminRoute></LayoutWrapper>} />
+      <Route path="/SiteImages" element={<LayoutWrapper currentPageName="SiteImages"><AdminRoute><SiteImages /></AdminRoute></LayoutWrapper>} />
+      <Route path="/BlogAdmin" element={<LayoutWrapper currentPageName="BlogAdmin"><AdminRoute><BlogAdmin /></AdminRoute></LayoutWrapper>} />
+      <Route path="/ConversionDashboard" element={<LayoutWrapper currentPageName="ConversionDashboard"><AdminRoute><ConversionDashboard /></AdminRoute></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
