@@ -2,15 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { base44 } from "@/api/base44Client";
-import { Home, Wrench, Plus, Leaf, ChevronRight } from "lucide-react";
+import { Home, Wrench, Plus, Leaf, ChevronRight, Warehouse } from "lucide-react";
 
-const iconMap = { Home, Wrench, Plus, Leaf };
+const iconMap = { Home, Wrench, Plus, Leaf, Warehouse };
 
 const defaultServices = [
   { name: "Custom Home Building", short_description: "Design and build your perfect home from the ground up, tailored to your vision and lifestyle.", icon: "Home" },
   { name: "Home Renovations", short_description: "Transform your existing space with expert remodeling that adds value and improves your daily life.", icon: "Wrench" },
   { name: "Room Additions", short_description: "Expand your living space seamlessly with additions that blend perfectly with your existing home.", icon: "Plus" },
   { name: "Outdoor Living", short_description: "Create stunning patios, decks, and outdoor kitchens for Mississippi's beautiful weather.", icon: "Leaf" },
+  { name: "Barndominiums", short_description: "Custom steel-frame barndominiums combining living space, garages & workshops — built for Mississippi.", icon: "Warehouse", link: "/barndominiums-ms" },
 ];
 
 export default function ServicesPreview() {
@@ -36,14 +37,19 @@ export default function ServicesPreview() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {display.map((service, i) => {
             const Icon = iconMap[service.icon] || Home;
-            return (
-              <div key={i} className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white">
+            const card = (
+              <div key={i} className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer">
                 <div className="w-12 h-12 bg-sky-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-sky-400 transition-colors">
                   <Icon className="w-6 h-6 text-sky-400 group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="font-bold text-[#1E2D3D] mb-2">{service.name}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{service.short_description}</p>
               </div>
+            );
+            return service.link ? (
+              <Link key={i} to={service.link}>{card}</Link>
+            ) : (
+              <div key={i}>{card}</div>
             );
           })}
         </div>

@@ -14,6 +14,7 @@ import Quote from './pages/Quote';
 import LandingTrust from './pages/LandingTrust';
 import LandingCoreServices from './pages/LandingCoreServices';
 import LandingPricing from './pages/LandingPricing';
+import Barndominiums from './pages/Barndominiums';
 import Leads from './pages/Leads';
 import FunnelAnalysis from './pages/FunnelAnalysis';
 import AdminRoute from './components/AdminRoute';
@@ -85,6 +86,7 @@ const AuthenticatedApp = () => {
       <Route path="/customertestimonials" element={<LayoutWrapper currentPageName="LandingTrust"><LandingTrust /></LayoutWrapper>} />
       <Route path="/remodeling-ms" element={<LayoutWrapper currentPageName="LandingCoreServices"><LandingCoreServices /></LayoutWrapper>} />
       <Route path="/home-remodeling-cost" element={<LayoutWrapper currentPageName="LandingPricing"><LandingPricing /></LayoutWrapper>} />
+      <Route path="/barndominiums-ms" element={<LayoutWrapper currentPageName="Barndominiums"><Barndominiums /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
