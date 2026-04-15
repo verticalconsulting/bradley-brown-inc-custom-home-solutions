@@ -59,7 +59,7 @@ export default function Services() {
         title="Expert Home Remodeling Services in Brandon, MS | Bradley Brown Inc"
         description="Expert home remodeling services in Brandon, MS — kitchen remodeling, bathroom renovations, room additions & custom homes. Licensed & insured since 1995. Free estimates. Call (844) 351-4154."
         schema={servicesSchema}
-        canonical="https://bradleybrowninc.com/services"
+        canonical="https://bradleybrowninc.com/Services"
       />
       {/* Mobile click-to-call above fold */}
       <div className="md:hidden sticky top-16 z-40 bg-green-500 text-white py-2.5 px-4 text-center text-sm font-semibold">
