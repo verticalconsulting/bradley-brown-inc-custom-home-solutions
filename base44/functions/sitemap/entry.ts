@@ -24,6 +24,7 @@ Deno.serve(async (req) => {
     { url: "/QuoteAssistant", priority: "0.9", changefreq: "monthly" },
     { url: "/ProTips", priority: "0.8", changefreq: "weekly" },
     { url: "/ScheduleVisit", priority: "0.8", changefreq: "monthly" },
+    { url: "/ContactForm", priority: "0.8", changefreq: "monthly" },
     { url: "/SmallBathroomIdeas", priority: "0.8", changefreq: "monthly" },
     { url: "/LuxuryHomeRenovations", priority: "0.8", changefreq: "monthly" },
     { url: "/LandingCoreServices", priority: "0.9", changefreq: "monthly" },
