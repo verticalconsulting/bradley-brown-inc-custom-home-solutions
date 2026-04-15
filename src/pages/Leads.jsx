@@ -31,7 +31,7 @@ export default function Leads() {
     setLeads(prev => prev.map(l => l.id === id ? { ...l, status } : l));
   };
 
-  const filtered = filter === "all" ? leads : leads.filter(l => l.status === filter);
+  const filtered = (filter === "all" ? leads : leads.filter(l => l.status === filter)).filter(Boolean);
 
   const counts = STATUS_OPTIONS.reduce((acc, s) => {
     acc[s] = leads.filter(l => l.status === s).length;
@@ -77,7 +77,7 @@ export default function Leads() {
           <div className="text-center py-20 text-slate-400">No leads found.</div>
         ) : (
           <div className="grid gap-4">
-            {filtered.map(lead => (
+            {filtered.map(lead => lead && (
               <div key={lead.id} className="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                   <div>
