@@ -24,6 +24,19 @@ const placeholderProjects = [
   { title: "Outdoor Oasis", category: "outdoor", location: "Ridgeland, MS", square_footage: 900, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/a550b013-bf54-4156-5f21-ebabe8869600/large"] },
 ];
 
+const exploreLinks = [
+  { label: "Our Services", page: "Services" },
+  { label: "Get a Free AI Estimate", page: "QuoteAssistant" },
+  { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+  { label: "Contact Us", page: "Contact" },
+  { label: "Why Trust Us", page: "LandingTrust" },
+  { label: "Pricing Guide", page: "LandingPricing" },
+  { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
+  { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+  { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
+  { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
+];
+
 export default function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
@@ -68,15 +81,15 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3">
           <div className="flex items-center gap-2 overflow-x-auto">
             <SlidersHorizontal className="w-4 h-4 text-slate-400 flex-shrink-0" />
-            {categoryFilters.map(f => (
+            {categoryFilters.map(filter => (
               <button
-                key={f.value}
-                onClick={() => setActiveFilter(f.value)}
+                key={filter.value}
+                onClick={() => setActiveFilter(filter.value)}
                 className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  activeFilter === f.value ? "bg-sky-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  activeFilter === filter.value ? "bg-sky-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
-                {f.label}
+                {filter.label}
               </button>
             ))}
           </div>
@@ -137,20 +150,9 @@ export default function Portfolio() {
         <div className="mt-12 bg-slate-50 border border-gray-200 rounded-xl p-5">
           <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h2>
           <div className="flex flex-wrap gap-2">
-            {[
-              { label: "Our Services", page: "Services" },
-              { label: "Get a Free AI Estimate", page: "QuoteAssistant" },
-              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-              { label: "Contact Us", page: "Contact" },
-              { label: "Why Trust Us", page: "LandingTrust" },
-              { label: "Pricing Guide", page: "LandingPricing" },
-              { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
-              { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-              { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
-              { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
-            ].map((item) => (
-              <Link key={item.page} to={createPageUrl(item.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
-                <ChevronRight className="w-3 h-3" /> {item.label}
+            {exploreLinks.map(navItem => (
+              <Link key={navItem.page} to={createPageUrl(navItem.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+                <ChevronRight className="w-3 h-3" /> {navItem.label}
               </Link>
             ))}
           </div>
