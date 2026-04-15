@@ -105,6 +105,15 @@ export default function Barndominiums() {
         </div>
       </div>
 
+      {/* Hero Image */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-10">
+        <img
+          src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/7b34280a-4da6-4735-a990-074941b06e00/large"
+          alt="Custom barndominium built by Bradley Brown Inc. in Mississippi"
+          className="w-full rounded-2xl shadow-lg object-cover max-h-[480px]"
+        />
+      </div>
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-14">
 
         {/* Local proof */}
