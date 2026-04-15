@@ -3,7 +3,7 @@ import SEOHead from "@/components/SEOHead";
 import { servicesSchema, localBusinessSchema } from "@/components/seoSchemas";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Home, Wrench, Plus, Leaf, Check, ChevronRight, Phone } from "lucide-react";
+import { Home, Wrench, Plus, Leaf, Check, ChevronRight, Phone, Tag } from "lucide-react";
 
 const services = [
   {
@@ -74,6 +74,26 @@ export default function Services() {
           <p className="text-slate-300 mt-4 max-w-xl mx-auto">Licensed, insured, and trusted since 1995. Serving Brandon, Flowood, Pearl, Madison, Ridgeland, Jackson & surrounding areas.</p>
           <a href="tel:+18443514154" className="mt-6 hidden md:inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
             <Phone className="w-4 h-4" /> (844) 351-4154 — Free Estimate
+          </a>
+        </div>
+      </div>
+
+      {/* Promo Banner */}
+      <div className="bg-amber-400 py-4 px-4">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
+          <div className="flex items-center gap-2">
+            <Tag className="w-5 h-5 text-amber-900 flex-shrink-0" />
+            <p className="font-bold text-amber-900 text-base md:text-lg">
+              Special Offer: <span className="underline decoration-2">10% OFF</span> Your Kitchen Remodel
+            </p>
+          </div>
+          <span className="hidden sm:block text-amber-700">|</span>
+          <p className="text-amber-800 text-sm font-medium">Show us this ad when you call to claim your discount.</p>
+          <a
+            href="tel:+18443514154"
+            className="flex-shrink-0 bg-amber-900 hover:bg-amber-950 text-white px-5 py-2 rounded-full text-sm font-bold transition-colors"
+          >
+            Call to Claim →
           </a>
         </div>
       </div>
