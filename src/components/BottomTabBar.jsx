@@ -40,7 +40,7 @@ export default function BottomTabBar({ currentPageName }) {
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <div className="flex items-stretch justify-around">
-        {tabs.map(({ label, page, icon: Icon }) => {
+        {tabs.map(({ label, page, icon: Icon, highlight }) => {
           const active = currentPageName === page;
           return (
             <button
