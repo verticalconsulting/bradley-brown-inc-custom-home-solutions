@@ -7,24 +7,25 @@ export default function ContactStep({ data, onChange }) {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#1E2D3D] mb-1">Where should we send your estimate?</h2>
-      <p className="text-slate-500 text-sm mb-6">We'll generate your personalized AI estimate and email it to you.</p>
+      <h2 className="text-xl font-bold text-[#1E2D3D] mb-1">Almost there! Where should we send it?</h2>
+      <p className="text-slate-500 text-sm mb-6">Your free AI estimate will appear instantly on the next screen.</p>
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Full Name *</label>
-          <input required type="text" placeholder="John Smith" value={data.name || ""} onChange={e => update("name", e.target.value)} className={inputClass} />
+          <label className="block text-sm font-semibold text-[#1E2D3D] mb-1">Full Name <span className="text-[#C4922A]">*</span></label>
+          <input required type="text" placeholder="John Smith" value={data.name || ""} onChange={e => update("name", e.target.value)} className={inputClass} autoComplete="name" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Email Address *</label>
-          <input required type="email" placeholder="john@example.com" value={data.email || ""} onChange={e => update("email", e.target.value)} className={inputClass} />
+          <label className="block text-sm font-semibold text-[#1E2D3D] mb-1">Email Address <span className="text-[#C4922A]">*</span></label>
+          <input required type="email" placeholder="john@example.com" value={data.email || ""} onChange={e => update("email", e.target.value)} className={inputClass} autoComplete="email" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Phone Number</label>
-          <input type="tel" placeholder="(601) 000-0000" value={data.phone || ""} onChange={e => update("phone", e.target.value)} className={inputClass} />
+          <label className="block text-sm font-semibold text-[#1E2D3D] mb-1">Phone <span className="text-slate-400 font-normal">(optional)</span></label>
+          <input type="tel" placeholder="(601) 000-0000" value={data.phone || ""} onChange={e => update("phone", e.target.value)} className={inputClass} autoComplete="tel" />
         </div>
-        <div className="p-4 bg-amber-50 rounded-lg border border-[#C4922A]/20">
-          <p className="text-sm text-slate-600">
-            <span className="font-semibold text-[#C4922A]">What happens next?</span> Our AI will analyze your project details and generate a personalized cost estimate. A member of our team will also follow up within 24 hours.
+        <div className="flex items-start gap-3 p-4 bg-amber-50 rounded-xl border border-[#C4922A]/20">
+          <span className="text-xl mt-0.5">🔒</span>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Your info is private and only used to prepare your estimate. Our team will follow up within 24 hours.
           </p>
         </div>
       </div>

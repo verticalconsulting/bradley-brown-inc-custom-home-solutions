@@ -3,12 +3,11 @@ import { base44 } from "@/api/base44Client";
 import StepIndicator from "@/components/quote/StepIndicator";
 import ProjectTypeStep from "@/components/quote/ProjectTypeStep";
 import ProjectDetailsStep from "@/components/quote/ProjectDetailsStep";
-import FeaturesStep from "@/components/quote/FeaturesStep";
 import ContactStep from "@/components/quote/ContactStep";
 import EstimateResult from "@/components/quote/EstimateResult";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 
-const STEPS = ["Project Type", "Details", "Features", "Your Info", "Estimate"];
+const STEPS = ["Project Type", "Details", "Your Info", "Estimate"];
 
 const initialData = {
   project_type: "",
@@ -33,13 +32,12 @@ export default function QuoteAssistant() {
   const canProceed = () => {
     if (step === 0) return !!data.project_type;
     if (step === 1) return !!data.location && !!data.description;
-    if (step === 2) return true;
-    if (step === 3) return !!data.name && !!data.email && !!data.phone;
+    if (step === 2) return !!data.name && !!data.email;
     return true;
   };
 
   const handleNext = async () => {
-    if (step === 3) {
+    if (step === 2) {
       await submitAndGenerate();
     } else {
       setStep(s => s + 1);
@@ -47,7 +45,7 @@ export default function QuoteAssistant() {
   };
 
   const submitAndGenerate = async () => {
-    setStep(4);
+    setStep(3);
     setLoading(true);
     setError("");
 
@@ -66,7 +64,7 @@ export default function QuoteAssistant() {
         base44.entities.QuoteRequest.create({
           name: data.name,
           email: data.email,
-          phone: data.phone,
+          phone: data.phone || undefined,
           project_type: data.project_type,
           location: data.location,
           square_footage_estimate: data.square_footage_estimate || undefined,
@@ -96,11 +94,11 @@ export default function QuoteAssistant() {
       const response = await base44.functions.invoke("generateQuoteEstimate", {
         project_type: data.project_type,
         location: data.location,
-        square_footage_estimate: data.square_footage_estimate,
-        budget_range: data.budget_range,
-        timeline: data.timeline,
+        square_footage_estimate: data.square_footage_estimate || undefined,
+        budget_range: data.budget_range || undefined,
+        timeline: data.timeline || undefined,
         description: data.description,
-        features_selected: data.features_selected,
+        features_selected: [],
       });
 
       const result = response?.data;
@@ -161,16 +159,9 @@ export default function QuoteAssistant() {
             <ProjectDetailsStep data={data} onChange={updated => setData(d => ({ ...d, ...updated }))} />
           )}
           {step === 2 && (
-            <FeaturesStep
-              projectType={data.project_type}
-              selected={data.features_selected}
-              onChange={val => setData(d => ({ ...d, features_selected: val }))}
-            />
-          )}
-          {step === 3 && (
             <ContactStep data={data} onChange={updated => setData(d => ({ ...d, ...updated }))} />
           )}
-          {step === 4 && (
+          {step === 3 && (
             <>
               <EstimateResult
                 analysis={analysis}
@@ -183,7 +174,7 @@ export default function QuoteAssistant() {
             </>
           )}
 
-          {step < 4 && (
+          {step < 3 && (
             <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
               <button
                 onClick={() => setStep(s => s - 1)}
@@ -197,7 +188,7 @@ export default function QuoteAssistant() {
                 disabled={!canProceed()}
                 className="flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {step === 3 ? (
+                {step === 2 ? (
                   <><Sparkles className="w-4 h-4" /> Generate My Estimate</>
                 ) : (
                   <>Next <ChevronRight className="w-4 h-4" /></>
