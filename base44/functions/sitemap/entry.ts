@@ -34,6 +34,7 @@ Deno.serve(async (req) => {
     { url: "/RenovationLoans", priority: "0.7", changefreq: "monthly" },
     { url: "/HomeAdditionIdeas", priority: "0.7", changefreq: "monthly" },
     { url: "/EnergyEfficientUpgrades", priority: "0.7", changefreq: "monthly" },
+    { url: "/projects/historic-home-restoration", priority: "0.8", changefreq: "monthly" },
   ];
 
   const urlEntries = [
