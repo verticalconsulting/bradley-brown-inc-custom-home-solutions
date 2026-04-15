@@ -12,6 +12,7 @@ import ConversionDashboard from './pages/ConversionDashboard';
 import HistoricHomeRestoration from './pages/HistoricHomeRestoration';
 import Quote from './pages/Quote';
 import LandingTrust from './pages/LandingTrust';
+import LandingCoreServices from './pages/LandingCoreServices';
 import Leads from './pages/Leads';
 import FunnelAnalysis from './pages/FunnelAnalysis';
 import AdminRoute from './components/AdminRoute';
@@ -81,6 +82,7 @@ const AuthenticatedApp = () => {
       <Route path="/projects/historic-home-restoration" element={<LayoutWrapper currentPageName="HistoricHomeRestoration"><HistoricHomeRestoration /></LayoutWrapper>} />
       <Route path="/quote" element={<LayoutWrapper currentPageName="ContactForm"><Quote /></LayoutWrapper>} />
       <Route path="/customertestimonials" element={<LayoutWrapper currentPageName="LandingTrust"><LandingTrust /></LayoutWrapper>} />
+      <Route path="/remodeling-ms" element={<LayoutWrapper currentPageName="LandingCoreServices"><LandingCoreServices /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

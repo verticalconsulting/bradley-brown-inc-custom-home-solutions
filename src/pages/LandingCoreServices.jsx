@@ -69,7 +69,7 @@ export default function LandingCoreServices() {
         title="Home Remodeling in Brandon, MS — Bradley Brown Inc"
         description="Licensed builder for kitchens, baths & whole-home renovations. Call now for a free estimate!"
         schema={schema}
-        canonical="https://bradleybrowninc.com/LandingCoreServices"
+        canonical="https://bradleybrowninc.com/remodeling-ms"
       />
       <StickyCallButton />
 
