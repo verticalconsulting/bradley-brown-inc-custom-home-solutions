@@ -11,7 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Trash2, LogOut, Search, BarChart2, ChevronRight, ShieldCheck } from "lucide-react";
+import { Trash2, LogOut, Search, BarChart2, ChevronRight, ShieldCheck, MessageSquare, FileText, Users, Video } from "lucide-react";
 
 export default function AccountSettings() {
   const navigate = useNavigate();
@@ -73,6 +73,46 @@ export default function AccountSettings() {
                   </div>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-indigo-500 transition-colors" />
+              </Link>
+              <Link to="/AgentChat" className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-colors group">
+                <div className="flex items-center gap-3">
+                  <MessageSquare className="w-5 h-5 text-emerald-500" />
+                  <div>
+                    <p className="font-medium text-[#1E2D3D] text-sm">Agent Chat</p>
+                    <p className="text-xs text-slate-400">AI-powered home advisor chat interface</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-500 transition-colors" />
+              </Link>
+              <Link to="/BlogAdmin" className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-colors group">
+                <div className="flex items-center gap-3">
+                  <FileText className="w-5 h-5 text-amber-500" />
+                  <div>
+                    <p className="font-medium text-[#1E2D3D] text-sm">Blog Admin</p>
+                    <p className="text-xs text-slate-400">Manage blog posts & AI-generated content</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-amber-500 transition-colors" />
+              </Link>
+              <Link to="/CRM" className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-colors group">
+                <div className="flex items-center gap-3">
+                  <Users className="w-5 h-5 text-violet-500" />
+                  <div>
+                    <p className="font-medium text-[#1E2D3D] text-sm">CRM</p>
+                    <p className="text-xs text-slate-400">Client relationship management</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-violet-500 transition-colors" />
+              </Link>
+              <Link to="/TikTokSync" className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-colors group">
+                <div className="flex items-center gap-3">
+                  <Video className="w-5 h-5 text-pink-500" />
+                  <div>
+                    <p className="font-medium text-[#1E2D3D] text-sm">TikTok Sync</p>
+                    <p className="text-xs text-slate-400">Sync and manage TikTok content</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-pink-500 transition-colors" />
               </Link>
             </div>
           </div>
