@@ -21,6 +21,7 @@ const ALL_PAGES = [
   "/RenovationLoans",
   "/HomeAdditionIdeas",
   "/EnergyEfficientUpgrades",
+  "/projects/historic-home-restoration",
 ];
 
 const CUSTOM_HOME_KEYWORDS = [
