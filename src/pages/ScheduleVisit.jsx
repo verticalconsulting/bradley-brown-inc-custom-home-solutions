@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
 import SEOHead from "@/components/SEOHead";
-import { Calendar, Clock, User, Mail, Phone, MapPin, CheckCircle, Loader2 } from "lucide-react";
+import { Calendar, Clock, User, MapPin, CheckCircle, Loader2, Shield, HardHat, MessageSquare, DollarSign } from "lucide-react";
 
 const PROJECT_TYPES = [
     { value: "custom_home", label: "Custom Home" },
@@ -115,6 +115,54 @@ export default function ScheduleVisit() {
             </div>
 
             <div className="max-w-xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+
+                {/* What to Expect */}
+                <div className="bg-white rounded-2xl border border-[#E2D9CC] shadow-sm p-6 mb-6">
+                    <h2 className="font-bold text-[#1E2D3D] text-base mb-4">What to Expect During Your Visit</h2>
+                    <div className="space-y-4">
+                        <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <Clock className="w-4 h-4 text-sky-500" />
+                            </div>
+                            <div>
+                                <p className="font-semibold text-sm text-[#1E2D3D]">30–60 Minute Walk-Through</p>
+                                <p className="text-slate-500 text-xs leading-relaxed mt-0.5">We'll tour your space together, listen to your vision, and ask questions — no sales pressure, just an honest conversation about your project.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <DollarSign className="w-4 h-4 text-green-600" />
+                            </div>
+                            <div>
+                                <p className="font-semibold text-sm text-[#1E2D3D]">100% Free — No Obligation</p>
+                                <p className="text-slate-500 text-xs leading-relaxed mt-0.5">The site visit and initial consultation are completely free. You'll receive a written estimate with no hidden fees or commitments required.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <HardHat className="w-4 h-4 text-amber-600" />
+                            </div>
+                            <div>
+                                <p className="font-semibold text-sm text-[#1E2D3D]">Licensed, Insured & Professional</p>
+                                <p className="text-slate-500 text-xs leading-relaxed mt-0.5">You'll meet with a licensed Mississippi contractor — fully insured, background-checked, and respectful of your home and family.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <MessageSquare className="w-4 h-4 text-purple-500" />
+                            </div>
+                            <div>
+                                <p className="font-semibold text-sm text-[#1E2D3D]">Your Questions Answered on the Spot</p>
+                                <p className="text-slate-500 text-xs leading-relaxed mt-0.5">Bring your ideas, photos, or concerns. We'll walk you through our process, typical timelines, and how we handle permits and inspections.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mt-4 flex items-center gap-2 bg-slate-50 rounded-lg px-4 py-3 border border-slate-100">
+                        <Shield className="w-4 h-4 text-sky-500 flex-shrink-0" />
+                        <p className="text-xs text-slate-500">Your contact info is used only to confirm your visit — we never share or sell it.</p>
+                    </div>
+                </div>
+
                 <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-md border border-[#E2D9CC] p-6 md:p-8 space-y-5">
                     {/* Contact Info */}
                     <div>
