@@ -151,9 +151,9 @@ export default function Portfolio() {
           <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h2>
           <div className="flex flex-wrap gap-2">
             {exploreLinks.map(navItem => (
-              <Link key={navItem.page} to={createPageUrl(navItem.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+              <a key={navItem.page} href={createPageUrl(navItem.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
                 <ChevronRight className="w-3 h-3" /> {navItem.label}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
