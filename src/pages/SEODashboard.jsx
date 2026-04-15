@@ -6,6 +6,7 @@ import SEOIndexStatus from "@/components/seo/SEOIndexStatus";
 import SEOPageKeywords from "@/components/seo/SEOPageKeywords";
 import SEOCustomHomeAnalysis from "@/components/seo/SEOCustomHomeAnalysis";
 import SEOIndexingLog from "@/components/seo/SEOIndexingLog";
+import SEOCrawlErrors from "@/components/seo/SEOCrawlErrors";
 import { Search, Globe, Map, RefreshCw, Loader2, Home, Send, Zap } from "lucide-react";
 
 export default function SEODashboard() {
@@ -52,6 +53,13 @@ export default function SEODashboard() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+        {/* ── Crawl Error Analysis ── */}
+        <SEOCrawlErrors
+          data={data.getCrawlErrors}
+          loading={loading.getCrawlErrors}
+          onLoad={() => call("getCrawlErrors")}
+        />
 
         {/* ── Custom Home Traffic Analysis ── */}
         <SEOCustomHomeAnalysis

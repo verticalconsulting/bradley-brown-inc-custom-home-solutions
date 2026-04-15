@@ -220,6 +220,142 @@ Deno.serve(async (req) => {
       return Response.json({ action, results, sitemapResubmitted: sitemapOk });
     }
 
+    // ── 7. Crawl error analysis for landing pages ───────────────────────────
+    if (action === "getCrawlErrors") {
+      const LANDING_PAGES = [
+        "/",
+        "/Services",
+        "/Portfolio",
+        "/Contact",
+        "/About",
+        "/QuoteAssistant",
+        "/ScheduleVisit",
+        "/LandingCoreServices",
+        "/LandingEmergencyRepair",
+        "/LandingBrandonRemodelers",
+        "/SmallBathroomIdeas",
+        "/LuxuryHomeRenovations",
+        "/LandingPricing",
+        "/LandingTrust",
+        "/RenovationLoans",
+        "/HomeAdditionIdeas",
+        "/EnergyEfficientUpgrades",
+        "/ProTips",
+        "/ContactForm",
+      ];
+
+      // Inspect all pages in parallel
+      const inspections = await Promise.all(
+        LANDING_PAGES.map(async (path) => {
+          const fullUrl = `${SITE_URL}${path}`;
+          const res = await fetch(`https://searchconsole.googleapis.com/v1/urlInspection/index:inspect`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+            body: JSON.stringify({ inspectionUrl: fullUrl, siteUrl: SITE_URL }),
+          });
+          const d = await res.json();
+          const result = d.inspectionResult || {};
+          const indexStatus = result.indexStatusResult || {};
+          const mobileUsability = result.mobileUsabilityResult || {};
+          const richResults = result.richResultsResult || {};
+
+          return {
+            url: fullUrl,
+            path,
+            verdict: indexStatus.verdict || "UNKNOWN",
+            coverageState: indexStatus.coverageState || "Unknown",
+            lastCrawlTime: indexStatus.lastCrawlTime || null,
+            crawledAs: indexStatus.crawledAs || null,
+            robotsTxtState: indexStatus.robotsTxtState || null,
+            indexingState: indexStatus.indexingState || null,
+            mobileVerdict: mobileUsability.verdict || "UNKNOWN",
+            mobileIssues: (mobileUsability.issues || []).map(i => i.issueMessage),
+            richResultsVerdict: richResults.verdict || null,
+            httpStatus: result.httpStatusCode || null,
+          };
+        })
+      );
+
+      const indexed = inspections.filter(r => r.verdict === "PASS");
+      const errors = inspections.filter(r => r.verdict === "FAIL");
+      const warnings = inspections.filter(r => r.verdict === "NEUTRAL" || r.verdict === "UNKNOWN");
+      const mobileIssues = inspections.filter(r => r.mobileVerdict === "FAIL" || r.mobileIssues?.length > 0);
+
+      // Get search performance for these pages
+      const endDate = new Date().toISOString().split("T")[0];
+      const startDate = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+      const perfData = await searchAnalytics({
+        startDate, endDate,
+        dimensions: ["page"],
+        rowLimit: 500,
+        orderBy: [{ fieldName: "impressions", sortOrder: "DESCENDING" }],
+      });
+      const perfMap = {};
+      for (const row of (perfData.rows || [])) {
+        const path = row.keys[0].replace(SITE_URL, "") || "/";
+        perfMap[path] = { clicks: row.clicks, impressions: row.impressions, position: row.position, ctr: row.ctr };
+      }
+
+      // Merge perf data
+      const enriched = inspections.map(r => ({
+        ...r,
+        perf: perfMap[r.path] || null,
+      }));
+
+      // AI analysis
+      const errorSummary = errors.map(e => `${e.path}: ${e.coverageState}, mobile: ${e.mobileVerdict}`).join("\n");
+      const warningSummary = warnings.map(w => `${w.path}: ${w.coverageState}`).join("\n");
+
+      const aiRes = await base44.asServiceRole.integrations.Core.InvokeLLM({
+        prompt: `You are an SEO expert analyzing crawl errors for a home remodeling contractor website (bradleybrowninc.com).
+
+Index Status Summary:
+- Indexed: ${indexed.length} pages
+- Errors (FAIL): ${errors.length} pages
+- Warnings/Unknown: ${warnings.length} pages
+- Mobile Issues: ${mobileIssues.length} pages
+
+Error Pages:
+${errorSummary || "None"}
+
+Warning Pages:
+${warningSummary || "None"}
+
+Mobile Issue Pages:
+${mobileIssues.map(p => `${p.path}: ${p.mobileIssues.join(", ")}`).join("\n") || "None"}
+
+Provide 3-5 specific, actionable recommendations to fix crawl errors and improve indexing for this home remodeling contractor site. Focus on the most impactful issues first.
+
+Return JSON: { "summary": "2-3 sentence overview", "recommendations": [{ "title": "short title", "detail": "actionable step", "priority": "high|medium|low", "affectedPages": ["path1"] }] }`,
+        response_json_schema: {
+          type: "object",
+          properties: {
+            summary: { type: "string" },
+            recommendations: {
+              type: "array",
+              items: {
+                type: "object",
+                properties: {
+                  title: { type: "string" },
+                  detail: { type: "string" },
+                  priority: { type: "string" },
+                  affectedPages: { type: "array", items: { type: "string" } },
+                },
+              },
+            },
+          },
+        },
+      });
+
+      return Response.json({
+        action,
+        pages: enriched,
+        summary: { total: inspections.length, indexed: indexed.length, errors: errors.length, warnings: warnings.length, mobileIssues: mobileIssues.length },
+        aiInsights: aiRes,
+        dateRange: { startDate, endDate },
+      });
+    }
+
     // ── Legacy requestIndexing alias ────────────────────────────────────────
     if (action === "requestIndexing") {
       const urlsToIndex = (body.urls || ALL_PAGES).map(p => p.startsWith("http") ? p : `${SITE_URL}${p}`);
