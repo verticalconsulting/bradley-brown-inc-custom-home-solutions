@@ -148,9 +148,9 @@ export default function Portfolio() {
               { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
               { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
               { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
-            ].map((link) => (
-              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
-                <ChevronRight className="w-3 h-3" /> {link.label}
+            ].map((item) => (
+              <Link key={item.page} to={createPageUrl(item.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+                <ChevronRight className="w-3 h-3" /> {item.label}
               </Link>
             ))}
           </div>
