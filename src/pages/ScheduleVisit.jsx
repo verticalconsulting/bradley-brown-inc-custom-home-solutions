@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
-import { Calendar, Clock, User, MapPin, CheckCircle, Loader2, Shield, HardHat, MessageSquare, DollarSign } from "lucide-react";
+import { Calendar, Clock, User, MapPin, CheckCircle, Loader2, Shield, HardHat, MessageSquare, DollarSign, ChevronRight } from "lucide-react";
 
 const PROJECT_TYPES = [
     { value: "custom_home", label: "Custom Home" },
@@ -274,6 +276,30 @@ export default function ScheduleVisit() {
                         A calendar invite will be sent to your email. We'll confirm within 24 hours.
                     </p>
                 </form>
+
+                {/* Internal links */}
+                <div className="mt-6 bg-slate-50 border border-gray-200 rounded-xl p-5">
+                  <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Not ready to schedule? Explore first:</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { label: "AI Cost Estimator", page: "QuoteAssistant" },
+                      { label: "Our Services", page: "Services" },
+                      { label: "View Portfolio", page: "Portfolio" },
+                      { label: "Pricing Guide", page: "LandingPricing" },
+                      { label: "Why Trust Us", page: "LandingTrust" },
+                      { label: "Pro Tips", page: "ProTips" },
+                      { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+                      { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
+                      { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
+                      { label: "Renovation Loans", page: "RenovationLoans" },
+                      { label: "Contact Us", page: "Contact" },
+                    ].map((link) => (
+                      <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+                        <ChevronRight className="w-3 h-3" /> {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
             </div>
         </div>
     );

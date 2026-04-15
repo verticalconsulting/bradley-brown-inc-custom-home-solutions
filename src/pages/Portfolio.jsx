@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import SEOHead from "@/components/SEOHead";
 import { base44 } from "@/api/base44Client";
-import { MapPin, Maximize2, Calendar, SlidersHorizontal } from "lucide-react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { MapPin, Maximize2, Calendar, SlidersHorizontal, ChevronRight } from "lucide-react";
 import PullToRefresh from "@/components/PullToRefresh";
 
 const categoryFilters = [
@@ -130,6 +132,29 @@ export default function Portfolio() {
             <p className="text-slate-400 text-lg">No projects in this category yet.</p>
           </div>
         )}
+
+        {/* Internal links */}
+        <div className="mt-12 bg-slate-50 border border-gray-200 rounded-xl p-5">
+          <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h2>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: "Our Services", page: "Services" },
+              { label: "Get a Free AI Estimate", page: "QuoteAssistant" },
+              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+              { label: "Contact Us", page: "Contact" },
+              { label: "Why Trust Us", page: "LandingTrust" },
+              { label: "Pricing Guide", page: "LandingPricing" },
+              { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
+              { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+              { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
+              { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
+            ].map((link) => (
+              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+                <ChevronRight className="w-3 h-3" /> {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
     </PullToRefresh>

@@ -3,7 +3,9 @@ import MobileSelectDrawer from "@/components/quote/MobileSelectDrawer";
 import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema } from "@/components/seoSchemas";
 import { base44 } from "@/api/base44Client";
-import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight } from "lucide-react";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", project_type: "custom_home" });
@@ -156,6 +158,33 @@ export default function Contact() {
                 </button>
               </form>
             )}
+          </div>
+        </div>
+      </div>
+
+      {/* Internal links */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-6">
+        <div className="bg-slate-50 border border-gray-200 rounded-xl p-5">
+          <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h2>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: "Our Services", page: "Services" },
+              { label: "View Portfolio", page: "Portfolio" },
+              { label: "AI Cost Estimator", page: "QuoteAssistant" },
+              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+              { label: "Why Trust Us", page: "LandingTrust" },
+              { label: "Pricing Guide", page: "LandingPricing" },
+              { label: "Pro Tips & Advice", page: "ProTips" },
+              { label: "Core Services — Brandon", page: "LandingCoreServices" },
+              { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
+              { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+              { label: "Renovation Loans", page: "RenovationLoans" },
+              { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+            ].map((link) => (
+              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+                <ChevronRight className="w-3 h-3" /> {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

@@ -130,8 +130,15 @@ export default function About() {
               { label: "Get a Free Estimate", page: "QuoteAssistant" },
               { label: "Schedule a Site Visit", page: "ScheduleVisit" },
               { label: "Pro Tips", page: "ProTips" },
-              { label: "Why Trust Us", page: "LandingTrust" },
+                { label: "Why Trust Us", page: "LandingTrust" },
               { label: "Pricing Guide", page: "LandingPricing" },
+              { label: "Core Services — Brandon", page: "LandingCoreServices" },
+              { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
+              { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+              { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
+              { label: "Renovation Loans", page: "RenovationLoans" },
+              { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+              { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
             ].map((link) => (
               <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
                 <ChevronRight className="w-3 h-3" /> {link.label}
