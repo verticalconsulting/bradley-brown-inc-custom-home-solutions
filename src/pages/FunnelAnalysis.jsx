@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
 import {
-  BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, FunnelChart, Funnel, LabelList,
+  BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
 } from "recharts";
-import { TrendingDown, Users, MousePointerClick, RefreshCw, Loader2, ChevronDown, ArrowRight } from "lucide-react";
+import { TrendingDown, Users, MousePointerClick, RefreshCw, Loader2, ChevronDown, Smartphone, Monitor, Tablet, Lightbulb, AlertTriangle, Info } from "lucide-react";
 
 const FUNNEL_COLORS = ["#0ea5e9", "#38bdf8", "#7dd3fc", "#bae6fd", "#e0f2fe", "#f0f9ff"];
 const DROP_COLOR = (pct) => pct > 60 ? "#ef4444" : pct > 30 ? "#f59e0b" : "#22c55e";
@@ -205,6 +205,107 @@ export default function FunnelAnalysis() {
                       ))}
                     </tbody>
                   </table>
+                </div>
+              </section>
+            )}
+
+            {/* Device Breakdown */}
+            {data.devices?.length > 0 && (
+              <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="p-5 border-b border-gray-100">
+                  <h2 className="font-bold text-[#1E2D3D] flex items-center gap-2">
+                    <Smartphone className="w-5 h-5 text-sky-500" /> Device Breakdown
+                  </h2>
+                </div>
+                <div className="p-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {data.devices.map((d, i) => {
+                    const Icon = d.device === "mobile" ? Smartphone : d.device === "tablet" ? Tablet : Monitor;
+                    const total = data.devices.reduce((s, x) => s + x.sessions, 0);
+                    const pct = total > 0 ? Math.round((d.sessions / total) * 100) : 0;
+                    return (
+                      <div key={i} className="bg-slate-50 rounded-xl p-4 text-center">
+                        <Icon className="w-6 h-6 text-sky-500 mx-auto mb-2" />
+                        <p className="text-sm font-semibold text-[#1E2D3D] capitalize">{d.device}</p>
+                        <p className="text-2xl font-bold text-sky-600 mt-1">{pct}%</p>
+                        <p className="text-xs text-slate-400 mt-0.5">{d.sessions.toLocaleString()} sessions</p>
+                        <p className="text-xs mt-1" style={{ color: DROP_COLOR(d.bounceRate * 100) }}>
+                          {(d.bounceRate * 100).toFixed(1)}% bounce
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
+            {/* Top Landing Pages */}
+            {data.topLandingPages?.length > 0 && (
+              <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="p-5 border-b border-gray-100">
+                  <h2 className="font-bold text-[#1E2D3D] flex items-center gap-2">
+                    <TrendingDown className="w-5 h-5 text-sky-500" /> Top Landing Pages
+                  </h2>
+                </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead className="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
+                      <tr>
+                        <th className="px-5 py-3 text-left">Page</th>
+                        <th className="px-5 py-3 text-right">Sessions</th>
+                        <th className="px-5 py-3 text-right">Bounce Rate</th>
+                        <th className="px-5 py-3 text-right">Conversions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-50">
+                      {data.topLandingPages.map((row, i) => (
+                        <tr key={i} className="hover:bg-sky-50/30">
+                          <td className="px-5 py-3 font-medium text-[#1E2D3D] font-mono text-xs">{row.page}</td>
+                          <td className="px-5 py-3 text-right font-semibold text-sky-600">{row.sessions.toLocaleString()}</td>
+                          <td className="px-5 py-3 text-right" style={{ color: DROP_COLOR(row.bounceRate * 100) }}>
+                            {(row.bounceRate * 100).toFixed(1)}%
+                          </td>
+                          <td className="px-5 py-3 text-right text-slate-500">{row.conversions.toLocaleString()}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            )}
+
+            {/* AI Insights */}
+            {data.aiInsights && (
+              <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="p-5 border-b border-gray-100">
+                  <h2 className="font-bold text-[#1E2D3D] flex items-center gap-2">
+                    <Lightbulb className="w-5 h-5 text-amber-500" /> AI Recommendations
+                  </h2>
+                </div>
+                <div className="p-5 space-y-4">
+                  {data.aiInsights.summary && (
+                    <p className="text-sm text-slate-600 bg-slate-50 rounded-lg p-4 leading-relaxed">{data.aiInsights.summary}</p>
+                  )}
+                  <div className="space-y-3">
+                    {(data.aiInsights.insights || []).map((ins, i) => {
+                      const priorityColor = ins.priority === "high" ? "border-red-400 bg-red-50" : ins.priority === "medium" ? "border-amber-400 bg-amber-50" : "border-green-400 bg-green-50";
+                      const Icon = ins.priority === "high" ? AlertTriangle : Info;
+                      const iconColor = ins.priority === "high" ? "text-red-500" : ins.priority === "medium" ? "text-amber-500" : "text-green-500";
+                      return (
+                        <div key={i} className={`border-l-4 rounded-r-lg p-4 ${priorityColor}`}>
+                          <div className="flex items-start gap-2">
+                            <Icon className={`w-4 h-4 mt-0.5 flex-shrink-0 ${iconColor}`} />
+                            <div>
+                              <p className="text-sm font-semibold text-[#1E2D3D]">{ins.title}</p>
+                              <p className="text-sm text-slate-600 mt-1">{ins.detail}</p>
+                            </div>
+                            <span className={`ml-auto text-xs font-medium uppercase px-2 py-0.5 rounded-full flex-shrink-0 ${ins.priority === "high" ? "bg-red-100 text-red-600" : ins.priority === "medium" ? "bg-amber-100 text-amber-600" : "bg-green-100 text-green-600"}`}>
+                              {ins.priority}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </section>
             )}

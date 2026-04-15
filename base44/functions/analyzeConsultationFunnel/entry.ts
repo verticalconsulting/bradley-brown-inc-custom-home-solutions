@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.20';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -176,11 +176,98 @@ Deno.serve(async (req) => {
         return { ...step, dropOff: i === 0 ? 0 : dropOff, conversionRate };
       });
 
+      // ── 3. Device / platform breakdown ──────────────────────────────────
+      const deviceRes = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          dateRanges: [{ startDate, endDate }],
+          dimensions: [{ name: "deviceCategory" }],
+          metrics: [{ name: "sessions" }, { name: "bounceRate" }],
+        }),
+      });
+      const deviceData = await deviceRes.json();
+      const devices = (deviceData.rows || []).map(row => ({
+        device: row.dimensionValues[0].value,
+        sessions: parseInt(row.metricValues[0].value),
+        bounceRate: parseFloat(row.metricValues[1].value),
+      }));
+
+      // ── 4. Top entry pages ───────────────────────────────────────────────
+      const entryRes = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          dateRanges: [{ startDate, endDate }],
+          dimensions: [{ name: "landingPage" }],
+          metrics: [{ name: "sessions" }, { name: "bounceRate" }, { name: "conversions" }],
+          orderBys: [{ metric: { metricName: "sessions" }, desc: true }],
+          limit: 10,
+        }),
+      });
+      const entryData = await entryRes.json();
+      const topLandingPages = (entryData.rows || []).map(row => ({
+        page: row.dimensionValues[0].value,
+        sessions: parseInt(row.metricValues[0].value),
+        bounceRate: parseFloat(row.metricValues[1].value),
+        conversions: parseInt(row.metricValues[2].value),
+      }));
+
+      // ── 5. AI Insights ───────────────────────────────────────────────────
+      const worstDropOff = funnelWithDropOff.slice(1).sort((a, b) => b.dropOff - a.dropOff)[0];
+      const overallConversionRate = funnelWithDropOff[funnelWithDropOff.length - 1].conversionRate;
+      const mobileSessions = devices.find(d => d.device === "mobile")?.sessions || 0;
+      const totalSessions = devices.reduce((s, d) => s + d.sessions, 0);
+      const mobileShare = totalSessions > 0 ? Math.round((mobileSessions / totalSessions) * 100) : 0;
+
+      const aiPrompt = `You are a conversion rate optimization expert for a home remodeling contractor website (Bradley Brown Inc, Brandon MS).
+      
+Analyze this funnel data and provide 4-5 specific, actionable recommendations to improve conversions:
+
+Funnel Steps:
+${funnelWithDropOff.map(s => `- ${s.label}: ${s.sessions} sessions, ${s.dropOff}% drop-off, ${s.conversionRate}% of total`).join('\n')}
+
+Key Events:
+${events.map(e => `- ${e.event}: ${e.count} times`).join('\n')}
+
+Device Breakdown:
+${devices.map(d => `- ${d.device}: ${d.sessions} sessions, ${(d.bounceRate * 100).toFixed(1)}% bounce rate`).join('\n')}
+
+Mobile traffic share: ${mobileShare}%
+Overall funnel conversion (Home → Quote Submitted): ${overallConversionRate}%
+Biggest drop-off point: ${worstDropOff?.label} (${worstDropOff?.dropOff}% drop)
+
+Provide JSON with this structure: { "summary": "2-3 sentence overview", "insights": [{ "title": "short title", "detail": "specific actionable recommendation", "priority": "high|medium|low" }] }`;
+
+      const aiRes = await base44.asServiceRole.integrations.Core.InvokeLLM({
+        prompt: aiPrompt,
+        response_json_schema: {
+          type: "object",
+          properties: {
+            summary: { type: "string" },
+            insights: {
+              type: "array",
+              items: {
+                type: "object",
+                properties: {
+                  title: { type: "string" },
+                  detail: { type: "string" },
+                  priority: { type: "string" },
+                },
+              },
+            },
+          },
+        },
+      });
+
       return Response.json({
         action,
         funnel: funnelWithDropOff,
         events,
         quotePageStats,
+        devices,
+        topLandingPages,
+        aiInsights: aiRes,
         dateRange: { startDate: "90 days ago", endDate: "today" },
       });
     }
