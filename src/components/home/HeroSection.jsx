@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { ChevronRight, Play } from "lucide-react";
+import { ChevronRight, Play, Sparkles, Phone } from "lucide-react";
 
 const slides = [
   {
@@ -67,10 +67,28 @@ export default function HeroSection() {
           Custom home construction, renovations, and additions crafted with integrity, precision, and 30+ years of Mississippi expertise.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        {/* Mobile: stacked prominent CTAs */}
+        <div className="flex flex-col gap-3 sm:hidden w-full max-w-xs mx-auto">
           <Link
-            to={createPageUrl("ContactForm")} className="bg-sky-500 text-[#ffffff] px-8 py-4 text-lg font-semibold rounded-[10px] inline-flex items-center justify-center gap-2 hover:bg-[#1a73ef] transition-all hover:scale-105 shadow-lg">
-            Get a Free Quote <ChevronRight className="w-5 h-5" />
+            to={createPageUrl("QuoteAssistant")}
+            className="bg-[#C4922A] text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all">
+            <Sparkles className="w-5 h-5" /> Get My Free AI Estimate
+          </Link>
+          <a href="tel:+18443514154" className="bg-green-500 text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all">
+            <Phone className="w-5 h-5" /> Call (844) 351-4154
+          </a>
+          <Link
+            to={createPageUrl("Portfolio")}
+            className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all">
+            <Play className="w-4 h-4" /> View Our Work
+          </Link>
+        </div>
+
+        {/* Desktop CTAs */}
+        <div className="hidden sm:flex flex-row gap-4 justify-center">
+          <Link
+            to={createPageUrl("QuoteAssistant")} className="bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg">
+            <Sparkles className="w-5 h-5" /> Get a Free Estimate
           </Link>
           <Link
             to={createPageUrl("Portfolio")}

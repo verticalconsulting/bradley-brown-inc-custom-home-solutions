@@ -11,7 +11,7 @@ const projectTypes = [
   "Other",
 ];
 
-const inputClass = "w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm";
+const inputClass = "w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 text-base";
 
 export default function LeadCaptureForm({ source = "Website", onSuccess }) {
   const [form, setForm] = useState({
@@ -129,7 +129,7 @@ export default function LeadCaptureForm({ source = "Website", onSuccess }) {
 
       <button
         type="submit" disabled={loading}
-        className="w-full bg-sky-500 hover:bg-sky-600 disabled:bg-slate-300 text-white font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+        className="w-full bg-sky-500 hover:bg-sky-600 disabled:bg-slate-300 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-base"
       >
         <Send className="w-4 h-4" />
         {loading ? "Sending..." : "Send Estimate Request"}

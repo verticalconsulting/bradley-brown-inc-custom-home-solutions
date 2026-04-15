@@ -1,6 +1,6 @@
 import React from "react";
 
-const inputClass = "w-full border border-[#E2D9CC] rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C4922A]/30 focus:border-[#C4922A] bg-white";
+const inputClass = "w-full border border-[#E2D9CC] rounded-lg px-4 py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-[#C4922A]/30 focus:border-[#C4922A] bg-white";
 
 export default function ContactStep({ data, onChange }) {
   const update = (field, val) => onChange({ ...data, [field]: val });
