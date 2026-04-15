@@ -20,7 +20,7 @@ export default function Leads() {
 
   const loadLeads = () => {
     base44.entities.Lead.list("-created_date", 100)
-      .then(data => setLeads(data))
+      .then(data => setLeads(Array.isArray(data) ? data.filter(Boolean) : []))
       .finally(() => setLoading(false));
   };
 
