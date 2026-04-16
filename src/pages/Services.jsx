@@ -22,7 +22,7 @@ const services = [
   "Post-build support for peace of mind"],
 
   features: ["Full architectural consultation", "Custom floor plans", "Premium material selection", "Regular progress updates", "Industry-leading warranty", "Post-build support"],
-  image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80",
+  image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/4f5d5272-9876-4979-760d-78b67d9aa600/large",
   price: "Starting at $250,000",
   testimonial: {
     text: "Bradley Brown built our custom home in Brandon and the craftsmanship is absolutely incredible. They kept us informed every step of the way. We couldn't be happier!",
@@ -49,7 +49,7 @@ const services = [
   "Increased home resale value"],
 
   features: ["Kitchen & bath remodels", "Whole-home renovations", "Flooring & tile work", "Electrical & plumbing updates", "Custom cabinetry", "Painting & trim work"],
-  image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+  image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/large",
   price: "Starting at $15,000",
   testimonial: {
     text: "They remodeled our kitchen and master bath — it looks like a completely different house. The team was professional, clean, and finished on schedule. 10/10!",
@@ -76,7 +76,7 @@ const services = [
   "Full permitting & code compliance"],
 
   features: ["Master suite additions", "Family room expansions", "Sunroom construction", "In-law suites", "Garage conversions", "Home office remodels"],
-  image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+  image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/ed62ffc6-b48e-4c79-2b3a-0cc96426b300/large",
   price: "Starting at $5,000",
   testimonial: {
     text: "We added a mother-in-law suite and a home office. Bradley Brown matched the brick and roofline perfectly — you'd never know it wasn't original to the house.",
@@ -103,7 +103,7 @@ const services = [
   "Outdoor lighting & electrical systems"],
 
   features: ["Covered patios & porches", "Outdoor kitchens", "Decks & pergolas", "Pool surrounds", "Landscape integration", "Outdoor lighting systems"],
-  image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80",
+  image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/bbd98a0f-473a-4754-b6fd-2724101d1500/large",
   price: "Starting at $10,000",
   testimonial: {
     text: "Our new covered porch with an outdoor kitchen is the best investment we've ever made. The whole family lives out there on weekends. Absolutely beautiful work.",
@@ -275,12 +275,12 @@ export default function Services() {
                   {/* Image + FAQ */}
                   <div className={isEven ? "order-2" : "order-2 md:order-1"}>
                     <div className="rounded-2xl overflow-hidden shadow-xl mb-5">
-                      <img src="https://media.base44.com/images/public/699c758479c46f0580553750/02651f741_Charming_farmhouse_porch_at_sunset.png"
-
-                      alt={`${service.name} in Brandon MS by Bradley Brown Inc.`} className="w-full h-72 md:h-96 object-cover"
-
-                      loading="lazy" />
-                      
+                      <img
+                        src={service.image}
+                        alt={`${service.name} in Brandon MS by Bradley Brown Inc.`}
+                        className="w-full h-72 md:h-96 object-cover"
+                        loading="lazy"
+                      />
                     </div>
                     {service.faq &&
                     <div className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
