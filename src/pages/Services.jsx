@@ -7,121 +7,121 @@ import { Home, Wrench, Plus, Leaf, Check, ChevronRight, Phone, Tag, Star, Sparkl
 import { base44 } from "@/api/base44Client";
 
 const services = [
-  {
-    icon: Home,
-    color: "sky",
-    name: "Custom Home Building",
-    tagline: "Your vision. Our craftsmanship. Built to last generations.",
-    description: "From the first blueprint to the final walkthrough, we manage every detail of your custom home build. Our team has delivered 500+ dream homes across Central Mississippi — on time, on budget, and built to exceed expectations.",
-    benefits: [
-      "One point of contact from design to move-in",
-      "Transparent pricing — no hidden surprises",
-      "Premium materials at competitive costs",
-      "Energy-efficient building practices",
-      "Industry-leading workmanship warranty",
-      "Post-build support for peace of mind",
-    ],
-    features: ["Full architectural consultation", "Custom floor plans", "Premium material selection", "Regular progress updates", "Industry-leading warranty", "Post-build support"],
-    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80",
-    price: "Starting at $250,000",
-    testimonial: {
-      text: "Bradley Brown built our custom home in Brandon and the craftsmanship is absolutely incredible. They kept us informed every step of the way. We couldn't be happier!",
-      author: "Sarah & Tom M.",
-      location: "Brandon, MS",
-    },
-    faq: [
-      { q: "How long does a custom home build take?", a: "Typically 8–14 months depending on size and complexity. We provide a detailed project timeline before breaking ground." },
-      { q: "Can I make changes during construction?", a: "Yes — we use a change order process to handle modifications while keeping the project on track and within budget." },
-    ],
+{
+  icon: Home,
+  color: "sky",
+  name: "Custom Home Building",
+  tagline: "Your vision. Our craftsmanship. Built to last generations.",
+  description: "From the first blueprint to the final walkthrough, we manage every detail of your custom home build. Our team has delivered 500+ dream homes across Central Mississippi — on time, on budget, and built to exceed expectations.",
+  benefits: [
+  "One point of contact from design to move-in",
+  "Transparent pricing — no hidden surprises",
+  "Premium materials at competitive costs",
+  "Energy-efficient building practices",
+  "Industry-leading workmanship warranty",
+  "Post-build support for peace of mind"],
+
+  features: ["Full architectural consultation", "Custom floor plans", "Premium material selection", "Regular progress updates", "Industry-leading warranty", "Post-build support"],
+  image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80",
+  price: "Starting at $250,000",
+  testimonial: {
+    text: "Bradley Brown built our custom home in Brandon and the craftsmanship is absolutely incredible. They kept us informed every step of the way. We couldn't be happier!",
+    author: "Sarah & Tom M.",
+    location: "Brandon, MS"
   },
-  {
-    icon: Wrench,
-    color: "indigo",
-    name: "Home Renovations & Remodeling",
-    tagline: "Transform your existing home into the space you've always wanted.",
-    description: "Whether it's a full home remodel, kitchen overhaul, or bathroom transformation, our team delivers exceptional craftsmanship at every stage. We've renovated hundreds of Mississippi homes — bringing modern style, better function, and lasting value.",
-    benefits: [
-      "Kitchen & bath specialists since 1995",
-      "We handle all permits & inspections",
-      "Minimal disruption to your daily routine",
-      "Licensed electricians & plumbers on staff",
-      "Custom cabinetry & finish carpentry",
-      "Increased home resale value",
-    ],
-    features: ["Kitchen & bath remodels", "Whole-home renovations", "Flooring & tile work", "Electrical & plumbing updates", "Custom cabinetry", "Painting & trim work"],
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
-    price: "Starting at $15,000",
-    testimonial: {
-      text: "They remodeled our kitchen and master bath — it looks like a completely different house. The team was professional, clean, and finished on schedule. 10/10!",
-      author: "Jennifer R.",
-      location: "Flowood, MS",
-    },
-    faq: [
-      { q: "How long does a kitchen remodel take?", a: "Typically 4–8 weeks depending on scope. We give you a realistic timeline upfront." },
-      { q: "Do you handle permits?", a: "Yes — we pull all required permits and handle inspections so you don't have to." },
-    ],
+  faq: [
+  { q: "How long does a custom home build take?", a: "Typically 8–14 months depending on size and complexity. We provide a detailed project timeline before breaking ground." },
+  { q: "Can I make changes during construction?", a: "Yes — we use a change order process to handle modifications while keeping the project on track and within budget." }]
+
+},
+{
+  icon: Wrench,
+  color: "indigo",
+  name: "Home Renovations & Remodeling",
+  tagline: "Transform your existing home into the space you've always wanted.",
+  description: "Whether it's a full home remodel, kitchen overhaul, or bathroom transformation, our team delivers exceptional craftsmanship at every stage. We've renovated hundreds of Mississippi homes — bringing modern style, better function, and lasting value.",
+  benefits: [
+  "Kitchen & bath specialists since 1995",
+  "We handle all permits & inspections",
+  "Minimal disruption to your daily routine",
+  "Licensed electricians & plumbers on staff",
+  "Custom cabinetry & finish carpentry",
+  "Increased home resale value"],
+
+  features: ["Kitchen & bath remodels", "Whole-home renovations", "Flooring & tile work", "Electrical & plumbing updates", "Custom cabinetry", "Painting & trim work"],
+  image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+  price: "Starting at $15,000",
+  testimonial: {
+    text: "They remodeled our kitchen and master bath — it looks like a completely different house. The team was professional, clean, and finished on schedule. 10/10!",
+    author: "Jennifer R.",
+    location: "Flowood, MS"
   },
-  {
-    icon: Plus,
-    color: "emerald",
-    name: "Room Additions & Home Office Remodel",
-    tagline: "More space, more possibilities — without moving.",
-    description: "Need more room? We design and build additions that blend seamlessly with your existing home's architecture — from master suite additions and in-law suites to sunrooms and dedicated home offices. Stay in the home you love, just with more of it.",
-    benefits: [
-      "Seamless architectural integration",
-      "Adds significant resale value",
-      "Home office & bonus room specialists",
-      "In-law suite & multigenerational designs",
-      "Garage conversion experts",
-      "Full permitting & code compliance",
-    ],
-    features: ["Master suite additions", "Family room expansions", "Sunroom construction", "In-law suites", "Garage conversions", "Home office remodels"],
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    price: "Starting at $5,000",
-    testimonial: {
-      text: "We added a mother-in-law suite and a home office. Bradley Brown matched the brick and roofline perfectly — you'd never know it wasn't original to the house.",
-      author: "Marcus & Dana L.",
-      location: "Madison, MS",
-    },
-    faq: [
-      { q: "Will an addition match my existing home?", a: "Absolutely — we match materials, rooflines, and finishes so the addition looks like it was always there." },
-      { q: "Can I add a home office to my existing floor plan?", a: "Yes. We specialize in garage conversions, bonus room finishing, and purpose-built home office additions." },
-    ],
+  faq: [
+  { q: "How long does a kitchen remodel take?", a: "Typically 4–8 weeks depending on scope. We give you a realistic timeline upfront." },
+  { q: "Do you handle permits?", a: "Yes — we pull all required permits and handle inspections so you don't have to." }]
+
+},
+{
+  icon: Plus,
+  color: "emerald",
+  name: "Room Additions & Home Office Remodel",
+  tagline: "More space, more possibilities — without moving.",
+  description: "Need more room? We design and build additions that blend seamlessly with your existing home's architecture — from master suite additions and in-law suites to sunrooms and dedicated home offices. Stay in the home you love, just with more of it.",
+  benefits: [
+  "Seamless architectural integration",
+  "Adds significant resale value",
+  "Home office & bonus room specialists",
+  "In-law suite & multigenerational designs",
+  "Garage conversion experts",
+  "Full permitting & code compliance"],
+
+  features: ["Master suite additions", "Family room expansions", "Sunroom construction", "In-law suites", "Garage conversions", "Home office remodels"],
+  image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+  price: "Starting at $5,000",
+  testimonial: {
+    text: "We added a mother-in-law suite and a home office. Bradley Brown matched the brick and roofline perfectly — you'd never know it wasn't original to the house.",
+    author: "Marcus & Dana L.",
+    location: "Madison, MS"
   },
-  {
-    icon: Leaf,
-    color: "green",
-    name: "Outdoor Living Spaces & Decks",
-    tagline: "Mississippi's climate is made for outdoor living — let's build yours.",
-    description: "We design and build beautiful outdoor spaces — from covered patios to full outdoor kitchens and custom decks — that extend your home's footprint and enhance your lifestyle year-round. Perfect for entertaining, relaxing, or enjoying Central Mississippi's beautiful weather.",
-    benefits: [
-      "Year-round outdoor entertaining spaces",
-      "Covered porches to beat Mississippi heat",
-      "Full outdoor kitchens & BBQ stations",
-      "Custom decks & pergolas built to last",
-      "Pool surrounds & landscape integration",
-      "Outdoor lighting & electrical systems",
-    ],
-    features: ["Covered patios & porches", "Outdoor kitchens", "Decks & pergolas", "Pool surrounds", "Landscape integration", "Outdoor lighting systems"],
-    image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80",
-    price: "Starting at $10,000",
-    testimonial: {
-      text: "Our new covered porch with an outdoor kitchen is the best investment we've ever made. The whole family lives out there on weekends. Absolutely beautiful work.",
-      author: "Chris & Amy B.",
-      location: "Pearl, MS",
-    },
-    faq: [
-      { q: "What's the most popular outdoor project in Mississippi?", a: "Covered back porches with outdoor kitchens — perfect for year-round entertaining in Central Mississippi's climate." },
-      { q: "Do decks need permits in Mississippi?", a: "Most decks over a certain size do. We handle all permits and inspections." },
-    ],
+  faq: [
+  { q: "Will an addition match my existing home?", a: "Absolutely — we match materials, rooflines, and finishes so the addition looks like it was always there." },
+  { q: "Can I add a home office to my existing floor plan?", a: "Yes. We specialize in garage conversions, bonus room finishing, and purpose-built home office additions." }]
+
+},
+{
+  icon: Leaf,
+  color: "green",
+  name: "Outdoor Living Spaces & Decks",
+  tagline: "Mississippi's climate is made for outdoor living — let's build yours.",
+  description: "We design and build beautiful outdoor spaces — from covered patios to full outdoor kitchens and custom decks — that extend your home's footprint and enhance your lifestyle year-round. Perfect for entertaining, relaxing, or enjoying Central Mississippi's beautiful weather.",
+  benefits: [
+  "Year-round outdoor entertaining spaces",
+  "Covered porches to beat Mississippi heat",
+  "Full outdoor kitchens & BBQ stations",
+  "Custom decks & pergolas built to last",
+  "Pool surrounds & landscape integration",
+  "Outdoor lighting & electrical systems"],
+
+  features: ["Covered patios & porches", "Outdoor kitchens", "Decks & pergolas", "Pool surrounds", "Landscape integration", "Outdoor lighting systems"],
+  image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80",
+  price: "Starting at $10,000",
+  testimonial: {
+    text: "Our new covered porch with an outdoor kitchen is the best investment we've ever made. The whole family lives out there on weekends. Absolutely beautiful work.",
+    author: "Chris & Amy B.",
+    location: "Pearl, MS"
   },
-];
+  faq: [
+  { q: "What's the most popular outdoor project in Mississippi?", a: "Covered back porches with outdoor kitchens — perfect for year-round entertaining in Central Mississippi's climate." },
+  { q: "Do decks need permits in Mississippi?", a: "Most decks over a certain size do. We handle all permits and inspections." }]
+
+}];
+
 
 const colorMap = {
   sky: { icon: "bg-sky-50 text-sky-500", badge: "bg-sky-100 text-sky-700", btn: "bg-sky-500 hover:bg-sky-600", check: "text-sky-500", border: "border-sky-200" },
   indigo: { icon: "bg-indigo-50 text-indigo-500", badge: "bg-indigo-100 text-indigo-700", btn: "bg-indigo-500 hover:bg-indigo-600", check: "text-indigo-500", border: "border-indigo-200" },
   emerald: { icon: "bg-emerald-50 text-emerald-500", badge: "bg-emerald-100 text-emerald-700", btn: "bg-emerald-500 hover:bg-emerald-600", check: "text-emerald-500", border: "border-emerald-200" },
-  green: { icon: "bg-green-50 text-green-600", badge: "bg-green-100 text-green-700", btn: "bg-green-600 hover:bg-green-700", check: "text-green-500", border: "border-green-200" },
+  green: { icon: "bg-green-50 text-green-600", badge: "bg-green-100 text-green-700", btn: "bg-green-600 hover:bg-green-700", check: "text-green-500", border: "border-green-200" }
 };
 
 function FAQItem({ q, a }) {
@@ -130,14 +130,14 @@ function FAQItem({ q, a }) {
     <div className="border-b border-gray-100 last:border-0">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-3 text-left text-sm font-semibold text-[#1E2D3D] hover:text-sky-600 transition-colors"
-      >
+        className="w-full flex items-center justify-between py-3 text-left text-sm font-semibold text-[#1E2D3D] hover:text-sky-600 transition-colors">
+        
         {q}
         <ChevronDown className={`w-4 h-4 flex-shrink-0 ml-2 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && <p className="pb-3 text-sm text-slate-500 leading-relaxed">{a}</p>}
-    </div>
-  );
+    </div>);
+
 }
 
 export default function Services() {
@@ -154,8 +154,8 @@ export default function Services() {
         title="Expert Home Remodeling Services in Brandon, MS | Bradley Brown Inc"
         description="Expert home remodeling services in Brandon, MS — kitchen remodeling, bathroom renovations, room additions & custom homes. Licensed & insured since 1995. Free estimates. Call (844) 351-4154."
         schema={servicesSchema}
-        canonical="https://bradleybrowninc.com/Services"
-      />
+        canonical="https://bradleybrowninc.com/Services" />
+      
 
       {/* Mobile click-to-call */}
       <div className="md:hidden sticky top-16 z-40 bg-green-500 text-white py-2.5 px-4 text-center text-sm font-semibold">
@@ -181,8 +181,8 @@ export default function Services() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to={createPageUrl("QuoteAssistant")}
-              className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg"
-            >
+              className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg">
+              
               <Sparkles className="w-5 h-5" /> Get an AI Estimate — Free
             </Link>
             <a href="tel:+18443514154" onClick={handleCallClick} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-base transition-colors">
@@ -238,11 +238,11 @@ export default function Services() {
 
                     {/* Benefits */}
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
-                      {service.benefits.map(benefit => (
-                        <li key={benefit} className="flex items-start gap-2 text-sm text-slate-700">
+                      {service.benefits.map((benefit) =>
+                      <li key={benefit} className="flex items-start gap-2 text-sm text-slate-700">
                           <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${colors.check}`} /> {benefit}
                         </li>
-                      ))}
+                      )}
                     </ul>
 
                     {/* Testimonial */}
@@ -259,14 +259,14 @@ export default function Services() {
                       <span className="text-slate-400 text-sm font-medium">{service.price}</span>
                       <Link
                         to={createPageUrl("QuoteAssistant")}
-                        className={`inline-flex items-center gap-1.5 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${colors.btn}`}
-                      >
+                        className={`inline-flex items-center gap-1.5 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${colors.btn}`}>
+                        
                         <Sparkles className="w-4 h-4" /> Get AI Estimate
                       </Link>
                       <Link
                         to={createPageUrl("ContactForm")}
-                        className="inline-flex items-center gap-1.5 border border-gray-300 text-slate-600 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-50 transition-colors"
-                      >
+                        className="inline-flex items-center gap-1.5 border border-gray-300 text-slate-600 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-50 transition-colors">
+                        
                         Contact Us <ChevronRight className="w-4 h-4" />
                       </Link>
                     </div>
@@ -275,26 +275,26 @@ export default function Services() {
                   {/* Image + FAQ */}
                   <div className={isEven ? "order-2" : "order-2 md:order-1"}>
                     <div className="rounded-2xl overflow-hidden shadow-xl mb-5">
-                      <img
-                        src={service.image}
-                        alt={`${service.name} in Brandon MS by Bradley Brown Inc.`}
-                        className="w-full h-72 md:h-96 object-cover"
-                        loading="lazy"
-                      />
+                      <img src="https://media.base44.com/images/public/699c758479c46f0580553750/02651f741_Charming_farmhouse_porch_at_sunset.png"
+
+                      alt={`${service.name} in Brandon MS by Bradley Brown Inc.`} className="w-full h-72 md:h-96 object-cover"
+
+                      loading="lazy" />
+                      
                     </div>
-                    {service.faq && (
-                      <div className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+                    {service.faq &&
+                    <div className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
                         <h3 className="font-bold text-[#1E2D3D] text-sm mb-3 flex items-center gap-2">
                           <span className={`w-2 h-2 rounded-full ${colors.btn.split(" ")[0]}`} />
                           Common Questions
                         </h3>
                         {service.faq.map((f, fi) => <FAQItem key={fi} q={f.q} a={f.a} />)}
                       </div>
-                    )}
+                    }
                   </div>
                 </div>
-              </div>
-            );
+              </div>);
+
           })}
         </div>
 
@@ -311,8 +311,8 @@ export default function Services() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to={createPageUrl("QuoteAssistant")}
-              className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg"
-            >
+              className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+              
               <Sparkles className="w-5 h-5" /> Try the AI Estimator — Free
             </Link>
             <a href="tel:+18443514154" onClick={handleCallClick} className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-colors">
@@ -326,17 +326,17 @@ export default function Services() {
           <h2 className="text-lg font-bold text-[#1E2D3D] mb-4">Explore More</h2>
           <div className="flex flex-wrap gap-3">
             {[
-              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-              { label: "View Our Portfolio", page: "Portfolio" },
-              { label: "Pro Tips & Remodeling Advice", page: "ProTips" },
-              { label: "Why Trust Us", page: "LandingTrust" },
-              { label: "Pricing Guide", page: "LandingPricing" },
-              { label: "Contact Us", page: "Contact" },
-            ].map((link) => (
-              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-100 transition-colors">
+            { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+            { label: "View Our Portfolio", page: "Portfolio" },
+            { label: "Pro Tips & Remodeling Advice", page: "ProTips" },
+            { label: "Why Trust Us", page: "LandingTrust" },
+            { label: "Pricing Guide", page: "LandingPricing" },
+            { label: "Contact Us", page: "Contact" }].
+            map((link) =>
+            <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-100 transition-colors">
                 <ChevronRight className="w-3.5 h-3.5" /> {link.label}
               </Link>
-            ))}
+            )}
           </div>
         </div>
       </div>
@@ -356,6 +356,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }
