@@ -11,7 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Trash2, LogOut, Search, BarChart2, ChevronRight, ShieldCheck, MessageSquare, FileText, Users, Video } from "lucide-react";
+import { Trash2, LogOut, LogIn, Search, BarChart2, ChevronRight, ShieldCheck, MessageSquare, FileText, Users, Video } from "lucide-react";
 
 export default function AccountSettings() {
   const navigate = useNavigate();
@@ -132,15 +132,30 @@ export default function AccountSettings() {
           {/* Logout Section */}
           <div className="p-6 md:p-8 border-b border-gray-100">
             <h2 className="text-lg font-semibold text-[#1E2D3D] mb-3">Session</h2>
-            <p className="text-slate-600 text-sm mb-4">Sign out of your account.</p>
-            <Button
-              onClick={handleLogout}
-              variant="outline"
-              className="flex items-center gap-2"
-            >
-              <LogOut className="w-4 h-4" />
-              Logout
-            </Button>
+            {user ? (
+              <>
+                <p className="text-slate-600 text-sm mb-4">Signed in as <span className="font-medium">{user.email}</span>. Sign out of your account.</p>
+                <Button
+                  onClick={handleLogout}
+                  variant="outline"
+                  className="flex items-center gap-2"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <p className="text-slate-600 text-sm mb-4">You are not currently logged in.</p>
+                <Button
+                  onClick={() => base44.auth.redirectToLogin()}
+                  className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white"
+                >
+                  <LogIn className="w-4 h-4" />
+                  Login
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Delete Account Section */}
