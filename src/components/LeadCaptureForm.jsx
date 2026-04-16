@@ -17,6 +17,7 @@ export default function LeadCaptureForm({ source = "Website", onSuccess }) {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", address: "", project_type: "", message: "",
   });
+  const [smsConsent, setSmsConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -125,6 +126,21 @@ export default function LeadCaptureForm({ source = "Website", onSuccess }) {
           className={`${inputClass} resize-none`}
           placeholder="Describe your project, timeline, budget, or any other details..."
         />
+      </div>
+
+      {/* SMS Consent */}
+      <div className="flex items-start gap-3 p-4 bg-slate-50 border border-gray-200 rounded-xl">
+        <input
+          type="checkbox"
+          id="sms-consent-lead"
+          checked={smsConsent}
+          onChange={e => setSmsConsent(e.target.checked)}
+          className="mt-0.5 w-4 h-4 accent-sky-500 flex-shrink-0 cursor-pointer"
+        />
+        <label htmlFor="sms-consent-lead" className="text-xs text-slate-600 leading-relaxed cursor-pointer">
+          I agree to receive SMS text messages from Bradley Brown Inc. regarding my quote, project updates, and customer support.{" "}
+          <span className="text-slate-400">Message frequency varies. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase.</span>
+        </label>
       </div>
 
       <button

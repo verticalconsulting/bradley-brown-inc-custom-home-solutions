@@ -9,6 +9,7 @@ import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight, MessageCircle, C
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", project_type: "custom_home" });
+  const [smsConsent, setSmsConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -237,6 +238,21 @@ export default function Contact() {
                     className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400 resize-none"
                     placeholder="Tell us about your project, budget range, timeline, etc." />
                 </div>
+                {/* SMS Consent */}
+                <div className="flex items-start gap-3 p-4 bg-slate-50 border border-gray-200 rounded-xl">
+                  <input
+                    type="checkbox"
+                    id="sms-consent-contact"
+                    checked={smsConsent}
+                    onChange={e => setSmsConsent(e.target.checked)}
+                    className="mt-0.5 w-4 h-4 accent-sky-500 flex-shrink-0 cursor-pointer"
+                  />
+                  <label htmlFor="sms-consent-contact" className="text-xs text-slate-600 leading-relaxed cursor-pointer">
+                    I agree to receive SMS text messages from Bradley Brown Inc. regarding my quote, project updates, and customer support.{" "}
+                    <span className="text-slate-400">Message frequency varies. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase.</span>
+                  </label>
+                </div>
+
                 <button type="submit" disabled={loading}
                   className="w-full bg-sky-500 hover:bg-sky-600 text-white py-3 rounded-lg font-semibold transition-colors disabled:opacity-60">
                   {loading ? "Sending..." : "Send Message"}
