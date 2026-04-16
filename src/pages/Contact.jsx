@@ -5,7 +5,7 @@ import { localBusinessSchema } from "@/components/seoSchemas";
 import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight, MessageCircle, Calendar, Zap } from "lucide-react";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", project_type: "custom_home" });
@@ -61,42 +61,124 @@ export default function Contact() {
         schema={localBusinessSchema}
         canonical="https://bradleybrowninc.com/Contact"
       />
-      <div className="bg-[#1E2D3D] py-14 md:py-20">
+      <div className="bg-[#1E2D3D] py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Get in Touch</p>
-          <h1 className="text-3xl md:text-5xl font-bold text-white">Contact Bradley Brown Inc.</h1>
-          <p className="text-slate-300 mt-4 max-w-xl mx-auto">Serving Brandon, Flowood, Pearl, Madison, Ridgeland, Jackson & all of Central Mississippi. Free estimates — no obligation.</p>
-          <a href="tel:+18443514154" className="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
-            <Phone className="w-4 h-4" /> Call Now: (844) 351-4154
-          </a>
+          <h1 className="text-3xl md:text-5xl font-bold text-white">Let's Talk About Your Project</h1>
+          <p className="text-slate-300 mt-3 max-w-xl mx-auto">Free estimates — no obligation. Choose how you'd like to reach us:</p>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20">
+      {/* Direct contact options — prominent above the fold */}
+      <div className="bg-white border-b border-gray-100 shadow-sm">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {/* Call */}
+            <a
+              href="tel:+18443514154"
+              onClick={() => {
+                base44.analytics.track({ eventName: "contact_phone_clicked" });
+                if (typeof window.gtag === 'function') window.gtag('event', 'conversion', { send_to: 'AW-17864041271/21TJCO2Bj5ccELfGnsZC', value: 30, currency: 'USD' });
+              }}
+              className="flex items-center gap-4 bg-green-500 hover:bg-green-600 text-white px-5 py-4 rounded-xl transition-colors shadow-md group"
+            >
+              <div className="w-11 h-11 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs font-medium opacity-80 uppercase tracking-wide">Fastest Response</p>
+                <p className="font-bold text-lg leading-tight">(844) 351-4154</p>
+                <p className="text-xs opacity-75">Call or text anytime</p>
+              </div>
+            </a>
+
+            {/* Email */}
+            <a
+              href="mailto:bradleybrowninc@gmail.com"
+              onClick={() => base44.analytics.track({ eventName: "contact_email_clicked" })}
+              className="flex items-center gap-4 bg-sky-500 hover:bg-sky-600 text-white px-5 py-4 rounded-xl transition-colors shadow-md group"
+            >
+              <div className="w-11 h-11 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Mail className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs font-medium opacity-80 uppercase tracking-wide">Email Us</p>
+                <p className="font-bold text-base leading-tight">bradleybrowninc</p>
+                <p className="text-xs opacity-75">@gmail.com</p>
+              </div>
+            </a>
+
+            {/* Live Chat */}
+            <button
+              onClick={() => {
+                base44.analytics.track({ eventName: "contact_chat_clicked" });
+                // Open the chat widget
+                const chatBtn = document.querySelector('[data-chat-trigger]');
+                if (chatBtn) chatBtn.click();
+                else window.dispatchEvent(new CustomEvent('open-chat-widget'));
+              }}
+              className="flex items-center gap-4 bg-[#1E2D3D] hover:bg-[#2a3f56] text-white px-5 py-4 rounded-xl transition-colors shadow-md group"
+            >
+              <div className="w-11 h-11 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs font-medium opacity-80 uppercase tracking-wide">Live Chat</p>
+                <p className="font-bold text-base leading-tight">Chat with Us</p>
+                <p className="text-xs opacity-75">Usually replies in minutes</p>
+              </div>
+            </button>
+          </div>
+
+          {/* Quick trust signals */}
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 mt-5 text-xs text-slate-500">
+            <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Free estimates, no obligation</span>
+            <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Licensed & insured since 1995</span>
+            <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Replies within 1 business day</span>
+            <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-sky-500" /> Mon–Fri 8am–6pm · Sat 9am–3pm</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           <div>
-            <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Let's Talk About Your Project</h2>
-            <p className="text-slate-500 mb-8 leading-relaxed">
-              Whether you're ready to start building or just exploring options, we're here to help. Reach out and a member of our team will get back to you within one business day.
-            </p>
-            <div className="space-y-5">
-              {[
-                { icon: Phone, label: "Phone", content: <a href="tel:+18443514154" onClick={() => base44.analytics.track({ eventName: "contact_phone_clicked" })} className="text-slate-500 hover:text-sky-500 transition-colors">(844) 351-4154</a> },
-                { icon: Mail, label: "Email", content: <a href="mailto:bradleybrowninc@gmail.com" onClick={() => base44.analytics.track({ eventName: "contact_email_clicked" })} className="text-slate-500 hover:text-sky-500 transition-colors">bradleybrowninc@gmail.com</a> },
-                { icon: MapPin, label: "Address", content: <p className="text-slate-500">104 Tiffany Drive, Brandon, MS 39042</p> },
-                { icon: MapPin, label: "Service Area", content: <p className="text-slate-500">Brandon, Flowood, Pearl, Richland, Jackson, Madison, Ridgeland, Clinton, Byram & surrounding areas within 50 miles of Brandon, MS</p> },
-                { icon: Clock, label: "Business Hours", content: <><p className="text-slate-500">Mon–Fri: 8am–6pm</p><p className="text-slate-500">Sat: 9am–3pm</p></> },
-              ].map(({ icon: Icon, label, content }) => (
-                <div key={label} className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-sky-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-sky-500" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#1E2D3D] mb-0.5">{label}</p>
-                    {content}
-                  </div>
+            <h2 className="text-xl font-bold text-[#1E2D3D] mb-5">Other Ways to Connect</h2>
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Calendar className="w-5 h-5 text-amber-500" />
                 </div>
-              ))}
+                <div>
+                  <p className="font-semibold text-[#1E2D3D] mb-0.5">Schedule a Free Site Visit</p>
+                  <p className="text-slate-500 text-sm mb-2">We'll come to you — no commitment required.</p>
+                  <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
+                    Book a visit <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-5 h-5 text-purple-500" />
+                </div>
+                <div>
+                  <p className="font-semibold text-[#1E2D3D] mb-0.5">Get an AI Estimate Instantly</p>
+                  <p className="text-slate-500 text-sm mb-2">Answer a few questions and get a personalized cost range in seconds.</p>
+                  <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
+                    Try the AI Estimator <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-sky-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-sky-500" />
+                </div>
+                <div>
+                  <p className="font-semibold text-[#1E2D3D] mb-0.5">Our Location</p>
+                  <p className="text-slate-500 text-sm">104 Tiffany Drive, Brandon, MS 39042</p>
+                  <p className="text-slate-400 text-xs mt-1">Serving Brandon, Flowood, Pearl, Madison, Ridgeland, Jackson, Clinton, Byram & all of Central MS</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -109,7 +191,10 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <h3 className="text-xl font-bold text-[#1E2D3D] mb-2">Send Us a Message</h3>
+                <div className="mb-2">
+                  <h3 className="text-xl font-bold text-[#1E2D3D]">Send Us a Message</h3>
+                  <p className="text-slate-400 text-sm mt-1">We reply within 1 business day — usually same day.</p>
+                </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Your Name *</label>
