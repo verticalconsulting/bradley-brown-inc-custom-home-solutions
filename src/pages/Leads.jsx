@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { Phone, Mail, MapPin, Calendar, Tag, MessageSquare, ChevronDown } from "lucide-react";
+import { Phone, Mail, MapPin, Calendar, Tag, MessageSquare, ChevronDown, Trash2 } from "lucide-react";
 
 const STATUS_COLORS = {
   new: "bg-sky-100 text-sky-700",
@@ -27,6 +27,12 @@ export default function Leads() {
   useEffect(() => { loadLeads(); }, []);
 
   const updateStatus = async (id, status) => {
+    if (status === "__delete__") {
+      if (!window.confirm("Delete this lead? This cannot be undone.")) return;
+      await base44.entities.Lead.delete(id);
+      setLeads(prev => prev.filter(l => l.id !== id));
+      return;
+    }
     await base44.entities.Lead.update(id, { status });
     setLeads(prev => prev.map(l => l.id === id ? { ...l, status } : l));
   };
@@ -131,6 +137,7 @@ export default function Leads() {
                         {STATUS_OPTIONS.map(s => (
                           <option key={s} value={s} className="bg-white text-slate-800">{s.replace("_", " ")}</option>
                         ))}
+                        <option value="__delete__" className="bg-white text-red-600">🗑 Delete Lead</option>
                       </select>
                       <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 pointer-events-none" />
                     </div>
