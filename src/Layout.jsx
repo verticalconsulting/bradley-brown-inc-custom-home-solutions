@@ -300,9 +300,17 @@ export default function Layout({ children, currentPageName }) {
             <div>
               <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h3>
               <ul className="space-y-2">
-                {["Custom Homes", "Renovations", "Room Additions", "Outdoor Living", "Design & Consultation"].map((s) =>
-                <li key={s}>
-                    <Link to={createPageUrl("Services")} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{s}</Link>
+                {[
+                  { label: "Custom Home Building", page: "Services" },
+                  { label: "Home Renovations", page: "Services" },
+                  { label: "Room Additions", page: "Services" },
+                  { label: "Outdoor Living Spaces", page: "Services" },
+                  { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
+                  { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
+                  { label: "Core Services — Brandon", page: "LandingCoreServices" },
+                ].map((item) =>
+                  <li key={item.label}>
+                    <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
                   </li>
                 )}
               </ul>
@@ -311,22 +319,23 @@ export default function Layout({ children, currentPageName }) {
               <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Company</h3>
               <ul className="space-y-2">
                 {[
-                { label: "Our Story", page: "About" },
-                { label: "Portfolio", page: "Portfolio" },
-                { label: "Contact Us", page: "Contact" },
-                { label: "Get a Quote", page: "ContactForm" },
-                { label: "AI Estimator", page: "QuoteAssistant" },
-                { label: "Renovation Loans", page: "RenovationLoans" },
-                { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-                { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
-                { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
-                { label: "Pricing Guide", page: "LandingPricing" },
-                { label: "Why Trust Us", page: "LandingTrust" },
-                { label: "Brandon Remodelers", page: "LandingBrandonRemodelers" },
-                { label: "Core Services", page: "LandingCoreServices" },
-                { label: "Emergency Repair", page: "LandingEmergencyRepair" }].
-                map((item) =>
-                <li key={item.page}>
+                  { label: "About Us", page: "About" },
+                  { label: "Portfolio", page: "Portfolio" },
+                  { label: "Pro Tips & Advice", page: "ProTips" },
+                  { label: "Why Trust Us", page: "LandingTrust" },
+                  { label: "Contact Us", page: "Contact" },
+                  { label: "Get a Free Quote", page: "ContactForm" },
+                  { label: "AI Cost Estimator", page: "QuoteAssistant" },
+                  { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+                  { label: "Pricing Guide", page: "LandingPricing" },
+                  { label: "Renovation Loans", page: "RenovationLoans" },
+                  { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+                  { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
+                  { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+                  { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
+                  { label: "Legal", page: "Legal" },
+                ].map((item) =>
+                  <li key={item.page + item.label}>
                     <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
                   </li>
                 )}
