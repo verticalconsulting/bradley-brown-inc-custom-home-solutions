@@ -275,12 +275,12 @@ export default function Services() {
                   {/* Image + FAQ */}
                   <div className={isEven ? "order-2" : "order-2 md:order-1"}>
                     <div className="rounded-2xl overflow-hidden shadow-xl mb-5">
-                      <img
-                        src={service.image}
-                        alt={`${service.name} in Brandon MS by Bradley Brown Inc.`}
-                        className="w-full h-72 md:h-96 object-cover"
-                        loading="lazy"
-                      />
+                      <img src="https://media.base44.com/images/public/699c758479c46f0580553750/02651f741_Charming_farmhouse_porch_at_sunset.png"
+
+                      alt={`${service.name} in Brandon MS by Bradley Brown Inc.`} className="w-full h-72 md:h-96 object-cover"
+
+                      loading="lazy" />
+                      
                     </div>
                     {service.faq &&
                     <div className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
