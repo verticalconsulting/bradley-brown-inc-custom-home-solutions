@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { CheckCircle, AlertCircle } from "lucide-react";
 
 export default function Legal() {
-  const [smsOptIn, setSmsOptIn] = useState(false);
-
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -31,12 +28,12 @@ export default function Legal() {
             >
               Terms & Conditions
             </button>
-            <button
-              onClick={() => scrollToSection("sms-optin")}
-              className="text-sm font-medium text-gray-600 hover:text-sky-400 whitespace-nowrap transition-colors"
+            <Link
+              to="/sms-optin"
+              className="text-sm font-medium text-sky-500 hover:text-sky-600 whitespace-nowrap transition-colors font-semibold"
             >
-              SMS Opt-In
-            </button>
+              SMS Opt-In Policy →
+            </Link>
           </div>
         </div>
       </div>
@@ -213,116 +210,16 @@ export default function Legal() {
           </div>
         </section>
 
-        {/* SMS Opt-In */}
-        <section id="sms-optin" className="mb-16">
-          <h1 className="text-3xl font-bold text-[#1E2D3D] mb-6 flex items-center gap-3">
-            SMS Opt-In & Consent
-            <a href="#sms-optin" className="text-gray-300 hover:text-sky-400 transition-colors text-xl font-normal" title="Link to SMS Opt-In">#</a>
-          </h1>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 space-y-6">
-            
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <div className="flex gap-3">
-                <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-semibold text-blue-900 mb-1">SMS Messaging Information</h3>
-                  <p className="text-sm text-blue-800">
-                    Bradley Brown Inc. uses SMS messaging to provide you with project updates, quotes, and customer service. Standard message and data rates from your carrier may apply.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-[#1E2D3D] mb-4">How You Opt-In</h3>
-              <p className="text-gray-700 mb-4">
-                You opt-in to receive SMS messages from Bradley Brown Inc. by selecting one of the following actions:
-              </p>
-              <ul className="space-y-3">
-                <li className="flex gap-3 items-start">
-                  <span className="w-6 h-6 rounded-full bg-sky-400 text-white flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5">1</span>
-                  <div>
-                    <p className="font-semibold text-gray-800">During Quote Request</p>
-                    <p className="text-sm text-gray-600">Agreeing to receive SMS updates when submitting a project quote through our AI Quote Assistant</p>
-                  </div>
-                </li>
-                <li className="flex gap-3 items-start">
-                  <span className="w-6 h-6 rounded-full bg-sky-400 text-white flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5">2</span>
-                  <div>
-                    <p className="font-semibold text-gray-800">Live Chat Transfer</p>
-                    <p className="text-sm text-gray-600">Selecting to transfer your chat conversation to a live agent via SMS messaging</p>
-                  </div>
-                </li>
-                <li className="flex gap-3 items-start">
-                  <span className="w-6 h-6 rounded-full bg-sky-400 text-white flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5">3</span>
-                  <div>
-                    <p className="font-semibold text-gray-800">Text "START"</p>
-                    <p className="text-sm text-gray-600">Texting "START" to Bradley Brown Inc.'s SMS number to enroll in our messaging service</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-[#1E2D3D] mb-4">Opt-In Confirmation</h3>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-2">
-                <p className="font-semibold text-gray-800">You will receive this confirmation message:</p>
-                <div className="bg-white border-l-4 border-sky-400 p-4 mt-3">
-                  <p className="text-sm text-gray-700">
-                    "Bradley Brown Inc. You are not opted in to sms messaging with Bradley Brown Inc. text STOP to opt out. Msg&Data rates may apply. Reply HELP for help."
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-[#1E2D3D] mb-4">Opting Out</h3>
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                <p className="text-sm text-gray-700 mb-3">
-                  You can stop receiving SMS messages at any time by texting:
-                </p>
-                <p className="font-bold text-lg text-red-600 mb-3">STOP</p>
-                <p className="text-sm text-gray-700">
-                  Once we receive your STOP message, we will immediately cease sending you SMS messages. You will receive a confirmation message acknowledging your opt-out request.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-[#1E2D3D] mb-4">Getting Help</h3>
-              <p className="text-gray-700 mb-3">
-                For questions or support regarding SMS messaging, text:
-              </p>
-              <p className="font-semibold text-gray-800 mb-3">HELP</p>
-              <p className="text-gray-700">
-                Or contact us directly at (844) 351-4154 or info@bradleybrownhomes.com
-              </p>
-            </div>
-
-            <div className="border-t border-gray-200 pt-6">
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={smsOptIn}
-                  onChange={(e) => setSmsOptIn(e.target.checked)}
-                  className="w-5 h-5 rounded border-gray-300 text-sky-400 mt-1 cursor-pointer"
-                />
-                <span className="text-sm text-gray-700">
-                  I have read and understand the Privacy Policy, Terms & Conditions, and SMS Opt-In information. I agree to receive SMS messages from Bradley Brown Inc. regarding my project and customer service communications.
-                </span>
-              </label>
-            </div>
-
-            {smsOptIn && (
-              <div className="flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg p-4">
-                <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                <p className="text-sm text-green-800">
-                  You have acknowledged these terms. By proceeding with quotes or chat transfers, you're agreeing to receive SMS messages.
-                </p>
-              </div>
-            )}
+        {/* SMS Opt-In Link */}
+        <div className="mb-10 bg-sky-50 border border-sky-200 rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h2 className="text-lg font-bold text-[#1E2D3D] mb-1">SMS Opt-In Policy</h2>
+            <p className="text-slate-500 text-sm">View our full SMS consent policy, opt-in methods, confirmation messages, and how to stop receiving texts.</p>
           </div>
-        </section>
+          <Link to="/sms-optin" className="flex-shrink-0 inline-flex items-center gap-1.5 bg-sky-500 hover:bg-sky-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors">
+            View SMS Policy →
+          </Link>
+        </div>
 
         {/* Footer Links */}
         <div className="mt-16 pt-8 border-t border-gray-200">
