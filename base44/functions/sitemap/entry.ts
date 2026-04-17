@@ -36,10 +36,31 @@ Deno.serve(async (req) => {
     { url: "/HomeAdditionIdeas", priority: "0.7", changefreq: "monthly" },
     { url: "/EnergyEfficientUpgrades", priority: "0.7", changefreq: "monthly" },
     { url: "/projects/historic-home-restoration", priority: "0.8", changefreq: "monthly" },
+    { url: "/barndominium-builder", priority: "0.9", changefreq: "monthly" },
   ];
 
+  // Paths that should NEVER appear in the sitemap (noindex / internal / deprecated)
+  const NOINDEX_PATHS = [
+    "/barndominiums-ms",      // deprecated — replaced by /barndominium-builder
+    "/Legal",
+    "/sms-optin",
+    "/thank-you",
+    "/ThankYou",
+    "/AccountSettings",
+    "/Leads",
+    "/CRM",
+    "/SEODashboard",
+    "/FunnelAnalysis",
+    "/BlogAdmin",
+    "/SiteImages",
+    "/ConversionDashboard",
+    "/AgentChat",
+    "/TikTokSync",
+  ];
+  const filteredStaticPages = staticPages.filter(p => !NOINDEX_PATHS.includes(p.url));
+
   const urlEntries = [
-    ...staticPages.map(page => `
+    ...filteredStaticPages.map(page => `
   <url>
     <loc>${SITE_URL}${page.url}</loc>
     <lastmod>${today}</lastmod>

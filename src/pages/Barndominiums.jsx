@@ -72,7 +72,8 @@ export default function Barndominiums() {
         title="Barndominium Builder in Brandon, MS — Bradley Brown Inc."
         description="Custom barndominium construction in Central Mississippi. Steel frame, open-concept living & workshop combos. Licensed & insured since 1995. Free estimates — call (601) 954-1306."
         schema={schema}
-        canonical="https://bradleybrowninc.com/barndominiums-ms"
+        canonical="https://bradleybrowninc.com/barndominium-builder"
+        noIndex={true}
       />
       <StickyCallButton />
 
