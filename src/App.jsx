@@ -17,6 +17,7 @@ import LandingPricing from './pages/LandingPricing';
 import Barndominiums from './pages/Barndominiums';
 import SmsOptin from './pages/SmsOptin';
 import BarndominiumBuilder from './pages/BarndominiumBuilder';
+import { Navigate } from 'react-router-dom';
 import Leads from './pages/Leads';
 import FunnelAnalysis from './pages/FunnelAnalysis';
 import AdminRoute from './components/AdminRoute';
@@ -90,6 +91,24 @@ const AuthenticatedApp = () => {
       <Route path="/home-remodeling-cost" element={<LayoutWrapper currentPageName="LandingPricing"><LandingPricing /></LayoutWrapper>} />
       <Route path="/barndominiums-ms" element={<LayoutWrapper currentPageName="Barndominiums"><Barndominiums /></LayoutWrapper>} />
       <Route path="/barndominium-builder" element={<LayoutWrapper currentPageName="BarndominiumBuilder"><BarndominiumBuilder /></LayoutWrapper>} />
+
+      {/* Legacy / alternate URL redirects (Google Ads + old backlinks) */}
+      <Route path="/about" element={<Navigate to="/About" replace />} />
+      <Route path="/about/" element={<Navigate to="/About" replace />} />
+      <Route path="/contact" element={<Navigate to="/Contact" replace />} />
+      <Route path="/contact/" element={<Navigate to="/Contact" replace />} />
+      <Route path="/projects" element={<Navigate to="/Portfolio" replace />} />
+      <Route path="/projects/" element={<Navigate to="/Portfolio" replace />} />
+      <Route path="/projects/custom-home-build" element={<Navigate to="/Portfolio" replace />} />
+      <Route path="/projects/custom-home-build/" element={<Navigate to="/Portfolio" replace />} />
+      <Route path="/projects/gourmet-kitchen-renovation" element={<Navigate to="/Portfolio" replace />} />
+      <Route path="/projects/gourmet-kitchen-renovation/" element={<Navigate to="/Portfolio" replace />} />
+      <Route path="/projects/two-story-home-addition" element={<Navigate to="/Portfolio" replace />} />
+      <Route path="/projects/two-story-home-addition/" element={<Navigate to="/Portfolio" replace />} />
+      <Route path="/ai-quote" element={<Navigate to="/QuoteAssistant" replace />} />
+      <Route path="/ai-quote/" element={<Navigate to="/QuoteAssistant" replace />} />
+      <Route path="/thank-you/" element={<Navigate to="/thank-you" replace />} />
+      <Route path="/CustomerTestimonials" element={<Navigate to="/customertestimonials" replace />} />
       <Route path="/sms-optin" element={<LayoutWrapper currentPageName="SmsOptin"><SmsOptin /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
