@@ -49,7 +49,7 @@ const testimonials = [
 const faqs = [
   { question: "Is Bradley Brown Inc. based in Brandon, MS?", answer: "We're centrally located in the Brandon/Jackson area of Mississippi, serving a 50-mile radius including Flowood, Pearl, Madison, Ridgeland, and beyond." },
   { question: "What areas do you service?", answer: "We serve all of Rankin, Hinds, and Madison counties — including Brandon, Flowood, Pearl, Richland, Jackson, Madison, Ridgeland, Clinton, and more." },
-  { question: "How long have you been building in Mississippi?", answer: "Since 1995 — over 30 years of continuous service to Central Mississippi homeowners. We've built and renovated 500+ homes in the area." },
+  { question: "How long have you been building in Mississippi?", answer: "Since 1995 — over 30 years of continuous service to Brandon and Rankin County area homeowners. We've built and renovated 500+ homes in the area." },
   { question: "Do you do both new construction and remodeling?", answer: "Yes! We do custom home building from the ground up, full renovations, room additions, and everything in between." },
 ];
 
@@ -60,7 +60,7 @@ export default function LandingBrandonRemodelers() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Brandon, MS Home Remodelers — Bradley Brown Inc."
-        description="Bradley Brown Inc. — Brandon & Central MS home remodelers. 30+ yrs. Call (844) 351-4154 for a free estimate."
+        description="Bradley Brown Inc. — Brandon & Rankin County area home remodelers. 30+ yrs. Call (844) 351-4154 for a free estimate."
         schema={schema}
         canonical="https://bradleybrowninc.com/LandingBrandonRemodelers"
       />
@@ -84,7 +84,7 @@ export default function LandingBrandonRemodelers() {
             Bradley Brown — Brandon, MS<br className="hidden md:block" /> Home Remodelers
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Central Mississippi's most trusted home builder and remodeler since 1995. Licensed, local, and proud to serve Brandon and surrounding communities.
+            Brandon and the Rankin County area's most trusted home builder and remodeler since 1995. Licensed, local, and proud to serve Brandon and surrounding communities.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">

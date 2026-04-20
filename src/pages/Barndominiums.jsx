@@ -27,7 +27,7 @@ const schema = {
       "name": "Barndominium Construction",
       "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
       "areaServed": "Brandon, MS and surrounding 50-mile radius",
-      "description": "Custom barndominium builds in Central Mississippi — steel frame, open-concept living, and workshop space combined in one beautiful structure."
+      "description": "Custom barndominium builds in the Brandon and Rankin County area — steel frame, open-concept living, and workshop space combined in one beautiful structure."
     },
     {
       "@type": "BreadcrumbList",
@@ -39,7 +39,7 @@ const schema = {
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "How much does a barndominium cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Barndominium builds in Central Mississippi typically range from $75–$150 per sq ft depending on finishes, size, and site conditions. Call us for a free estimate." } },
+        { "@type": "Question", "name": "How much does a barndominium cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Barndominium builds in the Brandon and Rankin County area typically range from $75–$150 per sq ft depending on finishes, size, and site conditions. Call us for a free estimate." } },
         { "@type": "Question", "name": "How long does it take to build a barndominium?", "acceptedAnswer": { "@type": "Answer", "text": "Most barndominiums take 4–8 months from permit to completion. The steel shell goes up quickly; interior finish work takes the most time." } }
       ]
     }
@@ -47,7 +47,7 @@ const schema = {
 };
 
 const faqs = [
-  { question: "How much does a barndominium cost in Mississippi?", answer: "Barndominium builds in Central Mississippi typically range from $75–$150 per sq ft depending on finishes, size, and site conditions. Call us at (601) 954-1306 for a free estimate tailored to your land and goals." },
+  { question: "How much does a barndominium cost in Mississippi?", answer: "Barndominium builds in the Brandon and Rankin County area typically range from $75–$150 per sq ft depending on finishes, size, and site conditions. Call us at (601) 954-1306 for a free estimate tailored to your land and goals." },
   { question: "How long does it take to build a barndominium?", answer: "Most barndominiums take 4–8 months from permit to move-in. The steel frame shell goes up fast; interior finishes take the most time." },
   { question: "Can I combine living space and a workshop?", answer: "Absolutely — that's the beauty of a barndominium. We design custom layouts with living quarters, garages, workshops, and more all under one roof." },
   { question: "Do you handle permits for barndominiums in MS?", answer: "Yes. We pull all required permits and manage inspections from start to finish so you don't have to." },
@@ -70,7 +70,7 @@ export default function Barndominiums() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Barndominium Builder in Brandon, MS — Bradley Brown Inc."
-        description="Custom barndominium construction in Central Mississippi. Steel frame, open-concept living & workshop combos. Licensed & insured since 1995. Free estimates — call (601) 954-1306."
+        description="Custom barndominium construction in the Brandon and Rankin County area. Steel frame, open-concept living & workshop combos. Licensed & insured since 1995. Free estimates — call (601) 954-1306."
         schema={schema}
         canonical="https://bradleybrowninc.com/barndominium-builder"
         noIndex={true}
@@ -88,7 +88,7 @@ export default function Barndominiums() {
       <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80')" }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2">Brandon, MS & Central Mississippi</p>
+          <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2">Brandon, MS & Rankin County Area</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
             Custom Barndominium Builder<br className="hidden md:block" /> in Mississippi
           </h1>
@@ -139,7 +139,7 @@ export default function Barndominiums() {
         {/* Pricing */}
         <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
           <h2 className="text-xl font-bold text-[#1E2D3D] mb-2">Barndominium Pricing in Mississippi</h2>
-          <p className="text-slate-500 text-sm mb-4">Typical ranges for Central Mississippi. Actual cost depends on size, finishes, and site.</p>
+          <p className="text-slate-500 text-sm mb-4">Typical ranges for the Brandon and Rankin County area. Actual cost depends on size, finishes, and site.</p>
           <div className="space-y-2">
             {[
               { label: "Basic Shell + Rough-In", range: "$75–$100 / sq ft" },
@@ -158,7 +158,7 @@ export default function Barndominiums() {
         {/* Body copy */}
         <div className="prose prose-slate max-w-none">
           <h2 className="text-xl font-bold text-[#1E2D3D]">Why Choose Bradley Brown Inc. for Your Barndominium?</h2>
-          <p className="text-slate-600 leading-relaxed">Bradley Brown Inc. has been building across Central Mississippi since 1995. We bring that same craftsmanship and accountability to every barndominium project — from the concrete slab and steel erection to the custom kitchen and bathroom finishes inside.</p>
+          <p className="text-slate-600 leading-relaxed">Bradley Brown Inc. has been building across the Brandon and Rankin County area since 1995. We bring that same craftsmanship and accountability to every barndominium project — from the concrete slab and steel erection to the custom kitchen and bathroom finishes inside.</p>
           <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Richland, Florence, Pelahatchie, Forest, Morton, and all of Rankin, Smith, Simpson, and Scott counties. If you have land, we can build on it. Call <a href="tel:+16019541306" onClick={handleCall} className="text-sky-600 font-semibold">(601) 954-1306</a> to schedule your free site consultation.</p>
         </div>
 

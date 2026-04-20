@@ -21,8 +21,8 @@ const schema = {
       "@type": "Service",
       "name": "Luxury Home Renovations",
       "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
-      "areaServed": "Brandon, MS and Central Mississippi",
-      "description": "High-end kitchen and bathroom renovations, custom millwork, designer finishes, and whole-home luxury transformations in Central Mississippi."
+      "areaServed": "Brandon, MS and the Rankin County area",
+      "description": "High-end kitchen and bathroom renovations, custom millwork, designer finishes, and whole-home luxury transformations in the Brandon and Rankin County area."
     },
     {
       "@type": "BreadcrumbList",
@@ -36,7 +36,7 @@ const schema = {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "What qualifies as a luxury renovation?", "acceptedAnswer": { "@type": "Answer", "text": "Luxury renovations typically involve premium materials (natural stone, custom cabinetry, hardwood), dedicated project management, architectural detailing, and a focus on craftsmanship over speed. Budget typically starts at $100,000+." } },
-        { "@type": "Question", "name": "How long does a luxury whole-home renovation take?", "acceptedAnswer": { "@type": "Answer", "text": "A full luxury renovation in Central Mississippi typically runs 4–12 months depending on scope, permitting, and material lead times. We provide a phased timeline before work begins." } }
+        { "@type": "Question", "name": "How long does a luxury whole-home renovation take?", "acceptedAnswer": { "@type": "Answer", "text": "A full luxury renovation in the Brandon and Rankin County area typically runs 4–12 months depending on scope, permitting, and material lead times. We provide a phased timeline before work begins." } }
       ]
     }
   ]
@@ -47,7 +47,7 @@ const faqs = [
   { question: "How long does a luxury whole-home renovation take?", answer: "A full luxury renovation typically runs 4–12 months. Custom millwork, stone fabrication, and specialty finishes all have production lead times. We build a phased schedule and stick to it — with weekly progress updates." },
   { question: "Do you have a design team or do I need to hire my own architect?", answer: "We work closely with architects and interior designers, and can recommend trusted local collaborators. We also have an in-house design-assist process for clients who want guidance without a full architect fee." },
   { question: "How do you ensure quality on a high-end project?", answer: "Every luxury project gets a dedicated project manager on-site daily. We use premium-grade subcontractors, conduct multi-point quality inspections at each phase, and don't move forward until the previous phase meets our standard." },
-  { question: "Do luxury renovations add value to my home?", answer: "High-quality renovations consistently outperform the market in Central Mississippi. Kitchen and bath renovations typically return 60–80% of cost in appraised value — and dramatically improve your quality of life in the meantime." },
+  { question: "Do luxury renovations add value to my home?", answer: "High-quality renovations consistently outperform the market in the Brandon and Rankin County area. Kitchen and bath renovations typically return 60–80% of cost in appraised value — and dramatically improve your quality of life in the meantime." },
 ];
 
 const phases = [
@@ -65,7 +65,7 @@ export default function LuxuryHomeRenovations() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Luxury Home Renovations in Brandon, MS — Bradley Brown Inc"
-        description="Premium kitchen, bath & whole-home renovations in Central Mississippi. Custom millwork, designer finishes, dedicated project management. Call (601) 954-1306."
+        description="Premium kitchen, bath & whole-home renovations in the Brandon and Rankin County area. Custom millwork, designer finishes, dedicated project management. Call (601) 954-1306."
         schema={schema}
         canonical="https://bradleybrowninc.com/LuxuryHomeRenovations"
       />
@@ -82,7 +82,7 @@ export default function LuxuryHomeRenovations() {
             Luxury Home Renovations in Brandon, MS
           </h1>
           <p className="text-slate-300 mt-4 text-base max-w-xl mx-auto">
-            Custom materials, dedicated project management, and zero-compromise craftsmanship. Bradley Brown Inc. sets the standard for high-end renovations in Central Mississippi.
+            Custom materials, dedicated project management, and zero-compromise craftsmanship. Bradley Brown Inc. sets the standard for high-end renovations in the Brandon and Rankin County area.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
@@ -100,7 +100,7 @@ export default function LuxuryHomeRenovations() {
         {/* Intro */}
         <div className="prose prose-slate max-w-none">
           <p className="text-slate-600 leading-relaxed text-base">Not every renovation is the same — and neither is every contractor. At Bradley Brown Inc., we specialize in renovations where the details matter: custom millwork, natural stone, designer tile, precision finish carpentry, and the kind of project management that keeps a complex job on time and on budget.</p>
-          <p className="text-slate-600 leading-relaxed">We've been building and renovating homes in Central Mississippi since 1995. Our luxury renovation clients choose us because we've earned trust on simpler projects first — and because we treat a $400,000 renovation with the same accountability as a $40,000 one.</p>
+          <p className="text-slate-600 leading-relaxed">We've been building and renovating homes in the Brandon and Rankin County area since 1995. Our luxury renovation clients choose us because we've earned trust on simpler projects first — and because we treat a $400,000 renovation with the same accountability as a $40,000 one.</p>
         </div>
 
         {/* What we do */}
@@ -161,7 +161,7 @@ export default function LuxuryHomeRenovations() {
         {/* Mid-page CTA */}
         <div className="bg-[#1E2D3D] rounded-2xl p-6 md:p-8 text-center">
           <p className="text-white font-bold text-lg mb-2">Start Your Luxury Renovation</p>
-          <p className="text-slate-300 text-sm mb-5">Call us at (601) 954-1306 or request a free consultation. We serve Brandon, Madison, Ridgeland, Flowood, and all of Central Mississippi.</p>
+          <p className="text-slate-300 text-sm mb-5">Call us at (601) 954-1306 or request a free consultation. We serve Brandon, Madison, Ridgeland, Flowood, and all of the Rankin County area.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
               <Phone className="w-4 h-4" /> (601) 954-1306

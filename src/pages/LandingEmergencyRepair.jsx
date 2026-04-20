@@ -83,7 +83,7 @@ export default function LandingEmergencyRepair() {
             Emergency Home Repairs —<br className="hidden md:block" /> Call Bradley Brown Now
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Storm damage, roof leaks, structural issues — don't wait. Bradley Brown Inc. responds fast to urgent repairs across Brandon, MS and Central Mississippi.
+            Storm damage, roof leaks, structural issues — don't wait. Bradley Brown Inc. responds fast to urgent repairs across Brandon, MS and the Rankin County area.
           </p>
           <a href="tel:+18443514154" onClick={handleCall} className="mt-8 inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full font-bold text-xl transition-colors shadow-xl">
             <Phone className="w-6 h-6" /> Call Now: (601) 954-1306
@@ -131,7 +131,7 @@ export default function LandingEmergencyRepair() {
         {/* Body copy */}
         <div className="prose prose-slate max-w-none">
           <h2 className="text-xl font-bold text-[#1E2D3D]">Mississippi's Trusted Emergency Repair Contractor</h2>
-          <p className="text-slate-600 leading-relaxed">When your home is damaged, every hour matters. Bradley Brown Inc. has been responding to urgent repair calls across Central Mississippi since 1995. Our licensed crews know how to assess damage quickly, stabilize the situation, and get to work immediately.</p>
+          <p className="text-slate-600 leading-relaxed">When your home is damaged, every hour matters. Bradley Brown Inc. has been responding to urgent repair calls across the Brandon and Rankin County area since 1995. Our licensed crews know how to assess damage quickly, stabilize the situation, and get to work immediately.</p>
           <p className="text-slate-600 leading-relaxed">We handle insurance documentation, itemized repair estimates, and full restoration — so you can focus on your family while we handle the job. We serve Brandon, Flowood, Pearl, Jackson, Madison, Ridgeland, and all surrounding areas.</p>
           <p className="text-slate-600 leading-relaxed">Call <a href="tel:+16019541306" onClick={handleCall} className="text-red-600 font-semibold">(601) 954-1306</a> right now to speak with a team member.</p>
         </div>

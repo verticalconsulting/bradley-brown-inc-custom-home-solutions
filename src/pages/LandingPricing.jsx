@@ -29,7 +29,7 @@ const schema = {
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "How much does a home renovation cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Renovation costs in Central Mississippi typically range from $50–$150 per sq ft depending on scope and materials. Kitchen remodels start around $25,000 and bathrooms from $10,000. Call us for a free, detailed estimate specific to your home." } },
+        { "@type": "Question", "name": "How much does a home renovation cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Renovation costs in the Brandon and Rankin County area typically range from $50–$150 per sq ft depending on scope and materials. Kitchen remodels start around $25,000 and bathrooms from $10,000. Call us for a free, detailed estimate specific to your home." } },
         { "@type": "Question", "name": "Do you offer financing options?", "acceptedAnswer": { "@type": "Answer", "text": "We can discuss flexible payment schedules on larger projects. Call (601) 954-1306 to talk through options." } }
       ]
     }
@@ -47,7 +47,7 @@ const pricing = [
 ];
 
 const faqs = [
-  { question: "How much does a home renovation cost in Mississippi?", answer: "Renovation costs typically range from $50–$150 per sq ft. Kitchen remodels start at $25,000 and bathrooms from $10,000. The best way to know is to call us at (601) 954-1306 — estimates are always free." },
+  { question: "How much does a home renovation cost in Mississippi?", answer: "Renovation costs in the Brandon and Rankin County area typically range from $50–$150 per sq ft. Kitchen remodels start at $25,000 and bathrooms from $10,000. The best way to know is to call us at (601) 954-1306 — estimates are always free." },
   { question: "Why isn't your pricing more specific?", answer: "Every home is different. Costs depend on design choices, existing conditions, materials, and site access. We give transparent, itemized quotes — not ballpark guesses — after seeing your project in person." },
   { question: "How do you price a project?", answer: "We visit your home, review your goals, and build a detailed line-item estimate. You'll see exactly what you're paying for before any work begins." },
   { question: "Do you offer any warranties?", answer: "Yes. We stand behind our work. All projects include a workmanship warranty, and material warranties pass through directly from manufacturers." },
@@ -102,7 +102,7 @@ export default function LandingPricing() {
         {/* Pricing table */}
         <div>
           <h2 className="text-2xl font-bold text-[#1E2D3D] mb-2">Starting Price Ranges</h2>
-          <p className="text-slate-500 text-sm mb-6">All figures are typical ranges for Central Mississippi. Your actual cost depends on scope, materials, and site conditions. <strong>Estimates are always free.</strong></p>
+          <p className="text-slate-500 text-sm mb-6">All figures are typical ranges for the Brandon and Rankin County area. Your actual cost depends on scope, materials, and site conditions. <strong>Estimates are always free.</strong></p>
           <div className="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
             <table className="w-full text-sm">
               <thead className="bg-[#1E2D3D] text-white">

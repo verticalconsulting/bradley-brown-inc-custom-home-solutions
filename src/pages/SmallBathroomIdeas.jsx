@@ -21,7 +21,7 @@ const schema = {
       "headline": "Small Bathroom Remodeling Ideas That Actually Work",
       "author": { "@type": "Organization", "name": "Bradley Brown Inc." },
       "publisher": { "@type": "Organization", "name": "Bradley Brown Inc." },
-      "description": "Practical small bathroom remodeling tips and ideas from Central Mississippi's trusted remodeler."
+      "description": "Practical small bathroom remodeling tips and ideas from the Brandon and Rankin County area's trusted remodeler."
     },
     {
       "@type": "BreadcrumbList",
@@ -34,7 +34,7 @@ const schema = {
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "How much does a small bathroom remodel cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Most small bathroom remodels in Central Mississippi run $8,000–$20,000 depending on tile choice, fixtures, and whether plumbing needs to move. Call us at (601) 954-1306 for a free estimate." } },
+        { "@type": "Question", "name": "How much does a small bathroom remodel cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Most small bathroom remodels in the Brandon and Rankin County area run $8,000–$20,000 depending on tile choice, fixtures, and whether plumbing needs to move. Call us at (601) 954-1306 for a free estimate." } },
         { "@type": "Question", "name": "Can a small bathroom feel bigger without tearing it down?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — large-format tile, frameless glass showers, wall-mounted vanities, and strategic mirrors can make even a 50 sq ft bathroom feel spacious." } }
       ]
     }
@@ -42,7 +42,7 @@ const schema = {
 };
 
 const faqs = [
-  { question: "How much does a small bathroom remodel cost in Mississippi?", answer: "Most small bathroom remodels in Central Mississippi run $8,000–$20,000. The cost depends on tile choice, fixtures, vanity size, and whether plumbing needs to move. Call (601) 954-1306 for a free, no-obligation estimate specific to your bathroom." },
+  { question: "How much does a small bathroom remodel cost in Mississippi?", answer: "Most small bathroom remodels in the Brandon and Rankin County area run $8,000–$20,000. The cost depends on tile choice, fixtures, vanity size, and whether plumbing needs to move. Call (601) 954-1306 for a free, no-obligation estimate specific to your bathroom." },
   { question: "Can a small bathroom feel bigger without expanding it?", answer: "Yes. Large-format tile (fewer grout lines = more visual space), frameless glass showers, wall-mounted vanities, and well-placed mirrors are our top tricks for making small baths feel larger — no demolition of walls required." },
   { question: "How long does a small bathroom remodel take?", answer: "A typical small bath remodel takes 2–4 weeks from demo to finish. Custom tile work or special-order fixtures can extend the timeline. We'll give you a firm schedule before we start." },
   { question: "Should I keep the existing plumbing layout to save money?", answer: "Generally yes — moving plumbing adds $1,500–$4,000+ to a project. We work with your existing layout wherever possible. If moving a fixture dramatically improves function, we'll show you the cost difference so you can decide." },
@@ -60,7 +60,7 @@ const ideas = [
     title: "2. Use Large-Format Tile — 24×24 or Larger",
     body: "Small tile = more grout lines = smaller-looking room. Large-format porcelain tile (24×24 or even 12×24 laid horizontally) reduces visual noise and tricks the eye into perceiving more space. Use the same tile on the floor and into the shower for a seamless, spa-like feel. We source tiles at wholesale pricing for our clients.",
     img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d7c80483-87a5-4d63-9866-0029bb6d1300/large",
-    alt: "Large format tile bathroom renovation in Central Mississippi"
+    alt: "Large format tile bathroom renovation in the Brandon and Rankin County area"
   },
   {
     title: "3. Wall-Mounted Vanity + Floating Storage",
@@ -95,7 +95,7 @@ export default function SmallBathroomIdeas() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Small Bathroom Remodeling Ideas — Brandon, MS | Bradley Brown Inc"
-        description="6 practical small bathroom remodeling ideas from Central Mississippi's trusted contractor. Walk-in showers, large-format tile & more. Call (601) 954-1306."
+        description="6 practical small bathroom remodeling ideas from the Brandon and Rankin County area's trusted contractor. Walk-in showers, large-format tile & more. Call (601) 954-1306."
         schema={schema}
         canonical="https://bradleybrowninc.com/SmallBathroomIdeas"
       />
@@ -125,7 +125,7 @@ export default function SmallBathroomIdeas() {
 
         {/* Intro */}
         <div className="prose prose-slate max-w-none">
-          <p className="text-slate-600 leading-relaxed text-base">A small bathroom doesn't have to feel small. After 30+ years of remodeling homes across Central Mississippi, our team at Bradley Brown Inc. has learned exactly which changes deliver the biggest visual and functional impact per dollar spent. Whether you're working with a 50 sq ft guest bath or a tight master ensuite, these six ideas will transform what you've got.</p>
+          <p className="text-slate-600 leading-relaxed text-base">A small bathroom doesn't have to feel small. After 30+ years of remodeling homes across the Brandon and Rankin County area, our team at Bradley Brown Inc. has learned exactly which changes deliver the biggest visual and functional impact per dollar spent. Whether you're working with a 50 sq ft guest bath or a tight master ensuite, these six ideas will transform what you've got.</p>
         </div>
 
         {/* Ideas */}
@@ -144,7 +144,7 @@ export default function SmallBathroomIdeas() {
         {/* Mid-page CTA */}
         <div className="bg-sky-50 border border-sky-200 rounded-2xl p-6 text-center">
           <p className="font-bold text-[#1E2D3D] mb-2">Ready to remodel your bathroom in Brandon, MS?</p>
-          <p className="text-slate-500 text-sm mb-4">Call us for a free, no-obligation estimate. We serve Brandon, Flowood, Pearl, Madison, Ridgeland, and all of Central Mississippi.</p>
+          <p className="text-slate-500 text-sm mb-4">Call us for a free, no-obligation estimate. We serve Brandon, Flowood, Pearl, Madison, Ridgeland, and the Rankin County area.</p>
           <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
             <Phone className="w-4 h-4" /> (601) 954-1306
           </a>
@@ -155,7 +155,7 @@ export default function SmallBathroomIdeas() {
           <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">Quick Checklist: Before You Start</h2>
           <div className="space-y-2">
             {[
-              "Set a realistic budget (small bath remodels: $8K–$20K in Central MS)",
+              "Set a realistic budget (small bath remodels: $8K–$20K in the Brandon/Rankin County area)",
               "Decide whether to keep the existing plumbing layout (saves $1,500–$4,000)",
               "Choose large-format tile (24×24 or 12×24) to maximize perceived space",
               "Plan for a recessed niche in the shower during framing",

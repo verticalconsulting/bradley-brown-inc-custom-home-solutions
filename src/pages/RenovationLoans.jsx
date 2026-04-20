@@ -77,7 +77,7 @@ export default function RenovationLoans() {
 
         <div className="prose prose-slate max-w-none mb-8">
           <p className="text-slate-600 leading-relaxed">Financing a home renovation in Brandon, MS doesn't have to be overwhelming. Whether you're planning a kitchen remodel, a room addition, or a full custom home build, understanding your loan options upfront can save you thousands of dollars and help you start your project with confidence. This guide breaks down the five most common renovation financing options available to Mississippi homeowners — including pros, cons, and what each is best suited for.</p>
-          <p className="text-slate-600 leading-relaxed">At Bradley Brown Inc., we've worked with hundreds of Central Mississippi homeowners on projects of every size and budget. While we don't provide financing directly, we help you scope your project so your renovation fits your loan — and we'll connect you with lenders we trust. Call <a href="tel:+16019541306" className="text-sky-600 font-semibold">(601) 954-1306</a> to talk through your project and financing options.</p>
+          <p className="text-slate-600 leading-relaxed">At Bradley Brown Inc., we've worked with hundreds of Brandon and Rankin County area homeowners on projects of every size and budget. While we don't provide financing directly, we help you scope your project so your renovation fits your loan — and we'll connect you with lenders we trust. Call <a href="tel:+16019541306" className="text-sky-600 font-semibold">(601) 954-1306</a> to talk through your project and financing options.</p>
         </div>
 
         <div className="bg-sky-50 border border-sky-200 rounded-xl p-5 mb-10">
@@ -134,7 +134,7 @@ export default function RenovationLoans() {
               </div>
             ))}
           </div>
-          <p className="text-xs text-slate-400 mt-4">*Ranges based on typical Central Mississippi projects. Contact us for a free estimate specific to your home.</p>
+          <p className="text-xs text-slate-400 mt-4">*Ranges based on typical Brandon and Rankin County area projects. Contact us for a free estimate specific to your home.</p>
         </div>
 
         {/* FAQ */}

@@ -23,7 +23,7 @@ const additions = [
   },
   {
     title: "In-Law Suite / ADU",
-    description: "A separate living space for aging parents, adult children, or rental income. Increasingly popular across Brandon and Central Mississippi.",
+    description: "A separate living space for aging parents, adult children, or rental income. Increasingly popular across Brandon and the Rankin County area.",
     roi: "~55–65% ROI",
     cost: "$60,000 – $120,000",
     image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6f8892dc-7461-4dcd-0e38-0d5c41580d00/large",
@@ -76,7 +76,7 @@ export default function HomeAdditionIdeas() {
 
       <div className="bg-[#1E2D3D] py-14 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Brandon, MS & Central Mississippi</p>
+          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Brandon, MS & Rankin County Area</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Home Addition Ideas</h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
             The 6 best room additions and home expansions for Mississippi homeowners — with real cost ranges and ROI estimates.
@@ -91,7 +91,7 @@ export default function HomeAdditionIdeas() {
 
         {/* Intro */}
         <div className="prose prose-slate max-w-none mb-10">
-          <p className="text-slate-600 leading-relaxed text-base">Adding square footage is one of the smartest investments a Mississippi homeowner can make — especially when moving would cost more than expanding. Whether you need a private master suite, space for aging parents, a dedicated home office, or simply a bigger kitchen to gather around, a well-planned addition can transform your home and its resale value. Below we break down the six most popular home additions in Brandon, MS and Central Mississippi — with realistic cost ranges, ROI estimates, and what to consider before you start.</p>
+          <p className="text-slate-600 leading-relaxed text-base">Adding square footage is one of the smartest investments a Mississippi homeowner can make — especially when moving would cost more than expanding. Whether you need a private master suite, space for aging parents, a dedicated home office, or simply a bigger kitchen to gather around, a well-planned addition can transform your home and its resale value. Below we break down the six most popular home additions in Brandon, MS and the Rankin County area — with realistic cost ranges, ROI estimates, and what to consider before you start.</p>
           <p className="text-slate-600 leading-relaxed">Bradley Brown Inc. has been building additions across Rankin, Hinds, and Madison counties since 1995. We handle everything from initial design through permits, construction, and final inspection. <a href="tel:+18443514154" className="text-sky-600 font-semibold">Call (844) 351-4154</a> for a free consultation on your project.</p>
         </div>
 

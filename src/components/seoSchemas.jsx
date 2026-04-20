@@ -5,7 +5,7 @@ export const localBusinessSchema = {
   "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
   "name": "Bradley Brown Inc.",
   "alternateName": "Bradley Brown Custom Homes",
-  "description": "Bradley Brown Inc. is Central Mississippi's premier custom home builder, offering custom home construction, renovations, room additions, and outdoor living spaces since 1995.",
+  "description": "Bradley Brown Inc. is the Brandon and Rankin County area's premier custom home builder, offering custom home construction, renovations, room additions, and outdoor living spaces since 1995.",
   "url": SITE_URL,
   "telephone": "+18443514154",
   "email": "bradleybrowninc@gmail.com",
@@ -60,7 +60,7 @@ export const localBusinessSchema = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kitchen Remodeling in Brandon, MS" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bathroom Renovation in Brandon, MS" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Room Additions in Brandon, MS" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Home Building in Central Mississippi" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Home Building in the Brandon and Rankin County Area" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Outdoor Living Spaces & Decks" } }
     ]
   }
@@ -77,7 +77,7 @@ export const servicesSchema = {
       "item": {
         "@type": "Service",
         "name": "Custom Home Building",
-        "description": "Full-service custom home construction in Central Mississippi, designed and built to your exact specifications.",
+        "description": "Full-service custom home construction in the Brandon and Rankin County area, designed and built to your exact specifications.",
         "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
         "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "250000" }
       }
@@ -88,7 +88,7 @@ export const servicesSchema = {
       "item": {
         "@type": "Service",
         "name": "Home Renovation & Remodeling",
-        "description": "Expert kitchen, bathroom, and full home renovations for Central Mississippi homeowners.",
+        "description": "Expert kitchen, bathroom, and full home renovations for Brandon and Rankin County area homeowners.",
         "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
         "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "25000" }
       }

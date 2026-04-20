@@ -252,7 +252,7 @@ export default function Layout({ children, currentPageName }) {
                 <img src={LOGO_URL} alt="Bradley Brown Inc." className="h-14 w-auto object-contain brightness-0 invert" />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-                Building Central Mississippi's dream homes with craftsmanship, integrity, and attention to detail since 1995.
+                Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 1995.
               </p>
               <div className="mt-5 space-y-2">
                 <a 

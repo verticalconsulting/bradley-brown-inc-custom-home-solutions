@@ -2,7 +2,7 @@ import React from "react";
 import { Award, MapPin, Star } from "lucide-react";
 
 const defaultProof = [
-  { icon: Award, text: "Licensed MS General Contractor since 1995 — 30+ years serving Central Mississippi" },
+  { icon: Award, text: "Licensed MS General Contractor since 1995 — 30+ years serving Brandon and the Rankin County area" },
   { icon: MapPin, text: "Locally owned & operated in Brandon, MS — serving a 50-mile radius including Jackson, Madison & Rankin County" },
   { icon: Star, text: "4.9★ rating across 87+ verified reviews — trusted by 500+ Mississippi families" },
 ];

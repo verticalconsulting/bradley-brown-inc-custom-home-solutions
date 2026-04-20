@@ -131,7 +131,7 @@ export default function ProTips() {
       )}
       <SEOHead
         title="Pro Tips — Home Remodeling Advice | Bradley Brown Inc."
-        description="Expert home remodeling tips for Brandon, MS homeowners — bathrooms, kitchens, luxury renovations & more from Central Mississippi's trusted contractor since 1995."
+        description="Expert home remodeling tips for Brandon, MS homeowners — bathrooms, kitchens, luxury renovations & more from the Brandon and Rankin County area's trusted contractor since 1995."
         canonical="https://bradleybrowninc.com/ProTips"
       />
 

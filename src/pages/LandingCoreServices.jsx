@@ -32,7 +32,7 @@ const schema = {
       "name": "Home Remodeling & Renovation",
       "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
       "areaServed": "Brandon, MS and surrounding 50-mile radius",
-      "description": "Kitchen renovation, bathroom remodeling, whole-home renovations, and energy-efficient upgrades in Central Mississippi."
+      "description": "Kitchen renovation, bathroom remodeling, whole-home renovations, and energy-efficient upgrades in the Brandon and Rankin County area."
     },
     {
       "@type": "BreadcrumbList",
@@ -45,7 +45,7 @@ const schema = {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "How long does a kitchen remodel take?", "acceptedAnswer": { "@type": "Answer", "text": "Most kitchen remodels take 4–8 weeks depending on scope. We'll give you a realistic timeline before we start." } },
-        { "@type": "Question", "name": "Do you serve Brandon, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we're based in Central Mississippi and serve Brandon, Madison, Jackson, Flowood, Pearl, and surrounding areas within 50 miles." } },
+        { "@type": "Question", "name": "Do you serve Brandon, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we're based in Brandon, MS and serve the Rankin County area including Brandon, Madison, Jackson, Flowood, Pearl, and surrounding areas within 50 miles." } },
         { "@type": "Question", "name": "What's included in an energy-efficient upgrade?", "acceptedAnswer": { "@type": "Answer", "text": "We offer insulation upgrades, energy-efficient windows, HVAC-ready builds, and solar-prep framing. Call us to discuss what makes sense for your home." } }
       ]
     }
@@ -133,7 +133,7 @@ export default function LandingCoreServices() {
         {/* Body copy */}
         <div className="prose prose-slate max-w-none">
           <h2 className="text-xl font-bold text-[#1E2D3D]">Why Brandon, MS Homeowners Choose Bradley Brown Inc.</h2>
-          <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the contractor Central Mississippi homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
+          <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
           <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Pearl, Richland, Madison, Ridgeland, and all of Rankin, Hinds, and Madison counties. Every estimate is free, every quote is transparent, and every project is backed by our quality guarantee.</p>
           <p className="text-slate-600 leading-relaxed">From energy-efficient window replacements to complete kitchen gut-and-rebuilds, we handle it all with licensed tradespeople and a project manager on-site every day. Call us at <a href="tel:+16019541306" onClick={handleCall} className="text-sky-600 font-semibold">(601) 954-1306</a> to schedule your free consultation.</p>
         </div>

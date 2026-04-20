@@ -28,12 +28,12 @@ const schema = {
       "name": "Custom Barndominium Construction",
       "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
       "areaServed": { "@type": "City", "name": "Brandon, Mississippi" },
-      "description": "Turnkey custom barndominium builds in Brandon, MS and Central Mississippi — steel frame, living + workshop combos, built by a licensed contractor since 1995."
+      "description": "Turnkey custom barndominium builds in Brandon, MS and the Rankin County area — steel frame, living + workshop combos, built by a licensed contractor since 1995."
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "How much does a barndominium cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Barndominium builds in Central Mississippi typically range from $75–$150 per square foot, depending on finishes, size, and site conditions. Call (844) 351-4154 for a free custom estimate." } },
+        { "@type": "Question", "name": "How much does a barndominium cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Barndominium builds in the Brandon and Rankin County area typically range from $75–$150 per square foot, depending on finishes, size, and site conditions. Call (844) 351-4154 for a free custom estimate." } },
         { "@type": "Question", "name": "How long does it take to build a barndominium in Brandon, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Most barndominiums are completed in 4–8 months from permit to move-in. The steel shell goes up quickly — interior finish work takes the most time." } },
         { "@type": "Question", "name": "Do you build barndominiums with living + workshop combinations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — that's our specialty. We design custom floor plans combining living quarters, garages, and workshops under one steel-frame roof." } }
       ]
@@ -42,7 +42,7 @@ const schema = {
 };
 
 const faqs = [
-  { question: `How much does a barndominium cost in Brandon, MS?`, answer: `Most Central Mississippi barndos fall between $75–$150 per square foot depending on finishes and site. Call ${PHONE} for a free custom estimate on your land.` },
+  { question: `How much does a barndominium cost in Brandon, MS?`, answer: `Most Brandon and Rankin County area barndos fall between $75–$150 per square foot depending on finishes and site. Call ${PHONE} for a free custom estimate on your land.` },
   { question: `How long does it take to build?`, answer: `Typical timeline is 4–8 months from permit to move-in. Steel shells erect in weeks; the interior finish work is what takes the most time.` },
   { question: `Can you combine a shop, garage, and home under one roof?`, answer: `Yes — that's exactly what we specialize in. Living quarters, workshops, RV bays, and garages all under one steel-frame structure.` },
   { question: `Do you handle permits and site prep?`, answer: `Yes. We pull all permits, schedule inspections, and manage site prep, concrete, plumbing, electrical, and HVAC from start to finish.` },
@@ -84,7 +84,7 @@ export default function BarndominiumBuilder() {
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-24 text-center">
           <p className="inline-flex items-center gap-1.5 bg-sky-400/20 border border-sky-400/40 text-sky-200 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
-            <MapPin className="w-3.5 h-3.5" /> Brandon, MS &amp; Central Mississippi
+            <MapPin className="w-3.5 h-3.5" /> Brandon, MS &amp; Rankin County Area
           </p>
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
             Custom Barndominium Builder in Brandon, MS

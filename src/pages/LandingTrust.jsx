@@ -58,7 +58,7 @@ const badges = [
 
 const faqs = [
   { question: "Is Bradley Brown Inc. licensed in Mississippi?", answer: "Yes. We are a licensed Mississippi General Contractor, fully insured with general liability and workers' compensation coverage on every project." },
-  { question: "How long have you been in business?", answer: "Since 1995 — over 30 years serving Central Mississippi homeowners. We've built and renovated 500+ homes in the area." },
+  { question: "How long have you been in business?", answer: "Since 1995 — over 30 years serving Brandon and Rankin County area homeowners. We've built and renovated 500+ homes in the area." },
   { question: "Do you have references I can call?", answer: "Absolutely. Call us at (601) 954-1306 and we'll connect you with past clients in your area who are happy to share their experience." },
   { question: "What warranty do you offer?", answer: "We provide a workmanship warranty on all our projects. Material warranties pass through directly from manufacturers. We stand behind every job we do." },
 ];
@@ -93,7 +93,7 @@ export default function LandingTrust() {
             Why Mississippi Homeowners<br className="hidden md:block" /> Trust Bradley Brown Inc.
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Certified, insured, and backed by 500+ completed projects. See what our clients say — and why we're Central Mississippi's most trusted builder.
+            Certified, insured, and backed by 500+ completed projects. See what our clients say — and why we're the Brandon and Rankin County area's most trusted builder.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
@@ -139,7 +139,7 @@ export default function LandingTrust() {
             variant="light"
             limit={6}
             title="What Our Clients Say"
-            subtitle="500+ homes built across Central Mississippi. Here's what homeowners say about working with us."
+            subtitle="500+ homes built across the Brandon and Rankin County area. Here's what homeowners say about working with us."
           />
         </div>
 
