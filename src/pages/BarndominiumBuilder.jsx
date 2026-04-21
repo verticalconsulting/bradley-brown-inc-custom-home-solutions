@@ -147,25 +147,51 @@ export default function BarndominiumBuilder() {
         </div>
       </section>
 
-      {/* ===== RECENT PROJECTS — PROOF ===== */}
+      {/* ===== FEATURED PROJECT — PROOF ===== */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
         <div className="text-center mb-8">
-          <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">Recent Barndominium Builds</p>
-          <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">Real Projects. Real Mississippi Land.</h2>
-          <p className="text-slate-500 mt-2 max-w-xl mx-auto">Every barndo we deliver is photographed at completion. No stock photos, no bait-and-switch.</p>
+          <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">Featured Barndominium Build</p>
+          <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">One Project. Every Detail.</h2>
+          <p className="text-slate-500 mt-2 max-w-xl mx-auto">A real Mississippi barndominium — from the nighttime exterior to the wide-open interior and custom workspace.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        {/* Hero featured image */}
+        <div className="rounded-2xl overflow-hidden shadow-xl bg-white mb-4">
+          <div className="aspect-[16/9] overflow-hidden">
+            <img
+              src="https://media.base44.com/images/public/699c758479c46f0580553750/106b7349c_nighttime.png"
+              alt="Custom barndominium exterior at dusk with warm lighting — built by Bradley Brown Inc. in Brandon, MS"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="p-4 md:p-5">
+            <p className="text-sm md:text-base font-semibold text-[#1E2D3D]">Custom Barndominium — Rankin County, MS</p>
+            <p className="text-xs text-slate-500 mt-1">Steel-frame construction · stone wainscot · custom wood accents · integrated garage + living quarters</p>
+          </div>
+        </div>
+
+        {/* Supporting interior shots */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
-            { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/7b34280a-4da6-4735-a990-074941b06e00/large", label: "3,200 sq ft Barndo — Rankin Co." },
-            { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large", label: "Living + Shop Combo — Brandon, MS" },
-            { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/a550b013-bf54-4156-5f21-ebabe8869600/large", label: "Rural Acreage Build — Simpson Co." },
+            {
+              url: "https://media.base44.com/images/public/699c758479c46f0580553750/345f5b642_barndo.png",
+              label: "Open Interior Shell",
+              desc: "Exposed steel trusses, polished concrete floors, and flexible living space.",
+            },
+            {
+              url: "https://media.base44.com/images/public/699c758479c46f0580553750/97a6460ae_insidecomputer.png",
+              label: "Custom Workspace",
+              desc: "Vaulted ceiling with wood beams, barn doors, and natural light — a built-in home office.",
+            },
           ].map((p) => (
-            <div key={p.url} className="rounded-xl overflow-hidden shadow-md bg-white group">
+            <div key={p.url} className="rounded-xl overflow-hidden shadow-md bg-white">
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={p.url} alt={p.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <img src={p.url} alt={p.label} className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="p-3">
-                <p className="text-xs font-semibold text-slate-600">{p.label}</p>
+              <div className="p-4">
+                <p className="text-sm font-bold text-[#1E2D3D]">{p.label}</p>
+                <p className="text-xs text-slate-500 mt-1">{p.desc}</p>
               </div>
             </div>
           ))}
