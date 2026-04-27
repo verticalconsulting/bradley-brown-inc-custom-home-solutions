@@ -3,8 +3,9 @@ import SEOHead from "@/components/SEOHead";
 import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { MapPin, Maximize2, Calendar, SlidersHorizontal, ChevronRight } from "lucide-react";
+import { MapPin, Maximize2, Calendar, SlidersHorizontal, ChevronRight, Instagram } from "lucide-react";
 import PullToRefresh from "@/components/PullToRefresh";
+import InstagramFeed from "@/components/portfolio/InstagramFeed";
 
 const categoryFilters = [
   { value: "all", label: "All Projects" },
@@ -145,6 +146,28 @@ export default function Portfolio() {
             <p className="text-slate-400 text-lg">No projects in this category yet.</p>
           </div>
         )}
+
+        {/* Instagram Feed */}
+        <div className="mt-16">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+            <div>
+              <p className="text-sky-500 font-semibold text-sm uppercase tracking-wider mb-1 flex items-center gap-2">
+                <Instagram className="w-4 h-4" /> Follow Along
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D]">Latest from Instagram</h2>
+              <p className="text-slate-500 text-sm mt-1">Behind-the-scenes shots & finished projects, straight from the field.</p>
+            </div>
+            <a
+              href="https://www.instagram.com/bradleybrowninc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity self-start sm:self-auto"
+            >
+              <Instagram className="w-4 h-4" /> View Profile
+            </a>
+          </div>
+          <InstagramFeed />
+        </div>
 
         {/* Internal links */}
         <div className="mt-12 bg-slate-50 border border-gray-200 rounded-xl p-5">
