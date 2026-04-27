@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import { CheckCircle, MessageSquare, ShieldCheck, Phone } from "lucide-react";
+import SmsOptinForm from "@/components/SmsOptinForm";
 
 export default function SmsOptin() {
   return (
@@ -28,6 +29,9 @@ export default function SmsOptin() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14 space-y-8">
 
+        {/* Live SMS Opt-In Form */}
+        <SmsOptinForm />
+
         {/* Consent Checkbox Example */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
           <h2 className="text-xl font-bold text-[#1E2D3D] mb-4 flex items-center gap-2">
@@ -46,12 +50,13 @@ export default function SmsOptin() {
               </p>
               <div className="bg-white border-2 border-sky-300 rounded-lg p-4">
                 <label className="flex items-start gap-3 cursor-default">
-                  <div className="w-4 h-4 border-2 border-sky-500 rounded mt-0.5 flex-shrink-0 bg-sky-500 flex items-center justify-center">
-                    <CheckCircle className="w-3 h-3 text-white" />
-                  </div>
+                  <div className="w-4 h-4 border-2 border-slate-400 rounded mt-0.5 flex-shrink-0 bg-white" />
                   <span className="text-sm text-slate-700 leading-relaxed">
-                    I agree to receive SMS text messages from Bradley Brown Inc. regarding my quote, project updates, and customer support.{" "}
-                    <span className="text-slate-500">Message frequency varies. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase.</span>
+                    I agree to receive SMS text messages from <strong>Bradley Brown Inc.</strong> regarding my quote, project updates, and customer support.{" "}
+                    <span className="text-slate-500">Message frequency varies. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase.</span>{" "}
+                    By checking this box, I agree to the{" "}
+                    <Link to={createPageUrl("Legal")} className="text-sky-600 font-medium hover:underline">Terms of Service</Link>{" "}and{" "}
+                    <Link to={createPageUrl("Legal")} className="text-sky-600 font-medium hover:underline">Privacy Policy</Link>.
                   </span>
                 </label>
               </div>
