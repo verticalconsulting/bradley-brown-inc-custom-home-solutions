@@ -1,0 +1,93 @@
+{
+  "name": "ChatSession",
+  "type": "object",
+  "properties": {
+    "visitor_name": {
+      "type": "string"
+    },
+    "visitor_email": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "waiting",
+        "closed",
+        "transferred"
+      ],
+      "default": "waiting"
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "visitor",
+              "agent"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "whatsapp_number": {
+      "type": "string"
+    },
+    "transferred_to_whatsapp": {
+      "type": "boolean",
+      "default": false
+    },
+    "page_url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional summary or notes about this chat session"
+    }
+  },
+  "required": [
+    "visitor_name"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "data.visitor_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "data.visitor_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

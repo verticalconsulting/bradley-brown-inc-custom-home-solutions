@@ -40,6 +40,11 @@
     "triggered_by": {
       "type": "string",
       "description": "Email of admin who triggered the action"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional human-readable summary of this indexing log entry"
     }
   },
   "required": [
