@@ -11,7 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Trash2, LogOut, LogIn, Search, BarChart2, ChevronRight, ShieldCheck, MessageSquare, FileText, Users, Video } from "lucide-react";
+import { Trash2, LogOut, LogIn, Search, BarChart2, ChevronRight, ShieldCheck, MessageSquare, FileText, Users, Video, HardHat } from "lucide-react";
 
 export default function AccountSettings() {
   const navigate = useNavigate();
@@ -113,6 +113,16 @@ export default function AccountSettings() {
                   </div>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-sky-600 transition-colors" />
+              </Link>
+              <Link to="/jobsite-checkin" className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-colors group">
+                <div className="flex items-center gap-3">
+                  <HardHat className="w-5 h-5 text-orange-500" />
+                  <div>
+                    <p className="font-medium text-[#1E2D3D] text-sm">Jobsite Check-In</p>
+                    <p className="text-xs text-slate-400">Submit a field check-in (photos, GPS, service)</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-orange-500 transition-colors" />
               </Link>
               <Link to="/TikTokSync" className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-colors group">
                 <div className="flex items-center gap-3">

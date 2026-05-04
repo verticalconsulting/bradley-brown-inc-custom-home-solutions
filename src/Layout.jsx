@@ -90,11 +90,11 @@ export default function Layout({ children, currentPageName }) {
     { label: "Home", page: "Home" },
     { label: "Services", page: "Services" },
     { label: "Portfolio", page: "Portfolio" },
+    { label: "Jobsites", page: "Jobsites", path: "/jobsites" },
     { label: "About", page: "About" },
     { label: "Contact", page: "Contact" },
     { label: "Pro Tips", page: "ProTips" },
-    { label: "Schedule Visit", page: "ScheduleVisit" },
-    { label: "Legal", page: "Legal" }];
+    { label: "Schedule Visit", page: "ScheduleVisit" }];
 
 
   const transparent = isHomePage && !scrolled;
@@ -128,7 +128,7 @@ export default function Layout({ children, currentPageName }) {
               {navLinks.map((link) =>
               <Link
                 key={link.page}
-                to={createPageUrl(link.page)}
+                to={link.path || createPageUrl(link.page)}
                 className={`text-sm font-medium transition-colors hover:text-sky-400 ${
                 currentPageName === link.page ? "text-sky-400" : textColor}`
                 }>
@@ -187,7 +187,7 @@ export default function Layout({ children, currentPageName }) {
               {navLinks.map((link) =>
             <Link
               key={link.page}
-              to={createPageUrl(link.page)}
+              to={link.path || createPageUrl(link.page)}
               className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
               currentPageName === link.page ?
               "bg-amber-50 text-sky-400" :
