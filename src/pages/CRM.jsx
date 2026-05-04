@@ -3,6 +3,7 @@ import { base44 } from "@/api/base44Client";
 import { MessageSquare, Plus, Search, Phone, Mail, Building2, Loader2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import JobCheckinAdminPanel from "@/components/jobcheckin/JobCheckinAdminPanel";
 
 export default function CRM() {
   const [clients, setClients] = useState([]);
@@ -163,6 +164,9 @@ export default function CRM() {
             </form>
           </div>
         )}
+
+        {/* Jobsite Check-In Review */}
+        <JobCheckinAdminPanel />
 
         {/* Search */}
         <div className="mb-6 relative">

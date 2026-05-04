@@ -13,6 +13,14 @@ Deno.serve(async (req) => {
     // Continue with static pages only
   }
 
+  // Fetch published jobsite check-ins
+  let jobsites = [];
+  try {
+    jobsites = await base44.asServiceRole.entities.JobCheckin.filter({ status: "published" });
+  } catch (_) {
+    // Continue
+  }
+
   const today = new Date().toISOString().split("T")[0];
 
   const staticPages = [
@@ -40,6 +48,7 @@ Deno.serve(async (req) => {
     { url: "/thank-you", priority: "0.9", changefreq: "monthly" },
     { url: "/legal", priority: "0.9", changefreq: "monthly" },
     { url: "/sms-optin", priority: "0.9", changefreq: "monthly" },
+    { url: "/jobsites", priority: "0.8", changefreq: "weekly" },
     { url: "/", priority: "0.9", changefreq: "monthly" },
   ];
 
@@ -57,6 +66,7 @@ Deno.serve(async (req) => {
     "/ConversionDashboard",
     "/AgentChat",
     "/TikTokSync",
+    "/jobsite-checkin",
   ];
   const filteredStaticPages = staticPages.filter(p => !NOINDEX_PATHS.includes(p.url));
 
@@ -74,6 +84,13 @@ Deno.serve(async (req) => {
     <lastmod>${p.updated_date ? p.updated_date.split("T")[0] : today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>`),
+    ...jobsites.map(j => `
+  <url>
+    <loc>${SITE_URL}/jobsites/${j.slug}</loc>
+    <lastmod>${(j.updated_date || j.published_date || j.created_date || today).split("T")[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>`)
   ].join("");
 

@@ -17,6 +17,9 @@ import LandingPricing from './pages/LandingPricing';
 import Barndominiums from './pages/Barndominiums';
 import SmsOptin from './pages/SmsOptin';
 import BarndominiumBuilder from './pages/BarndominiumBuilder';
+import JobCheckin from './pages/JobCheckin';
+import Jobsites from './pages/Jobsites';
+import JobsiteDetail from './pages/JobsiteDetail';
 import { Navigate } from 'react-router-dom';
 import Leads from './pages/Leads';
 import FunnelAnalysis from './pages/FunnelAnalysis';
@@ -100,6 +103,9 @@ const AuthenticatedApp = () => {
       <Route path="/projects/two-story-home-addition" element={<Navigate to="/Portfolio" replace />} />
       <Route path="/ai-quote" element={<Navigate to="/QuoteAssistant" replace />} />
       <Route path="/sms-optin" element={<LayoutWrapper currentPageName="SmsOptin"><SmsOptin /></LayoutWrapper>} />
+      <Route path="/jobsite-checkin" element={<LayoutWrapper currentPageName="JobCheckin"><JobCheckin /></LayoutWrapper>} />
+      <Route path="/jobsites" element={<LayoutWrapper currentPageName="Jobsites"><Jobsites /></LayoutWrapper>} />
+      <Route path="/jobsites/:slug" element={<LayoutWrapper currentPageName="JobsiteDetail"><JobsiteDetail /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

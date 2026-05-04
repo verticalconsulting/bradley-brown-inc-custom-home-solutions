@@ -1,0 +1,120 @@
+{
+  "name": "JobCheckin",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Short page title, e.g. 'Kitchen Remodel in Brandon, MS'"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly slug, auto-generated from title + city + date"
+    },
+    "service": {
+      "type": "string",
+      "enum": [
+        "custom_home",
+        "kitchen_remodel",
+        "bathroom_renovation",
+        "room_addition",
+        "outdoor_living",
+        "barndominium",
+        "repair_maintenance",
+        "other"
+      ],
+      "description": "Type of service performed at this jobsite"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the work performed"
+    },
+    "city": {
+      "type": "string",
+      "description": "City name, e.g. Brandon"
+    },
+    "neighborhood": {
+      "type": "string",
+      "description": "Neighborhood / subdivision (optional)"
+    },
+    "state": {
+      "type": "string",
+      "default": "MS"
+    },
+    "zip": {
+      "type": "string",
+      "description": "ZIP code (optional)"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "GPS latitude"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "GPS longitude"
+    },
+    "service_radius_miles": {
+      "type": "number",
+      "description": "Service area radius around this point",
+      "default": 5
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Uploaded photo URLs from the jobsite"
+    },
+    "checkin_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the work was performed"
+    },
+    "submitted_by": {
+      "type": "string",
+      "description": "Crew member name who submitted the check-in"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published",
+        "rejected"
+      ],
+      "default": "draft"
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "title",
+    "service",
+    "city"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "data.status": "published"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
