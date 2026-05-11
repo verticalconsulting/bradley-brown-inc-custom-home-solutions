@@ -71,7 +71,7 @@ export default function HeroSection() {
         <div className="flex flex-col gap-3 sm:hidden w-full max-w-xs mx-auto">
           <Link
             to={createPageUrl("QuoteAssistant")}
-            className="bg-[#C4922A] text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all">
+            className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-[#a5a29c]">
             <Sparkles className="w-5 h-5" /> Get My Free AI Estimate
           </Link>
           <a href="tel:+18443514154" className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-sky-400">Call (844) 351-4154
