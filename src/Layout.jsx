@@ -50,18 +50,18 @@ export default function Layout({ children, currentPageName }) {
     script.src = "https://formspree.io/js/formbutton-v1.min.js";
     script.defer = true;
     script.onload = () => {
-      window.formbutton = window.formbutton || function() { (window.formbutton.q = window.formbutton.q || []).push(arguments); };
+      window.formbutton = window.formbutton || function () {(window.formbutton.q = window.formbutton.q || []).push(arguments);};
       window.formbutton("create", {
         action: "https://formspree.io/f/xeeranrd",
         title: "Get a Quick Quote",
         fields: [
-          { type: "text", label: "Name:", name: "name", required: true, placeholder: "Your name" },
-          { type: "email", label: "Email:", name: "email", required: true, placeholder: "your@email.com" },
-          { type: "tel", label: "Phone:", name: "phone", placeholder: "(601) 000-0000" },
-          { type: "select", label: "Project Type:", name: "project_type", options: ["Custom Home", "Renovation", "Room Addition", "Outdoor Living", "Other"] },
-          { type: "textarea", label: "Tell us about your project:", name: "message", placeholder: "Describe your project, budget, timeline..." },
-          { type: "submit", value: "Send My Request" }
-        ],
+        { type: "text", label: "Name:", name: "name", required: true, placeholder: "Your name" },
+        { type: "email", label: "Email:", name: "email", required: true, placeholder: "your@email.com" },
+        { type: "tel", label: "Phone:", name: "phone", placeholder: "(601) 000-0000" },
+        { type: "select", label: "Project Type:", name: "project_type", options: ["Custom Home", "Renovation", "Room Addition", "Outdoor Living", "Other"] },
+        { type: "textarea", label: "Tell us about your project:", name: "message", placeholder: "Describe your project, budget, timeline..." },
+        { type: "submit", value: "Send My Request" }],
+
         styles: {
           title: { backgroundColor: "#1E2D3D" },
           button: { backgroundColor: "#38bdf8" }
@@ -87,14 +87,14 @@ export default function Layout({ children, currentPageName }) {
   }, [location.pathname]);
 
   const navLinks = [
-    { label: "Home", page: "Home" },
-    { label: "Services", page: "Services" },
-    { label: "Portfolio", page: "Portfolio" },
-    { label: "Jobsites", page: "Jobsites", path: "/jobsites" },
-    { label: "About", page: "About" },
-    { label: "Contact", page: "Contact" },
-    { label: "Pro Tips", page: "ProTips" },
-    { label: "Schedule Visit", page: "ScheduleVisit" }];
+  { label: "Home", page: "Home" },
+  { label: "Services", page: "Services" },
+  { label: "Portfolio", page: "Portfolio" },
+  { label: "Jobsites", page: "Jobsites", path: "/jobsites" },
+  { label: "About", page: "About" },
+  { label: "Contact", page: "Contact" },
+  { label: "Pro Tips", page: "ProTips" },
+  { label: "Schedule Visit", page: "ScheduleVisit" }];
 
 
   const transparent = isHomePage && !scrolled;
@@ -140,8 +140,8 @@ export default function Layout({ children, currentPageName }) {
                 to={createPageUrl("AccountSettings")}
                 className={`text-sm font-medium transition-colors hover:text-sky-400 ${
                 currentPageName === "AccountSettings" ? "text-sky-400" : textColor}`}
-                title="Account Settings"
-              >
+                title="Account Settings">
+                
                 <Settings className="w-5 h-5" />
               </Link>
             </div>
@@ -165,7 +165,7 @@ export default function Layout({ children, currentPageName }) {
                 (844) 351-4154
               </a>
               <Link
-                to={createPageUrl("ContactForm")} className="bg-sky-400 text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors">
+                to={createPageUrl("ContactForm")} className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-teal-400">
 
 
                 Get a Quote <ChevronRight className="w-3 h-3" />
@@ -198,18 +198,18 @@ export default function Layout({ children, currentPageName }) {
                 </Link>
             )}
               <div className="pt-3 border-t border-gray-100 space-y-2">
-                <a 
-                  href="tel:+18443514154" 
-                  onClick={() => {
-                    if (typeof window.gtag === 'function') {
-                      window.gtag('event', 'conversion', {
-                        'send_to': 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
-                        'value': 30,
-                        'currency': 'USD'
-                      });
-                    }
-                  }}
-                  className="flex items-center gap-2 px-3 py-2 text-[#1E2D3D] font-medium">
+                <a
+                href="tel:+18443514154"
+                onClick={() => {
+                  if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'conversion', {
+                      'send_to': 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
+                      'value': 30,
+                      'currency': 'USD'
+                    });
+                  }
+                }}
+                className="flex items-center gap-2 px-3 py-2 text-[#1E2D3D] font-medium">
                   <Phone className="w-4 h-4 text-sky-400" />
                   (844) 351-4154
                 </a>
@@ -232,8 +232,8 @@ export default function Layout({ children, currentPageName }) {
             initial={{ x: 40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -40, opacity: 0 }}
-            transition={{ duration: 0.22, ease: "easeInOut" }}
-          >
+            transition={{ duration: 0.22, ease: "easeInOut" }}>
+            
             {children}
           </motion.div>
         </AnimatePresence>
@@ -255,7 +255,7 @@ export default function Layout({ children, currentPageName }) {
                 Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 1995.
               </p>
               <div className="mt-5 space-y-2">
-                <a 
+                <a
                   href="tel:+18443514154"
                   onClick={() => {
                     if (typeof window.gtag === 'function') {
@@ -279,8 +279,8 @@ export default function Layout({ children, currentPageName }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-slate-400 hover:text-sky-400 transition-colors"
-                    aria-label="Facebook"
-                  >
+                    aria-label="Facebook">
+                    
                     <Facebook className="w-5 h-5" />
                   </a>
                   <a
@@ -288,10 +288,10 @@ export default function Layout({ children, currentPageName }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-slate-400 hover:text-sky-400 transition-colors"
-                    aria-label="TikTok"
-                  >
+                    aria-label="TikTok">
+                    
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.1 1.75 2.9 2.9 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.26 6.26 0 0 0-1-.08A6.26 6.26 0 0 0 5 20.1a6.26 6.26 0 0 0 10.86-3.47V8.26a8.26 8.26 0 0 0 3.73 1.48v-3.15z"/>
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.1 1.75 2.9 2.9 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.26 6.26 0 0 0-1-.08A6.26 6.26 0 0 0 5 20.1a6.26 6.26 0 0 0 10.86-3.47V8.26a8.26 8.26 0 0 0 3.73 1.48v-3.15z" />
                     </svg>
                   </a>
                 </div>
@@ -301,15 +301,15 @@ export default function Layout({ children, currentPageName }) {
               <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h3>
               <ul className="space-y-2">
                 {[
-                  { label: "Custom Home Building", page: "Services" },
-                  { label: "Home Renovations", page: "Services" },
-                  { label: "Room Additions", page: "Services" },
-                  { label: "Outdoor Living Spaces", page: "Services" },
-                  { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
-                  { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
-                  { label: "Core Services — Brandon", page: "LandingCoreServices" },
-                ].map((item) =>
-                  <li key={item.label}>
+                { label: "Custom Home Building", page: "Services" },
+                { label: "Home Renovations", page: "Services" },
+                { label: "Room Additions", page: "Services" },
+                { label: "Outdoor Living Spaces", page: "Services" },
+                { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
+                { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
+                { label: "Core Services — Brandon", page: "LandingCoreServices" }].
+                map((item) =>
+                <li key={item.label}>
                     <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
                   </li>
                 )}
@@ -319,23 +319,23 @@ export default function Layout({ children, currentPageName }) {
               <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Company</h3>
               <ul className="space-y-2">
                 {[
-                  { label: "About Us", page: "About" },
-                  { label: "Portfolio", page: "Portfolio" },
-                  { label: "Pro Tips & Advice", page: "ProTips" },
-                  { label: "Why Trust Us", page: "LandingTrust" },
-                  { label: "Contact Us", page: "Contact" },
-                  { label: "Get a Free Quote", page: "ContactForm" },
-                  { label: "AI Cost Estimator", page: "QuoteAssistant" },
-                  { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-                  { label: "Pricing Guide", page: "LandingPricing" },
-                  { label: "Renovation Loans", page: "RenovationLoans" },
-                  { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-                  { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
-                  { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
-                  { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
-                  { label: "Legal", page: "Legal" },
-                ].map((item) =>
-                  <li key={item.page + item.label}>
+                { label: "About Us", page: "About" },
+                { label: "Portfolio", page: "Portfolio" },
+                { label: "Pro Tips & Advice", page: "ProTips" },
+                { label: "Why Trust Us", page: "LandingTrust" },
+                { label: "Contact Us", page: "Contact" },
+                { label: "Get a Free Quote", page: "ContactForm" },
+                { label: "AI Cost Estimator", page: "QuoteAssistant" },
+                { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+                { label: "Pricing Guide", page: "LandingPricing" },
+                { label: "Renovation Loans", page: "RenovationLoans" },
+                { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+                { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
+                { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+                { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
+                { label: "Legal", page: "Legal" }].
+                map((item) =>
+                <li key={item.page + item.label}>
                     <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
                   </li>
                 )}
