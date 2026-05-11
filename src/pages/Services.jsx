@@ -181,7 +181,7 @@ export default function Services() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to={createPageUrl("QuoteAssistant")}
-              className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg">
+              className="inline-flex items-center justify-center gap-2 hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg bg-blue-400">
               
               <Sparkles className="w-5 h-5" /> Get an AI Estimate — Free
             </Link>
@@ -279,8 +279,8 @@ export default function Services() {
                         src={service.image}
                         alt={`${service.name} in Brandon MS by Bradley Brown Inc.`}
                         className="w-full h-72 md:h-96 object-cover"
-                        loading="lazy"
-                      />
+                        loading="lazy" />
+                      
                     </div>
                     {service.faq &&
                     <div className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
