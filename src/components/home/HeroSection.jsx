@@ -4,17 +4,17 @@ import { createPageUrl } from "@/utils";
 import { ChevronRight, Play, Sparkles, Phone } from "lucide-react";
 
 const slides = [
-  {
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/herocover",
-    headline: "Building Your",
-    highlight: "Dream Home Kitchen",
-  },
-  {
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb",
-    headline: "Man Caves &",
-    highlight: "Barndominiums",
-  },
-];
+{
+  image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/herocover",
+  headline: "Building Your",
+  highlight: "Dream Home Kitchen"
+},
+{
+  image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb",
+  headline: "Man Caves &",
+  highlight: "Barndominiums"
+}];
+
 
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
@@ -24,7 +24,7 @@ export default function HeroSection() {
     const interval = setInterval(() => {
       setFading(true);
       setTimeout(() => {
-        setCurrent(prev => (prev + 1) % slides.length);
+        setCurrent((prev) => (prev + 1) % slides.length);
         setFading(false);
       }, 600);
     }, 5000);
@@ -36,16 +36,16 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background images */}
-      {slides.map((s, i) => (
-        <div
-          key={i}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
-          style={{
-            backgroundImage: `url('${s.image}')`,
-            opacity: i === current ? 1 : 0,
-          }}
-        />
-      ))}
+      {slides.map((s, i) =>
+      <div
+        key={i}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
+        style={{
+          backgroundImage: `url('${s.image}')`,
+          opacity: i === current ? 1 : 0
+        }} />
+
+      )}
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#1E2D3D]/75 via-[#1E2D3D]/55 to-[#1E2D3D]/85" />
 
@@ -57,8 +57,8 @@ export default function HeroSection() {
 
         <h1
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 transition-opacity duration-500"
-          style={{ opacity: fading ? 0 : 1 }}
-        >
+          style={{ opacity: fading ? 0 : 1 }}>
+          
           {slide.headline}
           <span className="text-sky-400 block">{slide.highlight}</span>
         </h1>
@@ -74,8 +74,8 @@ export default function HeroSection() {
             className="bg-[#C4922A] text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all">
             <Sparkles className="w-5 h-5" /> Get My Free AI Estimate
           </Link>
-          <a href="tel:+18443514154" className="bg-green-500 text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all">
-            <Phone className="w-5 h-5" /> Call (844) 351-4154
+          <a href="tel:+18443514154" className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-sky-400">Call (844) 351-4154
+
           </a>
           <Link
             to={createPageUrl("Portfolio")}
@@ -99,18 +99,18 @@ export default function HeroSection() {
 
         {/* Slide dots */}
         <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Slides">
-          {slides.map((s, i) => (
-            <button
-              key={i}
-              role="tab"
-              aria-selected={i === current}
-              aria-label={`Slide ${i + 1}: ${s.headline} ${s.highlight}`}
-              onClick={() => { setFading(true); setTimeout(() => { setCurrent(i); setFading(false); }, 600); }}
-              className={`min-w-[44px] min-h-[44px] flex items-center justify-center -m-2 p-2`}
-            >
+          {slides.map((s, i) =>
+          <button
+            key={i}
+            role="tab"
+            aria-selected={i === current}
+            aria-label={`Slide ${i + 1}: ${s.headline} ${s.highlight}`}
+            onClick={() => {setFading(true);setTimeout(() => {setCurrent(i);setFading(false);}, 600);}}
+            className={`min-w-[44px] min-h-[44px] flex items-center justify-center -m-2 p-2`}>
+            
               <span className={`block rounded-full transition-all duration-300 ${i === current ? "bg-sky-400 w-6 h-2.5" : "bg-white/40 w-2.5 h-2.5"}`} />
             </button>
-          ))}
+          )}
         </div>
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -119,6 +119,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
