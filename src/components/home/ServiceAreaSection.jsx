@@ -15,7 +15,7 @@ export default function ServiceAreaSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
           <p className="text-sky-500 font-semibold text-sm uppercase tracking-wider mb-2">Where We Work</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Se
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Serving Brandon and Rankin County M
 
           </h2>
           <p className="text-slate-500 mt-3 max-w-xl mx-auto text-sm">
