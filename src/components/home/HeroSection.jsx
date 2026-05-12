@@ -52,7 +52,7 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
         <div className="bg-slate-700 mb-6 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-sky-400/40">
           <span className="bg-sky-400 rounded-full w-2 h-2" />
-          <span className="text-sky-400 text-sm font-medium">Bra Premier Builder Since 1995 Brandon Mississippi'</span>
+          <span className="text-sky-400 text-sm font-medium">BPremier Builder Since 1995</span>
         </div>
 
         <h1
