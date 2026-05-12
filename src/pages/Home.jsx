@@ -5,6 +5,7 @@ import HeroSection from "@/components/home/HeroSection";
 import TrustSignals from "@/components/home/TrustSignals";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
+import FeaturedResources from "@/components/home/FeaturedResources";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import CTABanner from "@/components/home/CTABanner";
 import ServiceAreaSection from "@/components/home/ServiceAreaSection";
@@ -29,6 +30,7 @@ export default function Home() {
         <TrustSignals />
         <ServicesPreview />
         <FeaturedProjects />
+        <FeaturedResources />
         <ServiceAreaSection />
         <div id="testimonials">
           <TestimonialSlider featuredOnly={true} limit={6} />
