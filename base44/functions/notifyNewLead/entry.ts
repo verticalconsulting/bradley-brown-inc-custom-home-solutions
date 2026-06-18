@@ -63,7 +63,15 @@ Deno.serve(async (req) => {
     if (twilioResponse.ok) {
       return Response.json({ status: "success", message: resultText });
     } else {
-      return Response.json({ status: "error", error: resultText }, { status: 500 });
+      // Twilio rejected (e.g. 401 Unauthorized from rotated/invalid credentials).
+      // Log it but return 200 so the automation does not retry-spam — the lead
+      // is already saved in the database; SMS notification is best-effort.
+      console.error("Twilio rejected request:", twilioResponse.status, resultText);
+      return Response.json({
+        status: "sms_skipped",
+        twilio_status: twilioResponse.status,
+        twilio_error: resultText.substring(0, 200),
+      });
     }
   } catch (error) {
     console.error("Unhandled error:", error.message);
