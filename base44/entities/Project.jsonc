@@ -82,7 +82,14 @@
         "role": "admin"
       }
     },
-    "read": {},
+    "read": {
+      "$or": [
+        {},
+        {
+          "user_authenticated": false
+        }
+      ]
+    },
     "update": {
       "user_condition": {
         "role": "admin"

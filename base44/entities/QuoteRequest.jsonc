@@ -76,7 +76,14 @@
     "project_type"
   ],
   "rls": {
-    "create": {},
+    "create": {
+      "$or": [
+        {},
+        {
+          "user_authenticated": false
+        }
+      ]
+    },
     "read": {
       "$or": [
         {

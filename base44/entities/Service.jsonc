@@ -48,7 +48,19 @@
       }
     },
     "read": {
-      "data.active": true
+      "$and": [
+        {
+          "data.active": true
+        },
+        {
+          "$or": [
+            {},
+            {
+              "user_authenticated": false
+            }
+          ]
+        }
+      ]
     },
     "update": {
       "user_condition": {
