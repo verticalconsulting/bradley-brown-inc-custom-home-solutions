@@ -1,0 +1,9 @@
+{
+  "type": "google_search_console",
+  "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/webmasters",
+    "https://www.googleapis.com/auth/webmasters.readonly",
+    "openid"
+  ]
+}
