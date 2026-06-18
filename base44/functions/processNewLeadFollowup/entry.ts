@@ -85,20 +85,33 @@ Deno.serve(async (req) => {
       clientId = created.id;
     }
 
-    // 2) Send thank-you email
+    // 2) Send thank-you email (best-effort — Base44 SendEmail only delivers to
+    //    registered app users, so external leads will be rejected. We catch and
+    //    continue so the automation still succeeds and the CRM record is kept.)
     let emailSent = false;
+    let emailSkippedReason = null;
     if (email) {
-      const { subject, body } = buildThankYouEmail(name);
-      await base44.asServiceRole.integrations.Core.SendEmail({
-        from_name: FROM_NAME,
-        to: email,
-        subject,
-        body,
-      });
-      emailSent = true;
+      try {
+        const { subject, body } = buildThankYouEmail(name);
+        await base44.asServiceRole.integrations.Core.SendEmail({
+          from_name: FROM_NAME,
+          to: email,
+          subject,
+          body,
+        });
+        emailSent = true;
+      } catch (emailErr) {
+        emailSkippedReason = emailErr?.message || String(emailErr);
+        console.warn("Thank-you email not delivered:", emailSkippedReason);
+      }
     }
 
-    return Response.json({ success: true, client_id: clientId, email_sent: emailSent });
+    return Response.json({
+      success: true,
+      client_id: clientId,
+      email_sent: emailSent,
+      email_skipped_reason: emailSkippedReason,
+    });
   } catch (error) {
     console.error("processNewLeadFollowup error:", error);
     return Response.json({ success: false, error: error.message }, { status: 500 });

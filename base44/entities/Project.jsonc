@@ -1,0 +1,97 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Project title"
+    },
+    "short_description": {
+      "type": "string",
+      "description": "Brief summary for cards"
+    },
+    "description": {
+      "type": "string",
+      "description": "Full project description"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "custom_home",
+        "renovation",
+        "addition",
+        "outdoor"
+      ],
+      "description": "Project type"
+    },
+    "location": {
+      "type": "string",
+      "description": "City, MS"
+    },
+    "square_footage": {
+      "type": "number"
+    },
+    "year_completed": {
+      "type": "number"
+    },
+    "budget_range": {
+      "type": "string",
+      "enum": [
+        "under_250k",
+        "250k_500k",
+        "500k_1m",
+        "over_1m"
+      ]
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Image URLs"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "published"
+    },
+    "duration_months": {
+      "type": "number"
+    },
+    "highlights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "title",
+    "category"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "Testimonial",
+  "type": "object",
+  "properties": {
+    "client_name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "text": {
+      "type": "string"
+    },
+    "project_type": {
+      "type": "string",
+      "enum": [
+        "custom_home",
+        "renovation",
+        "addition",
+        "outdoor"
+      ]
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "photo_url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "client_name",
+    "text",
+    "rating"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
