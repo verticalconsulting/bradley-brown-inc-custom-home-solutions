@@ -1,0 +1,8 @@
+{
+  "type": "google_analytics",
+  "scopes": [
+    "openid",
+    "https://www.googleapis.com/auth/analytics.readonly",
+    "https://www.googleapis.com/auth/userinfo.email"
+  ]
+}
