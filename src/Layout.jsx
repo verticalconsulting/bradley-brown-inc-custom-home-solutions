@@ -165,7 +165,7 @@ export default function Layout({ children, currentPageName }) {
                 (844) 351-4154
               </a>
               <Link
-                to={createPageUrl("ContactForm")} className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-teal-400">
+                to={createPageUrl("ContactForm")} className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-[#37b5eb]/[0.7]">
 
 
                 Get a Quote <ChevronRight className="w-3 h-3" />
