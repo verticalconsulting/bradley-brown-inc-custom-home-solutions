@@ -331,6 +331,14 @@ export default function Services() {
             { label: "Pro Tips & Remodeling Advice", page: "ProTips" },
             { label: "Why Trust Us", page: "LandingTrust" },
             { label: "Pricing Guide", page: "LandingPricing" },
+            { label: "Luxury Home Renovations", page: "LuxuryHomeRenovations" },
+            { label: "Renovation Loans & Financing", page: "RenovationLoans" },
+            { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+            { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
+            { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+            { label: "Brandon, MS Remodelers", page: "LandingBrandonRemodelers" },
+            { label: "Emergency Home Repairs", page: "LandingEmergencyRepair" },
+            { label: "Barndominiums in Mississippi", page: "Barndominiums" },
             { label: "Contact Us", page: "Contact" }].
             map((link) =>
             <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-100 transition-colors">

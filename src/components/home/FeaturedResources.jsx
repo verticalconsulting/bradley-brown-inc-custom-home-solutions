@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Sparkles, DollarSign, Star, Warehouse, Hammer, FileText, ChevronRight } from "lucide-react";
+import { Sparkles, DollarSign, Star, Warehouse, Hammer, FileText, ChevronRight, Crown, Banknote, Plus, Bath, Leaf, MapPin, AlertTriangle } from "lucide-react";
 
 const resources = [
   {
@@ -36,6 +36,14 @@ const resources = [
     bg: "bg-orange-50",
   },
   {
+    to: "/barndominiums-ms",
+    icon: Warehouse,
+    title: "Barndominiums in MS",
+    desc: "Why Mississippi families are choosing barndominiums.",
+    color: "text-orange-600",
+    bg: "bg-orange-50",
+  },
+  {
     to: "/remodeling-ms",
     icon: Hammer,
     title: "Remodeling in MS",
@@ -50,6 +58,62 @@ const resources = [
     desc: "Featured project: a 1920s craftsman home in Brandon.",
     color: "text-rose-500",
     bg: "bg-rose-50",
+  },
+  {
+    to: "/LuxuryHomeRenovations",
+    icon: Crown,
+    title: "Luxury Home Renovations",
+    desc: "High-end renovations with premium finishes and custom millwork.",
+    color: "text-purple-600",
+    bg: "bg-purple-50",
+  },
+  {
+    to: "/RenovationLoans",
+    icon: Banknote,
+    title: "Renovation Loans",
+    desc: "Financing options to make your remodel affordable.",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50",
+  },
+  {
+    to: "/HomeAdditionIdeas",
+    icon: Plus,
+    title: "Home Addition Ideas",
+    desc: "Inspiration for room additions, sunrooms & in-law suites.",
+    color: "text-teal-600",
+    bg: "bg-teal-50",
+  },
+  {
+    to: "/SmallBathroomIdeas",
+    icon: Bath,
+    title: "Small Bathroom Ideas",
+    desc: "Design ideas to maximize style in a compact bathroom.",
+    color: "text-cyan-600",
+    bg: "bg-cyan-50",
+  },
+  {
+    to: "/EnergyEfficientUpgrades",
+    icon: Leaf,
+    title: "Energy-Efficient Upgrades",
+    desc: "Save on bills with smart energy upgrades for your home.",
+    color: "text-lime-600",
+    bg: "bg-lime-50",
+  },
+  {
+    to: "/LandingBrandonRemodelers",
+    icon: MapPin,
+    title: "Brandon, MS Remodelers",
+    desc: "Local remodelers serving Brandon and Rankin County.",
+    color: "text-sky-600",
+    bg: "bg-sky-50",
+  },
+  {
+    to: "/LandingEmergencyRepair",
+    icon: AlertTriangle,
+    title: "Emergency Home Repairs",
+    desc: "Fast response for storm damage and urgent repairs.",
+    color: "text-red-600",
+    bg: "bg-red-50",
   },
 ];
 
