@@ -87,7 +87,7 @@ export default function HeroSection() {
         {/* Desktop CTAs */}
         <div className="hidden sm:flex flex-row gap-4 justify-center">
           <Link
-            to={createPageUrl("QuoteAssistant")} className="hover:bg-[#A37820] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-teal-500">
+            to={createPageUrl("QuoteAssistant")} className="hover:bg-[#A37820] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-sky-400/[0.5]">
             <Sparkles className="w-5 h-5" /> Get a Free Estimate
           </Link>
           <Link
