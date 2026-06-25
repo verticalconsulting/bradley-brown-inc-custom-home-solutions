@@ -34,7 +34,13 @@ const exploreLinks = [
   { label: "Pricing Guide", page: "LandingPricing" },
   { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
   { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+  { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
+  { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+  { label: "Renovation Loans & Financing", page: "RenovationLoans" },
+  { label: "Barndominium Builder", page: "BarndominiumBuilder" },
+  { label: "Barndominiums in MS", page: "Barndominiums" },
   { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
+  { label: "Core Remodeling Services (MS)", page: "LandingCoreServices" },
   { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
 ];
 
@@ -146,6 +152,25 @@ export default function Portfolio() {
             <p className="text-slate-400 text-lg">No projects in this category yet.</p>
           </div>
         )}
+
+        {/* Featured project story — internal link to HistoricHomeRestoration */}
+        <div className="mt-14">
+          <Link
+            to="/projects/historic-home-restoration"
+            className="group block bg-gradient-to-r from-rose-50 to-amber-50 border border-rose-100 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all"
+          >
+            <p className="text-rose-600 font-semibold text-xs uppercase tracking-wider mb-2">Featured Project Story</p>
+            <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-2">
+              Historic Home Restoration in Brandon — 1920s Craftsman
+            </h2>
+            <p className="text-slate-600 text-sm leading-relaxed mb-3">
+              See how we restored a century-old Brandon craftsman home — preserving original character while bringing in modern function. Read the full project breakdown with photos.
+            </p>
+            <span className="inline-flex items-center gap-1 text-rose-600 text-sm font-semibold group-hover:gap-2 transition-all">
+              Read the story <ChevronRight className="w-4 h-4" />
+            </span>
+          </Link>
+        </div>
 
         {/* Instagram Feed */}
         <div className="mt-16">

@@ -11,6 +11,12 @@ const services = [
   icon: Home,
   color: "sky",
   name: "Custom Home Building",
+  related: [
+    { label: "Custom Home Builder — Brandon, MS", page: "LandingBrandonRemodelers" },
+    { label: "Energy-Efficient Home Upgrades", page: "EnergyEfficientUpgrades" },
+    { label: "Barndominium Builder", page: "BarndominiumBuilder" },
+    { label: "Historic Home Restoration", page: "HistoricHomeRestoration" },
+  ],
   tagline: "Your vision. Our craftsmanship. Built to last generations.",
   description: "From the first blueprint to the final walkthrough, we manage every detail of your custom home build. Our team has delivered 500+ dream homes across Central Mississippi — on time, on budget, and built to exceed expectations.",
   benefits: [
@@ -38,6 +44,13 @@ const services = [
   icon: Wrench,
   color: "indigo",
   name: "Home Renovations & Remodeling",
+  related: [
+    { label: "Luxury Home Renovations", page: "LuxuryHomeRenovations" },
+    { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
+    { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+    { label: "Renovation Loans & Financing", page: "RenovationLoans" },
+    { label: "Emergency Home Repairs", page: "LandingEmergencyRepair" },
+  ],
   tagline: "Transform your existing home into the space you've always wanted.",
   description: "Whether it's a full home remodel, kitchen overhaul, or bathroom transformation, our team delivers exceptional craftsmanship at every stage. We've renovated hundreds of Mississippi homes — bringing modern style, better function, and lasting value.",
   benefits: [
@@ -65,6 +78,11 @@ const services = [
   icon: Plus,
   color: "emerald",
   name: "Room Additions & Home Office Remodel",
+  related: [
+    { label: "Home Addition Ideas & ROI Guide", page: "HomeAdditionIdeas" },
+    { label: "Renovation Loans for Additions", page: "RenovationLoans" },
+    { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+  ],
   tagline: "More space, more possibilities — without moving.",
   description: "Need more room? We design and build additions that blend seamlessly with your existing home's architecture — from master suite additions and in-law suites to sunrooms and dedicated home offices. Stay in the home you love, just with more of it.",
   benefits: [
@@ -92,6 +110,11 @@ const services = [
   icon: Leaf,
   color: "green",
   name: "Outdoor Living Spaces & Decks",
+  related: [
+    { label: "Barndominiums in Mississippi", page: "Barndominiums" },
+    { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+    { label: "Pricing & Cost Guide", page: "LandingPricing" },
+  ],
   tagline: "Mississippi's climate is made for outdoor living — let's build yours.",
   description: "We design and build beautiful outdoor spaces — from covered patios to full outdoor kitchens and custom decks — that extend your home's footprint and enhance your lifestyle year-round. Perfect for entertaining, relaxing, or enjoying Central Mississippi's beautiful weather.",
   benefits: [
@@ -270,6 +293,23 @@ export default function Services() {
                         Contact Us <ChevronRight className="w-4 h-4" />
                       </Link>
                     </div>
+
+                    {/* Related guides — internal links for SEO topic clustering */}
+                    {service.related && service.related.length > 0 && (
+                      <div className="mt-5 pt-4 border-t border-gray-100">
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Related Guides</p>
+                        <div className="flex flex-wrap gap-2">
+                          {service.related.map((r) => (
+                            <Link
+                              key={r.page}
+                              to={createPageUrl(r.page)}
+                              className="inline-flex items-center gap-1 text-xs font-medium text-sky-700 bg-sky-50 hover:bg-sky-100 border border-sky-100 px-2.5 py-1 rounded-md transition-colors">
+                              {r.label} <ChevronRight className="w-3 h-3" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Image + FAQ */}
