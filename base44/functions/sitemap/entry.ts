@@ -21,6 +21,22 @@ Deno.serve(async (req) => {
     // Continue
   }
 
+  // Fetch published blog posts
+  let blogPosts = [];
+  try {
+    blogPosts = await base44.asServiceRole.entities.BlogPost.filter({ published: true });
+  } catch (_) {
+    // Continue
+  }
+
+  // Fetch active services
+  let services = [];
+  try {
+    services = await base44.asServiceRole.entities.Service.filter({ active: true });
+  } catch (_) {
+    // Continue
+  }
+
   const today = new Date().toISOString().split("T")[0];
 
   const staticPages = [
@@ -89,6 +105,20 @@ Deno.serve(async (req) => {
   <url>
     <loc>${SITE_URL}/jobsites/${j.slug}</loc>
     <lastmod>${(j.updated_date || j.published_date || j.created_date || today).split("T")[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`),
+    ...blogPosts.filter(b => b.slug).map(b => `
+  <url>
+    <loc>${SITE_URL}/ProTips#${b.slug}</loc>
+    <lastmod>${(b.updated_date || b.created_date || today).split("T")[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`),
+    ...services.filter(s => s.slug).map(s => `
+  <url>
+    <loc>${SITE_URL}/Services#${s.slug}</loc>
+    <lastmod>${(s.updated_date || s.created_date || today).split("T")[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`)
