@@ -7,6 +7,12 @@ import {
   DEFAULT_DESCRIPTION,
   absoluteUrl,
 } from "@/components/seo/seoSchemas";
+import {
+  estimateReadingTime,
+  normalizeAuthors,
+  enhancedArticleSchema,
+  articleBreadcrumbSchema,
+} from "@/components/seo/articleHelpers";
 
 const TWITTER_HANDLE = "@bradleybrowninc";
 
@@ -29,7 +35,18 @@ const currentPath = () =>
 /**
  * SEOHead — reusable SEO/meta/JSON-LD component built on react-helmet-async.
  *
- * Preferred props: title, description, keywords, canonicalUrl, ogImage, ogType, noindex, structuredData
+ * Page props: title, description, keywords, canonicalUrl, ogImage, ogType, noindex, structuredData
+ * Article props (when ogType="article"):
+ *   article: {
+ *     publishedTime, modifiedTime,
+ *     author | authors: string | { name, url } | array,
+ *     section,
+ *     tags: string[],
+ *     content: string (for reading-time estimation),
+ *     wordCount: number (alternative to content),
+ *     categories: [{ name, url }] (for breadcrumb hierarchy),
+ *     type: "Article" | "BlogPosting" | "NewsArticle",
+ *   }
  * Legacy aliases (so existing pages keep working): canonical, schema, noIndex
  */
 export default function SEOHead({
@@ -46,14 +63,55 @@ export default function SEOHead({
   structuredData,
   schema, // legacy alias
   twitterSite = TWITTER_HANDLE,
+  article,
 }) {
   const finalTitle = buildTitle(title);
   const finalDescription = truncate(description, 160);
   const finalCanonical = canonicalUrl || canonical || absoluteUrl(currentPath());
   const finalImage = ogImage || DEFAULT_OG_IMAGE;
   const finalNoindex = noindex || noIndex || false;
-  const finalStructuredData = structuredData || schema;
   const keywordsContent = Array.isArray(keywords) ? keywords.join(", ") : keywords;
+
+  // ---------- Article-specific derived values ----------
+  const isArticle = ogType === "article" && !!article;
+  const authorList = isArticle ? normalizeAuthors(article) : [];
+  const readingTime = isArticle
+    ? estimateReadingTime(article.content || article.wordCount || 0)
+    : null;
+
+  // Auto-build article JSON-LD if caller didn't pass their own structuredData.
+  const autoArticleSchema =
+    isArticle && !structuredData && !schema
+      ? enhancedArticleSchema({
+          title,
+          description: finalDescription,
+          url: finalCanonical,
+          image: finalImage,
+          datePublished: article.publishedTime,
+          dateModified: article.modifiedTime,
+          author: article.author,
+          authors: article.authors,
+          section: article.section,
+          tags: article.tags,
+          type: article.type || "Article",
+          wordCount:
+            article.wordCount ||
+            (article.content
+              ? String(article.content).replace(/<[^>]*>/g, " ").trim().split(/\s+/).length
+              : undefined),
+        })
+      : null;
+
+  const autoBreadcrumbSchema =
+    isArticle && Array.isArray(article.categories) && article.categories.length
+      ? articleBreadcrumbSchema({
+          categories: article.categories,
+          articleTitle: title,
+          articleUrl: finalCanonical,
+        })
+      : null;
+
+  const finalStructuredData = structuredData || schema || autoArticleSchema;
 
   return (
     <Helmet prioritizeSeoTags>
@@ -69,6 +127,7 @@ export default function SEOHead({
 
       <link rel="canonical" href={finalCanonical} />
 
+      {/* Open Graph */}
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={finalImage} />
@@ -76,22 +135,58 @@ export default function SEOHead({
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={ogSiteName} />
 
+      {/* Article-specific Open Graph tags */}
+      {isArticle && article.publishedTime && (
+        <meta property="article:published_time" content={article.publishedTime} />
+      )}
+      {isArticle && article.modifiedTime && (
+        <meta property="article:modified_time" content={article.modifiedTime} />
+      )}
+      {isArticle &&
+        authorList.map((a, i) => (
+          <meta key={`article-author-${i}`} property="article:author" content={a.name} />
+        ))}
+      {isArticle && article.section && (
+        <meta property="article:section" content={article.section} />
+      )}
+      {isArticle &&
+        Array.isArray(article.tags) &&
+        article.tags.map((tag, i) => (
+          <meta key={`article-tag-${i}`} property="article:tag" content={tag} />
+        ))}
+
+      {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={finalImage} />
       {twitterSite && <meta name="twitter:site" content={twitterSite} />}
 
+      {/* Reading time — useful for some readers/aggregators */}
+      {isArticle && readingTime && (
+        <>
+          <meta name="twitter:label1" content="Reading time" />
+          <meta name="twitter:data1" content={`${readingTime} min read`} />
+          <meta name="reading-time" content={`${readingTime} min`} />
+        </>
+      )}
+
+      {/* JSON-LD structured data */}
       {finalStructuredData && (
         <script type="application/ld+json">
           {JSON.stringify(finalStructuredData)}
+        </script>
+      )}
+      {autoBreadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(autoBreadcrumbSchema)}
         </script>
       )}
     </Helmet>
   );
 }
 
-// Re-export schema helpers so consumers can `import { articleSchema } from "@/components/SEOHead"`.
+// Re-export schema + article helpers so consumers can import directly from SEOHead.
 export {
   SITE_URL,
   SITE_NAME,
@@ -104,3 +199,10 @@ export {
   breadcrumbSchema,
   faqSchema,
 } from "@/components/seo/seoSchemas";
+
+export {
+  estimateReadingTime,
+  normalizeAuthors,
+  enhancedArticleSchema,
+  articleBreadcrumbSchema,
+} from "@/components/seo/articleHelpers";
