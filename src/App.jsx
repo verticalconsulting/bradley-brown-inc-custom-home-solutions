@@ -6,6 +6,9 @@ import NavigationTracker from '@/lib/NavigationTracker'
 import { pagesConfig } from './pages.config'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
+import RedirectHandler from './lib/RedirectHandler';
+import ErrorBoundary from './lib/ErrorBoundary';
+import ServerError from './lib/ServerError';
 import SEODashboard from './pages/SEODashboard';
 import SiteImages from './pages/SiteImages';
 import BlogAdmin from './pages/BlogAdmin';
@@ -110,7 +113,8 @@ const AuthenticatedApp = () => {
       <Route path="/jobsite-checkin" element={<LayoutWrapper currentPageName="JobCheckin"><JobCheckin /></LayoutWrapper>} />
       <Route path="/jobsites" element={<LayoutWrapper currentPageName="Jobsites"><Jobsites /></LayoutWrapper>} />
       <Route path="/jobsites/:slug" element={<LayoutWrapper currentPageName="JobsiteDetail"><JobsiteDetail /></LayoutWrapper>} />
-      <Route path="*" element={<PageNotFound />} />
+      <Route path="/error" element={<LayoutWrapper currentPageName="ServerError"><ServerError /></LayoutWrapper>} />
+      <Route path="*" element={<RedirectHandler><PageNotFound /></RedirectHandler>} />
     </Routes>
   );
 };
@@ -127,7 +131,9 @@ function App() {
             <HeadingHierarchyChecker />
             <WebVitalsReporter />
             <PerformanceAuditor />
-            <AuthenticatedApp />
+            <ErrorBoundary>
+              <AuthenticatedApp />
+            </ErrorBoundary>
           </Router>
           <Toaster />
         </QueryClientProvider>

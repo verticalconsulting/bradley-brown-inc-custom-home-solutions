@@ -1,0 +1,61 @@
+{
+  "name": "NotFoundLog",
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "description": "The pathname that returned 404"
+    },
+    "search": {
+      "type": "string",
+      "description": "Query string at the time of the 404"
+    },
+    "referrer": {
+      "type": "string",
+      "description": "document.referrer of the visit"
+    },
+    "user_agent": {
+      "type": "string"
+    },
+    "hit_count": {
+      "type": "number",
+      "default": 1,
+      "description": "How many times this path has been hit"
+    },
+    "last_seen": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "resolved": {
+      "type": "boolean",
+      "default": false,
+      "description": "Marked true once a redirect has been added"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Admin notes about this 404"
+    }
+  },
+  "required": [
+    "path"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
