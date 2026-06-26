@@ -13,6 +13,11 @@ import {
   enhancedArticleSchema,
   articleBreadcrumbSchema,
 } from "@/components/seo/articleHelpers";
+import {
+  getCanonicalUrl,
+  getCurrentCanonicalUrl,
+  getPaginationLinks,
+} from "@/components/seo/canonicalUrl";
 
 const TWITTER_HANDLE = "@bradleybrowninc";
 
@@ -27,10 +32,7 @@ const buildTitle = (title) => {
   return `${title} | ${SITE_NAME}`;
 };
 
-const currentPath = () =>
-  typeof window !== "undefined"
-    ? window.location.pathname + window.location.search
-    : "/";
+
 
 /**
  * SEOHead — reusable SEO/meta/JSON-LD component built on react-helmet-async.
@@ -64,10 +66,25 @@ export default function SEOHead({
   schema, // legacy alias
   twitterSite = TWITTER_HANDLE,
   article,
+  page,
+  totalPages,
 }) {
   const finalTitle = buildTitle(title);
   const finalDescription = truncate(description, 160);
-  const finalCanonical = canonicalUrl || canonical || absoluteUrl(currentPath());
+  // If caller passed an explicit canonical, normalize it. Otherwise build from current URL.
+  const finalCanonical = canonicalUrl
+    ? getCanonicalUrl(canonicalUrl, page && page > 1 ? { page } : {})
+    : canonical
+      ? getCanonicalUrl(canonical, page && page > 1 ? { page } : {})
+      : getCurrentCanonicalUrl(page && page > 1 ? { page } : {});
+  const pagination =
+    page && totalPages
+      ? getPaginationLinks(
+          typeof window !== "undefined" ? window.location.pathname : "/",
+          page,
+          totalPages,
+        )
+      : { prev: null, next: null };
   const finalImage = ogImage || DEFAULT_OG_IMAGE;
   const finalNoindex = noindex || noIndex || false;
   const keywordsContent = Array.isArray(keywords) ? keywords.join(", ") : keywords;
@@ -126,6 +143,8 @@ export default function SEOHead({
       />
 
       <link rel="canonical" href={finalCanonical} />
+      {pagination.prev && <link rel="prev" href={pagination.prev} />}
+      {pagination.next && <link rel="next" href={pagination.next} />}
 
       {/* Open Graph */}
       <meta property="og:title" content={finalTitle} />
