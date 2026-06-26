@@ -29,6 +29,7 @@ import ContactForm from './pages/ContactForm';
 import ThankYou from './pages/ThankYou';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
+import HeadingHierarchyChecker from '@/components/seo/HeadingHierarchyChecker';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -121,6 +122,7 @@ function App() {
         <QueryClientProvider client={queryClientInstance}>
           <Router>
             <NavigationTracker />
+            <HeadingHierarchyChecker />
             <AuthenticatedApp />
           </Router>
           <Toaster />
