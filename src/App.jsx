@@ -30,6 +30,8 @@ import ThankYou from './pages/ThankYou';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import HeadingHierarchyChecker from '@/components/seo/HeadingHierarchyChecker';
+import WebVitalsReporter from '@/components/perf/WebVitalsReporter';
+import PerformanceAuditor from '@/components/perf/PerformanceAuditor';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -123,6 +125,8 @@ function App() {
           <Router>
             <NavigationTracker />
             <HeadingHierarchyChecker />
+            <WebVitalsReporter />
+            <PerformanceAuditor />
             <AuthenticatedApp />
           </Router>
           <Toaster />
