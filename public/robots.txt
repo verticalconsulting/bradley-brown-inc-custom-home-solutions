@@ -1,4 +1,301 @@
+# =============================================================================
+# robots.txt for bradleybrowninc.com
+# =============================================================================
+# This file tells web crawlers which parts of the site they may access.
+# Rules are applied per User-agent block. The first matching block wins for
+# each crawler, so specific bots are listed before the wildcard fallback.
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# Standard search engine crawlers
+# -----------------------------------------------------------------------------
+# Allow all public marketing, service, and portfolio content so the site can
+# be indexed for organic search.
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+Disallow: /thank-you
+Disallow: /ThankYou
+Disallow: /barndominiums-ms
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+Disallow: /thank-you
+Disallow: /ThankYou
+Disallow: /barndominiums-ms
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+Disallow: /thank-you
+Disallow: /ThankYou
+Disallow: /barndominiums-ms
+
+User-agent: Slurp
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+Disallow: /thank-you
+Disallow: /ThankYou
+Disallow: /barndominiums-ms
+
+
+# -----------------------------------------------------------------------------
+# AI / LLM training & retrieval crawlers
+# -----------------------------------------------------------------------------
+# These bots scrape content to train large language models or answer questions
+# in chat assistants. We allow them to read our public marketing content so
+# Bradley Brown Inc. can be cited in AI answers, but block all admin tools,
+# private user data, and backend routes.
+
+# OpenAI — ChatGPT search & training
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+
+# OpenAI — ChatGPT browsing (live page fetch on user request)
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+
+# OpenAI — search index for ChatGPT
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+
+# Google — Gemini / Vertex AI training
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+
+# Anthropic — Claude
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+
+# Perplexity — AI answers engine
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+
+# Common Crawl — open web corpus used by many LLMs
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+
+# Meta — Llama training
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+
+
+# -----------------------------------------------------------------------------
+# Default rule — all other crawlers
+# -----------------------------------------------------------------------------
+# Catch-all for any bot not explicitly listed above. Same policy: public
+# marketing content is open, internal/admin/API routes are off-limits.
+#
+# Disallow groups explained:
+#   /api/, /functions/    -> Backend API routes — not meant to be indexed.
+#   Admin areas           -> Internal dashboards (CRM, leads, SEO, blog admin,
+#                            site images, conversions, account settings) — these
+#                            require login and contain no SEO value.
+#   User private data     -> AccountSettings, Leads, CRM hold customer data.
+#   Duplicate content     -> /thank-you and /ThankYou are post-submission
+#                            confirmations; /barndominiums-ms is a deprecated
+#                            URL replaced by /barndominium-builder. Excluding
+#                            them prevents thin/duplicate pages from being
+#                            indexed.
+#   Internal tools        -> /jobsite-checkin is a crew-only form,
+#                            /AgentChat and /TikTokSync are operational tools.
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /functions/
+Disallow: /AccountSettings
+Disallow: /Leads
+Disallow: /CRM
+Disallow: /SEODashboard
+Disallow: /FunnelAnalysis
+Disallow: /BlogAdmin
+Disallow: /SiteImages
+Disallow: /ConversionDashboard
+Disallow: /AgentChat
+Disallow: /TikTokSync
+Disallow: /jobsite-checkin
+Disallow: /thank-you
+Disallow: /ThankYou
+Disallow: /barndominiums-ms
+
+
+# -----------------------------------------------------------------------------
+# Sitemap
+# -----------------------------------------------------------------------------
+# Points crawlers to the sitemap index, which references both the static
+# pages list and the dynamic backend-generated sitemap (jobsites, projects,
+# blog posts, services).
 
 Sitemap: https://bradleybrowninc.com/sitemap.xml
