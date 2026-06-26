@@ -233,3 +233,12 @@ export {
   enhancedArticleSchema,
   articleBreadcrumbSchema,
 } from "@/components/seo/articleHelpers";
+
+export {
+  ratingSchema,
+  reviewSchema,
+  aggregateRatingSchema,
+  businessWithReviewsSchema,
+  computeAggregate,
+  defaultItemReviewed,
+} from "@/components/seo/reviewSchemas";
