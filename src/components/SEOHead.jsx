@@ -220,6 +220,14 @@ export {
 } from "@/components/seo/seoSchemas";
 
 export {
+  webSiteSchema,
+  breadcrumbFromPath,
+  localBusinessSchema,
+  howToSchema,
+  combineSchemas,
+} from "@/components/seo/schemaExtras";
+
+export {
   estimateReadingTime,
   normalizeAuthors,
   enhancedArticleSchema,
