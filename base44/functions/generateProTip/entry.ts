@@ -105,7 +105,7 @@ Write a practical Pro Tips article of 700–900 words that includes:
 - what improves appeal or home value
 - common mistakes homeowners make and how to avoid them
 - clear guidance on when to call a professional contractor
-- one subtle, natural call-to-action mentioning Bradley Brown Inc. and the phone number (601) 954-1306 near the end
+- one subtle, natural call-to-action mentioning Bradley Brown Inc. and the phone number (844) 351-4154 near the end
 
 Markdown formatting rules:
 - Use ## for section headers (3–5 sections)
