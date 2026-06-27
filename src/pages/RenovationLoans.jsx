@@ -77,12 +77,12 @@ export default function RenovationLoans() {
 
         <div className="prose prose-slate max-w-none mb-8">
           <p className="text-slate-600 leading-relaxed">Financing a home renovation in Brandon, MS doesn't have to be overwhelming. Whether you're planning a kitchen remodel, a room addition, or a full custom home build, understanding your loan options upfront can save you thousands of dollars and help you start your project with confidence. This guide breaks down the five most common renovation financing options available to Mississippi homeowners — including pros, cons, and what each is best suited for.</p>
-          <p className="text-slate-600 leading-relaxed">At Bradley Brown Inc., we've worked with hundreds of Brandon and Rankin County area homeowners on projects of every size and budget. While we don't provide financing directly, we help you scope your project so your renovation fits your loan — and we'll connect you with lenders we trust. Call <a href="tel:+16019541306" className="text-sky-600 font-semibold">(601) 954-1306</a> to talk through your project and financing options.</p>
+          <p className="text-slate-600 leading-relaxed">At Bradley Brown Inc., we've worked with hundreds of Brandon and Rankin County area homeowners on projects of every size and budget. While we don't provide financing directly, we help you scope your project so your renovation fits your loan — and we'll connect you with lenders we trust. Call <a href="tel:+18443514154" className="text-sky-600 font-semibold">(844) 351-4154</a> to talk through your project and financing options.</p>
         </div>
 
         <div className="bg-sky-50 border border-sky-200 rounded-xl p-5 mb-10">
           <p className="text-sky-800 text-sm font-medium">
-            <strong>Bradley Brown Inc. works with homeowners at all budget levels.</strong> While we don't provide financing directly, we can help you plan your project scope to fit your loan amount. <a href="tel:+16019541306" className="underline font-bold">Call (601) 954-1306</a> to discuss your project.
+            <strong>Bradley Brown Inc. works with homeowners at all budget levels.</strong> While we don't provide financing directly, we can help you plan your project scope to fit your loan amount. <a href="tel:+18443514154" className="underline font-bold">Call (844) 351-4154</a> to discuss your project.
           </p>
         </div>
 
@@ -183,8 +183,8 @@ export default function RenovationLoans() {
             <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
               Get Free Estimate <ChevronRight className="w-4 h-4" />
             </Link>
-            <a href="tel:+16019541306" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-              <Phone className="w-4 h-4" /> Call (601) 954-1306
+            <a href="tel:+18443514154" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+              <Phone className="w-4 h-4" /> Call (844) 351-4154
             </a>
           </div>
         </div>

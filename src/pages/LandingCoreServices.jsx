@@ -15,7 +15,7 @@ const schema = {
     {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "name": "Bradley Brown Inc.",
-      "telephone": "+16019541306",
+      "telephone": "+18443514154",
       "email": "bradleybrowninc@gmail.com",
       "url": "https://bradleybrowninc.com",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
@@ -57,7 +57,7 @@ const faqs = [
   { question: "Do you serve Brandon, MS and surrounding areas?", answer: "Yes — we're centrally located and serve Brandon, Madison, Jackson, Flowood, Pearl, Ridgeland, Clinton, and the wider 50-mile radius." },
   { question: "Are you licensed and insured in Mississippi?", answer: "Absolutely. Bradley Brown Inc. is a licensed Mississippi General Contractor with full liability insurance and workers' comp on every job." },
   { question: "What energy-efficient upgrades do you offer?", answer: "We install energy-efficient windows, upgrade insulation, improve HVAC airflow, and can frame for solar-readiness — all in one project." },
-  { question: "Do you offer free estimates?", answer: "Yes. Call us at (601) 954-1306 or use our online Quote Assistant for a free, no-obligation project estimate." },
+  { question: "Do you offer free estimates?", answer: "Yes. Call us at (844) 351-4154 or use our online Quote Assistant for a free, no-obligation project estimate." },
 ];
 
 export default function LandingCoreServices() {
@@ -75,8 +75,8 @@ export default function LandingCoreServices() {
 
       {/* Top sticky call bar */}
       <div className="sticky top-16 md:top-20 z-40 bg-green-500 text-white py-2 px-4 text-center text-sm font-semibold">
-        <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2">
-          <Phone className="w-4 h-4" /> Call Now: (601) 954-1306 — Free Estimates, Mon–Fri 8am–6pm
+        <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2">
+          <Phone className="w-4 h-4" /> Call Now: (844) 351-4154 — Free Estimates, Mon–Fri 8am–6pm
         </a>
       </div>
 
@@ -92,8 +92,8 @@ export default function LandingCoreServices() {
             Kitchen renovations, bathroom remodels, whole-home upgrades, and energy-efficient improvements. Licensed. Insured. 30+ years of Mississippi craftsmanship.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
-              <Phone className="w-5 h-5" /> (601) 954-1306
+            <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+              <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
             <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Free Estimate <ChevronRight className="w-5 h-5" />
@@ -135,7 +135,7 @@ export default function LandingCoreServices() {
           <h2 className="text-xl font-bold text-[#1E2D3D]">Why Brandon, MS Homeowners Choose Bradley Brown Inc.</h2>
           <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
           <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Pearl, Richland, Madison, Ridgeland, and all of Rankin, Hinds, and Madison counties. Every estimate is free, every quote is transparent, and every project is backed by our quality guarantee.</p>
-          <p className="text-slate-600 leading-relaxed">From energy-efficient window replacements to complete kitchen gut-and-rebuilds, we handle it all with licensed tradespeople and a project manager on-site every day. Call us at <a href="tel:+16019541306" onClick={handleCall} className="text-sky-600 font-semibold">(601) 954-1306</a> to schedule your free consultation.</p>
+          <p className="text-slate-600 leading-relaxed">From energy-efficient window replacements to complete kitchen gut-and-rebuilds, we handle it all with licensed tradespeople and a project manager on-site every day. Call us at <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to schedule your free consultation.</p>
         </div>
 
         {/* Local internal links */}

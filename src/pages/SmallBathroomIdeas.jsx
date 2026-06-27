@@ -13,7 +13,7 @@ const schema = {
     {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "name": "Bradley Brown Inc.",
-      "telephone": "+16019541306",
+      "telephone": "+18443514154",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" }
     },
     {
@@ -34,7 +34,7 @@ const schema = {
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "How much does a small bathroom remodel cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Most small bathroom remodels in the Brandon and Rankin County area run $8,000–$20,000 depending on tile choice, fixtures, and whether plumbing needs to move. Call us at (601) 954-1306 for a free estimate." } },
+        { "@type": "Question", "name": "How much does a small bathroom remodel cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Most small bathroom remodels in the Brandon and Rankin County area run $8,000–$20,000 depending on tile choice, fixtures, and whether plumbing needs to move. Call us at (844) 351-4154 for a free estimate." } },
         { "@type": "Question", "name": "Can a small bathroom feel bigger without tearing it down?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — large-format tile, frameless glass showers, wall-mounted vanities, and strategic mirrors can make even a 50 sq ft bathroom feel spacious." } }
       ]
     }
@@ -42,7 +42,7 @@ const schema = {
 };
 
 const faqs = [
-  { question: "How much does a small bathroom remodel cost in Mississippi?", answer: "Most small bathroom remodels in the Brandon and Rankin County area run $8,000–$20,000. The cost depends on tile choice, fixtures, vanity size, and whether plumbing needs to move. Call (601) 954-1306 for a free, no-obligation estimate specific to your bathroom." },
+  { question: "How much does a small bathroom remodel cost in Mississippi?", answer: "Most small bathroom remodels in the Brandon and Rankin County area run $8,000–$20,000. The cost depends on tile choice, fixtures, vanity size, and whether plumbing needs to move. Call (844) 351-4154 for a free, no-obligation estimate specific to your bathroom." },
   { question: "Can a small bathroom feel bigger without expanding it?", answer: "Yes. Large-format tile (fewer grout lines = more visual space), frameless glass showers, wall-mounted vanities, and well-placed mirrors are our top tricks for making small baths feel larger — no demolition of walls required." },
   { question: "How long does a small bathroom remodel take?", answer: "A typical small bath remodel takes 2–4 weeks from demo to finish. Custom tile work or special-order fixtures can extend the timeline. We'll give you a firm schedule before we start." },
   { question: "Should I keep the existing plumbing layout to save money?", answer: "Generally yes — moving plumbing adds $1,500–$4,000+ to a project. We work with your existing layout wherever possible. If moving a fixture dramatically improves function, we'll show you the cost difference so you can decide." },
@@ -95,7 +95,7 @@ export default function SmallBathroomIdeas() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Small Bathroom Remodeling Ideas — Brandon, MS | Bradley Brown Inc"
-        description="6 practical small bathroom remodeling ideas from the Brandon and Rankin County area's trusted contractor. Walk-in showers, large-format tile & more. Call (601) 954-1306."
+        description="6 practical small bathroom remodeling ideas from the Brandon and Rankin County area's trusted contractor. Walk-in showers, large-format tile & more. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/SmallBathroomIdeas"
       />
@@ -111,8 +111,8 @@ export default function SmallBathroomIdeas() {
             Practical, contractor-tested ideas for maximizing a small bathroom — from Brandon, MS's trusted remodeling team.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
-              <Phone className="w-4 h-4" /> Call (601) 954-1306
+            <a href="tel:+18443514154" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+              <Phone className="w-4 h-4" /> Call (844) 351-4154
             </a>
             <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
               Free Estimate <ChevronRight className="w-4 h-4" />
@@ -145,8 +145,8 @@ export default function SmallBathroomIdeas() {
         <div className="bg-sky-50 border border-sky-200 rounded-2xl p-6 text-center">
           <p className="font-bold text-[#1E2D3D] mb-2">Ready to remodel your bathroom in Brandon, MS?</p>
           <p className="text-slate-500 text-sm mb-4">Call us for a free, no-obligation estimate. We serve Brandon, Flowood, Pearl, Madison, Ridgeland, and the Rankin County area.</p>
-          <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
-            <Phone className="w-4 h-4" /> (601) 954-1306
+          <a href="tel:+18443514154" onClick={handleCall} className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+            <Phone className="w-4 h-4" /> (844) 351-4154
           </a>
         </div>
 

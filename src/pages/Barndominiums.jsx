@@ -15,7 +15,7 @@ const schema = {
     {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "name": "Bradley Brown Inc.",
-      "telephone": "+16019541306",
+      "telephone": "+18443514154",
       "email": "bradleybrowninc@gmail.com",
       "url": "https://bradleybrowninc.com",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
@@ -47,11 +47,11 @@ const schema = {
 };
 
 const faqs = [
-  { question: "How much does a barndominium cost in Mississippi?", answer: "Barndominium builds in the Brandon and Rankin County area typically range from $75–$150 per sq ft depending on finishes, size, and site conditions. Call us at (601) 954-1306 for a free estimate tailored to your land and goals." },
+  { question: "How much does a barndominium cost in Mississippi?", answer: "Barndominium builds in the Brandon and Rankin County area typically range from $75–$150 per sq ft depending on finishes, size, and site conditions. Call us at (844) 351-4154 for a free estimate tailored to your land and goals." },
   { question: "How long does it take to build a barndominium?", answer: "Most barndominiums take 4–8 months from permit to move-in. The steel frame shell goes up fast; interior finishes take the most time." },
   { question: "Can I combine living space and a workshop?", answer: "Absolutely — that's the beauty of a barndominium. We design custom layouts with living quarters, garages, workshops, and more all under one roof." },
   { question: "Do you handle permits for barndominiums in MS?", answer: "Yes. We pull all required permits and manage inspections from start to finish so you don't have to." },
-  { question: "Do you offer free estimates?", answer: "Yes. Call (601) 954-1306 or use our online Quote Assistant for a free, no-obligation estimate." },
+  { question: "Do you offer free estimates?", answer: "Yes. Call (844) 351-4154 or use our online Quote Assistant for a free, no-obligation estimate." },
 ];
 
 const features = [
@@ -70,7 +70,7 @@ export default function Barndominiums() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Barndominium Builder in Brandon, MS — Bradley Brown Inc."
-        description="Custom barndominium construction in the Brandon and Rankin County area. Steel frame, open-concept living & workshop combos. Licensed & insured since 1995. Free estimates — call (601) 954-1306."
+        description="Custom barndominium construction in the Brandon and Rankin County area. Steel frame, open-concept living & workshop combos. Licensed & insured since 1995. Free estimates — call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/barndominium-builder"
         noIndex={true}
@@ -79,8 +79,8 @@ export default function Barndominiums() {
 
       {/* Top sticky call bar */}
       <div className="sticky top-16 md:top-20 z-40 bg-green-500 text-white py-2 px-4 text-center text-sm font-semibold">
-        <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2">
-          <Phone className="w-4 h-4" /> Call Now: (601) 954-1306 — Free Barndominium Estimates
+        <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2">
+          <Phone className="w-4 h-4" /> Call Now: (844) 351-4154 — Free Barndominium Estimates
         </a>
       </div>
 
@@ -96,8 +96,8 @@ export default function Barndominiums() {
             Steel-frame barndominiums combining living space, garages, and workshops — built to last by Mississippi's trusted contractor since 1995.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
-              <Phone className="w-5 h-5" /> (601) 954-1306
+            <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+              <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
             <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Free Estimate <ChevronRight className="w-5 h-5" />
@@ -159,7 +159,7 @@ export default function Barndominiums() {
         <div className="prose prose-slate max-w-none">
           <h2 className="text-xl font-bold text-[#1E2D3D]">Why Choose Bradley Brown Inc. for Your Barndominium?</h2>
           <p className="text-slate-600 leading-relaxed">Bradley Brown Inc. has been building across the Brandon and Rankin County area since 1995. We bring that same craftsmanship and accountability to every barndominium project — from the concrete slab and steel erection to the custom kitchen and bathroom finishes inside.</p>
-          <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Richland, Florence, Pelahatchie, Forest, Morton, and all of Rankin, Smith, Simpson, and Scott counties. If you have land, we can build on it. Call <a href="tel:+16019541306" onClick={handleCall} className="text-sky-600 font-semibold">(601) 954-1306</a> to schedule your free site consultation.</p>
+          <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Richland, Florence, Pelahatchie, Forest, Morton, and all of Rankin, Smith, Simpson, and Scott counties. If you have land, we can build on it. Call <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to schedule your free site consultation.</p>
         </div>
 
         {/* FAQ */}

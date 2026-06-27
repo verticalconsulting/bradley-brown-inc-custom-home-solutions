@@ -46,7 +46,7 @@ const schema = {
 const faqs = [
   { question: "Do you handle emergency home repairs?", answer: "Yes. Call (844) 351-4154 during business hours — Mon–Fri 8am–6pm and Sat 9am–3pm. We prioritize urgent calls and work to schedule same-week or next-day service for serious issues." },
   { question: "What types of urgent repairs do you handle?", answer: "Storm damage, roof leaks, water intrusion, structural damage, broken windows, foundation cracks, collapsed ceilings, and fire/flood damage repairs." },
-  { question: "How quickly can you respond?", answer: "For urgent situations, call us directly at (601) 954-1306 for the fastest response. We'll assess the situation and get someone out as quickly as possible." },
+  { question: "How quickly can you respond?", answer: "For urgent situations, call us directly at (844) 351-4154 for the fastest response. We'll assess the situation and get someone out as quickly as possible." },
   { question: "Do you work with insurance companies?", answer: "Yes, we have experience working with homeowner insurance claims for storm and water damage. We can document the damage and provide itemized estimates for your adjuster." },
   { question: "Are you licensed for structural repairs in Mississippi?", answer: "Yes — Bradley Brown Inc. is a licensed Mississippi General Contractor with 30+ years of experience, fully qualified for all structural and major repair work." },
 ];
@@ -67,7 +67,7 @@ export default function LandingEmergencyRepair() {
       {/* Urgent top banner */}
       <div className="sticky top-16 md:top-20 z-40 bg-red-600 text-white py-2 px-4 text-center text-sm font-semibold">
         <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2">
-          <AlertTriangle className="w-4 h-4" /> Urgent? Call Now: (601) 954-1306 — Hours: Mon–Fri 8am–6pm, Sat 9am–3pm
+          <AlertTriangle className="w-4 h-4" /> Urgent? Call Now: (844) 351-4154 — Hours: Mon–Fri 8am–6pm, Sat 9am–3pm
         </a>
       </div>
 
@@ -86,7 +86,7 @@ export default function LandingEmergencyRepair() {
             Storm damage, roof leaks, structural issues — don't wait. Bradley Brown Inc. responds fast to urgent repairs across Brandon, MS and the Rankin County area.
           </p>
           <a href="tel:+18443514154" onClick={handleCall} className="mt-8 inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full font-bold text-xl transition-colors shadow-xl">
-            <Phone className="w-6 h-6" /> Call Now: (601) 954-1306
+            <Phone className="w-6 h-6" /> Call Now: (844) 351-4154
           </a>
           <p className="text-slate-400 text-xs mt-3">Mon–Fri 8am–6pm · Sat 9am–3pm · Same-week service available</p>
         </div>
@@ -133,7 +133,7 @@ export default function LandingEmergencyRepair() {
           <h2 className="text-xl font-bold text-[#1E2D3D]">Mississippi's Trusted Emergency Repair Contractor</h2>
           <p className="text-slate-600 leading-relaxed">When your home is damaged, every hour matters. Bradley Brown Inc. has been responding to urgent repair calls across the Brandon and Rankin County area since 1995. Our licensed crews know how to assess damage quickly, stabilize the situation, and get to work immediately.</p>
           <p className="text-slate-600 leading-relaxed">We handle insurance documentation, itemized repair estimates, and full restoration — so you can focus on your family while we handle the job. We serve Brandon, Flowood, Pearl, Jackson, Madison, Ridgeland, and all surrounding areas.</p>
-          <p className="text-slate-600 leading-relaxed">Call <a href="tel:+16019541306" onClick={handleCall} className="text-red-600 font-semibold">(601) 954-1306</a> right now to speak with a team member.</p>
+          <p className="text-slate-600 leading-relaxed">Call <a href="tel:+18443514154" onClick={handleCall} className="text-red-600 font-semibold">(844) 351-4154</a> right now to speak with a team member.</p>
         </div>
 
         {/* FAQ */}

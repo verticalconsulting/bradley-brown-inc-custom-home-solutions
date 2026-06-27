@@ -17,7 +17,7 @@ const schema = {
     {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "name": "Bradley Brown Inc.",
-      "telephone": "+16019541306",
+      "telephone": "+18443514154",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
       "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87", "bestRating": "5" },
       "sameAs": ["https://www.facebook.com/BradleyBrownInc", "https://www.tiktok.com/@bb859876", "https://www.bbb.org"]
@@ -59,7 +59,7 @@ const badges = [
 const faqs = [
   { question: "Is Bradley Brown Inc. licensed in Mississippi?", answer: "Yes. We are a licensed Mississippi General Contractor, fully insured with general liability and workers' compensation coverage on every project." },
   { question: "How long have you been in business?", answer: "Since 1995 — over 30 years serving Brandon and Rankin County area homeowners. We've built and renovated 500+ homes in the area." },
-  { question: "Do you have references I can call?", answer: "Absolutely. Call us at (601) 954-1306 and we'll connect you with past clients in your area who are happy to share their experience." },
+  { question: "Do you have references I can call?", answer: "Absolutely. Call us at (844) 351-4154 and we'll connect you with past clients in your area who are happy to share their experience." },
   { question: "What warranty do you offer?", answer: "We provide a workmanship warranty on all our projects. Material warranties pass through directly from manufacturers. We stand behind every job we do." },
 ];
 
@@ -70,15 +70,15 @@ export default function LandingTrust() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Why Trust Bradley Brown Inc. — Certified MS Builder"
-        description="Licensed MS contractor since 1995. 4.9★ rated, BBB member, NAHB & MSHBA certified. Call (601) 954-1306."
+        description="Licensed MS contractor since 1995. 4.9★ rated, BBB member, NAHB & MSHBA certified. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/customertestimonials"
       />
       <StickyCallButton />
 
       <div className="sticky top-16 md:top-20 z-40 bg-green-500 text-white py-2 px-4 text-center text-sm font-semibold">
-        <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2">
-          <Phone className="w-4 h-4" /> 4.9★ Rated · Licensed · Insured — Call (601) 954-1306
+        <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2">
+          <Phone className="w-4 h-4" /> 4.9★ Rated · Licensed · Insured — Call (844) 351-4154
         </a>
       </div>
 
@@ -96,8 +96,8 @@ export default function LandingTrust() {
             Certified, insured, and backed by 500+ completed projects. See what our clients say — and why we're the Brandon and Rankin County area's most trusted builder.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
-              <Phone className="w-5 h-5" /> (601) 954-1306
+            <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+              <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
             <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Free Estimate <ChevronRight className="w-5 h-5" />
