@@ -231,11 +231,13 @@ export default function ProTips() {
               className="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
             >
               {post.image_url && (
-                <img
-                  src={post.image_url}
-                  alt={post.image_alt_text || post.title}
-                  className="w-full h-72 md:h-96 object-cover"
-                />
+                <div className="p-4 md:p-6 pb-0">
+                  <img
+                    src={post.image_url}
+                    alt={post.image_alt_text || post.title}
+                    className="w-full h-72 md:h-96 object-cover rounded-xl"
+                  />
+                </div>
               )}
               <div className="p-6 md:p-10">
                 {isAdmin && (

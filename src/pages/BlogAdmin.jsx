@@ -81,9 +81,16 @@ function PostModal({ post, onClose, onSave }) {
 
         <div className="overflow-y-auto p-5 space-y-4 flex-1">
           {preview ? (
-            <div className="prose prose-slate prose-sm max-w-none">
+            <div className="prose prose-slate max-w-none
+              prose-headings:text-[#1E2D3D] prose-headings:font-bold
+              prose-h1:text-3xl prose-h1:mb-4
+              prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-3
+              prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-2
+              prose-p:text-slate-700 prose-p:leading-relaxed
+              prose-strong:text-[#1E2D3D]
+              prose-li:my-1">
               <h1>{form.title}</h1>
-              {form.image_url && <img src={form.image_url} alt="" className="rounded-xl w-full object-cover h-48" />}
+              {form.image_url && <img src={form.image_url} alt="" className="rounded-xl w-full object-cover h-56 my-4" />}
               <ReactMarkdown>{form.content}</ReactMarkdown>
             </div>
           ) : (
