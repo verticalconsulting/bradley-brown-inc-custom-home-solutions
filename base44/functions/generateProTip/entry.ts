@@ -123,8 +123,39 @@ Deno.serve(async (req) => {
       messages: [
         {
           role: 'system',
-          content:
-            'You are a remodeling SEO writer for Bradley Brown Inc., a custom home builder and remodeling contractor in Central Mississippi. You write visually polished, SEO-friendly blog content using clean markdown. You always return valid JSON.',
+          content: `You are a remodeling SEO writer for Bradley Brown Inc., a custom home builder and remodeling contractor in Central Mississippi.
+
+Write visually polished, SEO-friendly blog content using clean markdown that renders beautifully on a website.
+
+Critical formatting rules:
+- Return clean markdown only.
+- Do not include the main blog title in the content body.
+- Start with a short intro paragraph before the first section heading.
+- Every major section heading must use ## markdown syntax.
+- Every smaller subsection must use ### markdown syntax.
+- Do not write plain text section headings.
+- Use blank lines between every paragraph, heading, and list.
+- Keep paragraphs short, ideally 2-4 sentences max.
+- Use bullet lists for pro tips, mistakes, checklists, or grouped ideas.
+- Bullet points should use this format: - **Tip title:** Explanation text.
+- Use **bold text** for key tips, warnings, and takeaways.
+- Avoid long blocks of text.
+- Avoid tables unless absolutely necessary.
+- Do not use emojis.
+- Do not keyword stuff.
+- Do not include fake statistics.
+
+The blog should include:
+- a short intro paragraph
+- ## Why This Project Matters
+- ## Pro Tips for Better Results
+- ## Common Mistakes to Avoid
+- ## When to Call a Professional Contractor
+- ## Final Takeaway
+
+The article should include practical advice homeowners can actually use, explain how the project can improve appeal or home value, and end with a subtle call to action for Bradley Brown Inc. at (844) 351-4154.
+
+You always return valid JSON.`,
         },
         {
           role: 'user',
@@ -144,26 +175,10 @@ Topic areas to draw from:
 
 Naturally include relevant search phrases ONLY when they fit (do not keyword stuff): home remodeling tips, remodeling ideas that add value, curb appeal upgrades, kitchen remodeling ideas, bathroom remodeling ideas, outdoor living upgrades, Central Mississippi remodeling contractor.
 
-WRITE THE ARTICLE (700–900 words) following these formatting rules:
-- Do NOT include the main title as a heading in the body.
-- Start with a short intro paragraph (2–4 sentences).
-- Use ## for major sections.
-- Use ### for smaller subsections where helpful.
-- Use short paragraphs (2–4 sentences) with good spacing.
-- Use bullet points for easy scanning.
-- Use **bold text** for important tips, warnings, and key takeaways.
-- Avoid long text blocks.
-- Make the article look professional when rendered on a website.
-- Include practical advice homeowners can actually use.
-- Include common mistakes to avoid.
-- Include when to call a professional contractor.
-- Include ONE subtle CTA for Bradley Brown Inc. with the phone number (844) 351-4154 near the end.
-- Keep the tone helpful, professional, and local to Central Mississippi when relevant.
-- Do NOT keyword stuff.
-- Do NOT include fake statistics.
+Article length: 700–900 words. Follow the system formatting rules EXACTLY — every section heading must start with "## " on its own line, every subsection with "### " on its own line, with blank lines around them. Never write a section title as plain paragraph text.
 
-Suggested structure (adjust as needed):
-1. Short intro paragraph
+Required structure:
+1. Short intro paragraph (no heading)
 2. ## Why This Project Matters
 3. ## Pro Tips for Better Results
 4. ## Common Mistakes to Avoid
@@ -177,7 +192,7 @@ Return a JSON object with EXACTLY these fields:
   "slug": "url-friendly-slug-with-hyphens",
   "excerpt": "1–2 sentence hook for blog listings, ~160 chars",
   "meta_description": "SEO meta description, 150–160 characters, includes primary keyword",
-  "content": "full markdown article body, 700–900 words, no H1",
+  "content": "full markdown article body, 700–900 words, no H1, headings use ## and ### syntax",
   "category": "ONE of: home-remodeling, kitchen-remodeling, bathroom-remodeling, outdoor-living, curb-appeal, home-value, interior-updates"
 }
 

@@ -275,17 +275,48 @@ export default function ProTips() {
                     {post.excerpt}
                   </p>
                 )}
-                <div className="prose prose-slate prose-lg max-w-none
-                  prose-headings:text-[#1E2D3D] prose-headings:font-bold
-                  prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                  prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
-                  prose-p:text-slate-700 prose-p:leading-relaxed
-                  prose-strong:text-[#1E2D3D]
-                  prose-li:text-slate-700 prose-li:my-1
-                  prose-ul:my-4
-                  prose-a:text-sky-600 prose-a:no-underline hover:prose-a:underline">
-                  <ReactMarkdown>{post.content}</ReactMarkdown>
-                </div>
+                <article className="max-w-4xl text-slate-800">
+                  <ReactMarkdown
+                    components={{
+                      h2: ({ children }) => (
+                        <h2 className="mt-12 mb-5 text-3xl font-bold tracking-tight text-[#1E2D3D]">
+                          {children}
+                        </h2>
+                      ),
+                      h3: ({ children }) => (
+                        <h3 className="mt-8 mb-4 text-2xl font-semibold text-[#1E2D3D]">
+                          {children}
+                        </h3>
+                      ),
+                      p: ({ children }) => (
+                        <p className="mb-6 text-lg leading-8 text-slate-700">
+                          {children}
+                        </p>
+                      ),
+                      ul: ({ children }) => (
+                        <ul className="mb-8 ml-6 list-disc space-y-3 text-lg leading-8 text-slate-700">
+                          {children}
+                        </ul>
+                      ),
+                      ol: ({ children }) => (
+                        <ol className="mb-8 ml-6 list-decimal space-y-3 text-lg leading-8 text-slate-700">
+                          {children}
+                        </ol>
+                      ),
+                      li: ({ children }) => (
+                        <li className="pl-2">{children}</li>
+                      ),
+                      strong: ({ children }) => (
+                        <strong className="font-bold text-[#1E2D3D]">{children}</strong>
+                      ),
+                      a: ({ href, children }) => (
+                        <a href={href} className="text-sky-600 hover:underline">{children}</a>
+                      ),
+                    }}
+                  >
+                    {post.content}
+                  </ReactMarkdown>
+                </article>
                 {/* Internal links after each post */}
                 <div className="mt-8 pt-5 border-t border-gray-100 flex flex-wrap gap-3">
                   <Link to={createPageUrl("Services")} className="text-xs text-sky-600 hover:underline font-medium">→ Our Services</Link>
