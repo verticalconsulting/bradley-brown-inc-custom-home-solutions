@@ -3,7 +3,8 @@
   "type": "object",
   "properties": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "description": "SEO-friendly blog post title"
     },
     "slug": {
       "type": "string",
@@ -11,7 +12,15 @@
     },
     "topic": {
       "type": "string",
-      "description": "The trending search topic this post is based on"
+      "description": "The search topic this post is based on"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Short summary shown in blog listings"
+    },
+    "meta_description": {
+      "type": "string",
+      "description": "SEO meta description (150-160 chars)"
     },
     "content": {
       "type": "string",
@@ -20,13 +29,26 @@
     "image_url": {
       "type": "string"
     },
+    "image_alt_text": {
+      "type": "string",
+      "description": "Alt text for the hero image"
+    },
     "published": {
       "type": "boolean",
       "default": true
     },
     "category": {
       "type": "string",
-      "default": "home-remodeling"
+      "default": "home-remodeling",
+      "enum": [
+        "home-remodeling",
+        "kitchen-remodeling",
+        "bathroom-remodeling",
+        "outdoor-living",
+        "curb-appeal",
+        "home-value",
+        "interior-updates"
+      ]
     }
   },
   "required": [
