@@ -3,19 +3,19 @@ import { ChevronDown } from "lucide-react";
 
 export const homeFaqs = [
   {
-    question: "How much does home remodeling cost in Brandon, MS?",
+    question: "What home remodeling services does Bradley Brown Inc offer in Brandon, MS?",
     answer:
-      "Home remodeling costs in Brandon, MS vary by project. Kitchen remodels typically range from $15,000–$60,000, bathroom renovations from $8,000–$25,000, and room additions from $30,000–$100,000+. Bradley Brown Inc offers free estimates — call (844) 351-4154."
+      "Bradley Brown Inc offers kitchen remodels, bathroom renovations, room additions, custom home building, barndominiums, and outdoor living spaces throughout Brandon and Central Mississippi."
   },
   {
     question: "Is Bradley Brown Inc licensed and insured in Mississippi?",
     answer:
-      "Yes. Bradley Brown Inc is fully licensed and insured in Mississippi, with 30+ years of experience serving Brandon, Rankin County, and Central Mississippi since 1995."
+      "Yes. Bradley Brown Inc is fully licensed and insured in Mississippi and has served homeowners in Brandon and Rankin County since 1995."
   },
   {
-    question: "Do you build custom homes and barndominiums in Mississippi?",
+    question: "How do I get a free estimate from Bradley Brown Inc?",
     answer:
-      "Yes. We design and build custom homes, barndominiums, and steel-frame structures across Central Mississippi. Contact us for a free consultation."
+      "You can request a free, no-obligation estimate by calling (844) 351-4154 or by using the online quote form at bradleybrowninc.com/quote."
   }
 ];
 
