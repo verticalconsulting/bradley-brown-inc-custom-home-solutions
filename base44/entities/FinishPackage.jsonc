@@ -1,0 +1,101 @@
+{
+  "name": "FinishPackage",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Visitor name (optional)"
+    },
+    "email": {
+      "type": "string",
+      "description": "Visitor email (optional, used to attach to a future quote)"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "inspiration_photo_url": {
+      "type": "string",
+      "description": "URL of the uploaded inspiration photo"
+    },
+    "room_type": {
+      "type": "string",
+      "description": "What room/space the package is for (e.g. Kitchen, Bath, Living)"
+    },
+    "selected_theme": {
+      "type": "string",
+      "description": "Title of the chosen finish-package theme"
+    },
+    "selected_tier": {
+      "type": "string",
+      "enum": [
+        "signature",
+        "budget"
+      ],
+      "default": "signature",
+      "description": "Whether the visitor saved the signature or budget alternative"
+    },
+    "package_details": {
+      "type": "object",
+      "description": "Full saved package payload (theme + budget alt + estimate range)"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "saved",
+        "attached_to_quote",
+        "archived"
+      ],
+      "default": "saved"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Short summary used in admin listings"
+    }
+  },
+  "required": [
+    "selected_theme"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {},
+        {
+          "user_authenticated": false
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "data.email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "data.email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

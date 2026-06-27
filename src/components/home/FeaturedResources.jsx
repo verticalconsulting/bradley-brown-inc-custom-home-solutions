@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Sparkles, DollarSign, Star, Warehouse, Hammer, FileText, ChevronRight, Crown, Banknote, Plus, Bath, Leaf, MapPin, AlertTriangle } from "lucide-react";
+import { Sparkles, DollarSign, Star, Warehouse, Hammer, FileText, ChevronRight, Crown, Banknote, Plus, Bath, Leaf, MapPin, AlertTriangle, Palette } from "lucide-react";
 
 const resources = [
+  {
+    to: "/finish-package-studio",
+    icon: Palette,
+    title: "AI Finish Package Studio",
+    desc: "Upload an inspiration photo — get 3 themed packages with budget alternatives.",
+    color: "text-fuchsia-500",
+    bg: "bg-fuchsia-50",
+  },
   {
     to: "/quote",
     icon: Sparkles,
