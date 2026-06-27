@@ -85,7 +85,7 @@ export default function LuxuryHomeRenovations() {
             Custom materials, dedicated project management, and zero-compromise craftsmanship. Bradley Brown Inc. sets the standard for high-end renovations in the Brandon and Rankin County area.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center justify-center gap-2 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg bg-[#566671]">
+            <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center justify-center gap-2 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg bg-[#7591a3]">
               <Phone className="w-5 h-5" /> (601) 954-1306
             </a>
             <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
