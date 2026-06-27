@@ -13,7 +13,7 @@ const schema = {
   {
     "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
     "name": "Bradley Brown Inc.",
-    "telephone": "+16019541306",
+    "telephone": "+18443514154",
     "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
     "priceRange": "$$$$"
   },
@@ -65,7 +65,7 @@ export default function LuxuryHomeRenovations() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Luxury Home Renovations in Brandon, MS — Bradley Brown Inc"
-        description="Premium kitchen, bath & whole-home renovations in the Brandon and Rankin County area. Custom millwork, designer finishes, dedicated project management. Call (601) 954-1306."
+        description="Premium kitchen, bath & whole-home renovations in the Brandon and Rankin County area. Custom millwork, designer finishes, dedicated project management. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/LuxuryHomeRenovations" />
       
@@ -85,8 +85,8 @@ export default function LuxuryHomeRenovations() {
             Custom materials, dedicated project management, and zero-compromise craftsmanship. Bradley Brown Inc. sets the standard for high-end renovations in the Brandon and Rankin County area.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center justify-center gap-2 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg bg-[#7591a3]">
-              <Phone className="w-5 h-5" /> (601) 954-1306
+            <a href="tel:+18443514154" onClick={handleCall} className="inline-flex items-center justify-center gap-2 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg bg-[#7591a3]">
+              <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
             <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Free Consultation <ChevronRight className="w-5 h-5" />
@@ -161,10 +161,10 @@ export default function LuxuryHomeRenovations() {
         {/* Mid-page CTA */}
         <div className="bg-[#1E2D3D] rounded-2xl p-6 md:p-8 text-center">
           <p className="text-white font-bold text-lg mb-2">Start Your Luxury Renovation</p>
-          <p className="text-slate-300 text-sm mb-5">Call us at (601) 954-1306 or request a free consultation. We serve Brandon, Madison, Ridgeland, Flowood, and all of the Rankin County area.</p>
+          <p className="text-slate-300 text-sm mb-5">Call us at (844) 351-4154 or request a free consultation. We serve Brandon, Madison, Ridgeland, Flowood, and all of the Rankin County area.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
-              <Phone className="w-4 h-4" /> (601) 954-1306
+            <a href="tel:+18443514154" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+              <Phone className="w-4 h-4" /> (844) 351-4154
             </a>
             <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
               Schedule a Site Visit <ChevronRight className="w-4 h-4" />
