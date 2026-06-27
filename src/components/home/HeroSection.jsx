@@ -55,13 +55,18 @@ export default function HeroSection() {
           <span className="text-sky-400 text-sm font-medium">Brandon Mississippi's Premier Builder Since 1995 </span>
         </div>
 
-        <h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 transition-opacity duration-500"
-          style={{ opacity: fading ? 0 : 1 }}>
-          
-          {slide.headline}
-          <span className="text-sky-400 block">{slide.highlight}</span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">
+          Brandon, MS Home Remodeling &amp;
+          <span className="text-sky-400 block">Custom Home Builder Since 1995</span>
         </h1>
+
+        <p
+          className="text-xl sm:text-2xl md:text-3xl font-semibold text-white/90 mb-6 transition-opacity duration-500"
+          style={{ opacity: fading ? 0 : 1 }}
+          aria-live="polite">
+          {slide.headline}{" "}
+          <span className="text-sky-400">{slide.highlight}</span>
+        </p>
 
         <p className="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed">
           Custom home construction, renovations, and additions crafted with integrity, precision, and 30+ years of Mississippi expertise.
