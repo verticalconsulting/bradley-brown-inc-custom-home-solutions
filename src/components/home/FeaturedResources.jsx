@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Sparkles, DollarSign, Star, Warehouse, Hammer, FileText, ChevronRight, Crown, Banknote, Plus, Bath, Leaf, MapPin, AlertTriangle, Palette } from "lucide-react";
+import { Sparkles, DollarSign, Star, Warehouse, Hammer, FileText, ChevronRight, Crown, Banknote, Plus, Bath, Leaf, MapPin, AlertTriangle, Palette, Home } from "lucide-react";
 
 const resources = [
   {
@@ -110,10 +110,26 @@ const resources = [
   {
     to: "/LandingBrandonRemodelers",
     icon: MapPin,
-    title: "Brandon, MS Remodelers",
-    desc: "Local remodelers serving Brandon and Rankin County.",
+    title: "Home Remodelers in Brandon, MS",
+    desc: "Kitchen, bath & whole-home renovations in Brandon and Rankin County.",
     color: "text-sky-600",
     bg: "bg-sky-50",
+  },
+  {
+    to: "/custom-home-builder-brandon-ms",
+    icon: Home,
+    title: "Custom Home Builder in Brandon, MS",
+    desc: "Custom homes, new construction & luxury builds in Rankin County.",
+    color: "text-[#1E2D3D]",
+    bg: "bg-slate-100",
+  },
+  {
+    to: "/remodeling-ms",
+    icon: Hammer,
+    title: "Home Remodeling in Mississippi",
+    desc: "Statewide remodeling services for Mississippi homeowners.",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50",
   },
   {
     to: "/LandingEmergencyRepair",

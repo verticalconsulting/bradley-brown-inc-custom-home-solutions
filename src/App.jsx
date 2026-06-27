@@ -22,6 +22,7 @@ import Barndominiums from './pages/Barndominiums';
 import SmsOptin from './pages/SmsOptin';
 import BarndominiumBuilder from './pages/BarndominiumBuilder';
 import FinishPackageStudio from './pages/FinishPackageStudio';
+import LandingBrandonCustomHomeBuilder from './pages/LandingBrandonCustomHomeBuilder';
 import JobCheckin from './pages/JobCheckin';
 import Jobsites from './pages/Jobsites';
 import JobsiteDetail from './pages/JobsiteDetail';
@@ -105,6 +106,7 @@ const AuthenticatedApp = () => {
       <Route path="/BarndominiumBuilder" element={<LayoutWrapper currentPageName="BarndominiumBuilder"><BarndominiumBuilder /></LayoutWrapper>} />
       <Route path="/finish-package-studio" element={<LayoutWrapper currentPageName="FinishPackageStudio"><FinishPackageStudio /></LayoutWrapper>} />
       <Route path="/FinishPackageStudio" element={<LayoutWrapper currentPageName="FinishPackageStudio"><FinishPackageStudio /></LayoutWrapper>} />
+      <Route path="/custom-home-builder-brandon-ms" element={<LayoutWrapper currentPageName="LandingBrandonCustomHomeBuilder"><LandingBrandonCustomHomeBuilder /></LayoutWrapper>} />
 
       {/* Legacy / alternate URL redirects (Google Ads + old backlinks) */}
       {/* Note: React Router matches paths case-insensitively, so /about → /About and /contact → /Contact already work automatically. Only non-matching legacy paths are redirected below. */}

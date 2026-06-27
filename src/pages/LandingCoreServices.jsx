@@ -66,8 +66,8 @@ export default function LandingCoreServices() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
-        title="Home Remodeling in Brandon, MS — Bradley Brown Inc"
-        description="Licensed builder for kitchens, baths & whole-home renovations. Call now for a free estimate!"
+        title="Home Remodeling in Mississippi | Kitchen, Bath & Whole-Home Renovations"
+        description="Mississippi home remodelers — kitchen remodeling, bathroom remodeling, and whole-home renovations across Central Mississippi. Call (844) 351-4154 for a free estimate."
         schema={schema}
         canonical="https://bradleybrowninc.com/remodeling-ms"
       />
@@ -136,6 +136,28 @@ export default function LandingCoreServices() {
           <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
           <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Pearl, Richland, Madison, Ridgeland, and all of Rankin, Hinds, and Madison counties. Every estimate is free, every quote is transparent, and every project is backed by our quality guarantee.</p>
           <p className="text-slate-600 leading-relaxed">From energy-efficient window replacements to complete kitchen gut-and-rebuilds, we handle it all with licensed tradespeople and a project manager on-site every day. Call us at <a href="tel:+16019541306" onClick={handleCall} className="text-sky-600 font-semibold">(601) 954-1306</a> to schedule your free consultation.</p>
+        </div>
+
+        {/* Local internal links */}
+        <div className="bg-white border border-sky-100 rounded-2xl p-6 md:p-8 shadow-sm">
+          <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-3">Looking for a Local Brandon, MS Contractor?</h2>
+          <p className="text-slate-600 leading-relaxed mb-5">
+            Bradley Brown Inc. serves homeowners across Mississippi, with a strong local focus on Brandon and Rankin County.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/LandingBrandonRemodelers"
+              className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Home Remodeling in Brandon, MS <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/custom-home-builder-brandon-ms"
+              className="inline-flex items-center gap-2 bg-[#1E2D3D] hover:bg-[#2C3E50] text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Custom Home Builder in Brandon, MS <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
 
         {/* FAQ */}
