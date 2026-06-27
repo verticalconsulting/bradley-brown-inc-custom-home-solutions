@@ -363,7 +363,12 @@ export default function Layout({ children, currentPageName }) {
           </div>
 
           <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-sm">© 2026 Bradley Brown Inc. All rights reserved.</p>
+            <p className="text-slate-500 text-sm">
+              © 2026 Designed by{" "}
+              <a href="https://verticalconsulting.net" target="_blank" rel="noopener noreferrer" className="text-sky-400 hover:text-sky-300 transition-colors">
+                Five Hughes LLC
+              </a>
+            </p>
             <p className="text-slate-500 text-sm">Licensed & Insured · Mississippi General Contractor · 104 Tiffany Drive, Brandon, MS 39042</p>
           </div>
         </div>
