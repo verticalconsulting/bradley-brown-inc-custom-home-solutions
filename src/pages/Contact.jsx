@@ -183,7 +183,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
+          <div id="send-message" className="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100 scroll-mt-24">
             {submitted ? (
               <div className="text-center py-10">
                 <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />

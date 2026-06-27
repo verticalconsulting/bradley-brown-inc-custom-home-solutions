@@ -163,12 +163,10 @@ export default function VisitorChatWidget() {
                 {sending ? "Starting..." : "Chat with AI Assistant"}
               </button>
               <a
-                href={base44.agents.getWhatsAppConnectURL("home_advisor")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
+                href="/Contact#send-message"
+                className="w-full bg-[#1E2D3D] hover:bg-[#2a3f56] text-white py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
               >
-                <Phone className="w-4 h-4" /> Chat with AI on WhatsApp
+                <MessageCircle className="w-4 h-4" /> Send a Text Message to Brad
               </a>
             </div>
           ) : (
@@ -247,18 +245,25 @@ export default function VisitorChatWidget() {
       )}
 
       {/* FAB */}
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="w-14 h-14 bg-[#1E2D3D] hover:bg-sky-600 text-white rounded-full shadow-xl flex items-center justify-center transition-all relative"
-        aria-label="Open chat"
-      >
-        {open ? <X className="w-6 h-6" /> : <Sparkles className="w-6 h-6" />}
-        {!open && unread > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
-            {unread}
+      <div className="flex flex-col items-center gap-1.5">
+        {!open && (
+          <span className="bg-[#1E2D3D] text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-md">
+            Message Us
           </span>
         )}
-      </button>
+        <button
+          onClick={() => setOpen(o => !o)}
+          className="w-14 h-14 bg-[#1E2D3D] hover:bg-sky-600 text-white rounded-full shadow-xl flex items-center justify-center transition-all relative"
+          aria-label="Open chat"
+        >
+          {open ? <X className="w-6 h-6" /> : <Sparkles className="w-6 h-6" />}
+          {!open && unread > 0 && (
+            <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
+              {unread}
+            </span>
+          )}
+        </button>
+      </div>
     </div>
   );
 }
