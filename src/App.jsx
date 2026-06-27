@@ -101,6 +101,7 @@ const AuthenticatedApp = () => {
       <Route path="/home-remodeling-cost" element={<LayoutWrapper currentPageName="LandingPricing"><LandingPricing /></LayoutWrapper>} />
       <Route path="/barndominiums-ms" element={<LayoutWrapper currentPageName="Barndominiums"><Barndominiums /></LayoutWrapper>} />
       <Route path="/barndominium-builder" element={<LayoutWrapper currentPageName="BarndominiumBuilder"><BarndominiumBuilder /></LayoutWrapper>} />
+      <Route path="/BarndominiumBuilder" element={<LayoutWrapper currentPageName="BarndominiumBuilder"><BarndominiumBuilder /></LayoutWrapper>} />
 
       {/* Legacy / alternate URL redirects (Google Ads + old backlinks) */}
       {/* Note: React Router matches paths case-insensitively, so /about → /About and /contact → /Contact already work automatically. Only non-matching legacy paths are redirected below. */}
