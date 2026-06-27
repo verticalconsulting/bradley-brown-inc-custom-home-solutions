@@ -68,6 +68,36 @@
       "items": {
         "type": "string"
       }
+    },
+    "design_style_prompt": {
+      "type": "string",
+      "description": "Homeowner's free-text description of desired design style"
+    },
+    "style_preset": {
+      "type": "string",
+      "description": "Selected style preset slug (e.g. old_english_office, modern_luxury)"
+    },
+    "design_photo_url": {
+      "type": "string",
+      "description": "URL of the current room/project photo provided as the design base"
+    },
+    "inspiration_image_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs of homeowner-uploaded inspiration images"
+    },
+    "design_concept_image_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs of AI-generated remodeling concept images"
+    },
+    "design_concept_prompt": {
+      "type": "string",
+      "description": "Final assembled prompt used to generate the design concept"
     }
   },
   "required": [

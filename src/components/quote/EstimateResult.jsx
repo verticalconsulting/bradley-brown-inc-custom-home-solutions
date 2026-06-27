@@ -1,9 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { CheckCircle, Phone, ChevronRight, Loader2, TrendingUp, Clock, Lightbulb } from "lucide-react";
+import { CheckCircle, Phone, ChevronRight, Loader2, TrendingUp, Clock, Lightbulb, Wand2, Image as ImageIcon, AlertTriangle } from "lucide-react";
 
-export default function EstimateResult({ analysis, loading, contactName }) {
+export default function EstimateResult({
+  analysis,
+  loading,
+  contactName,
+  designConcept,
+  designLoading,
+  designError,
+  inspirationImages,
+  designRequested,
+}) {
   if (loading) {
     return (
       <div className="text-center py-16">
@@ -15,6 +24,9 @@ export default function EstimateResult({ analysis, loading, contactName }) {
   }
 
   if (!analysis) return null;
+
+  const conceptImages = designConcept?.image_urls || [];
+  const showDesignSection = designRequested || designLoading || conceptImages.length > 0 || designError;
 
   return (
     <div>
@@ -77,6 +89,64 @@ export default function EstimateResult({ analysis, loading, contactName }) {
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {showDesignSection && (
+        <div className="bg-white border border-[#E2D9CC] rounded-xl p-5 mb-8">
+          <div className="flex items-center gap-2 mb-4">
+            <Wand2 className="w-5 h-5 text-[#C4922A]" />
+            <h4 className="font-bold text-[#1E2D3D]">AI Design Concept</h4>
+          </div>
+
+          {designLoading && (
+            <div className="flex flex-col items-center justify-center py-8 text-center">
+              <Loader2 className="w-8 h-8 text-[#C4922A] animate-spin mb-3" />
+              <p className="text-sm font-semibold text-[#1E2D3D]">Rendering your design concept…</p>
+              <p className="text-xs text-slate-400 mt-1">This usually takes about 15–30 seconds.</p>
+            </div>
+          )}
+
+          {!designLoading && conceptImages.length > 0 && (
+            <div className="grid grid-cols-1 gap-3">
+              {conceptImages.map((url, i) => (
+                <img
+                  key={i}
+                  src={url}
+                  alt={`AI design concept ${i + 1}`}
+                  className="w-full rounded-lg border border-[#E2D9CC] object-cover"
+                />
+              ))}
+            </div>
+          )}
+
+          {!designLoading && !conceptImages.length && designError && (
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-amber-800">
+                Your estimate was generated, but the design concept could not be created. Please try generating the design concept again.
+              </p>
+            </div>
+          )}
+
+          {!designLoading && inspirationImages?.length > 0 && (
+            <div className="mt-5">
+              <div className="flex items-center gap-1.5 mb-2">
+                <ImageIcon className="w-4 h-4 text-slate-400" />
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Your inspiration</p>
+              </div>
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                {inspirationImages.map((url, i) => (
+                  <img
+                    key={i}
+                    src={url}
+                    alt={`Inspiration ${i + 1}`}
+                    className="w-full aspect-square object-cover rounded-lg border border-[#E2D9CC]"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 

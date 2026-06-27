@@ -3,11 +3,13 @@ import { base44 } from "@/api/base44Client";
 import StepIndicator from "@/components/quote/StepIndicator";
 import ProjectTypeStep from "@/components/quote/ProjectTypeStep";
 import ProjectDetailsStep from "@/components/quote/ProjectDetailsStep";
+import DesignInspirationStep from "@/components/quote/DesignInspirationStep";
 import ContactStep from "@/components/quote/ContactStep";
 import EstimateResult from "@/components/quote/EstimateResult";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 
-const STEPS = ["Project Type", "Details", "Your Info", "Estimate"];
+const STEPS = ["Project Type", "Details", "Design Inspiration", "Your Info", "Estimate"];
+const RESULT_STEP = 4;
 
 const initialData = {
   project_type: "",
@@ -20,6 +22,11 @@ const initialData = {
   name: "",
   email: "",
   phone: "",
+  design_photo: null,
+  inspiration_images: [],
+  design_style_prompt: "",
+  style_preset: "",
+  generate_design_concept: false,
 };
 
 export default function QuoteAssistant() {
@@ -28,16 +35,20 @@ export default function QuoteAssistant() {
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [designConcept, setDesignConcept] = useState(null);
+  const [designLoading, setDesignLoading] = useState(false);
+  const [designError, setDesignError] = useState("");
 
   const canProceed = () => {
     if (step === 0) return !!data.project_type;
     if (step === 1) return !!data.location && !!data.description;
-    if (step === 2) return !!data.name && !!data.email;
+    if (step === 2) return true; // Design Inspiration is optional
+    if (step === 3) return !!data.name && !!data.email;
     return true;
   };
 
   const handleNext = async () => {
-    if (step === 2) {
+    if (step === 3) {
       await submitAndGenerate();
     } else {
       setStep(s => s + 1);
@@ -45,9 +56,11 @@ export default function QuoteAssistant() {
   };
 
   const submitAndGenerate = async () => {
-    setStep(3);
+    setStep(RESULT_STEP);
     setLoading(true);
     setError("");
+    setDesignError("");
+    setDesignConcept(null);
 
     try {
       base44.analytics.track({
@@ -57,6 +70,7 @@ export default function QuoteAssistant() {
           location: data.location,
           budget_range: data.budget_range || null,
           has_phone: !!data.phone,
+          requested_design_concept: !!data.generate_design_concept,
         },
       });
 
@@ -73,6 +87,10 @@ export default function QuoteAssistant() {
           description: data.description,
           features_selected: data.features_selected,
           status: "new",
+          design_photo_url: data.design_photo || undefined,
+          inspiration_image_urls: data.inspiration_images?.length ? data.inspiration_images : undefined,
+          design_style_prompt: data.design_style_prompt || undefined,
+          style_preset: data.style_preset || undefined,
         }),
         fetch("https://formspree.io/f/xeeranrd", {
           method: "POST",
@@ -87,11 +105,14 @@ export default function QuoteAssistant() {
             timeline: data.timeline || "",
             description: data.description,
             features_selected: (data.features_selected || []).join(", "),
+            design_concept_requested: data.generate_design_concept ? "yes" : "no",
+            design_style_prompt: data.design_style_prompt || "",
+            style_preset: data.style_preset || "",
           }),
         }),
       ]);
 
-      const response = await base44.functions.invoke("generateQuoteEstimate", {
+      const quoteResponse = await base44.functions.invoke("generateQuoteEstimate", {
         project_type: data.project_type,
         location: data.location,
         square_footage_estimate: data.square_footage_estimate || undefined,
@@ -101,7 +122,7 @@ export default function QuoteAssistant() {
         features_selected: [],
       });
 
-      const result = response?.data;
+      const result = quoteResponse?.data;
 
       if (!result?.success || !result?.analysis) {
         throw new Error(result?.error || "Unable to generate estimate.");
@@ -117,14 +138,45 @@ export default function QuoteAssistant() {
         });
       }
 
+      // Kick off design concept generation independently — never block the estimate.
+      let designResult = null;
+      if (data.generate_design_concept && data.design_photo) {
+        setDesignLoading(true);
+        try {
+          const designResponse = await base44.functions.invoke("generateRemodelConcept", {
+            project_type: data.project_type,
+            location: data.location,
+            description: data.description,
+            design_photo: data.design_photo,
+            inspiration_images: data.inspiration_images,
+            design_style_prompt: data.design_style_prompt,
+            style_preset: data.style_preset,
+          });
+          designResult = designResponse?.data;
+
+          if (designResult?.success) {
+            setDesignConcept(designResult);
+          } else {
+            setDesignError(designResult?.error || "Design concept could not be created.");
+          }
+        } catch (designErr) {
+          console.error("Design concept generation failed:", designErr);
+          setDesignError("Design concept could not be created.");
+        } finally {
+          setDesignLoading(false);
+        }
+      }
+
       if (record?.id) {
         await base44.entities.QuoteRequest.update(record.id, {
-        ai_analysis: result.analysis,
-        ai_estimate: result.analysis.estimate_range,
-        ai_midpoint: result.analysis.likely_midpoint || null,
-        ai_finish_tier: result.analysis.finish_tier || null,
-        ai_timeline: result.analysis.timeline || null,
-        ai_confidence: result.analysis.confidence || null,
+          ai_analysis: result.analysis,
+          ai_estimate: result.analysis.estimate_range,
+          ai_midpoint: result.analysis.likely_midpoint || null,
+          ai_finish_tier: result.analysis.finish_tier || null,
+          ai_timeline: result.analysis.timeline || null,
+          ai_confidence: result.analysis.confidence || null,
+          design_concept_image_urls: designResult?.image_urls?.length ? designResult.image_urls : undefined,
+          design_concept_prompt: designResult?.prompt_used || undefined,
         });
       }
     } catch (err) {
@@ -159,22 +211,31 @@ export default function QuoteAssistant() {
             <ProjectDetailsStep data={data} onChange={updated => setData(d => ({ ...d, ...updated }))} />
           )}
           {step === 2 && (
-            <ContactStep data={data} onChange={updated => setData(d => ({ ...d, ...updated }))} />
+            <DesignInspirationStep data={data} onChange={updated => setData(d => ({ ...d, ...updated }))} />
           )}
           {step === 3 && (
+            <ContactStep data={data} onChange={updated => setData(d => ({ ...d, ...updated }))} />
+          )}
+          {step === RESULT_STEP && (
             <>
               <EstimateResult
                 analysis={analysis}
                 loading={loading}
                 error={error}
-                contactName={data.name}/>
+                contactName={data.name}
+                designConcept={designConcept}
+                designLoading={designLoading}
+                designError={designError}
+                inspirationImages={data.inspiration_images}
+                designRequested={data.generate_design_concept}
+              />
               {error && (
                 <p className="text-red-500 text-sm text-center mt-4">{error}</p>
               )}
             </>
           )}
 
-          {step < 3 && (
+          {step < RESULT_STEP && (
             <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
               <button
                 onClick={() => setStep(s => s - 1)}
@@ -183,17 +244,22 @@ export default function QuoteAssistant() {
               >
                 <ChevronLeft className="w-4 h-4" /> Back
               </button>
-              <button
-                onClick={handleNext}
-                disabled={!canProceed()}
-                className="flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"
-              >
-                {step === 2 ? (
-                  <><Sparkles className="w-4 h-4" /> Generate My Estimate</>
-                ) : (
-                  <>Next <ChevronRight className="w-4 h-4" /></>
+              <div className="flex items-center gap-2">
+                {step === 2 && !data.generate_design_concept && (
+                  <span className="text-xs text-slate-400 hidden sm:inline">Optional step</span>
                 )}
-              </button>
+                <button
+                  onClick={handleNext}
+                  disabled={!canProceed()}
+                  className="flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  {step === 3 ? (
+                    <><Sparkles className="w-4 h-4" /> Generate My Estimate</>
+                  ) : (
+                    <>Next <ChevronRight className="w-4 h-4" /></>
+                  )}
+                </button>
+              </div>
             </div>
           )}
         </div>
