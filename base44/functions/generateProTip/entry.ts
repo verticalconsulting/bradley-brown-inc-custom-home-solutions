@@ -9,52 +9,6 @@ function slugify(text) {
     .slice(0, 80);
 }
 
-// Curated Unsplash image map — keyed by topic keywords.
-// Each entry pairs an image with descriptive alt text.
-const IMAGE_MAP = [
-  { keys: ['kitchen'], category: 'kitchen-remodeling',
-    url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80',
-    alt: 'Bright modern remodeled kitchen with white cabinets and a large island' },
-  { keys: ['bathroom', 'bath ', 'shower', 'tub'], category: 'bathroom-remodeling',
-    url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80',
-    alt: 'Renovated modern bathroom with walk-in shower and tile finishes' },
-  { keys: ['deck', 'patio', 'porch', 'outdoor kitchen', 'outdoor living', 'pergola', 'backyard'], category: 'outdoor-living',
-    url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
-    alt: 'Covered backyard patio with outdoor furniture and warm string lights' },
-  { keys: ['curb appeal', 'front door', 'landscaping', 'exterior', 'siding', 'driveway'], category: 'curb-appeal',
-    url: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=1200&q=80',
-    alt: 'Charming Southern home exterior with manicured landscaping and welcoming front porch' },
-  { keys: ['resale', 'home value', 'roi', 'appraisal', 'increase value', 'add value'], category: 'home-value',
-    url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80',
-    alt: 'Two-story home with for-sale-ready curb appeal and clean landscaping' },
-  { keys: ['paint', 'interior', 'living room', 'lighting', 'flooring', 'trim', 'molding'], category: 'interior-updates',
-    url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80',
-    alt: 'Updated interior living space with fresh paint, modern lighting, and refinished flooring' },
-  { keys: ['energy', 'efficient', 'insulation', 'window', 'hvac', 'solar'], category: 'home-remodeling',
-    url: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1200&q=80',
-    alt: 'Energy-efficient home windows with natural light filling a modern room' },
-  { keys: ['budget', 'affordable', 'cheap', 'low cost', 'inexpensive'], category: 'home-remodeling',
-    url: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1200&q=80',
-    alt: 'Affordable home remodeling project in progress with tools and materials' },
-  { keys: ['addition', 'expand', 'sunroom', 'bonus room'], category: 'home-remodeling',
-    url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80',
-    alt: 'Bright home addition with vaulted ceiling and large windows' },
-];
-
-const DEFAULT_IMAGE = {
-  url: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80',
-  alt: 'Custom home remodeling project in progress',
-  category: 'home-remodeling',
-};
-
-function pickImage(topic) {
-  const t = topic.toLowerCase();
-  for (const entry of IMAGE_MAP) {
-    if (entry.keys.some(k => t.includes(k))) return entry;
-  }
-  return DEFAULT_IMAGE;
-}
-
 const VALID_CATEGORIES = [
   'home-remodeling',
   'kitchen-remodeling',
@@ -65,6 +19,94 @@ const VALID_CATEGORIES = [
   'interior-updates',
 ];
 
+// Category-specific image direction — used to build the AI image prompt
+// and to validate that the resulting visual matches the article subject.
+const CATEGORY_IMAGE_DIRECTION = {
+  'kitchen-remodeling': {
+    subject:
+      'an interior kitchen remodel showing custom cabinets, a large island, quartz or granite countertops, a tile backsplash, pendant lighting, hardwood or tile floors, refined Southern-home finishes',
+    avoid: 'no outdoor scenes, no grills, no patios',
+  },
+  'bathroom-remodeling': {
+    subject:
+      'a renovated residential bathroom showing a walk-in tile shower, a vanity with quartz top, modern fixtures, polished mirror, soft warm lighting, clean finishes',
+    avoid: 'no kitchens, no outdoor scenes',
+  },
+  'outdoor-living': {
+    subject:
+      'a covered outdoor living space showing an outdoor kitchen with built-in grill, stone or brick counters, comfortable outdoor seating, ceiling fan or covered porch structure, warm Southern backyard setting, lush landscaping in the background',
+    avoid:
+      'no indoor kitchens, no interior rooms, no people cooking inside, no generic indoor remodel scenes',
+  },
+  'curb-appeal': {
+    subject:
+      'the exterior front of a Southern-style home showing a welcoming front porch, manicured landscaping, a clean walkway, shutters, fresh siding or brick, a tasteful entryway, daylight',
+    avoid: 'no interior rooms, no kitchens, no bathrooms',
+  },
+  'home-value': {
+    subject:
+      'a polished finished residential remodel showing upgraded curb appeal or a refined interior — a modern but timeless Southern home design with features that suggest improved resale value',
+    avoid: 'no construction-in-progress scenes, no demolition, no clutter',
+  },
+  'interior-updates': {
+    subject:
+      'an updated interior living area showing fresh paint, refinished hardwood or new flooring, modern recessed and pendant lighting, refined trim and crown molding, an open and bright layout',
+    avoid: 'no exteriors, no outdoor scenes, no kitchens or bathrooms in close-up',
+  },
+  'home-remodeling': {
+    subject:
+      'a beautifully finished residential home remodel — could be a refined Southern kitchen, living area, or covered porch — with bright natural light and upscale residential finishes',
+    avoid: 'no commercial buildings, no offices',
+  },
+};
+
+// Category-matched Unsplash fallbacks (used only if AI image generation fails).
+const FALLBACK_IMAGES = {
+  'kitchen-remodeling': {
+    url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80',
+    alt: 'Bright modern remodeled kitchen with white cabinets, large island, and pendant lighting',
+  },
+  'bathroom-remodeling': {
+    url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1600&q=80',
+    alt: 'Renovated modern bathroom with walk-in tile shower and vanity',
+  },
+  'outdoor-living': {
+    url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80',
+    alt: 'Covered backyard patio with outdoor seating and warm lighting',
+  },
+  'curb-appeal': {
+    url: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=1600&q=80',
+    alt: 'Southern home exterior with manicured landscaping and welcoming front porch',
+  },
+  'home-value': {
+    url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1600&q=80',
+    alt: 'Polished two-story home with strong curb appeal and clean landscaping',
+  },
+  'interior-updates': {
+    url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80',
+    alt: 'Updated interior living space with fresh paint, modern lighting, and refinished flooring',
+  },
+  'home-remodeling': {
+    url: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80',
+    alt: 'Beautifully finished custom home remodeling project',
+  },
+};
+
+function buildImagePrompt({ title, topic, category, excerpt }) {
+  const direction = CATEGORY_IMAGE_DIRECTION[category] || CATEGORY_IMAGE_DIRECTION['home-remodeling'];
+  return [
+    `Realistic professional home remodeling photograph for a website hero image.`,
+    `Subject: ${direction.subject}.`,
+    `The image should clearly illustrate the article topic: "${topic}" (article title: "${title}").`,
+    excerpt ? `Context from the article: ${excerpt}` : '',
+    `Style: bright natural daylight, polished Southern-home design, high-end but realistic residential remodeling, clean website-hero composition, 16:9 cinematic framing, shallow depth of field, photorealistic, magazine-quality interior/exterior photography.`,
+    `Strict rules: no text, no logos, no signs, no watermarks, no distorted architecture, no unrealistic objects, no people unless absolutely necessary for the topic, no generic duplicate stock-photo look.`,
+    `Category constraint: ${direction.avoid}.`,
+  ]
+    .filter(Boolean)
+    .join(' ');
+}
+
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
@@ -74,7 +116,7 @@ Deno.serve(async (req) => {
 
     const openai = new OpenAI({ apiKey: Deno.env.get('OPENAI_API_KEY') });
 
-    // Single structured call — generates topic + full SEO post in one shot.
+    // ─── Step 1: Generate the full blog post in one structured call ──────────
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o',
       response_format: { type: 'json_object' },
@@ -82,38 +124,51 @@ Deno.serve(async (req) => {
         {
           role: 'system',
           content:
-            'You are an SEO content strategist and home improvement expert writing for Bradley Brown Inc., a custom home builder and remodeling contractor based in Brandon, Mississippi (Central MS). You write practical, helpful "Pro Tips" articles for homeowners — not generic filler. You understand what homeowners actually type into Google when planning a remodel, boosting home value, or improving curb appeal. You always return valid JSON.',
+            'You are a remodeling SEO writer for Bradley Brown Inc., a custom home builder and remodeling contractor in Central Mississippi. You write visually polished, SEO-friendly blog content using clean markdown. You always return valid JSON.',
         },
         {
           role: 'user',
-          content: `Generate ONE new SEO-focused "Pro Tips" blog post for homeowners. Pick a fresh, specific topic homeowners are actively searching for right now in one of these areas:
-- remodeling ideas
-- kitchen remodeling
-- bathroom remodeling
-- outdoor living (patios, decks, porches, outdoor kitchens)
+          content: `Generate ONE new SEO-focused "Pro Tips" blog post for homeowners. Pick a fresh, specific topic homeowners are actively searching for right now — something that reads like a real Google search (e.g. "kitchen remodel ideas that add the most value", "small bathroom remodel ideas on a budget", "outdoor kitchen designs for Southern homes", "curb appeal upgrades that increase home value"). Avoid generic titles.
+
+Topic areas to draw from:
+- remodeling ideas that add value
+- kitchen remodeling ideas
+- bathroom remodeling ideas
+- outdoor living upgrades (patios, decks, porches, outdoor kitchens)
 - curb appeal upgrades
 - interior updates
 - energy-efficient home upgrades
 - budget-friendly remodeling
 - projects that increase home value / resale value
-- Mississippi / Southern home improvement needs
+- Central Mississippi / Southern home improvement needs
 
-Choose a topic that reads like a real Google search (e.g. "kitchen remodel ideas that add the most value" or "small bathroom remodel ideas on a budget"). Avoid generic titles like "Home Improvement Tips".
+Naturally include relevant search phrases ONLY when they fit (do not keyword stuff): home remodeling tips, remodeling ideas that add value, curb appeal upgrades, kitchen remodeling ideas, bathroom remodeling ideas, outdoor living upgrades, Central Mississippi remodeling contractor.
 
-Write a practical Pro Tips article of 700–900 words that includes:
-- practical, specific remodeling advice
-- what improves appeal or home value
-- common mistakes homeowners make and how to avoid them
-- clear guidance on when to call a professional contractor
-- one subtle, natural call-to-action mentioning Bradley Brown Inc. and the phone number (844) 351-4154 near the end
+WRITE THE ARTICLE (700–900 words) following these formatting rules:
+- Do NOT include the main title as a heading in the body.
+- Start with a short intro paragraph (2–4 sentences).
+- Use ## for major sections.
+- Use ### for smaller subsections where helpful.
+- Use short paragraphs (2–4 sentences) with good spacing.
+- Use bullet points for easy scanning.
+- Use **bold text** for important tips, warnings, and key takeaways.
+- Avoid long text blocks.
+- Make the article look professional when rendered on a website.
+- Include practical advice homeowners can actually use.
+- Include common mistakes to avoid.
+- Include when to call a professional contractor.
+- Include ONE subtle CTA for Bradley Brown Inc. with the phone number (844) 351-4154 near the end.
+- Keep the tone helpful, professional, and local to Central Mississippi when relevant.
+- Do NOT keyword stuff.
+- Do NOT include fake statistics.
 
-Markdown formatting rules:
-- Use ## for section headers (3–5 sections)
-- Short paragraphs (2–4 sentences)
-- Use bullet points where they help readability
-- Do NOT include a # title at the top — start directly with the first ## section
-- Do not include the phrase "In this article" or filler intros
-- Sound like a knowledgeable Mississippi builder, not a marketing brochure
+Suggested structure (adjust as needed):
+1. Short intro paragraph
+2. ## Why This Project Matters
+3. ## Pro Tips for Better Results
+4. ## Common Mistakes to Avoid
+5. ## When to Call a Professional Contractor
+6. ## Final Takeaway
 
 Return a JSON object with EXACTLY these fields:
 {
@@ -122,10 +177,11 @@ Return a JSON object with EXACTLY these fields:
   "slug": "url-friendly-slug-with-hyphens",
   "excerpt": "1–2 sentence hook for blog listings, ~160 chars",
   "meta_description": "SEO meta description, 150–160 characters, includes primary keyword",
-  "content": "full markdown article body, 700–900 words",
-  "category": "ONE of: home-remodeling, kitchen-remodeling, bathroom-remodeling, outdoor-living, curb-appeal, home-value, interior-updates",
-  "image_keyword": "1–3 word visual keyword that best matches the article (e.g. 'kitchen', 'deck', 'curb appeal', 'bathroom remodel')"
-}`,
+  "content": "full markdown article body, 700–900 words, no H1",
+  "category": "ONE of: home-remodeling, kitchen-remodeling, bathroom-remodeling, outdoor-living, curb-appeal, home-value, interior-updates"
+}
+
+Choose the category that BEST matches the actual subject of the post. If the post is about an outdoor kitchen or patio, category MUST be outdoor-living, not kitchen-remodeling.`,
         },
       ],
     });
@@ -138,7 +194,6 @@ Return a JSON object with EXACTLY these fields:
       return Response.json({ error: 'Invalid JSON from model', raw }, { status: 500 });
     }
 
-    // Normalize and validate
     const title = String(data.title || '').trim().replace(/^"|"$/g, '');
     const topic = String(data.topic || title).trim();
     const slug = slugify(data.slug || title);
@@ -151,9 +206,51 @@ Return a JSON object with EXACTLY these fields:
       return Response.json({ error: 'Model returned incomplete post', data }, { status: 500 });
     }
 
-    // Pick image from curated map using both the topic and the model's image_keyword
-    const image = pickImage(`${data.image_keyword || ''} ${topic} ${title}`);
+    // ─── Step 2: Build category-aware image prompt + generate the image ──────
+    const imagePrompt = buildImagePrompt({ title, topic, category, excerpt });
 
+    let imageUrl = null;
+    let imageAlt = '';
+    let imageError = null;
+
+    try {
+      const result = await base44.asServiceRole.integrations.Core.GenerateImage({
+        prompt: imagePrompt,
+      });
+      imageUrl = result?.url || null;
+    } catch (err) {
+      imageError = err?.message || String(err);
+      console.error('GenerateImage failed:', imageError);
+    }
+
+    // Generate a concise SEO alt text for whichever image we end up using
+    try {
+      const altRes = await openai.chat.completions.create({
+        model: 'gpt-4o-mini',
+        messages: [
+          {
+            role: 'user',
+            content: `Write a single sentence (max 120 characters) of SEO-friendly alt text describing the hero image for a blog post titled "${title}" in the category "${category}". Describe what the image shows literally and concretely. No quotes, no period at the end.`,
+          },
+        ],
+      });
+      imageAlt = altRes.choices[0].message.content.trim().replace(/^"|"$/g, '').slice(0, 140);
+    } catch {
+      imageAlt = '';
+    }
+
+    // ─── Step 3: Fallback if AI image generation failed ──────────────────────
+    if (!imageUrl) {
+      const fb = FALLBACK_IMAGES[category] || FALLBACK_IMAGES['home-remodeling'];
+      imageUrl = fb.url;
+      if (!imageAlt) imageAlt = fb.alt;
+    }
+
+    if (!imageAlt) {
+      imageAlt = `${title} — Bradley Brown Inc.`;
+    }
+
+    // ─── Step 4: Save the post ───────────────────────────────────────────────
     const post = await base44.asServiceRole.entities.BlogPost.create({
       title,
       slug,
@@ -161,13 +258,19 @@ Return a JSON object with EXACTLY these fields:
       excerpt,
       meta_description,
       content,
-      image_url: image.url,
-      image_alt_text: image.alt,
+      image_url: imageUrl,
+      image_alt_text: imageAlt,
+      image_prompt: imagePrompt,
       category,
       published: true,
     });
 
-    return Response.json({ success: true, post });
+    return Response.json({
+      success: true,
+      post,
+      image_generated: !imageError,
+      image_error: imageError,
+    });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }

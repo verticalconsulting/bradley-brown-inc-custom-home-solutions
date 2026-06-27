@@ -205,7 +205,7 @@ export default function ProTips() {
       )}
 
       {/* Blog Posts */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-20 space-y-16">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-20 space-y-20">
         {loading ? (
           <div className="space-y-8 pt-4">
             {[1, 2, 3].map((i) => (
@@ -233,11 +233,11 @@ export default function ProTips() {
               {post.image_url && (
                 <img
                   src={post.image_url}
-                  alt={post.title}
-                  className="w-full h-64 object-cover"
+                  alt={post.image_alt_text || post.title}
+                  className="w-full h-72 md:h-96 object-cover"
                 />
               )}
-              <div className="p-6 md:p-8">
+              <div className="p-6 md:p-10">
                 {isAdmin && (
                   <div className="flex gap-2 mb-4">
                     <button
@@ -263,19 +263,32 @@ export default function ProTips() {
                     </span>
                   )}
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D] mb-3 leading-tight">
                   <a href={`#${post.slug}`} className="hover:text-sky-600 transition-colors">
                     {post.title}
                   </a>
                 </h2>
-                <div className="prose prose-slate prose-sm max-w-none prose-headings:text-[#1E2D3D] prose-a:text-sky-600">
+                {post.excerpt && (
+                  <p className="text-slate-500 text-base md:text-lg mb-6 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                )}
+                <div className="prose prose-slate prose-lg max-w-none
+                  prose-headings:text-[#1E2D3D] prose-headings:font-bold
+                  prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                  prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
+                  prose-p:text-slate-700 prose-p:leading-relaxed
+                  prose-strong:text-[#1E2D3D]
+                  prose-li:text-slate-700 prose-li:my-1
+                  prose-ul:my-4
+                  prose-a:text-sky-600 prose-a:no-underline hover:prose-a:underline">
                   <ReactMarkdown>{post.content}</ReactMarkdown>
                 </div>
                 {/* Internal links after each post */}
-                <div className="mt-6 pt-5 border-t border-gray-100 flex flex-wrap gap-2">
+                <div className="mt-8 pt-5 border-t border-gray-100 flex flex-wrap gap-3">
                   <Link to={createPageUrl("Services")} className="text-xs text-sky-600 hover:underline font-medium">→ Our Services</Link>
                   <Link to={createPageUrl("QuoteAssistant")} className="text-xs text-sky-600 hover:underline font-medium">→ Get a Free Quote</Link>
-                  <a href="tel:+16019541306" className="text-xs text-green-600 hover:underline font-medium flex items-center gap-1"><Phone className="w-3 h-3" /> Call (601) 954-1306</a>
+                  <a href="tel:+18443514154" className="text-xs text-green-600 hover:underline font-medium flex items-center gap-1"><Phone className="w-3 h-3" /> Call (844) 351-4154</a>
                 </div>
               </div>
             </article>

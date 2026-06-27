@@ -33,6 +33,10 @@
       "type": "string",
       "description": "Alt text for the hero image"
     },
+    "image_prompt": {
+      "type": "string",
+      "description": "The exact prompt used to generate the hero image"
+    },
     "published": {
       "type": "boolean",
       "default": true
