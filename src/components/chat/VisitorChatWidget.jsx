@@ -16,8 +16,11 @@ export default function VisitorChatWidget() {
   const [sending, setSending] = useState(false);
   const [unread, setUnread] = useState(0);
   const bottomRef = useRef(null);
+  const openRef = useRef(open);
+  const lastAgentCountRef = useRef(0);
 
   useEffect(() => {
+    openRef.current = open;
     if (open) setUnread(0);
   }, [open]);
 
@@ -25,18 +28,30 @@ export default function VisitorChatWidget() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
 
+  // Subscribe ONCE per conversation. Re-subscribing on `open`/`messages` changes
+  // was causing the chat to momentarily flash back to "Starting conversation..."
+  // every time the panel re-rendered.
   useEffect(() => {
     if (!conversation) return;
     const unsubscribe = base44.agents.subscribeToConversation(conversation.id, (data) => {
-      setMessages(data.messages || []);
-      if (!open) {
-        const agentMsgs = (data.messages || []).filter(m => m.role === "assistant").length;
-        const prevAgent = messages.filter(m => m.role === "assistant").length;
-        if (agentMsgs > prevAgent) setUnread(u => u + (agentMsgs - prevAgent));
+      const incoming = data?.messages;
+      if (!Array.isArray(incoming)) return;
+
+      // Don't let an early/empty streaming frame wipe the visible history.
+      setMessages((prev) => (incoming.length >= prev.length ? incoming : prev));
+
+      if (!openRef.current) {
+        const agentMsgs = incoming.filter((m) => m.role === "assistant").length;
+        if (agentMsgs > lastAgentCountRef.current) {
+          setUnread((u) => u + (agentMsgs - lastAgentCountRef.current));
+        }
+        lastAgentCountRef.current = agentMsgs;
+      } else {
+        lastAgentCountRef.current = incoming.filter((m) => m.role === "assistant").length;
       }
     });
     return () => unsubscribe();
-  }, [conversation?.id, open]);
+  }, [conversation?.id]);
 
   const startChat = async () => {
     if (!name.trim()) return;
