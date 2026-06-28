@@ -54,17 +54,31 @@ export default function JobCheckinForm() {
   };
 
   const handlePhotos = async (e) => {
-    const files = Array.from(e.target.files || []);
+    const input = e.target;
+    const files = Array.from(input.files || []);
     if (!files.length) return;
     setUploading(true);
     setError("");
     const uploaded = [];
-    for (const file of files) {
-      const res = await base44.integrations.Core.UploadFile({ file });
-      if (res?.file_url) uploaded.push(res.file_url);
+    const failed = [];
+    // Upload in parallel — much faster on phones with several photos.
+    const results = await Promise.allSettled(
+      files.map(file => base44.integrations.Core.UploadFile({ file }))
+    );
+    results.forEach((r, i) => {
+      if (r.status === "fulfilled" && r.value?.file_url) {
+        uploaded.push(r.value.file_url);
+      } else {
+        failed.push(files[i]?.name || `photo ${i + 1}`);
+      }
+    });
+    if (uploaded.length) setPhotos(p => [...p, ...uploaded]);
+    if (failed.length) {
+      setError(`Couldn't upload ${failed.length} photo${failed.length > 1 ? "s" : ""} (${failed.join(", ")}). Try smaller images or check your signal.`);
     }
-    setPhotos(p => [...p, ...uploaded]);
     setUploading(false);
+    // Reset input so the same file can be picked again after a failure.
+    if (input) input.value = "";
   };
 
   const handleSubmit = async (e) => {
@@ -72,19 +86,25 @@ export default function JobCheckinForm() {
     setError("");
     if (!form.passcode) { setError("Passcode required"); return; }
     if (!form.title || !form.service || !form.city) { setError("Title, service, and city are required"); return; }
+    if (uploading) { setError("Photos are still uploading — please wait a moment."); return; }
 
     setSubmitting(true);
-    const res = await base44.functions.invoke("submitJobCheckin", {
-      ...form,
-      photos,
-      latitude: form.latitude ? Number(form.latitude) : undefined,
-      longitude: form.longitude ? Number(form.longitude) : undefined,
-    });
-    setSubmitting(false);
-    if (res.data?.success) {
-      setDone(true);
-    } else {
-      setError(res.data?.error || "Submission failed");
+    try {
+      const res = await base44.functions.invoke("submitJobCheckin", {
+        ...form,
+        photos,
+        latitude: form.latitude ? Number(form.latitude) : undefined,
+        longitude: form.longitude ? Number(form.longitude) : undefined,
+      });
+      if (res.data?.success) {
+        setDone(true);
+      } else {
+        setError(res.data?.error || "Submission failed. Please try again.");
+      }
+    } catch (err) {
+      setError(err?.message || "Network error — please try again.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
