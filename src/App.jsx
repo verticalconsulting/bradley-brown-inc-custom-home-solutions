@@ -23,6 +23,7 @@ import SmsOptin from './pages/SmsOptin';
 import BarndominiumBuilder from './pages/BarndominiumBuilder';
 import FinishPackageStudio from './pages/FinishPackageStudio';
 import LandingBrandonCustomHomeBuilder from './pages/LandingBrandonCustomHomeBuilder';
+import ProTipDetail from './pages/ProTipDetail';
 import JobCheckin from './pages/JobCheckin';
 import Jobsites from './pages/Jobsites';
 import JobsiteDetail from './pages/JobsiteDetail';
@@ -119,6 +120,7 @@ const AuthenticatedApp = () => {
       <Route path="/jobsite-checkin" element={<LayoutWrapper currentPageName="JobCheckin"><JobCheckin /></LayoutWrapper>} />
       <Route path="/jobsites" element={<LayoutWrapper currentPageName="Jobsites"><Jobsites /></LayoutWrapper>} />
       <Route path="/jobsites/:slug" element={<LayoutWrapper currentPageName="JobsiteDetail"><JobsiteDetail /></LayoutWrapper>} />
+      <Route path="/protips/:slug" element={<LayoutWrapper currentPageName="ProTipDetail"><ProTipDetail /></LayoutWrapper>} />
       <Route path="/error" element={<LayoutWrapper currentPageName="ServerError"><ServerError /></LayoutWrapper>} />
       <Route path="*" element={<RedirectHandler><PageNotFound /></RedirectHandler>} />
     </Routes>
