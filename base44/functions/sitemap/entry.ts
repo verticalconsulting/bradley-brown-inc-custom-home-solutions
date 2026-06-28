@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
 
 const SITE_URL = "https://bradleybrowninc.com";
 
@@ -39,16 +39,18 @@ Deno.serve(async (req) => {
 
   const today = new Date().toISOString().split("T")[0];
 
+  // Static pages — loc, lastmod (today), changefreq, priority
   const staticPages = [
     { url: "/", priority: "1.0", changefreq: "weekly" },
+    { url: "/Home", priority: "1.0", changefreq: "weekly" },
     { url: "/Services", priority: "0.9", changefreq: "monthly" },
     { url: "/Portfolio", priority: "0.8", changefreq: "weekly" },
     { url: "/About", priority: "0.7", changefreq: "monthly" },
     { url: "/Contact", priority: "0.8", changefreq: "monthly" },
+    { url: "/ContactForm", priority: "0.8", changefreq: "monthly" },
     { url: "/QuoteAssistant", priority: "0.9", changefreq: "monthly" },
     { url: "/ProTips", priority: "0.8", changefreq: "weekly" },
     { url: "/ScheduleVisit", priority: "0.8", changefreq: "monthly" },
-    { url: "/ContactForm", priority: "0.8", changefreq: "monthly" },
     { url: "/SmallBathroomIdeas", priority: "0.8", changefreq: "monthly" },
     { url: "/LuxuryHomeRenovations", priority: "0.8", changefreq: "monthly" },
     { url: "/LandingCoreServices", priority: "0.9", changefreq: "monthly" },
@@ -59,19 +61,26 @@ Deno.serve(async (req) => {
     { url: "/RenovationLoans", priority: "0.7", changefreq: "monthly" },
     { url: "/HomeAdditionIdeas", priority: "0.7", changefreq: "monthly" },
     { url: "/EnergyEfficientUpgrades", priority: "0.7", changefreq: "monthly" },
-    { url: "/projects/historic-home-restoration", priority: "0.8", changefreq: "monthly" },
-    { url: "/barndominium-builder", priority: "0.9", changefreq: "monthly" },
-    { url: "/thank-you", priority: "0.9", changefreq: "monthly" },
-    { url: "/legal", priority: "0.9", changefreq: "monthly" },
-    { url: "/sms-optin", priority: "0.9", changefreq: "monthly" },
+    { url: "/Legal", priority: "0.3", changefreq: "yearly" },
     { url: "/jobsites", priority: "0.8", changefreq: "weekly" },
-    { url: "/", priority: "0.9", changefreq: "monthly" },
+    { url: "/projects/historic-home-restoration", priority: "0.8", changefreq: "monthly" },
+
+    // Alternate / canonical URL variants
+    { url: "/custom-home-builder-brandon-ms", priority: "0.9", changefreq: "monthly" },
+    { url: "/barndominium-builder", priority: "0.9", changefreq: "monthly" },
+    { url: "/barndominiums-ms", priority: "0.8", changefreq: "monthly" },
+    { url: "/remodeling-ms", priority: "0.8", changefreq: "monthly" },
+    { url: "/quote", priority: "0.8", changefreq: "monthly" },
+    { url: "/customertestimonials", priority: "0.7", changefreq: "monthly" },
+    { url: "/home-remodeling-cost", priority: "0.8", changefreq: "monthly" },
+    { url: "/finish-package-studio", priority: "0.7", changefreq: "monthly" },
   ];
 
-  // Paths that should NEVER appear in the sitemap (noindex / internal / deprecated)
+  // Paths that should NEVER appear in the sitemap (noindex / internal / admin)
   const NOINDEX_PATHS = [
-    "/barndominiums-ms",      // deprecated — replaced by /barndominium-builder
+    "/AgentChat",
     "/ThankYou",
+    "/thank-you",
     "/AccountSettings",
     "/Leads",
     "/CRM",
@@ -80,11 +89,19 @@ Deno.serve(async (req) => {
     "/BlogAdmin",
     "/SiteImages",
     "/ConversionDashboard",
-    "/AgentChat",
     "/TikTokSync",
     "/jobsite-checkin",
+    "/sms-optin",
   ];
-  const filteredStaticPages = staticPages.filter(p => !NOINDEX_PATHS.includes(p.url));
+
+  // De-duplicate static pages and drop noindex paths
+  const seen = new Set();
+  const filteredStaticPages = staticPages.filter(p => {
+    if (NOINDEX_PATHS.includes(p.url)) return false;
+    if (seen.has(p.url)) return false;
+    seen.add(p.url);
+    return true;
+  });
 
   const urlEntries = [
     ...filteredStaticPages.map(page => `
@@ -101,7 +118,7 @@ Deno.serve(async (req) => {
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`),
-    ...jobsites.map(j => `
+    ...jobsites.filter(j => j.slug).map(j => `
   <url>
     <loc>${SITE_URL}/jobsites/${j.slug}</loc>
     <lastmod>${(j.updated_date || j.published_date || j.created_date || today).split("T")[0]}</lastmod>
@@ -110,10 +127,10 @@ Deno.serve(async (req) => {
   </url>`),
     ...blogPosts.filter(b => b.slug).map(b => `
   <url>
-    <loc>${SITE_URL}/ProTips#${b.slug}</loc>
+    <loc>${SITE_URL}/protips/${b.slug}</loc>
     <lastmod>${(b.updated_date || b.created_date || today).split("T")[0]}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>`),
     ...services.filter(s => s.slug).map(s => `
   <url>
