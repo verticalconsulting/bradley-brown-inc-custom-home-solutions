@@ -72,8 +72,7 @@ export default function Barndominiums() {
         title="Barndominium Builder in Brandon, MS — Bradley Brown Inc."
         description="Custom barndominium construction in the Brandon and Rankin County area. Steel frame, open-concept living & workshop combos. Licensed & insured since 1995. Free estimates — call (844) 351-4154."
         schema={schema}
-        canonical="https://bradleybrowninc.com/barndominium-builder"
-        noIndex={true}
+        canonical="https://bradleybrowninc.com/barndominiums-ms"
       />
       <StickyCallButton />
 
