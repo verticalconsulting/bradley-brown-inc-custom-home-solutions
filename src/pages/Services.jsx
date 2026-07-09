@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Home, Wrench, Plus, Leaf, Check, ChevronRight, Phone, Tag, Star, Sparkles, Clock, Shield, Award, ChevronDown } from "lucide-react";
 import { base44 } from "@/api/base44Client";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 const services = [
 {
@@ -404,6 +405,7 @@ export default function Services() {
           </div>
         </div>
       </div>
+      <ExitIntentPopup source="services" />
     </div>);
 
 }

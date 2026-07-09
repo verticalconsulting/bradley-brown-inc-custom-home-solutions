@@ -11,6 +11,7 @@ import CTABanner from "@/components/home/CTABanner";
 import ServiceAreaSection from "@/components/home/ServiceAreaSection";
 import PullToRefresh from "@/components/PullToRefresh";
 import HomeFAQ, { homeFaqs } from "@/components/home/HomeFAQ";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 const faqPageSchema = {
   "@context": "https://schema.org",
@@ -53,6 +54,7 @@ export default function Home() {
         </div>
         <HomeFAQ />
         <CTABanner />
+        <ExitIntentPopup source="home" />
       </div>
     </PullToRefresh>
   );
