@@ -6,7 +6,7 @@ import { Home, Wrench, Image, Sparkles, Phone } from "lucide-react";
 const tabs = [
   { label: "Home",      page: "Home",        icon: Home  },
   { label: "Services",  page: "Services",    icon: Wrench },
-  { label: "Estimate",  page: "QuoteAssistant", icon: Sparkles, highlight: true },
+  { label: "Get Quote", page: "ContactForm", icon: Sparkles, highlight: true },
   { label: "Portfolio", page: "Portfolio",   icon: Image },
   { label: "Contact",   page: "Contact",     icon: Phone },
 ];

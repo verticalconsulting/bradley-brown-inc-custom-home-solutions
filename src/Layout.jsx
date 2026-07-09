@@ -164,11 +164,21 @@ export default function Layout({ children, currentPageName }) {
                 <Phone className="w-4 h-4" />
                 (844) 351-4154
               </a>
+              {/* Desktop quote CTA */}
               <Link
                 to={createPageUrl("ContactForm")} className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-[#37b5eb]/[0.7]">
 
 
                 Get a Quote <ChevronRight className="w-3 h-3" />
+              </Link>
+
+              {/* Mobile quote CTA — thumb-sized, always visible in the header */}
+              <Link
+                to={createPageUrl("ContactForm")}
+                onClick={() => base44.analytics.track({ eventName: "header_quote_clicked", properties: { source: "mobile_header" } })}
+                className="md:hidden inline-flex items-center gap-1 bg-[#C4922A] hover:bg-[#A37820] text-white px-3.5 py-2.5 min-h-[44px] rounded-lg text-sm font-bold shadow-sm transition-colors"
+                aria-label="Get a free quote">
+                Get Quote
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
