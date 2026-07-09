@@ -20,39 +20,61 @@ export default function LeadCaptureForm({ source = "Website", onSuccess }) {
   const [smsConsent, setSmsConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const update = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return; // Prevent double-submits
+    setError("");
     setLoading(true);
 
-    await base44.entities.Lead.create({
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      address: form.address,
-      project_type: form.project_type,
-      message: form.message,
-      source,
-      status: "new",
-    });
+    try {
+      await base44.entities.Lead.create({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        address: form.address,
+        project_type: form.project_type,
+        message: smsConsent
+          ? `${form.message}${form.message ? "\n\n" : ""}[SMS consent: yes]`
+          : form.message,
+        source,
+        status: "new",
+      });
 
-    base44.analytics.track({
-      eventName: "lead_captured",
-      properties: { source, project_type: form.project_type },
-    });
+      base44.analytics.track({
+        eventName: "lead_captured",
+        properties: { source, project_type: form.project_type },
+      });
 
-    // Also send to Formspree for email notification
-    fetch("https://formspree.io/f/xeeranrd", {
-      method: "POST",
-      headers: { "Accept": "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({ ...form, source }),
-    });
+      // Fire Google Ads conversion pixel (best-effort — never block success)
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "conversion", {
+          send_to: "AW-17864041271/aquote_form",
+          value: 75,
+          currency: "USD",
+        });
+      }
 
-    setLoading(false);
-    setSubmitted(true);
-    if (onSuccess) onSuccess(form);
+      // Fire-and-forget Formspree email notification — do NOT await, do NOT let it break submit
+      fetch("https://formspree.io/f/xeeranrd", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, source, sms_consent: smsConsent ? "yes" : "no" }),
+      }).catch(() => { /* ignore — lead is already saved */ });
+
+      setSubmitted(true);
+      if (onSuccess) onSuccess(form);
+    } catch (err) {
+      console.error("Lead submission failed:", err);
+      setError(
+        "Something went wrong sending your request. Please try again, or call us directly at (844) 351-4154."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -142,6 +164,12 @@ export default function LeadCaptureForm({ source = "Website", onSuccess }) {
           <span className="text-slate-400">Message frequency varies. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase.</span>
         </label>
       </div>
+
+      {error && (
+        <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+          {error}
+        </div>
+      )}
 
       <button
         type="submit" disabled={loading}
