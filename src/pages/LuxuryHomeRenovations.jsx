@@ -5,6 +5,7 @@ import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
+import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 import { base44 } from "@/api/base44Client";
 
 const schema = {
@@ -198,6 +199,7 @@ export default function LuxuryHomeRenovations() {
       </div>
 
       <LandingCTABar headline="Ready for a luxury renovation? Let's talk details." />
+      <ServiceStickyCTA source="luxury_reno_page" label="Get a Free Quote" />
     </div>);
 
 }

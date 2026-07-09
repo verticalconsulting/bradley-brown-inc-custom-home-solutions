@@ -5,6 +5,7 @@ import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
+import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 import { base44 } from "@/api/base44Client";
 
 const schema = {
@@ -196,6 +197,7 @@ export default function SmallBathroomIdeas() {
       </div>
 
       <LandingCTABar headline="Ready to transform your bathroom? Let's talk." />
+      <ServiceStickyCTA source="small_bathroom_page" label="Get a Free Quote" />
     </div>
   );
 }

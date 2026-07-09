@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { Phone, ChevronRight, CheckCircle, Home, Clock, DollarSign, MapPin, Star } from "lucide-react";
+import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 import { base44 } from "@/api/base44Client";
 
 const schema = {
@@ -246,6 +247,7 @@ export default function HistoricHomeRestoration() {
         </section>
 
       </div>
+      <ServiceStickyCTA source="historic_restoration_page" label="Get a Free Quote" />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { ChevronRight, Phone, CheckCircle, Home, Plus, Star } from "lucide-react";
+import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 
 const additions = [
   {
@@ -194,6 +195,7 @@ export default function HomeAdditionIdeas() {
           </div>
         </div>
       </div>
+      <ServiceStickyCTA source="home_additions_page" label="Get a Free Quote" />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { ChevronRight, Phone, Zap, CheckCircle, DollarSign, Leaf, Wind, Sun, Thermometer, Home } from "lucide-react";
+import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 
 const upgrades = [
   {
@@ -200,6 +201,7 @@ export default function EnergyEfficientUpgrades() {
           </div>
         </div>
       </div>
+      <ServiceStickyCTA source="energy_upgrades_page" label="Get a Free Quote" />
     </div>
   );
 }

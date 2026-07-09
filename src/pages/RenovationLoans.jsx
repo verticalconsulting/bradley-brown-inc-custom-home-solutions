@@ -3,6 +3,7 @@ import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { DollarSign, CheckCircle, Phone, ChevronRight, Home, CreditCard, Landmark, Shield } from "lucide-react";
+import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 
 const loanOptions = [
   {
@@ -189,6 +190,7 @@ export default function RenovationLoans() {
           </div>
         </div>
       </div>
+      <ServiceStickyCTA source="renovation_loans_page" label="Get a Free Quote" />
     </div>
   );
 }
