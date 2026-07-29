@@ -4,6 +4,19 @@ Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
 
+    // Require an authenticated caller. This function is triggered by an internal
+    // entity-create automation, which runs with an authenticated context. Anonymous
+    // external POSTs would otherwise be able to flood Twilio and the admin phone.
+    let caller = null;
+    try {
+      caller = await base44.auth.me();
+    } catch {
+      caller = null;
+    }
+    if (!caller) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     // Fail fast if Twilio not configured
     const accountSid = Deno.env.get("TWILIO_ACCOUNT_SID");
     const authToken = Deno.env.get("TWILIO_AUTH_TOKEN");

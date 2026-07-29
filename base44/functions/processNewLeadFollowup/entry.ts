@@ -30,6 +30,21 @@ bradleybrowninc@gmail.com`
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
+
+    // Require an authenticated caller. This function is only meant to run from
+    // the internal Lead/QuoteRequest create automation. Blocking anonymous callers
+    // prevents unauthorized creation or modification of Client CRM records
+    // through the service-role writes below.
+    let caller = null;
+    try {
+      caller = await base44.auth.me();
+    } catch {
+      caller = null;
+    }
+    if (!caller) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const payload = await req.json();
 
     // Resolve lead data (handle large-payload case)
