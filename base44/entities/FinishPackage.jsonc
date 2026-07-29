@@ -60,14 +60,7 @@
     "selected_theme"
   ],
   "rls": {
-    "create": {
-      "$or": [
-        {},
-        {
-          "user_authenticated": false
-        }
-      ]
-    },
+    "create": null,
     "read": {
       "$or": [
         {
