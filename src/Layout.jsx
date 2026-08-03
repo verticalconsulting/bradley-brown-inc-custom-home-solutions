@@ -175,7 +175,7 @@ export default function Layout({ children, currentPageName }) {
               {/* Mobile quote CTA — thumb-sized, always visible in the header */}
               <Link
                 to={createPageUrl("ContactForm")}
-                onClick={() => base44.analytics.track({ eventName: "header_quote_clicked", properties: { source: "mobile_header" } })}
+                onClick={() => base44.analytics.track({ eventName: "mobile_header_quote_clicked", properties: { source: "mobile_header_sticky", page: currentPageName || "unknown" } })}
                 className="md:hidden inline-flex items-center gap-1 bg-[#C4922A] hover:bg-[#A37820] text-white px-3.5 py-2.5 min-h-[44px] rounded-lg text-sm font-bold shadow-sm transition-colors"
                 aria-label="Get a free quote">
                 Get Quote
@@ -225,6 +225,7 @@ export default function Layout({ children, currentPageName }) {
                 </a>
                 <Link
                 to={createPageUrl("ContactForm")}
+                onClick={() => base44.analytics.track({ eventName: "mobile_menu_quote_clicked", properties: { source: "mobile_menu", page: currentPageName || "unknown" } })}
                 className="block bg-sky-400 text-white px-4 py-3 rounded-lg text-center font-semibold hover:bg-sky-500 transition-colors">
 
                   Get a Free Quote →
