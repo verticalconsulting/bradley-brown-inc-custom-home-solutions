@@ -20,18 +20,18 @@
 
 export const REDIRECT_MAP = [
   // ---- Exact-match legacy paths ----
-  { from: "/projects", to: "/Portfolio", type: 301 },
-  { from: "/projects/custom-home-build", to: "/Portfolio", type: 301 },
-  { from: "/projects/gourmet-kitchen-renovation", to: "/Portfolio", type: 301 },
-  { from: "/projects/two-story-home-addition", to: "/Portfolio", type: 301 },
-  { from: "/ai-quote", to: "/QuoteAssistant", type: 301 },
-  { from: "/blog", to: "/ProTips", type: 301 },
-  { from: "/estimate", to: "/QuoteAssistant", type: 301 },
-  { from: "/free-quote", to: "/ContactForm", type: 301 },
+  { from: "/projects", to: "/portfolio", type: 301 },
+  { from: "/projects/custom-home-build", to: "/portfolio", type: 301 },
+  { from: "/projects/gourmet-kitchen-renovation", to: "/portfolio", type: 301 },
+  { from: "/projects/two-story-home-addition", to: "/portfolio", type: 301 },
+  { from: "/ai-quote", to: "/quoteassistant", type: 301 },
+  { from: "/blog", to: "/protips", type: 301 },
+  { from: "/estimate", to: "/quoteassistant", type: 301 },
+  { from: "/free-quote", to: "/contactform", type: 301 },
 
   // ---- Regex patterns ----
-  // e.g. /service/kitchen-remodel → /Services
-  { pattern: /^\/service\/[^/]+\/?$/i, to: () => "/Services", type: 301 },
+  // e.g. /service/kitchen-remodel → /services
+  { pattern: /^\/service\/[^/]+\/?$/i, to: () => "/services", type: 301 },
 ];
 
 /**

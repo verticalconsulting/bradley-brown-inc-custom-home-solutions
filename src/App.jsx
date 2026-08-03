@@ -38,6 +38,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import HeadingHierarchyChecker from '@/components/seo/HeadingHierarchyChecker';
 import WebVitalsReporter from '@/components/perf/WebVitalsReporter';
 import PerformanceAuditor from '@/components/perf/PerformanceAuditor';
+import LowercaseRedirect from '@/components/LowercaseRedirect';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -81,7 +82,7 @@ const AuthenticatedApp = () => {
       {Object.entries(Pages).map(([path, Page]) => (
         <Route
           key={path}
-          path={`/${path}`}
+          path={`/${path.toLowerCase()}`}
           element={
             <LayoutWrapper currentPageName={path}>
               <Page />
@@ -89,14 +90,14 @@ const AuthenticatedApp = () => {
           }
         />
       ))}
-      <Route path="/SEODashboard" element={<LayoutWrapper currentPageName="SEODashboard"><AdminRoute><SEODashboard /></AdminRoute></LayoutWrapper>} />
-      <Route path="/FunnelAnalysis" element={<LayoutWrapper currentPageName="FunnelAnalysis"><AdminRoute><FunnelAnalysis /></AdminRoute></LayoutWrapper>} />
-      <Route path="/ContactForm" element={<LayoutWrapper currentPageName="ContactForm"><ContactForm /></LayoutWrapper>} />
+      <Route path="/seodashboard" element={<LayoutWrapper currentPageName="SEODashboard"><AdminRoute><SEODashboard /></AdminRoute></LayoutWrapper>} />
+      <Route path="/funnelanalysis" element={<LayoutWrapper currentPageName="FunnelAnalysis"><AdminRoute><FunnelAnalysis /></AdminRoute></LayoutWrapper>} />
+      <Route path="/contactform" element={<LayoutWrapper currentPageName="ContactForm"><ContactForm /></LayoutWrapper>} />
       <Route path="/thank-you" element={<LayoutWrapper currentPageName="ThankYou"><ThankYou /></LayoutWrapper>} />
-      <Route path="/Leads" element={<LayoutWrapper currentPageName="Leads"><AdminRoute><Leads /></AdminRoute></LayoutWrapper>} />
-      <Route path="/SiteImages" element={<LayoutWrapper currentPageName="SiteImages"><AdminRoute><SiteImages /></AdminRoute></LayoutWrapper>} />
-      <Route path="/BlogAdmin" element={<LayoutWrapper currentPageName="BlogAdmin"><AdminRoute><BlogAdmin /></AdminRoute></LayoutWrapper>} />
-      <Route path="/ConversionDashboard" element={<LayoutWrapper currentPageName="ConversionDashboard"><AdminRoute><ConversionDashboard /></AdminRoute></LayoutWrapper>} />
+      <Route path="/leads" element={<LayoutWrapper currentPageName="Leads"><AdminRoute><Leads /></AdminRoute></LayoutWrapper>} />
+      <Route path="/siteimages" element={<LayoutWrapper currentPageName="SiteImages"><AdminRoute><SiteImages /></AdminRoute></LayoutWrapper>} />
+      <Route path="/blogadmin" element={<LayoutWrapper currentPageName="BlogAdmin"><AdminRoute><BlogAdmin /></AdminRoute></LayoutWrapper>} />
+      <Route path="/conversiondashboard" element={<LayoutWrapper currentPageName="ConversionDashboard"><AdminRoute><ConversionDashboard /></AdminRoute></LayoutWrapper>} />
       <Route path="/projects/historic-home-restoration" element={<LayoutWrapper currentPageName="HistoricHomeRestoration"><HistoricHomeRestoration /></LayoutWrapper>} />
       <Route path="/quote" element={<LayoutWrapper currentPageName="ContactForm"><Quote /></LayoutWrapper>} />
       <Route path="/customertestimonials" element={<LayoutWrapper currentPageName="LandingTrust"><LandingTrust /></LayoutWrapper>} />
@@ -104,18 +105,16 @@ const AuthenticatedApp = () => {
       <Route path="/home-remodeling-cost" element={<LayoutWrapper currentPageName="LandingPricing"><LandingPricing /></LayoutWrapper>} />
       <Route path="/barndominiums-ms" element={<LayoutWrapper currentPageName="Barndominiums"><Barndominiums /></LayoutWrapper>} />
       <Route path="/barndominium-builder" element={<LayoutWrapper currentPageName="BarndominiumBuilder"><BarndominiumBuilder /></LayoutWrapper>} />
-      <Route path="/BarndominiumBuilder" element={<LayoutWrapper currentPageName="BarndominiumBuilder"><BarndominiumBuilder /></LayoutWrapper>} />
       <Route path="/finish-package-studio" element={<LayoutWrapper currentPageName="FinishPackageStudio"><FinishPackageStudio /></LayoutWrapper>} />
-      <Route path="/FinishPackageStudio" element={<LayoutWrapper currentPageName="FinishPackageStudio"><FinishPackageStudio /></LayoutWrapper>} />
       <Route path="/custom-home-builder-brandon-ms" element={<LayoutWrapper currentPageName="LandingBrandonCustomHomeBuilder"><LandingBrandonCustomHomeBuilder /></LayoutWrapper>} />
 
       {/* Legacy / alternate URL redirects (Google Ads + old backlinks) */}
-      {/* Note: React Router matches paths case-insensitively, so /about → /About and /contact → /Contact already work automatically. Only non-matching legacy paths are redirected below. */}
-      <Route path="/projects" element={<Navigate to="/Portfolio" replace />} />
-      <Route path="/projects/custom-home-build" element={<Navigate to="/Portfolio" replace />} />
-      <Route path="/projects/gourmet-kitchen-renovation" element={<Navigate to="/Portfolio" replace />} />
-      <Route path="/projects/two-story-home-addition" element={<Navigate to="/Portfolio" replace />} />
-      <Route path="/ai-quote" element={<Navigate to="/QuoteAssistant" replace />} />
+      {/* LowercaseRedirect handles all uppercase → lowercase case redirects. Only non-matching legacy paths are redirected below. */}
+      <Route path="/projects" element={<Navigate to="/portfolio" replace />} />
+      <Route path="/projects/custom-home-build" element={<Navigate to="/portfolio" replace />} />
+      <Route path="/projects/gourmet-kitchen-renovation" element={<Navigate to="/portfolio" replace />} />
+      <Route path="/projects/two-story-home-addition" element={<Navigate to="/portfolio" replace />} />
+      <Route path="/ai-quote" element={<Navigate to="/quoteassistant" replace />} />
       <Route path="/sms-optin" element={<LayoutWrapper currentPageName="SmsOptin"><SmsOptin /></LayoutWrapper>} />
       <Route path="/jobsite-checkin" element={<LayoutWrapper currentPageName="JobCheckin"><JobCheckin /></LayoutWrapper>} />
       <Route path="/jobsites" element={<LayoutWrapper currentPageName="Jobsites"><Jobsites /></LayoutWrapper>} />
@@ -135,6 +134,7 @@ function App() {
       <AuthProvider>
         <QueryClientProvider client={queryClientInstance}>
           <Router>
+            <LowercaseRedirect />
             <NavigationTracker />
             <HeadingHierarchyChecker />
             <WebVitalsReporter />
