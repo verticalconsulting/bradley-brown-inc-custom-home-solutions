@@ -55,7 +55,7 @@ export default function JobsiteDetail() {
           "name": "Bradley Brown Inc.",
           "logo": { "@type": "ImageObject", "url": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png" }
         },
-        "mainEntityOfPage": url,
+        "mainEntityOfPage": { "@type": "WebPage", "@id": url },
         "contentLocation": {
           "@type": "Place",
           "name": locationStr,
@@ -68,7 +68,7 @@ export default function JobsiteDetail() {
       {
         "@type": "Service",
         "name": serviceLabel,
-        "provider": { "@id": "https://bradleybrowninc.com/#localbusiness" },
+        "provider": { "@type": "HomeAndConstructionBusiness", "name": "Bradley Brown Inc.", "telephone": "+18443514154" },
         "areaServed": item.latitude && item.longitude ? {
           "@type": "GeoCircle",
           "geoMidpoint": { "@type": "GeoCoordinates", "latitude": item.latitude, "longitude": item.longitude },

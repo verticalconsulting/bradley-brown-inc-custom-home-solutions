@@ -13,19 +13,22 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@type": "HomeAndConstructionBusiness",
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
       "email": "bradleybrowninc@gmail.com",
       "url": "https://bradleybrowninc.com",
-      "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
+      "address": { "@type": "PostalAddress", "streetAddress": "104 Tiffany Drive", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
+      "foundingDate": "1995",
       "priceRange": "$$$",
-      "sameAs": ["https://www.facebook.com/BradleyBrownInc", "https://www.tiktok.com/@bb859876"]
+      "sameAs": ["https://www.facebook.com/BradleyBrownInc", "https://www.tiktok.com/@bb859876", "https://www.bbb.org"],
+      "areaServed": [{ "@type": "City", "name": "Brandon, Mississippi" }, { "@type": "AdministrativeArea", "name": "Rankin County, Mississippi" }]
     },
     {
       "@type": "Service",
       "name": "Barndominium Construction",
-      "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+      "provider": { "@type": "HomeAndConstructionBusiness", "name": "Bradley Brown Inc." },
       "areaServed": "Brandon, MS and surrounding 50-mile radius",
       "description": "Custom barndominium builds in the Brandon and Rankin County area — steel frame, open-concept living, and workshop space combined in one beautiful structure."
     },

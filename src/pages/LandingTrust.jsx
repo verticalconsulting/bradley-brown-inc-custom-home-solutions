@@ -15,18 +15,18 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@type": "HomeAndConstructionBusiness",
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87", "bestRating": "5" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": 87, "bestRating": "5" },
       "sameAs": ["https://www.facebook.com/BradleyBrownInc", "https://www.tiktok.com/@bb859876", "https://www.bbb.org"]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Why Trust Us", "item": "https://bradleybrowninc.com/LandingTrust" }
+        { "@type": "ListItem", "position": 2, "name": "Why Trust Us", "item": "https://bradleybrowninc.com/customertestimonials" }
       ]
     },
     {
@@ -38,7 +38,7 @@ const schema = {
     },
     {
       "@type": "Review",
-      "itemReviewed": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+      "itemReviewed": { "@type": "HomeAndConstructionBusiness", "name": "Bradley Brown Inc." },
       "author": { "@type": "Person", "name": "Sarah M." },
       "reviewRating": { "@type": "Rating", "ratingValue": "5" },
       "reviewBody": "Bradley Brown built our custom home in Brandon and the craftsmanship is incredible. 10/10 would recommend."
@@ -70,7 +70,7 @@ export default function LandingTrust() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Why Trust Bradley Brown Inc. — Certified MS Builder"
-        description="Licensed MS contractor since 1995. 4.9★ rated, BBB member, NAHB & MSHBA certified. Call (844) 351-4154."
+        description="Licensed Mississippi contractor since 1995. 4.9-star rated with 87 reviews. BBB member, NAHB & MSHBA certified. 500+ homes built across Brandon and Rankin County. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/customertestimonials"
       />

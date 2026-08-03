@@ -27,17 +27,16 @@ const truncate = (str, max = 160) => {
   return str.length > max ? `${str.slice(0, max - 1).trimEnd()}…` : str;
 };
 
-const MAX_TITLE_LEN = 60;
 const buildTitle = (title) => {
   if (!title) return SITE_NAME;
-  // Prevent doubled suffix: check case-insensitively, ignoring trailing period
-  const siteNameNorm = SITE_NAME.toLowerCase().replace(/\.$/, "");
-  if (title.toLowerCase().includes(siteNameNorm)) {
-    return title.length > MAX_TITLE_LEN ? title.slice(0, MAX_TITLE_LEN - 1).trimEnd() + "…" : title;
+  if (/Bradley Brown/i.test(title)) {
+    return title.length > 60 ? title.slice(0, 57).trimEnd() + "…" : title;
   }
   const suffix = ` | ${SITE_NAME}`;
-  const maxTitleLen = MAX_TITLE_LEN - suffix.length;
-  return `${title.slice(0, maxTitleLen).trimEnd()}${suffix}`;
+  if (title.length + suffix.length > 60) {
+    title = title.slice(0, 60 - suffix.length - 1).trimEnd() + "…";
+  }
+  return `${title}${suffix}`;
 };
 
 

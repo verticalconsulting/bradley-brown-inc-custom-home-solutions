@@ -13,7 +13,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@type": "HomeAndConstructionBusiness",
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
       "email": "bradleybrowninc@gmail.com",
@@ -30,7 +30,7 @@ const schema = {
     {
       "@type": "Service",
       "name": "Home Remodeling & Renovation",
-      "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+      "provider": { "@type": "HomeAndConstructionBusiness", "name": "Bradley Brown Inc." },
       "areaServed": "Brandon, MS and surrounding 50-mile radius",
       "description": "Kitchen renovation, bathroom remodeling, whole-home renovations, and energy-efficient upgrades in the Brandon and Rankin County area."
     },
@@ -38,7 +38,7 @@ const schema = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Core Services", "item": "https://bradleybrowninc.com/LandingCoreServices" }
+        { "@type": "ListItem", "position": 2, "name": "Core Services", "item": "https://bradleybrowninc.com/remodeling-ms" }
       ]
     },
     {
@@ -146,7 +146,7 @@ export default function LandingCoreServices() {
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
-              to="/LandingBrandonRemodelers"
+              to="/landingbrandonremodelers"
               className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
             >
               Home Remodeling in Brandon, MS <ChevronRight className="w-4 h-4" />

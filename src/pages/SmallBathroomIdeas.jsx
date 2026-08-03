@@ -182,6 +182,7 @@ export default function SmallBathroomIdeas() {
           <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Services & Pages</h3>
           <div className="flex flex-wrap gap-2">
             {[
+              { label: "Bathroom Remodeling — Brandon, MS", page: "BathroomRemodelingBrandon" },
               { label: "All Remodeling Services", page: "Services" },
               { label: "Get a Free Quote", page: "QuoteAssistant" },
               { label: "Schedule a Site Visit", page: "ScheduleVisit" },

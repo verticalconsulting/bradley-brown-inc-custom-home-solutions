@@ -60,7 +60,7 @@ export default function Contact() {
         title="Contact Bradley Brown Inc. — Brandon, MS Contractor"
         description="Contact Central Mississippi's trusted home remodeler. Call (844) 351-4154 or message us — serving Brandon, Flowood, Pearl, Madison & surrounding areas. Free estimates."
         schema={localBusinessSchema}
-        canonical="https://bradleybrowninc.com/Contact"
+        canonical="https://bradleybrowninc.com/contact"
       />
       <div className="bg-[#1E2D3D] py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">

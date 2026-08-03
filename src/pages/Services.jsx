@@ -47,6 +47,7 @@ const services = [
   name: "Home Renovations & Remodeling",
   related: [
     { label: "Luxury Home Renovations", page: "LuxuryHomeRenovations" },
+    { label: "Bathroom Remodeling — Brandon, MS", page: "BathroomRemodelingBrandon" },
     { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
     { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
     { label: "Renovation Loans & Financing", page: "RenovationLoans" },
@@ -112,8 +113,8 @@ const services = [
   color: "green",
   name: "Outdoor Living Spaces & Decks",
   related: [
-    { label: "Barndominiums in Mississippi", page: "Barndominiums" },
-    { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
+    { label: "Barndominium Builder — MS", page: "BarndominiumBuilder" },
+    { label: "Barndominium Cost — Mississippi", page: "BarndominiumCost" },
     { label: "Pricing & Cost Guide", page: "LandingPricing" },
   ],
   tagline: "Mississippi's climate is made for outdoor living — let's build yours.",
@@ -379,7 +380,10 @@ export default function Services() {
             { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
             { label: "Brandon, MS Remodelers", page: "LandingBrandonRemodelers" },
             { label: "Emergency Home Repairs", page: "LandingEmergencyRepair" },
-            { label: "Barndominiums in Mississippi", page: "Barndominiums" },
+            { label: "Barndominium Builder — MS", page: "BarndominiumBuilder" },
+            { label: "Barndominium Cost — Mississippi", page: "BarndominiumCost" },
+            { label: "Bathroom Remodeling — Brandon, MS", page: "BathroomRemodelingBrandon" },
+            { label: "Madison, MS Home Remodeling", page: "MadisonRemodeling" },
             { label: "Contact Us", page: "Contact" }].
             map((link) =>
             <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-100 transition-colors">

@@ -11,7 +11,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@type": "HomeAndConstructionBusiness",
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
@@ -23,14 +23,14 @@ const schema = {
     {
       "@type": "Service",
       "name": "Emergency Home Repair",
-      "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+      "provider": { "@type": "HomeAndConstructionBusiness", "name": "Bradley Brown Inc." },
       "areaServed": "Brandon, MS and surrounding 50-mile radius"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Emergency Repair", "item": "https://bradleybrowninc.com/LandingEmergencyRepair" }
+        { "@type": "ListItem", "position": 2, "name": "Emergency Repair", "item": "https://bradleybrowninc.com/landingemergencyrepair" }
       ]
     },
     {
@@ -58,9 +58,9 @@ export default function LandingEmergencyRepair() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Emergency Home Repairs — Call Bradley Brown Now"
-        description="Urgent home repairs in Brandon, MS — storm damage, leaks & structural issues. Call (844) 351-4154 for fast response."
+        description="Urgent home repairs in Brandon, MS — storm damage, roof leaks, structural issues & water intrusion. Licensed MS contractor since 1995. Same-week service. Call (844) 351-4154 now."
         schema={schema}
-        canonical="https://bradleybrowninc.com/LandingEmergencyRepair"
+        canonical="https://bradleybrowninc.com/landingemergencyrepair"
       />
       <StickyCallButton />
 

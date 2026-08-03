@@ -13,10 +13,21 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Bradley Brown Inc.",
+      "telephone": "+18443514154",
+      "address": { "@type": "PostalAddress", "streetAddress": "104 Tiffany Drive", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
+      "foundingDate": "1995",
+      "priceRange": "$$$",
+      "sameAs": ["https://www.facebook.com/BradleyBrownInc", "https://www.tiktok.com/@bb859876", "https://www.bbb.org"],
+      "areaServed": [{ "@type": "City", "name": "Brandon, Mississippi" }, { "@type": "AdministrativeArea", "name": "Rankin County, Mississippi" }]
+    },
+    {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://bradleybrowninc.com/LandingPricing" }
+        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://bradleybrowninc.com/home-remodeling-cost" }
       ]
     },
     {
@@ -54,7 +65,7 @@ export default function LandingPricing() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling Cost in Brandon, MS — Bradley Brown"
-        description="Transparent pricing for kitchens, baths & custom homes in Brandon, MS. Call (844) 351-4154 for a free estimate."
+        description="Transparent pricing for kitchens, baths & custom homes in Brandon, MS. See cost ranges for every project type. Licensed & insured since 1995. Free estimates — call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/home-remodeling-cost"
       />

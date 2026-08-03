@@ -6,6 +6,7 @@ import { createPageUrl } from "@/utils";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";
 import SEOHead from "@/components/SEOHead";
+import { Helmet } from "react-helmet-async";
 
 export default function ProTipDetail() {
   const { slug } = useParams();
@@ -66,6 +67,22 @@ export default function ProTipDetail() {
   const canonical = `https://bradleybrowninc.com/protips/${post.slug}`;
   const description = post.meta_description || post.excerpt || `Expert home remodeling advice from Bradley Brown Inc. — ${post.title}`;
 
+  const howToSteps = (post.content || '').match(/^##\s+.+$/gm)?.map(s => s.replace(/^##\s+/, '').trim()) || [];
+  const isHowTo = /how to/i.test(post.title) || howToSteps.length >= 3;
+  const howToData = isHowTo ? {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": post.title,
+    "description": description,
+    ...(post.image_url && { image: post.image_url }),
+    step: howToSteps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s,
+      text: s,
+    })),
+  } : null;
+
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
@@ -83,10 +100,17 @@ export default function ProTipDetail() {
           content: post.content,
           type: "BlogPosting",
           categories: [
-            { name: "Pro Tips", url: "https://bradleybrowninc.com/ProTips" },
+            { name: "Pro Tips", url: "https://bradleybrowninc.com/protips" },
           ],
         }}
       />
+      {howToData && (
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify(howToData)}
+          </script>
+        </Helmet>
+      )}
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
         <button
