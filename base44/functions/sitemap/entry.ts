@@ -9,63 +9,52 @@ Deno.serve(async (req) => {
   let projects = [];
   try {
     projects = await base44.asServiceRole.entities.Project.filter({ status: "published" });
-  } catch (_) {
-    // Continue with static pages only
-  }
+  } catch (_) {}
 
   // Fetch published jobsite check-ins
   let jobsites = [];
   try {
     jobsites = await base44.asServiceRole.entities.JobCheckin.filter({ status: "published" });
-  } catch (_) {
-    // Continue
-  }
+  } catch (_) {}
 
   // Fetch published blog posts
   let blogPosts = [];
   try {
     blogPosts = await base44.asServiceRole.entities.BlogPost.filter({ published: true });
-  } catch (_) {
-    // Continue
-  }
+  } catch (_) {}
 
   // Fetch active services
   let services = [];
   try {
     services = await base44.asServiceRole.entities.Service.filter({ active: true });
-  } catch (_) {
-    // Continue
-  }
+  } catch (_) {}
 
   const today = new Date().toISOString().split("T")[0];
 
-  // Static pages — loc, lastmod (today), changefreq, priority
+  // Static pages — all lowercase to match canonical URLs
   const staticPages = [
     { url: "/", priority: "1.0", changefreq: "weekly" },
-    { url: "/Home", priority: "1.0", changefreq: "weekly" },
-    { url: "/Services", priority: "0.9", changefreq: "monthly" },
-    { url: "/Portfolio", priority: "0.8", changefreq: "weekly" },
-    { url: "/About", priority: "0.7", changefreq: "monthly" },
-    { url: "/Contact", priority: "0.8", changefreq: "monthly" },
-    { url: "/ContactForm", priority: "0.8", changefreq: "monthly" },
-    { url: "/QuoteAssistant", priority: "0.9", changefreq: "monthly" },
-    { url: "/ProTips", priority: "0.8", changefreq: "weekly" },
-    { url: "/ScheduleVisit", priority: "0.8", changefreq: "monthly" },
-    { url: "/SmallBathroomIdeas", priority: "0.8", changefreq: "monthly" },
-    { url: "/LuxuryHomeRenovations", priority: "0.8", changefreq: "monthly" },
-    { url: "/LandingCoreServices", priority: "0.9", changefreq: "monthly" },
-    { url: "/LandingEmergencyRepair", priority: "0.9", changefreq: "monthly" },
-    { url: "/LandingBrandonRemodelers", priority: "0.9", changefreq: "monthly" },
-    { url: "/LandingPricing", priority: "0.8", changefreq: "monthly" },
-    { url: "/LandingTrust", priority: "0.8", changefreq: "monthly" },
-    { url: "/RenovationLoans", priority: "0.7", changefreq: "monthly" },
-    { url: "/HomeAdditionIdeas", priority: "0.7", changefreq: "monthly" },
-    { url: "/EnergyEfficientUpgrades", priority: "0.7", changefreq: "monthly" },
-    { url: "/Legal", priority: "0.3", changefreq: "yearly" },
+    { url: "/services", priority: "0.9", changefreq: "monthly" },
+    { url: "/portfolio", priority: "0.8", changefreq: "weekly" },
+    { url: "/about", priority: "0.7", changefreq: "monthly" },
+    { url: "/contact", priority: "0.8", changefreq: "monthly" },
+    { url: "/contactform", priority: "0.8", changefreq: "monthly" },
+    { url: "/quoteassistant", priority: "0.9", changefreq: "monthly" },
+    { url: "/protips", priority: "0.8", changefreq: "weekly" },
+    { url: "/schedulevisit", priority: "0.8", changefreq: "monthly" },
+    { url: "/smallbathroomideas", priority: "0.8", changefreq: "monthly" },
+    { url: "/luxuryhomerenovations", priority: "0.8", changefreq: "monthly" },
+    { url: "/landingcoreservices", priority: "0.9", changefreq: "monthly" },
+    { url: "/landingemergencyrepair", priority: "0.9", changefreq: "monthly" },
+    { url: "/landingbrandonremodelers", priority: "0.9", changefreq: "monthly" },
+    { url: "/landingpricing", priority: "0.8", changefreq: "monthly" },
+    { url: "/landingtrust", priority: "0.7", changefreq: "monthly" },
+    { url: "/renovationloans", priority: "0.7", changefreq: "monthly" },
+    { url: "/homeadditionideas", priority: "0.7", changefreq: "monthly" },
+    { url: "/energyefficientupgrades", priority: "0.7", changefreq: "monthly" },
+    { url: "/legal", priority: "0.3", changefreq: "yearly" },
     { url: "/jobsites", priority: "0.8", changefreq: "weekly" },
     { url: "/projects/historic-home-restoration", priority: "0.8", changefreq: "monthly" },
-
-    // Alternate / canonical URL variants
     { url: "/custom-home-builder-brandon-ms", priority: "0.9", changefreq: "monthly" },
     { url: "/barndominium-builder", priority: "0.9", changefreq: "monthly" },
     { url: "/barndominiums-ms", priority: "0.8", changefreq: "monthly" },
@@ -78,20 +67,10 @@ Deno.serve(async (req) => {
 
   // Paths that should NEVER appear in the sitemap (noindex / internal / admin)
   const NOINDEX_PATHS = [
-    "/AgentChat",
-    "/ThankYou",
-    "/thank-you",
-    "/AccountSettings",
-    "/Leads",
-    "/CRM",
-    "/SEODashboard",
-    "/FunnelAnalysis",
-    "/BlogAdmin",
-    "/SiteImages",
-    "/ConversionDashboard",
-    "/TikTokSync",
-    "/jobsite-checkin",
-    "/sms-optin",
+    "/agentchat", "/thankyou", "/thank-you", "/accountsettings",
+    "/leads", "/crm", "/seodashboard", "/funnelanalysis",
+    "/blogadmin", "/siteimages", "/conversiondashboard",
+    "/tiktoksync", "/jobsite-checkin", "/sms-optin", "/error",
   ];
 
   // De-duplicate static pages and drop noindex paths
@@ -134,7 +113,7 @@ Deno.serve(async (req) => {
   </url>`),
     ...services.filter(s => s.slug).map(s => `
   <url>
-    <loc>${SITE_URL}/Services#${s.slug}</loc>
+    <loc>${SITE_URL}/services#${s.slug}</loc>
     <lastmod>${(s.updated_date || s.created_date || today).split("T")[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

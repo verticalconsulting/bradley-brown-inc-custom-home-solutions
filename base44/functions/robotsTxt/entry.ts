@@ -5,35 +5,50 @@ Deno.serve(async (_req) => {
 Allow: /
 
 # Important pages
-Allow: /Services
-Allow: /Portfolio
-Allow: /Contact
-Allow: /About
-Allow: /QuoteAssistant
-Allow: /ScheduleVisit
-Allow: /ContactForm
-Allow: /ProTips
-Allow: /LandingCoreServices
-Allow: /LandingEmergencyRepair
-Allow: /LandingBrandonRemodelers
-Allow: /LandingPricing
-Allow: /LandingTrust
-Allow: /SmallBathroomIdeas
-Allow: /LuxuryHomeRenovations
-Allow: /RenovationLoans
-Allow: /HomeAdditionIdeas
-Allow: /EnergyEfficientUpgrades
+Allow: /services
+Allow: /portfolio
+Allow: /contact
+Allow: /about
+Allow: /quoteassistant
+Allow: /schedulevisit
+Allow: /contactform
+Allow: /protips
+Allow: /landingcoreservices
+Allow: /landingemergencyrepair
+Allow: /landingbrandonremodelers
+Allow: /landingpricing
+Allow: /landingtrust
+Allow: /smallbathroomideas
+Allow: /luxuryhomerenovations
+Allow: /renovationloans
+Allow: /homeadditionideas
+Allow: /energyefficientupgrades
+Allow: /jobsites
+Allow: /barndominiums-ms
+Allow: /barndominium-builder
+Allow: /remodeling-ms
+Allow: /quote
+Allow: /customertestimonials
+Allow: /home-remodeling-cost
+Allow: /finish-package-studio
+Allow: /custom-home-builder-brandon-ms
+Allow: /projects/historic-home-restoration
 
 # Block admin/internal pages
-Disallow: /SEODashboard
-Disallow: /BlogAdmin
-Disallow: /SiteImages
-Disallow: /ConversionDashboard
-Disallow: /Leads
-Disallow: /FunnelAnalysis
-Disallow: /CRM
-Disallow: /TikTokSync
-Disallow: /AccountSettings
+Disallow: /seodashboard
+Disallow: /blogadmin
+Disallow: /siteimages
+Disallow: /conversiondashboard
+Disallow: /leads
+Disallow: /funnelanalysis
+Disallow: /crm
+Disallow: /tiktoksync
+Disallow: /accountsettings
+Disallow: /agentchat
+Disallow: /thank-you
+Disallow: /error
+Disallow: /jobsite-checkin
+Disallow: /sms-optin
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
