@@ -105,7 +105,7 @@ export default function ScheduleVisit() {
             <SEOHead
                 title="Book a Free Site Visit — Bradley Brown Inc."
                 description="Book a free on-site consultation with Bradley Brown Inc. in Brandon, MS in under 30 seconds. No obligation."
-                canonical="https://bradleybrowninc.com/ScheduleVisit"
+                canonical="https://bradleybrowninc.com/schedulevisit"
             />
 
             {/* Header */}

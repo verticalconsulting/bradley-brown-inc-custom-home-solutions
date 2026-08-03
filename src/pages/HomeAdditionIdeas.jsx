@@ -62,7 +62,7 @@ const additionsSchema = {
   "headline": "Home Addition Ideas for Brandon, MS Homeowners — 6 Best Expansions",
   "description": "Discover the best home addition ideas for Brandon, MS homeowners. Compare costs, ROI, and timelines for master suites, sunrooms, in-law suites, garage conversions and more.",
   "author": { "@type": "Organization", "name": "Bradley Brown Inc." },
-  "publisher": { "@type": "Organization", "name": "Bradley Brown Inc.", "url": "https://custom-home-builder.bradleybrowninc.com" }
+  "publisher": { "@type": "Organization", "name": "Bradley Brown Inc.", "url": "https://bradleybrowninc.com" }
 };
 
 export default function HomeAdditionIdeas() {
@@ -72,7 +72,7 @@ export default function HomeAdditionIdeas() {
         title="Home Addition Ideas for Brandon, MS | Room Additions & Expansions"
         description="Explore the best home addition ideas for Brandon, MS homeowners. Master suites, sunrooms, in-law suites, garage conversions & outdoor kitchens. Get a free estimate from Bradley Brown Inc."
         schema={additionsSchema}
-        canonical="https://bradleybrowninc.com/HomeAdditionIdeas"
+        canonical="https://bradleybrowninc.com/homeadditionideas"
       />
 
       <div className="bg-[#1E2D3D] py-14 md:py-20">

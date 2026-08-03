@@ -40,7 +40,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@type": "HomeAndConstructionBusiness",
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
       "url": "https://bradleybrowninc.com/custom-home-builder-brandon-ms",

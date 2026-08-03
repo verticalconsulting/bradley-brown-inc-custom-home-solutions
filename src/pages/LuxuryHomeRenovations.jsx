@@ -12,7 +12,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
   {
-    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+    "@type": "HomeAndConstructionBusiness",
     "name": "Bradley Brown Inc.",
     "telephone": "+18443514154",
     "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
@@ -21,7 +21,7 @@ const schema = {
   {
     "@type": "Service",
     "name": "Luxury Home Renovations",
-    "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+    "provider": { "@type": "HomeAndConstructionBusiness", "name": "Bradley Brown Inc." },
     "areaServed": "Brandon, MS and the Rankin County area",
     "description": "High-end kitchen and bathroom renovations, custom millwork, designer finishes, and whole-home luxury transformations in the Brandon and Rankin County area."
   },
@@ -29,8 +29,8 @@ const schema = {
     "@type": "BreadcrumbList",
     "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-    { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://bradleybrowninc.com/ProTips" },
-    { "@type": "ListItem", "position": 3, "name": "Luxury Home Renovations", "item": "https://bradleybrowninc.com/LuxuryHomeRenovations" }]
+    { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://bradleybrowninc.com/protips" },
+    { "@type": "ListItem", "position": 3, "name": "Luxury Home Renovations", "item": "https://bradleybrowninc.com/luxuryhomerenovations" }]
 
   },
   {
@@ -68,7 +68,7 @@ export default function LuxuryHomeRenovations() {
         title="Luxury Home Renovations in Brandon, MS — Bradley Brown Inc"
         description="Premium kitchen, bath & whole-home renovations in the Brandon and Rankin County area. Custom millwork, designer finishes, dedicated project management. Call (844) 351-4154."
         schema={schema}
-        canonical="https://bradleybrowninc.com/LuxuryHomeRenovations" />
+        canonical="https://bradleybrowninc.com/luxuryhomerenovations" />
       
 
       {/* Hero */}

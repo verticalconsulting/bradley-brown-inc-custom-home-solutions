@@ -49,9 +49,9 @@ const renovationLoansSchema = {
   "headline": "Renovation Loans for Home Improvements in Brandon, MS — Complete Guide",
   "description": "A complete guide to renovation loans and financing options for home improvements in Brandon, MS. Compare FHA 203k, HELOC, home equity loans and more.",
   "author": { "@type": "Organization", "name": "Bradley Brown Inc." },
-  "publisher": { "@type": "Organization", "name": "Bradley Brown Inc.", "url": "https://custom-home-builder.bradleybrowninc.com" },
+  "publisher": { "@type": "Organization", "name": "Bradley Brown Inc.", "url": "https://bradleybrowninc.com" },
   "datePublished": "2025-01-01",
-  "mainEntityOfPage": "https://custom-home-builder.bradleybrowninc.com/renovation-loans"
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bradleybrowninc.com/renovationloans" }
 };
 
 export default function RenovationLoans() {
@@ -61,7 +61,7 @@ export default function RenovationLoans() {
         title="Renovation Loans for New Homes in Brandon, MS | Financing Guide"
         description="Compare renovation loans for new homes in Brandon, MS — FHA 203k, HELOC, home equity loans & personal loans. Find the best financing option for your remodeling project."
         schema={renovationLoansSchema}
-        canonical="https://bradleybrowninc.com/RenovationLoans"
+        canonical="https://bradleybrowninc.com/renovationloans"
       />
 
       <div className="bg-[#1E2D3D] py-14 md:py-20">

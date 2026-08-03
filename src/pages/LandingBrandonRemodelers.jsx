@@ -35,10 +35,10 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@type": "HomeAndConstructionBusiness",
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
-      "url": "https://bradleybrowninc.com/LandingBrandonRemodelers",
+      "url": "https://bradleybrowninc.com/landingbrandonremodelers",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Brandon",
@@ -67,7 +67,7 @@ const schema = {
           "@type": "ListItem",
           "position": 2,
           "name": "Brandon MS Home Remodelers",
-          "item": "https://bradleybrowninc.com/LandingBrandonRemodelers",
+          "item": "https://bradleybrowninc.com/landingbrandonremodelers",
         },
       ],
     },
@@ -110,7 +110,7 @@ export default function LandingBrandonRemodelers() {
         title="Brandon, MS Home Remodelers | Kitchen, Bath & Whole-Home Renovations"
         description="Bradley Brown Inc. provides home remodeling, kitchen remodeling, bathroom remodeling, additions, and whole-home renovations in Brandon, MS and Rankin County. Call (844) 351-4154 for a free estimate."
         schema={schema}
-        canonical="https://bradleybrowninc.com/LandingBrandonRemodelers"
+        canonical="https://bradleybrowninc.com/landingbrandonremodelers"
       />
       <StickyCallButton />
 

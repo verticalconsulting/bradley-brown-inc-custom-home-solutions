@@ -11,7 +11,7 @@ export default function ContactForm() {
       <SEOHead
         title="Contact Bradley Brown Inc. — Get Your Free Estimate"
         description="Contact Bradley Brown Inc. for a free home remodeling estimate. Serving Brandon, MS and Central Mississippi."
-        canonical="https://bradleybrowninc.com/ContactForm"
+        canonical="https://bradleybrowninc.com/contactform"
       />
 
       <div className="bg-[#1E2D3D] py-10 md:py-14">

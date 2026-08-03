@@ -12,7 +12,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@type": "HomeAndConstructionBusiness",
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" }
@@ -28,8 +28,8 @@ const schema = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://bradleybrowninc.com/ProTips" },
-        { "@type": "ListItem", "position": 3, "name": "Small Bathroom Remodeling Ideas", "item": "https://bradleybrowninc.com/SmallBathroomIdeas" }
+        { "@type": "ListItem", "position": 2, "name": "Pro Tips", "item": "https://bradleybrowninc.com/protips" },
+        { "@type": "ListItem", "position": 3, "name": "Small Bathroom Remodeling Ideas", "item": "https://bradleybrowninc.com/smallbathroomideas" }
       ]
     },
     {
@@ -98,7 +98,7 @@ export default function SmallBathroomIdeas() {
         title="Small Bathroom Remodeling Ideas — Brandon, MS | Bradley Brown Inc"
         description="6 practical small bathroom remodeling ideas from the Brandon and Rankin County area's trusted contractor. Walk-in showers, large-format tile & more. Call (844) 351-4154."
         schema={schema}
-        canonical="https://bradleybrowninc.com/SmallBathroomIdeas"
+        canonical="https://bradleybrowninc.com/smallbathroomideas"
       />
 
       {/* Hero */}
@@ -182,7 +182,6 @@ export default function SmallBathroomIdeas() {
           <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Services & Pages</h3>
           <div className="flex flex-wrap gap-2">
             {[
-              { label: "Bathroom Remodeling — Brandon, MS", page: "BathroomRemodelingBrandon" },
               { label: "All Remodeling Services", page: "Services" },
               { label: "Get a Free Quote", page: "QuoteAssistant" },
               { label: "Schedule a Site Visit", page: "ScheduleVisit" },

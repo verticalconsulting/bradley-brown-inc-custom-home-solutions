@@ -68,7 +68,7 @@ const energySchema = {
   "headline": "Energy-Efficient Home Upgrades in Brandon, MS — Save Money & Increase Value",
   "description": "Discover the best energy-efficient home upgrades for Brandon, MS homeowners. Compare costs, savings, and tax credits for HVAC, insulation, windows, solar and more.",
   "author": { "@type": "Organization", "name": "Bradley Brown Inc." },
-  "publisher": { "@type": "Organization", "name": "Bradley Brown Inc.", "url": "https://custom-home-builder.bradleybrowninc.com" }
+  "publisher": { "@type": "Organization", "name": "Bradley Brown Inc.", "url": "https://bradleybrowninc.com" }
 };
 
 export default function EnergyEfficientUpgrades() {
@@ -78,7 +78,7 @@ export default function EnergyEfficientUpgrades() {
         title="Energy-Efficient Home Upgrades in Brandon, MS | Save on Bills"
         description="Top energy-efficient home upgrades for Brandon, MS homeowners — HVAC, insulation, windows, solar & more. Reduce bills, increase home value & claim federal tax credits."
         schema={energySchema}
-        canonical="https://bradleybrowninc.com/EnergyEfficientUpgrades"
+        canonical="https://bradleybrowninc.com/energyefficientupgrades"
       />
 
       <div className="bg-[#1E2D3D] py-14 md:py-20">
