@@ -6,11 +6,11 @@ import { useQuery } from "@tanstack/react-query";
 import { Home, Search, Phone, Mail, ArrowRight } from "lucide-react";
 
 const POPULAR_LINKS = [
-  { label: "Custom Homes & Services", to: "/Services", desc: "What we build" },
-  { label: "Recent Projects Portfolio", to: "/Portfolio", desc: "See our work" },
-  { label: "Get a Free Quote", to: "/ContactForm", desc: "Start your project" },
-  { label: "Pro Tips & Remodeling Guides", to: "/ProTips", desc: "Helpful advice" },
-  { label: "About Bradley Brown Inc.", to: "/About", desc: "Who we are" },
+  { label: "Custom Homes & Services", to: "/services", desc: "What we build" },
+  { label: "Recent Projects Portfolio", to: "/portfolio", desc: "See our work" },
+  { label: "Get a Free Quote", to: "/contactform", desc: "Start your project" },
+  { label: "Pro Tips & Remodeling Guides", to: "/protips", desc: "Helpful advice" },
+  { label: "About Bradley Brown Inc.", to: "/about", desc: "Who we are" },
 ];
 
 export default function PageNotFound() {
@@ -84,8 +84,8 @@ export default function PageNotFound() {
 
           {/* Search */}
           <form
-            action="/Portfolio"
-            method="get"
+          action="/portfolio"
+          method="get"
             className="mt-8 max-w-md mx-auto flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-3 py-2 shadow-sm"
             role="search"
             aria-label="Site search"
@@ -153,7 +153,7 @@ export default function PageNotFound() {
             <p className="text-sm font-medium text-slate-700 mb-1">Admin Note</p>
             <p className="text-sm text-slate-600">
               This 404 was logged. Review broken URLs at{" "}
-              <Link to="/SEODashboard" className="text-sky-500 hover:underline">SEO Dashboard</Link>{" "}
+              <Link to="/seodashboard" className="text-sky-500 hover:underline">SEO Dashboard</Link>{" "}
               and add a redirect in <code className="text-xs bg-slate-100 px-1 rounded">lib/redirectMap.js</code> if this URL should resolve elsewhere.
             </p>
           </div>
