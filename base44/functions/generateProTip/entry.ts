@@ -145,6 +145,18 @@ Critical formatting rules:
 - Do not keyword stuff.
 - Do not include fake statistics.
 
+Critical writing style rules (to sound human, not AI):
+- Write like an experienced Mississippi contractor talking to a neighbor — not a content mill.
+- Use contractions freely (you'll, we've, don't, it's, we're).
+- Vary sentence length dramatically. Short punchy sentences. Then longer explanatory ones.
+- Include specific, concrete details from real experience — "In 30 years building in Rankin County, we've seen too many homeowners skip this step..."
+- AVOID these AI-typical phrases: delve into, navigate, realm, crucial, elevate, embark, tapestry, unveil, uncover, it's worth noting, when it comes to, in the world of, game-changer, holistic, synergy, robust, landscape (as metaphor).
+- Don't start more than one sentence with "However," "Moreover," "Furthermore," or "Additionally."
+- Address the reader directly with "you" and "your."
+- Keep it practical and conversational, not academic.
+- If a tip feels obvious, say so — "This sounds basic, but you'd be surprised how many homes we walk into where..."
+- Don't use a predictable intro formula. Start with a real scenario, a question, or a surprising fact.
+
 The blog should include:
 - a short intro paragraph
 - ## Why This Project Matters
@@ -160,6 +172,14 @@ You always return valid JSON.`,
         {
           role: 'user',
           content: `Generate ONE new SEO-focused "Pro Tips" blog post for homeowners. Pick a fresh, specific topic homeowners are actively searching for right now — something that reads like a real Google search (e.g. "kitchen remodel ideas that add the most value", "small bathroom remodel ideas on a budget", "outdoor kitchen designs for Southern homes", "curb appeal upgrades that increase home value"). Avoid generic titles.
+
+Before writing, mentally research what homeowners are searching for right now in the home improvement space. Focus on topics with HIGH search volume. Think about seasonal relevance (outdoor living in spring, energy efficiency in fall), current trends, and specific questions real homeowners ask contractors.
+
+Pick a topic that:
+1. Has high monthly search volume (estimate 1,000+ searches/month)
+2. Matches an intent a homeowner searches BEFORE hiring a contractor
+3. Is specific enough to rank for (not "kitchen remodel" but "kitchen island ideas for small kitchens")
+4. Has relevance to the Mississippi / Southern home market
 
 Topic areas to draw from:
 - remodeling ideas that add value

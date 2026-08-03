@@ -18,7 +18,7 @@ import Quote from './pages/Quote';
 import LandingTrust from './pages/LandingTrust';
 import LandingCoreServices from './pages/LandingCoreServices';
 import LandingPricing from './pages/LandingPricing';
-
+import Barndominiums from './pages/Barndominiums';
 import SmsOptin from './pages/SmsOptin';
 import BarndominiumBuilder from './pages/BarndominiumBuilder';
 import FinishPackageStudio from './pages/FinishPackageStudio';
@@ -104,7 +104,6 @@ const AuthenticatedApp = () => {
       <Route path="/customertestimonials" element={<LayoutWrapper currentPageName="LandingTrust"><LandingTrust /></LayoutWrapper>} />
       <Route path="/remodeling-ms" element={<LayoutWrapper currentPageName="LandingCoreServices"><LandingCoreServices /></LayoutWrapper>} />
       <Route path="/home-remodeling-cost" element={<LayoutWrapper currentPageName="LandingPricing"><LandingPricing /></LayoutWrapper>} />
-
       <Route path="/barndominium-builder" element={<LayoutWrapper currentPageName="BarndominiumBuilder"><BarndominiumBuilder /></LayoutWrapper>} />
       <Route path="/finish-package-studio" element={<LayoutWrapper currentPageName="FinishPackageStudio"><FinishPackageStudio /></LayoutWrapper>} />
       <Route path="/custom-home-builder-brandon-ms" element={<LayoutWrapper currentPageName="LandingBrandonCustomHomeBuilder"><LandingBrandonCustomHomeBuilder /></LayoutWrapper>} />

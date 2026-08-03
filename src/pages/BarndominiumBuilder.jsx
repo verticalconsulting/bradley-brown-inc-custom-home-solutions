@@ -14,19 +14,9 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-      "name": "Bradley Brown Inc.",
-      "telephone": "+18443514154",
-      "email": "bradleybrowninc@gmail.com",
-      "url": "https://bradleybrowninc.com/barndominium-builder",
-      "address": { "@type": "PostalAddress", "streetAddress": "104 Tiffany Drive", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
-      "priceRange": "$$$",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87", "bestRating": "5" }
-    },
-    {
       "@type": "Service",
       "name": "Custom Barndominium Construction",
-      "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+      "provider": { "@id": "https://bradleybrowninc.com/#localbusiness" },
       "areaServed": { "@type": "City", "name": "Brandon, Mississippi" },
       "description": "Turnkey custom barndominium builds in Brandon, MS and the Rankin County area — steel frame, living + workshop combos, built by a licensed contractor since 1995."
     },

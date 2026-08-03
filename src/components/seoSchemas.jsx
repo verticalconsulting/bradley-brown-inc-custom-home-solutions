@@ -2,7 +2,8 @@ const SITE_URL = "https://bradleybrowninc.com";
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "https://bradleybrowninc.com/#localbusiness",
   "name": "Bradley Brown Inc.",
   "alternateName": "Bradley Brown Custom Homes",
   "description": "Bradley Brown Inc. is the Brandon and Rankin County area's premier custom home builder, offering custom home construction, renovations, room additions, and outdoor living spaces since 1995.",
@@ -32,7 +33,8 @@ export const localBusinessSchema = {
   "sameAs": [
     "https://www.facebook.com/BradleyBrownInc",
     "https://www.tiktok.com/@bb859876",
-    "https://www.bbb.org"
+    "https://www.bbb.org",
+    "https://www.google.com/maps/place/Bradley+Brown+Inc/@32.2729,-89.9923,17z"
   ],
   "areaServed": [
     { "@type": "City", "name": "Jackson, Mississippi" },
@@ -41,7 +43,10 @@ export const localBusinessSchema = {
     { "@type": "City", "name": "Brandon, Mississippi" },
     { "@type": "City", "name": "Flowood, Mississippi" },
     { "@type": "City", "name": "Pearl, Mississippi" },
-    { "@type": "City", "name": "Clinton, Mississippi" }
+    { "@type": "City", "name": "Clinton, Mississippi" },
+    { "@type": "AdministrativeArea", "name": "Rankin County, MS" },
+    { "@type": "AdministrativeArea", "name": "Madison County, MS" },
+    { "@type": "AdministrativeArea", "name": "Hinds County, MS" }
   ],
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
@@ -78,7 +83,7 @@ export const servicesSchema = {
         "@type": "Service",
         "name": "Custom Home Building",
         "description": "Full-service custom home construction in the Brandon and Rankin County area, designed and built to your exact specifications.",
-        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+        "provider": { "@id": "https://bradleybrowninc.com/#localbusiness" },
         "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "250000" }
       }
     },
@@ -89,7 +94,7 @@ export const servicesSchema = {
         "@type": "Service",
         "name": "Home Renovation & Remodeling",
         "description": "Expert kitchen, bathroom, and full home renovations for Brandon and Rankin County area homeowners.",
-        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+        "provider": { "@id": "https://bradleybrowninc.com/#localbusiness" },
         "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "25000" }
       }
     },
@@ -100,7 +105,7 @@ export const servicesSchema = {
         "@type": "Service",
         "name": "Room Additions",
         "description": "Seamless home additions and room expansions that match your existing home's style.",
-        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+        "provider": { "@id": "https://bradleybrowninc.com/#localbusiness" },
         "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "75000" }
       }
     },
@@ -111,7 +116,7 @@ export const servicesSchema = {
         "@type": "Service",
         "name": "Outdoor Living Spaces",
         "description": "Custom patios, outdoor kitchens, pergolas, and pool surrounds for Mississippi homeowners.",
-        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+        "provider": { "@id": "https://bradleybrowninc.com/#localbusiness" },
         "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "15000" }
       }
     }

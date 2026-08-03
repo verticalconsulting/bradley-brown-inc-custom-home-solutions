@@ -68,7 +68,7 @@ export default function JobsiteDetail() {
       {
         "@type": "Service",
         "name": serviceLabel,
-        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc.", "telephone": "+18443514154" },
+        "provider": { "@id": "https://bradleybrowninc.com/#localbusiness" },
         "areaServed": item.latitude && item.longitude ? {
           "@type": "GeoCircle",
           "geoMidpoint": { "@type": "GeoCoordinates", "latitude": item.latitude, "longitude": item.longitude },

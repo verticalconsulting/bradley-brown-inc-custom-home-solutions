@@ -13,13 +13,6 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-      "name": "Bradley Brown Inc.",
-      "telephone": "+18443514154",
-      "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
-      "priceRange": "$$$"
-    },
-    {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
