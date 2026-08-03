@@ -16,11 +16,23 @@ export default function RedirectHandler({ children }) {
   const navigate = useNavigate();
   const redirect = findRedirect(location.pathname);
 
+  // Short-circuit dotfile probes (e.g. /.env, /.git/config) — never serve, always 404.
+  const isDotfile = /^\/\.[^/]/.test(location.pathname);
+
   useEffect(() => {
     if (redirect) {
       navigate(redirect.to, { replace: true });
     }
   }, [redirect, navigate]);
+
+  if (isDotfile) {
+    return (
+      <Helmet>
+        <meta name="prerender-status-code" content="404" />
+        <meta name="robots" content="noindex" />
+      </Helmet>
+    );
+  }
 
   if (redirect) {
     // Brief render that signals the status to prerender services.

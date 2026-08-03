@@ -57,7 +57,6 @@ Deno.serve(async (req) => {
     { url: "/projects/historic-home-restoration", priority: "0.8", changefreq: "monthly" },
     { url: "/custom-home-builder-brandon-ms", priority: "0.9", changefreq: "monthly" },
     { url: "/barndominium-builder", priority: "0.9", changefreq: "monthly" },
-    { url: "/barndominiums-ms", priority: "0.8", changefreq: "monthly" },
     { url: "/remodeling-ms", priority: "0.8", changefreq: "monthly" },
     { url: "/quote", priority: "0.8", changefreq: "monthly" },
     { url: "/customertestimonials", priority: "0.7", changefreq: "monthly" },

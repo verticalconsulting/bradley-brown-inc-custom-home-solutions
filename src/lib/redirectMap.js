@@ -29,6 +29,7 @@ export const REDIRECT_MAP = [
   { from: "/estimate", to: "/quoteassistant", type: 301 },
   { from: "/free-quote", to: "/contactform", type: 301 },
   { from: "/barndominiums", to: "/barndominium-builder", type: 301 },
+  { from: "/barndominiums-ms", to: "/barndominium-builder", type: 301 },
   { from: "/historichomerestoration", to: "/projects/historic-home-restoration", type: 301 },
 
   // ---- Regex patterns ----

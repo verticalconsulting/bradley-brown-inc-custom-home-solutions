@@ -24,7 +24,6 @@ Allow: /renovationloans
 Allow: /homeadditionideas
 Allow: /energyefficientupgrades
 Allow: /jobsites
-Allow: /barndominiums-ms
 Allow: /barndominium-builder
 Allow: /remodeling-ms
 Allow: /quote
@@ -49,6 +48,13 @@ Disallow: /thank-you
 Disallow: /error
 Disallow: /jobsite-checkin
 Disallow: /sms-optin
+
+# Block dotfile / config probes
+Disallow: /*.env
+Disallow: /*.git
+Disallow: /*.htaccess
+Disallow: /*.htpasswd
+Disallow: /*.DS_Store
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
