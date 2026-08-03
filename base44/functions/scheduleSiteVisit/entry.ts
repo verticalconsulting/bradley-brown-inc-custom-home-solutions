@@ -9,6 +9,21 @@ const TIME_LABELS = {
 Deno.serve(async (req) => {
     try {
         const base44 = createClientFromRequest(req);
+
+        // Require an authenticated caller. Without this, an external attacker could
+        // POST directly to this endpoint to send calendar invites to arbitrary emails,
+        // burn Twilio SMS credits against the admin phone, and pollute QuoteRequest
+        // records via the service-role writes below.
+        let caller = null;
+        try {
+            caller = await base44.auth.me();
+        } catch {
+            caller = null;
+        }
+        if (!caller) {
+            return Response.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+
         const { name, email, phone, project_type, location, date, time, notes } = await req.json();
 
         if (!name || !email || !date || !time) {

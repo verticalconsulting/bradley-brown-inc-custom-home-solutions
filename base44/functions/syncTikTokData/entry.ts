@@ -3,10 +3,22 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const user = await base44.auth.me();
+    let user = null;
+    try {
+      user = await base44.auth.me();
+    } catch {
+      user = null;
+    }
 
     if (!user) {
       return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Only admins may trigger the TikTok → Client CRM sync. The Client entity
+    // is admin-restricted by RLS, so without this check a regular user could
+    // bypass that policy via the service-role writes below.
+    if (user.role !== 'admin') {
+      return Response.json({ error: 'Forbidden' }, { status: 403 });
     }
 
     // Get TikTok access token
