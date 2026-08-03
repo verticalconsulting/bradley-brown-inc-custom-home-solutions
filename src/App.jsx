@@ -39,6 +39,7 @@ import HeadingHierarchyChecker from '@/components/seo/HeadingHierarchyChecker';
 import WebVitalsReporter from '@/components/perf/WebVitalsReporter';
 import PerformanceAuditor from '@/components/perf/PerformanceAuditor';
 import LowercaseRedirect from '@/components/LowercaseRedirect';
+import CanonicalRedirect from '@/components/CanonicalRedirect';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -135,6 +136,7 @@ function App() {
         <QueryClientProvider client={queryClientInstance}>
           <Router>
             <LowercaseRedirect />
+            <CanonicalRedirect />
             <NavigationTracker />
             <HeadingHierarchyChecker />
             <WebVitalsReporter />
