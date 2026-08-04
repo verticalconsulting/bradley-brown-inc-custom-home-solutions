@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import ServiceStickyCTA from "@/components/ServiceStickyCTA";
+import RecentLuxuryProjects from "@/components/luxury/RecentLuxuryProjects";
 import { base44 } from "@/api/base44Client";
 
 const schema = {
@@ -123,6 +124,13 @@ export default function LuxuryHomeRenovations() {
             )}
           </div>
         </div>
+
+      </div>
+
+      {/* Recent Luxury Renovation Projects — full width */}
+      <RecentLuxuryProjects />
+
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-14 pb-12 space-y-14">
 
         {/* Process */}
         <div>
