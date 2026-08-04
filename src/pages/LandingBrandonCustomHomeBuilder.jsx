@@ -5,11 +5,9 @@ import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
-import CustomHomeProcess from "@/components/landing/CustomHomeProcess";
-import CustomHomeGallery from "@/components/landing/CustomHomeGallery";
-import BuilderCredentials from "@/components/landing/BuilderCredentials";
-import BrandonReviewSection, { brandonReviewSchema } from "@/components/landing/BrandonReviewSection";
 import StickyCallButton from "@/components/StickyCallButton";
+import CustomHomeProcess from "@/components/landing/CustomHomeProcess";
+import BrandonReviewSection, { brandonReviewSchema } from "@/components/landing/BrandonReviewSection";
 import { base44 } from "@/api/base44Client";
 
 const faqs = [
@@ -38,16 +36,6 @@ const faqs = [
     answer:
       "Yes. Bradley Brown Inc. builds high-quality custom homes and luxury residential projects in Brandon, Rankin County, and Central Mississippi.",
   },
-  {
-    question: "Does Bradley Brown Inc. offer a warranty on new custom homes in Brandon, MS?",
-    answer:
-      "Yes. Every new custom home we build in Brandon comes with a 1-year workmanship warranty covering finish-level repairs, a 2-year systems warranty for plumbing, electrical, and HVAC, and a 10-year structural warranty on the foundation and framing. We also conduct follow-up visits at set intervals after move-in to address any questions or items that arise once you're settled into your Rankin County home.",
-  },
-  {
-    question: "What financing options are available for building a custom home in Brandon?",
-    answer:
-      "Most of our Brandon clients use a construction-to-permanent loan, which converts to a standard mortgage after the build is complete. We coordinate with your lender throughout the project, providing draw schedules, progress photos, and appraisal milestones. We can also refer you to Rankin County lenders familiar with our custom home building process if you don't already have one.",
-  },
 ];
 
 const schema = {
@@ -58,7 +46,6 @@ const schema = {
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
       "url": "https://bradleybrowninc.com/custom-home-builder-brandon-ms",
-      "foundingDate": "1995",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Brandon",
@@ -68,27 +55,6 @@ const schema = {
       },
       "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
       "priceRange": "$$$",
-      "employee": {
-        "@type": "Person",
-        "name": "Bradley Brown",
-        "jobTitle": "Principal Builder & Founder",
-        "worksFor": { "@type": "Organization", "name": "Bradley Brown Inc." },
-      },
-      "hasCredential": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "Mississippi Residential Builders Commission License",
-          "credentialCategory": "license",
-          "url": "https://www.msboc.us",
-        },
-      ],
-      "memberOf": [
-        { "@type": "Organization", "name": "National Association of Home Builders", "url": "https://www.nahb.org" },
-        { "@type": "Organization", "name": "Home Builders Association of Mississippi", "url": "https://www.mshba.com" },
-        { "@type": "Organization", "name": "Better Business Bureau", "url": "https://www.bbb.org" },
-      ],
-      ...(brandonReviewSchema.aggregateRating ? { aggregateRating: brandonReviewSchema.aggregateRating } : {}),
-      ...(brandonReviewSchema.review ? { review: brandonReviewSchema.review } : {}),
       "areaServed": [
         { "@type": "City", "name": "Brandon, Mississippi" },
         { "@type": "City", "name": "Flowood, Mississippi" },
@@ -239,9 +205,6 @@ export default function LandingBrandonCustomHomeBuilder() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-14">
-        {/* Credentials */}
-        <BuilderCredentials />
-
         {/* Services */}
         <div>
           <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Custom Home Building Services in Brandon</h2>
@@ -252,33 +215,6 @@ export default function LandingBrandonCustomHomeBuilder() {
                 <span className="text-sm font-medium text-slate-700">{s}</span>
               </div>
             ))}
-          </div>
-
-          <h3 className="text-xl font-bold text-[#1E2D3D] mt-8 mb-4">Architectural Styles We Build in Brandon</h3>
-          <p className="text-slate-600 leading-relaxed mb-4">
-            Beyond standard floor plans, Bradley Brown Inc. designs and builds in the architectural styles most requested by Brandon and Rankin County homebuyers:
-          </p>
-          <div className="space-y-4">
-            <div>
-              <h4 className="text-base font-semibold text-[#1E2D3D] mb-1">Modern Farmhouse</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">Board-and-batten siding, metal roof accents, and large covered porches define the modern farmhouse look. This style fits Brandon's rolling lots and rural-adjacent neighborhoods, where families want a home that feels grounded but still clean and current.</p>
-            </div>
-            <div>
-              <h4 className="text-base font-semibold text-[#1E2D3D] mb-1">Traditional Southern</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">Full brick exteriors, symmetrical facades, and wide front porches make traditional Southern homes timeless in Rankin County. Tall ceilings and transom windows handle Mississippi's heat and humidity while delivering the curb appeal buyers expect in established Brandon subdivisions.</p>
-            </div>
-            <div>
-              <h4 className="text-base font-semibold text-[#1E2D3D] mb-1">Craftsman</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">Tapered columns, exposed rafter tails, and stone skirting give craftsman homes their signature warmth. The style suits Brandon's wooded lots in neighborhoods like Crossgates and Lake Serene, where natural materials blend with mature trees and shade.</p>
-            </div>
-            <div>
-              <h4 className="text-base font-semibold text-[#1E2D3D] mb-1">Contemporary</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">Flat or low-slope rooflines, large expanses of glass, and clean stucco or siding mixes define contemporary homes. This style appeals to buyers seeking a custom home in Brandon that stands apart from traditional neighborhood stock.</p>
-            </div>
-            <div>
-              <h4 className="text-base font-semibold text-[#1E2D3D] mb-1">Ranch</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">Single-story layouts with attached garages and open-concept interiors make ranch homes ideal for Brandon's wider lots and retirement-friendly communities. The low profile handles Mississippi storms well and keeps maintenance simple for growing families.</p>
-            </div>
           </div>
         </div>
 
@@ -296,9 +232,6 @@ export default function LandingBrandonCustomHomeBuilder() {
           </p>
         </div>
 
-        {/* Custom Home Building Process */}
-        <CustomHomeProcess />
-
         {/* New Construction Homes in Brandon, MS */}
         <div className="prose prose-slate max-w-none">
           <h2 className="text-2xl font-bold text-[#1E2D3D]">New Construction Homes in Brandon, MS</h2>
@@ -307,9 +240,6 @@ export default function LandingBrandonCustomHomeBuilder() {
             building process — from early planning and budgeting to construction management and final project completion.
           </p>
         </div>
-
-        {/* Custom Homes Gallery */}
-        <CustomHomeGallery />
 
         {/* Residential General Contractor in Brandon and Rankin County */}
         <div className="prose prose-slate max-w-none">
@@ -350,9 +280,6 @@ export default function LandingBrandonCustomHomeBuilder() {
             <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
-
-        {/* Reviews */}
-        <BrandonReviewSection />
 
         {/* FAQ */}
         <div>
