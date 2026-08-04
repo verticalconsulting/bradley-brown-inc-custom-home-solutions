@@ -17,9 +17,9 @@ const schema = {
     "logo": { "@type": "ImageObject", "url": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png" }
   },
   "mainEntityOfPage": "https://bradleybrowninc.com/projects/historic-home-restoration"
-};
+  };
 
-const highlights = [
+  const highlights = [
   "Restored original heart pine hardwood floors to like-new condition",
   "Rebuilt wraparound front porch with period-accurate millwork",
   "Updated electrical, plumbing & HVAC while preserving wall integrity",
@@ -69,7 +69,8 @@ export default function HistoricHomeRestoration() {
       <SEOHead
         title="Historic Home Restoration Project — Bradley Brown Inc. | Brandon, MS"
         description="Bradley Brown Inc. restored a 1920s historic home in Brandon, MS — preserving original hardwood floors, millwork, and character while fully modernizing all systems. See the full project breakdown."
-        canonical="https://bradleybrowninc.com/projects/historic-home-restoration"
+        canonical="https://bradleybrowninc.com/portfolio"
+        robots="noindex, nofollow"
         schema={schema}
       />
 

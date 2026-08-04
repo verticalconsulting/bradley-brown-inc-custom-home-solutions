@@ -60,14 +60,6 @@ const resources = [
     bg: "bg-indigo-50",
   },
   {
-    to: "/projects/historic-home-restoration",
-    icon: FileText,
-    title: "Historic Home Restoration",
-    desc: "Featured project: a 1920s craftsman home in Brandon.",
-    color: "text-rose-500",
-    bg: "bg-rose-50",
-  },
-  {
     to: "/LuxuryHomeRenovations",
     icon: Crown,
     title: "Luxury Home Renovations",

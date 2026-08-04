@@ -54,7 +54,6 @@ Deno.serve(async (req) => {
     { url: "/energyefficientupgrades", priority: "0.7", changefreq: "monthly" },
     { url: "/legal", priority: "0.3", changefreq: "yearly" },
     { url: "/jobsites", priority: "0.8", changefreq: "weekly" },
-    { url: "/projects/historic-home-restoration", priority: "0.8", changefreq: "monthly" },
     { url: "/custom-home-builder-brandon-ms", priority: "0.9", changefreq: "monthly" },
     { url: "/barndominium-builder", priority: "0.9", changefreq: "monthly" },
 
@@ -71,6 +70,7 @@ Deno.serve(async (req) => {
     "/leads", "/crm", "/seodashboard", "/funnelanalysis",
     "/blogadmin", "/siteimages", "/conversiondashboard",
     "/tiktoksync", "/jobsite-checkin", "/sms-optin", "/error",
+    "/projects/historic-home-restoration",
   ];
 
   // De-duplicate static pages and drop noindex paths

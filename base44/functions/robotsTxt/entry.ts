@@ -31,9 +31,9 @@ Allow: /customertestimonials
 Allow: /home-remodeling-cost
 Allow: /finish-package-studio
 Allow: /custom-home-builder-brandon-ms
-Allow: /projects/historic-home-restoration
 
 # Block admin/internal pages
+Disallow: /projects/historic-home-restoration
 Disallow: /seodashboard
 Disallow: /blogadmin
 Disallow: /siteimages

@@ -16,7 +16,6 @@ const services = [
     { label: "Custom Home Builder — Brandon, MS", page: "LandingBrandonRemodelers" },
     { label: "Energy-Efficient Home Upgrades", page: "EnergyEfficientUpgrades" },
     { label: "Barndominium Builder", page: "BarndominiumBuilder" },
-    { label: "Historic Home Restoration", page: "HistoricHomeRestoration" },
   ],
   tagline: "Your vision. Our craftsmanship. Built to last generations.",
   description: "From the first blueprint to the final walkthrough, we manage every detail of your custom home build. Our team has delivered 500+ dream homes across Central Mississippi — on time, on budget, and built to exceed expectations.",
