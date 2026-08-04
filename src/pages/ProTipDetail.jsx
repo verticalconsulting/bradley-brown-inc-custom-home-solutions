@@ -67,6 +67,10 @@ export default function ProTipDetail() {
   const canonical = `https://bradleybrowninc.com/protips/${post.slug}`;
   const description = post.meta_description || post.excerpt || `Expert home remodeling advice from Bradley Brown Inc. — ${post.title}`;
 
+  const slugServiceMap = { 'home-addition-ideas': '/services/room-additions', 'small-bathroom-ideas': '/services/kitchen-bathroom-remodeling', 'energy-efficient-upgrades': '/services/custom-home-building', 'renovation-loans': '/pricing' };
+  const catServiceMap = { 'home-remodeling': '/services', 'kitchen-remodeling': '/services/kitchen-bathroom-remodeling', 'bathroom-remodeling': '/services/kitchen-bathroom-remodeling', 'outdoor-living': '/services/outdoor-living', 'curb-appeal': '/services/outdoor-living', 'home-value': '/services/custom-home-building', 'interior-updates': '/services/kitchen-bathroom-remodeling' };
+  const relatedServiceUrl = slugServiceMap[post.slug] || catServiceMap[post.category] || '/services';
+
   const howToSteps = (post.content || '').match(/^##\s+.+$/gm)?.map(s => s.replace(/^##\s+/, '').trim()) || [];
   const isHowTo = /how to/i.test(post.title) || howToSteps.length >= 3;
   const howToData = isHowTo ? {
@@ -182,9 +186,10 @@ export default function ProTipDetail() {
             </div>
 
             <div className="mt-10 pt-6 border-t border-gray-100 flex flex-wrap gap-3">
-              <Link to={createPageUrl("ProTips")} className="text-xs text-sky-600 hover:underline font-medium">← All Pro Tips</Link>
-              <Link to={createPageUrl("Services")} className="text-xs text-sky-600 hover:underline font-medium">→ Our Services</Link>
-              <Link to={createPageUrl("QuoteAssistant")} className="text-xs text-sky-600 hover:underline font-medium">→ Get a Free Quote</Link>
+              <Link to="/protips" className="text-xs text-sky-600 hover:underline font-medium">← All Pro Tips</Link>
+              <Link to={relatedServiceUrl} className="text-xs text-sky-600 hover:underline font-medium">→ Related Service</Link>
+              <Link to="/services" className="text-xs text-sky-600 hover:underline font-medium">→ All Services</Link>
+              <Link to="/estimate" className="text-xs text-sky-600 hover:underline font-medium">→ Get a Free Quote</Link>
               <a href="tel:+18443514154" className="text-xs text-green-600 hover:underline font-medium flex items-center gap-1">
                 <Phone className="w-3 h-3" /> Call (844) 351-4154
               </a>

@@ -60,6 +60,12 @@ export default function Estimate() {
   };
 
   const handleNext = async () => {
+    if (step === 0) {
+      base44.analytics.track({
+        eventName: "estimator_started",
+        properties: { project_type: data.project_type },
+      });
+    }
     if (step === 3) {
       await submitAndGenerate();
     } else {

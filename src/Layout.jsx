@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook, Settings } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import BottomTabBar from "@/components/BottomTabBar";
 import VisitorChatWidget from "@/components/chat/VisitorChatWidget";
@@ -88,11 +88,19 @@ export default function Layout({ children, currentPageName }) {
 
   const navLinks = [
   { label: "Home", page: "Home" },
-  { label: "Services", page: "Services" },
   { label: "Portfolio", page: "Portfolio" },
+  { label: "Pricing", to: "/pricing" },
+  { label: "Pro Tips", page: "ProTips" },
   { label: "About", page: "About" },
-  { label: "Contact", page: "Contact" },
-  { label: "Pro Tips", page: "ProTips" }];
+  { label: "Contact", page: "Contact" }];
+
+  const serviceLinks = [
+  { label: "Custom Home Building", to: "/services/custom-home-building" },
+  { label: "Kitchen & Bath Remodeling", to: "/services/kitchen-bathroom-remodeling" },
+  { label: "Room Additions", to: "/services/room-additions" },
+  { label: "Outdoor Living", to: "/services/outdoor-living" },
+  { label: "Barndominiums", to: "/services/barndominiums" },
+  { label: "Emergency Repairs", to: "/services/emergency-repairs" }];
 
 
   const transparent = isHomePage && !scrolled;
@@ -123,10 +131,28 @@ export default function Layout({ children, currentPageName }) {
             </Link>
 
             <div className="hidden md:flex items-center gap-6 lg:gap-8">
+              <div className="relative group">
+                <Link
+                  to="/services"
+                  className={`text-sm font-medium transition-colors hover:text-sky-400 flex items-center gap-0.5 ${
+                  currentPageName === "Services" ? "text-sky-400" : textColor}`}
+                >
+                  Services <ChevronRight className="w-3 h-3 rotate-90" />
+                </Link>
+                <div className="absolute top-full left-0 pt-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                    {serviceLinks.map(link => (
+                      <Link key={link.to} to={link.to} className="block px-4 py-3 text-sm text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors">
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
               {navLinks.map((link) =>
               <Link
-                key={link.page}
-                to={link.path || createPageUrl(link.page)}
+                key={link.label}
+                to={link.to || link.path || createPageUrl(link.page)}
                 className={`text-sm font-medium transition-colors hover:text-sky-400 ${
                 currentPageName === link.page ? "text-sky-400" : textColor}`
                 }>
@@ -134,14 +160,6 @@ export default function Layout({ children, currentPageName }) {
                   {link.label}
                 </Link>
               )}
-              <Link
-                to={createPageUrl("AccountSettings")}
-                className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                currentPageName === "AccountSettings" ? "text-sky-400" : textColor}`}
-                title="Account Settings">
-                
-                <Settings className="w-5 h-5" />
-              </Link>
             </div>
 
             <div className="flex items-center gap-3">
@@ -191,10 +209,18 @@ export default function Layout({ children, currentPageName }) {
         {mobileMenuOpen &&
         <div className="md:hidden bg-white border-t border-gray-100 shadow-xl">
             <div className="px-4 py-5 space-y-1">
+              <div className="px-3 py-2">
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Services</p>
+                {serviceLinks.map(link => (
+                  <Link key={link.to} to={link.to} className="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-gray-50 transition-colors">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
               {navLinks.map((link) =>
             <Link
-              key={link.page}
-              to={link.path || createPageUrl(link.page)}
+              key={link.label}
+              to={link.to || link.path || createPageUrl(link.page)}
               className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
               currentPageName === link.page ?
               "bg-amber-50 text-sky-400" :
@@ -277,9 +303,9 @@ export default function Layout({ children, currentPageName }) {
                   className="flex items-center gap-2 text-slate-300 hover:text-sky-400 text-sm transition-colors">
                   <Phone className="w-4 h-4" /> (844) 351-4154
                 </a>
-                <a href="mailto:bradleybrowninc@gmail.com" className="block text-slate-300 hover:text-sky-400 text-sm transition-colors">
-                  bradleybrowninc@gmail.com
-                </a>
+                <Link to="/contact" className="block text-slate-300 hover:text-sky-400 text-sm transition-colors">
+                  Email Us Online
+                </Link>
                 <p className="text-slate-500 text-sm">104 Tiffany Drive, Brandon, MS 39042</p>
                 <div className="mt-5 flex gap-3">
                   <a
@@ -328,15 +354,9 @@ export default function Layout({ children, currentPageName }) {
                 {[
                 { label: "About Us", page: "About" },
                 { label: "Portfolio", page: "Portfolio" },
-                { label: "Pro Tips & Advice", page: "ProTips" },
+                { label: "Pro Tips", page: "ProTips" },
+                { label: "Pricing", to: "/pricing" },
                 { label: "Contact Us", page: "Contact" },
-                { label: "Get a Free Estimate", to: "/estimate" },
-                { label: "Pricing Guide", to: "/pricing" },
-                { label: "Renovation Loans", to: "/protips/renovation-loans" },
-                { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
-                { label: "Small Bathroom Ideas", to: "/protips/small-bathroom-ideas" },
-                { label: "Energy-Efficient Upgrades", to: "/protips/energy-efficient-upgrades" },
-                { label: "Brandon MS Remodelers", to: "/remodeling-brandon-ms" },
                 { label: "Legal", page: "Legal" }].
                 map((item) =>
                 <li key={item.label}>

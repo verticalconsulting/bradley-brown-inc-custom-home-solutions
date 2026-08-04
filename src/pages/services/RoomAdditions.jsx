@@ -77,8 +77,8 @@ export default function RoomAdditions() {
         { url: "https://images.unsplash.com/photo-1600585154340-be6161a4a017?w=800&q=80", alt: "Home addition exterior matching existing house", caption: "Seamless roofline and brick match" },
       ]}
       relatedLinks={[
-        { to: "/homeadditionideas", label: "Home Addition Ideas & ROI Guide" },
-        { to: "/energyefficientupgrades", label: "Energy-Efficient Home Upgrades" },
+        { to: "/protips/home-addition-ideas", label: "Home Addition Ideas & ROI Guide" },
+        { to: "/protips/energy-efficient-upgrades", label: "Energy-Efficient Home Upgrades" },
         { to: "/protips", label: "Pro Tips & Remodeling Advice" },
       ]}
     />

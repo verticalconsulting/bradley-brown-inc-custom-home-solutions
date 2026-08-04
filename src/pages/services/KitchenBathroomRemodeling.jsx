@@ -77,8 +77,8 @@ export default function KitchenBathroomRemodeling() {
         { url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80", alt: "Modern bathroom renovation in Mississippi", caption: "Master bath renovation with custom tile" },
       ]}
       relatedLinks={[
-        { to: "/smallbathroomideas", label: "Small Bathroom Remodeling Ideas" },
-        { to: "/renovationloans", label: "Renovation Loan Options" },
+        { to: "/protips/small-bathroom-ideas", label: "Small Bathroom Remodeling Ideas" },
+        { to: "/protips/renovation-loans", label: "Renovation Loan Options" },
         { to: "/protips", label: "Pro Tips & Remodeling Advice" },
       ]}
     />

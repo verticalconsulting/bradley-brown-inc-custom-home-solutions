@@ -1,133 +1,53 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Sparkles, DollarSign, Star, Warehouse, Hammer, FileText, ChevronRight, Crown, Banknote, Plus, Bath, Leaf, MapPin, AlertTriangle, Palette, Home } from "lucide-react";
+import { Home, Wrench, Plus, Leaf, Warehouse, AlertTriangle, ChevronRight } from "lucide-react";
 
 const resources = [
   {
-    to: "/finish-package-studio",
-    icon: Palette,
-    title: "AI Finish Package Studio",
-    desc: "Upload an inspiration photo — get 3 themed packages with budget alternatives.",
-    color: "text-fuchsia-500",
-    bg: "bg-fuchsia-50",
-  },
-  {
-    to: "/quote",
-    icon: Sparkles,
-    title: "Get a Free Quote",
-    desc: "Fast, no-obligation project estimate from our team.",
+    to: "/services/custom-home-building",
+    icon: Home,
+    title: "Custom Home Building",
+    desc: "Design and build your dream home from the ground up in Brandon & Rankin County.",
     color: "text-sky-500",
     bg: "bg-sky-50",
   },
   {
-    to: "/home-remodeling-cost",
-    icon: DollarSign,
-    title: "Home Remodeling Cost Guide",
-    desc: "Transparent pricing for kitchens, baths, additions & more.",
-    color: "text-green-600",
-    bg: "bg-green-50",
-  },
-  {
-    to: "/customertestimonials",
-    icon: Star,
-    title: "Customer Testimonials",
-    desc: "See why Brandon homeowners trust Bradley Brown Inc.",
-    color: "text-amber-500",
-    bg: "bg-amber-50",
-  },
-  {
-    to: "/barndominium-builder",
-    icon: Warehouse,
-    title: "Barndominium Builder",
-    desc: "Custom steel-frame barndominiums built across Mississippi.",
-    color: "text-orange-500",
-    bg: "bg-orange-50",
-  },
-  {
-    to: "/barndominiums-ms",
-    icon: Warehouse,
-    title: "Barndominiums in MS",
-    desc: "Why Mississippi families are choosing barndominiums.",
-    color: "text-orange-600",
-    bg: "bg-orange-50",
-  },
-  {
-    to: "/remodeling-ms",
-    icon: Hammer,
-    title: "Remodeling in MS",
-    desc: "Core remodeling services serving Central Mississippi.",
+    to: "/services/kitchen-bathroom-remodeling",
+    icon: Wrench,
+    title: "Kitchen & Bath Remodeling",
+    desc: "Custom cabinets, countertops, tile & premium finishes that add real value.",
     color: "text-indigo-500",
     bg: "bg-indigo-50",
   },
   {
-    to: "/LuxuryHomeRenovations",
-    icon: Crown,
-    title: "Luxury Home Renovations",
-    desc: "High-end renovations with premium finishes and custom millwork.",
-    color: "text-purple-600",
-    bg: "bg-purple-50",
-  },
-  {
-    to: "/RenovationLoans",
-    icon: Banknote,
-    title: "Renovation Loans",
-    desc: "Financing options to make your remodel affordable.",
-    color: "text-emerald-600",
+    to: "/services/room-additions",
+    icon: Plus,
+    title: "Room Additions",
+    desc: "Master suites, in-law suites, home offices & sunrooms — seamless expansions.",
+    color: "text-emerald-500",
     bg: "bg-emerald-50",
   },
   {
-    to: "/HomeAdditionIdeas",
-    icon: Plus,
-    title: "Home Addition Ideas",
-    desc: "Inspiration for room additions, sunrooms & in-law suites.",
-    color: "text-teal-600",
-    bg: "bg-teal-50",
-  },
-  {
-    to: "/SmallBathroomIdeas",
-    icon: Bath,
-    title: "Small Bathroom Ideas",
-    desc: "Design ideas to maximize style in a compact bathroom.",
-    color: "text-cyan-600",
-    bg: "bg-cyan-50",
-  },
-  {
-    to: "/EnergyEfficientUpgrades",
+    to: "/services/outdoor-living",
     icon: Leaf,
-    title: "Energy-Efficient Upgrades",
-    desc: "Save on bills with smart energy upgrades for your home.",
-    color: "text-lime-600",
-    bg: "bg-lime-50",
+    title: "Outdoor Living",
+    desc: "Covered patios, outdoor kitchens, custom decks & pergolas for Mississippi living.",
+    color: "text-green-600",
+    bg: "bg-green-50",
   },
   {
-    to: "/LandingBrandonRemodelers",
-    icon: MapPin,
-    title: "Home Remodelers in Brandon, MS",
-    desc: "Kitchen, bath & whole-home renovations in Brandon and Rankin County.",
-    color: "text-sky-600",
-    bg: "bg-sky-50",
+    to: "/services/barndominiums",
+    icon: Warehouse,
+    title: "Barndominiums",
+    desc: "Steel-frame barndominiums combining living space, workshops & garages.",
+    color: "text-orange-500",
+    bg: "bg-orange-50",
   },
   {
-    to: "/custom-home-builder-brandon-ms",
-    icon: Home,
-    title: "Custom Home Builder in Brandon, MS",
-    desc: "Custom homes, new construction & luxury builds in Rankin County.",
-    color: "text-[#1E2D3D]",
-    bg: "bg-slate-100",
-  },
-  {
-    to: "/remodeling-ms",
-    icon: Hammer,
-    title: "Home Remodeling in Mississippi",
-    desc: "Statewide remodeling services for Mississippi homeowners.",
-    color: "text-indigo-600",
-    bg: "bg-indigo-50",
-  },
-  {
-    to: "/LandingEmergencyRepair",
+    to: "/services/emergency-repairs",
     icon: AlertTriangle,
-    title: "Emergency Home Repairs",
-    desc: "Fast response for storm damage and urgent repairs.",
+    title: "Emergency Repairs",
+    desc: "Storm damage, roof leaks & urgent structural repairs — fast response.",
     color: "text-red-600",
     bg: "bg-red-50",
   },
@@ -138,10 +58,10 @@ export default function FeaturedResources() {
     <section className="py-16 md:py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Helpful Resources</p>
+          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Services</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Plan Your Project</h2>
           <p className="text-slate-500 mt-3 max-w-xl mx-auto">
-            Free tools, pricing guides, and real stories to help you make confident decisions about your home.
+            Explore our full range of construction and remodeling services for Brandon, MS and Central Mississippi.
           </p>
         </div>
 

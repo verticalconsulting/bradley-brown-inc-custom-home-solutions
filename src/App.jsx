@@ -150,7 +150,7 @@ const AuthenticatedApp = () => {
       <Route path="/energyefficientupgrades" element={<Navigate to="/protips/energy-efficient-upgrades" replace />} />
       <Route path="/renovationloans" element={<Navigate to="/protips/renovation-loans" replace />} />
       {/* Historic home restoration redirect */}
-      <Route path="/historichomerestoration" element={<Navigate to="/projects/historic-home-restoration" replace />} />
+      <Route path="/historichomerestoration" element={<Navigate to="/portfolio" replace />} />
 
       <Route path="/sms-optin" element={<LayoutWrapper currentPageName="SmsOptin"><SmsOptin /></LayoutWrapper>} />
       <Route path="/jobsite-checkin" element={<LayoutWrapper currentPageName="JobCheckin"><JobCheckin /></LayoutWrapper>} />

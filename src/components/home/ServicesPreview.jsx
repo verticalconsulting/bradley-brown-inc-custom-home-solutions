@@ -7,12 +7,12 @@ import { Home, Wrench, Plus, Leaf, ChevronRight, Warehouse } from "lucide-react"
 const iconMap = { Home, Wrench, Plus, Leaf, Warehouse };
 
 const defaultServices = [
-  { name: "Custom Home Building", short_description: "Design and build your perfect home from the ground up, tailored to your vision and lifestyle.", icon: "Home" },
-  { name: "Home Renovations", short_description: "Transform your existing space with expert remodeling that adds value and improves your daily life.", icon: "Wrench" },
-  { name: "Bathroom Remodeling", short_description: "Walk-in showers, tub-to-shower conversions, tile & vanities — Brandon MS bath remodeling experts.", icon: "Wrench", link: "/bathroom-remodeling-brandon-ms" },
-  { name: "Room Additions", short_description: "Expand your living space seamlessly with additions that blend perfectly with your existing home.", icon: "Plus" },
-  { name: "Outdoor Living", short_description: "Create stunning patios, decks, and outdoor kitchens for Mississippi's beautiful weather.", icon: "Leaf" },
-  { name: "Barndominiums", short_description: "Custom steel-frame barndominiums combining living space, garages & workshops — built for Mississippi.", icon: "Warehouse", link: "/barndominium-builder" },
+  { name: "Custom Home Building", short_description: "Design and build your perfect home from the ground up, tailored to your vision and lifestyle.", icon: "Home", link: "/services/custom-home-building" },
+  { name: "Home Renovations", short_description: "Transform your existing space with expert remodeling that adds value and improves your daily life.", icon: "Wrench", link: "/services/kitchen-bathroom-remodeling" },
+  { name: "Bathroom Remodeling", short_description: "Walk-in showers, tub-to-shower conversions, tile & vanities — Brandon MS bath remodeling experts.", icon: "Wrench", link: "/services/kitchen-bathroom-remodeling" },
+  { name: "Room Additions", short_description: "Expand your living space seamlessly with additions that blend perfectly with your existing home.", icon: "Plus", link: "/services/room-additions" },
+  { name: "Outdoor Living", short_description: "Create stunning patios, decks, and outdoor kitchens for Mississippi's beautiful weather.", icon: "Leaf", link: "/services/outdoor-living" },
+  { name: "Barndominiums", short_description: "Custom steel-frame barndominiums combining living space, garages & workshops — built for Mississippi.", icon: "Warehouse", link: "/services/barndominiums" },
 ];
 
 export default function ServicesPreview() {

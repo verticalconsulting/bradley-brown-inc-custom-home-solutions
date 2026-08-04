@@ -16,7 +16,7 @@ export default function Legal() {
     <SEOHead
       title="Legal & Policies"
       description="Bradley Brown Inc. Privacy Policy and Terms & Conditions for our website, SMS messaging service, and custom home building services in Mississippi."
-      canonicalUrl="https://www.bradleybrowninc.com/legal"
+      canonicalUrl="https://bradleybrowninc.com/legal"
       noindex={false}
     />
     <div className="min-h-screen bg-[#FAFAF8] pt-20">

@@ -278,7 +278,7 @@ export default function LandingBrandonCustomHomeBuilder() {
             renovations in Brandon, MS and Rankin County.
           </p>
           <Link
-            to="/LandingBrandonRemodelers"
+            to="/remodeling-brandon-ms"
             className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
           >
             <Hammer className="w-4 h-4" /> Home Remodeling in Brandon, MS

@@ -80,7 +80,7 @@ export default function BarndominiumsService() {
         { url: "https://media.base44.com/images/public/699c758479c46f0580553750/97a6460ae_insidecomputer.png", alt: "Barndominium custom workspace with wood beams", caption: "Custom workspace with barn doors and natural light" },
       ]}
       relatedLinks={[
-        { to: "/landingpricing", label: "Pricing & Cost Guide" },
+        { to: "/pricing", label: "Pricing & Cost Guide" },
         { to: "/services/custom-home-building", label: "Custom Home Building" },
         { to: "/protips", label: "Pro Tips & Remodeling Advice" },
       ]}

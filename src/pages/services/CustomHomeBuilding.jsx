@@ -77,8 +77,8 @@ export default function CustomHomeBuilding() {
         { url: "https://images.unsplash.com/photo-1564013799989-ab1140d7376f?w=800&q=80", alt: "Newly constructed custom home exterior in Mississippi", caption: "Quality craftsmanship from foundation to roofline" },
       ]}
       relatedLinks={[
-        { to: "/energyefficientupgrades", label: "Energy-Efficient Home Upgrades" },
-        { to: "/homeadditionideas", label: "Home Addition Ideas & ROI Guide" },
+        { to: "/protips/energy-efficient-upgrades", label: "Energy-Efficient Home Upgrades" },
+        { to: "/protips/home-addition-ideas", label: "Home Addition Ideas & ROI Guide" },
         { to: "/protips", label: "Pro Tips & Remodeling Advice" },
       ]}
     />

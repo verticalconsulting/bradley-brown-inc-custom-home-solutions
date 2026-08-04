@@ -79,8 +79,8 @@ export default function EmergencyRepairs() {
         { url: "https://images.unsplash.com/photo-1581094794327-c711b9ce6839?w=800&q=80", alt: "Structural repair work on Mississippi home", caption: "Structural assessment and repair" },
       ]}
       relatedLinks={[
-        { to: "/energyefficientupgrades", label: "Energy-Efficient Upgrades" },
-        { to: "/renovationloans", label: "Renovation Loan Options" },
+        { to: "/protips/energy-efficient-upgrades", label: "Energy-Efficient Upgrades" },
+        { to: "/protips/renovation-loans", label: "Renovation Loan Options" },
         { to: "/protips", label: "Pro Tips & Remodeling Advice" },
       ]}
     />

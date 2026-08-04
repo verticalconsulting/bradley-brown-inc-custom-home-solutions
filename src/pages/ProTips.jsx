@@ -82,14 +82,14 @@ export default function ProTips() {
           <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Featured Guides</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
-              { label: "Small Bathroom Remodeling Ideas", page: "SmallBathroomIdeas", desc: "6 contractor-tested ideas to maximize a small bath" },
-              { label: "Home Addition Ideas", page: "HomeAdditionIdeas", desc: "Master suites, sunrooms, in-law suites & more" },
-              { label: "Energy-Efficient Home Upgrades", page: "EnergyEfficientUpgrades", desc: "Save on bills & claim federal tax credits" },
-              { label: "Renovation Loan Options", page: "RenovationLoans", desc: "FHA 203k, HELOC, home equity loans & more" },
-              { label: "Luxury Home Renovations", page: "LuxuryHomeRenovations", desc: "Premium finishes, project management & timeline expectations" },
-              { label: "Emergency Home Repairs — Brandon, MS", page: "LandingEmergencyRepair", desc: "Urgent? Call (601) 954-1306 — same-week service available" },
+              { label: "Small Bathroom Remodeling Ideas", to: "/protips/small-bathroom-ideas", desc: "6 contractor-tested ideas to maximize a small bath" },
+              { label: "Home Addition Ideas", to: "/protips/home-addition-ideas", desc: "Master suites, sunrooms, in-law suites & more" },
+              { label: "Energy-Efficient Home Upgrades", to: "/protips/energy-efficient-upgrades", desc: "Save on bills & claim federal tax credits" },
+              { label: "Renovation Loan Options", to: "/protips/renovation-loans", desc: "FHA 203k, HELOC, home equity loans & more" },
+              { label: "Kitchen & Bath Remodeling", to: "/services/kitchen-bathroom-remodeling", desc: "Custom cabinets, countertops, tile & premium finishes" },
+              { label: "Emergency Home Repairs — Brandon, MS", to: "/services/emergency-repairs", desc: "Urgent? Call (601) 954-1306 — same-week service available" },
             ].map((g) => (
-              <Link key={g.page} to={createPageUrl(g.page)} className="block bg-white border border-sky-100 rounded-lg p-4 hover:border-sky-400 transition-colors">
+              <Link key={g.to} to={g.to} className="block bg-white border border-sky-100 rounded-lg p-4 hover:border-sky-400 transition-colors">
                 <p className="font-semibold text-[#1E2D3D] text-xs mb-1">{g.label}</p>
                 <p className="text-slate-500 text-xs">{g.desc}</p>
               </Link>

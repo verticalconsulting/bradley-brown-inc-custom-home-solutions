@@ -77,8 +77,8 @@ export default function OutdoorLiving() {
         { url: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Custom outdoor deck and pergola in Mississippi", caption: "Custom composite deck with pergola" },
       ]}
       relatedLinks={[
-        { to: "/homeadditionideas", label: "Home Addition Ideas & ROI Guide" },
-        { to: "/landingpricing", label: "Pricing & Cost Guide" },
+        { to: "/protips/home-addition-ideas", label: "Home Addition Ideas & ROI Guide" },
+        { to: "/pricing", label: "Pricing & Cost Guide" },
         { to: "/protips", label: "Pro Tips & Remodeling Advice" },
       ]}
     />
