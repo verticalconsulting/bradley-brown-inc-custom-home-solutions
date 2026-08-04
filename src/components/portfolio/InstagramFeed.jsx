@@ -52,6 +52,7 @@ export default function InstagramFeed() {
             href={post.permalink}
             target="_blank"
             rel="noopener noreferrer"
+            referrerPolicy="no-referrer"
             className="group relative aspect-square overflow-hidden rounded-lg bg-slate-100 block"
             title={post.caption?.slice(0, 100) || "View on Instagram"}
           >
@@ -60,7 +61,15 @@ export default function InstagramFeed() {
               alt={post.caption?.slice(0, 80) || "Instagram post"}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement.querySelector('.ig-fallback')?.classList.remove('hidden');
+              }}
             />
+            <div className="ig-fallback hidden absolute inset-0 flex items-center justify-center bg-slate-200">
+              <Instagram className="w-8 h-8 text-slate-400" />
+            </div>
             {isVideo && (
               <div className="absolute top-2 right-2 bg-black/60 rounded-full p-1.5">
                 <Play className="w-3 h-3 text-white fill-white" />
