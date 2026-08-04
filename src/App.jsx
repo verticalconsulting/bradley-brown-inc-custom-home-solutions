@@ -13,6 +13,9 @@ import SEODashboard from './pages/SEODashboard';
 import SiteImages from './pages/SiteImages';
 import BlogAdmin from './pages/BlogAdmin';
 import ConversionDashboard from './pages/ConversionDashboard';
+import CRM from './pages/CRM';
+import AgentChat from './pages/AgentChat';
+import TikTokSync from './pages/TikTokSync';
 import Estimate from './pages/Estimate';
 import LandingCoreServices from './pages/LandingCoreServices';
 import LandingPricing from './pages/LandingPricing';
@@ -85,6 +88,10 @@ const AuthenticatedApp = () => {
           <MainPage />
         </LayoutWrapper>
       } />
+      {/* Admin routes — auth-gated via AdminRoute, rendered before the pagesConfig loop */}
+      <Route path="/crm" element={<LayoutWrapper currentPageName="CRM"><AdminRoute><CRM /></AdminRoute></LayoutWrapper>} />
+      <Route path="/agentchat" element={<LayoutWrapper currentPageName="AgentChat"><AdminRoute><AgentChat /></AdminRoute></LayoutWrapper>} />
+      <Route path="/tiktoksync" element={<LayoutWrapper currentPageName="TikTokSync"><AdminRoute><TikTokSync /></AdminRoute></LayoutWrapper>} />
       {Object.entries(Pages).map(([path, Page]) => (
         <Route
           key={path}

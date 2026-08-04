@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { BarChart2, Loader2, RefreshCw, ChevronDown, ChevronRight } from "lucide-react";
 
 const ALL_PAGES = [
-  "/", "/Services", "/Portfolio", "/Contact", "/QuoteAssistant",
-  "/LandingCoreServices", "/LandingEmergencyRepair", "/LandingBrandonRemodelers",
-  "/SmallBathroomIdeas", "/LuxuryHomeRenovations", "/LandingPricing",
-  "/LandingTrust", "/RenovationLoans", "/HomeAdditionIdeas", "/EnergyEfficientUpgrades",
+  "/", "/services", "/services/custom-home-building", "/services/kitchen-remodeling",
+  "/services/bathroom-remodeling", "/services/room-additions", "/services/outdoor-living",
+  "/services/barndominiums", "/services/emergency-repairs",
+  "/portfolio", "/about", "/contact", "/pricing",
+  "/remodeling-brandon-ms", "/remodeling-ms", "/custom-home-builder-brandon-ms",
+  "/bathroom-remodeling-brandon-ms", "/madison-ms-home-remodeling",
+  "/protips", "/estimate", "/projects/historic-home-restoration",
 ];
 
 export default function SEOPageKeywords({ data, loading, onLoad, onFilterPage }) {

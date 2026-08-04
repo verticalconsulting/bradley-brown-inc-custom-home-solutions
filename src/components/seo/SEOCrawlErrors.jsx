@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Loader2, RefreshCw, CheckCircle2, XCircle, AlertTriangle, Smartphone, Lightbulb, Info, ChevronDown, ChevronUp } from "lucide-react";
+import { Loader2, RefreshCw, CheckCircle2, XCircle, AlertTriangle, Smartphone, Lightbulb, Info, ChevronDown, ChevronUp, ExternalLink, User, Bot } from "lucide-react";
 
 const VERDICT_CONFIG = {
   PASS: { label: "Indexed", color: "text-green-600", bg: "bg-green-50", icon: CheckCircle2 },
@@ -60,6 +60,18 @@ function PageRow({ page }) {
               <p className="font-medium">{page.robotsTxtState || "—"}</p>
             </div>
           </div>
+          {(page.googleCanonical || page.userCanonical) && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-gray-50">
+              <div>
+                <p className="text-slate-400 uppercase tracking-wide font-semibold mb-0.5">Google Canonical</p>
+                <p className="font-mono text-[10px]">{page.googleCanonical || "—"}</p>
+              </div>
+              <div>
+                <p className="text-slate-400 uppercase tracking-wide font-semibold mb-0.5">Declared Canonical</p>
+                <p className="font-mono text-[10px]">{page.userCanonical || "—"}</p>
+              </div>
+            </div>
+          )}
           {page.perf && (
             <div className="grid grid-cols-4 gap-3 pt-2 border-t border-gray-50">
               <div>
@@ -96,6 +108,7 @@ function PageRow({ page }) {
 
 export default function SEOCrawlErrors({ data, loading, onLoad }) {
   const [filter, setFilter] = useState("all");
+  const [view, setView] = useState("googlebot");
 
   const filtered = data?.pages?.filter(p => {
     if (filter === "errors") return p.verdict === "FAIL";
@@ -106,14 +119,15 @@ export default function SEOCrawlErrors({ data, loading, onLoad }) {
   }) || [];
 
   const s = data?.summary;
+  const visitor404s = data?.visitor404s || [];
 
   return (
     <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
       <div className="flex items-center justify-between p-5 border-b border-gray-100">
         <div className="flex items-center gap-2">
-          <XCircle className="w-5 h-5 text-red-500" />
+          <Bot className="w-5 h-5 text-red-500" />
           <div>
-            <h2 className="font-bold text-[#1E2D3D]">Crawl Error Analysis — Landing Pages</h2>
+            <h2 className="font-bold text-[#1E2D3D]">Crawl Error Analysis</h2>
             {data?.dateRange && (
               <p className="text-xs text-slate-400 mt-0.5">{data.dateRange.startDate} → {data.dateRange.endDate}</p>
             )}
@@ -129,16 +143,32 @@ export default function SEOCrawlErrors({ data, loading, onLoad }) {
         </button>
       </div>
 
+      {/* View switcher: Googlebot vs Visitor 404s */}
+      <div className="flex border-b border-gray-100">
+        <button
+          onClick={() => setView("googlebot")}
+          className={`px-5 py-2.5 text-sm font-medium transition-colors flex items-center gap-2 ${view === "googlebot" ? "text-sky-600 border-b-2 border-sky-500" : "text-slate-500 hover:text-slate-700"}`}
+        >
+          <Bot className="w-4 h-4" /> Googlebot crawl issues
+        </button>
+        <button
+          onClick={() => setView("visitor")}
+          className={`px-5 py-2.5 text-sm font-medium transition-colors flex items-center gap-2 ${view === "visitor" ? "text-sky-600 border-b-2 border-sky-500" : "text-slate-500 hover:text-slate-700"}`}
+        >
+          <User className="w-4 h-4" /> Visitor 404s ({visitor404s.length})
+        </button>
+      </div>
+
       {loading && (
         <div className="p-10 text-center text-slate-400 text-sm">
           <Loader2 className="w-6 h-6 animate-spin mx-auto mb-2 text-sky-400" />
-          Inspecting all landing pages via Search Console…
+          Inspecting all canonical pages via Search Console…
         </div>
       )}
 
-      {data && !loading && (
+      {/* ── Googlebot crawl issues ── */}
+      {data && !loading && view === "googlebot" && (
         <div className="p-5 space-y-5">
-          {/* Summary stats */}
           {s && (
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
               {[
@@ -156,7 +186,14 @@ export default function SEOCrawlErrors({ data, loading, onLoad }) {
             </div>
           )}
 
-          {/* AI Insights */}
+          {data.hadoDashboardUrl && (
+            <div className="bg-blue-50 border border-blue-100 rounded-xl p-3 flex items-center gap-2 text-xs text-blue-700">
+              <ExternalLink className="w-4 h-4 flex-shrink-0" />
+              <span>Bot crawl analytics also available in the </span>
+              <a href={data.hadoDashboardUrl} target="_blank" rel="noopener noreferrer" className="font-semibold underline">Hado SEO dashboard</a>
+            </div>
+          )}
+
           {data.aiInsights && (
             <div className="bg-amber-50 border border-amber-100 rounded-xl p-4 space-y-3">
               <div className="flex items-center gap-2">
@@ -191,7 +228,6 @@ export default function SEOCrawlErrors({ data, loading, onLoad }) {
             </div>
           )}
 
-          {/* Filter pills */}
           <div className="flex flex-wrap gap-2">
             {[
               { key: "all", label: `All (${data.pages?.length || 0})` },
@@ -210,7 +246,6 @@ export default function SEOCrawlErrors({ data, loading, onLoad }) {
             ))}
           </div>
 
-          {/* Page list */}
           <div className="space-y-2">
             {filtered.length === 0 ? (
               <p className="text-sm text-slate-400 text-center py-4">No pages match this filter.</p>
@@ -221,9 +256,47 @@ export default function SEOCrawlErrors({ data, loading, onLoad }) {
         </div>
       )}
 
+      {/* ── Visitor 404s ── */}
+      {data && !loading && view === "visitor" && (
+        <div className="p-5">
+          <div className="bg-slate-50 rounded-lg p-3 mb-4 text-xs text-slate-500">
+            <p className="flex items-start gap-2">
+              <Info className="w-4 h-4 flex-shrink-0 mt-0.5" />
+              <span>Visitor 404s are logged client-side (NotFoundLog entity). Since Hado serves bots cached prerendered HTML, bot 404s are not captured here — only human visitors. Use the Googlebot tab above for bot-side crawl issues.</span>
+            </p>
+          </div>
+          {visitor404s.length === 0 ? (
+            <p className="text-sm text-slate-400 text-center py-6">No unresolved visitor 404s.</p>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
+                  <tr>
+                    <th className="px-4 py-3 text-left">Path</th>
+                    <th className="px-4 py-3 text-right">Hits</th>
+                    <th className="px-4 py-3 text-left">Last Seen</th>
+                    <th className="px-4 py-3 text-left">Referrer</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-50">
+                  {visitor404s.map((log, i) => (
+                    <tr key={i} className="hover:bg-slate-50 transition-colors">
+                      <td className="px-4 py-3 font-mono text-[#1E2D3D] text-xs">{log.path}</td>
+                      <td className="px-4 py-3 text-right font-semibold text-red-500">{log.hit_count || 1}</td>
+                      <td className="px-4 py-3 text-slate-500 text-xs">{log.last_seen ? new Date(log.last_seen).toLocaleString() : "—"}</td>
+                      <td className="px-4 py-3 text-slate-400 text-xs truncate max-w-xs">{log.referrer || "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
+
       {!data && !loading && (
         <div className="p-8 text-center text-slate-400 text-sm">
-          Click "Analyze Crawl Errors" to inspect all landing pages for crawl issues, indexing problems, and mobile usability errors.
+          Click "Analyze Crawl Errors" to inspect all canonical pages for crawl issues, indexing problems, and mobile usability errors.
         </div>
       )}
     </section>

@@ -49,30 +49,24 @@
  */
 import About from './pages/About';
 import AccountSettings from './pages/AccountSettings';
-import AgentChat from './pages/AgentChat';
-import CRM from './pages/CRM';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Legal from './pages/Legal';
 import Portfolio from './pages/Portfolio';
 import ProTips from './pages/ProTips';
 import Services from './pages/Services';
-import TikTokSync from './pages/TikTokSync';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
     "About": About,
     "AccountSettings": AccountSettings,
-    "AgentChat": AgentChat,
-    "CRM": CRM,
     "Contact": Contact,
     "Home": Home,
     "Legal": Legal,
     "Portfolio": Portfolio,
     "ProTips": ProTips,
     "Services": Services,
-    "TikTokSync": TikTokSync,
 }
 
 export const pagesConfig = {

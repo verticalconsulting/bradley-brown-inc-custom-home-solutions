@@ -15,6 +15,9 @@ Disallow: /agentchat
 Disallow: /tiktoksync
 Disallow: /thank-you
 Disallow: /error
+Disallow: /siteimages
+Disallow: /conversiondashboard
+Disallow: /funnelanalysis
 
 # Block dotfile / config probes
 Disallow: /*.env
