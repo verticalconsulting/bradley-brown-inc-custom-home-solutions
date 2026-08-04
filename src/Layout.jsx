@@ -136,17 +136,17 @@ export default function Layout({ children, currentPageName }) {
                 <Link
                   to="/services"
                   className={`text-sm font-medium transition-colors hover:text-sky-400 flex items-center gap-0.5 ${
-                  currentPageName === "Services" ? "text-sky-400" : textColor}`}
-                >
+                  currentPageName === "Services" ? "text-sky-400" : textColor}`}>
+                  
                   Services <ChevronRight className="w-3 h-3 rotate-90" />
                 </Link>
                 <div className="absolute top-full left-0 pt-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                   <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
-                    {serviceLinks.map(link => (
-                      <Link key={link.to} to={link.to} className="block px-4 py-3 text-sm text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors">
+                    {serviceLinks.map((link) =>
+                    <Link key={link.to} to={link.to} className="block px-4 py-3 text-sm text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors">
                         {link.label}
                       </Link>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -183,9 +183,9 @@ export default function Layout({ children, currentPageName }) {
               </a>
               {/* Desktop estimate CTA */}
               <Link
-                to="/estimate" className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-[#37b5eb]/[0.7]">
+                to="/estimate" className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-[#45a6e3]/[0.7]">Get My Free Estimate
 
-                Get My Free Estimate <ChevronRight className="w-3 h-3" />
+
               </Link>
 
               {/* Mobile estimate CTA — thumb-sized, always visible in the header */}
@@ -212,11 +212,11 @@ export default function Layout({ children, currentPageName }) {
             <div className="px-4 py-5 space-y-1">
               <div className="px-3 py-2">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Services</p>
-                {serviceLinks.map(link => (
-                  <Link key={link.to} to={link.to} className="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-gray-50 transition-colors">
+                {serviceLinks.map((link) =>
+              <Link key={link.to} to={link.to} className="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-gray-50 transition-colors">
                     {link.label}
                   </Link>
-                ))}
+              )}
               </div>
               {navLinks.map((link) =>
             <Link
