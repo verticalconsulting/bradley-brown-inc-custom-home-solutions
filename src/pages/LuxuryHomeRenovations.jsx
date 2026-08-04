@@ -167,6 +167,41 @@ export default function LuxuryHomeRenovations() {
           <p className="text-xs text-amber-600 mt-3">* Timelines include permitting, material lead times, and final punch list. Custom or imported materials may extend timelines.</p>
         </div>
 
+        {/* Financing */}
+        <div>
+          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">Financing Your Luxury Renovation</h2>
+          <p className="text-slate-600 leading-relaxed text-sm mb-4">
+            Most luxury renovation clients in the Brandon and Rankin County area finance their projects through one of three paths. A <strong>home equity loan or HELOC</strong> lets equity-rich homeowners borrow against their home's value at competitive rates, typically covering $50K–$500K in renovation scope. <strong>Construction-to-permanent loans</strong> roll construction financing into a single mortgage — ideal for full gut-rebuilds starting at $150K. <strong>Personal renovation loans</strong> offer faster approval for smaller projects ($25K–$100K) without tapping equity. Bradley Brown Inc. works directly with you and your lender to provide accurate scopes of work, phased cost breakdowns, and the documentation underwriters require — so your financing stays on track alongside your build.
+          </p>
+          <div className="overflow-x-auto mb-5">
+            <table className="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+              <thead>
+                <tr className="bg-[#1E2D3D] text-white text-left">
+                  <th className="px-4 py-3 font-bold">Financing Type</th>
+                  <th className="px-4 py-3 font-bold">Best For</th>
+                  <th className="px-4 py-3 font-bold">Typical Range</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { type: "HELOC", bestFor: "Equity-rich homeowners", range: "$50K–$500K" },
+                  { type: "Personal Renovation Loan", bestFor: "Faster approval", range: "$25K–$100K" },
+                  { type: "Construction Loan", bestFor: "Full gut/rebuild", range: "$150K+" },
+                ].map((row) => (
+                  <tr key={row.type} className="border-t border-gray-100 bg-white">
+                    <td className="px-4 py-3 font-semibold text-[#1E2D3D]">{row.type}</td>
+                    <td className="px-4 py-3 text-slate-600">{row.bestFor}</td>
+                    <td className="px-4 py-3 text-slate-700 font-medium">{row.range}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+            Schedule a Free Consultation <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+
         {/* Mid-page CTA */}
         <div className="bg-[#1E2D3D] rounded-2xl p-6 md:p-8 text-center">
           <p className="text-white font-bold text-lg mb-2">Start Your Luxury Renovation</p>
