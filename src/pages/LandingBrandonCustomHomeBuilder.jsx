@@ -244,6 +244,9 @@ export default function LandingBrandonCustomHomeBuilder() {
           </p>
         </div>
 
+        {/* Custom Homes Gallery */}
+        <CustomHomeGallery />
+
         {/* Residential General Contractor in Brandon and Rankin County */}
         <div className="prose prose-slate max-w-none">
           <h2 className="text-2xl font-bold text-[#1E2D3D]">Residential General Contractor in Brandon and Rankin County</h2>
