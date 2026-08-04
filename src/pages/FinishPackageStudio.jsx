@@ -4,6 +4,8 @@ import { Upload, Sparkles, Image as ImageIcon, ArrowRight, Loader2 } from "lucid
 import { base44 } from "@/api/base44Client";
 import SEOHead from "@/components/SEOHead";
 import FinishPackageCard from "@/components/finish/FinishPackageCard";
+import HowItWorks from "@/components/finish/HowItWorks";
+import WhatsInsidePackage from "@/components/finish/WhatsInsidePackage";
 
 const ROOMS = ["Kitchen", "Primary Bath", "Living Room", "Bedroom", "Outdoor / Patio", "Whole Home"];
 
@@ -309,6 +311,12 @@ Be specific to what's visible in the inspiration photo. Keep prose tight — no 
             .
           </p>
         )}
+
+        {/* How It Works */}
+        <HowItWorks />
+
+        {/* What's Inside Each Finish Package */}
+        <WhatsInsidePackage />
       </div>
     </div>
   );
