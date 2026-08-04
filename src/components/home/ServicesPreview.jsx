@@ -2,17 +2,34 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { base44 } from "@/api/base44Client";
-import { Home, Wrench, Plus, Leaf, ChevronRight, Warehouse } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import {
+  CustomHomeIcon,
+  KitchenIcon,
+  BathroomIcon,
+  RoomAdditionIcon,
+  OutdoorLivingIcon,
+  BarndominiumIcon,
+  HomeRenovationIcon,
+} from "@/components/home/ServiceIcons";
 
-const iconMap = { Home, Wrench, Plus, Leaf, Warehouse };
+const iconMap = {
+  "custom-home-building": CustomHomeIcon,
+  "kitchen-remodeling": KitchenIcon,
+  "bathroom-remodeling": BathroomIcon,
+  "room-additions": RoomAdditionIcon,
+  "outdoor-living": OutdoorLivingIcon,
+  barndominiums: BarndominiumIcon,
+  renovations: HomeRenovationIcon,
+};
 
 const defaultServices = [
-  { name: "Custom Home Building", short_description: "Design and build your perfect home from the ground up, tailored to your vision and lifestyle.", icon: "Home", link: "/services/custom-home-building" },
-  { name: "Kitchen Remodeling", short_description: "Custom cabinetry, granite & quartz countertops, tile backsplashes & islands — built for how your family cooks.", icon: "Wrench", link: "/services/kitchen-remodeling" },
-  { name: "Bathroom Remodeling", short_description: "Walk-in showers, tub-to-shower conversions, tile & vanities — Brandon MS bath remodeling experts.", icon: "Wrench", link: "/services/bathroom-remodeling" },
-  { name: "Room Additions", short_description: "Expand your living space seamlessly with additions that blend perfectly with your existing home.", icon: "Plus", link: "/services/room-additions" },
-  { name: "Outdoor Living", short_description: "Create stunning patios, decks, and outdoor kitchens for Mississippi's beautiful weather.", icon: "Leaf", link: "/services/outdoor-living" },
-  { name: "Barndominiums", short_description: "Custom steel-frame barndominiums combining living space, garages & workshops — built for Mississippi.", icon: "Warehouse", link: "/services/barndominiums" },
+  { name: "Custom Home Building", short_description: "Design and build your perfect home from the ground up, tailored to your vision and lifestyle.", icon: "custom-home-building", link: "/services/custom-home-building" },
+  { name: "Kitchen Remodeling", short_description: "Custom cabinetry, granite & quartz countertops, tile backsplashes & islands — built for how your family cooks.", icon: "kitchen-remodeling", link: "/services/kitchen-remodeling" },
+  { name: "Bathroom Remodeling", short_description: "Walk-in showers, tub-to-shower conversions, tile & vanities — Brandon MS bath remodeling experts.", icon: "bathroom-remodeling", link: "/services/bathroom-remodeling" },
+  { name: "Room Additions", short_description: "Expand your living space seamlessly with additions that blend perfectly with your existing home.", icon: "room-additions", link: "/services/room-additions" },
+  { name: "Outdoor Living", short_description: "Create stunning patios, decks, and outdoor kitchens for Mississippi's beautiful weather.", icon: "outdoor-living", link: "/services/outdoor-living" },
+  { name: "Barndominiums", short_description: "Custom steel-frame barndominiums combining living space, garages & workshops — built for Mississippi.", icon: "barndominiums", link: "/services/barndominiums" },
 ];
 
 export default function ServicesPreview() {
@@ -37,13 +54,13 @@ export default function ServicesPreview() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {display.map((service, i) => {
-            const Icon = iconMap[service.icon] || Home;
+            const Icon = iconMap[service.icon] || iconMap[service.slug] || HomeRenovationIcon;
             const card = (
               <div key={i} className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer">
-                <div className="w-12 h-12 bg-sky-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-sky-400 transition-colors">
-                  <Icon className="w-6 h-6 text-sky-400 group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl flex items-center justify-center mb-4 group-hover:from-[#1E2D3D] group-hover:to-[#2a3f54] transition-all duration-300">
+                  <Icon className="w-7 h-7 text-[#37b5eb] group-hover:text-sky-300 transition-colors" />
                 </div>
-                <h3 className="font-bold text-[#1E2D3D] mb-2">{service.name}</h3>
+                <h3 className="font-bold text-[#1E2D3D] mb-2 group-hover:text-sky-600 transition-colors">{service.name}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{service.short_description}</p>
               </div>
             );
