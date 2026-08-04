@@ -76,7 +76,7 @@ export default function ServiceAreaSection() {
                 });
               }
             }}
-            className="flex items-center gap-2 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md bg-[#1b4bbb]">
+            className="flex items-center gap-2 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md bg-[#2659c0]">
             
             <Phone className="w-4 h-4" /> Call (844) 351-4154
           </a>
