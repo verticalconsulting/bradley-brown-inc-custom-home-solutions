@@ -60,7 +60,7 @@ export default function FinancingOptions() {
         </Link>
         <Link
           to={"/estimate"}
-          className="inline-flex items-center gap-2 border border-sky-200 text-sky-700 px-6 py-3 rounded-lg font-semibold hover:bg-sky-50 transition-colors bg-[hsl(var(--sidebar-accent))]">Get a Free Estimate
+          className="inline-flex items-center gap-2 border border-sky-200 text-sky-700 px-6 py-3 rounded-lg font-semibold hover:bg-sky-50 transition-colors bg-[hsl(var(--muted-foreground))]">Get a Free Estimate
 
 
         </Link>
