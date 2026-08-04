@@ -3,10 +3,10 @@ import { MapPin, Phone, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const cities = [
-  "Brandon", "Flowood", "Richland", "Pearl",
-  "Florence", "Pelahatchie", "Ridgeland", "Madison",
-  "Jackson", "Clinton", "Raymond", "Rankin County"
-];
+"Brandon", "Flowood", "Richland", "Pearl",
+"Florence", "Pelahatchie", "Ridgeland", "Madison",
+"Jackson", "Clinton", "Raymond", "Rankin County"];
+
 
 export default function ServiceAreaSection() {
   return (
@@ -57,7 +57,7 @@ export default function ServiceAreaSection() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-10">
           {cities.map((city) =>
-            <div key={city} className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-slate-700">
+          <div key={city} className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-slate-700">
               <MapPin className="w-3.5 h-3.5 text-sky-500 flex-shrink-0" />
               {city}, MS
             </div>
@@ -76,18 +76,18 @@ export default function ServiceAreaSection() {
                 });
               }
             }}
-            className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md"
-          >
+            className="flex items-center gap-2 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md bg-[#0c2fdf]">
+            
             <Phone className="w-4 h-4" /> Call (844) 351-4154
           </a>
           <Link
             to="/estimate"
-            className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md"
-          >
+            className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md">
+            
             Get My Free Estimate <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
