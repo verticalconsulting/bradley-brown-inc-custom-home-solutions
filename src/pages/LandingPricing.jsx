@@ -5,9 +5,10 @@ import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
 import LocalProofPoints from "@/components/landing/LocalProofPoints";
+import TierPricing from "@/components/landing/TierPricing";
+import FinancingOptions from "@/components/landing/FinancingOptions";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
-import BudgetTierBreakdown from "@/components/pricing/BudgetTierBreakdown";
 import { base44 } from "@/api/base44Client";
 
 const schema = {
@@ -131,8 +132,11 @@ export default function LandingPricing() {
           <p className="text-xs text-slate-400 mt-3">* These are illustrative estimates only. Not a quote or guarantee. Call for accurate pricing specific to your project.</p>
         </div>
 
-        {/* Three-tier budget breakdown */}
-        <BudgetTierBreakdown />
+        {/* Tier pricing breakdown */}
+        <TierPricing />
+
+        {/* Financing options */}
+        <FinancingOptions />
 
         {/* How we price */}
         <div>
