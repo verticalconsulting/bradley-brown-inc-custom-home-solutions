@@ -5,6 +5,8 @@ import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import StickyCallButton from "@/components/StickyCallButton";
 import LandingFAQ from "@/components/landing/LandingFAQ";
+import BarndominiumComparison from "@/components/landing/BarndominiumComparison";
+import BarndominiumFinancing from "@/components/landing/BarndominiumFinancing";
 import { base44 } from "@/api/base44Client";
 
 const PHONE = "(844) 351-4154";
@@ -28,14 +30,28 @@ const schema = {
       "name": "Custom Barndominium Construction",
       "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
       "areaServed": { "@type": "City", "name": "Brandon, Mississippi" },
-      "description": "Turnkey custom barndominium builds in Brandon, MS and the Rankin County area — steel frame, living + workshop combos, built by a licensed contractor since 1995."
+      "description": "Turnkey custom barndominium builds in Brandon, MS and the Rankin County area — steel frame, living + workshop combos, built by a licensed contractor since 1995.",
+      "priceRange": "$45,000–$350,000",
+      "offers": [
+        { "@type": "Offer", "name": "Basic Shell Only", "priceCurrency": "USD", "priceSpecification": { "@type": "PriceSpecification", "minPrice": 45000, "maxPrice": 80000 } },
+        { "@type": "Offer", "name": "Standard Turnkey (1,200–1,800 sq ft)", "priceCurrency": "USD", "priceSpecification": { "@type": "PriceSpecification", "minPrice": 120000, "maxPrice": 180000 } },
+        { "@type": "Offer", "name": "Premium Turnkey with Shop (2,000–3,000 sq ft)", "priceCurrency": "USD", "priceSpecification": { "@type": "PriceSpecification", "minPrice": 200000, "maxPrice": 350000 } }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "How much does a barndominium cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Barndominium builds in the Brandon and Rankin County area typically range from $75–$150 per square foot, depending on finishes, size, and site conditions. Call (844) 351-4154 for a free custom estimate." } },
-        { "@type": "Question", "name": "How long does it take to build a barndominium in Brandon, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Most barndominiums are completed in 4–8 months from permit to move-in. The steel shell goes up quickly — interior finish work takes the most time." } },
-        { "@type": "Question", "name": "Do you build barndominiums with living + workshop combinations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — that's our specialty. We design custom floor plans combining living quarters, garages, and workshops under one steel-frame roof." } }
+        { "@type": "Question", "name": "How much does a barndominium cost in Brandon, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Most Brandon and Rankin County area barndos fall between $75–$150 per square foot depending on finishes and site. Call (844) 351-4154 for a free custom estimate on your land." } },
+        { "@type": "Question", "name": "How long does it take to build a barndominium?", "acceptedAnswer": { "@type": "Answer", "text": "Typical timeline is 4–8 months from permit to move-in. Steel shells erect in weeks; the interior finish work is what takes the most time." } },
+        { "@type": "Question", "name": "Can you combine a shop, garage, and home under one roof?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — that's exactly what we specialize in. Living quarters, workshops, RV bays, and garages all under one steel-frame structure." } },
+        { "@type": "Question", "name": "Do you handle permits and site prep?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We pull all permits, schedule inspections, and manage site prep, concrete, plumbing, electrical, and HVAC from start to finish." } },
+        { "@type": "Question", "name": "Will you build on my existing land?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We build on rural and suburban acreage throughout Rankin, Hinds, Simpson, Scott, Smith, and surrounding counties." } },
+        { "@type": "Question", "name": "Can I get a loan to build a barndominium in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. USDA Rural Development loans, construction-to-permanent loans, and Farm Credit financing all work for barndominiums in Mississippi, and most local lenders are now familiar with steel-frame residential builds. We recommend working with a lender who knows the area. Bradley Brown provides the draw plans, permits, and builder documentation most lenders require to close." } },
+        { "@type": "Question", "name": "What are the zoning requirements for a barndominium in Rankin County, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Barndominiums are permitted in agricultural and residential zones across Rankin County, though setback and minimum square footage rules vary by district. Bradley Brown handles the permit application, submits engineered plans to the county, and coordinates with Rankin County inspectors from slab to final so your build stays compliant." } },
+        { "@type": "Question", "name": "How long does it take to build a barndominium from land to move-in?", "acceptedAnswer": { "@type": "Answer", "text": "Plan on 4–8 months for most builds. The engineered steel shell erects in a few weeks once the slab is poured; the finish-out — insulation, drywall, cabinets, electrical, and HVAC — is the variable that depends on your finishes and the weather." } },
+        { "@type": "Question", "name": "Are barndominiums harder to insure than traditional homes?", "acceptedAnswer": { "@type": "Answer", "text": "Some carriers initially treat barndominiums as outbuildings, but proper final inspections and a certificate of occupancy usually qualify them for standard homeowner coverage. We recommend contacting a Mississippi-licensed insurer who writes farm-and-ranch policies. Bradley Brown provides the documentation underwriters need to classify the build as a residence." } },
+        { "@type": "Question", "name": "Do I need to own land before starting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Bradley Brown works with clients who already own rural acreage across Rankin, Hinds, Simpson, Scott, Smith, and surrounding counties. If you're still shopping for land, we're happy to walk a parcel with you and flag any site-prep, access, or utility concerns before you close." } },
+        { "@type": "Question", "name": "What is the difference between a shell build and a turnkey barndominium?", "acceptedAnswer": { "@type": "Answer", "text": "A shell build is the structure only — slab, steel frame, roof, and exterior — leaving the interior for you to finish. A turnkey barndominium is fully finished and move-in ready, including insulation, drywall, plumbing, electrical, cabinets, and flooring. Bradley Brown offers both, so you choose how much you want us to handle." } }
       ]
     }
   ]
@@ -47,6 +63,12 @@ const faqs = [
   { question: `Can you combine a shop, garage, and home under one roof?`, answer: `Yes — that's exactly what we specialize in. Living quarters, workshops, RV bays, and garages all under one steel-frame structure.` },
   { question: `Do you handle permits and site prep?`, answer: `Yes. We pull all permits, schedule inspections, and manage site prep, concrete, plumbing, electrical, and HVAC from start to finish.` },
   { question: `Will you build on my existing land?`, answer: `Absolutely. We build on rural and suburban acreage throughout Rankin, Hinds, Simpson, Scott, Smith, and surrounding counties.` },
+  { question: `Can I get a loan to build a barndominium in Mississippi?`, answer: `Yes. USDA Rural Development loans, construction-to-permanent loans, and Farm Credit financing all work for barndominiums in Mississippi, and most local lenders are now familiar with steel-frame residential builds. We recommend working with a lender who knows the area. Bradley Brown provides the draw plans, permits, and builder documentation most lenders require to close.` },
+  { question: `What are the zoning requirements for a barndominium in Rankin County, MS?`, answer: `Barndominiums are permitted in agricultural and residential zones across Rankin County, though setback and minimum square footage rules vary by district. Bradley Brown handles the permit application, submits engineered plans to the county, and coordinates with Rankin County inspectors from slab to final so your build stays compliant.` },
+  { question: `How long does it take to build a barndominium from land to move-in?`, answer: `Plan on 4–8 months for most builds. The engineered steel shell erects in a few weeks once the slab is poured; the finish-out — insulation, drywall, cabinets, electrical, and HVAC — is the variable that depends on your finishes and the weather.` },
+  { question: `Are barndominiums harder to insure than traditional homes?`, answer: `Some carriers initially treat barndominiums as outbuildings, but proper final inspections and a certificate of occupancy usually qualify them for standard homeowner coverage. We recommend contacting a Mississippi-licensed insurer who writes farm-and-ranch policies. Bradley Brown provides the documentation underwriters need to classify the build as a residence.` },
+  { question: `Do I need to own land before starting?`, answer: `Yes. Bradley Brown works with clients who already own rural acreage across Rankin, Hinds, Simpson, Scott, Smith, and surrounding counties. If you're still shopping for land, we're happy to walk a parcel with you and flag any site-prep, access, or utility concerns before you close.` },
+  { question: `What is the difference between a shell build and a turnkey barndominium?`, answer: `A shell build is the structure only — slab, steel frame, roof, and exterior — leaving the interior for you to finish. A turnkey barndominium is fully finished and move-in ready, including insulation, drywall, plumbing, electrical, cabinets, and flooring. Bradley Brown offers both, so you choose how much you want us to handle.` },
 ];
 
 const trackCall = () => {
@@ -263,6 +285,35 @@ export default function BarndominiumBuilder() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-2">Honest Barndominium Pricing</h2>
           <p className="text-slate-300 text-center text-sm mb-8">Typical Central MS ranges — exact price depends on your site &amp; finishes.</p>
+
+          {/* Per-square-foot cost breakdown table */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-6">
+            <table className="w-full text-sm md:text-base">
+              <thead>
+                <tr className="bg-[#1E2D3D] text-white">
+                  <th className="text-left p-4 font-semibold">Build Type</th>
+                  <th className="text-left p-4 font-semibold">Typical Price Range</th>
+                  <th className="text-left p-4 font-semibold">Cost Per Sq Ft</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { type: "Basic Shell Only", range: "$45,000 – $80,000", psf: "$25 – $35 / sq ft" },
+                  { type: "Standard Turnkey (1,200–1,800 sq ft)", range: "$120,000 – $180,000", psf: "$85 – $110 / sq ft" },
+                  { type: "Premium Turnkey with Shop (2,000–3,000 sq ft)", range: "$200,000 – $350,000", psf: "$100 – $130 / sq ft" },
+                ].map((row, i) => (
+                  <tr key={row.type} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
+                    <td className="p-4 font-semibold text-[#1E2D3D]">{row.type}</td>
+                    <td className="p-4 text-slate-600">{row.range}</td>
+                    <td className="p-4 text-sky-600 font-bold">{row.psf}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-center text-slate-400 text-xs mb-8">All estimates are based on Rankin County, MS build conditions as of 2025; call (844) 351-4154 for a site-specific quote.</p>
+
+          {/* Per-sq-ft tiered summary */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
             {[
               { label: "Basic Shell + Rough-In", range: "$75 – $100 / sq ft" },
@@ -284,6 +335,9 @@ export default function BarndominiumBuilder() {
         </div>
       </section>
 
+      {/* ===== BARNDOMINIUM vs. TRADITIONAL HOME COMPARISON ===== */}
+      <BarndominiumComparison />
+
       {/* ===== FAQ ===== */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
         <div className="text-center mb-8">
@@ -294,6 +348,9 @@ export default function BarndominiumBuilder() {
           <LandingFAQ faqs={faqs} />
         </div>
       </section>
+
+      {/* ===== FINANCING ===== */}
+      <BarndominiumFinancing />
 
       {/* ===== FINAL CTA ===== */}
       <section className="bg-gradient-to-br from-[#C4922A] to-[#A37820] py-16">
