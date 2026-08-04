@@ -48,7 +48,7 @@ export default function ProTips() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Pro Tips — Home Remodeling Advice | Bradley Brown Inc."
-        description="Expert home remodeling tips for Brandon, MS homeowners — kitchens, baths, additions & more from Rankin County's trusted contractor since 1995. Call (844) 351-4154."
+        description="Expert remodeling tips for Brandon, MS homeowners — kitchens, baths, additions & more from Rankin County's trusted contractor since 1995. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/protips"
       />
 

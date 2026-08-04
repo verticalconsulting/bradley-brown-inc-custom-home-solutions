@@ -81,7 +81,7 @@ export default function Services() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Remodeling Services in Brandon, MS | Bradley Brown Inc"
-        description="Custom homes, kitchen & bath remodeling, additions, outdoor living, barndominiums & emergency repairs in Brandon, MS. Licensed since 1995. Call (844) 351-4154."
+        description="Custom homes, kitchen & bath remodels, additions, outdoor living & barndominiums in Brandon, MS. Licensed since 1995. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/services"
       />
 

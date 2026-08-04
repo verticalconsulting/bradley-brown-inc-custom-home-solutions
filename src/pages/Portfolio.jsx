@@ -70,7 +70,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Project Portfolio | Bradley Brown Inc — Brandon, MS"
-        description="Browse our portfolio of custom homes, kitchen & bath renovations, room additions and outdoor living projects across Brandon, Madison and Central Mississippi."
+        description="Browse our portfolio of custom homes, kitchen & bath renovations, additions & outdoor living across Brandon, Madison & Central MS. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/portfolio"
       />
       <div className="bg-[#1E2D3D] py-14 md:py-20">

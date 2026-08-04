@@ -172,17 +172,17 @@ export default function LandingPricing() {
           <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Pages</h3>
           <div className="flex flex-wrap gap-2">
             {[
-              { label: "View All Services", page: "Services" },
-              { label: "Our Portfolio", page: "Portfolio" },
-              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-              { label: "AI Estimator", page: "QuoteAssistant" },
-              { label: "Renovation Loans", page: "RenovationLoans" },
-              { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-              { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
-              { label: "About Us", page: "About" },
-              { label: "Contact Us", page: "Contact" },
+              { label: "View All Services", to: "/services" },
+              { label: "Our Portfolio", to: "/portfolio" },
+              { label: "Get a Free Estimate", to: "/estimate" },
+              { label: "AI Estimator", to: "/estimate" },
+              { label: "Renovation Loans", to: "/protips/renovation-loans" },
+              { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
+              { label: "Small Bathroom Ideas", to: "/protips/small-bathroom-ideas" },
+              { label: "About Us", to: "/about" },
+              { label: "Contact Us", to: "/contact" },
             ].map((link) => (
-              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+              <Link key={link.to} to={link.to} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
                 <ChevronRight className="w-3 h-3" /> {link.label}
               </Link>
             ))}

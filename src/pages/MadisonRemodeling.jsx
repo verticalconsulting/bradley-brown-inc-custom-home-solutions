@@ -115,7 +115,7 @@ export default function MadisonRemodeling() {
               { title: "Kitchen Renovation", desc: "Custom cabinets, quartz countertops, islands, and full kitchen redesigns starting at $25,000.", link: "/services" },
               { title: "Bathroom Remodeling", desc: "Walk-in showers, tub-to-shower conversions, tile work, and vanities from $10,000.", link: "/bathroom-remodeling-brandon-ms" },
               { title: "Room Additions", desc: "Master suites, in-law suites, sunrooms, and home office additions that blend seamlessly.", link: "/services" },
-              { title: "Whole-Home Renovation", desc: "Complete interior renovations matching your lifestyle and budget. Custom quote.", link: "/quote" },
+              { title: "Whole-Home Renovation", desc: "Complete interior renovations matching your lifestyle and budget. Custom quote.", link: "/estimate" },
             ].map((s) => (
               <div key={s.title} className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
                 <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -155,7 +155,7 @@ export default function MadisonRemodeling() {
             <Link to="/custom-home-builder-brandon-ms" className="inline-flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
               Custom Home Builder <ChevronRight className="w-4 h-4" />
             </Link>
-            <Link to="/barndominium-builder" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
+            <Link to="/services/barndominiums" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
               Barndominium Builder <ChevronRight className="w-4 h-4" />
             </Link>
           </div>

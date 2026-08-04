@@ -59,7 +59,7 @@ export default function Contact() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Contact Bradley Brown Inc. — Brandon, MS Contractor"
-        description="Contact Bradley Brown Inc. for home remodeling in Brandon, MS. Call (844) 351-4154 or message us — serving Flowood, Pearl, Madison & Central MS. Free estimates."
+        description="Contact Bradley Brown Inc. for remodeling in Brandon, MS. Call (844) 351-4154 or message us — serving Flowood, Pearl, Madison & Central MS. Free estimates."
         schema={localBusinessSchema}
         canonical="https://bradleybrowninc.com/contact"
       />

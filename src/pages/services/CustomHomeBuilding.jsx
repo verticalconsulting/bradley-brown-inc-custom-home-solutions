@@ -5,7 +5,7 @@ export default function CustomHomeBuilding() {
   return (
     <ServicePageLayout
       title="Custom Home Building in Brandon, MS | Bradley Brown Inc"
-      description="Custom home builder in Brandon, MS since 1995. Full design-build, premium materials & energy-efficient construction across Rankin County. Free estimates."
+      description="Custom home builder in Brandon, MS since 1995. Full design-build, premium materials & energy-efficient construction across Rankin County. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/custom-home-building"
       h1="Custom Home Building in Brandon, MS"
       subtitle="Your vision. Our craftsmanship. From blueprint to final walkthrough, we manage every detail of your custom home build across Brandon and Central Mississippi."

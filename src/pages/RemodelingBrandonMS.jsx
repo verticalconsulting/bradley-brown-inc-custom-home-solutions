@@ -64,7 +64,7 @@ export default function RemodelingBrandonMS() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling in Brandon, MS | Bradley Brown Inc"
-        description="Brandon, MS home remodelers since 1995. Kitchen, bath, room additions & whole-home renovations. Licensed & insured. Free estimates — call (844) 351-4154."
+        description="Brandon, MS home remodelers since 1995. Kitchen, bath, room additions & whole-home renovations. Licensed & insured. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/remodeling-brandon-ms"
       />

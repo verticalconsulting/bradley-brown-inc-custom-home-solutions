@@ -5,7 +5,7 @@ export default function OutdoorLiving() {
   return (
     <ServicePageLayout
       title="Outdoor Living Spaces in Brandon, MS | Bradley Brown Inc"
-      description="Outdoor living, covered patios, outdoor kitchens, decks & pergolas in Brandon, MS. Built for Mississippi's climate. Licensed since 1995. Call (844) 351-4154."
+      description="Outdoor living, covered patios, outdoor kitchens, decks & pergolas in Brandon, MS. Built for Mississippi. Licensed since 1995. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/outdoor-living"
       h1="Outdoor Living Spaces & Decks in Brandon, MS"
       subtitle="Mississippi's climate is made for outdoor living. We design and build covered patios, outdoor kitchens, custom decks, and pergolas that extend your home's footprint year-round."

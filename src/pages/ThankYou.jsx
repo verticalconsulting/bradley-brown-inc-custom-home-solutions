@@ -55,15 +55,15 @@ export default function ThankYou() {
           <div className="mt-8 pt-6 border-t border-gray-100">
             <p className="text-slate-400 text-xs mb-3">Explore more</p>
             <div className="flex flex-wrap gap-2 justify-center">
-              <Link to="/Portfolio" className="text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-1">
+              <Link to="/portfolio" className="text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-1">
                 View Our Work <ChevronRight className="w-3 h-3" />
               </Link>
               <span className="text-slate-300">•</span>
-              <Link to="/QuoteAssistant" className="text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-1">
+              <Link to="/estimate" className="text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-1">
                 Try AI Estimator <ChevronRight className="w-3 h-3" />
               </Link>
               <span className="text-slate-300">•</span>
-              <Link to="/ProTips" className="text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-1">
+              <Link to="/protips" className="text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-1">
                 Pro Tips <ChevronRight className="w-3 h-3" />
               </Link>
             </div>

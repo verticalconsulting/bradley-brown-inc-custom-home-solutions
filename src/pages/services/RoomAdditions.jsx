@@ -5,7 +5,7 @@ export default function RoomAdditions() {
   return (
     <ServicePageLayout
       title="Room Additions in Brandon, MS | Bradley Brown Inc"
-      description="Room additions in Brandon, MS — master suites, in-law suites, sunrooms & home offices. Licensed contractor since 1995. Free estimates — call (844) 351-4154."
+      description="Room additions in Brandon, MS — master suites, in-law suites, sunrooms & home offices. Licensed contractor since 1995. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/room-additions"
       h1="Room Additions & Home Expansions in Brandon, MS"
       subtitle="More space, more possibilities — without moving. We design and build additions that blend seamlessly with your existing home's architecture."
