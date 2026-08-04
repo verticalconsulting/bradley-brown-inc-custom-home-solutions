@@ -26,22 +26,19 @@ const placeholderProjects = [
 ];
 
 const exploreLinks = [
-  { label: "Our Services", page: "Services" },
-  { label: "Get a Free AI Estimate", page: "QuoteAssistant" },
-  { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-  { label: "Contact Us", page: "Contact" },
-  { label: "Why Trust Us", page: "LandingTrust" },
-  { label: "Pricing Guide", page: "LandingPricing" },
-  { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
-  { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-  { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
-  { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
-  { label: "Renovation Loans & Financing", page: "RenovationLoans" },
-  { label: "Barndominium Builder", page: "BarndominiumBuilder" },
-  { label: "Barndominiums in MS", page: "Barndominiums" },
-  { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
-  { label: "Core Remodeling Services (MS)", page: "LandingCoreServices" },
-  { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
+  { label: "Our Services", to: "/services" },
+  { label: "Get a Free Estimate", to: "/estimate" },
+  { label: "Contact Us", to: "/contact" },
+  { label: "Pricing Guide", to: "/pricing" },
+  { label: "Pro Tips Blog", to: "/protips" },
+  { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
+  { label: "Small Bathroom Ideas", to: "/protips/small-bathroom-ideas" },
+  { label: "Energy-Efficient Upgrades", to: "/protips/energy-efficient-upgrades" },
+  { label: "Renovation Loans & Financing", to: "/protips/renovation-loans" },
+  { label: "Barndominiums", to: "/services/barndominiums" },
+  { label: "Brandon MS Remodelers", to: "/remodeling-brandon-ms" },
+  { label: "Custom Home Builder", to: "/custom-home-builder-brandon-ms" },
+  { label: "Emergency Repairs", to: "/services/emergency-repairs" },
 ];
 
 export default function Portfolio() {
@@ -153,6 +150,25 @@ export default function Portfolio() {
           </div>
         )}
 
+        {/* Featured Project Story */}
+        <div className="mt-10 bg-gradient-to-br from-[#1E2D3D] to-slate-800 rounded-2xl overflow-hidden shadow-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
+            <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80" alt="Historic home restoration by Bradley Brown Inc. — Brandon, MS" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div className="p-8 md:p-10">
+              <p className="text-[#C4922A] font-semibold text-xs uppercase tracking-wider mb-2">Featured Project Story</p>
+              <h3 className="text-2xl font-bold text-white mb-3">Historic Home Restoration in Brandon, MS</h3>
+              <p className="text-slate-300 text-sm leading-relaxed mb-5">
+                See how we preserved a 1920s craftsman home — restoring original heart pine floors, rebuilding the wraparound porch, and modernizing every system while honoring its history.
+              </p>
+              <Link to="/projects/historic-home-restoration" className="inline-flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-colors">
+                Read the Full Story <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* Instagram Feed */}
         <div className="mt-16">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
@@ -180,9 +196,9 @@ export default function Portfolio() {
           <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h2>
           <div className="flex flex-wrap gap-2">
             {exploreLinks.map(navItem => (
-              <a key={navItem.page} href={createPageUrl(navItem.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+              <Link key={navItem.to} to={navItem.to} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
                 <ChevronRight className="w-3 h-3" /> {navItem.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

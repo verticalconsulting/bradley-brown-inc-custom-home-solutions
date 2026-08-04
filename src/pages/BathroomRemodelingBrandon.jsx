@@ -262,6 +262,9 @@ export default function BathroomRemodelingBrandon() {
             <Link to={createPageUrl("Services")} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
               <ChevronRight className="w-3 h-3" /> All Services
             </Link>
+            <Link to="/services/bathroom-remodeling" className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+              <ChevronRight className="w-3 h-3" /> Bathroom Remodeling Service
+            </Link>
             <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
               <ChevronRight className="w-3 h-3" /> Get a Free Quote
             </Link>

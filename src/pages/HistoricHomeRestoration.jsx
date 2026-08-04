@@ -69,8 +69,8 @@ export default function HistoricHomeRestoration() {
       <SEOHead
         title="Historic Home Restoration Project — Bradley Brown Inc. | Brandon, MS"
         description="Bradley Brown Inc. restored a 1920s historic home in Brandon, MS — preserving original hardwood floors, millwork, and character while fully modernizing all systems. See the full project breakdown."
-        canonical="https://bradleybrowninc.com/portfolio"
-        robots="noindex, nofollow"
+        canonical="https://bradleybrowninc.com/projects/historic-home-restoration"
+        noindex={false}
         schema={schema}
       />
 
@@ -108,7 +108,7 @@ export default function HistoricHomeRestoration() {
               <Phone className="w-4 h-4" /> (844) 351-4154
             </a>
             <Link
-              to="/contactform"
+              to="/estimate"
               className="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-colors"
             >
               Get a Free Estimate <ChevronRight className="w-4 h-4" />
@@ -218,7 +218,7 @@ export default function HistoricHomeRestoration() {
               <Phone className="w-4 h-4" /> Call (844) 351-4154
             </a>
             <Link
-              to="/contactform"
+              to="/estimate"
               className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
             >
               Get a Free Estimate <ChevronRight className="w-4 h-4" />
@@ -231,10 +231,10 @@ export default function HistoricHomeRestoration() {
           <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">Related Projects & Resources</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
-              { label: "Renovation Services", to: "/Services" },
-              { label: "Portfolio", to: "/Portfolio" },
-              { label: "Home Addition Ideas", to: "/HomeAdditionIdeas" },
-              { label: "Renovation Loans", to: "/RenovationLoans" },
+              { label: "Our Services", to: "/services" },
+              { label: "Portfolio", to: "/portfolio" },
+              { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
+              { label: "Renovation Loans", to: "/protips/renovation-loans" },
             ].map(item => (
               <Link
                 key={item.to}

@@ -96,7 +96,8 @@ export default function Layout({ children, currentPageName }) {
 
   const serviceLinks = [
   { label: "Custom Home Building", to: "/services/custom-home-building" },
-  { label: "Kitchen & Bath Remodeling", to: "/services/kitchen-bathroom-remodeling" },
+  { label: "Kitchen Remodeling", to: "/services/kitchen-remodeling" },
+  { label: "Bathroom Remodeling", to: "/services/bathroom-remodeling" },
   { label: "Room Additions", to: "/services/room-additions" },
   { label: "Outdoor Living", to: "/services/outdoor-living" },
   { label: "Barndominiums", to: "/services/barndominiums" },
@@ -336,7 +337,8 @@ export default function Layout({ children, currentPageName }) {
               <ul className="space-y-2">
                 {[
                 { label: "Custom Home Building", to: "/services/custom-home-building" },
-                { label: "Kitchen & Bath Remodeling", to: "/services/kitchen-bathroom-remodeling" },
+                { label: "Kitchen Remodeling", to: "/services/kitchen-remodeling" },
+                { label: "Bathroom Remodeling", to: "/services/bathroom-remodeling" },
                 { label: "Room Additions", to: "/services/room-additions" },
                 { label: "Outdoor Living", to: "/services/outdoor-living" },
                 { label: "Barndominiums", to: "/services/barndominiums" },

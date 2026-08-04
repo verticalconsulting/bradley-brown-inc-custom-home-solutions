@@ -16,10 +16,18 @@ const services = [
   {
     icon: Wrench,
     color: "indigo",
-    name: "Kitchen & Bathroom Remodeling",
-    desc: "Custom cabinetry, premium finishes, and craftsmanship that adds real value to your home.",
-    path: "/services/kitchen-bathroom-remodeling",
+    name: "Kitchen Remodeling",
+    desc: "Custom cabinetry, granite & quartz countertops, tile backsplashes & islands — built for how your family cooks.",
+    path: "/services/kitchen-remodeling",
     price: "Starting at $15,000",
+  },
+  {
+    icon: Wrench,
+    color: "indigo",
+    name: "Bathroom Remodeling",
+    desc: "Walk-in showers, tub-to-shower conversions, custom tile & vanities — waterproofed for Mississippi's humidity.",
+    path: "/services/bathroom-remodeling",
+    price: "Starting at $8,000",
   },
   {
     icon: Plus,
