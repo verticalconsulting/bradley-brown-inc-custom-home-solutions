@@ -260,11 +260,11 @@ export default function SiteImages() {
   const unassignedCount = images.filter(i => !ALL_PAGES.some(p => p.key === i.location)).length;
 
   return (
-    <div className="min-h-screen md:h-screen bg-[#FAFAF8] flex flex-col md:flex-row pt-16 md:pt-0">
+    <div className="min-h-screen md:h-[calc(100vh-5rem)] md:mt-20 bg-[#FAFAF8] flex flex-col md:flex-row pt-16 md:pt-0">
       {modal !== null && <ImageModal image={modal.id ? modal : null} onClose={() => setModal(null)} onSave={save} />}
 
       {/* Sidebar */}
-      <aside className="md:w-64 md:flex-shrink-0 md:h-screen md:sticky md:top-0 bg-white border-r border-gray-100 md:overflow-y-auto">
+      <aside className="md:w-64 md:flex-shrink-0 md:h-full md:sticky md:top-0 bg-white border-r border-gray-100 md:overflow-y-auto">
         <div className="p-4 md:p-5 border-b border-gray-100">
           <div className="flex items-center gap-2 mb-1">
             <ImageIcon className="w-5 h-5 text-[#37b5eb]" />
