@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import LandingFAQ from "@/components/landing/LandingFAQ";
@@ -13,10 +13,26 @@ export default function ServicePageLayout({
   h1, subtitle, location = "Brandon, MS",
   bodySections, features, faqs, testimonials, images,
   relatedLinks, serviceName, emergencyPhone, bannerText,
+  pageKey,
 }) {
+  const [managedImages, setManagedImages] = useState([]);
+
+  useEffect(() => {
+    if (!pageKey) return;
+    base44.entities.SiteImage.filter({ location: pageKey, active: true })
+      .then(setManagedImages)
+      .catch(() => setManagedImages([]));
+  }, [pageKey]);
+
   const trackCall = () => {
     base44.analytics.track({ eventName: "phone_click", properties: { source: serviceName } });
   };
+
+  // Merge admin-managed images (from the Image Manager) with hardcoded fallbacks
+  const allImages = [
+    ...managedImages.map((img) => ({ url: img.url, alt: img.label, caption: img.notes })),
+    ...(images || []),
+  ];
 
   const schema = {
     "@context": "https://schema.org",
@@ -112,11 +128,11 @@ export default function ServicePageLayout({
           </div>
         )}
 
-        {images && images.length > 0 && (
+        {allImages && allImages.length > 0 && (
           <div>
             <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Our Work</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {images.map((img, i) => (
+              {allImages.map((img, i) => (
                 <div key={i} className="rounded-xl overflow-hidden shadow-md bg-white">
                   <img src={img.url} alt={img.alt} className="w-full h-64 object-cover" loading="lazy" />
                   {img.caption && <p className="text-sm text-slate-500 p-3">{img.caption}</p>}

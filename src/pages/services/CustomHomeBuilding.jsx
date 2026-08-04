@@ -10,6 +10,7 @@ export default function CustomHomeBuilding() {
       h1="Custom Home Building in Brandon, MS"
       subtitle="Your vision. Our craftsmanship. From blueprint to final walkthrough, we manage every detail of your custom home build across Brandon and Central Mississippi."
       serviceName="Custom Home Building"
+      pageKey="CustomHomeBuilding"
       bodySections={[
         {
           heading: "Building Custom Homes in Brandon Since 1995",
