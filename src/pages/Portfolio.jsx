@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Maximize2, Calendar, SlidersHorizontal, ChevronRight, Instagram } from "lucide-react";
 import PullToRefresh from "@/components/PullToRefresh";
 import InstagramFeed from "@/components/portfolio/InstagramFeed";
+import { usePageImages } from "@/lib/usePageImages";
 
 const categoryFilters = [
   { value: "all", label: "All Projects" },
@@ -44,6 +45,7 @@ export default function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
   const [loading, setLoading] = useState(true);
+  const { hero: heroImage } = usePageImages("Portfolio");
 
   const loadProjects = () => {
     base44.entities.Project.filter({ status: "published" }, "-year_completed", 50)
@@ -72,8 +74,11 @@ export default function Portfolio() {
         description="Browse our portfolio of custom homes, kitchen & bath renovations, additions & outdoor living across Brandon, Madison & Central MS. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/portfolio"
       />
-      <div className="bg-[#1E2D3D] py-14 md:py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+        {heroImage && (
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage.url}')` }} />
+        )}
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Portfolio</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Our Work Speaks For Itself</h1>
           <p className="text-slate-300 mt-4 max-w-xl mx-auto">Browse through our completed projects across Central Mississippi.</p>

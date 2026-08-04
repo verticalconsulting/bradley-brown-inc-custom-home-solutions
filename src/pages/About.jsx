@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Award, Heart, Users, Shield, ChevronRight } from "lucide-react";
 import AboutTrustSection from "@/components/about/AboutTrustSection";
 import LiveJobsitesSection from "@/components/about/LiveJobsitesSection";
+import { usePageImages } from "@/lib/usePageImages";
 
 const values = [
   { icon: Heart, title: "Craftsmanship", description: "Every nail, board, and finish is executed with precision and care. We take immense pride in the quality of our work." },
@@ -20,6 +21,7 @@ const team = [
 ];
 
 export default function About() {
+  const { hero: heroImage } = usePageImages("About");
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
@@ -30,7 +32,7 @@ export default function About() {
       />
 
       <div className="relative bg-[#1E2D3D] py-14 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/e3722807-d747-4fda-799f-53bebe6adb00/large')" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage?.url || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/e3722807-d747-4fda-799f-53bebe6adb00/large"}')` }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Story</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Building Mississippi,<br />One Home at a Time</h1>

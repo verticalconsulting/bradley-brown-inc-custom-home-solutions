@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight, MessageCircle, Calendar, Zap } from "lucide-react";
 import ContactTrustBar from "@/components/landing/ContactTrustBar";
+import { usePageImages } from "@/lib/usePageImages";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", project_type: "custom_home" });
@@ -15,6 +16,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
 
   const update = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
+  const { hero: heroImage } = usePageImages("Contact");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,8 +65,11 @@ export default function Contact() {
         schema={localBusinessSchema}
         canonical="https://bradleybrowninc.com/contact"
       />
-      <div className="bg-[#1E2D3D] py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="bg-[#1E2D3D] py-12 md:py-16 relative overflow-hidden">
+        {heroImage && (
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage.url}')` }} />
+        )}
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Get in Touch</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Let's Talk About Your Project</h1>
           <p className="text-slate-300 mt-3 max-w-xl mx-auto">Free estimates — no obligation. Choose how you'd like to reach us:</p>

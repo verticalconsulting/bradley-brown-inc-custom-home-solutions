@@ -8,6 +8,7 @@ import LocalProofPoints from "@/components/landing/LocalProofPoints";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
 
 const schema = {
   "@context": "https://schema.org",
@@ -64,6 +65,7 @@ export default function MadisonRemodeling() {
       window.gtag("event", "conversion", { send_to: "AW-17864041271/21TJCO2Bj5ccELfGnsZC", value: 30, currency: "USD" });
     }
   };
+  const { hero: heroImage } = usePageImages("MadisonRemodeling");
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
@@ -83,7 +85,7 @@ export default function MadisonRemodeling() {
 
       {/* Hero */}
       <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80"}')` }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2">Madison, MS & Madison County</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">

@@ -7,6 +7,7 @@ import StickyCallButton from "@/components/StickyCallButton";
 import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
 
 const PHONE = "(844) 351-4154";
 const PHONE_HREF = "tel:+18443514154";
@@ -75,6 +76,7 @@ const trackCall = () => {
 };
 
 export default function BathroomRemodelingBrandon() {
+  const { hero: heroImage } = usePageImages("BathroomRemodelingBrandon");
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
@@ -93,7 +95,7 @@ export default function BathroomRemodelingBrandon() {
 
       {/* HERO */}
       <section className="relative bg-[#1E2D3D] overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80"}')` }} />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1E2D3D]/80 via-[#1E2D3D]/70 to-[#1E2D3D]" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-24 text-center">
           <p className="inline-flex items-center gap-1.5 bg-sky-400/20 border border-sky-400/40 text-sky-200 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">

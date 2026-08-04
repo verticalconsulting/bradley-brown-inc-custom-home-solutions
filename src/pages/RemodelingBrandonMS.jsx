@@ -6,6 +6,7 @@ import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
 
 const faqs = [
   { question: "Is Bradley Brown Inc. based in Brandon, MS?", answer: "We're centrally located in the Brandon/Jackson area of Mississippi, serving a 50-mile radius including Flowood, Pearl, Madison, Ridgeland, and beyond." },
@@ -59,6 +60,7 @@ const schema = {
 
 export default function RemodelingBrandonMS() {
   const handleCall = () => base44.analytics.track({ eventName: "phone_click", properties: { source: "remodeling_brandon_ms" } });
+  const { hero: heroImage } = usePageImages("RemodelingBrandonMS");
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
@@ -77,7 +79,7 @@ export default function RemodelingBrandonMS() {
       </div>
 
       <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"}')` }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-sky-400/20 border border-sky-400/40 rounded-full px-3 py-1 mb-3">
             <MapPin className="w-3.5 h-3.5 text-sky-400" /><span className="text-sky-300 text-xs font-medium">Serving Brandon, MS & Rankin County</span>

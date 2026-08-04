@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import { Phone, Sparkles, Star, CheckCircle, MapPin, ChevronRight, Shield, Award, Clock, AlertTriangle } from "lucide-react";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
 
 const PHONE = "(844) 351-4154";
 const PHONE_HREF = "tel:+18443514154";
@@ -15,27 +16,11 @@ export default function ServicePageLayout({
   relatedLinks, serviceName, emergencyPhone, bannerText,
   pageKey,
 }) {
-  const [managedImages, setManagedImages] = useState([]);
-
-  useEffect(() => {
-    if (!pageKey) return;
-    base44.entities.SiteImage.filter({ location: pageKey, active: true })
-      .then(setManagedImages)
-      .catch(() => setManagedImages([]));
-  }, [pageKey]);
+  const { hero: heroImage, cta: ctaImage, gallery: galleryManaged } = usePageImages(pageKey);
 
   const trackCall = () => {
     base44.analytics.track({ eventName: "phone_click", properties: { source: serviceName } });
   };
-
-  // Split managed images by category so they land in the correct page section.
-  // hero    → hero section background
-  // cta     → bottom CTA section background
-  // background → also used as hero background if no hero image is set
-  // all other categories → "Our Work" gallery
-  const heroImage = managedImages.find(img => img.category === "hero" || img.category === "background");
-  const ctaImage = managedImages.find(img => img.category === "cta");
-  const galleryManaged = managedImages.filter(img => !["hero", "cta", "background"].includes(img.category));
 
   // Merge admin-managed gallery images with hardcoded fallbacks
   const allImages = [

@@ -10,6 +10,7 @@ import FinancingOptions from "@/components/landing/FinancingOptions";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
 
 const schema = {
   "@context": "https://schema.org",
@@ -62,6 +63,7 @@ const faqs = [
 
 export default function LandingPricing() {
   const handleCall = () => base44.analytics.track({ eventName: "phone_click", properties: { source: "pricing_landing" } });
+  const { hero: heroImage } = usePageImages("Pricing");
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
@@ -80,8 +82,11 @@ export default function LandingPricing() {
       </div>
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-14 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+        {heroImage && (
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage.url}')` }} />
+        )}
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-sky-400/20 border border-sky-400/40 rounded-full px-3 py-1 mb-3">
             <DollarSign className="w-3.5 h-3.5 text-sky-400" />
             <span className="text-sky-300 text-xs font-medium">Transparent Pricing</span>

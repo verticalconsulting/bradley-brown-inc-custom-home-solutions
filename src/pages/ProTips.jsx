@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { format } from "date-fns";
 import SEOHead from "@/components/SEOHead";
+import { usePageImages } from "@/lib/usePageImages";
 
 export default function ProTips() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const { hero: heroImage } = usePageImages("ProTips");
 
   useEffect(() => {
     loadPosts();
@@ -53,8 +55,11 @@ export default function ProTips() {
       />
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-14 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+        {heroImage && (
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage.url}')` }} />
+        )}
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-sky-400/20 border border-sky-400/40 rounded-full px-3 py-1 mb-3">
             <Lightbulb className="w-3.5 h-3.5 text-sky-400" />
             <span className="text-sky-300 text-xs font-medium">AI-Powered Tips</span>

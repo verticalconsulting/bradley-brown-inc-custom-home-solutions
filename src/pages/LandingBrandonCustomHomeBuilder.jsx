@@ -9,6 +9,7 @@ import StickyCallButton from "@/components/StickyCallButton";
 import CustomHomeProcess from "@/components/landing/CustomHomeProcess";
 import BrandonReviewSection, { brandonReviewSchema } from "@/components/landing/BrandonReviewSection";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
 
 const faqs = [
   {
@@ -149,6 +150,7 @@ export default function LandingBrandonCustomHomeBuilder() {
       eventName: "phone_click",
       properties: { source: "brandon_custom_home_landing" },
     });
+  const { hero: heroImage } = usePageImages("LandingBrandonCustomHomeBuilder");
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
@@ -172,8 +174,7 @@ export default function LandingBrandonCustomHomeBuilder() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-15"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80')",
+            backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"}')`,
           }}
         />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { Home, Wrench, Plus, Leaf, Warehouse, AlertTriangle, ChevronRight, Phone, Sparkles, Shield, Award, Star, Clock, MapPin } from "lucide-react";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
 
 const services = [
   {
@@ -77,6 +78,8 @@ export default function Services() {
     base44.analytics.track({ eventName: "phone_click", properties: { source: "services_hub" } });
   };
 
+  const { hero: heroImage } = usePageImages("Services");
+
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
@@ -86,10 +89,14 @@ export default function Services() {
       />
 
       <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-sky-400 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-400 rounded-full blur-3xl" />
-        </div>
+        {heroImage ? (
+          <div className="absolute inset-0 bg-cover bg-center opacity-25" style={{ backgroundImage: `url('${heroImage.url}')` }} />
+        ) : (
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-10 left-10 w-64 h-64 bg-sky-400 rounded-full blur-3xl" />
+            <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-400 rounded-full blur-3xl" />
+          </div>
+        )}
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-3">Brandon, MS & Central Mississippi</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">Our Services</h1>
