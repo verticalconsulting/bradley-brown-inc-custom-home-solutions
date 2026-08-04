@@ -10,6 +10,7 @@ export default function BathroomRemodeling() {
       h1="Bathroom Remodeling in Brandon, MS"
       subtitle="From walk-in showers to freestanding tubs, we design and build bathrooms that combine beauty with proper waterproofing — built to last in Mississippi's humid climate."
       serviceName="Bathroom Remodeling"
+      pageKey="BathroomRemodeling"
       bodySections={[
         {
           heading: "Bathroom Remodeling Built for Mississippi Homes",

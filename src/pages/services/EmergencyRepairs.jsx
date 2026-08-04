@@ -12,6 +12,7 @@ export default function EmergencyRepairs() {
       serviceName="Emergency Home Repair"
       emergencyPhone="(601) 954-1306"
       bannerText="Urgent? Call Now: (601) 954-1306 — Same-Week Service Available"
+      pageKey="EmergencyRepairs"
       bodySections={[
         {
           heading: "Mississippi's Trusted Emergency Repair Contractor",

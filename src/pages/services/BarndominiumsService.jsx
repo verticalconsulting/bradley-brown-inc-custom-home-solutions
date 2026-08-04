@@ -10,6 +10,7 @@ export default function BarndominiumsService() {
       h1="Custom Barndominium Builder in Brandon, MS"
       subtitle="Steel-frame barndominiums combining living space, garages, and workshops — built to last by Mississippi's trusted contractor since 1995. On your land, on budget, on schedule."
       serviceName="Barndominium Construction"
+      pageKey="Barndominiums"
       bodySections={[
         {
           heading: "Barndominiums Built for Mississippi Living",

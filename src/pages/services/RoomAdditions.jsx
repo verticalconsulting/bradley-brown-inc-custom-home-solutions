@@ -10,6 +10,7 @@ export default function RoomAdditions() {
       h1="Room Additions & Home Expansions in Brandon, MS"
       subtitle="More space, more possibilities — without moving. We design and build additions that blend seamlessly with your existing home's architecture."
       serviceName="Room Additions"
+      pageKey="RoomAdditions"
       bodySections={[
         {
           heading: "Room Additions That Look Like They Were Always There",

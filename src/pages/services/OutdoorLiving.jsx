@@ -10,6 +10,7 @@ export default function OutdoorLiving() {
       h1="Outdoor Living Spaces & Decks in Brandon, MS"
       subtitle="Mississippi's climate is made for outdoor living. We design and build covered patios, outdoor kitchens, custom decks, and pergolas that extend your home's footprint year-round."
       serviceName="Outdoor Living Spaces"
+      pageKey="OutdoorLiving"
       bodySections={[
         {
           heading: "Outdoor Living Built for Mississippi's Climate",

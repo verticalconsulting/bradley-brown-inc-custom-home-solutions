@@ -10,6 +10,7 @@ export default function KitchenRemodeling() {
       h1="Kitchen Remodeling in Brandon, MS"
       subtitle="Your kitchen is the heart of your home. We design and build kitchens that match how your family actually cooks, gathers, and lives — with premium materials and craftsmanship that adds real value."
       serviceName="Kitchen Remodeling"
+      pageKey="KitchenRemodeling"
       bodySections={[
         {
           heading: "Kitchen Remodeling Built for Mississippi Living",
