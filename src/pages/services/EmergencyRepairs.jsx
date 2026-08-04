@@ -5,20 +5,20 @@ export default function EmergencyRepairs() {
   return (
     <ServicePageLayout
       title="Emergency Home Repairs in Brandon, MS | Bradley Brown Inc"
-      description="Urgent home repairs in Brandon, MS — storm damage, roof leaks & water intrusion. Licensed MS contractor since 1995. Same-week service. Call (601) 954-1306."
+      description="Urgent home repairs in Brandon, MS — storm damage, roof leaks & water intrusion. Licensed MS contractor since 1995. Same-week service. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/emergency-repairs"
       h1="Emergency Home Repairs in Brandon, MS"
       subtitle="Storm damage, roof leaks, structural issues — don't wait. Bradley Brown Inc. responds fast to urgent repairs across Brandon and the Rankin County area."
       serviceName="Emergency Home Repair"
-      emergencyPhone="(601) 954-1306"
-      bannerText="Urgent? Call Now: (601) 954-1306 — Same-Week Service Available"
+      emergencyPhone="(844) 351-4154"
+      bannerText="Urgent? Call Now: (844) 351-4154 — Same-Week Service Available"
       bodySections={[
         {
           heading: "Mississippi's Trusted Emergency Repair Contractor",
           paragraphs: [
             "When your home is damaged, every hour matters. A roof leak at 2 AM during a spring storm. A tree branch through your living room window. A water heater that fails and floods your hallway. These situations can't wait for a contractor who calls you back next week — you need someone who picks up the phone and shows up fast.",
             "Bradley Brown Inc. has been responding to urgent repair calls across Brandon, Flowood, Pearl, Jackson, Madison, Ridgeland, and all of Rankin County since 1995. Our licensed crews know how to assess damage quickly, stabilize the situation, and get to work immediately — whether it's tarping a roof, extracting water, boarding up broken windows, or shoring up structural damage.",
-            "We're a licensed Mississippi General Contractor (MS Board of Contractors license #08290), fully insured, and BBB accredited. We have 30+ years of experience and are fully qualified for all structural and major repair work. When you call (601) 954-1306, you're calling a contractor who can handle the full scope of your emergency — not just a patch.",
+            "We're a licensed Mississippi General Contractor (MS Board of Contractors license #08290), fully insured, and BBB accredited. We have 30+ years of experience and are fully qualified for all structural and major repair work. When you call (844) 351-4154, you're calling a contractor who can handle the full scope of your emergency — not just a patch.",
           ],
         },
         {
@@ -32,7 +32,7 @@ export default function EmergencyRepairs() {
         {
           heading: "Fast Response Across Central Mississippi",
           paragraphs: [
-            "For urgent situations, call us directly at (601) 954-1306 for the fastest response. We prioritize emergency calls and work to schedule same-week or next-day service for serious issues. During business hours — Monday through Friday 8am to 6pm and Saturday 9am to 3pm — someone will answer your call and dispatch a crew as quickly as possible.",
+            "For urgent situations, call us directly at (844) 351-4154 for the fastest response. We prioritize emergency calls and work to schedule same-week or next-day service for serious issues. During business hours — Monday through Friday 8am to 6pm and Saturday 9am to 3pm — someone will answer your call and dispatch a crew as quickly as possible.",
             "For after-hours emergencies, leave a voicemail and we'll call back first thing the next morning. We also monitor messages on weekends during storm season, when severe weather hits the Rankin County area and our neighbors need help most.",
             "Our service area covers Brandon, Flowood, Pearl, Jackson, Madison, Ridgeland, Florence, Richland, Pelahatchie, and all surrounding communities within a 50-mile radius of Brandon. If you're in Central Mississippi and your home needs urgent repair, we'll get there.",
           ],
@@ -50,7 +50,7 @@ export default function EmergencyRepairs() {
           paragraphs: [
             "It's tempting to call the first handyman who answers the phone when you have an emergency. But unlicensed repair work can void your homeowner's insurance, complicate a future sale, and create safety hazards that surface months or years later. Mississippi law requires a state license for most residential repair work over a certain dollar threshold — and for good reason.",
             "Bradley Brown Inc. is a licensed Mississippi General Contractor with 30+ years of experience. Our repair work meets the International Residential Code and all local amendments. We pull permits when required, schedule inspections, and stand behind our work with a workmanship warranty. When we repair your home, it's done right — not just done fast.",
-            "Don't wait — call (601) 954-1306 now for emergency home repairs in Brandon and Central Mississippi. We'll assess the situation and get someone out as quickly as possible.",
+            "Don't wait — call (844) 351-4154 now for emergency home repairs in Brandon and Central Mississippi. We'll assess the situation and get someone out as quickly as possible.",
           ],
         },
       ]}
@@ -65,7 +65,7 @@ export default function EmergencyRepairs() {
         "Full insurance documentation & claims support",
       ]}
       faqs={[
-        { question: "Do you handle emergency home repairs in Brandon, MS?", answer: "Yes. Call (601) 954-1306 during business hours — Mon–Fri 8am–6pm and Sat 9am–3pm. We prioritize urgent calls and work to schedule same-week or next-day service for serious issues." },
+        { question: "Do you handle emergency home repairs in Brandon, MS?", answer: "Yes. Call (844) 351-4154 during business hours — Mon–Fri 8am–6pm and Sat 9am–3pm. We prioritize urgent calls and work to schedule same-week or next-day service for serious issues." },
         { question: "What types of urgent repairs do you handle?", answer: "Storm damage, roof leaks, water intrusion, structural damage, broken windows, foundation cracks, collapsed ceilings, fire and flood damage restoration, and emergency plumbing and electrical failures." },
         { question: "Do you work with insurance companies for emergency repairs?", answer: "Yes, we have extensive experience with homeowner insurance claims. We document the damage thoroughly and provide itemized estimates for your adjuster, and we can meet your adjuster on-site." },
       ]}
