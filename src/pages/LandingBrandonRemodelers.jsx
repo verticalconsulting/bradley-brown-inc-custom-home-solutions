@@ -73,11 +73,40 @@ const schema = {
     },
     {
       "@type": "FAQPage",
-      "mainEntity": faqs.map((f) => ({
-        "@type": "Question",
-        "name": f.question,
-        "acceptedAnswer": { "@type": "Answer", "text": f.answer },
-      })),
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Bradley Brown Inc. based in Brandon, MS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Bradley Brown Inc. is a local remodeling contractor headquartered in Brandon, MS, serving Brandon, Rankin County, and Central Mississippi.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What areas do you service?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We serve Brandon, Flowood, Pearl, Richland, Jackson, Madison, Ridgeland, and Clinton, MS.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How long have you been remodeling homes in Mississippi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bradley Brown Inc. has years of experience remodeling homes throughout Mississippi. Contact us at (844) 351-4154 for more details.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What types of remodeling projects do you handle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We handle kitchen remodeling, bathroom remodeling, room additions, whole-home renovations, outdoor living spaces, and custom renovation projects.",
+          },
+        },
+      ],
     },
   ],
 };
