@@ -1,23 +1,48 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import { base44 } from "@/api/base44Client";
 import { MapPin, ChevronRight } from "lucide-react";
 
 const placeholderProjects = [
-  { title: "County Custom Built", category: "custom_home", location: "Canton, MS", square_footage: 3200, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large"] },
-  { title: "Luxury Kitchen", category: "renovation", location: "Madison, MS", square_footage: 800, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/large"] },
-  { title: "Outdoor Oasis", category: "outdoor", location: "Ridgeland, MS", square_footage: 900, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/a550b013-bf54-4156-5f21-ebabe8869600/large"] },
+  {
+    title: "Office Addition",
+    category: "addition",
+    location: "Brandon, MS",
+    square_footage: 500,
+    short_description: "Dedicated home office addition, separate HVAC zoning, custom built-in shelving, siding matched to original 1990s construction.",
+    images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6c9b1767-038f-4dfc-fcc3-a97c611b7700/heromobile"]
+  },
+  {
+    title: "Barndominium Custom Office & Shop",
+    category: "custom_home",
+    location: "Brandon, MS",
+    square_footage: 3200,
+    short_description: "Climate-controlled workshop + finished office suite, post-frame construction, spray foam insulation, polished concrete shop floors, built to client's custom drawings.",
+    images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"]
+  },
+  {
+    title: "County Custom Built",
+    category: "custom_home",
+    location: "Canton, MS",
+    square_footage: 3200,
+    short_description: "Fully custom new construction; finishes selected through the AI Finish Package Studio before groundbreak.",
+    images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large"]
+  },
 ];
 
 const categoryLabels = { custom_home: "Custom Home", renovation: "Renovation", addition: "Addition", outdoor: "Outdoor Living" };
+
+const buildAltText = (project) => {
+  const type = categoryLabels[project.category] || project.category || "Project";
+  const city = project.location || "Mississippi";
+  return `${type} by Bradley Brown Inc — ${city}`;
+};
 
 export default function FeaturedProjects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     base44.entities.Project.filter({ featured: true, status: "published" }, "-created_date", 3)
-
       .then(data => setProjects(data.length ? data : placeholderProjects))
       .catch(() => setProjects(placeholderProjects));
   }, []);
@@ -39,7 +64,7 @@ export default function FeaturedProjects() {
               <div className="relative h-56 md:h-64 overflow-hidden">
                 <img
                   src={project.images?.[0] || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"}
-                  alt={project.title}
+                  alt={buildAltText(project)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-3 left-3">
@@ -56,6 +81,9 @@ export default function FeaturedProjects() {
                 {project.square_footage && (
                   <p className="text-slate-400 text-sm mt-0.5">{project.square_footage.toLocaleString()} sq ft</p>
                 )}
+                {project.short_description && (
+                  <p className="text-slate-600 text-sm mt-2 leading-relaxed">{project.short_description}</p>
+                )}
               </div>
             </div>
           ))}
@@ -63,7 +91,7 @@ export default function FeaturedProjects() {
 
         <div className="text-center mt-10">
           <Link
-            to={createPageUrl("Portfolio")}
+            to="/portfolio"
             className="inline-flex items-center gap-2 bg-[#1E2D3D] hover:bg-[#2C3E50] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             View All Projects <ChevronRight className="w-4 h-4" />

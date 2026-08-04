@@ -1,31 +1,59 @@
 import React from "react";
 import { MapPin, Phone, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 
 const cities = [
-"Brandon", "Flowood", "Pearl", "Richland",
-"Jackson", "Madison", "Ridgeland", "Clinton",
-"Byram", "Rankin County", "Hinds County", "Madison County"];
-
+  "Brandon", "Flowood", "Richland", "Pearl",
+  "Florence", "Pelahatchie", "Ridgeland", "Madison",
+  "Jackson", "Clinton", "Raymond", "Rankin County"
+];
 
 export default function ServiceAreaSection() {
   return (
     <section className="py-14 md:py-20 bg-[#F5F2ED]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <p className="text-sky-500 font-semibold text-sm uppercase tracking-wider mb-2">Where We Work</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Serving Brandon and Rankin County Mississippi
-
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">
+            Home Remodeling Services Across Brandon, MS and Rankin County
           </h2>
-          <p className="text-slate-500 mt-3 max-w-xl mx-auto text-sm">
-            Locally owned and operated. We build and remodel homes within a 50-mile radius of Brandon — no travel fees, no out-of-state crews.
+        </div>
+
+        <div className="max-w-3xl mx-auto text-center mb-10">
+          <p className="text-slate-600 leading-relaxed">
+            Bradley Brown Inc. has been based in Brandon, Mississippi since 1995.
+            Our crews regularly work throughout Brandon, Flowood, Richland, Pearl,
+            Florence, Pelahatchie, and Reservoir-area neighborhoods, bringing
+            decades of experience with local permitting, soil conditions, and
+            trusted trade partners. We also serve Madison County communities like
+            Ridgeland and Madison, along with Hinds County neighborhoods in
+            Jackson, Clinton, and Raymond, for larger custom builds and historic
+            restoration projects. Whether you're planning a kitchen remodel,
+            bathroom update, room addition, or a brand-new custom home, our team
+            understands the building requirements specific to Rankin County and
+            the surrounding area. As the go-to choice for{" "}
+            <Link to="/remodeling-brandon-ms" className="text-sky-600 hover:underline font-medium">
+              Brandon remodeling
+            </Link>{" "}
+            and a trusted{" "}
+            <Link to="/custom-home-builder-brandon-ms" className="text-sky-600 hover:underline font-medium">
+              custom home builder in Brandon
+            </Link>
+            , we back every project with licensed, insured craftsmanship. Call{" "}
+            <a href="tel:+18443514154" className="text-sky-600 hover:underline font-medium">
+              (844) 351-4154
+            </a>{" "}
+            or get your{" "}
+            <Link to="/estimate" className="text-sky-600 hover:underline font-medium">
+              free estimate online
+            </Link>{" "}
+            to confirm we cover your address.
           </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-10">
           {cities.map((city) =>
-          <div key={city} className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-slate-700">
+            <div key={city} className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-slate-700">
               <MapPin className="w-3.5 h-3.5 text-sky-500 flex-shrink-0" />
               {city}, MS
             </div>
@@ -44,18 +72,18 @@ export default function ServiceAreaSection() {
                 });
               }
             }}
-            className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md">
-            
+            className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md"
+          >
             <Phone className="w-4 h-4" /> Call (844) 351-4154
           </a>
           <Link
-            to={createPageUrl("Contact")}
-            className="flex items-center gap-1.5 text-sky-600 font-semibold text-sm hover:underline">
-            
-            View Service Area Map <ChevronRight className="w-4 h-4" />
+            to="/estimate"
+            className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md"
+          >
+            Get My Free Estimate <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

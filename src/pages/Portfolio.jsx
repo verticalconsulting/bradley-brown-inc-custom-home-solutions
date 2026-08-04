@@ -117,7 +117,7 @@ export default function Portfolio() {
                 <div className="relative h-56 overflow-hidden">
                   <img
                     src={project.images?.[0] || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"}
-                    alt={project.title}
+                    alt={`${categoryLabels[project.category] || project.category || "Project"} by Bradley Brown Inc — ${project.location || "Mississippi"}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 left-3">

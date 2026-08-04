@@ -19,7 +19,7 @@ const faqPageSchema = {
   "mainEntity": homeFaqs.map((f) => ({
     "@type": "Question",
     "name": f.question,
-    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+    "acceptedAnswer": { "@type": "Answer", "text": f.schemaAnswer || f.answer }
   }))
 };
 
