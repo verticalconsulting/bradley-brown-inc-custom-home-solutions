@@ -310,16 +310,15 @@ export default function Layout({ children, currentPageName }) {
               <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h3>
               <ul className="space-y-2">
                 {[
-                { label: "Custom Home Building", page: "Services" },
-                { label: "Home Renovations", page: "Services" },
-                { label: "Room Additions", page: "Services" },
-                { label: "Outdoor Living Spaces", page: "Services" },
-                { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
-                { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
-                { label: "Core Services — Brandon", page: "LandingCoreServices" }].
+                { label: "Custom Home Building", to: "/services/custom-home-building" },
+                { label: "Kitchen & Bath Remodeling", to: "/services/kitchen-bathroom-remodeling" },
+                { label: "Room Additions", to: "/services/room-additions" },
+                { label: "Outdoor Living", to: "/services/outdoor-living" },
+                { label: "Barndominiums", to: "/services/barndominiums" },
+                { label: "Emergency Repairs", to: "/services/emergency-repairs" }].
                 map((item) =>
                 <li key={item.label}>
-                    <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
+                    <Link to={item.to} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
                   </li>
                 )}
               </ul>

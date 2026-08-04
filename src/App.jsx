@@ -17,13 +17,16 @@ import Estimate from './pages/Estimate';
 import LandingTrust from './pages/LandingTrust';
 import LandingCoreServices from './pages/LandingCoreServices';
 import LandingPricing from './pages/LandingPricing';
-import Barndominiums from './pages/Barndominiums';
 import BathroomRemodelingBrandon from './pages/BathroomRemodelingBrandon';
-import BarndominiumCost from './pages/BarndominiumCost';
 import MadisonRemodeling from './pages/MadisonRemodeling';
 import SmsOptin from './pages/SmsOptin';
-import BarndominiumBuilder from './pages/BarndominiumBuilder';
 import LandingBrandonCustomHomeBuilder from './pages/LandingBrandonCustomHomeBuilder';
+import CustomHomeBuilding from './pages/services/CustomHomeBuilding';
+import KitchenBathroomRemodeling from './pages/services/KitchenBathroomRemodeling';
+import RoomAdditions from './pages/services/RoomAdditions';
+import OutdoorLiving from './pages/services/OutdoorLiving';
+import BarndominiumsService from './pages/services/BarndominiumsService';
+import EmergencyRepairs from './pages/services/EmergencyRepairs';
 import ProTipDetail from './pages/ProTipDetail';
 import JobCheckin from './pages/JobCheckin';
 import Jobsites from './pages/Jobsites';
@@ -105,11 +108,21 @@ const AuthenticatedApp = () => {
       <Route path="/customertestimonials" element={<LayoutWrapper currentPageName="LandingTrust"><LandingTrust /></LayoutWrapper>} />
       <Route path="/remodeling-ms" element={<LayoutWrapper currentPageName="LandingCoreServices"><LandingCoreServices /></LayoutWrapper>} />
       <Route path="/home-remodeling-cost" element={<LayoutWrapper currentPageName="LandingPricing"><LandingPricing /></LayoutWrapper>} />
-      <Route path="/barndominiums-ms" element={<Navigate to="/barndominium-builder" replace />} />
+      {/* Service detail pages */}
+      <Route path="/services/custom-home-building" element={<LayoutWrapper currentPageName="CustomHomeBuilding"><CustomHomeBuilding /></LayoutWrapper>} />
+      <Route path="/services/kitchen-bathroom-remodeling" element={<LayoutWrapper currentPageName="KitchenBathroomRemodeling"><KitchenBathroomRemodeling /></LayoutWrapper>} />
+      <Route path="/services/room-additions" element={<LayoutWrapper currentPageName="RoomAdditions"><RoomAdditions /></LayoutWrapper>} />
+      <Route path="/services/outdoor-living" element={<LayoutWrapper currentPageName="OutdoorLiving"><OutdoorLiving /></LayoutWrapper>} />
+      <Route path="/services/barndominiums" element={<LayoutWrapper currentPageName="BarndominiumsService"><BarndominiumsService /></LayoutWrapper>} />
+      <Route path="/services/emergency-repairs" element={<LayoutWrapper currentPageName="EmergencyRepairs"><EmergencyRepairs /></LayoutWrapper>} />
+
       <Route path="/bathroom-remodeling-brandon-ms" element={<LayoutWrapper currentPageName="BathroomRemodelingBrandon"><BathroomRemodelingBrandon /></LayoutWrapper>} />
-      <Route path="/barndominium-cost-mississippi" element={<LayoutWrapper currentPageName="BarndominiumCost"><BarndominiumCost /></LayoutWrapper>} />
       <Route path="/madison-ms-home-remodeling" element={<LayoutWrapper currentPageName="MadisonRemodeling"><MadisonRemodeling /></LayoutWrapper>} />
-      <Route path="/barndominium-builder" element={<LayoutWrapper currentPageName="BarndominiumBuilder"><BarndominiumBuilder /></LayoutWrapper>} />
+
+      {/* Barndominium redirects → /services/barndominiums */}
+      <Route path="/barndominium-builder" element={<Navigate to="/services/barndominiums" replace />} />
+      <Route path="/barndominiums-ms" element={<Navigate to="/services/barndominiums" replace />} />
+      <Route path="/barndominium-cost-mississippi" element={<Navigate to="/services/barndominiums" replace />} />
       <Route path="/finish-package-studio" element={<Navigate to="/estimate" replace />} />
       <Route path="/custom-home-builder-brandon-ms" element={<LayoutWrapper currentPageName="LandingBrandonCustomHomeBuilder"><LandingBrandonCustomHomeBuilder /></LayoutWrapper>} />
 
@@ -122,6 +135,10 @@ const AuthenticatedApp = () => {
       <Route path="/ai-quote" element={<Navigate to="/estimate" replace />} />
       <Route path="/quoteassistant" element={<Navigate to="/estimate" replace />} />
       <Route path="/schedulevisit" element={<Navigate to="/estimate" replace />} />
+      {/* Emergency & luxury renovation redirects */}
+      <Route path="/landingemergencyrepair" element={<Navigate to="/services/emergency-repairs" replace />} />
+      <Route path="/luxuryhomerenovations" element={<Navigate to="/services/kitchen-bathroom-remodeling" replace />} />
+
       <Route path="/sms-optin" element={<LayoutWrapper currentPageName="SmsOptin"><SmsOptin /></LayoutWrapper>} />
       <Route path="/jobsite-checkin" element={<LayoutWrapper currentPageName="JobCheckin"><JobCheckin /></LayoutWrapper>} />
       <Route path="/jobsites" element={<LayoutWrapper currentPageName="Jobsites"><Jobsites /></LayoutWrapper>} />

@@ -57,11 +57,9 @@ import Home from './pages/Home';
 import HomeAdditionIdeas from './pages/HomeAdditionIdeas';
 import LandingBrandonRemodelers from './pages/LandingBrandonRemodelers';
 import LandingCoreServices from './pages/LandingCoreServices';
-import LandingEmergencyRepair from './pages/LandingEmergencyRepair';
 import LandingPricing from './pages/LandingPricing';
 import LandingTrust from './pages/LandingTrust';
 import Legal from './pages/Legal';
-import LuxuryHomeRenovations from './pages/LuxuryHomeRenovations';
 import Portfolio from './pages/Portfolio';
 import ProTips from './pages/ProTips';
 import RenovationLoans from './pages/RenovationLoans';
@@ -82,11 +80,9 @@ export const PAGES = {
     "HomeAdditionIdeas": HomeAdditionIdeas,
     "LandingBrandonRemodelers": LandingBrandonRemodelers,
     "LandingCoreServices": LandingCoreServices,
-    "LandingEmergencyRepair": LandingEmergencyRepair,
     "LandingPricing": LandingPricing,
     "LandingTrust": LandingTrust,
     "Legal": Legal,
-    "LuxuryHomeRenovations": LuxuryHomeRenovations,
     "Portfolio": Portfolio,
     "ProTips": ProTips,
     "RenovationLoans": RenovationLoans,
