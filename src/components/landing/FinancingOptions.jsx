@@ -51,10 +51,16 @@ export default function FinancingOptions() {
         })}
       </div>
 
-      <div className="mt-8">
+      <div className="mt-8 flex flex-col sm:flex-row gap-4">
+        <Link
+          to={createPageUrl("RenovationLoans")}
+          className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+        >
+          Compare Renovation Loans <ChevronRight className="w-4 h-4" />
+        </Link>
         <Link
           to={createPageUrl("QuoteAssistant")}
-          className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+          className="inline-flex items-center gap-2 border border-sky-200 text-sky-700 px-6 py-3 rounded-lg font-semibold hover:bg-sky-50 transition-colors"
         >
           Get a Free Estimate <ChevronRight className="w-4 h-4" />
         </Link>

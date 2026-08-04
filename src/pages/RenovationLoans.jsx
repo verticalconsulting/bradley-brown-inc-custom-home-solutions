@@ -43,23 +43,43 @@ const loanOptions = [
   }
 ];
 
+const renovationLoansFaqs = [
+  { q: "Can I finance a renovation if I don't have equity?", a: "Yes. Personal renovation loans (unsecured) don't require home equity. FHA 203(k) loans are also available with as little as 3.5% down for buyers. Talk to your lender about options based on your credit score and income." },
+  { q: "How do I know how much to borrow?", a: "We recommend getting a detailed written estimate from your contractor before applying. At Bradley Brown Inc., we provide itemized estimates so you know exactly what to finance — no surprises after you close on your loan." },
+  { q: "Is a HELOC or home equity loan better for renovations?", a: "It depends on your project. A HELOC is better for phased projects where you draw funds over time. A home equity loan is better for a single large project with a fixed budget, since you get all the money upfront at a fixed rate." },
+  { q: "Do renovation loans cover labor and materials?", a: "Most renovation loans — including FHA 203(k), HomeStyle, and home equity products — cover both labor and materials for qualifying improvements. Personal loans can be used for any purpose." },
+  { q: "How does Bradley Brown Inc. work with financed projects?", a: "We provide itemized written estimates compatible with most lender requirements, can communicate directly with your loan officer if needed, and ensure all work meets code so your lender's inspection goes smoothly." },
+];
+
 const renovationLoansSchema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Renovation Loans for Home Improvements in Brandon, MS — Complete Guide",
-  "description": "A complete guide to renovation loans and financing options for home improvements in Brandon, MS. Compare FHA 203k, HELOC, home equity loans and more.",
-  "author": { "@type": "Organization", "name": "Bradley Brown Inc." },
-  "publisher": { "@type": "Organization", "name": "Bradley Brown Inc.", "url": "https://bradleybrowninc.com" },
-  "datePublished": "2025-01-01",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bradleybrowninc.com/renovationloans" }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Renovation Loans in Brandon, MS — Home Improvement Financing Guide",
+      "description": "A complete guide to renovation loans and financing options for home improvements in Brandon, MS. Compare FHA 203k, HELOC, home equity loans and more.",
+      "author": { "@type": "Organization", "name": "Bradley Brown Inc." },
+      "publisher": { "@type": "Organization", "name": "Bradley Brown Inc.", "url": "https://bradleybrowninc.com" },
+      "datePublished": "2025-01-01",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bradleybrowninc.com/renovationloans" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": renovationLoansFaqs.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
 };
 
 export default function RenovationLoans() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
-        title="Renovation Loans for New Homes in Brandon, MS | Financing Guide"
-        description="Compare renovation loans for new homes in Brandon, MS — FHA 203k, HELOC, home equity loans & personal loans. Find the best financing option for your remodeling project."
+        title="Renovation Loans in Brandon, MS | Home Improvement Financing Guide"
+        description="Compare renovation loans in Brandon, MS — FHA 203(k), HELOC, home equity loans, Fannie Mae HomeStyle & personal loans. Find the best financing for your home remodeling project."
         schema={renovationLoansSchema}
         canonical="https://bradleybrowninc.com/renovationloans"
       />
@@ -67,9 +87,9 @@ export default function RenovationLoans() {
       <div className="bg-[#1E2D3D] py-14 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Financing Your Project</p>
-          <h1 className="text-3xl md:text-5xl font-bold text-white">Renovation Loans for New Homes</h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-white">Renovation Loans in Brandon, MS</h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            A complete guide to financing options for home remodeling in Brandon, MS. Compare loan types and find the best fit for your project and budget.
+            A complete guide to home improvement financing for Brandon and Rankin County homeowners. Compare loan types, see cost ranges, and find the best fit for your remodeling project and budget.
           </p>
         </div>
       </div>
@@ -84,6 +104,29 @@ export default function RenovationLoans() {
         <div className="bg-sky-50 border border-sky-200 rounded-xl p-5 mb-10">
           <p className="text-sky-800 text-sm font-medium">
             <strong>Bradley Brown Inc. works with homeowners at all budget levels.</strong> While we don't provide financing directly, we can help you plan your project scope to fit your loan amount. <a href="tel:+18443514154" className="underline font-bold">Call (844) 351-4154</a> to discuss your project.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">How to Choose the Right Renovation Loan</h2>
+        <div className="prose prose-slate max-w-none mb-10">
+          <p className="text-slate-600 leading-relaxed">
+            The right renovation loan depends on three factors: how much equity you have, how large your project is, and whether you're already in the home or buying a fixer-upper. If you're purchasing a home that needs work, the <strong>FHA 203(k)</strong> or <strong>Fannie Mae HomeStyle</strong> loan lets you roll the purchase price and renovation costs into a single mortgage — meaning one closing, one monthly payment. If you already own your home and have built up equity, a <strong>home equity loan</strong> or <strong>HELOC</strong> typically offers the lowest interest rates since your home secures the loan.
+          </p>
+          <p className="text-slate-600 leading-relaxed">
+            For smaller projects under $25,000 — like a bathroom update or minor kitchen refresh — a <strong>personal renovation loan</strong> may be the simplest path. These unsecured loans fund quickly (often within 1–3 business days), require no home equity, and don't put your home at risk. The trade-off is a higher interest rate and shorter repayment term, typically 3–7 years. Consider using our <Link to={createPageUrl("QuoteAssistant")} className="text-sky-600 font-semibold">AI Cost Estimator</Link> to get a ballpark project budget before you talk to a lender — knowing your project cost helps you borrow the right amount.
+          </p>
+          <p className="text-slate-600 leading-relaxed">
+            For larger projects like a kitchen remodel ($25,000–$80,000) or a room addition ($50,000–$150,000+), most Brandon-area homeowners tap home equity or use a 203(k) loan. These products offer longer repayment terms (10–30 years), which keeps monthly payments manageable even on big-budget renovations. Whatever you choose, get a detailed, itemized estimate from your contractor <em>before</em> applying — lenders need a construction scope and cost breakdown to approve the loan.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">How to Qualify for a Renovation Loan in Mississippi</h2>
+        <div className="prose prose-slate max-w-none mb-10">
+          <p className="text-slate-600 leading-relaxed">
+            Qualification requirements vary by loan type, but most lenders look at four key factors: <strong>credit score</strong>, <strong>debt-to-income (DTI) ratio</strong>, <strong>home equity or down payment</strong>, and <strong>documented project scope</strong>. FHA 203(k) loans accept credit scores as low as 580 with a 3.5% down payment, making them accessible for first-time buyers. Conventional HomeStyle loans typically require a 620+ credit score and 5% down. Home equity loans and HELOCs usually need a 680+ credit score and at least 15–20% equity in your home.
+          </p>
+          <p className="text-slate-600 leading-relaxed">
+            Your debt-to-income ratio should generally be below 43% for most renovation loan programs, though some FHA lenders allow up to 50% with compensating factors. Lenders will also want to see a detailed construction contract or estimate — this is where Bradley Brown Inc. helps. We provide itemized written estimates that meet lender documentation requirements, and we can coordinate directly with your loan officer to align construction milestones with the lender's draw schedule. If you're in the Brandon, Flowood, Madison, or Pearl area, <a href="tel:+18443514154" className="text-sky-600 font-semibold">call us at (844) 351-4154</a> to get your estimate started.
           </p>
         </div>
 
@@ -142,13 +185,7 @@ export default function RenovationLoans() {
         <div className="mt-12">
           <h2 className="text-xl font-bold text-[#1E2D3D] mb-6">Frequently Asked Questions — Renovation Financing in Mississippi</h2>
           <div className="space-y-4">
-            {[
-              { q: "Can I finance a renovation if I don't have equity?", a: "Yes. Personal renovation loans (unsecured) don't require home equity. FHA 203(k) loans are also available with as little as 3.5% down for buyers. Talk to your lender about options based on your credit score and income." },
-              { q: "How do I know how much to borrow?", a: "We recommend getting a detailed written estimate from your contractor before applying. At Bradley Brown Inc., we provide itemized estimates so you know exactly what to finance — no surprises after you close on your loan." },
-              { q: "Is a HELOC or home equity loan better for renovations?", a: "It depends on your project. A HELOC is better for phased projects where you draw funds over time. A home equity loan is better for a single large project with a fixed budget, since you get all the money upfront at a fixed rate." },
-              { q: "Do renovation loans cover labor and materials?", a: "Most renovation loans — including FHA 203(k), HomeStyle, and home equity products — cover both labor and materials for qualifying improvements. Personal loans can be used for any purpose." },
-              { q: "How does Bradley Brown Inc. work with financed projects?", a: "We provide itemized written estimates compatible with most lender requirements, can communicate directly with your loan officer if needed, and ensure all work meets code so your lender's inspection goes smoothly." },
-            ].map((item, i) => (
+            {renovationLoansFaqs.map((item, i) => (
               <div key={i} className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
                 <h3 className="font-semibold text-[#1E2D3D] text-sm mb-2">{item.q}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{item.a}</p>
