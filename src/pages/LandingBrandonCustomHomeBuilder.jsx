@@ -65,6 +65,8 @@ const schema = {
         { "@type": "City", "name": "Ridgeland, Mississippi" },
         { "@type": "City", "name": "Clinton, Mississippi" },
       ],
+      "aggregateRating": brandonReviewSchema.aggregateRating,
+      "review": brandonReviewSchema.review,
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Custom Home Building Services in Brandon, MS",
@@ -232,6 +234,9 @@ export default function LandingBrandonCustomHomeBuilder() {
           </p>
         </div>
 
+        {/* Our Custom Home Building Process */}
+        <CustomHomeProcess />
+
         {/* New Construction Homes in Brandon, MS */}
         <div className="prose prose-slate max-w-none">
           <h2 className="text-2xl font-bold text-[#1E2D3D]">New Construction Homes in Brandon, MS</h2>
@@ -280,6 +285,9 @@ export default function LandingBrandonCustomHomeBuilder() {
             <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
+
+        {/* What Brandon, MS Homeowners Say About Us */}
+        <BrandonReviewSection />
 
         {/* FAQ */}
         <div>
