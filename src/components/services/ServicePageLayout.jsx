@@ -118,7 +118,7 @@ export default function ServicePageLayout({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {images.map((img, i) =>
             <div key={i} className="rounded-xl overflow-hidden shadow-md bg-white">
-                  <img src="https://media.base44.com/images/public/699c758479c46f0580553750/bec7084e6_Elegant_walnut_home_office_design.png" alt={img.alt} className="w-full h-64 object-cover" loading="lazy" />
+                  <img src="https://media.base44.com/images/public/699c758479c46f0580553750/02651f741_Charming_farmhouse_porch_at_sunset.png" alt={img.alt} className="w-full h-64 object-cover" loading="lazy" />
                   {img.caption && <p className="text-sm text-slate-500 p-3">{img.caption}</p>}
                 </div>
             )}
