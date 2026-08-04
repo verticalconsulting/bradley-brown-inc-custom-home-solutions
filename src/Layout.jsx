@@ -93,8 +93,7 @@ export default function Layout({ children, currentPageName }) {
   { label: "Jobsites", page: "Jobsites", path: "/jobsites" },
   { label: "About", page: "About" },
   { label: "Contact", page: "Contact" },
-  { label: "Pro Tips", page: "ProTips" },
-  { label: "Schedule Visit", page: "ScheduleVisit" }];
+  { label: "Pro Tips", page: "ProTips" }];
 
 
   const transparent = isHomePage && !scrolled;
@@ -164,21 +163,20 @@ export default function Layout({ children, currentPageName }) {
                 <Phone className="w-4 h-4" />
                 (844) 351-4154
               </a>
-              {/* Desktop quote CTA */}
+              {/* Desktop estimate CTA */}
               <Link
-                to={createPageUrl("ContactForm")} className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-[#37b5eb]/[0.7]">
+                to="/estimate" className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-[#37b5eb]/[0.7]">
 
-
-                Get a Quote <ChevronRight className="w-3 h-3" />
+                Get My Free Estimate <ChevronRight className="w-3 h-3" />
               </Link>
 
-              {/* Mobile quote CTA — thumb-sized, always visible in the header */}
+              {/* Mobile estimate CTA — thumb-sized, always visible in the header */}
               <Link
-                to={createPageUrl("ContactForm")}
-                onClick={() => base44.analytics.track({ eventName: "mobile_header_quote_clicked", properties: { source: "mobile_header_sticky", page: currentPageName || "unknown" } })}
+                to="/estimate"
+                onClick={() => base44.analytics.track({ eventName: "mobile_header_estimate_clicked", properties: { source: "mobile_header_sticky", page: currentPageName || "unknown" } })}
                 className="md:hidden inline-flex items-center gap-1 bg-[#C4922A] hover:bg-[#A37820] text-white px-3.5 py-2.5 min-h-[44px] rounded-lg text-sm font-bold shadow-sm transition-colors"
-                aria-label="Get a free quote">
-                Get Quote
+                aria-label="Get a free estimate">
+                Estimate
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -224,11 +222,11 @@ export default function Layout({ children, currentPageName }) {
                   (844) 351-4154
                 </a>
                 <Link
-                to={createPageUrl("ContactForm")}
-                onClick={() => base44.analytics.track({ eventName: "mobile_menu_quote_clicked", properties: { source: "mobile_menu", page: currentPageName || "unknown" } })}
+                to="/estimate"
+                onClick={() => base44.analytics.track({ eventName: "mobile_menu_estimate_clicked", properties: { source: "mobile_menu", page: currentPageName || "unknown" } })}
                 className="block bg-sky-400 text-white px-4 py-3 rounded-lg text-center font-semibold hover:bg-sky-500 transition-colors">
 
-                  Get a Free Quote →
+                  Get My Free Estimate →
                 </Link>
               </div>
             </div>
@@ -335,9 +333,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Pro Tips & Advice", page: "ProTips" },
                 { label: "Customer Testimonies", page: "LandingTrust" },
                 { label: "Contact Us", page: "Contact" },
-                { label: "Get a Free Quote", page: "ContactForm" },
-                { label: "AI Cost Estimator", page: "QuoteAssistant" },
-                { label: "Schedule a Site Visit", page: "ScheduleVisit" },
+                { label: "Get a Free Estimate", page: "Estimate" },
                 { label: "Pricing Guide", page: "LandingPricing" },
                 { label: "Renovation Loans", page: "RenovationLoans" },
                 { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },

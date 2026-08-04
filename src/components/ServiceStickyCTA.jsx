@@ -49,7 +49,7 @@ export default function ServiceStickyCTA({ source = "service_page", label = "Get
           <Phone className="w-4 h-4" /> Call Now
         </a>
         <Link
-          to={createPageUrl("ContactForm")}
+          to="/estimate"
           onClick={handleQuote}
           className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#C4922A] hover:bg-[#A37820] text-white font-bold text-sm px-4 py-3 rounded-lg transition-colors"
         >

@@ -75,31 +75,24 @@ export default function HeroSection() {
         {/* Mobile: stacked prominent CTAs */}
         <div className="flex flex-col gap-3 sm:hidden w-full max-w-xs mx-auto">
           <Link
-            to={createPageUrl("QuoteAssistant")}
-            className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-[#a5a29c]">
-            <Sparkles className="w-5 h-5" /> Get My Free AI Estimate
+            to="/estimate"
+            className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-[#C4922A]">
+            <Sparkles className="w-5 h-5" /> Get My Free Estimate
           </Link>
           <a href="tel:+18443514154" className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-sky-400">Call (844) 351-4154
-
           </a>
-          <Link
-            to={createPageUrl("Portfolio")}
-            className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all">
-            <Play className="w-4 h-4" /> View Our Work
-          </Link>
         </div>
 
         {/* Desktop CTAs */}
         <div className="hidden sm:flex flex-row gap-4 justify-center">
           <Link
-            to={createPageUrl("QuoteAssistant")} className="hover:bg-[#0a1f44] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-sky-400/[0.5]">
-            <Sparkles className="w-5 h-5" /> Get a Free Estimate
+            to="/estimate" className="hover:bg-[#0a1f44] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-[#C4922A]">
+            <Sparkles className="w-5 h-5" /> Get My Free Estimate
           </Link>
-          <Link
-            to={createPageUrl("Portfolio")}
-            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all">
-            <Play className="w-5 h-5" /> View Our Work
-          </Link>
+          <a
+            href="tel:+18443514154" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all">
+            <Phone className="w-5 h-5" /> Call (844) 351-4154
+          </a>
         </div>
 
         {/* Slide dots */}

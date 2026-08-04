@@ -14,20 +14,18 @@ export default function CTABanner() {
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Ready to Build Your Dream Home?
         </h2>
-        <p className="text-slate-100 mb-10 mx-auto text-lg max-w-xl">Tell us about your project and our AI will generate a personalized cost estimate in seconds.
+        <p className="text-slate-100 mb-10 mx-auto text-lg max-w-xl">Tell us about your project and get a personalized cost estimate in seconds — free, no obligation.
 
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            to="/quoteassistant" className="bg-gray-200 text-[#0752df] px-8 py-4 text-lg font-bold rounded-3xl inline-flex items-center justify-center gap-2 hover:bg-amber-50 transition-colors shadow-lg">
+            to="/estimate" className="bg-gray-200 text-[#0752df] px-8 py-4 text-lg font-bold rounded-3xl inline-flex items-center justify-center gap-2 hover:bg-amber-50 transition-colors shadow-lg">
 
-            Get a Free AI Estimate <Sparkles className="w-5 h-5" /> <ChevronRight className="w-5 h-5" />
+            Get My Free Estimate <Sparkles className="w-5 h-5" /> <ChevronRight className="w-5 h-5" />
           </Link>
           <a
-            href="tel:+18443514154" className="text-white px-8 py-4 text-lg font-bold rounded-2xl inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 transition-colors">Call (844) 351-4154
-
-
-
+            href="tel:+18443514154" className="text-white px-8 py-4 text-lg font-bold rounded-2xl inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 transition-colors">
+            <Phone className="w-5 h-5" /> Call (844) 351-4154
           </a>
         </div>
       </div>

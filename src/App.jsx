@@ -13,8 +13,7 @@ import SEODashboard from './pages/SEODashboard';
 import SiteImages from './pages/SiteImages';
 import BlogAdmin from './pages/BlogAdmin';
 import ConversionDashboard from './pages/ConversionDashboard';
-import HistoricHomeRestoration from './pages/HistoricHomeRestoration';
-import Quote from './pages/Quote';
+import Estimate from './pages/Estimate';
 import LandingTrust from './pages/LandingTrust';
 import LandingCoreServices from './pages/LandingCoreServices';
 import LandingPricing from './pages/LandingPricing';
@@ -24,7 +23,6 @@ import BarndominiumCost from './pages/BarndominiumCost';
 import MadisonRemodeling from './pages/MadisonRemodeling';
 import SmsOptin from './pages/SmsOptin';
 import BarndominiumBuilder from './pages/BarndominiumBuilder';
-import FinishPackageStudio from './pages/FinishPackageStudio';
 import LandingBrandonCustomHomeBuilder from './pages/LandingBrandonCustomHomeBuilder';
 import ProTipDetail from './pages/ProTipDetail';
 import JobCheckin from './pages/JobCheckin';
@@ -34,7 +32,6 @@ import { Navigate } from 'react-router-dom';
 import Leads from './pages/Leads';
 import FunnelAnalysis from './pages/FunnelAnalysis';
 import AdminRoute from './components/AdminRoute';
-import ContactForm from './pages/ContactForm';
 import ThankYou from './pages/ThankYou';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
@@ -96,14 +93,15 @@ const AuthenticatedApp = () => {
       ))}
       <Route path="/seodashboard" element={<LayoutWrapper currentPageName="SEODashboard"><AdminRoute><SEODashboard /></AdminRoute></LayoutWrapper>} />
       <Route path="/funnelanalysis" element={<LayoutWrapper currentPageName="FunnelAnalysis"><AdminRoute><FunnelAnalysis /></AdminRoute></LayoutWrapper>} />
-      <Route path="/contactform" element={<LayoutWrapper currentPageName="ContactForm"><ContactForm /></LayoutWrapper>} />
+      <Route path="/estimate" element={<LayoutWrapper currentPageName="Estimate"><Estimate /></LayoutWrapper>} />
+      <Route path="/contactform" element={<Navigate to="/estimate" replace />} />
       <Route path="/thank-you" element={<LayoutWrapper currentPageName="ThankYou"><ThankYou /></LayoutWrapper>} />
       <Route path="/leads" element={<LayoutWrapper currentPageName="Leads"><AdminRoute><Leads /></AdminRoute></LayoutWrapper>} />
       <Route path="/siteimages" element={<LayoutWrapper currentPageName="SiteImages"><AdminRoute><SiteImages /></AdminRoute></LayoutWrapper>} />
       <Route path="/blogadmin" element={<LayoutWrapper currentPageName="BlogAdmin"><AdminRoute><BlogAdmin /></AdminRoute></LayoutWrapper>} />
       <Route path="/conversiondashboard" element={<LayoutWrapper currentPageName="ConversionDashboard"><AdminRoute><ConversionDashboard /></AdminRoute></LayoutWrapper>} />
       <Route path="/projects/historic-home-restoration" element={<Navigate to="/portfolio" replace />} />
-      <Route path="/quote" element={<LayoutWrapper currentPageName="ContactForm"><Quote /></LayoutWrapper>} />
+      <Route path="/quote" element={<Navigate to="/estimate" replace />} />
       <Route path="/customertestimonials" element={<LayoutWrapper currentPageName="LandingTrust"><LandingTrust /></LayoutWrapper>} />
       <Route path="/remodeling-ms" element={<LayoutWrapper currentPageName="LandingCoreServices"><LandingCoreServices /></LayoutWrapper>} />
       <Route path="/home-remodeling-cost" element={<LayoutWrapper currentPageName="LandingPricing"><LandingPricing /></LayoutWrapper>} />
@@ -112,7 +110,7 @@ const AuthenticatedApp = () => {
       <Route path="/barndominium-cost-mississippi" element={<LayoutWrapper currentPageName="BarndominiumCost"><BarndominiumCost /></LayoutWrapper>} />
       <Route path="/madison-ms-home-remodeling" element={<LayoutWrapper currentPageName="MadisonRemodeling"><MadisonRemodeling /></LayoutWrapper>} />
       <Route path="/barndominium-builder" element={<LayoutWrapper currentPageName="BarndominiumBuilder"><BarndominiumBuilder /></LayoutWrapper>} />
-      <Route path="/finish-package-studio" element={<LayoutWrapper currentPageName="FinishPackageStudio"><FinishPackageStudio /></LayoutWrapper>} />
+      <Route path="/finish-package-studio" element={<Navigate to="/estimate" replace />} />
       <Route path="/custom-home-builder-brandon-ms" element={<LayoutWrapper currentPageName="LandingBrandonCustomHomeBuilder"><LandingBrandonCustomHomeBuilder /></LayoutWrapper>} />
 
       {/* Legacy / alternate URL redirects (Google Ads + old backlinks) */}
@@ -121,7 +119,9 @@ const AuthenticatedApp = () => {
       <Route path="/projects/custom-home-build" element={<Navigate to="/portfolio" replace />} />
       <Route path="/projects/gourmet-kitchen-renovation" element={<Navigate to="/portfolio" replace />} />
       <Route path="/projects/two-story-home-addition" element={<Navigate to="/portfolio" replace />} />
-      <Route path="/ai-quote" element={<Navigate to="/quoteassistant" replace />} />
+      <Route path="/ai-quote" element={<Navigate to="/estimate" replace />} />
+      <Route path="/quoteassistant" element={<Navigate to="/estimate" replace />} />
+      <Route path="/schedulevisit" element={<Navigate to="/estimate" replace />} />
       <Route path="/sms-optin" element={<LayoutWrapper currentPageName="SmsOptin"><SmsOptin /></LayoutWrapper>} />
       <Route path="/jobsite-checkin" element={<LayoutWrapper currentPageName="JobCheckin"><JobCheckin /></LayoutWrapper>} />
       <Route path="/jobsites" element={<LayoutWrapper currentPageName="Jobsites"><Jobsites /></LayoutWrapper>} />

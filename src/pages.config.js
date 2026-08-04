@@ -52,7 +52,6 @@ import AccountSettings from './pages/AccountSettings';
 import AgentChat from './pages/AgentChat';
 import CRM from './pages/CRM';
 import Contact from './pages/Contact';
-import ContactForm from './pages/ContactForm';
 import EnergyEfficientUpgrades from './pages/EnergyEfficientUpgrades';
 import Home from './pages/Home';
 import HomeAdditionIdeas from './pages/HomeAdditionIdeas';
@@ -65,9 +64,7 @@ import Legal from './pages/Legal';
 import LuxuryHomeRenovations from './pages/LuxuryHomeRenovations';
 import Portfolio from './pages/Portfolio';
 import ProTips from './pages/ProTips';
-import QuoteAssistant from './pages/QuoteAssistant';
 import RenovationLoans from './pages/RenovationLoans';
-import ScheduleVisit from './pages/ScheduleVisit';
 import Services from './pages/Services';
 import SmallBathroomIdeas from './pages/SmallBathroomIdeas';
 import TikTokSync from './pages/TikTokSync';
@@ -80,7 +77,6 @@ export const PAGES = {
     "AgentChat": AgentChat,
     "CRM": CRM,
     "Contact": Contact,
-    "ContactForm": ContactForm,
     "EnergyEfficientUpgrades": EnergyEfficientUpgrades,
     "Home": Home,
     "HomeAdditionIdeas": HomeAdditionIdeas,
@@ -93,9 +89,7 @@ export const PAGES = {
     "LuxuryHomeRenovations": LuxuryHomeRenovations,
     "Portfolio": Portfolio,
     "ProTips": ProTips,
-    "QuoteAssistant": QuoteAssistant,
     "RenovationLoans": RenovationLoans,
-    "ScheduleVisit": ScheduleVisit,
     "Services": Services,
     "SmallBathroomIdeas": SmallBathroomIdeas,
     "TikTokSync": TikTokSync,

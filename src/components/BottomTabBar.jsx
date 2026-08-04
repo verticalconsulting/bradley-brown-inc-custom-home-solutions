@@ -6,7 +6,7 @@ import { Home, Wrench, Image, Sparkles, Phone } from "lucide-react";
 const tabs = [
   { label: "Home",      page: "Home",        icon: Home  },
   { label: "Services",  page: "Services",    icon: Wrench },
-  { label: "Get Quote", page: "ContactForm", icon: Sparkles, highlight: true },
+  { label: "Estimate",  page: "Estimate",    icon: Sparkles, highlight: true, path: "/estimate" },
   { label: "Portfolio", page: "Portfolio",   icon: Image },
   { label: "Contact",   page: "Contact",     icon: Phone },
 ];
@@ -29,7 +29,8 @@ export default function BottomTabBar({ currentPageName }) {
     }
     // Navigate to last known path for the tapped tab, or its root
     const remembered = tabStack.current[page];
-    navigate(remembered || createPageUrl(page));
+    const tab = tabs.find(t => t.page === page);
+    navigate(remembered || tab?.path || createPageUrl(page));
   };
 
   return (
