@@ -1,7 +1,7 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
 
 const SITE_URL = "https://bradleybrowninc.com";
-const INDEXNOW_KEY = "8f2a6c4e9b1d3f7a0e5c8b2d6a4f1c3e";
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 
 Deno.serve(async (req) => {
