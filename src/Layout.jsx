@@ -370,7 +370,12 @@ export default function Layout({ children, currentPageName }) {
                 Five Hughes LLC
               </a>
             </p>
-            <p className="text-slate-500 text-sm">Licensed & Insured · Mississippi General Contractor · 104 Tiffany Drive, Brandon, MS 39042</p>
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+              <Link to="/seodashboard" className="text-slate-500 hover:text-sky-400 text-sm transition-colors">
+                Employee Portal
+              </Link>
+              <p className="text-slate-500 text-sm">Licensed & Insured · Mississippi General Contractor · 104 Tiffany Drive, Brandon, MS 39042</p>
+            </div>
           </div>
         </div>
       </footer>
