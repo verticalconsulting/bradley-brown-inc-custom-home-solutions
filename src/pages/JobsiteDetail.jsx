@@ -82,7 +82,7 @@ export default function JobsiteDetail() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title={`${item.title} | ${serviceLabel} in ${locationStr}`}
-        description={item.description || `${serviceLabel} completed by Bradley Brown Inc. in ${locationStr}. See photos and project details from this Mississippi jobsite.`}
+        description={item.meta_description || item.description || `${serviceLabel} completed by Bradley Brown Inc. in ${locationStr}. See photos and project details from this Mississippi jobsite.`}
         canonical={url}
         schema={schema}
       />

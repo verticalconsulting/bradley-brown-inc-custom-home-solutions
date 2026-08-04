@@ -28,6 +28,10 @@
       "type": "string",
       "description": "Short description of the work performed"
     },
+    "meta_description": {
+      "type": "string",
+      "description": "Custom SEO meta description (120-160 chars). Falls back to description if not set."
+    },
     "city": {
       "type": "string",
       "description": "City name, e.g. Brandon"
