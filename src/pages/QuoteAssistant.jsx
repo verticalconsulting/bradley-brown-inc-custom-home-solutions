@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
+import SEOHead from "@/components/SEOHead";
 import StepIndicator from "@/components/quote/StepIndicator";
 import ProjectTypeStep from "@/components/quote/ProjectTypeStep";
 import ProjectDetailsStep from "@/components/quote/ProjectDetailsStep";
@@ -189,6 +190,11 @@ export default function QuoteAssistant() {
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
+      <SEOHead
+        title="Free AI Project Estimate | Bradley Brown Inc — Brandon, MS"
+        description="Get a free AI-powered remodeling cost estimate in seconds. Custom homes, kitchen and bath remodels, additions, and outdoor living in Brandon, MS and Central Mississippi."
+        canonical="https://bradleybrowninc.com/quoteassistant"
+      />
       <div className="bg-[#1E2D3D] py-10 md:py-14">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-[#C4922A]/20 border border-[#C4922A]/40 rounded-full px-3 py-1 mb-3">
