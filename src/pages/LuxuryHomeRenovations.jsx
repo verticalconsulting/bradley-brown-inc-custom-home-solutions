@@ -7,6 +7,8 @@ import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 import RecentLuxuryProjects from "@/components/luxury/RecentLuxuryProjects";
+import LuxuryTestimonials from "@/components/luxury/LuxuryTestimonials";
+import WorkmanshipGuarantee from "@/components/luxury/WorkmanshipGuarantee";
 import { base44 } from "@/api/base44Client";
 
 const schema = {
@@ -17,7 +19,43 @@ const schema = {
     "name": "Bradley Brown Inc.",
     "telephone": "+18443514154",
     "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
-    "priceRange": "$$$$"
+    "priceRange": "$$$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "4",
+      "bestRating": "5"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sarah T." },
+        "datePublished": "2024-11-15",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Bradley Brown completely transformed our 1990s home into something that looks like it belongs in a magazine. The craftsmanship on the custom millwork is stunning, and Brad's team was on site every single day. We never wondered what was happening — they communicated constantly."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Michael R." },
+        "datePublished": "2024-09-22",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Our kitchen renovation was seamless from start to finish. The project manager handled every subcontractor, every material order, and every inspection. The finish work is the best I've seen in the Brandon area. Worth every penny."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Jennifer L." },
+        "datePublished": "2024-07-10",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "We needed a master bath that felt like a spa retreat, and that's exactly what we got. Heated floors, a steam shower, and tile work so precise it looks like a showroom. The crew was respectful of our home the entire time."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "David W." },
+        "datePublished": "2024-05-03",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "The built-in bookcases and coffered ceiling Bradley Brown installed are conversation pieces every time guests come over. Their finish carpenters are true craftsmen. I've already booked them for our kitchen next year."
+      }
+    ]
   },
   {
     "@type": "Service",
@@ -130,6 +168,9 @@ export default function LuxuryHomeRenovations() {
       {/* Recent Luxury Renovation Projects — full width */}
       <RecentLuxuryProjects />
 
+      {/* Testimonials */}
+      <LuxuryTestimonials />
+
       <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-14 pb-12 space-y-14">
 
         {/* Process */}
@@ -148,6 +189,9 @@ export default function LuxuryHomeRenovations() {
           </div>
         </div>
 
+        {/* Workmanship Guarantee */}
+        <WorkmanshipGuarantee />
+
         {/* Timeline expectations */}
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
           <h2 className="font-bold text-[#1E2D3D] mb-3">Realistic Timeline Expectations</h2>
@@ -165,41 +209,6 @@ export default function LuxuryHomeRenovations() {
             )}
           </div>
           <p className="text-xs text-amber-600 mt-3">* Timelines include permitting, material lead times, and final punch list. Custom or imported materials may extend timelines.</p>
-        </div>
-
-        {/* Financing */}
-        <div>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">Financing Your Luxury Renovation</h2>
-          <p className="text-slate-600 leading-relaxed text-sm mb-4">
-            Most luxury renovation clients in the Brandon and Rankin County area finance their projects through one of three paths. A <strong>home equity loan or HELOC</strong> lets equity-rich homeowners borrow against their home's value at competitive rates, typically covering $50K–$500K in renovation scope. <strong>Construction-to-permanent loans</strong> roll construction financing into a single mortgage — ideal for full gut-rebuilds starting at $150K. <strong>Personal renovation loans</strong> offer faster approval for smaller projects ($25K–$100K) without tapping equity. Bradley Brown Inc. works directly with you and your lender to provide accurate scopes of work, phased cost breakdowns, and the documentation underwriters require — so your financing stays on track alongside your build.
-          </p>
-          <div className="overflow-x-auto mb-5">
-            <table className="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
-              <thead>
-                <tr className="bg-[#1E2D3D] text-white text-left">
-                  <th className="px-4 py-3 font-bold">Financing Type</th>
-                  <th className="px-4 py-3 font-bold">Best For</th>
-                  <th className="px-4 py-3 font-bold">Typical Range</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { type: "HELOC", bestFor: "Equity-rich homeowners", range: "$50K–$500K" },
-                  { type: "Personal Renovation Loan", bestFor: "Faster approval", range: "$25K–$100K" },
-                  { type: "Construction Loan", bestFor: "Full gut/rebuild", range: "$150K+" },
-                ].map((row) => (
-                  <tr key={row.type} className="border-t border-gray-100 bg-white">
-                    <td className="px-4 py-3 font-semibold text-[#1E2D3D]">{row.type}</td>
-                    <td className="px-4 py-3 text-slate-600">{row.bestFor}</td>
-                    <td className="px-4 py-3 text-slate-700 font-medium">{row.range}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
-            Schedule a Free Consultation <ChevronRight className="w-4 h-4" />
-          </Link>
         </div>
 
         {/* Mid-page CTA */}
