@@ -260,7 +260,7 @@ export default function SiteImages() {
   const unassignedCount = images.filter(i => !ALL_PAGES.some(p => p.key === i.location)).length;
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] flex flex-col md:flex-row pt-16 md:pt-0">
+    <div className="min-h-screen md:h-screen bg-[#FAFAF8] flex flex-col md:flex-row pt-16 md:pt-0">
       {modal !== null && <ImageModal image={modal.id ? modal : null} onClose={() => setModal(null)} onSave={save} />}
 
       {/* Sidebar */}
@@ -355,8 +355,8 @@ export default function SiteImages() {
           ) : pageImages.length === 0 ? (
             <div className="text-center py-20 text-slate-400">
               <ImageOff className="w-10 h-10 mx-auto mb-3 opacity-40" />
-              <p className="font-medium text-slate-500 mb-1">No images here yet</p>
-              <p className="text-sm">Click "Add Image" to upload one for this page.</p>
+              <p className="font-medium text-slate-500 mb-1">No images in the manager for this page yet</p>
+              <p className="text-sm">This registry only shows images you've added here. Images hardcoded in the page's code aren't listed automatically — use the "Add Image" button above to upload and track an image for this page.</p>
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
