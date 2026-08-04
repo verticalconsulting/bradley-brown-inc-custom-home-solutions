@@ -90,7 +90,6 @@ export default function Layout({ children, currentPageName }) {
   { label: "Home", page: "Home" },
   { label: "Services", page: "Services" },
   { label: "Portfolio", page: "Portfolio" },
-  { label: "Jobsites", page: "Jobsites", path: "/jobsites" },
   { label: "About", page: "About" },
   { label: "Contact", page: "Contact" },
   { label: "Pro Tips", page: "ProTips" }];
@@ -330,19 +329,18 @@ export default function Layout({ children, currentPageName }) {
                 { label: "About Us", page: "About" },
                 { label: "Portfolio", page: "Portfolio" },
                 { label: "Pro Tips & Advice", page: "ProTips" },
-                { label: "Customer Testimonies", page: "LandingTrust" },
                 { label: "Contact Us", page: "Contact" },
-                { label: "Get a Free Estimate", page: "Estimate" },
-                { label: "Pricing Guide", page: "LandingPricing" },
-                { label: "Renovation Loans", page: "RenovationLoans" },
-                { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-                { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
-                { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
-                { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
+                { label: "Get a Free Estimate", to: "/estimate" },
+                { label: "Pricing Guide", to: "/pricing" },
+                { label: "Renovation Loans", to: "/protips/renovation-loans" },
+                { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
+                { label: "Small Bathroom Ideas", to: "/protips/small-bathroom-ideas" },
+                { label: "Energy-Efficient Upgrades", to: "/protips/energy-efficient-upgrades" },
+                { label: "Brandon MS Remodelers", to: "/remodeling-brandon-ms" },
                 { label: "Legal", page: "Legal" }].
                 map((item) =>
-                <li key={item.page + item.label}>
-                    <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
+                <li key={item.label}>
+                    <Link to={item.to || createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
                   </li>
                 )}
               </ul>

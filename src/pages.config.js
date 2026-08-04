@@ -52,19 +52,11 @@ import AccountSettings from './pages/AccountSettings';
 import AgentChat from './pages/AgentChat';
 import CRM from './pages/CRM';
 import Contact from './pages/Contact';
-import EnergyEfficientUpgrades from './pages/EnergyEfficientUpgrades';
 import Home from './pages/Home';
-import HomeAdditionIdeas from './pages/HomeAdditionIdeas';
-import LandingBrandonRemodelers from './pages/LandingBrandonRemodelers';
-import LandingCoreServices from './pages/LandingCoreServices';
-import LandingPricing from './pages/LandingPricing';
-import LandingTrust from './pages/LandingTrust';
 import Legal from './pages/Legal';
 import Portfolio from './pages/Portfolio';
 import ProTips from './pages/ProTips';
-import RenovationLoans from './pages/RenovationLoans';
 import Services from './pages/Services';
-import SmallBathroomIdeas from './pages/SmallBathroomIdeas';
 import TikTokSync from './pages/TikTokSync';
 import __Layout from './Layout.jsx';
 
@@ -75,19 +67,11 @@ export const PAGES = {
     "AgentChat": AgentChat,
     "CRM": CRM,
     "Contact": Contact,
-    "EnergyEfficientUpgrades": EnergyEfficientUpgrades,
     "Home": Home,
-    "HomeAdditionIdeas": HomeAdditionIdeas,
-    "LandingBrandonRemodelers": LandingBrandonRemodelers,
-    "LandingCoreServices": LandingCoreServices,
-    "LandingPricing": LandingPricing,
-    "LandingTrust": LandingTrust,
     "Legal": Legal,
     "Portfolio": Portfolio,
     "ProTips": ProTips,
-    "RenovationLoans": RenovationLoans,
     "Services": Services,
-    "SmallBathroomIdeas": SmallBathroomIdeas,
     "TikTokSync": TikTokSync,
 }
 

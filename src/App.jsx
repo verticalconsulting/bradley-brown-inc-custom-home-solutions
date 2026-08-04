@@ -14,7 +14,6 @@ import SiteImages from './pages/SiteImages';
 import BlogAdmin from './pages/BlogAdmin';
 import ConversionDashboard from './pages/ConversionDashboard';
 import Estimate from './pages/Estimate';
-import LandingTrust from './pages/LandingTrust';
 import LandingCoreServices from './pages/LandingCoreServices';
 import LandingPricing from './pages/LandingPricing';
 import BathroomRemodelingBrandon from './pages/BathroomRemodelingBrandon';
@@ -27,9 +26,9 @@ import RoomAdditions from './pages/services/RoomAdditions';
 import OutdoorLiving from './pages/services/OutdoorLiving';
 import BarndominiumsService from './pages/services/BarndominiumsService';
 import EmergencyRepairs from './pages/services/EmergencyRepairs';
+import RemodelingBrandonMS from './pages/RemodelingBrandonMS';
 import ProTipDetail from './pages/ProTipDetail';
 import JobCheckin from './pages/JobCheckin';
-import Jobsites from './pages/Jobsites';
 import JobsiteDetail from './pages/JobsiteDetail';
 import { Navigate } from 'react-router-dom';
 import Leads from './pages/Leads';
@@ -105,9 +104,15 @@ const AuthenticatedApp = () => {
       <Route path="/conversiondashboard" element={<LayoutWrapper currentPageName="ConversionDashboard"><AdminRoute><ConversionDashboard /></AdminRoute></LayoutWrapper>} />
       <Route path="/projects/historic-home-restoration" element={<Navigate to="/portfolio" replace />} />
       <Route path="/quote" element={<Navigate to="/estimate" replace />} />
-      <Route path="/customertestimonials" element={<LayoutWrapper currentPageName="LandingTrust"><LandingTrust /></LayoutWrapper>} />
+      <Route path="/customertestimonials" element={<Navigate to="/about" replace />} />
+      <Route path="/landingtrust" element={<Navigate to="/about" replace />} />
       <Route path="/remodeling-ms" element={<LayoutWrapper currentPageName="LandingCoreServices"><LandingCoreServices /></LayoutWrapper>} />
-      <Route path="/home-remodeling-cost" element={<LayoutWrapper currentPageName="LandingPricing"><LandingPricing /></LayoutWrapper>} />
+      <Route path="/remodeling-brandon-ms" element={<LayoutWrapper currentPageName="RemodelingBrandonMS"><RemodelingBrandonMS /></LayoutWrapper>} />
+      <Route path="/landingbrandonremodelers" element={<Navigate to="/remodeling-brandon-ms" replace />} />
+      <Route path="/landingcoreservices" element={<Navigate to="/remodeling-brandon-ms" replace />} />
+      <Route path="/pricing" element={<LayoutWrapper currentPageName="LandingPricing"><LandingPricing /></LayoutWrapper>} />
+      <Route path="/home-remodeling-cost" element={<Navigate to="/pricing" replace />} />
+      <Route path="/landingpricing" element={<Navigate to="/pricing" replace />} />
       {/* Service detail pages */}
       <Route path="/services/custom-home-building" element={<LayoutWrapper currentPageName="CustomHomeBuilding"><CustomHomeBuilding /></LayoutWrapper>} />
       <Route path="/services/kitchen-bathroom-remodeling" element={<LayoutWrapper currentPageName="KitchenBathroomRemodeling"><KitchenBathroomRemodeling /></LayoutWrapper>} />
@@ -139,9 +144,17 @@ const AuthenticatedApp = () => {
       <Route path="/landingemergencyrepair" element={<Navigate to="/services/emergency-repairs" replace />} />
       <Route path="/luxuryhomerenovations" element={<Navigate to="/services/kitchen-bathroom-remodeling" replace />} />
 
+      {/* Guide page redirects → blog */}
+      <Route path="/homeadditionideas" element={<Navigate to="/protips/home-addition-ideas" replace />} />
+      <Route path="/smallbathroomideas" element={<Navigate to="/protips/small-bathroom-ideas" replace />} />
+      <Route path="/energyefficientupgrades" element={<Navigate to="/protips/energy-efficient-upgrades" replace />} />
+      <Route path="/renovationloans" element={<Navigate to="/protips/renovation-loans" replace />} />
+      {/* Historic home restoration redirect */}
+      <Route path="/historichomerestoration" element={<Navigate to="/projects/historic-home-restoration" replace />} />
+
       <Route path="/sms-optin" element={<LayoutWrapper currentPageName="SmsOptin"><SmsOptin /></LayoutWrapper>} />
       <Route path="/jobsite-checkin" element={<LayoutWrapper currentPageName="JobCheckin"><JobCheckin /></LayoutWrapper>} />
-      <Route path="/jobsites" element={<LayoutWrapper currentPageName="Jobsites"><Jobsites /></LayoutWrapper>} />
+      <Route path="/jobsites" element={<Navigate to="/about" replace />} />
       <Route path="/jobsites/:slug" element={<LayoutWrapper currentPageName="JobsiteDetail"><JobsiteDetail /></LayoutWrapper>} />
       <Route path="/protips/:slug" element={<LayoutWrapper currentPageName="ProTipDetail"><ProTipDetail /></LayoutWrapper>} />
       <Route path="/error" element={<LayoutWrapper currentPageName="ServerError"><ServerError /></LayoutWrapper>} />

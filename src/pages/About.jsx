@@ -2,8 +2,9 @@ import React from "react";
 import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema } from "@/components/seoSchemas";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import { Award, Heart, Users, Shield, ChevronRight } from "lucide-react";
+import AboutTrustSection from "@/components/about/AboutTrustSection";
+import LiveJobsitesSection from "@/components/about/LiveJobsitesSection";
 
 const values = [
   { icon: Heart, title: "Craftsmanship", description: "Every nail, board, and finish is executed with precision and care. We take immense pride in the quality of our work." },
@@ -13,24 +14,9 @@ const values = [
 ];
 
 const team = [
-  {
-    name: "Bradley Brown",
-    title: "Founder & Master Builder",
-    bio: "Bradley Brown Inc is owned by Brad Brown, who brings decades of experience in custom home building, remodeling, and just about everything under the sun when it relates to construction. He pays attention to the details and treats every project like it's his own. While not always the cheapest, what you get is fine craftsmanship that is built to last..",
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/3776a11c-d485-454e-4841-ba2d5e3e4400/small",
-  },
-  {
-    name: "Walker Magee",
-    title: "Project Manager",
-    bio: "Walker has many talents and is able to tackle complex builds. He ensures every project runs on time, on budget, and exceeds expectations.",
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/5b865f0c-642e-4f7e-8b61-ded808961a00/small",
-  },
-  {
-    name: "Ethan Brown",
-    title: "Associate",
-    bio: "Ethan is a skilled associate that can handle any task",
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/de934f0e-b2f3-4d77-5e78-af5adf1f5800/logo",
-  },
+  { name: "Bradley Brown", title: "Founder & Master Builder", bio: "Bradley Brown Inc is owned by Brad Brown, who brings decades of experience in custom home building, remodeling, and just about everything under the sun when it relates to construction. He pays attention to the details and treats every project like it's his own.", image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/3776a11c-d485-454e-4841-ba2d5e3e4400/small" },
+  { name: "Walker Magee", title: "Project Manager", bio: "Walker has many talents and is able to tackle complex builds. He ensures every project runs on time, on budget, and exceeds expectations.", image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/5b865f0c-642e-4f7e-8b61-ded808961a00/small" },
+  { name: "Ethan Brown", title: "Associate", bio: "Ethan is a skilled associate that can handle any task.", image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/de934f0e-b2f3-4d77-5e78-af5adf1f5800/logo" },
 ];
 
 export default function About() {
@@ -38,15 +24,13 @@ export default function About() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="About Bradley Brown Inc. — Mississippi Builder Since 1995"
-        description="Learn about Bradley Brown Inc., Central Mississippi's trusted home builder since 1995. Meet the team and discover our commitment to craftsmanship, integrity, and client partnerships."
+        description="Learn about Bradley Brown Inc., Central Mississippi's trusted home builder since 1995. 500+ homes built, 4.9-star rated, BBB accredited. Meet the team and see why homeowners trust us."
         schema={localBusinessSchema}
         canonical="https://bradleybrowninc.com/about"
       />
+
       <div className="relative bg-[#1E2D3D] py-14 md:py-24 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/e3722807-d747-4fda-799f-53bebe6adb00/large')" }}
-        />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/e3722807-d747-4fda-799f-53bebe6adb00/large')" }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Story</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Building Mississippi,<br />One Home at a Time</h1>
@@ -57,23 +41,13 @@ export default function About() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
-            <img
-              src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/large"
-              alt="Bradley Brown and wife"
-              className="rounded-xl shadow-lg w-full h-80 object-cover"
-            />
+            <img src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/large" alt="Bradley Brown and wife" className="rounded-xl shadow-lg w-full h-80 object-cover" />
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D] mb-5">A Builder You Can Trust</h2>
-            <p className="text-slate-500 leading-relaxed mb-4">
-              Bradley Brown started this company in 1995 with a handshake, a solid crew, and a commitment to doing things right. What began as a small residential renovation company in Jackson has grown into one of the most respected custom home builders in Central Mississippi.
-            </p>
-            <p className="text-slate-500 leading-relaxed mb-4">
-              Over three decades, we've built more than 500 homes across Rankin, Hinds, and Madison counties — from modest renovations to million-dollar custom estates.
-            </p>
-            <p className="text-slate-500 leading-relaxed">
-              We're a family business, and we treat your family like our own. That means clear communication, fair pricing, and work that stands the test of time.
-            </p>
+            <p className="text-slate-500 leading-relaxed mb-4">Bradley Brown started this company in 1995 with a handshake, a solid crew, and a commitment to doing things right. What began as a small residential renovation company in Jackson has grown into one of the most respected custom home builders in Central Mississippi.</p>
+            <p className="text-slate-500 leading-relaxed mb-4">Over three decades, we've built more than 500 homes across Rankin, Hinds, and Madison counties — from modest renovations to million-dollar custom estates.</p>
+            <p className="text-slate-500 leading-relaxed">We're a family business, and we treat your family like our own. That means clear communication, fair pricing, and work that stands the test of time.</p>
           </div>
         </div>
       </div>
@@ -87,9 +61,7 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map(({ icon: Icon, title, description }) => (
               <div key={title} className="bg-white p-6 rounded-xl border border-gray-100 text-center hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-sky-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-6 h-6 text-sky-500" />
-                </div>
+                <div className="w-12 h-12 bg-sky-50 rounded-full flex items-center justify-center mx-auto mb-4"><Icon className="w-6 h-6 text-sky-500" /></div>
                 <h3 className="font-bold text-[#1E2D3D] mb-2">{title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{description}</p>
               </div>
@@ -106,11 +78,7 @@ export default function About() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
           {team.map(member => (
             <div key={member.name} className="text-center">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-sky-400/20"
-              />
+              <img src={member.image} alt={member.name} className="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-sky-400/20" />
               <h3 className="font-bold text-[#1E2D3D]">{member.name}</h3>
               <p className="text-sky-500 text-sm font-medium mb-2">{member.title}</p>
               <p className="text-slate-500 text-sm leading-relaxed">{member.bio}</p>
@@ -119,28 +87,27 @@ export default function About() {
         </div>
       </div>
 
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+        <AboutTrustSection />
+      </div>
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+        <LiveJobsitesSection />
+      </div>
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-10">
         <div className="bg-slate-50 border border-gray-200 rounded-xl p-5">
           <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h3>
           <div className="flex flex-wrap gap-2">
             {[
-              { label: "Our Services", page: "Services" },
-              { label: "Portfolio", page: "Portfolio" },
-              { label: "Contact Us", page: "Contact" },
-              { label: "Get a Free Estimate", page: "QuoteAssistant" },
-              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-              { label: "Pro Tips", page: "ProTips" },
-                { label: "Why Trust Us", page: "LandingTrust" },
-              { label: "Pricing Guide", page: "LandingPricing" },
-              { label: "Core Services — Brandon", page: "LandingCoreServices" },
-              { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
-              { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-              { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
-              { label: "Renovation Loans", page: "RenovationLoans" },
-              { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
-              { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
+              { label: "Our Services", to: "/services" },
+              { label: "Portfolio", to: "/portfolio" },
+              { label: "Contact Us", to: "/contact" },
+              { label: "Get a Free Estimate", to: "/estimate" },
+              { label: "Pro Tips", to: "/protips" },
+              { label: "Pricing Guide", to: "/pricing" },
             ].map((link) => (
-              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+              <Link key={link.to} to={link.to} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
                 <ChevronRight className="w-3 h-3" /> {link.label}
               </Link>
             ))}
@@ -148,14 +115,11 @@ export default function About() {
         </div>
       </div>
 
-      <div id="testimonials" className="bg-sky-600 py-12">
+      <div className="bg-sky-600 py-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Work With Us?</h2>
           <p className="text-sky-100 mb-8">Let's start a conversation about your project.</p>
-          <Link
-            to={createPageUrl("Contact")}
-            className="inline-flex items-center gap-2 bg-white text-sky-600 px-8 py-4 rounded-lg font-bold hover:bg-sky-50 transition-colors"
-          >
+          <Link to="/contact" className="inline-flex items-center gap-2 bg-white text-sky-600 px-8 py-4 rounded-lg font-bold hover:bg-sky-50 transition-colors">
             Get in Touch <ChevronRight className="w-5 h-5" />
           </Link>
         </div>

@@ -146,7 +146,7 @@ export default function LandingCoreServices() {
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
-              to="/landingbrandonremodelers"
+              to="/remodeling-brandon-ms"
               className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
             >
               Home Remodeling in Brandon, MS <ChevronRight className="w-4 h-4" />
