@@ -6,6 +6,7 @@ import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight, MessageCircle, Calendar, Zap } from "lucide-react";
+import ContactTestimonials from "@/components/contact/ContactTestimonials";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", project_type: "custom_home" });
@@ -262,6 +263,9 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      {/* What Our Customers Say — review trust section */}
+      <ContactTestimonials />
 
       {/* Internal links */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-6">
