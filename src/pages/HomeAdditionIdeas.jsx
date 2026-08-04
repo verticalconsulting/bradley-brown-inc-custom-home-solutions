@@ -65,13 +65,60 @@ const additionsSchema = {
   "publisher": { "@type": "Organization", "name": "Bradley Brown Inc.", "url": "https://bradleybrowninc.com" }
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does a home addition take to build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most additions take 2–5 months from permit approval to completion. Larger additions like full second-floor expansions or in-law suites with separate entrances can run 5–8 months. We provide a detailed timeline before we break ground."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do home additions require permits in Mississippi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All additions require building permits and inspections in Mississippi. Bradley Brown Inc. handles all permitting, code compliance, and inspector coordination — you don't have to navigate this yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the most cost-effective home addition?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Garage conversions typically offer the highest ROI because they don't require a new foundation. A garage conversion to a home office, gym, or guest suite can cost $20,000–$50,000 and recover 60–75% of cost in home value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my addition match the existing home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We design every addition to match your existing roofline, exterior materials, and interior finishes. When it's done, it should look like it was always there — not like it was added later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I finance a home addition?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Home additions can be financed through home equity loans, HELOCs, FHA 203(k) loans, or construction loans. We'll help you scope the project to align with your budget. See our Renovation Loans guide for details."
+      }
+    }
+  ]
+};
+
 export default function HomeAdditionIdeas() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Home Addition Ideas for Brandon, MS | Room Additions & Expansions"
         description="Explore the best home addition ideas for Brandon, MS homeowners. Master suites, sunrooms, in-law suites, garage conversions & outdoor kitchens. Get a free estimate from Bradley Brown Inc."
-        schema={additionsSchema}
+        schema={[additionsSchema, faqSchema]}
         canonical="https://bradleybrowninc.com/homeadditionideas"
       />
 
