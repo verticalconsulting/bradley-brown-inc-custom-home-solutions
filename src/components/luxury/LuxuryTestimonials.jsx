@@ -1,95 +1,85 @@
 import React from "react";
-import { Star, Quote, ExternalLink } from "lucide-react";
+import { Quote, ExternalLink } from "lucide-react";
+import StarRating from "@/components/reviews/StarRating";
+
+const GOOGLE_REVIEWS_URL = "https://www.google.com/maps/place/Bradley+Brown+Inc/@32.3017,-90.1847,15z";
 
 const TESTIMONIALS = [
   {
-    quote:
-      "Bradley Brown completely transformed our 1990s home into something that looks like it belongs in a magazine. The craftsmanship on the custom millwork is stunning, and Brad's team was on site every single day. We never wondered what was happening — they communicated constantly.",
+    quote: "Bradley Brown transformed our 1990s kitchen into a showpiece — custom cabinetry, a quartz waterfall island, and lighting that makes you want to cook every night. The crew was on time, clean, and Brad walked us through every decision. Worth every penny.",
     name: "Sarah T.",
-    location: "Brandon, MS",
-    projectType: "Whole-Home Renovation",
-  },
-  {
-    quote:
-      "Our kitchen renovation was seamless from start to finish. The project manager handled every subcontractor, every material order, and every inspection. The finish work is the best I've seen in the Brandon area. Worth every penny.",
-    name: "Michael & Karen R.",
-    location: "Madison, MS",
+    city: "Brandon, MS",
     projectType: "Kitchen Transformation",
+    rating: 5,
   },
   {
-    quote:
-      "We needed a master bath that felt like a spa retreat, and that's exactly what we got. Heated floors, a steam shower, and tile work so precise it looks like a showroom. The crew was respectful of our home the entire time.",
+    quote: "We renovated the entire first floor — kitchen, living room, powder bath, and a custom bar wall. Walker kept the project on schedule and the finish work is flawless. Three months in and we're still finding details we love. Highly recommend.",
+    name: "Michael R.",
+    city: "Madison, MS",
+    projectType: "Whole-Home Renovation",
+    rating: 5,
+  },
+  {
+    quote: "Our master bath went from a cramped hallway bathroom to a spa retreat with a freestanding tub, heated floors, and a walk-in steam shower. The tile work alone is stunning. Bradley Brown's team treated our home like it was their own.",
     name: "Jennifer L.",
-    location: "Flowood, MS",
+    city: "Flowood, MS",
     projectType: "Master Bath Overhaul",
+    rating: 5,
   },
   {
-    quote:
-      "The built-in bookcases and coffered ceiling Bradley Brown installed are conversation pieces every time guests come over. Their finish carpenters are true craftsmen. I've already booked them for our kitchen next year.",
-    name: "David W.",
-    location: "Ridgeland, MS",
+    quote: "The built-in bookcases and coffered ceiling they added to our study completely changed the feel of the home. Precision carpentry, no shortcuts, and they matched existing trim perfectly. True craftsmen — we'll use them again.",
+    name: "David K.",
+    city: "Ridgeland, MS",
     projectType: "Custom Millwork & Built-Ins",
+    rating: 5,
   },
 ];
 
-function StarRating() {
-  return (
-    <div className="flex gap-0.5">
-      {[...Array(5)].map((_, i) => (
-        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-      ))}
-    </div>
-  );
-}
-
 export default function LuxuryTestimonials() {
   return (
-    <section className="bg-white py-14 md:py-20 border-y border-gray-100">
+    <section className="bg-[#FAFAF8] py-14 md:py-20 border-y border-gray-100">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-sky-50 border border-sky-100 rounded-full px-3 py-1 mb-4">
-            <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-            <span className="text-sky-700 text-xs font-semibold tracking-wide">
-              5.0 · VERIFIED HOMEOWNERS
+          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-3 py-1 mb-4">
+            <StarRating value={5} size="w-3.5 h-3.5" />
+            <span className="text-amber-700 text-xs font-semibold tracking-wide">
+              5.0 — VERIFIED CLIENTS
             </span>
           </div>
           <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D] mb-3">
             What Brandon &amp; Rankin County Homeowners Say
           </h2>
           <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto">
-            Real reviews from homeowners who trusted Bradley Brown Inc. with
-            their luxury renovation.
+            Real reviews from real luxury renovation clients across Central Mississippi.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {TESTIMONIALS.map((t, i) => (
             <div
               key={i}
-              className="bg-slate-50 border border-gray-100 rounded-2xl p-6 md:p-7 relative"
+              className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-7 relative"
             >
-              <Quote className="w-8 h-8 text-sky-200 absolute top-5 right-5" />
-              <div className="mb-3">
-                <StarRating />
-              </div>
-              <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-5 italic">
+              <Quote className="w-8 h-8 text-amber-300 absolute top-5 right-5 opacity-50" />
+              <StarRating value={t.rating} size="w-4 h-4" />
+              <p className="text-slate-700 leading-relaxed text-sm md:text-base mt-4 mb-5">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <div className="flex items-center justify-between flex-wrap gap-2 pt-4 border-t border-gray-200">
+              <div className="border-t border-gray-100 pt-4">
                 <p className="font-bold text-[#1E2D3D] text-sm">
-                  {t.name} — {t.location}
+                  {t.name} — {t.city}
                 </p>
-                <span className="inline-flex items-center bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded-full">
+                <p className="text-xs text-sky-600 font-medium mt-0.5">
                   {t.projectType}
-                </span>
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-10">
           <a
-            href="https://www.google.com/search?q=Bradley+Brown+Inc+Brandon+MS+reviews"
+            href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-semibold text-sm transition-colors"
@@ -102,3 +92,5 @@ export default function LuxuryTestimonials() {
     </section>
   );
 }
+
+export { TESTIMONIALS, GOOGLE_REVIEWS_URL };

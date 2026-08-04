@@ -1,5 +1,5 @@
 import React from "react";
-import { Phone, ChevronRight, CheckCircle, Star } from "lucide-react";
+import { Phone, ChevronRight, CheckCircle, Star, Shield, BadgeCheck, Building2, User, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
@@ -7,8 +7,7 @@ import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 import RecentLuxuryProjects from "@/components/luxury/RecentLuxuryProjects";
-import LuxuryTestimonials from "@/components/luxury/LuxuryTestimonials";
-import WorkmanshipGuarantee from "@/components/luxury/WorkmanshipGuarantee";
+import LuxuryTestimonials, { TESTIMONIALS } from "@/components/luxury/LuxuryTestimonials";
 import { base44 } from "@/api/base44Client";
 
 const schema = {
@@ -22,40 +21,17 @@ const schema = {
     "priceRange": "$$$$",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "4",
-      "bestRating": "5"
+      "ratingValue": "5.0",
+      "reviewCount": String(TESTIMONIALS.length),
+      "bestRating": "5",
+      "worstRating": "1"
     },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Sarah T." },
-        "datePublished": "2024-11-15",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Bradley Brown completely transformed our 1990s home into something that looks like it belongs in a magazine. The craftsmanship on the custom millwork is stunning, and Brad's team was on site every single day. We never wondered what was happening — they communicated constantly."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Michael R." },
-        "datePublished": "2024-09-22",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Our kitchen renovation was seamless from start to finish. The project manager handled every subcontractor, every material order, and every inspection. The finish work is the best I've seen in the Brandon area. Worth every penny."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Jennifer L." },
-        "datePublished": "2024-07-10",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "We needed a master bath that felt like a spa retreat, and that's exactly what we got. Heated floors, a steam shower, and tile work so precise it looks like a showroom. The crew was respectful of our home the entire time."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "David W." },
-        "datePublished": "2024-05-03",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "The built-in bookcases and coffered ceiling Bradley Brown installed are conversation pieces every time guests come over. Their finish carpenters are true craftsmen. I've already booked them for our kitchen next year."
-      }
-    ]
+    "review": TESTIMONIALS.map((t) => ({
+      "@type": "Review",
+      "author": { "@type": "Person", "name": t.name },
+      "reviewBody": t.quote,
+      "reviewRating": { "@type": "Rating", "ratingValue": String(t.rating), "bestRating": "5", "worstRating": "1" }
+    }))
   },
   {
     "@type": "Service",
@@ -168,7 +144,7 @@ export default function LuxuryHomeRenovations() {
       {/* Recent Luxury Renovation Projects — full width */}
       <RecentLuxuryProjects />
 
-      {/* Testimonials */}
+      {/* Testimonials — full width */}
       <LuxuryTestimonials />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-14 pb-12 space-y-14">
@@ -189,9 +165,6 @@ export default function LuxuryHomeRenovations() {
           </div>
         </div>
 
-        {/* Workmanship Guarantee */}
-        <WorkmanshipGuarantee />
-
         {/* Timeline expectations */}
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
           <h2 className="font-bold text-[#1E2D3D] mb-3">Realistic Timeline Expectations</h2>
@@ -211,6 +184,45 @@ export default function LuxuryHomeRenovations() {
           <p className="text-xs text-amber-600 mt-3">* Timelines include permitting, material lead times, and final punch list. Custom or imported materials may extend timelines.</p>
         </div>
 
+        {/* Financing Your Luxury Renovation */}
+        <div>
+          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">Financing Your Luxury Renovation</h2>
+          <p className="text-slate-600 leading-relaxed text-sm mb-6">
+            Most luxury renovation clients in the Brandon and Rankin County area finance at least part of their project. The three most common paths are a home equity line of credit (HELOC), which lets you draw against your home's equity at relatively low rates; a construction-to-permanent loan, which converts to a standard mortgage once the renovation is complete; and a personal renovation loan, which offers faster approval for smaller scopes. Bradley Brown Inc. works directly with you and your lender to provide accurate scopes of work, phased cost breakdowns, and the documentation lenders need to approve your loan. We're happy to recommend trusted local lenders who understand renovation projects in Central Mississippi.
+          </p>
+          <div className="overflow-x-auto mb-6">
+            <table className="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-slate-50">
+                <tr>
+                  <th className="text-left px-4 py-3 font-semibold text-[#1E2D3D] border-b border-gray-200">Financing Type</th>
+                  <th className="text-left px-4 py-3 font-semibold text-[#1E2D3D] border-b border-gray-200">Best For</th>
+                  <th className="text-left px-4 py-3 font-semibold text-[#1E2D3D] border-b border-gray-200">Typical Range</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-100">
+                  <td className="px-4 py-3 font-medium text-[#1E2D3D]">HELOC</td>
+                  <td className="px-4 py-3 text-slate-600">Equity-rich homeowners</td>
+                  <td className="px-4 py-3 text-slate-600">$50K–$500K</td>
+                </tr>
+                <tr className="border-b border-gray-100">
+                  <td className="px-4 py-3 font-medium text-[#1E2D3D]">Personal Renovation Loan</td>
+                  <td className="px-4 py-3 text-slate-600">Faster approval</td>
+                  <td className="px-4 py-3 text-slate-600">$25K–$100K</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium text-[#1E2D3D]">Construction Loan</td>
+                  <td className="px-4 py-3 text-slate-600">Full gut/rebuild</td>
+                  <td className="px-4 py-3 text-slate-600">$150K+</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+            Schedule a Free Consultation to discuss your project budget <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+
         {/* Mid-page CTA */}
         <div className="bg-[#1E2D3D] rounded-2xl p-6 md:p-8 text-center">
           <p className="text-white font-bold text-lg mb-2">Start Your Luxury Renovation</p>
@@ -222,6 +234,41 @@ export default function LuxuryHomeRenovations() {
             <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
               Schedule a Site Visit <ChevronRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+
+        {/* Credentials */}
+        <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6">
+          <h3 className="text-lg font-bold text-[#1E2D3D] mb-5">Licensed, Insured &amp; Experienced</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="flex items-start gap-3">
+              <Shield className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold text-sm text-[#1E2D3D]">MS Residential Builder License #08290</p>
+                <p className="text-xs text-slate-500 leading-relaxed">Licensed through the Mississippi Board of Contractors. Verify your contractor at <a href="https://www.msboc.us" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">msboc.us</a>.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <BadgeCheck className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold text-sm text-[#1E2D3D]">Fully Insured</p>
+                <p className="text-xs text-slate-500 leading-relaxed">General liability and workers' compensation coverage on every project. Certificates available on request.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <Building2 className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold text-sm text-[#1E2D3D]">Manufacturer-Trained Installers</p>
+                <p className="text-xs text-slate-500 leading-relaxed">Authorized installers for leading cabinet, countertop, and appliance brands — warranty-backed workmanship.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <User className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold text-sm text-[#1E2D3D]">Led by Walker Magee, Project Manager</p>
+                <p className="text-xs text-slate-500 leading-relaxed">Walker oversees every luxury renovation on-site daily — coordinating crews, subcontractors, and inspections to keep your project on time and on budget.</p>
+              </div>
+            </div>
           </div>
         </div>
 
