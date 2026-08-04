@@ -7,6 +7,8 @@ import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import CustomHomeProcess from "@/components/landing/CustomHomeProcess";
 import CustomHomeGallery from "@/components/landing/CustomHomeGallery";
+import BuilderCredentials from "@/components/landing/BuilderCredentials";
+import BrandonReviewSection, { brandonReviewSchema } from "@/components/landing/BrandonReviewSection";
 import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
 
@@ -46,6 +48,7 @@ const schema = {
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
       "url": "https://bradleybrowninc.com/custom-home-builder-brandon-ms",
+      "foundingDate": "1995",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Brandon",
@@ -55,6 +58,27 @@ const schema = {
       },
       "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
       "priceRange": "$$$",
+      "employee": {
+        "@type": "Person",
+        "name": "Bradley Brown",
+        "jobTitle": "Principal Builder & Founder",
+        "worksFor": { "@type": "Organization", "name": "Bradley Brown Inc." },
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Mississippi Residential Builders Commission License",
+          "credentialCategory": "license",
+          "url": "https://www.msboc.us",
+        },
+      ],
+      "memberOf": [
+        { "@type": "Organization", "name": "National Association of Home Builders", "url": "https://www.nahb.org" },
+        { "@type": "Organization", "name": "Home Builders Association of Mississippi", "url": "https://www.mshba.com" },
+        { "@type": "Organization", "name": "Better Business Bureau", "url": "https://www.bbb.org" },
+      ],
+      ...(brandonReviewSchema.aggregateRating ? { aggregateRating: brandonReviewSchema.aggregateRating } : {}),
+      ...(brandonReviewSchema.review ? { review: brandonReviewSchema.review } : {}),
       "areaServed": [
         { "@type": "City", "name": "Brandon, Mississippi" },
         { "@type": "City", "name": "Flowood, Mississippi" },
@@ -205,6 +229,9 @@ export default function LandingBrandonCustomHomeBuilder() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-14">
+        {/* Credentials */}
+        <BuilderCredentials />
+
         {/* Services */}
         <div>
           <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Custom Home Building Services in Brandon</h2>
@@ -286,6 +313,9 @@ export default function LandingBrandonCustomHomeBuilder() {
             <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
+
+        {/* Reviews */}
+        <BrandonReviewSection />
 
         {/* FAQ */}
         <div>
