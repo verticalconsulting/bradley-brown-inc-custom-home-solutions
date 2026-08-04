@@ -30,6 +30,21 @@ export const localBusinessSchema = {
     "latitude": 32.2729,
     "longitude": -89.9923
   },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Mississippi Residential Builder License #08290",
+      "credentialCategory": "license",
+      "url": "https://www.msboc.us",
+      "recognizedBy": { "@type": "Organization", "name": "Mississippi State Board of Contractors", "url": "https://www.msboc.us" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "BBB Accredited Business",
+      "credentialCategory": "accreditation",
+      "url": "https://www.bbb.org/us/ms/brandon/profile/remodeling/bradley-brown-inc-0523-235908473"
+    }
+  ],
   "sameAs": [
     "https://www.facebook.com/BradleyBrownInc",
     "https://www.tiktok.com/@bb859876",

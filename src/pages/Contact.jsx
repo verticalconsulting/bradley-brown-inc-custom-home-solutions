@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight, MessageCircle, Calendar, Zap } from "lucide-react";
 import ContactTestimonials from "@/components/contact/ContactTestimonials";
+import ContactFAQ from "@/components/contact/ContactFAQ";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", project_type: "custom_home" });
@@ -266,6 +267,9 @@ export default function Contact() {
 
       {/* What Our Customers Say — review trust section */}
       <ContactTestimonials />
+
+      {/* Common Questions Before You Call */}
+      <ContactFAQ />
 
       {/* Internal links */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-6">
