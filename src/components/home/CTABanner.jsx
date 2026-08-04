@@ -5,7 +5,7 @@ import { Phone, ChevronRight, Sparkles } from "lucide-react";
 
 export default function CTABanner() {
   return (
-    <section className="py-16 md:py-24 from-[#C4922A] to-[#A37820] bg-[hsl(var(--muted-foreground))]">
+    <section className="py-16 md:py-24 from-[#C4922A] to-[#A37820] bg-[hsl(var(--popover-foreground))]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Sparkles className="w-5 h-5 text-sky-200" />
