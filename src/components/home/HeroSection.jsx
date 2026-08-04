@@ -86,7 +86,7 @@ export default function HeroSection() {
         {/* Desktop CTAs */}
         <div className="hidden sm:flex flex-row gap-4 justify-center">
           <Link
-            to="/estimate" className="hover:bg-[#0a1f44] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-[hsl(var(--destructive))]">Get My Free Estimate
+            to="/estimate" className="hover:bg-[#0a1f44] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-[#738cb5]">Get My Free Estimate
 
           </Link>
           <a
