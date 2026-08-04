@@ -174,7 +174,7 @@ Be specific to what's visible in the inspiration photo. Keep prose tight — no 
       <SEOHead
         title="AI Finish Package Studio | Upload a Photo, Get 3 Designer Packages — Bradley Brown Inc."
         description="Upload an inspiration photo and get three AI-curated finish packages with materials, color palettes, and budget-friendly alternatives — then save your favorite to attach to a quote."
-        canonical="https://bradleybrowninc.com/finish-package-studio"
+        canonical="https://bradleybrowninc.com/estimate"
         structuredData={studioSchema}
       />
 

@@ -9,6 +9,14 @@ import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
 
+const faqs = [
+  { question: "How long does a kitchen remodel take?", answer: "Most kitchen remodels take 4–8 weeks depending on scope. We provide a detailed timeline before work begins so you always know what to expect." },
+  { question: "Do you serve Brandon, MS and surrounding areas?", answer: "Yes — we're centrally located and serve Brandon, Madison, Jackson, Flowood, Pearl, Ridgeland, Clinton, and the wider 50-mile radius." },
+  { question: "What licenses does Bradley Brown Inc. hold for Mississippi remodeling?", answer: "Bradley Brown Inc. is a licensed Mississippi General Contractor (license #08290) with full liability insurance and workers' comp on every job. We pull all required permits for remodeling projects statewide." },
+  { question: "What energy-efficient upgrades do you offer?", answer: "We install energy-efficient windows, upgrade insulation, improve HVAC airflow, and can frame for solar-readiness — all in one project." },
+  { question: "How do I get a free remodeling estimate in Mississippi?", answer: "Call us at (844) 351-4154 or use our online estimate tool for a free, no-obligation project estimate. We serve homeowners across Central Mississippi." },
+];
+
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -43,22 +51,10 @@ const schema = {
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "How long does a kitchen remodel take?", "acceptedAnswer": { "@type": "Answer", "text": "Most kitchen remodels take 4–8 weeks depending on scope. We'll give you a realistic timeline before we start." } },
-        { "@type": "Question", "name": "Do you serve Brandon, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we're based in Brandon, MS and serve the Rankin County area including Brandon, Madison, Jackson, Flowood, Pearl, and surrounding areas within 50 miles." } },
-        { "@type": "Question", "name": "What's included in an energy-efficient upgrade?", "acceptedAnswer": { "@type": "Answer", "text": "We offer insulation upgrades, energy-efficient windows, HVAC-ready builds, and solar-prep framing. Call us to discuss what makes sense for your home." } }
-      ]
+      "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } }))
     }
   ]
 };
-
-const faqs = [
-  { question: "How long does a kitchen remodel take?", answer: "Most kitchen remodels take 4–8 weeks depending on scope. We provide a detailed timeline before work begins so you always know what to expect." },
-  { question: "Do you serve Brandon, MS and surrounding areas?", answer: "Yes — we're centrally located and serve Brandon, Madison, Jackson, Flowood, Pearl, Ridgeland, Clinton, and the wider 50-mile radius." },
-  { question: "Are you licensed and insured in Mississippi?", answer: "Absolutely. Bradley Brown Inc. is a licensed Mississippi General Contractor with full liability insurance and workers' comp on every job." },
-  { question: "What energy-efficient upgrades do you offer?", answer: "We install energy-efficient windows, upgrade insulation, improve HVAC airflow, and can frame for solar-readiness — all in one project." },
-  { question: "Do you offer free estimates?", answer: "Yes. Call us at (844) 351-4154 or use our online Quote Assistant for a free, no-obligation project estimate." },
-];
 
 export default function LandingCoreServices() {
   const handleCall = () => base44.analytics.track({ eventName: "phone_click", properties: { source: "core_services_landing" } });
@@ -66,8 +62,8 @@ export default function LandingCoreServices() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
-        title="Home Remodeling in Mississippi | Kitchen, Bath & Whole-Home Renovations"
-        description="Mississippi home remodelers — kitchen remodeling, bathroom remodeling, and whole-home renovations across Central Mississippi. Call (844) 351-4154 for a free estimate."
+        title="Home Remodeling in Mississippi | Bradley Brown Inc"
+        description="Mississippi home remodelers — kitchen, bath & whole-home renovations across Central MS. Licensed since 1995. Free estimates — call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/remodeling-ms"
       />
@@ -95,7 +91,7 @@ export default function LandingCoreServices() {
             <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
               <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
+            <Link to="/estimate" className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Free Estimate <ChevronRight className="w-5 h-5" />
             </Link>
           </div>
@@ -156,6 +152,18 @@ export default function LandingCoreServices() {
               className="inline-flex items-center gap-2 bg-[#1E2D3D] hover:bg-[#2C3E50] text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
             >
               Custom Home Builder in Brandon, MS <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/madison-ms-home-remodeling"
+              className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Home Remodeling in Madison, MS <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/bathroom-remodeling-brandon-ms"
+              className="inline-flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Bathroom Remodeling — Brandon, MS <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

@@ -113,7 +113,7 @@ export default function RenovationLoans() {
             The right renovation loan depends on three factors: how much equity you have, how large your project is, and whether you're already in the home or buying a fixer-upper. If you're purchasing a home that needs work, the <strong>FHA 203(k)</strong> or <strong>Fannie Mae HomeStyle</strong> loan lets you roll the purchase price and renovation costs into a single mortgage — meaning one closing, one monthly payment. If you already own your home and have built up equity, a <strong>home equity loan</strong> or <strong>HELOC</strong> typically offers the lowest interest rates since your home secures the loan.
           </p>
           <p className="text-slate-600 leading-relaxed">
-            For smaller projects under $25,000 — like a bathroom update or minor kitchen refresh — a <strong>personal renovation loan</strong> may be the simplest path. These unsecured loans fund quickly (often within 1–3 business days), require no home equity, and don't put your home at risk. The trade-off is a higher interest rate and shorter repayment term, typically 3–7 years. Consider using our <Link to={createPageUrl("QuoteAssistant")} className="text-sky-600 font-semibold">AI Cost Estimator</Link> to get a ballpark project budget before you talk to a lender — knowing your project cost helps you borrow the right amount.
+            For smaller projects under $25,000 — like a bathroom update or minor kitchen refresh — a <strong>personal renovation loan</strong> may be the simplest path. These unsecured loans fund quickly (often within 1–3 business days), require no home equity, and don't put your home at risk. The trade-off is a higher interest rate and shorter repayment term, typically 3–7 years. Consider using our <Link to={"/estimate"} className="text-sky-600 font-semibold">AI Cost Estimator</Link> to get a ballpark project budget before you talk to a lender — knowing your project cost helps you borrow the right amount.
           </p>
           <p className="text-slate-600 leading-relaxed">
             For larger projects like a kitchen remodel ($25,000–$80,000) or a room addition ($50,000–$150,000+), most Brandon-area homeowners tap home equity or use a 203(k) loan. These products offer longer repayment terms (10–30 years), which keeps monthly payments manageable even on big-budget renovations. Whatever you choose, get a detailed, itemized estimate from your contractor <em>before</em> applying — lenders need a construction scope and cost breakdown to approve the loan.
@@ -198,16 +198,16 @@ export default function RenovationLoans() {
           <Link to={createPageUrl("Services")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> View Our Services
           </Link>
-          <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+          <Link to={"/estimate"} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> Get a Free Estimate
           </Link>
           <Link to={createPageUrl("ProTips")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> Pro Remodeling Tips
           </Link>
-          <Link to={createPageUrl("HomeAdditionIdeas")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+          <Link to={"/protips/home-addition-ideas"} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> Home Addition Ideas
           </Link>
-          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+          <Link to={"/estimate"} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> Schedule a Site Visit
           </Link>
         </div>
@@ -218,7 +218,7 @@ export default function RenovationLoans() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Start Your Renovation?</h2>
           <p className="text-slate-300 mb-8">Get a free project estimate from Bradley Brown Inc. and know exactly what to budget before you apply for financing.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
+            <Link to={"/estimate"} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
               Get Free Estimate <ChevronRight className="w-4 h-4" />
             </Link>
             <a href="tel:+18443514154" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">

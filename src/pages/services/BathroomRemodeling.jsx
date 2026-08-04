@@ -5,7 +5,7 @@ export default function BathroomRemodeling() {
   return (
     <ServicePageLayout
       title="Bathroom Remodeling in Brandon, MS | Bradley Brown Inc"
-      description="Bathroom remodeling in Brandon, MS since 1995. Walk-in showers, tub-to-shower conversions, custom tile, vanities & waterproofing. Licensed & insured. Free estimates — call (844) 351-4154."
+      description="Bathroom remodeling in Brandon, MS since 1995. Walk-in showers, tub-to-shower conversions, tile & vanities. Licensed & insured. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/bathroom-remodeling"
       h1="Bathroom Remodeling in Brandon, MS"
       subtitle="From walk-in showers to freestanding tubs, we design and build bathrooms that combine beauty with proper waterproofing — built to last in Mississippi's humid climate."

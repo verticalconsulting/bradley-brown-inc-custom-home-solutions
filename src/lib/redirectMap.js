@@ -32,9 +32,9 @@ export const REDIRECT_MAP = [
   { from: "/finish-package-studio", to: "/estimate", type: 301 },
   { from: "/schedulevisit", to: "/estimate", type: 301 },
   { from: "/free-quote", to: "/estimate", type: 301 },
-  { from: "/barndominiums", to: "/barndominium-builder", type: 301 },
-  { from: "/barndominiums-ms", to: "/barndominium-builder", type: 301 },
-  { from: "/historichomerestoration", to: "/portfolio", type: 301 },
+  { from: "/barndominiums", to: "/services/barndominiums", type: 301 },
+  { from: "/barndominiums-ms", to: "/services/barndominiums", type: 301 },
+  { from: "/historichomerestoration", to: "/projects/historic-home-restoration", type: 301 },
 
   // ---- Regex patterns ----
   // e.g. /service/kitchen-remodel → /services

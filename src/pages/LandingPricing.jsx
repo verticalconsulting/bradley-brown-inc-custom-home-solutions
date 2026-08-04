@@ -29,7 +29,7 @@ const schema = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://bradleybrowninc.com/home-remodeling-cost" }
+        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://bradleybrowninc.com/pricing" }
       ]
     },
     {
@@ -67,7 +67,7 @@ export default function LandingPricing() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling Cost in Brandon, MS — Bradley Brown"
-        description="Transparent pricing for kitchens, baths & custom homes in Brandon, MS. See cost ranges for every project type. Licensed & insured since 1995. Free estimates — call (844) 351-4154."
+        description="Transparent pricing for kitchens, baths & custom homes in Brandon, MS. See cost ranges for every project type. Licensed since 1995. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/pricing"
       />
@@ -96,7 +96,7 @@ export default function LandingPricing() {
             <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
               <Phone className="w-5 h-5" /> Call for Free Estimate
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Online Quote <ChevronRight className="w-5 h-5" />
             </Link>
           </div>

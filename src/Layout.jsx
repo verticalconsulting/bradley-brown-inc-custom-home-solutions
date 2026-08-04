@@ -358,6 +358,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Portfolio", page: "Portfolio" },
                 { label: "Pro Tips", page: "ProTips" },
                 { label: "Pricing", to: "/pricing" },
+                { label: "Remodeling in MS", to: "/remodeling-ms" },
                 { label: "Contact Us", page: "Contact" },
                 { label: "Legal", page: "Legal" }].
                 map((item) =>

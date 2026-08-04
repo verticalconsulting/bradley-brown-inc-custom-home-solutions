@@ -67,8 +67,8 @@ export default function HistoricHomeRestoration() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
-        title="Historic Home Restoration Project — Bradley Brown Inc. | Brandon, MS"
-        description="Bradley Brown Inc. restored a 1920s historic home in Brandon, MS — preserving original hardwood floors, millwork, and character while fully modernizing all systems. See the full project breakdown."
+        title="Historic Home Restoration | Bradley Brown Inc — Brandon, MS"
+        description="See how Bradley Brown Inc. restored a 1920s historic home in Brandon, MS — preserving original floors & millwork while modernizing all systems."
         canonical="https://bradleybrowninc.com/projects/historic-home-restoration"
         noindex={false}
         schema={schema}

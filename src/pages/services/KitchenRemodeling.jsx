@@ -5,7 +5,7 @@ export default function KitchenRemodeling() {
   return (
     <ServicePageLayout
       title="Kitchen Remodeling in Brandon, MS | Bradley Brown Inc"
-      description="Kitchen remodeling in Brandon, MS since 1995. Custom cabinetry, granite & quartz countertops, tile backsplashes, islands & appliance integration. Licensed & insured. Free estimates — call (844) 351-4154."
+      description="Kitchen remodeling in Brandon, MS since 1995. Custom cabinetry, granite & quartz countertops, tile & islands. Licensed & insured. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/kitchen-remodeling"
       h1="Kitchen Remodeling in Brandon, MS"
       subtitle="Your kitchen is the heart of your home. We design and build kitchens that match how your family actually cooks, gathers, and lives — with premium materials and craftsmanship that adds real value."

@@ -128,7 +128,7 @@ export default function BarndominiumBuilder() {
               <Phone className="w-5 h-5" /> Call {PHONE}
             </a>
             <Link
-              to={createPageUrl("QuoteAssistant")}
+              to={"/estimate"}
               className="flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl"
             >
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
@@ -221,7 +221,7 @@ export default function BarndominiumBuilder() {
 
         {/* Repeated CTA */}
         <div className="mt-8 text-center">
-          <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow">
+          <Link to={"/estimate"} className="inline-flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow">
             <Sparkles className="w-4 h-4" /> Price Out My Barndominium
           </Link>
         </div>
@@ -365,11 +365,11 @@ export default function BarndominiumBuilder() {
             <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-white text-[#1E2D3D] px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl hover:bg-slate-100 transition-colors">
               <Phone className="w-5 h-5" /> Call {PHONE}
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-[#1E2D3D] hover:bg-black text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-[#1E2D3D] hover:bg-black text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
           </div>
-          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-1.5 text-white text-sm font-semibold mt-5 underline underline-offset-4 hover:text-amber-100">
+          <Link to={"/estimate"} className="inline-flex items-center gap-1.5 text-white text-sm font-semibold mt-5 underline underline-offset-4 hover:text-amber-100">
             Schedule a free site visit instead
             <ChevronRight className="w-4 h-4" />
           </Link>

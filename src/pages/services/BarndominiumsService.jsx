@@ -5,7 +5,7 @@ export default function BarndominiumsService() {
   return (
     <ServicePageLayout
       title="Barndominium Builder in Brandon, MS | Bradley Brown Inc"
-      description="Custom barndominium construction in Brandon, MS & Rankin County. Steel-frame builds combining living space, workshops & garages. Licensed since 1995. $75–$150/sq ft. Free estimates."
+      description="Custom barndominium construction in Brandon, MS. Steel-frame builds combining living space, workshops & garages. Licensed since 1995. $75–$150/sq ft."
       canonical="https://bradleybrowninc.com/services/barndominiums"
       h1="Custom Barndominium Builder in Brandon, MS"
       subtitle="Steel-frame barndominiums combining living space, garages, and workshops — built to last by Mississippi's trusted contractor since 1995. On your land, on budget, on schedule."

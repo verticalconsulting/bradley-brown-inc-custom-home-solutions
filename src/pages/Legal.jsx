@@ -14,7 +14,7 @@ export default function Legal() {
   return (
     <>
     <SEOHead
-      title="Legal & Policies"
+      title="Privacy Policy & Terms | Bradley Brown Inc"
       description="Bradley Brown Inc. Privacy Policy and Terms & Conditions for our website, SMS messaging service, and custom home building services in Mississippi."
       canonicalUrl="https://bradleybrowninc.com/legal"
       noindex={false}
@@ -233,7 +233,7 @@ export default function Legal() {
         <div className="mt-16 pt-8 border-t border-gray-200">
           <div className="flex gap-6 justify-center flex-wrap">
             <Link
-              to={createPageUrl("Home")}
+              to="/"
               className="text-sm text-gray-600 hover:text-sky-400 transition-colors"
             >
               ← Back to Home

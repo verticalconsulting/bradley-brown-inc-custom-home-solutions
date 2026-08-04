@@ -8,7 +8,7 @@ import { Home, Search, Phone, Mail, ArrowRight } from "lucide-react";
 const POPULAR_LINKS = [
   { label: "Custom Homes & Services", to: "/services", desc: "What we build" },
   { label: "Recent Projects Portfolio", to: "/portfolio", desc: "See our work" },
-  { label: "Get a Free Quote", to: "/contactform", desc: "Start your project" },
+  { label: "Get a Free Quote", to: "/estimate", desc: "Start your project" },
   { label: "Pro Tips & Remodeling Guides", to: "/protips", desc: "Helpful advice" },
   { label: "About Bradley Brown Inc.", to: "/about", desc: "Who we are" },
 ];

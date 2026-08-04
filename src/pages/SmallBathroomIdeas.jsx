@@ -115,7 +115,7 @@ export default function SmallBathroomIdeas() {
             <a href="tel:+18443514154" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
               <Phone className="w-4 h-4" /> Call (844) 351-4154
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+            <Link to={"/estimate"} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
               Free Estimate <ChevronRight className="w-4 h-4" />
             </Link>
           </div>

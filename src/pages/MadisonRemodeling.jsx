@@ -68,8 +68,8 @@ export default function MadisonRemodeling() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
-        title="Home Remodeling in Madison, MS | Kitchen, Bath & Renovations — Bradley Brown Inc"
-        description="Madison, MS home remodeling contractor — kitchen renovations, bathroom remodeling, room additions & whole-home renovations. Licensed & insured since 1995. Free estimates — call (844) 351-4154."
+        title="Home Remodeling in Madison, MS | Bradley Brown Inc"
+        description="Madison, MS home remodeling — kitchen, bath, additions & whole-home renovations. Licensed & insured since 1995. Free estimates — call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/madison-ms-home-remodeling"
       />
@@ -96,7 +96,7 @@ export default function MadisonRemodeling() {
             <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
               <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Free Estimate <ChevronRight className="w-5 h-5" />
             </Link>
           </div>

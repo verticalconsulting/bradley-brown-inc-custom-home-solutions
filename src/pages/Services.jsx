@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
-import { Home, Wrench, Plus, Leaf, Warehouse, AlertTriangle, ChevronRight, Phone, Sparkles, Shield, Award, Star, Clock } from "lucide-react";
+import { Home, Wrench, Plus, Leaf, Warehouse, AlertTriangle, ChevronRight, Phone, Sparkles, Shield, Award, Star, Clock, MapPin } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 
 const services = [
@@ -80,8 +80,8 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
-        title="Home Remodeling & Construction Services in Brandon, MS | Bradley Brown Inc"
-        description="Custom homes, kitchen & bath remodeling, room additions, outdoor living, barndominiums & emergency repairs in Brandon, MS. Licensed & insured since 1995. Free estimates."
+        title="Remodeling Services in Brandon, MS | Bradley Brown Inc"
+        description="Custom homes, kitchen & bath remodeling, additions, outdoor living, barndominiums & emergency repairs in Brandon, MS. Licensed since 1995. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/services"
       />
 
@@ -140,6 +140,30 @@ export default function Services() {
               </Link>
             );
           })}
+        </div>
+      </div>
+
+      {/* Areas We Serve */}
+      <div className="bg-[#F5F2ED] py-12 md:py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D] mb-3">Areas We Serve in Central Mississippi</h2>
+          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Bradley Brown Inc. serves homeowners across Rankin, Madison, and Hinds counties — and the greater Jackson metro area. Explore our dedicated local pages:
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link to="/remodeling-brandon-ms" className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-sky-50 transition-colors">
+              <MapPin className="w-4 h-4" /> Brandon, MS Remodeling
+            </Link>
+            <Link to="/madison-ms-home-remodeling" className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-sky-50 transition-colors">
+              <MapPin className="w-4 h-4" /> Madison, MS Remodeling
+            </Link>
+            <Link to="/remodeling-ms" className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-sky-50 transition-colors">
+              <MapPin className="w-4 h-4" /> All of Central Mississippi
+            </Link>
+            <Link to="/custom-home-builder-brandon-ms" className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-sky-50 transition-colors">
+              <MapPin className="w-4 h-4" /> Custom Home Builder
+            </Link>
+          </div>
         </div>
       </div>
 

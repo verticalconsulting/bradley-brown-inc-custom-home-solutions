@@ -104,7 +104,7 @@ export default function LuxuryHomeRenovations() {
             <a href="tel:+18443514154" onClick={handleCall} className="inline-flex items-center justify-center gap-2 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg bg-[#7591a3]">
               <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
+            <Link to={"/estimate"} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Free Consultation <ChevronRight className="w-5 h-5" />
             </Link>
           </div>
@@ -218,7 +218,7 @@ export default function LuxuryHomeRenovations() {
               </tbody>
             </table>
           </div>
-          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+          <Link to={"/estimate"} className="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
             Schedule a Free Consultation to discuss your project budget <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
@@ -231,7 +231,7 @@ export default function LuxuryHomeRenovations() {
             <a href="tel:+18443514154" onClick={handleCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
               <Phone className="w-4 h-4" /> (844) 351-4154
             </a>
-            <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
+            <Link to={"/estimate"} className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
               Schedule a Site Visit <ChevronRight className="w-4 h-4" />
             </Link>
           </div>

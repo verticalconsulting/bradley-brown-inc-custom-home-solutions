@@ -4,8 +4,8 @@ import ServicePageLayout from "@/components/services/ServicePageLayout";
 export default function OutdoorLiving() {
   return (
     <ServicePageLayout
-      title="Outdoor Living Spaces & Decks in Brandon, MS | Bradley Brown Inc"
-      description="Outdoor living spaces, covered patios, outdoor kitchens, custom decks & pergolas in Brandon, MS. Built for Mississippi's climate by a licensed contractor since 1995. Free estimates."
+      title="Outdoor Living Spaces in Brandon, MS | Bradley Brown Inc"
+      description="Outdoor living, covered patios, outdoor kitchens, decks & pergolas in Brandon, MS. Built for Mississippi's climate. Licensed since 1995. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/outdoor-living"
       h1="Outdoor Living Spaces & Decks in Brandon, MS"
       subtitle="Mississippi's climate is made for outdoor living. We design and build covered patios, outdoor kitchens, custom decks, and pergolas that extend your home's footprint year-round."

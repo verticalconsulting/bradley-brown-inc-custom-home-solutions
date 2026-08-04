@@ -59,7 +59,7 @@ export default function Contact() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Contact Bradley Brown Inc. — Brandon, MS Contractor"
-        description="Contact Central Mississippi's trusted home remodeler. Call (844) 351-4154 or message us — serving Brandon, Flowood, Pearl, Madison & surrounding areas. Free estimates."
+        description="Contact Bradley Brown Inc. for home remodeling in Brandon, MS. Call (844) 351-4154 or message us — serving Flowood, Pearl, Madison & Central MS. Free estimates."
         schema={localBusinessSchema}
         canonical="https://bradleybrowninc.com/contact"
       />
@@ -157,7 +157,7 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold text-[#1E2D3D] mb-0.5">Schedule a Free Site Visit</p>
                   <p className="text-slate-500 text-sm mb-2">We'll come to you — no commitment required.</p>
-                  <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
+                  <Link to="/estimate" className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
                     Book a visit <ChevronRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -169,7 +169,7 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold text-[#1E2D3D] mb-0.5">Get an AI Estimate Instantly</p>
                   <p className="text-slate-500 text-sm mb-2">Answer a few questions and get a personalized cost range in seconds.</p>
-                  <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
+                  <Link to="/estimate" className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
                     Try the AI Estimator <ChevronRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -273,20 +273,20 @@ export default function Contact() {
           <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h2>
           <div className="flex flex-wrap gap-2">
             {[
-              { label: "Our Services", page: "Services" },
-              { label: "View Portfolio", page: "Portfolio" },
-              { label: "AI Cost Estimator", page: "QuoteAssistant" },
-              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-              { label: "Why Trust Us", page: "LandingTrust" },
-              { label: "Pricing Guide", page: "LandingPricing" },
-              { label: "Pro Tips & Advice", page: "ProTips" },
-              { label: "Core Services — Brandon", page: "LandingCoreServices" },
-              { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
-              { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-              { label: "Renovation Loans", page: "RenovationLoans" },
-              { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+              { label: "Our Services", to: "/services" },
+              { label: "View Portfolio", to: "/portfolio" },
+              { label: "Get a Free Estimate", to: "/estimate" },
+              { label: "Pro Tips & Advice", to: "/protips" },
+              { label: "Pricing Guide", to: "/pricing" },
+              { label: "Emergency Repairs", to: "/services/emergency-repairs" },
+              { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
+              { label: "Renovation Loans", to: "/protips/renovation-loans" },
+              { label: "Energy-Efficient Upgrades", to: "/protips/energy-efficient-upgrades" },
+              { label: "Remodeling in MS", to: "/remodeling-ms" },
+              { label: "Madison, MS Remodeling", to: "/madison-ms-home-remodeling" },
+              { label: "Bathroom Remodeling — Brandon", to: "/bathroom-remodeling-brandon-ms" },
             ].map((link) => (
-              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+              <Link key={link.to} to={link.to} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
                 <ChevronRight className="w-3 h-3" /> {link.label}
               </Link>
             ))}
@@ -304,29 +304,29 @@ export default function Contact() {
         {/* City chips grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
           {[
-            { label: "Brandon, MS", link: "LandingBrandonRemodelers" },
-            { label: "Flowood, MS", link: null },
-            { label: "Pearl, MS", link: null },
-            { label: "Madison, MS", link: "MadisonRemodeling" },
-            { label: "Ridgeland, MS", link: null },
-            { label: "Jackson, MS", link: null },
-            { label: "Clinton, MS", link: null },
-            { label: "Byram, MS", link: null },
-            { label: "Rankin County, MS", link: "LandingCoreServices" },
-            { label: "Simpson County, MS", link: null },
-            { label: "Hinds County, MS", link: null },
-            { label: "Madison County, MS", link: null },
+          { label: "Brandon, MS", link: "/remodeling-brandon-ms" },
+          { label: "Flowood, MS", link: null },
+          { label: "Pearl, MS", link: null },
+          { label: "Madison, MS", link: "/madison-ms-home-remodeling" },
+          { label: "Ridgeland, MS", link: null },
+          { label: "Jackson, MS", link: null },
+          { label: "Clinton, MS", link: null },
+          { label: "Byram, MS", link: null },
+          { label: "Rankin County, MS", link: "/remodeling-ms" },
+          { label: "Simpson County, MS", link: null },
+          { label: "Hinds County, MS", link: null },
+          { label: "Madison County, MS", link: null },
           ].map((chip) => (
-            <div key={chip.label} className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-sky-500 flex-shrink-0" />
-              {chip.link ? (
-                <Link
-                  to={createPageUrl(chip.link)}
-                  className="inline-flex items-center gap-1.5 bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 text-sm font-medium px-3.5 py-2 rounded-full transition-colors"
-                >
-                  {chip.label}
-                </Link>
-              ) : (
+          <div key={chip.label} className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-sky-500 flex-shrink-0" />
+            {chip.link ? (
+              <Link
+                to={chip.link}
+                className="inline-flex items-center gap-1.5 bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 text-sm font-medium px-3.5 py-2 rounded-full transition-colors"
+              >
+                {chip.label}
+              </Link>
+            ) : (
                 <span className="inline-flex items-center bg-gray-50 border border-gray-200 text-slate-600 text-sm font-medium px-3.5 py-2 rounded-full">
                   {chip.label}
                 </span>

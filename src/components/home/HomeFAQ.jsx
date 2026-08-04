@@ -38,11 +38,11 @@ export const homeFaqs = [
         weeks, depending on layout changes, tile scope, and material
         availability. We provide a detailed timeline at kickoff so you know what
         to expect at every phase. Learn more about our{" "}
-        <Link to="/services/kitchen-bathroom-remodeling" className="text-sky-600 hover:underline font-medium">
+        <Link to="/services/kitchen-remodeling" className="text-sky-600 hover:underline font-medium">
           kitchen remodeling
         </Link>{" "}
         and{" "}
-        <Link to="/services/kitchen-bathroom-remodeling" className="text-sky-600 hover:underline font-medium">
+        <Link to="/services/bathroom-remodeling" className="text-sky-600 hover:underline font-medium">
           bathroom remodeling
         </Link>{" "}
         services.

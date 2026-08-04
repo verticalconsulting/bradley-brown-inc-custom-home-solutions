@@ -27,7 +27,7 @@ export default function LandingCTABar({ headline = "Ready to Get Started?" }) {
         <Phone className="w-5 h-5" /> (844) 351-4154
       </a>
       <Link
-        to={createPageUrl("ContactForm")}
+        to="/estimate"
         className="flex items-center gap-1.5 bg-sky-400 hover:bg-sky-500 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
       >
         Free Estimate <ChevronRight className="w-4 h-4" />

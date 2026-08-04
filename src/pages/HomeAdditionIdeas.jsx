@@ -169,7 +169,7 @@ export default function HomeAdditionIdeas() {
                       </li>
                     ))}
                   </ul>
-                  <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center gap-1.5 bg-sky-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-sky-600 transition-colors">
+                  <Link to={"/estimate"} className="inline-flex items-center gap-1.5 bg-sky-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-sky-600 transition-colors">
                     Get Estimate <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -216,13 +216,13 @@ export default function HomeAdditionIdeas() {
           <Link to={createPageUrl("Portfolio")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> View Our Portfolio
           </Link>
-          <Link to={createPageUrl("RenovationLoans")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+          <Link to={"/protips/renovation-loans"} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> Renovation Financing Options
           </Link>
-          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+          <Link to={"/estimate"} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> Schedule a Free Site Visit
           </Link>
-          <Link to={createPageUrl("LandingPricing")} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
+          <Link to={"/pricing"} className="inline-flex items-center gap-1.5 bg-white border border-sky-200 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-50 transition-colors">
             <ChevronRight className="w-3.5 h-3.5" /> Pricing Guide
           </Link>
         </div>
@@ -233,7 +233,7 @@ export default function HomeAdditionIdeas() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Add Space to Your Home?</h2>
           <p className="text-slate-300 mb-8">Bradley Brown Inc. has built additions across Brandon, Flowood, Pearl, Madison & Jackson since 1995. Let's talk about your project.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
+            <Link to={"/estimate"} className="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors">
               Get Free Estimate <ChevronRight className="w-4 h-4" />
             </Link>
             <a href="tel:+18443514154" className="inline-flex items-center justify-center gap-2 border border-slate-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">

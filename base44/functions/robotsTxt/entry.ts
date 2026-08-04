@@ -15,7 +15,6 @@ Disallow: /agentchat
 Disallow: /tiktoksync
 Disallow: /thank-you
 Disallow: /error
-Disallow: /sms-optin
 
 # Block dotfile / config probes
 Disallow: /*.env

@@ -63,8 +63,8 @@ export default function RemodelingBrandonMS() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
-        title="Home Remodeling in Brandon, MS | Kitchen, Bath & Whole-Home Renovations"
-        description="Bradley Brown Inc. — Brandon, MS home remodelers since 1995. Kitchen remodeling, bathroom renovations, room additions, whole-home renovations & outdoor living. Call (844) 351-4154."
+        title="Home Remodeling in Brandon, MS | Bradley Brown Inc"
+        description="Brandon, MS home remodelers since 1995. Kitchen, bath, room additions & whole-home renovations. Licensed & insured. Free estimates — call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/remodeling-brandon-ms"
       />
@@ -146,6 +146,14 @@ export default function RemodelingBrandonMS() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="bg-white border border-sky-100 rounded-2xl p-6 md:p-8 shadow-sm mb-8">
+          <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-3">Specialized Bathroom Remodeling in Brandon</h2>
+          <p className="text-slate-600 leading-relaxed mb-5">Looking for a dedicated bathroom remodeling page with local project photos, pricing tiers, and Brandon-specific FAQs? Visit our comprehensive bathroom remodeling landing page.</p>
+          <Link to="/bathroom-remodeling-brandon-ms" className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
+            Bathroom Remodeling in Brandon, MS <ChevronRight className="w-4 h-4" />
+          </Link>
         </div>
 
         <div className="bg-white border border-sky-100 rounded-2xl p-6 md:p-8 shadow-sm">

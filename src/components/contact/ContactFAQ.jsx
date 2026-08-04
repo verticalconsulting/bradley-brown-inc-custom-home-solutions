@@ -34,7 +34,7 @@ const faqs = [
     answer: (
       <>
         Yes. We work with several financing partners to help homeowners fund their projects, including renovation loans, HELOCs, and personal improvement loans. We can connect you with lenders familiar with Central Mississippi home values, or you can review options on our{" "}
-        <Link to={createPageUrl("RenovationLoans")} className="text-sky-600 font-medium hover:underline">
+        <Link to={"/protips/renovation-loans"} className="text-sky-600 font-medium hover:underline">
           Renovation Loans
         </Link>{" "}
         page. Ask Brad about payment plans during your free estimate.
@@ -54,7 +54,7 @@ const faqs = [
     answer: (
       <>
         Getting an estimate is easy. You can call us directly at (844) 351-4154, fill out the contact form on this page, or try our{" "}
-        <Link to={createPageUrl("QuoteAssistant")} className="text-sky-600 font-medium hover:underline">
+        <Link to={"/estimate"} className="text-sky-600 font-medium hover:underline">
           AI Cost Estimator
         </Link>{" "}
         for an instant ballpark range. For a detailed quote, we'll schedule a free on-site visit to measure, discuss your goals, and provide a written estimate — usually within 1–2 business days.

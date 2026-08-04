@@ -5,7 +5,7 @@ export default function EmergencyRepairs() {
   return (
     <ServicePageLayout
       title="Emergency Home Repairs in Brandon, MS | Bradley Brown Inc"
-      description="Urgent home repairs in Brandon, MS — storm damage, roof leaks, structural issues & water intrusion. Licensed MS contractor since 1995. Same-week service. Call (601) 954-1306 now."
+      description="Urgent home repairs in Brandon, MS — storm damage, roof leaks & water intrusion. Licensed MS contractor since 1995. Same-week service. Call (601) 954-1306."
       canonical="https://bradleybrowninc.com/services/emergency-repairs"
       h1="Emergency Home Repairs in Brandon, MS"
       subtitle="Storm damage, roof leaks, structural issues — don't wait. Bradley Brown Inc. responds fast to urgent repairs across Brandon and the Rankin County area."

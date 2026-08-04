@@ -78,8 +78,8 @@ export default function BathroomRemodelingBrandon() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
-        title="Bathroom Remodeling in Brandon, MS | Bath Remodeler — Bradley Brown Inc"
-        description="Brandon, MS bathroom remodeling contractor. Walk-in showers, tub-to-shower conversions, tile work, vanities & complete bath renovations. Licensed & insured since 1995. Free estimates — call (844) 351-4154."
+        title="Bathroom Remodeling Brandon, MS | Bradley Brown Inc"
+        description="Brandon, MS bathroom remodeling. Walk-in showers, tub-to-shower conversions, tile & vanities. Licensed & insured since 1995. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/bathroom-remodeling-brandon-ms"
       />
@@ -112,7 +112,7 @@ export default function BathroomRemodelingBrandon() {
             <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl">
               <Phone className="w-5 h-5" /> Call {PHONE}
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
           </div>
@@ -256,16 +256,16 @@ export default function BathroomRemodelingBrandon() {
         <div className="mt-8 bg-slate-50 border border-gray-200 rounded-xl p-5">
           <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Pages</h3>
           <div className="flex flex-wrap gap-2">
-            <Link to={createPageUrl("SmallBathroomIdeas")} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+            <Link to={"/protips/small-bathroom-ideas"} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
               <ChevronRight className="w-3 h-3" /> Small Bathroom Remodeling Ideas
             </Link>
-            <Link to={createPageUrl("Services")} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+            <Link to={"/services"} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
               <ChevronRight className="w-3 h-3" /> All Services
             </Link>
             <Link to="/services/bathroom-remodeling" className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
               <ChevronRight className="w-3 h-3" /> Bathroom Remodeling Service
             </Link>
-            <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+            <Link to={"/estimate"} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
               <ChevronRight className="w-3 h-3" /> Get a Free Quote
             </Link>
             <Link to="/madison-ms-home-remodeling" className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
@@ -288,11 +288,11 @@ export default function BathroomRemodelingBrandon() {
             <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-white text-[#1E2D3D] px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl hover:bg-slate-100 transition-colors">
               <Phone className="w-5 h-5" /> Call {PHONE}
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-[#1E2D3D] hover:bg-black text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-[#1E2D3D] hover:bg-black text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
           </div>
-          <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-1.5 text-white text-sm font-semibold mt-5 underline underline-offset-4 hover:text-amber-100">
+          <Link to={"/estimate"} className="inline-flex items-center gap-1.5 text-white text-sm font-semibold mt-5 underline underline-offset-4 hover:text-amber-100">
             Schedule a free site visit instead
             <ChevronRight className="w-4 h-4" />
           </Link>

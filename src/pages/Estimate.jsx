@@ -9,7 +9,7 @@ import DesignInspirationStep from "@/components/quote/DesignInspirationStep";
 import ContactStep from "@/components/quote/ContactStep";
 import EstimateResult from "@/components/quote/EstimateResult";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
-import { ChevronLeft, ChevronRight, Sparkles, Phone, Palette } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles, Phone } from "lucide-react";
 
 const STEPS = ["Project Type", "Details", "Design Inspiration", "Your Info", "Estimate"];
 const RESULT_STEP = 4;
@@ -220,7 +220,7 @@ export default function Estimate() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Get Your Free Estimate — Bradley Brown Inc. | Brandon, MS"
-        description="Get a free AI-powered remodeling cost estimate, request a quote, or schedule a site visit — all in one place. Custom homes, renovations & additions in Brandon, MS."
+        description="Get a free AI-powered remodeling cost estimate for custom homes, renovations & additions in Brandon, MS. Licensed & insured since 1995. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/estimate"
       />
 
@@ -305,24 +305,6 @@ export default function Estimate() {
         <p className="text-center text-slate-400 text-xs mt-4">
           Your information is kept private and only used to prepare your estimate.
         </p>
-      </div>
-
-      {/* Finish Package Studio — optional step */}
-      <div className="max-w-xl mx-auto px-4 sm:px-6 pb-10">
-        <div className="bg-fuchsia-50 border border-fuchsia-200 rounded-2xl p-6 flex items-start gap-4">
-          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0">
-            <Palette className="w-6 h-6 text-fuchsia-500" />
-          </div>
-          <div>
-            <h3 className="font-bold text-[#1E2D3D] text-sm mb-1">Want to explore finish packages?</h3>
-            <p className="text-slate-600 text-sm leading-relaxed mb-3">
-              Upload an inspiration photo and get themed finish packages with budget alternatives — an optional step before or after your estimate.
-            </p>
-            <Link to="/finish-package-studio" className="inline-flex items-center gap-1.5 text-fuchsia-700 font-semibold text-sm hover:gap-2 transition-all">
-              Try the Finish Package Studio <ChevronRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-        </div>
       </div>
 
       {/* Divider */}

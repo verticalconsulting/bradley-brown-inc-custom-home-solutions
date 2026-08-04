@@ -103,7 +103,7 @@ export default function BarndominiumCost() {
             <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
               <Phone className="w-5 h-5" /> {PHONE}
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               <Calculator className="w-5 h-5" /> Get a Custom Estimate
             </Link>
           </div>
@@ -212,7 +212,7 @@ export default function BarndominiumCost() {
             <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-white text-green-700 px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl hover:bg-slate-100 transition-colors">
               <Phone className="w-5 h-5" /> Call {PHONE}
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
               <Calculator className="w-5 h-5" /> Get My Estimate
             </Link>
           </div>

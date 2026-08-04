@@ -67,8 +67,8 @@ export default function ProTipDetail() {
   const canonical = `https://bradleybrowninc.com/protips/${post.slug}`;
   const description = post.meta_description || post.excerpt || `Expert home remodeling advice from Bradley Brown Inc. — ${post.title}`;
 
-  const slugServiceMap = { 'home-addition-ideas': '/services/room-additions', 'small-bathroom-ideas': '/services/kitchen-bathroom-remodeling', 'energy-efficient-upgrades': '/services/custom-home-building', 'renovation-loans': '/pricing' };
-  const catServiceMap = { 'home-remodeling': '/services', 'kitchen-remodeling': '/services/kitchen-bathroom-remodeling', 'bathroom-remodeling': '/services/kitchen-bathroom-remodeling', 'outdoor-living': '/services/outdoor-living', 'curb-appeal': '/services/outdoor-living', 'home-value': '/services/custom-home-building', 'interior-updates': '/services/kitchen-bathroom-remodeling' };
+  const slugServiceMap = { 'home-addition-ideas': '/services/room-additions', 'small-bathroom-ideas': '/services/bathroom-remodeling', 'energy-efficient-upgrades': '/services/custom-home-building', 'renovation-loans': '/pricing' };
+  const catServiceMap = { 'home-remodeling': '/services', 'kitchen-remodeling': '/services/kitchen-remodeling', 'bathroom-remodeling': '/services/bathroom-remodeling', 'outdoor-living': '/services/outdoor-living', 'curb-appeal': '/services/outdoor-living', 'home-value': '/services/custom-home-building', 'interior-updates': '/services/kitchen-remodeling' };
   const relatedServiceUrl = slugServiceMap[post.slug] || catServiceMap[post.category] || '/services';
 
   const howToSteps = (post.content || '').match(/^##\s+.+$/gm)?.map(s => s.replace(/^##\s+/, '').trim()) || [];

@@ -24,7 +24,7 @@ export default function About() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="About Bradley Brown Inc. — Mississippi Builder Since 1995"
-        description="Learn about Bradley Brown Inc., Central Mississippi's trusted home builder since 1995. 500+ homes built, 4.9-star rated, BBB accredited. Meet the team and see why homeowners trust us."
+        description="Central Mississippi's trusted home builder since 1995. 500+ homes built, 4.9-star rated, BBB accredited. Meet the team behind Bradley Brown Inc. Free estimates."
         schema={localBusinessSchema}
         canonical="https://bradleybrowninc.com/about"
       />

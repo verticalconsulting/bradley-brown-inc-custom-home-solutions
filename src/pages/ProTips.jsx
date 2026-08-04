@@ -48,7 +48,7 @@ export default function ProTips() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Pro Tips — Home Remodeling Advice | Bradley Brown Inc."
-        description="Expert home remodeling tips for Brandon, MS homeowners — bathrooms, kitchens, luxury renovations & more from the Brandon and Rankin County area's trusted contractor since 1995."
+        description="Expert home remodeling tips for Brandon, MS homeowners — kitchens, baths, additions & more from Rankin County's trusted contractor since 1995. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/protips"
       />
 
@@ -86,7 +86,8 @@ export default function ProTips() {
               { label: "Home Addition Ideas", to: "/protips/home-addition-ideas", desc: "Master suites, sunrooms, in-law suites & more" },
               { label: "Energy-Efficient Home Upgrades", to: "/protips/energy-efficient-upgrades", desc: "Save on bills & claim federal tax credits" },
               { label: "Renovation Loan Options", to: "/protips/renovation-loans", desc: "FHA 203k, HELOC, home equity loans & more" },
-              { label: "Kitchen & Bath Remodeling", to: "/services/kitchen-bathroom-remodeling", desc: "Custom cabinets, countertops, tile & premium finishes" },
+              { label: "Kitchen Remodeling", to: "/services/kitchen-remodeling", desc: "Custom cabinets, countertops, tile & premium finishes" },
+              { label: "Bathroom Remodeling", to: "/services/bathroom-remodeling", desc: "Walk-in showers, tub-to-shower conversions & vanities" },
               { label: "Emergency Home Repairs — Brandon, MS", to: "/services/emergency-repairs", desc: "Urgent? Call (601) 954-1306 — same-week service available" },
             ].map((g) => (
               <Link key={g.to} to={g.to} className="block bg-white border border-sky-100 rounded-lg p-4 hover:border-sky-400 transition-colors">

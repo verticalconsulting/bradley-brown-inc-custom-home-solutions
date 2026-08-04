@@ -12,7 +12,7 @@ const resources = [
     bg: "bg-sky-50",
   },
   {
-    to: "/services/kitchen-bathroom-remodeling",
+    to: "/services/kitchen-remodeling",
     icon: Wrench,
     title: "Kitchen & Bath Remodeling",
     desc: "Custom cabinets, countertops, tile & premium finishes that add real value.",

@@ -39,7 +39,11 @@ export default function ServiceAreaSection() {
             <Link to="/custom-home-builder-brandon-ms" className="text-sky-600 hover:underline font-medium">
               custom home builder in Brandon
             </Link>
-            , we back every project with licensed, insured craftsmanship. Call{" "}
+            , we back every project with licensed, insured craftsmanship. We also offer{" "}
+            <Link to="/remodeling-ms" className="text-sky-600 hover:underline font-medium">
+              remodeling services across Mississippi
+            </Link>{" "}
+            — from custom homes to emergency repairs. Call{" "}
             <a href="tel:+18443514154" className="text-sky-600 hover:underline font-medium">
               (844) 351-4154
             </a>{" "}

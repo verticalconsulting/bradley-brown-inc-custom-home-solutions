@@ -69,8 +69,8 @@ export default function Portfolio() {
     <PullToRefresh onRefresh={handleRefresh}>
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
-        title="Project Portfolio – Custom Homes & Renovations in Mississippi"
-        description="Browse our portfolio of custom homes, kitchen & bath renovations, room additions, and outdoor living projects built across Jackson, Madison, Ridgeland, Brandon, and Central Mississippi."
+        title="Project Portfolio | Bradley Brown Inc — Brandon, MS"
+        description="Browse our portfolio of custom homes, kitchen & bath renovations, room additions and outdoor living projects across Brandon, Madison and Central Mississippi."
         canonical="https://bradleybrowninc.com/portfolio"
       />
       <div className="bg-[#1E2D3D] py-14 md:py-20">
