@@ -294,14 +294,53 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Google Map embed */}
+      {/* Service Area — expanded */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
-        <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">Our Service Area — Brandon, MS & Central Mississippi</h2>
-        <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm h-72">
+        <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-2">Our Service Area — Brandon, MS & Central Mississippi</h2>
+        <p className="text-slate-600 text-sm mb-6 max-w-2xl">
+          Bradley Brown Inc. serves homeowners within 50 miles of Brandon, MS — contact us to confirm availability in your area.
+        </p>
+
+        {/* City chips grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+          {[
+            { label: "Brandon, MS", link: "LandingBrandonRemodelers" },
+            { label: "Flowood, MS", link: null },
+            { label: "Pearl, MS", link: null },
+            { label: "Madison, MS", link: "MadisonRemodeling" },
+            { label: "Ridgeland, MS", link: null },
+            { label: "Jackson, MS", link: null },
+            { label: "Clinton, MS", link: null },
+            { label: "Byram, MS", link: null },
+            { label: "Rankin County, MS", link: "LandingCoreServices" },
+            { label: "Simpson County, MS", link: null },
+            { label: "Hinds County, MS", link: null },
+            { label: "Madison County, MS", link: null },
+          ].map((chip) => (
+            <div key={chip.label} className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-sky-500 flex-shrink-0" />
+              {chip.link ? (
+                <Link
+                  to={createPageUrl(chip.link)}
+                  className="inline-flex items-center gap-1.5 bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 text-sm font-medium px-3.5 py-2 rounded-full transition-colors"
+                >
+                  {chip.label}
+                </Link>
+              ) : (
+                <span className="inline-flex items-center bg-gray-50 border border-gray-200 text-slate-600 text-sm font-medium px-3.5 py-2 rounded-full">
+                  {chip.label}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Google Map — centered on 104 Tiffany Drive, Brandon, MS 39042 */}
+        <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm h-80">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d218083.47153490375!2d-90.24965!3d32.27291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x862834f7b56a0d85%3A0x3f2ac15e9f9d90!2sBrandon%2C%20MS!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            src="https://www.google.com/maps?q=104+Tiffany+Drive,+Brandon,+MS+39042&output=embed"
             width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
-            title="Bradley Brown Inc. service area — Brandon, MS and Central Mississippi"
+            title="Bradley Brown Inc. — 104 Tiffany Drive, Brandon, MS 39042"
           />
         </div>
         {/* NAP */}
