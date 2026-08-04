@@ -2,12 +2,42 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Upload, Sparkles, Image as ImageIcon, ArrowRight, Loader2 } from "lucide-react";
 import { base44 } from "@/api/base44Client";
-import SEOHead from "@/components/SEOHead";
+import SEOHead, { webSiteSchema, combineSchemas } from "@/components/SEOHead";
+import { organizationSchema } from "@/components/seo/seoSchemas";
 import FinishPackageCard from "@/components/finish/FinishPackageCard";
 import HowItWorks from "@/components/finish/HowItWorks";
 import WhatsInsidePackage from "@/components/finish/WhatsInsidePackage";
 
 const ROOMS = ["Kitchen", "Primary Bath", "Living Room", "Bedroom", "Outdoor / Patio", "Whole Home"];
+
+// SoftwareApplication schema — the primary structured data for this tool page.
+// GeneralContractor / localBusiness is intentionally NOT included here; it remains
+// scoped to site-wide / trade-category pages (e.g. homepage, service landing pages).
+const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "AI Finish Package Studio",
+  applicationCategory: "DesignApplication",
+  operatingSystem: "Web browser",
+  description:
+    "Upload an inspiration photo and receive three AI-curated interior finish packages — each with materials, color palettes, and a budget-friendly alternative — then save your favorite to include with a project quote.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  provider: {
+    "@type": "Organization",
+    name: "Bradley Brown Inc.",
+    url: "https://bradleybrowninc.com",
+  },
+};
+
+const studioSchema = combineSchemas(
+  webSiteSchema(),
+  organizationSchema(),
+  softwareApplicationSchema,
+);
 
 const PACKAGE_SCHEMA = {
   type: "object",
@@ -145,6 +175,7 @@ Be specific to what's visible in the inspiration photo. Keep prose tight — no 
         title="AI Finish Package Studio | Upload a Photo, Get 3 Designer Packages — Bradley Brown Inc."
         description="Upload an inspiration photo and get three AI-curated finish packages with materials, color palettes, and budget-friendly alternatives — then save your favorite to attach to a quote."
         canonical="https://bradleybrowninc.com/finish-package-studio"
+        structuredData={studioSchema}
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
