@@ -28,9 +28,18 @@ export default function ServicePageLayout({
     base44.analytics.track({ eventName: "phone_click", properties: { source: serviceName } });
   };
 
-  // Merge admin-managed images (from the Image Manager) with hardcoded fallbacks
+  // Split managed images by category so they land in the correct page section.
+  // hero    → hero section background
+  // cta     → bottom CTA section background
+  // background → also used as hero background if no hero image is set
+  // all other categories → "Our Work" gallery
+  const heroImage = managedImages.find(img => img.category === "hero" || img.category === "background");
+  const ctaImage = managedImages.find(img => img.category === "cta");
+  const galleryManaged = managedImages.filter(img => !["hero", "cta", "background"].includes(img.category));
+
+  // Merge admin-managed gallery images with hardcoded fallbacks
   const allImages = [
-    ...managedImages.map((img) => ({ url: img.url, alt: img.label, caption: img.notes })),
+    ...galleryManaged.map((img) => ({ url: img.url, alt: img.label, caption: img.notes })),
     ...(images || []),
   ];
 
@@ -78,10 +87,14 @@ export default function ServicePageLayout({
       )}
 
       <section className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-sky-400 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-400 rounded-full blur-3xl" />
-        </div>
+        {heroImage ? (
+          <div className="absolute inset-0 bg-cover bg-center opacity-25" style={{ backgroundImage: `url('${heroImage.url}')` }} />
+        ) : (
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-10 left-10 w-64 h-64 bg-sky-400 rounded-full blur-3xl" />
+            <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-400 rounded-full blur-3xl" />
+          </div>
+        )}
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="inline-flex items-center gap-1.5 text-sky-400 font-semibold text-sm uppercase tracking-wider mb-3">
             <MapPin className="w-4 h-4" /> {location} &amp; Central Mississippi
@@ -180,8 +193,11 @@ export default function ServicePageLayout({
         )}
       </div>
 
-      <div className="bg-[#1E2D3D] py-14 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+        {ctaImage && (
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${ctaImage.url}')` }} />
+        )}
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to Start Your Project?</h2>
           <p className="text-slate-300 mb-8 text-base">Join 500+ Mississippi homeowners who've trusted Bradley Brown Inc. with their most important investment.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
