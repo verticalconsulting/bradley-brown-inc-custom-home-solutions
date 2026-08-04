@@ -5,6 +5,8 @@ import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
+import CustomHomeProcess from "@/components/landing/CustomHomeProcess";
+import CustomHomeGallery from "@/components/landing/CustomHomeGallery";
 import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
 
@@ -229,6 +231,9 @@ export default function LandingBrandonCustomHomeBuilder() {
             a residential general contractor to manage the full project, our team can help.
           </p>
         </div>
+
+        {/* Custom Home Building Process */}
+        <CustomHomeProcess />
 
         {/* New Construction Homes in Brandon, MS */}
         <div className="prose prose-slate max-w-none">
