@@ -1,0 +1,41 @@
+{
+  "name": "Daily IndexingLog Cleanup (30+ days)",
+  "description": "Deletes IndexingLog entries older than 30 days every night at 2am.",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 7 * * *",
+      "one_time_date": null,
+      "timezone": "UTC",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "daily_indexinglog_cleanup_30_days",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_function": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "cleanupIndexingLogs",
+            "args": {}
+          },
+          "then": "end"
+        }
+      }
+    ]
+  }
+}

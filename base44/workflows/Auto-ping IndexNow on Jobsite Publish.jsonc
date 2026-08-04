@@ -1,0 +1,34 @@
+{
+  "name": "Auto-ping IndexNow on Jobsite Publish",
+  "description": "Pings IndexNow (Bing/Yandex/AI crawlers) and submits sitemap to GSC when a jobsite check-in is published",
+  "trigger": {
+    "condition": "${ ((.trigger.changed_fields | index(\"status\") != null) and (.trigger.data.status == \"published\")) }",
+    "config": {
+      "trigger_type": "entity",
+      "events": [
+        "update"
+      ],
+      "entity_name": "JobCheckin"
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "auto_ping_indexnow_on_jobsite_publish",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_function": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "pingIndexNow",
+            "args": {}
+          },
+          "then": "end"
+        }
+      }
+    ]
+  }
+}

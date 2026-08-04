@@ -1,0 +1,34 @@
+{
+  "name": "New Lead \u2192 CRM + Thank-You Email",
+  "description": "",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "entity",
+      "events": [
+        "create"
+      ],
+      "entity_name": "Lead"
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "new_lead_crm_thank_you_email",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_function": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "processNewLeadFollowup",
+            "args": {}
+          },
+          "then": "end"
+        }
+      }
+    ]
+  }
+}
