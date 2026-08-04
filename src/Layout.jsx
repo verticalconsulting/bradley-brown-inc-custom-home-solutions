@@ -43,33 +43,7 @@ export default function Layout({ children, currentPageName }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (document.getElementById("formspree-btn-script")) return;
-    const script = document.createElement("script");
-    script.id = "formspree-btn-script";
-    script.src = "https://formspree.io/js/formbutton-v1.min.js";
-    script.defer = true;
-    script.onload = () => {
-      window.formbutton = window.formbutton || function () {(window.formbutton.q = window.formbutton.q || []).push(arguments);};
-      window.formbutton("create", {
-        action: "https://formspree.io/f/xeeranrd",
-        title: "Get a Quick Quote",
-        fields: [
-        { type: "text", label: "Name:", name: "name", required: true, placeholder: "Your name" },
-        { type: "email", label: "Email:", name: "email", required: true, placeholder: "your@email.com" },
-        { type: "tel", label: "Phone:", name: "phone", placeholder: "(601) 000-0000" },
-        { type: "select", label: "Project Type:", name: "project_type", options: ["Custom Home", "Renovation", "Room Addition", "Outdoor Living", "Other"] },
-        { type: "textarea", label: "Tell us about your project:", name: "message", placeholder: "Describe your project, budget, timeline..." },
-        { type: "submit", value: "Send My Request" }],
 
-        styles: {
-          title: { backgroundColor: "#1E2D3D" },
-          button: { backgroundColor: "#38bdf8" }
-        }
-      });
-    };
-    document.body.appendChild(script);
-  }, []);
 
   const isHomePage = currentPageName === "Home";
   const topLevelPages = ["Home", "Services", "Portfolio", "About", "Contact"];

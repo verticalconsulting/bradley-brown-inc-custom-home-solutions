@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import StepIndicator from "@/components/quote/StepIndicator";
 import ProjectTypeStep from "@/components/quote/ProjectTypeStep";
@@ -50,6 +50,18 @@ export default function Estimate() {
   const [designConcept, setDesignConcept] = useState(null);
   const [designLoading, setDesignLoading] = useState(false);
   const [designError, setDesignError] = useState("");
+  const navigate = useNavigate();
+  const [utmParams, setUtmParams] = useState("");
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmFields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"];
+    const captured = utmFields
+      .map((f) => (urlParams.get(f) ? `${f}=${urlParams.get(f)}` : null))
+      .filter(Boolean)
+      .join("&");
+    if (captured) setUtmParams(captured);
+  }, []);
 
   const canProceed = () => {
     if (step === 0) return !!data.project_type;
@@ -105,7 +117,7 @@ export default function Estimate() {
           square_footage_estimate: data.square_footage_estimate || undefined,
           budget_range: data.budget_range || undefined,
           timeline: data.timeline || undefined,
-          description: data.description + scheduleNote,
+          description: data.description + scheduleNote + (utmParams ? `\n\nUTM: ${utmParams}` : ""),
           features_selected: data.features_selected,
           status: "new",
           design_photo_url: data.design_photo || undefined,
@@ -119,7 +131,7 @@ export default function Estimate() {
           phone: data.phone || "",
           project_type: leadProjectTypeMap[data.project_type] || "Other",
           message: data.description + scheduleNote + (data.location ? `\n\nLocation: ${data.location}` : "") + (data.budget_range ? `\nBudget: ${data.budget_range}` : "") + (data.timeline ? `\nTimeline: ${data.timeline}` : ""),
-          source: "Estimate Page (AI Wizard)",
+          source: `Estimate Page (AI Wizard)${utmParams ? ` | ${utmParams}` : ""}`,
           status: "new",
         }),
         fetch("https://formspree.io/f/xeeranrd", {
@@ -333,7 +345,7 @@ export default function Estimate() {
         <div className="bg-white rounded-2xl shadow-md border border-[#E2D9CC] p-6 md:p-8">
           <h2 className="text-xl font-bold text-[#1E2D3D] mb-1">Or send us a message</h2>
           <p className="text-slate-500 text-sm mb-6">Tell us about your project and we'll get back to you within 24 hours.</p>
-          <LeadCaptureForm source="Estimate Page (Fallback Form)" />
+          <LeadCaptureForm source="Estimate Page (Fallback Form)" onSuccess={() => navigate("/thank-you?from=submit")} />
         </div>
       </div>
     </div>
