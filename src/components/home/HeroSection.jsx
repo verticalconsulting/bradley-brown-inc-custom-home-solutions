@@ -86,8 +86,8 @@ export default function HeroSection() {
         {/* Desktop CTAs */}
         <div className="hidden sm:flex flex-row gap-4 justify-center">
           <Link
-            to="/estimate" className="hover:bg-[#0a1f44] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-[#C4922A]">
-            <Sparkles className="w-5 h-5" /> Get My Free Estimate
+            to="/estimate" className="hover:bg-[#0a1f44] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-[hsl(var(--destructive))]">Get My Free Estimate
+
           </Link>
           <a
             href="tel:+18443514154" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all">
