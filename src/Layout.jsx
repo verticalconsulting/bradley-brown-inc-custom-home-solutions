@@ -333,7 +333,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "About Us", page: "About" },
                 { label: "Portfolio", page: "Portfolio" },
                 { label: "Pro Tips & Advice", page: "ProTips" },
-                { label: "Why Trust Us", page: "LandingTrust" },
+                { label: "Customer Testimonies", page: "LandingTrust" },
                 { label: "Contact Us", page: "Contact" },
                 { label: "Get a Free Quote", page: "ContactForm" },
                 { label: "AI Cost Estimator", page: "QuoteAssistant" },
