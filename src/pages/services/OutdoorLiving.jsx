@@ -75,7 +75,6 @@ export default function OutdoorLiving() {
       }]}
       images={[
         { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/bbd98a0f-473a-4754-b6fd-2724101d1500/large", alt: "Outdoor living space with covered patio by Bradley Brown Inc.", caption: "Covered patio with outdoor kitchen — Pearl, MS" },
-        { url: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Custom outdoor deck and pergola in Mississippi", caption: "Custom composite deck with pergola" },
       ]}
       relatedLinks={[
         { to: "/protips/home-addition-ideas", label: "Home Addition Ideas & ROI Guide" },
