@@ -1,16 +1,26 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) - GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M16SZNFJYP"></script>
-    <!-- Google tag (gtag.js) - Google Ads -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17864041271"></script>
+    <!-- Google tag (gtag.js) — deferred to after load to reduce main-thread blocking -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-M16SZNFJYP');
-      gtag('config', 'AW-17864041271');
+      (function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-M16SZNFJYP');
+        gtag('config', 'AW-17864041271');
+        var loadGtag = function() {
+          var s1 = document.createElement('script'); s1.async = true;
+          s1.src = 'https://www.googletagmanager.com/gtag/js?id=G-M16SZNFJYP';
+          document.head.appendChild(s1);
+          var s2 = document.createElement('script'); s2.async = true;
+          s2.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17864041271';
+          document.head.appendChild(s2);
+        };
+        if (document.readyState === 'complete') { loadGtag(); }
+        else { window.addEventListener('load', loadGtag); }
+      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

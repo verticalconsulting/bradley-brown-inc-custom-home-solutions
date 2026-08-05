@@ -14,7 +14,7 @@ export default function ThankYou() {
   const fromForm = searchParams.get("from") === "submit";
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-20">
+    <div className="min-h-screen bg-background pt-20">
       <SEOHead
         title="Thank You — Bradley Brown Inc."
         description="Thank you for contacting Bradley Brown Inc. We'll get back to you within 24 hours."
@@ -22,14 +22,14 @@ export default function ThankYou() {
       />
 
       <div className="max-w-xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
-        <div className="bg-white rounded-2xl shadow-md border border-[#E2D9CC] p-8 md:p-12">
+        <div className="bg-white rounded-2xl shadow-md border border-muted-foreground p-8 md:p-12">
           {fromForm ? (
             <>
               <div className="inline-flex items-center justify-center w-20 h-20 bg-green-50 rounded-full mb-6">
                 <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
 
-              <h1 className="text-2xl md:text-3xl font-bold text-[#1E2D3D] mb-3">
+              <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Thanks for reaching out!
               </h1>
               <p className="text-slate-600 mb-2 text-base">
@@ -79,7 +79,7 @@ export default function ThankYou() {
                 <Home className="w-10 h-10 text-sky-500" />
               </div>
 
-              <h1 className="text-2xl md:text-3xl font-bold text-[#1E2D3D] mb-3">
+              <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Thanks for your interest!
               </h1>
               <p className="text-slate-600 mb-8 text-base">
@@ -89,7 +89,7 @@ export default function ThankYou() {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
                   to="/estimate"
-                  className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-accent text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                 >
                   Get My Free Estimate
                 </Link>
