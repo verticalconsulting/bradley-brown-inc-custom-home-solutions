@@ -117,8 +117,8 @@ export default function Layout({ children, currentPageName }) {
               <Link
                 to={createPageUrl("Home")}
                 aria-current={currentPageName === "Home" ? "page" : undefined}
-                className={`text-sm font-medium transition-colors hover:text-primary underline-offset-4 hover:underline ${
-                currentPageName === "Home" ? "text-primary underline" : textColor}`}>
+                className={`text-sm font-medium transition-colors hover:text-primary underline-offset-4 hover:underline text-[hsl(var(--card))] ${
+                currentPageName === "Home" ? "underline" : textColor}`}>
                 Home
               </Link>
               <div className="relative group">
