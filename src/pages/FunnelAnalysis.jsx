@@ -6,7 +6,7 @@ import {
 import { TrendingDown, Users, MousePointerClick, RefreshCw, Loader2, ChevronDown, Smartphone, Monitor, Tablet, Lightbulb, AlertTriangle, Info } from "lucide-react";
 
 const FUNNEL_COLORS = ["#0ea5e9", "#38bdf8", "#7dd3fc", "#bae6fd", "#e0f2fe", "#f0f9ff"];
-const DROP_COLOR = (pct) => pct > 60 ? "#ef4444" : pct > 30 ? "#f59e0b" : "#22c55e";
+const DROP_COLOR = (pct) => pct > 60 ? "hsl(var(--destructive))" : pct > 30 ? "#f59e0b" : "#22c55e";
 
 export default function FunnelAnalysis() {
   const [properties, setProperties] = useState(null);
@@ -37,8 +37,8 @@ export default function FunnelAnalysis() {
   const topSession = data?.funnel?.[0]?.sessions || 1;
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-20 pb-16">
-      <div className="bg-[#1E2D3D] py-10">
+    <div className="min-h-screen bg-background pt-20 pb-16">
+      <div className="bg-foreground py-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <h1 className="text-2xl md:text-3xl font-bold text-white">Consultation Funnel Analysis</h1>
           <p className="text-slate-400 mt-1 text-sm">Google Analytics — drop-off points in your project consultation flow (last 90 days)</p>
@@ -93,7 +93,7 @@ export default function FunnelAnalysis() {
             {/* Funnel Steps */}
             <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
               <div className="p-5 border-b border-gray-100">
-                <h2 className="font-bold text-[#1E2D3D] flex items-center gap-2">
+                <h2 className="font-bold text-foreground flex items-center gap-2">
                   <TrendingDown className="w-5 h-5 text-sky-500" /> Consultation Funnel Drop-off
                 </h2>
                 <p className="text-xs text-slate-400 mt-0.5">{data.dateRange?.startDate} → {data.dateRange?.endDate}</p>
@@ -106,11 +106,11 @@ export default function FunnelAnalysis() {
                       <div className="flex items-center justify-between mb-1">
                         <div className="flex items-center gap-2">
                           <span className="w-6 h-6 rounded-full bg-sky-100 text-sky-600 text-xs font-bold flex items-center justify-center flex-shrink-0">{i + 1}</span>
-                          <span className="text-sm font-medium text-[#1E2D3D]">{step.label}</span>
+                          <span className="text-sm font-medium text-foreground">{step.label}</span>
                           <span className="text-xs text-slate-400">{step.path !== "submitted" ? step.path : ""}</span>
                         </div>
                         <div className="flex items-center gap-4 text-xs">
-                          <span className="font-semibold text-[#1E2D3D]">{step.sessions.toLocaleString()} sessions</span>
+                          <span className="font-semibold text-foreground">{step.sessions.toLocaleString()} sessions</span>
                           {i > 0 && step.dropOff > 0 && (
                             <span className="font-semibold" style={{ color: DROP_COLOR(step.dropOff) }}>
                               ↓ {step.dropOff}% drop-off
@@ -143,7 +143,7 @@ export default function FunnelAnalysis() {
             {data.events?.length > 0 && (
               <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="p-5 border-b border-gray-100">
-                  <h2 className="font-bold text-[#1E2D3D] flex items-center gap-2">
+                  <h2 className="font-bold text-foreground flex items-center gap-2">
                     <MousePointerClick className="w-5 h-5 text-sky-500" /> Key Conversion Events
                   </h2>
                 </div>
@@ -159,7 +159,7 @@ export default function FunnelAnalysis() {
                     <tbody className="divide-y divide-gray-50">
                       {data.events.sort((a, b) => b.count - a.count).map((ev, i) => (
                         <tr key={i} className="hover:bg-sky-50/30">
-                          <td className="px-5 py-3 font-mono text-xs text-[#1E2D3D]">{ev.event}</td>
+                          <td className="px-5 py-3 font-mono text-xs text-foreground">{ev.event}</td>
                           <td className="px-5 py-3 text-right font-semibold text-sky-600">{ev.count.toLocaleString()}</td>
                           <td className="px-5 py-3 text-right text-slate-500">{ev.users.toLocaleString()}</td>
                         </tr>
@@ -174,7 +174,7 @@ export default function FunnelAnalysis() {
             {data.quotePageStats?.length > 0 && (
               <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="p-5 border-b border-gray-100">
-                  <h2 className="font-bold text-[#1E2D3D] flex items-center gap-2">
+                  <h2 className="font-bold text-foreground flex items-center gap-2">
                     <Users className="w-5 h-5 text-sky-500" /> Quote Assistant Page Stats
                   </h2>
                 </div>
@@ -192,7 +192,7 @@ export default function FunnelAnalysis() {
                     <tbody className="divide-y divide-gray-50">
                       {data.quotePageStats.map((row, i) => (
                         <tr key={i} className="hover:bg-sky-50/30">
-                          <td className="px-5 py-3 font-medium text-[#1E2D3D]">{row.path}</td>
+                          <td className="px-5 py-3 font-medium text-foreground">{row.path}</td>
                           <td className="px-5 py-3 text-right text-slate-500">{row.views.toLocaleString()}</td>
                           <td className="px-5 py-3 text-right font-semibold text-sky-600">{row.sessions.toLocaleString()}</td>
                           <td className="px-5 py-3 text-right" style={{ color: DROP_COLOR(row.bounceRate * 100) }}>
@@ -213,7 +213,7 @@ export default function FunnelAnalysis() {
             {data.devices?.length > 0 && (
               <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="p-5 border-b border-gray-100">
-                  <h2 className="font-bold text-[#1E2D3D] flex items-center gap-2">
+                  <h2 className="font-bold text-foreground flex items-center gap-2">
                     <Smartphone className="w-5 h-5 text-sky-500" /> Device Breakdown
                   </h2>
                 </div>
@@ -225,7 +225,7 @@ export default function FunnelAnalysis() {
                     return (
                       <div key={i} className="bg-slate-50 rounded-xl p-4 text-center">
                         <Icon className="w-6 h-6 text-sky-500 mx-auto mb-2" />
-                        <p className="text-sm font-semibold text-[#1E2D3D] capitalize">{d.device}</p>
+                        <p className="text-sm font-semibold text-foreground capitalize">{d.device}</p>
                         <p className="text-2xl font-bold text-sky-600 mt-1">{pct}%</p>
                         <p className="text-xs text-slate-400 mt-0.5">{d.sessions.toLocaleString()} sessions</p>
                         <p className="text-xs mt-1" style={{ color: DROP_COLOR(d.bounceRate * 100) }}>
@@ -242,7 +242,7 @@ export default function FunnelAnalysis() {
             {data.topLandingPages?.length > 0 && (
               <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="p-5 border-b border-gray-100">
-                  <h2 className="font-bold text-[#1E2D3D] flex items-center gap-2">
+                  <h2 className="font-bold text-foreground flex items-center gap-2">
                     <TrendingDown className="w-5 h-5 text-sky-500" /> Top Landing Pages
                   </h2>
                 </div>
@@ -259,7 +259,7 @@ export default function FunnelAnalysis() {
                     <tbody className="divide-y divide-gray-50">
                       {data.topLandingPages.map((row, i) => (
                         <tr key={i} className="hover:bg-sky-50/30">
-                          <td className="px-5 py-3 font-medium text-[#1E2D3D] font-mono text-xs">{row.page}</td>
+                          <td className="px-5 py-3 font-medium text-foreground font-mono text-xs">{row.page}</td>
                           <td className="px-5 py-3 text-right font-semibold text-sky-600">{row.sessions.toLocaleString()}</td>
                           <td className="px-5 py-3 text-right" style={{ color: DROP_COLOR(row.bounceRate * 100) }}>
                             {(row.bounceRate * 100).toFixed(1)}%
@@ -277,7 +277,7 @@ export default function FunnelAnalysis() {
             {data.aiInsights && (
               <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="p-5 border-b border-gray-100">
-                  <h2 className="font-bold text-[#1E2D3D] flex items-center gap-2">
+                  <h2 className="font-bold text-foreground flex items-center gap-2">
                     <Lightbulb className="w-5 h-5 text-amber-500" /> AI Recommendations
                   </h2>
                 </div>
@@ -295,7 +295,7 @@ export default function FunnelAnalysis() {
                           <div className="flex items-start gap-2">
                             <Icon className={`w-4 h-4 mt-0.5 flex-shrink-0 ${iconColor}`} />
                             <div>
-                              <p className="text-sm font-semibold text-[#1E2D3D]">{ins.title}</p>
+                              <p className="text-sm font-semibold text-foreground">{ins.title}</p>
                               <p className="text-sm text-slate-600 mt-1">{ins.detail}</p>
                             </div>
                             <span className={`ml-auto text-xs font-medium uppercase px-2 py-0.5 rounded-full flex-shrink-0 ${ins.priority === "high" ? "bg-red-100 text-red-600" : ins.priority === "medium" ? "bg-amber-100 text-amber-600" : "bg-green-100 text-green-600"}`}>
