@@ -24,6 +24,13 @@ export default function VisitorChatWidget() {
     if (open) setUnread(0);
   }, [open]);
 
+  // Allow other components (e.g. Contact page "Live Chat" button) to open the widget
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-chat-widget", handler);
+    return () => window.removeEventListener("open-chat-widget", handler);
+  }, []);
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
