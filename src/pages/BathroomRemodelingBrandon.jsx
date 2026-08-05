@@ -78,7 +78,7 @@ const trackCall = () => {
 export default function BathroomRemodelingBrandon() {
   const { hero: heroImage } = usePageImages("BathroomRemodelingBrandon");
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
+    <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Bathroom Remodeling Brandon, MS | Bradley Brown Inc"
         description="Brandon, MS bathroom remodeling. Walk-in showers, tub-to-shower conversions, tile & vanities. Licensed & insured since 1995. Call (844) 351-4154."
@@ -94,9 +94,9 @@ export default function BathroomRemodelingBrandon() {
       </div>
 
       {/* HERO */}
-      <section className="relative bg-[#1E2D3D] overflow-hidden">
+      <section className="relative bg-foreground overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80"}')` }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1E2D3D]/80 via-[#1E2D3D]/70 to-[#1E2D3D]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/80 via-foreground/70 to-foreground" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-24 text-center">
           <p className="inline-flex items-center gap-1.5 bg-sky-400/20 border border-sky-400/40 text-sky-200 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
             <MapPin className="w-3.5 h-3.5" /> Brandon, MS &amp; Rankin County
@@ -114,7 +114,7 @@ export default function BathroomRemodelingBrandon() {
             <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl">
               <Phone className="w-5 h-5" /> Call {PHONE}
             </a>
-            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-primary hover:bg-accent text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
           </div>
@@ -140,7 +140,7 @@ export default function BathroomRemodelingBrandon() {
                 <Icon className="w-5 h-5 text-sky-500" />
               </div>
               <div>
-                <p className="font-bold text-[#1E2D3D] text-sm">{title}</p>
+                <p className="font-bold text-foreground text-sm">{title}</p>
                 <p className="text-slate-500 text-xs leading-snug">{desc}</p>
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function BathroomRemodelingBrandon() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
         <div className="text-center mb-8">
           <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">Recent Bathroom Remodels</p>
-          <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">Real Bath Renovations in Central Mississippi</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">Real Bath Renovations in Central Mississippi</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {projects.map((p) => (
@@ -161,7 +161,7 @@ export default function BathroomRemodelingBrandon() {
                 <img src={p.img} alt={p.label} className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="p-4">
-                <p className="text-sm font-bold text-[#1E2D3D]">{p.label}</p>
+                <p className="text-sm font-bold text-foreground">{p.label}</p>
                 <p className="text-xs text-slate-500 mt-1">{p.desc}</p>
               </div>
             </div>
@@ -172,7 +172,7 @@ export default function BathroomRemodelingBrandon() {
       {/* BODY COPY */}
       <section className="bg-slate-50 border-y border-gray-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-14 prose prose-slate">
-          <h2 className="text-2xl font-bold text-[#1E2D3D]">Your Brandon, MS Bath Remodeler</h2>
+          <h2 className="text-2xl font-bold text-foreground">Your Brandon, MS Bath Remodeler</h2>
           <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the bathroom remodeler Brandon, MS homeowners call when they want it done right. We've remodeled 200+ bathrooms across Rankin and Madison County — from compact guest baths to sprawling master suites.</p>
           <p className="text-slate-600 leading-relaxed">Every bathroom remodel includes proper waterproofing (pan, membrane, and slope), licensed plumbing and electrical work, and permits pulled and inspected. We handle tile selection, vanity and fixture sourcing, and the final punch list — one contractor, no finger-pointing.</p>
           <p className="text-slate-600 leading-relaxed">Whether you're converting a tub to a walk-in shower, updating a master bath with floor-to-ceiling tile, or renovating a small guest bathroom, we bring the same craftsmanship and project management that built our reputation across Central Mississippi. Call <a href={PHONE_HREF} onClick={trackCall} className="text-sky-600 font-semibold">{PHONE}</a> to schedule your free in-home consultation.</p>
@@ -183,7 +183,7 @@ export default function BathroomRemodelingBrandon() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
         <div className="text-center mb-10">
           <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">Our Process</p>
-          <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">From Old Bath to Beautiful</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">From Old Bath to Beautiful</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
@@ -192,8 +192,8 @@ export default function BathroomRemodelingBrandon() {
             { n: "3", title: "Build &amp; Enjoy", desc: "Demo, waterproofing, plumbing, tile, fixtures, and final punch list — managed by one project manager. Typical timeline: 2–4 weeks." },
           ].map((s) => (
             <div key={s.n} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-[#C4922A] text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
-              <h3 className="font-bold text-[#1E2D3D] text-lg" dangerouslySetInnerHTML={{ __html: s.title }} />
+              <div className="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
+              <h3 className="font-bold text-foreground text-lg" dangerouslySetInnerHTML={{ __html: s.title }} />
               <p className="text-slate-500 text-sm mt-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: s.desc }} />
             </div>
           ))}
@@ -201,7 +201,7 @@ export default function BathroomRemodelingBrandon() {
       </section>
 
       {/* PRICING */}
-      <section className="bg-[#1E2D3D] py-14">
+      <section className="bg-foreground py-14">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-2">Bathroom Remodel Pricing</h2>
           <p className="text-slate-300 text-center text-sm mb-8">Typical Brandon, MS ranges — your estimate is always free and in writing.</p>
@@ -212,7 +212,7 @@ export default function BathroomRemodelingBrandon() {
               { label: "Luxury Master Suite with Custom Tile", range: "$30,000+" },
             ].map((row, i) => (
               <div key={row.label} className={`flex justify-between items-center p-5 ${i < 2 ? "border-b border-gray-100" : ""}`}>
-                <span className="text-sm md:text-base text-[#1E2D3D] font-semibold">{row.label}</span>
+                <span className="text-sm md:text-base text-foreground font-semibold">{row.label}</span>
                 <span className="text-sky-600 font-black text-sm md:text-lg">{row.range}</span>
               </div>
             ))}
@@ -226,7 +226,7 @@ export default function BathroomRemodelingBrandon() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
           <div className="text-center mb-8">
             <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">What Our Clients Say</p>
-            <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">From Mississippi Homeowners</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground">From Mississippi Homeowners</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
@@ -239,7 +239,7 @@ export default function BathroomRemodelingBrandon() {
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
                 </div>
                 <p className="text-slate-600 text-sm italic leading-relaxed" dangerouslySetInnerHTML={{ __html: `"${t.quote}"` }} />
-                <p className="text-xs font-bold text-[#1E2D3D] mt-3" dangerouslySetInnerHTML={{ __html: `— ${t.name}, ${t.loc}` }} />
+                <p className="text-xs font-bold text-foreground mt-3" dangerouslySetInnerHTML={{ __html: `— ${t.name}, ${t.loc}` }} />
               </div>
             ))}
           </div>
@@ -250,13 +250,13 @@ export default function BathroomRemodelingBrandon() {
       <section className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
         <div className="text-center mb-8">
           <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">Questions</p>
-          <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">Bathroom Remodeling FAQs</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">Bathroom Remodeling FAQs</h2>
         </div>
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-2 md:p-4">
           <LandingFAQ faqs={faqs} />
         </div>
         <div className="mt-8 bg-slate-50 border border-gray-200 rounded-xl p-5">
-          <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Pages</h3>
+          <h3 className="font-bold text-foreground text-sm mb-3">Related Pages</h3>
           <div className="flex flex-wrap gap-2">
             <Link to={"/protips/small-bathroom-ideas"} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
               <ChevronRight className="w-3 h-3" /> Small Bathroom Remodeling Ideas
@@ -278,7 +278,7 @@ export default function BathroomRemodelingBrandon() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-gradient-to-br from-[#C4922A] to-[#A37820] py-16">
+      <section className="bg-gradient-to-br from-primary to-accent py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
             Ready to Remodel Your Bathroom?
@@ -287,10 +287,10 @@ export default function BathroomRemodelingBrandon() {
             Free estimates. Fixed written prices. Built by a contractor your neighbors already trust.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-white text-[#1E2D3D] px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl hover:bg-slate-100 transition-colors">
+            <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-white text-foreground px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl hover:bg-slate-100 transition-colors">
               <Phone className="w-5 h-5" /> Call {PHONE}
             </a>
-            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-[#1E2D3D] hover:bg-black text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-foreground hover:bg-black text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
           </div>
