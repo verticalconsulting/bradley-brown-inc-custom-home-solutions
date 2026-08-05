@@ -96,7 +96,7 @@ export default function FeaturedProjects() {
         <div className="text-center mt-10">
           <Link
             to="/portfolio"
-            className="inline-flex items-center gap-2 bg-foreground hover:opacity-90 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center gap-2 bg-foreground hover:opacity-90 text-white px-8 py-4 min-h-[48px] rounded-lg font-semibold transition-colors"
           >
             View All Projects <ChevronRight className="w-4 h-4" />
           </Link>

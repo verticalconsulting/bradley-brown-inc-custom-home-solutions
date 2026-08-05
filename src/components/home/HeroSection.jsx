@@ -81,10 +81,10 @@ export default function HeroSection() {
         <div className="flex flex-col gap-3 sm:hidden w-full max-w-xs mx-auto">
           <Link
             to="/estimate"
-            className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-primary">
+            className="text-white px-6 py-5 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-primary">
             <Sparkles className="w-5 h-5" /> Get My Free Estimate
           </Link>
-          <a href="tel:+18443514154" className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-primary">Call (844) 351-4154
+          <a href="tel:+18443514154" className="text-white px-6 py-5 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-primary">Call (844) 351-4154
           </a>
         </div>
 

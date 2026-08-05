@@ -95,7 +95,7 @@ export default function ServicesPreview() {
         <div className="text-center mt-10">
           <Link
             to={createPageUrl("Services")}
-            className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all px-6 py-3 min-h-[48px] rounded-lg border-2 border-primary hover:bg-primary hover:text-white"
           >
             View All Services <ChevronRight className="w-4 h-4" />
           </Link>
