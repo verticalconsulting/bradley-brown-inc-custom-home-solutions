@@ -87,7 +87,7 @@ export default function ServicePageLayout({
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">{h1}</h1>
           {subtitle && <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">{subtitle}</p>}
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg bg-[hsl(var(--foreground))]">Get My Free Estimate
+            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg bg-[hsl(var(--sidebar-border))]">Get My Free Estimate
 
             </Link>
             <a href={callHref} onClick={trackCall} className="inline-flex items-center justify-center gap-2 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-base transition-colors bg-[hsl(var(--ring))]">
