@@ -15,12 +15,31 @@ import {
 
 const iconMap = {
   "custom-home-building": CustomHomeIcon,
+  "custom-homes": CustomHomeIcon,
   "kitchen-remodeling": KitchenIcon,
   "bathroom-remodeling": BathroomIcon,
   "room-additions": RoomAdditionIcon,
+  "additions": RoomAdditionIcon,
   "outdoor-living": OutdoorLivingIcon,
   barndominiums: BarndominiumIcon,
   renovations: HomeRenovationIcon,
+};
+
+// Maps the Service entity `slug` values (from the database) to the
+// actual route paths defined in App.jsx.  DB slugs don't always match
+// the route segment (e.g. slug "custom-homes" → /services/custom-home-building).
+const slugToRoute = {
+  "custom-homes": "/services/custom-home-building",
+  "custom-home-building": "/services/custom-home-building",
+  "kitchen-remodeling": "/services/kitchen-remodeling",
+  "bathroom-remodeling": "/services/bathroom-remodeling",
+  "additions": "/services/room-additions",
+  "room-additions": "/services/room-additions",
+  "outdoor-living": "/services/outdoor-living",
+  "barndominiums": "/services/barndominiums",
+  "emergency-repairs": "/services/emergency-repairs",
+  // "renovations" has no dedicated service page — link to the Services hub.
+  "renovations": "/services",
 };
 
 const defaultServices = [
@@ -55,7 +74,7 @@ export default function ServicesPreview() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {display.map((service, i) => {
             const Icon = iconMap[service.icon] || iconMap[service.slug] || HomeRenovationIcon;
-            const link = service.link || (service.slug ? `/services/${service.slug}` : null);
+            const link = service.link || (service.slug ? (slugToRoute[service.slug] || `/services/${service.slug}`) : null);
             const card = (
               <div key={i} className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer h-full">
                 <div className="w-14 h-14 bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl flex items-center justify-center mb-4 group-hover:from-[#1E2D3D] group-hover:to-[#2a3f54] transition-all duration-300">
