@@ -74,7 +74,7 @@ export default function CustomHomeBuilding() {
         location: "Brandon, MS",
       }]}
       images={[
-        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/4f5d5272-9876-4979-760d-78b67d9aa600/large", alt: "Custom home built by Bradley Brown Inc. in Brandon, MS", caption: "Custom home — Brandon, MS" },
+        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/4f5d5272-9876-4979-760d-78b67d9aa600/medium", alt: "Custom home built by Bradley Brown Inc. in Brandon, MS", caption: "Custom home — Brandon, MS" },
         { url: "https://images.unsplash.com/photo-1564013799989-ab1140d7376f?w=800&q=80", alt: "Newly constructed custom home exterior in Mississippi", caption: "Quality craftsmanship from foundation to roofline" },
       ]}
       relatedLinks={[

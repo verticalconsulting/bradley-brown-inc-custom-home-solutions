@@ -54,13 +54,13 @@ const ideas = [
   {
     title: "1. Go Full Walk-In Shower (No Tub)",
     body: "Eliminating the bathtub is the single best square-footage move in a small bathroom. A curbless, walk-in shower with large-format tile and a frameless glass panel makes the space feel 2x bigger. If it's not your only bathroom, remove the tub. We see this upgrade regularly in Brandon and Flowood homes and homeowners never look back.",
-    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/249ced48-7f89-419a-f51d-80cfdcff5c00/large",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/249ced48-7f89-419a-f51d-80cfdcff5c00/medium",
     alt: "Walk-in shower in a small bathroom remodel by Bradley Brown Inc., Brandon MS"
   },
   {
     title: "2. Use Large-Format Tile — 24×24 or Larger",
     body: "Small tile = more grout lines = smaller-looking room. Large-format porcelain tile (24×24 or even 12×24 laid horizontally) reduces visual noise and tricks the eye into perceiving more space. Use the same tile on the floor and into the shower for a seamless, spa-like feel. We source tiles at wholesale pricing for our clients.",
-    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d7c80483-87a5-4d63-9866-0029bb6d1300/large",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d7c80483-87a5-4d63-9866-0029bb6d1300/medium",
     alt: "Large format tile bathroom renovation in the Brandon and Rankin County area"
   },
   {
@@ -84,7 +84,7 @@ const ideas = [
   {
     title: "6. Recessed Niches Instead of Shower Shelves",
     body: "Stick-out shower shelves or caddies eat into your standing space. A recessed niche (cut between studs during construction) gives you all the storage with zero intrusion into the shower footprint. We build these into every shower we tile — they're inexpensive to add during a remodel and look incredibly polished.",
-    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b859f7f3-7950-4d17-e5cb-a2936ba53b00/large",
+    img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b859f7f3-7950-4d17-e5cb-a2936ba53b00/medium",
     alt: "Recessed shower niche built by Bradley Brown Inc."
   },
 ];

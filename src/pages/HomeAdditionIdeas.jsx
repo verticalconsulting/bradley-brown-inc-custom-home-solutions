@@ -19,7 +19,7 @@ const additions = [
     description: "Extend your living space without going fully outdoors. A sunroom or enclosed porch is perfect for Mississippi's climate — enjoy natural light year-round.",
     roi: "~50–60% ROI",
     cost: "$30,000 – $75,000",
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6b77e336-c0ca-4f44-dfbc-a6f1c49a0f00/large",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6b77e336-c0ca-4f44-dfbc-a6f1c49a0f00/medium",
     features: ["Natural light & views", "Climate controlled", "Multi-season use", "Great for entertaining"]
   },
   {
@@ -27,7 +27,7 @@ const additions = [
     description: "A separate living space for aging parents, adult children, or rental income. Increasingly popular across Brandon and the Rankin County area.",
     roi: "~55–65% ROI",
     cost: "$60,000 – $120,000",
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6f8892dc-7461-4dcd-0e38-0d5c41580d00/large",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6f8892dc-7461-4dcd-0e38-0d5c41580d00/small",
     features: ["Private entrance", "Full kitchen & bath", "Rental income potential", "Multi-generational living"]
   },
   {
@@ -35,7 +35,7 @@ const additions = [
     description: "Open up your main living area for modern open-concept living. Knock down walls and expand your family room to transform how you live and entertain.",
     roi: "~50–55% ROI",
     cost: "$40,000 – $90,000",
-    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/ed62ffc6-b48e-4c79-2b3a-0cc96426b300/large",
+    image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/ed62ffc6-b48e-4c79-2b3a-0cc96426b300/medium",
     features: ["Open-concept design", "Custom built-ins", "New flooring & lighting", "Expanded kitchen access"]
   },
   {

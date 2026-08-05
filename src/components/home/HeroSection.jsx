@@ -10,7 +10,7 @@ const slides = [
   highlight: "Dream Home Kitchen"
 },
 {
-  image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb",
+  image: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/thumbnail",
   headline: "Man Caves &",
   highlight: "Barndominiums"
 }];

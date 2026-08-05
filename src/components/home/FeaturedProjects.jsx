@@ -10,7 +10,7 @@ const placeholderProjects = [
     location: "Brandon, MS",
     square_footage: 500,
     short_description: "Dedicated home office addition, separate HVAC zoning, custom built-in shelving, siding matched to original 1990s construction.",
-    images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6c9b1767-038f-4dfc-fcc3-a97c611b7700/heromobile"]
+    images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6c9b1767-038f-4dfc-fcc3-a97c611b7700/medium"]
   },
   {
     title: "Barndominium Custom Office & Shop",
@@ -18,7 +18,7 @@ const placeholderProjects = [
     location: "Brandon, MS",
     square_footage: 3200,
     short_description: "Climate-controlled workshop + finished office suite, post-frame construction, spray foam insulation, polished concrete shop floors, built to client's custom drawings.",
-    images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"]
+    images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/medium"]
   },
   {
     title: "County Custom Built",
@@ -26,7 +26,7 @@ const placeholderProjects = [
     location: "Canton, MS",
     square_footage: 3200,
     short_description: "Fully custom new construction; finishes selected through the AI Finish Package Studio before groundbreak.",
-    images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large"]
+    images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/medium"]
   },
 ];
 
@@ -63,7 +63,7 @@ export default function FeaturedProjects() {
             <div key={i} className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
               <div className="relative h-56 md:h-64 overflow-hidden">
                 <img
-                  src={project.images?.[0] || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"}
+                  src={project.images?.[0] || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/medium"}
                   alt={buildAltText(project)}
                   width="400"
                   height="256"

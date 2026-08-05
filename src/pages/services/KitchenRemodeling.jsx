@@ -81,8 +81,8 @@ export default function KitchenRemodeling() {
         location: "Flowood, MS",
       }]}
       images={[
-        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/large", alt: "Kitchen remodel by Bradley Brown Inc. in Brandon, MS", caption: "Custom kitchen with island — Flowood, MS" },
-        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large", alt: "Custom home kitchen by Bradley Brown Inc. — Canton, MS", caption: "Gourmet kitchen with premium finishes — Canton, MS" },
+        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/medium", alt: "Kitchen remodel by Bradley Brown Inc. in Brandon, MS", caption: "Custom kitchen with island — Flowood, MS" },
+        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/medium", alt: "Custom home kitchen by Bradley Brown Inc. — Canton, MS", caption: "Gourmet kitchen with premium finishes — Canton, MS" },
       ]}
       relatedLinks={[
         { to: "/protips/energy-efficient-upgrades", label: "Energy-Efficient Kitchen Upgrades" },

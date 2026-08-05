@@ -81,8 +81,8 @@ export default function BathroomRemodeling() {
         location: "Brandon, MS",
       }]}
       images={[
-        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/249ced48-7f89-419a-f51d-80cfdcff5c00/large", alt: "Walk-in shower conversion by Bradley Brown Inc. in Brandon, MS", caption: "Tub-to-shower conversion with frameless glass — Brandon, MS" },
-        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d7c80483-87a5-4d63-9866-0029bb6d1300/large", alt: "Master bath renovation by Bradley Brown Inc. — Flowood, MS", caption: "Large-format tile master bath — Flowood, MS" },
+        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/249ced48-7f89-419a-f51d-80cfdcff5c00/medium", alt: "Walk-in shower conversion by Bradley Brown Inc. in Brandon, MS", caption: "Tub-to-shower conversion with frameless glass — Brandon, MS" },
+        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d7c80483-87a5-4d63-9866-0029bb6d1300/medium", alt: "Master bath renovation by Bradley Brown Inc. — Flowood, MS", caption: "Large-format tile master bath — Flowood, MS" },
       ]}
       relatedLinks={[
         { to: "/protips/small-bathroom-ideas", label: "Small Bathroom Remodeling Ideas" },

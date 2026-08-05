@@ -32,7 +32,7 @@ export default function About() {
       />
 
       <div className="relative bg-foreground py-14 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage?.url || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/e3722807-d747-4fda-799f-53bebe6adb00/large"}')` }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage?.url || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/e3722807-d747-4fda-799f-53bebe6adb00/medium"}')` }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Story</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Building Mississippi,<br />One Home at a Time</h1>
@@ -43,7 +43,7 @@ export default function About() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
-            <img src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/large" alt="Bradley Brown and wife" className="rounded-xl shadow-lg w-full h-80 object-cover" />
+            <img src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/medium" alt="Bradley Brown and wife" className="rounded-xl shadow-lg w-full h-80 object-cover" />
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">A Builder You Can Trust</h2>

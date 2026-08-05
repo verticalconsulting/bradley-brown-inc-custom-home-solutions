@@ -63,8 +63,8 @@ const faqs = [
 ];
 
 const projects = [
-  { img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/249ced48-7f89-419a-f51d-80cfdcff5c00/large", label: "Walk-In Shower Conversion", desc: "Tub removed, curbless walk-in shower with frameless glass and large-format tile — Brandon, MS." },
-  { img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d7c80483-87a5-4d63-9866-0029bb6d1300/large", label: "Large-Format Tile Master Bath", desc: "Floor-to-ceiling porcelain tile, wall-mounted vanity, and recessed niche — Flowood, MS." },
+  { img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/249ced48-7f89-419a-f51d-80cfdcff5c00/medium", label: "Walk-In Shower Conversion", desc: "Tub removed, curbless walk-in shower with frameless glass and large-format tile — Brandon, MS." },
+  { img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d7c80483-87a5-4d63-9866-0029bb6d1300/medium", label: "Large-Format Tile Master Bath", desc: "Floor-to-ceiling porcelain tile, wall-mounted vanity, and recessed niche — Flowood, MS." },
   { img: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/2bca08e7-738b-4377-7c65-ab5eaf8ae300/herobanner", label: "Modern Vanity & Storage", desc: "Floating vanity, backlit mirror, and custom shelving — maximizing a small bath in Rankin County." },
 ];
 

@@ -73,7 +73,7 @@ export default function KitchenBathroomRemodeling() {
         location: "Flowood, MS",
       }]}
       images={[
-        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/large", alt: "Kitchen remodel by Bradley Brown Inc. in Brandon, MS", caption: "Kitchen remodel — Flowood, MS" },
+        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/medium", alt: "Kitchen remodel by Bradley Brown Inc. in Brandon, MS", caption: "Kitchen remodel — Flowood, MS" },
         { url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80", alt: "Modern bathroom renovation in Mississippi", caption: "Master bath renovation with custom tile" },
       ]}
       relatedLinks={[

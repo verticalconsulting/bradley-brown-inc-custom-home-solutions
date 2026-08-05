@@ -74,7 +74,7 @@ export default function OutdoorLiving() {
         location: "Pearl, MS",
       }]}
       images={[
-        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/bbd98a0f-473a-4754-b6fd-2724101d1500/large", alt: "Outdoor living space with covered patio by Bradley Brown Inc.", caption: "Covered patio with outdoor kitchen — Pearl, MS" },
+        { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/bbd98a0f-473a-4754-b6fd-2724101d1500/medium", alt: "Outdoor living space with covered patio by Bradley Brown Inc.", caption: "Covered patio with outdoor kitchen — Pearl, MS" },
       ]}
       relatedLinks={[
         { to: "/protips/home-addition-ideas", label: "Home Addition Ideas & ROI Guide" },
