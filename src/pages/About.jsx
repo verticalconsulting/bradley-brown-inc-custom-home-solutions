@@ -23,7 +23,7 @@ const team = [
 export default function About() {
   const { hero: heroImage } = usePageImages("About");
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-20">
+    <div className="min-h-screen bg-background pt-20">
       <SEOHead
         title="About Bradley Brown Inc. — Mississippi Builder Since 1995"
         description="Central Mississippi's trusted home builder since 1995. 500+ homes built, 4.9-star rated, BBB accredited. Meet the team behind Bradley Brown Inc. Free estimates."
@@ -31,7 +31,7 @@ export default function About() {
         canonical="https://bradleybrowninc.com/about"
       />
 
-      <div className="relative bg-[#1E2D3D] py-14 md:py-24 overflow-hidden">
+      <div className="relative bg-foreground py-14 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage?.url || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/e3722807-d747-4fda-799f-53bebe6adb00/large"}')` }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Story</p>
@@ -46,7 +46,7 @@ export default function About() {
             <img src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/large" alt="Bradley Brown and wife" className="rounded-xl shadow-lg w-full h-80 object-cover" />
           </div>
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D] mb-5">A Builder You Can Trust</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">A Builder You Can Trust</h2>
             <p className="text-slate-500 leading-relaxed mb-4">Bradley Brown started this company in 1995 with a handshake, a solid crew, and a commitment to doing things right. What began as a small residential renovation company in Jackson has grown into one of the most respected custom home builders in Central Mississippi.</p>
             <p className="text-slate-500 leading-relaxed mb-4">Over three decades, we've built more than 500 homes across Rankin, Hinds, and Madison counties — from modest renovations to million-dollar custom estates.</p>
             <p className="text-slate-500 leading-relaxed">We're a family business, and we treat your family like our own. That means clear communication, fair pricing, and work that stands the test of time.</p>
@@ -54,17 +54,17 @@ export default function About() {
         </div>
       </div>
 
-      <div className="bg-[#1E2D3D]/5 py-14 md:py-20">
+      <div className="bg-foreground/5 py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <p className="text-sky-500 font-semibold text-sm uppercase tracking-wider mb-2">What Drives Us</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D]">Our Core Values</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">Our Core Values</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map(({ icon: Icon, title, description }) => (
               <div key={title} className="bg-white p-6 rounded-xl border border-gray-100 text-center hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-sky-50 rounded-full flex items-center justify-center mx-auto mb-4"><Icon className="w-6 h-6 text-sky-500" /></div>
-                <h3 className="font-bold text-[#1E2D3D] mb-2">{title}</h3>
+                <h3 className="font-bold text-foreground mb-2">{title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{description}</p>
               </div>
             ))}
@@ -75,13 +75,13 @@ export default function About() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-20">
         <div className="text-center mb-12">
           <p className="text-sky-500 font-semibold text-sm uppercase tracking-wider mb-2">Meet the Team</p>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D]">The People Behind Your Home</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">The People Behind Your Home</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
           {team.map(member => (
             <div key={member.name} className="text-center">
               <img src={member.image} alt={member.name} className="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-sky-400/20" />
-              <h3 className="font-bold text-[#1E2D3D]">{member.name}</h3>
+              <h3 className="font-bold text-foreground">{member.name}</h3>
               <p className="text-sky-500 text-sm font-medium mb-2">{member.title}</p>
               <p className="text-slate-500 text-sm leading-relaxed">{member.bio}</p>
             </div>
@@ -99,7 +99,7 @@ export default function About() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-10">
         <div className="bg-slate-50 border border-gray-200 rounded-xl p-5">
-          <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h3>
+          <h3 className="font-bold text-foreground text-sm mb-3">Explore More</h3>
           <div className="flex flex-wrap gap-2">
             {[
               { label: "Our Services", to: "/services" },
