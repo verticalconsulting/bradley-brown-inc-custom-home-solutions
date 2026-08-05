@@ -93,7 +93,7 @@ export default function SmallBathroomIdeas() {
   const handleCall = () => base44.analytics.track({ eventName: "phone_click", properties: { source: "small_bathroom_page" } });
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
+    <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Small Bathroom Remodeling Ideas — Brandon, MS | Bradley Brown Inc"
         description="6 practical small bathroom remodeling ideas from the Brandon and Rankin County area's trusted contractor. Walk-in showers, large-format tile & more. Call (844) 351-4154."
@@ -102,7 +102,7 @@ export default function SmallBathroomIdeas() {
       />
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-12 md:py-18">
+      <div className="bg-foreground py-12 md:py-18">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2">Pro Tips · Bathroom Remodeling</p>
           <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight">
@@ -135,7 +135,7 @@ export default function SmallBathroomIdeas() {
             <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
               <img src={idea.img} alt={idea.alt} loading="lazy" className="w-full h-52 object-cover" width="600" height="400" />
               <div className="p-6">
-                <h2 className="text-lg font-bold text-[#1E2D3D] mb-2">{idea.title}</h2>
+                <h2 className="text-lg font-bold text-foreground mb-2">{idea.title}</h2>
                 <p className="text-slate-600 text-sm leading-relaxed">{idea.body}</p>
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function SmallBathroomIdeas() {
 
         {/* Mid-page CTA */}
         <div className="bg-sky-50 border border-sky-200 rounded-2xl p-6 text-center">
-          <p className="font-bold text-[#1E2D3D] mb-2">Ready to remodel your bathroom in Brandon, MS?</p>
+          <p className="font-bold text-foreground mb-2">Ready to remodel your bathroom in Brandon, MS?</p>
           <p className="text-slate-500 text-sm mb-4">Call us for a free, no-obligation estimate. We serve Brandon, Flowood, Pearl, Madison, Ridgeland, and the Rankin County area.</p>
           <a href="tel:+18443514154" onClick={handleCall} className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors">
             <Phone className="w-4 h-4" /> (844) 351-4154
@@ -153,7 +153,7 @@ export default function SmallBathroomIdeas() {
 
         {/* Checklist */}
         <div>
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">Quick Checklist: Before You Start</h2>
+          <h2 className="text-xl font-bold text-foreground mb-4">Quick Checklist: Before You Start</h2>
           <div className="space-y-2">
             {[
               "Set a realistic budget (small bath remodels: $8K–$20K in the Brandon/Rankin County area)",
@@ -173,13 +173,13 @@ export default function SmallBathroomIdeas() {
 
         {/* FAQ */}
         <div>
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions</h2>
           <LandingFAQ faqs={faqs} />
         </div>
 
         {/* Internal links */}
         <div className="bg-slate-50 border border-gray-200 rounded-xl p-5">
-          <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Services & Pages</h3>
+          <h3 className="font-bold text-foreground text-sm mb-3">Related Services & Pages</h3>
           <div className="flex flex-wrap gap-2">
             {[
               { label: "All Remodeling Services", page: "Services" },
