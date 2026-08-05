@@ -153,7 +153,7 @@ export default function LandingBrandonCustomHomeBuilder() {
   const { hero: heroImage } = usePageImages("LandingBrandonCustomHomeBuilder");
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
+    <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Custom Home Builder in Brandon, MS | Bradley Brown Inc."
         description="Custom home builder in Brandon, MS & Rankin County since 1995. New construction, luxury homes & design-build. Licensed & insured. Call (844) 351-4154."
@@ -170,7 +170,7 @@ export default function LandingBrandonCustomHomeBuilder() {
       </div>
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+      <div className="bg-foreground py-14 md:py-20 relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-15"
           style={{
@@ -210,7 +210,7 @@ export default function LandingBrandonCustomHomeBuilder() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-14">
         {/* Services */}
         <div>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Custom Home Building Services in Brandon</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Custom Home Building Services in Brandon</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {services.map((s) => (
               <div key={s} className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
@@ -223,7 +223,7 @@ export default function LandingBrandonCustomHomeBuilder() {
 
         {/* Brandon, MS Custom Home Construction */}
         <div className="prose prose-slate max-w-none">
-          <h2 className="text-2xl font-bold text-[#1E2D3D]">Brandon, MS Custom Home Construction</h2>
+          <h2 className="text-2xl font-bold text-foreground">Brandon, MS Custom Home Construction</h2>
           <p className="text-slate-600 leading-relaxed">
             Building a custom home in Brandon takes the right planning, craftsmanship, and local experience. Bradley
             Brown Inc. helps homeowners turn ideas into finished homes with a process built around quality,
@@ -240,7 +240,7 @@ export default function LandingBrandonCustomHomeBuilder() {
 
         {/* New Construction Homes in Brandon, MS */}
         <div className="prose prose-slate max-w-none">
-          <h2 className="text-2xl font-bold text-[#1E2D3D]">New Construction Homes in Brandon, MS</h2>
+          <h2 className="text-2xl font-bold text-foreground">New Construction Homes in Brandon, MS</h2>
           <p className="text-slate-600 leading-relaxed">
             If you are planning a new construction home in Brandon, Bradley Brown Inc. can help with the full residential
             building process — from early planning and budgeting to construction management and final project completion.
@@ -249,7 +249,7 @@ export default function LandingBrandonCustomHomeBuilder() {
 
         {/* Residential General Contractor in Brandon and Rankin County */}
         <div className="prose prose-slate max-w-none">
-          <h2 className="text-2xl font-bold text-[#1E2D3D]">Residential General Contractor in Brandon and Rankin County</h2>
+          <h2 className="text-2xl font-bold text-foreground">Residential General Contractor in Brandon and Rankin County</h2>
           <p className="text-slate-600 leading-relaxed">
             Homeowners choose Bradley Brown Inc. when they need an experienced general contractor in Brandon, MS who
             understands custom homes, remodeling, additions, and residential construction in Central Mississippi.
@@ -258,7 +258,7 @@ export default function LandingBrandonCustomHomeBuilder() {
 
         {/* Areas We Serve */}
         <div>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">Areas We Serve</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">Areas We Serve</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {cities.map((city) => (
               <div
@@ -273,7 +273,7 @@ export default function LandingBrandonCustomHomeBuilder() {
 
         {/* Cross-link to remodeling */}
         <div className="bg-white border border-sky-100 rounded-2xl p-6 md:p-8 shadow-sm">
-          <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-3">Need Remodeling Instead?</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">Need Remodeling Instead?</h2>
           <p className="text-slate-600 leading-relaxed mb-5">
             Bradley Brown Inc. also provides kitchen remodeling, bathroom remodeling, additions, and whole-home
             renovations in Brandon, MS and Rankin County.
@@ -292,7 +292,7 @@ export default function LandingBrandonCustomHomeBuilder() {
 
         {/* FAQ */}
         <div>
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions</h2>
           <LandingFAQ faqs={faqs} />
         </div>
       </div>
