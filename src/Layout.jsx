@@ -101,7 +101,10 @@ export default function Layout({ children, currentPageName }) {
               <img
                 src={LOGO_URL}
                 alt="Bradley Brown Inc."
-                className={`h-10 md:h-12 w-auto object-contain transition-all ${transparent ? "brightness-0 invert" : ""}`} />
+                width="167"
+                height="70"
+                className={`h-10 md:h-12 w-auto object-contain transition-all ${transparent ? "brightness-0 invert" : ""}`}
+                decoding="async" />
 
             </Link>
 
