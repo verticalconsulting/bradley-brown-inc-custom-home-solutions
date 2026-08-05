@@ -85,8 +85,8 @@ export default function Layout({ children, currentPageName }) {
     <div className="min-h-screen bg-background">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-br-lg focus:shadow-lg"
-      >
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-br-lg focus:shadow-lg">
+        
         Skip to main content
       </a>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
@@ -135,7 +135,7 @@ export default function Layout({ children, currentPageName }) {
                     <Link key={link.to} to={link.to} className="block px-4 py-3 text-sm text-foreground hover:bg-accent hover:text-primary underline-offset-2 hover:underline transition-colors">
                             {link.label}
                           </Link>
-                        )}
+                    )}
                   </div>
                 </div>
               </div>
@@ -201,9 +201,9 @@ export default function Layout({ children, currentPageName }) {
         <div className="md:hidden bg-white border-t border-gray-100 shadow-xl">
             <div className="px-4 py-5 space-y-1">
               <Link
-                to={createPageUrl("Home")}
-                className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
-                currentPageName === "Home" ? "bg-accent text-primary" : "text-foreground hover:bg-gray-50"}`}>
+              to={createPageUrl("Home")}
+              className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
+              currentPageName === "Home" ? "bg-accent text-primary" : "text-foreground hover:bg-gray-50"}`}>
                 Home
               </Link>
               <div className="px-3 py-2">
@@ -341,7 +341,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Emergency Repairs", to: "/services/emergency-repairs" }].
                 map((item) =>
                 <li key={item.label}>
-                    <Link to={item.to} className="text-muted-foreground hover:text-primary text-sm underline-offset-2 hover:underline transition-colors">{item.label}</Link>
+                    <Link to={item.to} className="hover:text-primary text-sm underline-offset-2 hover:underline transition-colors text-[hsl(var(--input))]">{item.label}</Link>
                   </li>
                 )}
               </ul>
