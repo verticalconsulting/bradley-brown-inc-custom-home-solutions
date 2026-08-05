@@ -127,7 +127,7 @@ export default function JobsiteDetail() {
 
             <div className="mt-8 p-5 bg-slate-50 border border-gray-100 rounded-xl">
               <p className="text-sm text-slate-600">
-                <strong className="text-foreground">Servicing {item.city}, {item.state}</strong> — Bradley Brown Inc. is a licensed Mississippi contractor with crews working across {item.city} and the surrounding {item.state} area. We've built or remodeled hundreds of homes since 1995.
+                <strong className="text-foreground">Servicing {item.city}, {item.state}</strong> — Bradley Brown Inc. is a licensed Mississippi contractor with crews working across {item.city} and the surrounding {item.state} area. We've built or remodeled hundreds of homes since 2005.
               </p>
             </div>
           </div>

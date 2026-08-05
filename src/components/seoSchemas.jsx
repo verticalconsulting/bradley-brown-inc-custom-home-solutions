@@ -5,11 +5,11 @@ export const localBusinessSchema = {
   "@type": "HomeAndConstructionBusiness",
   "name": "Bradley Brown Inc.",
   "alternateName": "Bradley Brown Custom Homes",
-  "description": "Bradley Brown Inc. is the Brandon and Rankin County area's premier custom home builder, offering custom home construction, renovations, room additions, and outdoor living spaces since 1995.",
+  "description": "Bradley Brown Inc. is the Brandon and Rankin County area's premier custom home builder, offering custom home construction, renovations, room additions, and outdoor living spaces since 2005.",
   "url": SITE_URL,
   "telephone": "+18443514154",
   "email": "bradleybrowninc@gmail.com",
-  "foundingDate": "1995",
+  "foundingDate": "2005",
   "founder": { "@type": "Person", "name": "Bradley Brown" },
   "image": [
     "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large",

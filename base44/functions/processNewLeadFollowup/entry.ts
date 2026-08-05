@@ -21,7 +21,7 @@ If your project is time-sensitive or you'd like to talk now, give us a call at (
 
 Talk soon,
 The Bradley Brown Inc. Team
-Licensed & Insured · Brandon, MS · Since 1995
+Licensed & Insured · Brandon, MS · Since 2005
 (844) 351-4154
 bradleybrowninc@gmail.com`
   };

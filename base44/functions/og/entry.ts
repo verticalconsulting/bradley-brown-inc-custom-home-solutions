@@ -88,7 +88,7 @@ const templateLabel = (type) => {
     case "jobsite":
       return "RECENT JOBSITE";
     default:
-      return "BRANDON, MS · SINCE 1995";
+      return "BRANDON, MS · SINCE 2005";
   }
 };
 

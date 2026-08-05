@@ -5,7 +5,7 @@ export default function EmergencyRepairs() {
   return (
     <ServicePageLayout
       title="Emergency Home Repairs in Brandon, MS | Bradley Brown Inc"
-      description="Urgent home repairs in Brandon, MS — storm damage, roof leaks & water intrusion. Licensed MS contractor since 1995. Same-week service. Call (601) 954-1306."
+      description="Urgent home repairs in Brandon, MS — storm damage, roof leaks & water intrusion. Licensed MS contractor since 2005. Same-week service. Call (601) 954-1306."
       canonical="https://bradleybrowninc.com/services/emergency-repairs"
       h1="Emergency Home Repairs in Brandon, MS"
       subtitle="Storm damage, roof leaks, structural issues — don't wait. Bradley Brown Inc. responds fast to urgent repairs across Brandon and the Rankin County area."
@@ -18,8 +18,8 @@ export default function EmergencyRepairs() {
           heading: "Mississippi's Trusted Emergency Repair Contractor",
           paragraphs: [
             "When your home is damaged, every hour matters. A roof leak at 2 AM during a spring storm. A tree branch through your living room window. A water heater that fails and floods your hallway. These situations can't wait for a contractor who calls you back next week — you need someone who picks up the phone and shows up fast.",
-            "Bradley Brown Inc. has been responding to urgent repair calls across Brandon, Flowood, Pearl, Jackson, Madison, Ridgeland, and all of Rankin County since 1995. Our licensed crews know how to assess damage quickly, stabilize the situation, and get to work immediately — whether it's tarping a roof, extracting water, boarding up broken windows, or shoring up structural damage.",
-            "We're a licensed Mississippi General Contractor (MS Board of Contractors license #08290), fully insured, and BBB accredited. We have 30+ years of experience and are fully qualified for all structural and major repair work. When you call (601) 954-1306, you're calling a contractor who can handle the full scope of your emergency — not just a patch.",
+            "Bradley Brown Inc. has been responding to urgent repair calls across Brandon, Flowood, Pearl, Jackson, Madison, Ridgeland, and all of Rankin County since 2005. Our licensed crews know how to assess damage quickly, stabilize the situation, and get to work immediately — whether it's tarping a roof, extracting water, boarding up broken windows, or shoring up structural damage.",
+            "We're a licensed Mississippi General Contractor (MS Board of Contractors license #08290), fully insured, and BBB accredited. We have 20+ years of experience and are fully qualified for all structural and major repair work. When you call (601) 954-1306, you're calling a contractor who can handle the full scope of your emergency — not just a patch.",
           ],
         },
         {
@@ -50,7 +50,7 @@ export default function EmergencyRepairs() {
           heading: "Why Choose a Licensed Contractor for Emergency Repairs",
           paragraphs: [
             "It's tempting to call the first handyman who answers the phone when you have an emergency. But unlicensed repair work can void your homeowner's insurance, complicate a future sale, and create safety hazards that surface months or years later. Mississippi law requires a state license for most residential repair work over a certain dollar threshold — and for good reason.",
-            "Bradley Brown Inc. is a licensed Mississippi General Contractor with 30+ years of experience. Our repair work meets the International Residential Code and all local amendments. We pull permits when required, schedule inspections, and stand behind our work with a workmanship warranty. When we repair your home, it's done right — not just done fast.",
+            "Bradley Brown Inc. is a licensed Mississippi General Contractor with 20+ years of experience. Our repair work meets the International Residential Code and all local amendments. We pull permits when required, schedule inspections, and stand behind our work with a workmanship warranty. When we repair your home, it's done right — not just done fast.",
             "Don't wait — call (601) 954-1306 now for emergency home repairs in Brandon and Central Mississippi. We'll assess the situation and get someone out as quickly as possible.",
           ],
         },

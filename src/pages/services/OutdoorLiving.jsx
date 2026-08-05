@@ -5,7 +5,7 @@ export default function OutdoorLiving() {
   return (
     <ServicePageLayout
       title="Outdoor Living Spaces in Brandon, MS | Bradley Brown Inc"
-      description="Outdoor living, covered patios, outdoor kitchens, decks & pergolas in Brandon, MS. Built for Mississippi. Licensed since 1995. Call (844) 351-4154."
+      description="Outdoor living, covered patios, outdoor kitchens, decks & pergolas in Brandon, MS. Built for Mississippi. Licensed since 2005. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/outdoor-living"
       h1="Outdoor Living Spaces & Decks in Brandon, MS"
       subtitle="Mississippi's climate is made for outdoor living. We design and build covered patios, outdoor kitchens, custom decks, and pergolas that extend your home's footprint year-round."
@@ -16,7 +16,7 @@ export default function OutdoorLiving() {
           heading: "Outdoor Living Built for Mississippi's Climate",
           paragraphs: [
             "Central Mississippi's long warm season means your outdoor space can be a second living room for most of the year. A well-designed outdoor living area doesn't just add square footage — it changes how your family spends time together. Friday night cookouts, Saturday morning coffee on the porch, Sunday football on the outdoor TV — this is what Mississippi living is all about.",
-            "Bradley Brown Inc. has been building outdoor living spaces across Brandon, Flowood, Pearl, Madison, and Rankin County since 1995. We design and build covered patios, outdoor kitchens, custom decks, pergolas, pool surrounds, and complete outdoor entertainment areas that stand up to Mississippi's heat, humidity, and storm season.",
+            "Bradley Brown Inc. has been building outdoor living spaces across Brandon, Flowood, Pearl, Madison, and Rankin County since 2005. We design and build covered patios, outdoor kitchens, custom decks, pergolas, pool surrounds, and complete outdoor entertainment areas that stand up to Mississippi's heat, humidity, and storm season.",
             "Every outdoor project we build is designed for durability. We use pressure-treated and composite decking, rust-resistant hardware, proper drainage, and weather-rated electrical components. Our outdoor kitchens are built with stainless steel cabinetry, stone or brick veneer, and commercial-grade grills that last for years.",
           ],
         },

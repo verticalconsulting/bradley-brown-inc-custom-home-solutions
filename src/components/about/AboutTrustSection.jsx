@@ -13,7 +13,7 @@ const badges = [
 
 const trustFaqs = [
   { question: "Is Bradley Brown Inc. licensed in Mississippi?", answer: "Yes. We are a licensed Mississippi General Contractor, fully insured with general liability and workers' compensation coverage on every project." },
-  { question: "How long have you been in business?", answer: "Since 1995 — over 30 years serving Brandon and Rankin County area homeowners. We've built and renovated 500+ homes in the area." },
+  { question: "How long have you been in business?", answer: "Since 2005 — over 20 years serving Brandon and Rankin County area homeowners. We've completed countless renovations and many custom homes in the area." },
   { question: "Do you have references I can call?", answer: "Absolutely. Call us at (844) 351-4154 and we'll connect you with past clients in your area who are happy to share their experience." },
   { question: "What warranty do you offer?", answer: "We provide a workmanship warranty on all our projects. Material warranties pass through directly from manufacturers. We stand behind every job we do." },
 ];
@@ -22,7 +22,7 @@ export default function AboutTrustSection() {
   return (
     <>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14">
-        {[{ v: "30+", l: "Years in Business" }, { v: "500+", l: "Homes Built" }, { v: "4.9★", l: "Average Rating" }, { v: "100%", l: "Licensed & Insured" }].map(s => (
+        {[{ v: "20+", l: "Years in Business" }, { v: "Many", l: "Renovations & Custom Homes" }, { v: "4.9★", l: "Average Rating" }, { v: "100%", l: "Licensed & Insured" }].map(s => (
           <div key={s.l} className="bg-white border border-gray-100 rounded-xl p-5 text-center shadow-sm">
             <p className="text-2xl font-bold text-sky-600">{s.v}</p><p className="text-xs text-slate-500 mt-1">{s.l}</p>
           </div>
@@ -37,7 +37,7 @@ export default function AboutTrustSection() {
       </div>
 
       <div id="testimonials" className="mb-14">
-        <TestimonialSlider variant="light" limit={6} title="What Our Clients Say" subtitle="500+ homes built across the Brandon and Rankin County area. Here's what homeowners say about working with us." />
+        <TestimonialSlider variant="light" limit={6} title="What Our Clients Say" subtitle="Renovations and many custom homes across the Brandon and Rankin County area. Here's what homeowners say about working with us." />
       </div>
 
       <div className="mb-14">

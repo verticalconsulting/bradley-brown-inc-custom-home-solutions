@@ -35,7 +35,7 @@ export default function TestimonialSlider({
   limit = 6,
   featuredOnly = false,
   title = "What Our Clients Say",
-  subtitle = "Trusted by homeowners across Central Mississippi since 1995.",
+  subtitle = "Trusted by homeowners across Central Mississippi since 2005.",
 }) {
   const [testimonials, setTestimonials] = useState([]);
   const [current, setCurrent] = useState(0);

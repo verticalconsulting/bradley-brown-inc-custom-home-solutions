@@ -307,7 +307,7 @@ export default function ScheduleVisit() {
             </button>
 
             <p className="text-center text-xs text-slate-400">
-              Free consultation · No obligation · Licensed & insured since 1995
+              Free consultation · No obligation · Licensed & insured since 2005
             </p>
           </form>
         )}

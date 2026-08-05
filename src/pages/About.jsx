@@ -11,7 +11,7 @@ const values = [
 { icon: Heart, title: "Craftsmanship", description: "Every nail, board, and finish is executed with precision and care. We take immense pride in the quality of our work." },
 { icon: Shield, title: "Integrity", description: "Honest pricing, transparent timelines, and clear communication throughout your entire project." },
 { icon: Users, title: "Partnership", description: "We treat your project as if it were our own home, building lasting relationships with every client." },
-{ icon: Award, title: "Excellence", description: "30+ years of continuous improvement, staying current with the best materials and construction methods." }];
+{ icon: Award, title: "Excellence", description: "20+ years of continuous improvement, staying current with the best materials and construction methods." }];
 
 
 const team = [
@@ -25,8 +25,8 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background pt-20">
       <SEOHead
-        title="About Bradley Brown Inc. — Mississippi Builder Since 1995"
-        description="Central Mississippi's trusted home builder since 1995. 500+ homes built, 4.9-star rated, BBB accredited. Meet the team behind Bradley Brown Inc. Free estimates."
+        title="About Bradley Brown Inc. — Mississippi Builder Since 2005"
+        description="Central Mississippi's trusted home builder since 2005. Renovations and many custom homes, 4.9-star rated, BBB accredited. Meet the team behind Bradley Brown Inc. Free estimates."
         schema={localBusinessSchema}
         canonical="https://bradleybrowninc.com/about" />
       
@@ -48,7 +48,7 @@ export default function About() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">A Builder You Can Trust</h2>
             <p className="text-slate-500 leading-relaxed mb-4">Bradley Brown started this company in 2005 with a handshake, a solid crew, and a commitment to doing things right. What began as a small residential renovation company in Jackson has grown into one of the most respected custom home builders in Central Mississippi.</p>
-            <p className="text-slate-500 leading-relaxed mb-4">Over three decades, we've built custom homes across Rankin, Hinds, and Madison counties — from modest renovations to barndominiums.</p>
+            <p className="text-slate-500 leading-relaxed mb-4">Over two decades, we've built custom homes across Rankin, Hinds, and Madison counties — from modest renovations to barndominiums.</p>
             <p className="text-slate-500 leading-relaxed">We're a family business, and we treat your family like our own. That means clear communication, fair pricing, and work that stands the test of time.</p>
           </div>
         </div>

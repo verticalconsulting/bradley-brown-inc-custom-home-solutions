@@ -50,7 +50,7 @@ export default function BarndominiumComparison() {
           Customization is where the two paths really diverge. Load-bearing walls in a traditional home cap how wide you can span a living room or shop without engineered beams — every open feel costs more. A barndominium's clear-span trusses give you wide-open interiors from day one, so the living quarters, garage, and workshop layout can shift as your needs do. Financing has caught up too: construction-to-permanent loans are now common for barndo builds across the state.
         </p>
         <p>
-          Bradley Brown Inc. has built 500+ homes since 1995 — both barndominium and traditional — so we don't push one path over the other. Tell us about your land, your budget, and how you'll use the space, and we'll tell you straight which makes sense. Call {PHONE} and let's figure it out together.
+          Bradley Brown Inc. has completed renovations and many custom homes since 2005 — both barndominium and traditional — so we don't push one path over the other. Tell us about your land, your budget, and how you'll use the space, and we'll tell you straight which makes sense. Call {PHONE} and let's figure it out together.
         </p>
       </div>
     </section>

@@ -21,7 +21,7 @@ const schema = {
       "telephone": "+18443514154",
       "address": { "@type": "PostalAddress", "streetAddress": "104 Tiffany Drive", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
       "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
-      "foundingDate": "1995",
+      "foundingDate": "2005",
       "priceRange": "$$$",
       "sameAs": ["https://www.facebook.com/BradleyBrownInc", "https://www.tiktok.com/@bb859876", "https://www.bbb.org"],
       "areaServed": [{ "@type": "City", "name": "Brandon, Mississippi" }, { "@type": "AdministrativeArea", "name": "Rankin County, Mississippi" }]
@@ -69,7 +69,7 @@ export default function LandingPricing() {
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling Cost in Brandon, MS — Bradley Brown"
-        description="Transparent pricing for kitchens, baths & custom homes in Brandon, MS. See cost ranges for every project type. Licensed since 1995. Call (844) 351-4154."
+        description="Transparent pricing for kitchens, baths & custom homes in Brandon, MS. See cost ranges for every project type. Licensed since 2005. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/pricing"
       />

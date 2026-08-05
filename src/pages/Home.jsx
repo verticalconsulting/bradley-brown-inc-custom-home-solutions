@@ -39,7 +39,7 @@ export default function Home() {
       <div>
         <SEOHead
           title="Home Remodeling & Custom Builds | Bradley Brown Inc, MS"
-          description="Brandon MS's top-rated remodeler & home builder since 1995. Kitchens, baths, additions & custom homes. Licensed & insured. Call (844) 351-4154 for a free estimate."
+          description="Brandon MS's top-rated remodeler & home builder since 2005. Kitchens, baths, additions & custom homes. Licensed & insured. Call (844) 351-4154 for a free estimate."
           schema={homeSchemaGraph}
           canonical="https://bradleybrowninc.com"
         />

@@ -5,7 +5,7 @@ export default function KitchenRemodeling() {
   return (
     <ServicePageLayout
       title="Kitchen Remodeling in Brandon, MS | Bradley Brown Inc"
-      description="Kitchen remodeling in Brandon, MS since 1995. Custom cabinetry, granite & quartz countertops, tile & islands. Licensed & insured. Call (844) 351-4154."
+      description="Kitchen remodeling in Brandon, MS since 2005. Custom cabinetry, granite & quartz countertops, tile & islands. Licensed & insured. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/kitchen-remodeling"
       h1="Kitchen Remodeling in Brandon, MS"
       subtitle="Your kitchen is the heart of your home. We design and build kitchens that match how your family actually cooks, gathers, and lives — with premium materials and craftsmanship that adds real value."
@@ -15,7 +15,7 @@ export default function KitchenRemodeling() {
         {
           heading: "Kitchen Remodeling Built for Mississippi Living",
           paragraphs: [
-            "The kitchen is where your family starts the day, shares meals, and gathers for conversation. At Bradley Brown Inc., we've been remodeling kitchens across Brandon, Flowood, Pearl, Madison, and the greater Rankin County area since 1995. Our team brings the same attention to detail to a galley kitchen refresh that we bring to a full custom home build.",
+            "The kitchen is where your family starts the day, shares meals, and gathers for conversation. At Bradley Brown Inc., we've been remodeling kitchens across Brandon, Flowood, Pearl, Madison, and the greater Rankin County area since 2005. Our team brings the same attention to detail to a galley kitchen refresh that we bring to a full custom home build.",
             "We understand that a kitchen remodel is disruptive — you're without your stove, sink, and countertop for weeks. That's why we work efficiently, keep the job site clean, and communicate clearly about timelines. Most kitchen remodels in the Brandon area take 4–8 weeks depending on scope. We give you a realistic schedule upfront and stick to it.",
             "From a simple cabinet-and-countertop update to a full gourmet kitchen with custom island and appliance integration, no project is too large or too small. We've renovated hundreds of Mississippi kitchens — bringing modern style, better function, and lasting value to every one.",
           ],

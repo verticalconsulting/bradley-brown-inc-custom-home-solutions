@@ -140,7 +140,7 @@ export default function Contact() {
           {/* Quick trust signals */}
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 mt-5 text-xs text-slate-500">
             <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Free estimates, no obligation</span>
-            <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Licensed & insured since 1995</span>
+            <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Licensed & insured since 2005</span>
             <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Replies within 1 business day</span>
             <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-sky-500" /> Mon–Fri 8am–6pm · Sat 9am–3pm</span>
           </div>

@@ -30,7 +30,7 @@ const schema = {
       "name": "Home Remodeling in Madison, MS",
       "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
       "areaServed": { "@type": "City", "name": "Madison, Mississippi" },
-      "description": "Kitchen renovations, bathroom remodeling, room additions, and whole-home renovations in Madison, MS — by a licensed Mississippi contractor since 1995."
+      "description": "Kitchen renovations, bathroom remodeling, room additions, and whole-home renovations in Madison, MS — by a licensed Mississippi contractor since 2005."
     },
     {
       "@type": "BreadcrumbList",
@@ -71,7 +71,7 @@ export default function MadisonRemodeling() {
     <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling in Madison, MS | Bradley Brown Inc"
-        description="Madison, MS home remodeling — kitchen, bath, additions & whole-home renovations. Licensed & insured since 1995. Free estimates — call (844) 351-4154."
+        description="Madison, MS home remodeling — kitchen, bath, additions & whole-home renovations. Licensed & insured since 2005. Free estimates — call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/madison-ms-home-remodeling"
       />
@@ -92,7 +92,7 @@ export default function MadisonRemodeling() {
             Home Remodeling in Madison, MS<br className="hidden md:block" /> — Done Right
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Kitchen renovations, bathroom remodels, room additions, and whole-home upgrades. Licensed. Insured. 30+ years of Mississippi craftsmanship — serving Madison from our Brandon headquarters.
+            Kitchen renovations, bathroom remodels, room additions, and whole-home upgrades. Licensed. Insured. 20+ years of Mississippi craftsmanship — serving Madison from our Brandon headquarters.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
@@ -136,7 +136,7 @@ export default function MadisonRemodeling() {
         {/* Body copy */}
         <div className="prose prose-slate max-w-none">
           <h2 className="text-xl font-bold text-foreground">Why Madison Homeowners Choose Bradley Brown Inc.</h2>
-          <p className="text-slate-600 leading-relaxed">Madison, Mississippi is one of the fastest-growing cities in the state, and homeowners here expect quality. Since 1995, Bradley Brown Inc. has served the Madison County area with the same craftsmanship and attention to detail that built our reputation in Brandon — just 20 minutes down the road.</p>
+          <p className="text-slate-600 leading-relaxed">Madison, Mississippi is one of the fastest-growing cities in the state, and homeowners here expect quality. Since 2005, Bradley Brown Inc. has served the Madison County area with the same craftsmanship and attention to detail that built our reputation in Brandon — just 20 minutes down the road.</p>
           <p className="text-slate-600 leading-relaxed">From kitchen renovations in Strawberry Park to bathroom remodels in Reunion, room additions in Gluckstadt, and whole-home renovations throughout Madison County, our team brings licensed tradespeople, transparent pricing, and a project manager on-site every day. We pull all Madison County permits and handle inspections.</p>
           <p className="text-slate-600 leading-relaxed">Whether you're updating a master bath, building a kitchen island, or adding an in-law suite, we deliver on time and on budget. Call us at <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to schedule your free Madison consultation.</p>
         </div>

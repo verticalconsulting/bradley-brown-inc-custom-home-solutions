@@ -5,10 +5,10 @@ export default function BarndominiumsService() {
   return (
     <ServicePageLayout
       title="Barndominium Builder in Brandon, MS | Bradley Brown Inc"
-      description="Custom barndominiums in Brandon, MS. Steel-frame builds with living space, workshops & garages. Licensed since 1995. Call (844) 351-4154."
+      description="Custom barndominiums in Brandon, MS. Steel-frame builds with living space, workshops & garages. Licensed since 2005. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/barndominiums"
       h1="Custom Barndominium Builder in Brandon, MS"
-      subtitle="Steel-frame barndominiums combining living space, garages, and workshops — built to last by Mississippi's trusted contractor since 1995. On your land, on budget, on schedule."
+      subtitle="Steel-frame barndominiums combining living space, garages, and workshops — built to last by Mississippi's trusted contractor since 2005. On your land, on budget, on schedule."
       serviceName="Barndominium Construction"
       pageKey="Barndominiums"
       bodySections={[
@@ -16,7 +16,7 @@ export default function BarndominiumsService() {
           heading: "Barndominiums Built for Mississippi Living",
           paragraphs: [
             "A barndominium gives you the best of both worlds: the durability and open space of a steel-frame metal building, combined with the comfort and finish of a custom home. Whether you want a shop on one end and living quarters on the other, a full workshop with a luxury apartment, or a wide-open living space with soaring ceilings, a barndo delivers — often at a lower cost per square foot than a traditional stick-built home.",
-            "Bradley Brown Inc. has been building across the Brandon and Rankin County area since 1995, and we bring that same craftsmanship and accountability to every barndominium project. From the concrete slab and steel erection to the custom kitchen and bathroom finishes inside, we manage the entire build under one contract — one point of contact, one timeline, one fixed written price.",
+            "Bradley Brown Inc. has been building across the Brandon and Rankin County area since 2005, and we bring that same craftsmanship and accountability to every barndominium project. From the concrete slab and steel erection to the custom kitchen and bathroom finishes inside, we manage the entire build under one contract — one point of contact, one timeline, one fixed written price.",
             "We serve Brandon, Flowood, Richland, Florence, Pelahatchie, Forest, Morton, and all of Rankin, Smith, Simpson, and Scott counties. If you have rural acreage in Central Mississippi, we can build on it.",
           ],
         },

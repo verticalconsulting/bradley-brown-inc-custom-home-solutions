@@ -5,7 +5,7 @@ export default function BathroomRemodeling() {
   return (
     <ServicePageLayout
       title="Bathroom Remodeling in Brandon, MS | Bradley Brown Inc"
-      description="Bathroom remodeling in Brandon, MS since 1995. Walk-in showers, tub-to-shower conversions, tile & vanities. Licensed & insured. Call (844) 351-4154."
+      description="Bathroom remodeling in Brandon, MS since 2005. Walk-in showers, tub-to-shower conversions, tile & vanities. Licensed & insured. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/bathroom-remodeling"
       h1="Bathroom Remodeling in Brandon, MS"
       subtitle="From walk-in showers to freestanding tubs, we design and build bathrooms that combine beauty with proper waterproofing — built to last in Mississippi's humid climate."
@@ -16,7 +16,7 @@ export default function BathroomRemodeling() {
           heading: "Bathroom Remodeling Built for Mississippi Homes",
           paragraphs: [
             "A bathroom renovation is one of the highest-ROI projects you can undertake in a Mississippi home. At Bradley Brown Inc., we specialize in master bathroom transformations, guest bath updates, powder room refreshes, and accessible bathroom modifications — from walk-in tile showers with frameless glass to freestanding soaking tubs and double vanity setups.",
-            "We bring 30 years of experience to every bathroom project. Our team has handled hundreds of bath renovations across Brandon, Flowood, Pearl, Madison, Ridgeland, and the greater Rankin County area. Whether you want a spa-like master retreat or a functional guest bath upgrade, we manage every detail from demolition to final inspection.",
+            "We bring 20 years of experience to every bathroom project. Our team has handled hundreds of bath renovations across Brandon, Flowood, Pearl, Madison, Ridgeland, and the greater Rankin County area. Whether you want a spa-like master retreat or a functional guest bath upgrade, we manage every detail from demolition to final inspection.",
             "Most bathroom renovations in the Brandon area take 2–4 weeks depending on scope. We give you a realistic schedule upfront, keep the job site clean, and communicate clearly about what's happening each day. You're never left guessing about your project.",
           ],
         },

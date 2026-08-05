@@ -11,7 +11,7 @@ import { usePageImages } from "@/lib/usePageImages";
 const faqs = [
   { question: "Is Bradley Brown Inc. based in Brandon, MS?", answer: "We're centrally located in the Brandon/Jackson area of Mississippi, serving a 50-mile radius including Flowood, Pearl, Madison, Ridgeland, and beyond." },
   { question: "What areas do you service?", answer: "We serve all of Rankin, Hinds, and Madison counties — including Brandon, Flowood, Pearl, Richland, Jackson, Madison, Ridgeland, Clinton, and more." },
-  { question: "How long have you been remodeling homes in Mississippi?", answer: "Since 1995 — over 30 years of continuous remodeling work in the Brandon and Rankin County area. We've completed 500+ kitchen, bathroom, addition, and whole-home renovation projects." },
+  { question: "How long have you been remodeling homes in Mississippi?", answer: "Since 2005 — over 20 years of continuous remodeling work in the Brandon and Rankin County area. We've completed countless kitchen, bathroom, addition, and whole-home renovation projects." },
   { question: "What types of remodeling projects do you handle?", answer: "We handle kitchen remodeling, bathroom remodeling, whole-home renovations, room additions, and outdoor living upgrades for homeowners in Brandon, MS and the surrounding Rankin County area." },
   { question: "Are you licensed and insured in Mississippi?", answer: "Absolutely. Bradley Brown Inc. is a licensed Mississippi General Contractor with full liability insurance and workers' comp on every job." },
   { question: "Do you offer free estimates?", answer: "Yes. Call us at (844) 351-4154 or use our online Quote Assistant for a free, no-obligation project estimate." },
@@ -66,7 +66,7 @@ export default function RemodelingBrandonMS() {
     <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling in Brandon, MS | Bradley Brown Inc"
-        description="Brandon, MS home remodelers since 1995. Kitchen, bath, room additions & whole-home renovations. Licensed & insured. Call (844) 351-4154."
+        description="Brandon, MS home remodelers since 2005. Kitchen, bath, room additions & whole-home renovations. Licensed & insured. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/remodeling-brandon-ms"
       />
@@ -132,7 +132,7 @@ export default function RemodelingBrandonMS() {
 
         <div className="prose prose-slate max-w-none">
           <h2 className="text-2xl font-bold text-foreground">Why Brandon, MS Homeowners Choose Bradley Brown Inc.</h2>
-          <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
+          <p className="text-slate-600 leading-relaxed">Since 2005, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
           <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Pearl, Richland, Madison, Ridgeland, and all of Rankin, Hinds, and Madison counties. Every estimate is free, every quote is transparent, and every project is backed by our quality guarantee.</p>
           <p className="text-slate-600 leading-relaxed">From energy-efficient window replacements to complete kitchen gut-and-rebuilds, we handle it all with licensed tradespeople and a project manager on-site every day. Call us at <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to schedule your free consultation.</p>
         </div>

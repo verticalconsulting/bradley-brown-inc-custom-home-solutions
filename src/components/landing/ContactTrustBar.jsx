@@ -37,7 +37,7 @@ export default function ContactTrustBar() {
             </div>
             <div>
               <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">Established</p>
-              <p className="text-sm font-bold text-[#1E2D3D] leading-tight">Since 1995 — 29 Years Experience</p>
+              <p className="text-sm font-bold text-[#1E2D3D] leading-tight">Since 2005 — 20+ Years Experience</p>
             </div>
           </div>
 

@@ -65,7 +65,7 @@ export default function LandingCoreServices() {
     <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling in Mississippi | Bradley Brown Inc"
-        description="Mississippi home remodelers — kitchen, bath & whole-home renovations across Central MS. Licensed since 1995. Free estimates — call (844) 351-4154."
+        description="Mississippi home remodelers — kitchen, bath & whole-home renovations across Central MS. Licensed since 2005. Free estimates — call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/remodeling-ms"
       />
@@ -87,7 +87,7 @@ export default function LandingCoreServices() {
             Home Remodeling in Brandon, MS<br className="hidden md:block" /> — Done Right
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Kitchen renovations, bathroom remodels, whole-home upgrades, and energy-efficient improvements. Licensed. Insured. 30+ years of Mississippi craftsmanship.
+            Kitchen renovations, bathroom remodels, whole-home upgrades, and energy-efficient improvements. Licensed. Insured. 20+ years of Mississippi craftsmanship.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
@@ -131,7 +131,7 @@ export default function LandingCoreServices() {
         {/* Body copy */}
         <div className="prose prose-slate max-w-none">
           <h2 className="text-xl font-bold text-foreground">Why Brandon, MS Homeowners Choose Bradley Brown Inc.</h2>
-          <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
+          <p className="text-slate-600 leading-relaxed">Since 2005, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
           <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Pearl, Richland, Madison, Ridgeland, and all of Rankin, Hinds, and Madison counties. Every estimate is free, every quote is transparent, and every project is backed by our quality guarantee.</p>
           <p className="text-slate-600 leading-relaxed">From energy-efficient window replacements to complete kitchen gut-and-rebuilds, we handle it all with licensed tradespeople and a project manager on-site every day. Call us at <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to schedule your free consultation.</p>
         </div>

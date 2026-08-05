@@ -156,7 +156,7 @@ export default function LandingBrandonCustomHomeBuilder() {
     <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Custom Home Builder in Brandon, MS | Bradley Brown Inc."
-        description="Custom home builder in Brandon, MS & Rankin County since 1995. New construction, luxury homes & design-build. Licensed & insured. Call (844) 351-4154."
+        description="Custom home builder in Brandon, MS & Rankin County since 2005. New construction, luxury homes & design-build. Licensed & insured. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/custom-home-builder-brandon-ms"
       />

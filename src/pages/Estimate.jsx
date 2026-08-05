@@ -232,7 +232,7 @@ export default function Estimate() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Get Your Free Estimate — Bradley Brown Inc. | Brandon, MS"
-        description="Get a free AI-powered remodeling cost estimate for custom homes, renovations & additions in Brandon, MS. Licensed & insured since 1995. Call (844) 351-4154."
+        description="Get a free AI-powered remodeling cost estimate for custom homes, renovations & additions in Brandon, MS. Licensed & insured since 2005. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/estimate"
       />
 

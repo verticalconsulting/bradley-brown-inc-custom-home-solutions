@@ -282,7 +282,7 @@ export default function Layout({ children, currentPageName }) {
               <div className="mb-4">
                 <img src={LOGO_URL} alt="Bradley Brown Inc." width="167" height="70" className="h-14 w-auto object-contain brightness-0 invert" decoding="async" />
               </div>
-              <p className="text-sm leading-relaxed max-w-sm text-[hsl(var(--background))]">Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 1995.
+              <p className="text-sm leading-relaxed max-w-sm text-[hsl(var(--background))]">Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 2005.
 
               </p>
               <div className="mt-5 space-y-2">

@@ -5,7 +5,7 @@ export default function RoomAdditions() {
   return (
     <ServicePageLayout
       title="Room Additions in Brandon, MS | Bradley Brown Inc"
-      description="Room additions in Brandon, MS — master suites, in-law suites, sunrooms & home offices. Licensed contractor since 1995. Call (844) 351-4154."
+      description="Room additions in Brandon, MS — master suites, in-law suites, sunrooms & home offices. Licensed contractor since 2005. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/room-additions"
       h1="Room Additions & Home Expansions in Brandon, MS"
       subtitle="More space, more possibilities — without moving. We design and build additions that blend seamlessly with your existing home's architecture."
@@ -16,7 +16,7 @@ export default function RoomAdditions() {
           heading: "Room Additions That Look Like They Were Always There",
           paragraphs: [
             "When your family outgrows your home, you have two choices: move, or add on. Moving means uprooting your life, changing schools, and leaving the neighborhood you love. A room addition lets you stay right where you are — with more of the space you need.",
-            "Bradley Brown Inc. has been building room additions across Brandon, Madison, Flowood, Pearl, and the greater Rankin County area since 1995. We specialize in additions that match your existing home so precisely — brick, roofline, trim, paint color — that you'd never know it wasn't part of the original build.",
+            "Bradley Brown Inc. has been building room additions across Brandon, Madison, Flowood, Pearl, and the greater Rankin County area since 2005. We specialize in additions that match your existing home so precisely — brick, roofline, trim, paint color — that you'd never know it wasn't part of the original build.",
             "From a simple bedroom expansion to a full second-story addition, from a sunroom that lets in the Mississippi sunshine to a dedicated home office that makes remote work actually work, we handle every type of residential addition. And because we're a licensed general contractor, we manage the entire project — design, permits, foundation, framing, roofing, electrical, plumbing, and finish — under one contract.",
           ],
         },

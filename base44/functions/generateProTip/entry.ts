@@ -149,7 +149,7 @@ Critical writing style rules (to sound human, not AI):
 - Write like an experienced Mississippi contractor talking to a neighbor — not a content mill.
 - Use contractions freely (you'll, we've, don't, it's, we're).
 - Vary sentence length dramatically. Short punchy sentences. Then longer explanatory ones.
-- Include specific, concrete details from real experience — "In 30 years building in Rankin County, we've seen too many homeowners skip this step..."
+- Include specific, concrete details from real experience — "In 20 years building in Rankin County, we've seen too many homeowners skip this step..."
 - AVOID these AI-typical phrases: delve into, navigate, realm, crucial, elevate, embark, tapestry, unveil, uncover, it's worth noting, when it comes to, in the world of, game-changer, holistic, synergy, robust, landscape (as metaphor).
 - Don't start more than one sentence with "However," "Moreover," "Furthermore," or "Additionally."
 - Address the reader directly with "you" and "your."

@@ -84,7 +84,7 @@ export default function Services() {
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
         title="Remodeling Services in Brandon, MS | Bradley Brown Inc"
-        description="Custom homes, kitchen & bath remodels, additions, outdoor living & barndominiums in Brandon, MS. Licensed since 1995. Call (844) 351-4154."
+        description="Custom homes, kitchen & bath remodels, additions, outdoor living & barndominiums in Brandon, MS. Licensed since 2005. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/services"
       />
 
@@ -101,7 +101,7 @@ export default function Services() {
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-3">Brandon, MS & Central Mississippi</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">Our Services</h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Licensed, insured, and trusted since 1995. From custom homes to emergency repairs, we bring Central Mississippi homeowners' visions to life.
+            Licensed, insured, and trusted since 2005. From custom homes to emergency repairs, we bring Central Mississippi homeowners' visions to life.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/estimate" className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg">
@@ -113,9 +113,9 @@ export default function Services() {
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
             <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-sky-400" /> Licensed & Insured</span>
-            <span className="flex items-center gap-1.5"><Award className="w-4 h-4 text-sky-400" /> 30+ Years</span>
+            <span className="flex items-center gap-1.5"><Award className="w-4 h-4 text-sky-400" /> 20+ Years</span>
             <span className="flex items-center gap-1.5"><Star className="w-4 h-4 text-yellow-400 fill-yellow-400" /> 4.9★ Rated</span>
-            <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-sky-400" /> 500+ Homes Built</span>
+            <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-sky-400" /> Renovations &amp; Custom Homes</span>
           </div>
         </div>
       </div>

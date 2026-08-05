@@ -115,7 +115,7 @@ export default function ExitIntentPopup({ source = "home" }) {
             {[
               "Instant cost range based on your project details",
               "No obligation — no phone call required",
-              "Licensed & insured contractor since 1995",
+              "Licensed & insured contractor since 2005",
             ].map((item) => (
               <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />

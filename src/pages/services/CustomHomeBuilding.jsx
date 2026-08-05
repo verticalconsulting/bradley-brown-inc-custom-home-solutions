@@ -5,7 +5,7 @@ export default function CustomHomeBuilding() {
   return (
     <ServicePageLayout
       title="Custom Home Building in Brandon, MS | Bradley Brown Inc"
-      description="Custom home builder in Brandon, MS since 1995. Full design-build, premium materials & energy-efficient construction across Rankin County. Call (844) 351-4154."
+      description="Custom home builder in Brandon, MS since 2005. Full design-build, premium materials & energy-efficient construction across Rankin County. Call (844) 351-4154."
       canonical="https://bradleybrowninc.com/services/custom-home-building"
       h1="Custom Home Building in Brandon, MS"
       subtitle="Your vision. Our craftsmanship. From blueprint to final walkthrough, we manage every detail of your custom home build across Brandon and Central Mississippi."
@@ -13,9 +13,9 @@ export default function CustomHomeBuilding() {
       pageKey="CustomHomeBuilding"
       bodySections={[
         {
-          heading: "Building Custom Homes in Brandon Since 1995",
+          heading: "Building Custom Homes in Brandon Since 2005",
           paragraphs: [
-            "Bradley Brown Inc. has been building custom homes in Brandon, MS and across Rankin County for over three decades. What started as a small local operation has grown into one of Central Mississippi's most trusted custom home builders, with more than 500 homes completed and a reputation for craftsmanship that speaks for itself.",
+            "Bradley Brown Inc. has been building custom homes in Brandon, MS and across Rankin County for over two decades. What started as a small local operation has grown into one of Central Mississippi's most trusted custom home builders, with renovations and many custom homes completed and a reputation for craftsmanship that speaks for itself.",
             "We don't build cookie-cutter houses. Every home we construct is designed around the way your family actually lives — from the morning coffee spot in the kitchen to the evening porch where you watch the sunset. Our team takes the time to understand your vision before we ever break ground, and we stay in close communication from the first blueprint to the final walkthrough.",
             "Building a custom home is one of the biggest investments you'll ever make. We treat it that way. Our process is transparent, our pricing is upfront, and our commitment to quality shows in every detail — from the foundation to the crown molding.",
           ],
@@ -31,7 +31,7 @@ export default function CustomHomeBuilding() {
         {
           heading: "Why Brandon Homeowners Choose Bradley Brown",
           paragraphs: [
-            "Brandon homeowners choose us because we deliver what other contractors promise but rarely deliver: a home built on time, on budget, and to a standard that exceeds expectations. Our 30-year track record in Rankin County means we know the local soil conditions, the permitting process at Brandon City Hall, and the inspectors by name. That local knowledge saves you time and money.",
+            "Brandon homeowners choose us because we deliver what other contractors promise but rarely deliver: a home built on time, on budget, and to a standard that exceeds expectations. Our 20-year track record in Rankin County means we know the local soil conditions, the permitting process at Brandon City Hall, and the inspectors by name. That local knowledge saves you time and money.",
             "We're licensed, insured, and bonded — Mississippi State Board of Contractors license #08290, fully insured, and BBB accredited. Our workmanship warranty is among the best in Central Mississippi, and we provide post-build support long after you've moved in. If something needs attention a year after completion, we're a phone call away.",
             "Our pricing is transparent and competitive. We use premium materials — not builder-grade shortcuts — and we pass our supplier relationships and volume discounts directly to you. You get the quality of a luxury custom home at a price that respects your budget.",
           ],
@@ -41,7 +41,7 @@ export default function CustomHomeBuilding() {
           paragraphs: [
             "Every Bradley Brown custom home is built with energy efficiency in mind. We use spray foam insulation in attics and walls, double-pane Low-E windows, high-efficiency HVAC systems, and LED lighting throughout. These features don't just reduce your carbon footprint — they lower your monthly utility bills by 30–40% compared to a standard builder home.",
             "Our material selection process is hands-on. We walk you through flooring, cabinetry, countertops, fixtures, and finish options at local suppliers across the Brandon and Jackson metro area. You see and touch every material before it goes into your home — no guessing from a catalog photo.",
-            "We source premium materials at competitive prices thanks to our three decades of relationships with local suppliers. From solid-surface countertops to hardwood flooring, from architectural shingles to custom millwork, we never substitute cheaper materials without telling you first.",
+            "We source premium materials at competitive prices thanks to our two decades of relationships with local suppliers. From solid-surface countertops to hardwood flooring, from architectural shingles to custom millwork, we never substitute cheaper materials without telling you first.",
           ],
         },
         {

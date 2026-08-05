@@ -57,7 +57,7 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
         <div className="mb-6 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-primary/40 bg-[hsl(var(--sidebar-accent))]">
           <span className="bg-primary rounded-full w-2 h-2" />
-          <span className="text-primary text-sm font-medium">Brandon Mississippi's Premier Builder Since 1995 </span>
+          <span className="text-primary text-sm font-medium">Brandon Mississippi's Premier Builder Since 2005 </span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">
@@ -73,7 +73,7 @@ export default function HeroSection() {
           <span>{slide.highlight}</span>
         </p>
 
-        <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-[hsl(var(--sidebar-background))]">Custom home construction, renovations, and additions crafted with integrity, precision, and 30+ years of Mississippi expertise.
+        <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-[hsl(var(--sidebar-background))]">Custom home construction, renovations, and additions crafted with integrity, precision, and 20+ years of Mississippi expertise.
 
         </p>
 

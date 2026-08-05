@@ -30,7 +30,7 @@ const schema = {
       "name": "Bathroom Remodeling",
       "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
       "areaServed": { "@type": "City", "name": "Brandon, Mississippi" },
-      "description": "Bathroom remodeling and bath renovations in Brandon, MS — walk-in showers, tile work, vanities, and complete bath transformations by a licensed contractor since 1995."
+      "description": "Bathroom remodeling and bath renovations in Brandon, MS — walk-in showers, tile work, vanities, and complete bath transformations by a licensed contractor since 2005."
     },
     {
       "@type": "BreadcrumbList",
@@ -81,7 +81,7 @@ export default function BathroomRemodelingBrandon() {
     <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Bathroom Remodeling Brandon, MS | Bradley Brown Inc"
-        description="Brandon, MS bathroom remodeling. Walk-in showers, tub-to-shower conversions, tile & vanities. Licensed & insured since 1995. Call (844) 351-4154."
+        description="Brandon, MS bathroom remodeling. Walk-in showers, tub-to-shower conversions, tile & vanities. Licensed & insured since 2005. Call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/bathroom-remodeling-brandon-ms"
       />
@@ -108,7 +108,7 @@ export default function BathroomRemodelingBrandon() {
             Your Bathroom, Completely Transformed — Built to Last.
           </p>
           <p className="text-slate-300 mt-5 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Walk-in showers, tub-to-shower conversions, custom tile, and complete bath renovations — from the contractor Brandon homeowners have trusted for 30+ years. Licensed, insured, and obsessed with the details.
+            Walk-in showers, tub-to-shower conversions, custom tile, and complete bath renovations — from the contractor Brandon homeowners have trusted for 20+ years. Licensed, insured, and obsessed with the details.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl">
@@ -120,7 +120,7 @@ export default function BathroomRemodelingBrandon() {
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
             <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-sky-400" /> Licensed &amp; Insured</span>
-            <span className="flex items-center gap-1.5"><Award className="w-4 h-4 text-sky-400" /> 30+ Years Experience</span>
+            <span className="flex items-center gap-1.5"><Award className="w-4 h-4 text-sky-400" /> 20+ Years Experience</span>
             <span className="flex items-center gap-1.5"><Star className="w-4 h-4 text-yellow-400 fill-yellow-400" /> 4.9★ · 87 Reviews</span>
             <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-sky-400" /> 200+ Baths Remodeled</span>
           </div>
@@ -173,7 +173,7 @@ export default function BathroomRemodelingBrandon() {
       <section className="bg-slate-50 border-y border-gray-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-14 prose prose-slate">
           <h2 className="text-2xl font-bold text-foreground">Your Brandon, MS Bath Remodeler</h2>
-          <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the bathroom remodeler Brandon, MS homeowners call when they want it done right. We've remodeled 200+ bathrooms across Rankin and Madison County — from compact guest baths to sprawling master suites.</p>
+          <p className="text-slate-600 leading-relaxed">Since 2005, Bradley Brown Inc. has been the bathroom remodeler Brandon, MS homeowners call when they want it done right. We've remodeled 200+ bathrooms across Rankin and Madison County — from compact guest baths to sprawling master suites.</p>
           <p className="text-slate-600 leading-relaxed">Every bathroom remodel includes proper waterproofing (pan, membrane, and slope), licensed plumbing and electrical work, and permits pulled and inspected. We handle tile selection, vanity and fixture sourcing, and the final punch list — one contractor, no finger-pointing.</p>
           <p className="text-slate-600 leading-relaxed">Whether you're converting a tub to a walk-in shower, updating a master bath with floor-to-ceiling tile, or renovating a small guest bathroom, we bring the same craftsmanship and project management that built our reputation across Central Mississippi. Call <a href={PHONE_HREF} onClick={trackCall} className="text-sky-600 font-semibold">{PHONE}</a> to schedule your free in-home consultation.</p>
         </div>
