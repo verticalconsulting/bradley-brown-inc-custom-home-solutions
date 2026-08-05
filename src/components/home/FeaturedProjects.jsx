@@ -66,6 +66,8 @@ export default function FeaturedProjects() {
                   src={project.images?.[0] || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"}
                   alt={buildAltText(project)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute top-3 left-3">
                   <span className="bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-full">

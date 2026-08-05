@@ -17,12 +17,16 @@
     <title>Bradley Brown Inc. — Custom Home Builder in Central Mississippi</title>
     <meta name="description" content="Bradley Brown Inc. builds custom homes across Central Mississippi. Quality craftsmanship, transparent pricing, and a builder you can trust." />
     <link rel="canonical" href="https://www.bradleybrowninc.com/" />
-    <!-- Clarity tracking code for https://bradleybrowninc.com/ -->
+    <!-- Clarity tracking code for https://bradleybrowninc.com/ — deferred to idle -->
 <script>
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        var s=function(){
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        };
+        if ('requestIdleCallback' in c) { c.requestIdleCallback(s, { timeout: 3000 }); }
+        else { s(); }
     })(window, document, "clarity", "script", "wq4qcw02kz");
 </script>
 
@@ -42,6 +46,10 @@
     <!-- Performance: preconnect to third parties -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://analytics.ahrefs.com" />
+    <link rel="preconnect" href="https://imagedelivery.net" />
+    <link rel="preconnect" href="https://qtrypzzcjebvfcihiynt.supabase.co" />
+    <link rel="dns-prefetch" href="https://scripts.clarity.ms" />
+    <link rel="preload" as="image" href="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/herocover" fetchpriority="high" />
 
     <!-- Manifest & sitemap -->
     <link rel="manifest" href="/manifest.json" />
