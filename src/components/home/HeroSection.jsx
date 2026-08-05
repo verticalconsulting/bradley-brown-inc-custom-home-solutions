@@ -65,11 +65,11 @@ export default function HeroSection() {
           style={{ opacity: fading ? 0 : 1 }}
           aria-live="polite">
           {slide.headline}{" "}
-          <span className="text-primary">{slide.highlight}</span>
+          <span>{slide.highlight}</span>
         </p>
 
-        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-          Custom home construction, renovations, and additions crafted with integrity, precision, and 30+ years of Mississippi expertise.
+        <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-[hsl(var(--chart-4))]">Custom home construction, renovations, and additions crafted with integrity, precision, and 30+ years of Mississippi expertise.
+
         </p>
 
         {/* Mobile: stacked prominent CTAs */}
