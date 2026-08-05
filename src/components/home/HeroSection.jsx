@@ -57,7 +57,7 @@ export default function HeroSection() {
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">
           Brandon, MS Home Remodeling &amp;
-          <span className="text-primary block">Custom Home Builder Since 1995</span>
+          <span className="block text-[hsl(var(--chart-4))]">Custom Home Builder Since 1995</span>
         </h1>
 
         <p
