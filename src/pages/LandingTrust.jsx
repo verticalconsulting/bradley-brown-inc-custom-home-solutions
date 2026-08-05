@@ -67,7 +67,7 @@ export default function LandingTrust() {
   const handleCall = () => base44.analytics.track({ eventName: "phone_click", properties: { source: "trust_landing" } });
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
+    <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Why Trust Bradley Brown Inc. — Certified MS Builder"
         description="Licensed Mississippi contractor since 1995. 4.9-star rated with 87 reviews. BBB member, NAHB & MSHBA certified. 500+ homes built across Brandon and Rankin County. Call (844) 351-4154."
@@ -83,7 +83,7 @@ export default function LandingTrust() {
       </div>
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-14 md:py-20">
+      <div className="bg-foreground py-14 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/40 rounded-full px-3 py-1 mb-3">
             <Shield className="w-3.5 h-3.5 text-amber-400" />
@@ -125,7 +125,7 @@ export default function LandingTrust() {
 
         {/* Certifications */}
         <div>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Certifications & Memberships</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Certifications & Memberships</h2>
           <div className="flex flex-wrap items-center justify-center gap-6 bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
             {badges.map((b) => (
               <img key={b.name} src={b.img} alt={b.name} className="h-14 w-auto object-contain" loading="lazy" />
@@ -145,7 +145,7 @@ export default function LandingTrust() {
 
         {/* Trust signals */}
         <div>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Our Commitments to You</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Our Commitments to You</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               "Licensed Mississippi General Contractor (MC-2024)",
@@ -165,14 +165,14 @@ export default function LandingTrust() {
 
         {/* FAQ */}
         <div>
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions</h2>
           <LandingFAQ faqs={faqs} />
         </div>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-10">
         <div className="bg-slate-50 border border-gray-200 rounded-xl p-5">
-          <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Pages</h3>
+          <h3 className="font-bold text-foreground text-sm mb-3">Related Pages</h3>
           <div className="flex flex-wrap gap-2">
             {[
               { label: "View All Services", page: "Services" },
