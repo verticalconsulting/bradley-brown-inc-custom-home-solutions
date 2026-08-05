@@ -282,8 +282,8 @@ export default function Layout({ children, currentPageName }) {
               <div className="mb-4">
                 <img src={LOGO_URL} alt="Bradley Brown Inc." width="167" height="70" className="h-14 w-auto object-contain brightness-0 invert" decoding="async" />
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-                Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 1995.
+              <p className="text-sm leading-relaxed max-w-sm text-[hsl(var(--background))]">Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 1995.
+
               </p>
               <div className="mt-5 space-y-2">
                 <a
@@ -297,7 +297,7 @@ export default function Layout({ children, currentPageName }) {
                       });
                     }
                   }}
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors">
+                  className="flex items-center gap-2 hover:text-primary text-sm transition-colors text-[hsl(var(--ring))]">
                   <Phone className="w-4 h-4" /> (844) 351-4154
                 </a>
                 <Link to="/contact" className="block text-muted-foreground hover:text-primary text-sm transition-colors">
@@ -329,7 +329,7 @@ export default function Layout({ children, currentPageName }) {
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h3>
+              <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-[hsl(var(--ring))]">SERVICES</h3>
               <ul className="space-y-2">
                 {[
                 { label: "Custom Home Building", to: "/services/custom-home-building" },
@@ -347,7 +347,7 @@ export default function Layout({ children, currentPageName }) {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Company</h3>
+              <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-[hsl(var(--ring))]">COMPANY</h3>
               <ul className="space-y-2">
                 {[
                 { label: "About Us", page: "About" },
@@ -359,7 +359,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Legal", page: "Legal" }].
                 map((item) =>
                 <li key={item.label}>
-                    <Link to={item.to || createPageUrl(item.page)} className="text-muted-foreground hover:text-primary text-sm underline-offset-2 hover:underline transition-colors">{item.label}</Link>
+                    <Link to={item.to || createPageUrl(item.page)} className="hover:text-primary text-sm underline-offset-2 hover:underline transition-colors text-[hsl(var(--input))]">{item.label}</Link>
                   </li>
                 )}
               </ul>
