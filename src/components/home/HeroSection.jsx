@@ -68,7 +68,7 @@ export default function HeroSection() {
           <span>{slide.highlight}</span>
         </p>
 
-        <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-[hsl(var(--chart-4))]">Custom home construction, renovations, and additions crafted with integrity, precision, and 30+ years of Mississippi expertise.
+        <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-[hsl(var(--sidebar-background))]">Custom home construction, renovations, and additions crafted with integrity, precision, and 30+ years of Mississippi expertise.
 
         </p>
 
