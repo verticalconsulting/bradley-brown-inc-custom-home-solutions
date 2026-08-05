@@ -48,7 +48,7 @@ export default function About() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">A Builder You Can Trust</h2>
             <p className="text-slate-500 leading-relaxed mb-4">Bradley Brown started this company in 2005 with a handshake, a solid crew, and a commitment to doing things right. What began as a small residential renovation company in Jackson has grown into one of the most respected custom home builders in Central Mississippi.</p>
-            <p className="text-slate-500 leading-relaxed mb-4">Over three decades, we've built custom homes across Rankin, Hinds, and Madison counties — from modest renovations toi</p>
+            <p className="text-slate-500 leading-relaxed mb-4">Over three decades, we've built custom homes across Rankin, Hinds, and Madison counties — from modest renovations to</p>
             <p className="text-slate-500 leading-relaxed">We're a family business, and we treat your family like our own. That means clear communication, fair pricing, and work that stands the test of time.</p>
           </div>
         </div>
