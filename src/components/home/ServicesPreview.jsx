@@ -55,8 +55,9 @@ export default function ServicesPreview() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {display.map((service, i) => {
             const Icon = iconMap[service.icon] || iconMap[service.slug] || HomeRenovationIcon;
+            const link = service.link || (service.slug ? `/services/${service.slug}` : null);
             const card = (
-              <div key={i} className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer">
+              <div key={i} className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer h-full">
                 <div className="w-14 h-14 bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl flex items-center justify-center mb-4 group-hover:from-[#1E2D3D] group-hover:to-[#2a3f54] transition-all duration-300">
                   <Icon className="w-7 h-7 text-[#37b5eb] group-hover:text-sky-300 transition-colors" />
                 </div>
@@ -64,8 +65,8 @@ export default function ServicesPreview() {
                 <p className="text-slate-500 text-sm leading-relaxed">{service.short_description}</p>
               </div>
             );
-            return service.link ? (
-              <Link key={i} to={service.link}>{card}</Link>
+            return link ? (
+              <Link key={i} to={link} className="block h-full">{card}</Link>
             ) : (
               <div key={i}>{card}</div>
             );
