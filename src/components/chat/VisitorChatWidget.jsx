@@ -63,21 +63,27 @@ export default function VisitorChatWidget() {
   const startChat = async () => {
     if (!name.trim()) return;
     setSending(true);
-    const conv = await base44.agents.createConversation({
-      agent_name: "home_advisor",
-      metadata: { name, email, page_url: window.location.href },
-    });
-    setConversation(conv);
-    setMessages(conv.messages || []);
-    setStep("chat");
+    try {
+      const conv = await base44.agents.createConversation({
+        agent_name: "home_advisor",
+        metadata: { name, email, page_url: window.location.href },
+      });
+      setConversation(conv);
+      setMessages(conv.messages || []);
+      setStep("chat");
 
-    // Send greeting message
-    const updated = await base44.agents.addMessage(conv, {
-      role: "user",
-      content: `Hi! I'm ${name}. I have some questions about home building and renovations.`,
-    });
-    setMessages(updated.messages || []);
-    setSending(false);
+      // Send greeting message
+      const updated = await base44.agents.addMessage(conv, {
+        role: "user",
+        content: `Hi! I'm ${name}. I have some questions about home building and renovations.`,
+      });
+      setMessages(updated.messages || []);
+    } catch (err) {
+      console.error("Chat failed to start:", err);
+      setMessages(prev => [...prev, { role: "assistant", content: "Sorry, I'm having trouble connecting right now. Please call or text us at (844) 351-4154." }]);
+    } finally {
+      setSending(false);
+    }
   };
 
   const forwardToBrad = async (allMessages) => {
@@ -97,18 +103,24 @@ export default function VisitorChatWidget() {
     setInput("");
     // Optimistically add user message
     setMessages(prev => [...prev, { role: "user", content: text }]);
-    const updated = await base44.agents.addMessage(conversation, {
-      role: "user",
-      content: text,
-    });
-    const newMessages = updated.messages || [];
-    setMessages(newMessages);
-    setSending(false);
+    try {
+      const updated = await base44.agents.addMessage(conversation, {
+        role: "user",
+        content: text,
+      });
+      const newMessages = updated.messages || [];
+      setMessages(newMessages);
 
-    // Check if agent triggered escalation
-    const lastAssistant = [...newMessages].reverse().find(m => m.role === "assistant");
-    if (lastAssistant?.content?.includes("[ESCALATE_TO_BRAD]")) {
-      await forwardToBrad(newMessages);
+      // Check if agent triggered escalation
+      const lastAssistant = [...newMessages].reverse().find(m => m.role === "assistant");
+      if (lastAssistant?.content?.includes("[ESCALATE_TO_BRAD]")) {
+        await forwardToBrad(newMessages);
+      }
+    } catch (err) {
+      console.error("Message failed:", err);
+      setMessages(prev => [...prev, { role: "assistant", content: "Sorry, I lost connection for a moment. Could you try sending that again?" }]);
+    } finally {
+      setSending(false);
     }
   };
 
@@ -196,10 +208,10 @@ export default function VisitorChatWidget() {
                     }`}>
                       {msg.role === "assistant" ? (
                         <ReactMarkdown className="prose prose-sm max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 text-gray-800">
-                          {msg.content.replace("[ESCALATE_TO_BRAD]", "").trim()}
+                          {(msg.content || "").replace("[ESCALATE_TO_BRAD]", "").trim()}
                         </ReactMarkdown>
                       ) : (
-                        <p>{msg.content}</p>
+                        <p>{msg.content || ""}</p>
                       )}
                     </div>
                   </div>
