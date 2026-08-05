@@ -300,10 +300,10 @@ export default function Layout({ children, currentPageName }) {
                   className="flex items-center gap-2 hover:text-primary text-sm transition-colors text-[hsl(var(--ring))]">
                   <Phone className="w-4 h-4" /> (844) 351-4154
                 </a>
-                <Link to="/contact" className="block text-muted-foreground hover:text-primary text-sm transition-colors">
-                  Email Us Online
+                <Link to="/contact" className="block hover:text-primary text-sm transition-colors text-[hsl(var(--ring))]">Email Us Online
+
                 </Link>
-                <p className="text-muted-foreground text-sm">104 Tiffany Drive, Brandon, MS 39042</p>
+                <p className="text-sm text-[hsl(var(--ring))]">104 Tiffany Drive, Brandon, MS 39042</p>
                 <div className="mt-5 flex gap-3">
                   <a
                     href="https://www.facebook.com/BradleyBrownInc"
