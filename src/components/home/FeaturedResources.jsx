@@ -8,7 +8,7 @@ const resources = [
     icon: Home,
     title: "Custom Home Building",
     desc: "Design and build your dream home from the ground up in Brandon & Rankin County.",
-    color: "text-sky-500",
+    color: "text-primary",
     bg: "bg-sky-50",
   },
   {
@@ -55,12 +55,12 @@ const resources = [
 
 export default function FeaturedResources() {
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="py-16 md:py-20 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Services</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Plan Your Project</h2>
-          <p className="text-slate-500 mt-3 max-w-xl mx-auto">
+          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Our Services</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Plan Your Project</h2>
+          <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
             Explore our full range of construction and remodeling services for Brandon, MS and Central Mississippi.
           </p>
         </div>
@@ -72,14 +72,14 @@ export default function FeaturedResources() {
               <Link
                 key={r.to}
                 to={r.to}
-                className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white"
+                className="group p-6 border border-border rounded-xl hover:border-primary hover:shadow-lg transition-all duration-300 bg-white"
               >
                 <div className={`w-12 h-12 ${r.bg} rounded-lg flex items-center justify-center mb-4`}>
                   <Icon className={`w-6 h-6 ${r.color}`} />
                 </div>
-                <h3 className="font-bold text-[#1E2D3D] mb-2">{r.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-3">{r.desc}</p>
-                <span className="inline-flex items-center gap-1 text-sky-500 text-sm font-semibold group-hover:gap-2 transition-all">
+                <h3 className="font-bold text-foreground mb-2">{r.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-3">{r.desc}</p>
+                <span className="inline-flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition-all">
                   Learn more <ChevronRight className="w-3.5 h-3.5" />
                 </span>
               </Link>

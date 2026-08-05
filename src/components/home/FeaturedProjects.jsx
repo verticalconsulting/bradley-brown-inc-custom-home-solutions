@@ -50,12 +50,12 @@ export default function FeaturedProjects() {
   const display = projects.length ? projects : placeholderProjects;
 
   return (
-    <section className="py-16 md:py-24 bg-[#FAFAF8]">
+    <section className="py-16 md:py-24 bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Work</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Featured Projects</h2>
-          <p className="text-slate-500 mt-3 max-w-xl mx-auto">A glimpse of the homes and spaces we've crafted across Central Mississippi.</p>
+          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Our Work</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Featured Projects</h2>
+          <p className="text-muted-foreground mt-3 max-w-xl mx-auto">A glimpse of the homes and spaces we've crafted across Central Mississippi.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -68,21 +68,21 @@ export default function FeaturedProjects() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-3 left-3">
-                  <span className="bg-sky-400 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                  <span className="bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                     {categoryLabels[project.category] || project.category}
                   </span>
                 </div>
               </div>
-              <div className="bg-white p-5">
-                <h3 className="font-bold text-[#1E2D3D] text-lg mb-1">{project.title}</h3>
-                <div className="flex items-center gap-1 text-slate-400 text-sm">
+              <div className="bg-background p-5">
+                <h3 className="font-bold text-foreground text-lg mb-1">{project.title}</h3>
+                <div className="flex items-center gap-1 text-muted-foreground text-sm">
                   <MapPin className="w-3.5 h-3.5" /> {project.location}
                 </div>
                 {project.square_footage && (
-                  <p className="text-slate-400 text-sm mt-0.5">{project.square_footage.toLocaleString()} sq ft</p>
+                  <p className="text-muted-foreground text-sm mt-0.5">{project.square_footage.toLocaleString()} sq ft</p>
                 )}
                 {project.short_description && (
-                  <p className="text-slate-600 text-sm mt-2 leading-relaxed">{project.short_description}</p>
+                  <p className="text-foreground/70 text-sm mt-2 leading-relaxed">{project.short_description}</p>
                 )}
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function FeaturedProjects() {
         <div className="text-center mt-10">
           <Link
             to="/portfolio"
-            className="inline-flex items-center gap-2 bg-[#1E2D3D] hover:bg-[#2C3E50] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center gap-2 bg-foreground hover:opacity-90 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             View All Projects <ChevronRight className="w-4 h-4" />
           </Link>

@@ -63,12 +63,12 @@ export default function ServicesPreview() {
   const display = services.length ? services : defaultServices;
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">What We Do</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Our Services</h2>
-          <p className="text-slate-500 mt-3 max-w-xl mx-auto">From the foundation to the finishing touches, we handle every aspect of your construction project.</p>
+          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">What We Do</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Our Services</h2>
+          <p className="text-muted-foreground mt-3 max-w-xl mx-auto">From the foundation to the finishing touches, we handle every aspect of your construction project.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -76,12 +76,12 @@ export default function ServicesPreview() {
             const Icon = iconMap[service.icon] || iconMap[service.slug] || HomeRenovationIcon;
             const link = service.link || (service.slug ? (slugToRoute[service.slug] || `/services/${service.slug}`) : null);
             const card = (
-              <div key={i} className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer h-full">
-                <div className="w-14 h-14 bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl flex items-center justify-center mb-4 group-hover:from-[#1E2D3D] group-hover:to-[#2a3f54] transition-all duration-300">
-                  <Icon className="w-7 h-7 text-[#37b5eb] group-hover:text-sky-300 transition-colors" />
+              <div key={i} className="group p-6 border border-border rounded-xl hover:border-primary hover:shadow-lg transition-all duration-300 bg-background cursor-pointer h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/20 rounded-xl flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-primary/80 transition-all duration-300">
+                  <Icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
-                <h3 className="font-bold text-[#1E2D3D] mb-2 group-hover:text-sky-600 transition-colors">{service.name}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{service.short_description}</p>
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{service.name}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{service.short_description}</p>
               </div>
             );
             return link ? (
@@ -95,7 +95,7 @@ export default function ServicesPreview() {
         <div className="text-center mt-10">
           <Link
             to={createPageUrl("Services")}
-            className="inline-flex items-center gap-2 text-sky-400 font-semibold hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
           >
             View All Services <ChevronRight className="w-4 h-4" />
           </Link>

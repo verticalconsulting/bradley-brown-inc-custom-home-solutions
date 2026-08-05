@@ -79,18 +79,18 @@ export default function Layout({ children, currentPageName }) {
 
 
   const transparent = isHomePage && !scrolled;
-  const navBg = transparent ? "bg-transparent" : "bg-white shadow-md";
-  const textColor = transparent ? "text-white" : "text-[#1E2D3D]";
+  const navBg = transparent ? "bg-transparent" : "bg-background shadow-md";
+  const textColor = transparent ? "text-white" : "text-foreground";
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8]">
+    <div className="min-h-screen bg-background">
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {isChildPage &&
             <button
               onClick={() => navigate(-1)}
-              className={`md:hidden flex items-center gap-1 text-sm font-medium mr-2 transition-colors ${transparent ? "text-white" : "text-[#1E2D3D]"} hover:text-sky-400`}
+              className={`md:hidden flex items-center gap-1 text-sm font-medium mr-2 transition-colors ${transparent ? "text-white" : "text-foreground"} hover:text-primary`}
               aria-label="Go back">
 
                 <ChevronLeft className="w-5 h-5" />
@@ -109,15 +109,15 @@ export default function Layout({ children, currentPageName }) {
               <div className="relative group">
                 <Link
                   to="/services"
-                  className={`text-sm font-medium transition-colors hover:text-sky-400 flex items-center gap-0.5 ${
-                  currentPageName === "Services" ? "text-sky-400" : textColor}`}>
+                  className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-0.5 ${
+                  currentPageName === "Services" ? "text-primary" : textColor}`}>
                   
                   Services <ChevronRight className="w-3 h-3 rotate-90" />
                 </Link>
                 <div className="absolute top-full left-0 pt-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                   <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
                     {serviceLinks.map((link) =>
-                    <Link key={link.to} to={link.to} className="block px-4 py-3 text-sm text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors">
+                    <Link key={link.to} to={link.to} className="block px-4 py-3 text-sm text-foreground hover:bg-accent hover:text-primary transition-colors">
                         {link.label}
                       </Link>
                     )}
@@ -128,8 +128,8 @@ export default function Layout({ children, currentPageName }) {
               <Link
                 key={link.label}
                 to={link.to || link.path || createPageUrl(link.page)}
-                className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                currentPageName === link.page ? "text-sky-400" : textColor}`
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                currentPageName === link.page ? "text-primary" : textColor}`
                 }>
 
                   {link.label}
@@ -150,14 +150,14 @@ export default function Layout({ children, currentPageName }) {
                     });
                   }
                 }}
-                className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-sky-400 ${textColor}`}>
+                className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-primary ${textColor}`}>
 
                 <Phone className="w-4 h-4" />
                 (844) 351-4154
               </a>
               {/* Desktop estimate CTA */}
               <Link
-                to="/estimate" className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-[#45a6e3]/[0.7]">Get My Free Estimate
+                to="/estimate" className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:opacity-90 transition-colors bg-primary">Get My Free Estimate
 
 
               </Link>
@@ -166,7 +166,7 @@ export default function Layout({ children, currentPageName }) {
               <Link
                 to="/estimate"
                 onClick={() => base44.analytics.track({ eventName: "mobile_header_estimate_clicked", properties: { source: "mobile_header_sticky", page: currentPageName || "unknown" } })}
-                className="md:hidden inline-flex items-center gap-1 bg-[#C4922A] hover:bg-[#A37820] text-white px-3.5 py-2.5 min-h-[44px] rounded-lg text-sm font-bold shadow-sm transition-colors"
+                className="md:hidden inline-flex items-center gap-1 bg-primary hover:opacity-90 text-white px-3.5 py-2.5 min-h-[44px] rounded-lg text-sm font-bold shadow-sm transition-colors"
                 aria-label="Get a free estimate">
                 Estimate
               </Link>
@@ -185,9 +185,9 @@ export default function Layout({ children, currentPageName }) {
         <div className="md:hidden bg-white border-t border-gray-100 shadow-xl">
             <div className="px-4 py-5 space-y-1">
               <div className="px-3 py-2">
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Services</p>
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Services</p>
                 {serviceLinks.map((link) =>
-              <Link key={link.to} to={link.to} className="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-gray-50 transition-colors">
+              <Link key={link.to} to={link.to} className="block px-3 py-2 rounded-lg text-sm text-foreground hover:bg-gray-50 transition-colors">
                     {link.label}
                   </Link>
               )}
@@ -198,8 +198,8 @@ export default function Layout({ children, currentPageName }) {
               to={link.to || link.path || createPageUrl(link.page)}
               className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
               currentPageName === link.page ?
-              "bg-amber-50 text-sky-400" :
-              "text-[#1E2D3D] hover:bg-gray-50"}`
+              "bg-accent text-primary" :
+              "text-foreground hover:bg-gray-50"}`
               }>
 
                   {link.label}
@@ -217,14 +217,14 @@ export default function Layout({ children, currentPageName }) {
                     });
                   }
                 }}
-                className="flex items-center gap-2 px-3 py-2 text-[#1E2D3D] font-medium">
-                  <Phone className="w-4 h-4 text-sky-400" />
+                className="flex items-center gap-2 px-3 py-2 text-foreground font-medium">
+                  <Phone className="w-4 h-4 text-primary" />
                   (844) 351-4154
                 </a>
                 <Link
                 to="/estimate"
                 onClick={() => base44.analytics.track({ eventName: "mobile_menu_estimate_clicked", properties: { source: "mobile_menu", page: currentPageName || "unknown" } })}
-                className="block bg-sky-400 text-white px-4 py-3 rounded-lg text-center font-semibold hover:bg-sky-500 transition-colors">
+                className="block bg-primary text-white px-4 py-3 rounded-lg text-center font-semibold hover:opacity-90 transition-colors">
 
                   Get My Free Estimate →
                 </Link>
@@ -253,14 +253,14 @@ export default function Layout({ children, currentPageName }) {
       {/* Global chat widget (hidden on agent page) */}
       {currentPageName !== "AgentChat" && <VisitorChatWidget />}
 
-      <footer className="bg-[#1E2D3D] text-white">
+      <footer className="bg-foreground text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             <div className="sm:col-span-2 lg:col-span-2">
               <div className="mb-4">
                 <img src={LOGO_URL} alt="Bradley Brown Inc." className="h-14 w-auto object-contain brightness-0 invert" />
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
                 Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 1995.
               </p>
               <div className="mt-5 space-y-2">
@@ -275,19 +275,19 @@ export default function Layout({ children, currentPageName }) {
                       });
                     }
                   }}
-                  className="flex items-center gap-2 text-slate-300 hover:text-sky-400 text-sm transition-colors">
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors">
                   <Phone className="w-4 h-4" /> (844) 351-4154
                 </a>
-                <Link to="/contact" className="block text-slate-300 hover:text-sky-400 text-sm transition-colors">
+                <Link to="/contact" className="block text-muted-foreground hover:text-primary text-sm transition-colors">
                   Email Us Online
                 </Link>
-                <p className="text-slate-500 text-sm">104 Tiffany Drive, Brandon, MS 39042</p>
+                <p className="text-muted-foreground text-sm">104 Tiffany Drive, Brandon, MS 39042</p>
                 <div className="mt-5 flex gap-3">
                   <a
                     href="https://www.facebook.com/BradleyBrownInc"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-sky-400 transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                     aria-label="Facebook">
                     
                     <Facebook className="w-5 h-5" />
@@ -296,7 +296,7 @@ export default function Layout({ children, currentPageName }) {
                     href="https://www.tiktok.com/@bb859876"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-sky-400 transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                     aria-label="TikTok">
                     
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -319,7 +319,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Emergency Repairs", to: "/services/emergency-repairs" }].
                 map((item) =>
                 <li key={item.label}>
-                    <Link to={item.to} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
+                    <Link to={item.to} className="text-muted-foreground hover:text-primary text-sm transition-colors">{item.label}</Link>
                   </li>
                 )}
               </ul>
@@ -337,7 +337,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Legal", page: "Legal" }].
                 map((item) =>
                 <li key={item.label}>
-                    <Link to={item.to || createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
+                    <Link to={item.to || createPageUrl(item.page)} className="text-muted-foreground hover:text-primary text-sm transition-colors">{item.label}</Link>
                   </li>
                 )}
               </ul>
@@ -346,7 +346,7 @@ export default function Layout({ children, currentPageName }) {
 
           {/* Associations */}
           <div className="mt-10 pt-8 border-t border-slate-700">
-            <p className="text-slate-500 text-xs uppercase tracking-wider mb-4">Memberships & Certifications</p>
+            <p className="text-muted-foreground text-xs uppercase tracking-wider mb-4">Memberships & Certifications</p>
             <div className="flex flex-wrap items-center gap-4 md:gap-6">
               {associations.map((a) =>
               a.url ?
@@ -364,17 +364,17 @@ export default function Layout({ children, currentPageName }) {
           </div>
 
           <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-sm">
+            <p className="text-muted-foreground text-sm">
               © 2026 Designed by{" "}
-              <a href="https://verticalconsulting.net" target="_blank" rel="noopener noreferrer" className="text-sky-400 hover:text-sky-300 transition-colors">
+              <a href="https://verticalconsulting.net" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-foreground transition-colors">
                 Five Hughes LLC
               </a>
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
-              <Link to="/seodashboard" className="text-slate-500 hover:text-sky-400 text-sm transition-colors">
+              <Link to="/seodashboard" className="text-muted-foreground hover:text-primary text-sm transition-colors">
                 Employee Portal
               </Link>
-              <p className="text-slate-500 text-sm">Licensed & Insured · Mississippi General Contractor · 104 Tiffany Drive, Brandon, MS 39042</p>
+              <p className="text-muted-foreground text-sm">Licensed & Insured · Mississippi General Contractor · 104 Tiffany Drive, Brandon, MS 39042</p>
             </div>
           </div>
         </div>

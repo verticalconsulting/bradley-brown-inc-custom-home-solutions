@@ -47,17 +47,17 @@ export default function HeroSection() {
 
       )}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1E2D3D]/75 via-[#1E2D3D]/55 to-[#1E2D3D]/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-foreground/75 via-foreground/55 to-foreground/85" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
-        <div className="bg-slate-700 mb-6 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-sky-400/40">
-          <span className="bg-sky-400 rounded-full w-2 h-2" />
-          <span className="text-sky-400 text-sm font-medium">Brandon Mississippi's Premier Builder Since 1995 </span>
+        <div className="bg-foreground/80 mb-6 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-primary/40">
+          <span className="bg-primary rounded-full w-2 h-2" />
+          <span className="text-primary text-sm font-medium">Brandon Mississippi's Premier Builder Since 1995 </span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">
           Brandon, MS Home Remodeling &amp;
-          <span className="text-sky-400 block">Custom Home Builder Since 1995</span>
+          <span className="text-primary block">Custom Home Builder Since 1995</span>
         </h1>
 
         <p
@@ -65,10 +65,10 @@ export default function HeroSection() {
           style={{ opacity: fading ? 0 : 1 }}
           aria-live="polite">
           {slide.headline}{" "}
-          <span className="text-sky-400">{slide.highlight}</span>
+          <span className="text-primary">{slide.highlight}</span>
         </p>
 
-        <p className="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
           Custom home construction, renovations, and additions crafted with integrity, precision, and 30+ years of Mississippi expertise.
         </p>
 
@@ -76,17 +76,17 @@ export default function HeroSection() {
         <div className="flex flex-col gap-3 sm:hidden w-full max-w-xs mx-auto">
           <Link
             to="/estimate"
-            className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-[#C4922A]">
+            className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-primary">
             <Sparkles className="w-5 h-5" /> Get My Free Estimate
           </Link>
-          <a href="tel:+18443514154" className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-sky-400">Call (844) 351-4154
+          <a href="tel:+18443514154" className="text-white px-6 py-4 text-base font-bold rounded-xl inline-flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all bg-primary">Call (844) 351-4154
           </a>
         </div>
 
         {/* Desktop CTAs */}
         <div className="hidden sm:flex flex-row gap-4 justify-center">
           <Link
-            to="/estimate" className="hover:bg-[#0a1f44] text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-[#45a6e3]">Get My Free Estimate
+            to="/estimate" className="hover:opacity-90 text-white px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-lg bg-primary">Get My Free Estimate
 
           </Link>
           <a
@@ -106,7 +106,7 @@ export default function HeroSection() {
             onClick={() => {setFading(true);setTimeout(() => {setCurrent(i);setFading(false);}, 600);}}
             className={`min-w-[44px] min-h-[44px] flex items-center justify-center -m-2 p-2`}>
             
-              <span className={`block rounded-full transition-all duration-300 ${i === current ? "bg-sky-400 w-6 h-2.5" : "bg-white/40 w-2.5 h-2.5"}`} />
+              <span className={`block rounded-full transition-all duration-300 ${i === current ? "bg-primary w-6 h-2.5" : "bg-white/40 w-2.5 h-2.5"}`} />
             </button>
           )}
         </div>
