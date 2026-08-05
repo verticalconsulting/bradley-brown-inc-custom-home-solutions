@@ -45,7 +45,7 @@ export default function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
   const [loading, setLoading] = useState(true);
-  const { hero: heroImage } = usePageImages("Portfolio");
+  const { hero: heroImage, cta: featuredImage } = usePageImages("Portfolio");
 
   const loadProjects = () => {
     base44.entities.Project.filter({ status: "published" }, "-year_completed", 50)
@@ -158,7 +158,7 @@ export default function Portfolio() {
         <div className="mt-10 bg-gradient-to-br from-[#1E2D3D] to-slate-800 rounded-2xl overflow-hidden shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
             <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80" alt="Historic home restoration by Bradley Brown Inc. — Brandon, MS" className="w-full h-full object-cover" loading="lazy" />
+              <img src={featuredImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"} alt="Historic home restoration by Bradley Brown Inc. — Brandon, MS" className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div className="p-8 md:p-10">
               <p className="text-[#C4922A] font-semibold text-xs uppercase tracking-wider mb-2">Featured Project Story</p>
