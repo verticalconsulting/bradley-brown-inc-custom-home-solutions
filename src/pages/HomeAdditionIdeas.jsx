@@ -114,7 +114,7 @@ const faqSchema = {
 
 export default function HomeAdditionIdeas() {
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-20">
+    <div className="min-h-screen bg-background pt-20">
       <SEOHead
         title="Home Addition Ideas for Brandon, MS | Room Additions & Expansions"
         description="Explore the best home addition ideas for Brandon, MS homeowners. Master suites, sunrooms, in-law suites, garage conversions & outdoor kitchens. Get a free estimate from Bradley Brown Inc."
@@ -122,7 +122,7 @@ export default function HomeAdditionIdeas() {
         canonical="https://bradleybrowninc.com/homeadditionideas"
       />
 
-      <div className="bg-[#1E2D3D] py-14 md:py-20">
+      <div className="bg-foreground py-14 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Brandon, MS & Rankin County Area</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Home Addition Ideas</h1>
@@ -160,7 +160,7 @@ export default function HomeAdditionIdeas() {
                     <span className="text-xs bg-sky-50 text-sky-600 border border-sky-200 px-2 py-0.5 rounded-full font-medium">{addition.roi}</span>
                     <span className="text-xs text-slate-400">{addition.cost}</span>
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-3">{addition.title}</h2>
+                  <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">{addition.title}</h2>
                   <p className="text-slate-500 text-sm leading-relaxed mb-4">{addition.description}</p>
                   <ul className="space-y-1.5 mb-5">
                     {addition.features.map((f) => (
@@ -182,7 +182,7 @@ export default function HomeAdditionIdeas() {
           <div className="flex items-start gap-3">
             <Star className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-bold text-[#1E2D3D] mb-1">Pro Tip: Choose Additions That Match Your Neighborhood</h3>
+              <h3 className="font-bold text-foreground mb-1">Pro Tip: Choose Additions That Match Your Neighborhood</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
                 In Brandon, MS and surrounding areas, home values are influenced by neighborhood comps. We always advise clients to choose additions that bring their home up to — not far beyond — surrounding home values to maximize ROI. Our team will advise you on the best investment for your specific street and neighborhood.
               </p>
@@ -192,7 +192,7 @@ export default function HomeAdditionIdeas() {
 
         {/* FAQ */}
         <div className="mt-12">
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6">Frequently Asked Questions — Home Additions in Brandon, MS</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6">Frequently Asked Questions — Home Additions in Brandon, MS</h2>
           <div className="space-y-4">
             {[
               { q: "How long does a home addition take to build?", a: "Most additions take 2–5 months from permit approval to completion. Larger additions like full second-floor expansions or in-law suites with separate entrances can run 5–8 months. We provide a detailed timeline before we break ground." },
@@ -202,7 +202,7 @@ export default function HomeAdditionIdeas() {
               { q: "Can I finance a home addition?", a: "Yes. Home additions can be financed through home equity loans, HELOCs, FHA 203(k) loans, or construction loans. We'll help you scope the project to align with your budget. See our Renovation Loans guide for details." },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
-                <h3 className="font-semibold text-[#1E2D3D] text-sm mb-2">{item.q}</h3>
+                <h3 className="font-semibold text-foreground text-sm mb-2">{item.q}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{item.a}</p>
               </div>
             ))}
@@ -228,7 +228,7 @@ export default function HomeAdditionIdeas() {
         </div>
       </div>
 
-      <div className="bg-[#1E2D3D] py-12 md:py-16">
+      <div className="bg-foreground py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Add Space to Your Home?</h2>
           <p className="text-slate-300 mb-8">Bradley Brown Inc. has built additions across Brandon, Flowood, Pearl, Madison & Jackson since 1995. Let's talk about your project.</p>
