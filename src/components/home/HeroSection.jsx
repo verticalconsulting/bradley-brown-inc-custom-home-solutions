@@ -50,7 +50,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-foreground/75 via-foreground/55 to-foreground/85" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
-        <div className="mb-6 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-primary/40 bg-[hsl(var(--destructive))]">
+        <div className="mb-6 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-primary/40 bg-[hsl(var(--sidebar-accent))]">
           <span className="bg-primary rounded-full w-2 h-2" />
           <span className="text-primary text-sm font-medium">Brandon Mississippi's Premier Builder Since 1995 </span>
         </div>
