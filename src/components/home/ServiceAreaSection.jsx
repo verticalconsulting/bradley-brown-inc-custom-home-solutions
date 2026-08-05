@@ -14,8 +14,8 @@ export default function ServiceAreaSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8">
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Where We Work</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Home Remodeling Services Across Brandon, MS and Rankin County
+          <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--destructive))]">Home Remodeling Services Across Brandon, MS and Rankin County
+
           </h2>
         </div>
 

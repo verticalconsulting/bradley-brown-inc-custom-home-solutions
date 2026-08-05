@@ -55,7 +55,7 @@ export default function FeaturedProjects() {
         <div className="text-center mb-12">
           <p className="font-semibold text-sm uppercase tracking-wider mb-2 text-[hsl(var(--background))]">OUR WORK</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--background))]">Featured Projects</h2>
-          <p className="mt-3 max-w-xl mx-auto text-[hsl(var(--destructive))]">A glimpse of the homes and spaces we've crafted across Central Mississippi.</p>
+          <p className="mt-3 max-w-xl mx-auto text-[hsl(var(--ring))]">A glimpse of the homes and spaces we've crafted across Central Mississippi.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
