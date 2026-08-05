@@ -6,30 +6,30 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 12%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 12%;
+    --background: 60 17% 98%;
+    --foreground: 211 34% 18%;
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 100%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 12%;
-    --primary: 215 25% 27%;
+    --primary: 212 100% 17%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 215 25% 27%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 15% 40%;
-    --accent: 210 40% 96%;
+    --secondary: 211 34% 25%;
+    --secondary-foreground: 215 19% 35%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 203 20% 55%;
+    --accent: 40 67% 38%;
     --accent-foreground: 215 25% 27%;
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --border: 210 20% 85%;
+    --border: 0 0% 80%;
     --input: 210 20% 85%;
-    --ring: 199 94% 60%;
-    --chart-1: 215 25% 27%;
-    --chart-2: 199 94% 60%;
-    --chart-3: 222 47% 20%;
-    --chart-4: 217 33% 40%;
-    --chart-5: 210 30% 55%;
+    --ring: 198 82% 57%;
+    --chart-1: 142 76% 36%;
+    --chart-2: 142 70% 49%;
+    --chart-3: 173 77% 31%;
+    --chart-4: 32 95% 44%;
+    --chart-5: 43 84% 76%;
     --radius: 0.5rem;
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Manrope', sans-serif;
