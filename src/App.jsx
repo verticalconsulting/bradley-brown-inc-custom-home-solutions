@@ -40,6 +40,7 @@ const JobsiteDetail = lazy(() => import('./pages/JobsiteDetail'));
 const Leads = lazy(() => import('./pages/Leads'));
 const FunnelAnalysis = lazy(() => import('./pages/FunnelAnalysis'));
 const ThankYou = lazy(() => import('./pages/ThankYou'));
+const ScheduleVisit = lazy(() => import('./pages/ScheduleVisit'));
 import AdminRoute from './components/AdminRoute';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
@@ -157,7 +158,7 @@ const AuthenticatedApp = () => {
       <Route path="/projects/two-story-home-addition" element={<Navigate to="/portfolio" replace />} />
       <Route path="/ai-quote" element={<Navigate to="/estimate" replace />} />
       <Route path="/quoteassistant" element={<Navigate to="/estimate" replace />} />
-      <Route path="/schedulevisit" element={<Navigate to="/estimate" replace />} />
+      <Route path="/schedulevisit" element={<LayoutWrapper currentPageName="ScheduleVisit"><ScheduleVisit /></LayoutWrapper>} />
       {/* Emergency & luxury renovation redirects */}
       <Route path="/landingemergencyrepair" element={<Navigate to="/services/emergency-repairs" replace />} />
       <Route path="/luxuryhomerenovations" element={<Navigate to="/services" replace />} />

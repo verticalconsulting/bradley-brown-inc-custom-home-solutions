@@ -153,7 +153,7 @@ export default function EstimateResult({
         <a href="tel:+18443514154" className="flex-1 inline-flex items-center justify-center gap-2 bg-[#C4922A] text-white px-5 py-3 rounded-lg font-semibold hover:bg-[#A37820] transition-colors">
           <Phone className="w-4 h-4" /> Call to Discuss
         </a>
-        <Link to="/contact" className="flex-1 inline-flex items-center justify-center gap-2 border border-[#1E2D3D] text-[#1E2D3D] px-5 py-3 rounded-lg font-semibold hover:bg-[#1E2D3D] hover:text-white transition-colors">
+        <Link to="/schedulevisit" className="flex-1 inline-flex items-center justify-center gap-2 border border-[#1E2D3D] text-[#1E2D3D] px-5 py-3 rounded-lg font-semibold hover:bg-[#1E2D3D] hover:text-white transition-colors">
           Schedule Consultation <ChevronRight className="w-4 h-4" />
         </Link>
       </div>

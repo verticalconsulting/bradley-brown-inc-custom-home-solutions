@@ -162,7 +162,7 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold text-foreground mb-0.5">Schedule a Free Site Visit</p>
                   <p className="text-slate-500 text-sm mb-2">We'll come to you — no commitment required.</p>
-                  <Link to="/estimate" className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
+                  <Link to="/schedulevisit" className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
                     Book a visit <ChevronRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

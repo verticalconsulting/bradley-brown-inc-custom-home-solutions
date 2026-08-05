@@ -30,7 +30,7 @@ export const REDIRECT_MAP = [
   { from: "/contactform", to: "/estimate", type: 301 },
   { from: "/quote", to: "/estimate", type: 301 },
   { from: "/finish-package-studio", to: "/estimate", type: 301 },
-  { from: "/schedulevisit", to: "/estimate", type: 301 },
+
   { from: "/free-quote", to: "/estimate", type: 301 },
   { from: "/barndominiums", to: "/services/barndominiums", type: 301 },
   { from: "/barndominiums-ms", to: "/services/barndominiums", type: 301 },

@@ -294,7 +294,7 @@ export default function BathroomRemodelingBrandon() {
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
           </div>
-          <Link to={"/estimate"} className="inline-flex items-center gap-1.5 text-white text-sm font-semibold mt-5 underline underline-offset-4 hover:text-amber-100">
+          <Link to={"/schedulevisit"} className="inline-flex items-center gap-1.5 text-white text-sm font-semibold mt-5 underline underline-offset-4 hover:text-amber-100">
             Schedule a free site visit instead
             <ChevronRight className="w-4 h-4" />
           </Link>
