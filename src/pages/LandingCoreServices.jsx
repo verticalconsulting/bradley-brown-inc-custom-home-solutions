@@ -62,7 +62,7 @@ export default function LandingCoreServices() {
   const { hero: heroImage } = usePageImages("LandingCoreServices");
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
+    <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling in Mississippi | Bradley Brown Inc"
         description="Mississippi home remodelers — kitchen, bath & whole-home renovations across Central MS. Licensed since 1995. Free estimates — call (844) 351-4154."
@@ -79,7 +79,7 @@ export default function LandingCoreServices() {
       </div>
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+      <div className="bg-foreground py-14 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80"}')` }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2">Brandon, MS & Surrounding Areas</p>
@@ -107,7 +107,7 @@ export default function LandingCoreServices() {
 
         {/* Services list */}
         <div>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Our Remodeling Services</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Our Remodeling Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { title: "Kitchen Renovation", desc: "Custom cabinets, countertops, islands, and full kitchen redesigns starting at $25,000." },
@@ -120,7 +120,7 @@ export default function LandingCoreServices() {
               <div key={s.title} className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
                 <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-bold text-[#1E2D3D] text-sm">{s.title}</h3>
+                  <h3 className="font-bold text-foreground text-sm">{s.title}</h3>
                   <p className="text-slate-500 text-xs mt-1 leading-snug">{s.desc}</p>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function LandingCoreServices() {
 
         {/* Body copy */}
         <div className="prose prose-slate max-w-none">
-          <h2 className="text-xl font-bold text-[#1E2D3D]">Why Brandon, MS Homeowners Choose Bradley Brown Inc.</h2>
+          <h2 className="text-xl font-bold text-foreground">Why Brandon, MS Homeowners Choose Bradley Brown Inc.</h2>
           <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
           <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Pearl, Richland, Madison, Ridgeland, and all of Rankin, Hinds, and Madison counties. Every estimate is free, every quote is transparent, and every project is backed by our quality guarantee.</p>
           <p className="text-slate-600 leading-relaxed">From energy-efficient window replacements to complete kitchen gut-and-rebuilds, we handle it all with licensed tradespeople and a project manager on-site every day. Call us at <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to schedule your free consultation.</p>
@@ -138,7 +138,7 @@ export default function LandingCoreServices() {
 
         {/* Local internal links */}
         <div className="bg-white border border-sky-100 rounded-2xl p-6 md:p-8 shadow-sm">
-          <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-3">Looking for a Local Brandon, MS Contractor?</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">Looking for a Local Brandon, MS Contractor?</h2>
           <p className="text-slate-600 leading-relaxed mb-5">
             Bradley Brown Inc. serves homeowners across Mississippi, with a strong local focus on Brandon and Rankin County.
           </p>
@@ -151,7 +151,7 @@ export default function LandingCoreServices() {
             </Link>
             <Link
               to="/custom-home-builder-brandon-ms"
-              className="inline-flex items-center gap-2 bg-[#1E2D3D] hover:bg-[#2C3E50] text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+              className="inline-flex items-center gap-2 bg-foreground hover:bg-secondary-foreground text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
             >
               Custom Home Builder in Brandon, MS <ChevronRight className="w-4 h-4" />
             </Link>
@@ -163,7 +163,7 @@ export default function LandingCoreServices() {
             </Link>
             <Link
               to="/bathroom-remodeling-brandon-ms"
-              className="inline-flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-accent text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
             >
               Bathroom Remodeling — Brandon, MS <ChevronRight className="w-4 h-4" />
             </Link>
@@ -172,7 +172,7 @@ export default function LandingCoreServices() {
 
         {/* FAQ */}
         <div>
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions</h2>
           <LandingFAQ faqs={faqs} />
         </div>
       </div>
