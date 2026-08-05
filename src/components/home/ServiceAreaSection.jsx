@@ -20,38 +20,38 @@ export default function ServiceAreaSection() {
         </div>
 
         <div className="max-w-3xl mx-auto text-center mb-10">
-          <p className="text-foreground/70 leading-relaxed">
-            Bradley Brown Inc. has been based in Brandon, Mississippi since 1995.
-            Our crews regularly work throughout Brandon, Flowood, Richland, Pearl,
-            Florence, Pelahatchie, and Reservoir-area neighborhoods, bringing
-            decades of experience with local permitting, soil conditions, and
-            trusted trade partners. We also serve Madison County communities like
-            Ridgeland and Madison, along with Hinds County neighborhoods in
-            Jackson, Clinton, and Raymond, for larger custom builds and historic
-            restoration projects. Whether you're planning a kitchen remodel,
-            bathroom update, room addition, or a brand-new custom home, our team
-            understands the building requirements specific to Rankin County and
-            the surrounding area. As the go-to choice for{" "}
-            <Link to="/remodeling-brandon-ms" className="text-primary hover:underline font-medium">
-              Brandon remodeling
-            </Link>{" "}
-            and a trusted{" "}
-            <Link to="/custom-home-builder-brandon-ms" className="text-primary hover:underline font-medium">
-              custom home builder in Brandon
-            </Link>
-            , we back every project with licensed, insured craftsmanship. We also offer{" "}
-            <Link to="/remodeling-ms" className="text-primary hover:underline font-medium">
-              remodeling services across Mississippi
-            </Link>{" "}
-            — from custom homes to emergency repairs. Call{" "}
-            <a href="tel:+18443514154" className="text-primary hover:underline font-medium">
-              (844) 351-4154
-            </a>{" "}
-            or get your{" "}
-            <Link to="/estimate" className="text-primary hover:underline font-medium">
-              free estimate online
-            </Link>{" "}
-            to confirm we cover your address.
+          <p className="leading-relaxed text-[hsl(var(--input))]">Bradley Brown Inc. has been based in Brandon, Mississippi since 1995. Our crews regularly work throughout Brandon, Flowood, Richland, Pearl, Florence, Pelahatchie, and Reservoir-area neighborhoods, bringing decades of experience with local permitting, soil conditions, and trusted trade partners. We also serve Madison County communities like Ridgeland and Madison, along with Hinds County neighborhoods in Jackson, Clinton, and Raymond, for larger custom builds and historic restoration projects. Whether you're planning a kitchen remodel, bathroom update, room addition, or a brand-new custom home, our team understands the building requirements specific to Rankin County and the surrounding area. As the go-to choice for Brandon remodeling and a trusted custom home builder in Brandon, we back every project with licensed, insured craftsmanship. We also offer remodeling services across Mississippi — from custom homes to emergency repairs. Call (844) 351-4154 or get your free estimate online to confirm we cover your address.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           </p>
         </div>
 
