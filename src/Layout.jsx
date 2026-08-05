@@ -61,11 +61,10 @@ export default function Layout({ children, currentPageName }) {
   }, [location.pathname]);
 
   const navLinks = [
-  { label: "Home", page: "Home" },
+  { label: "About", page: "About" },
   { label: "Portfolio", page: "Portfolio" },
   { label: "Pricing", to: "/pricing" },
   { label: "Pro Tips", page: "ProTips" },
-  { label: "About", page: "About" },
   { label: "Contact", page: "Contact" }];
 
   const serviceLinks = [
@@ -115,12 +114,19 @@ export default function Layout({ children, currentPageName }) {
             </Link>
 
             <div className="hidden md:flex items-center gap-6 lg:gap-8">
+              <Link
+                to={createPageUrl("Home")}
+                aria-current={currentPageName === "Home" ? "page" : undefined}
+                className={`text-sm font-medium transition-colors hover:text-primary underline-offset-4 hover:underline ${
+                currentPageName === "Home" ? "text-primary underline" : textColor}`}>
+                Home
+              </Link>
               <div className="relative group">
                 <Link
                   to="/services"
                   className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-0.5 ${
                   currentPageName === "Services" ? "text-primary" : textColor}`}>
-                  
+
                   Services <ChevronRight className="w-3 h-3 rotate-90" />
                 </Link>
                 <div className="absolute top-full left-0 pt-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
@@ -194,6 +200,12 @@ export default function Layout({ children, currentPageName }) {
         {mobileMenuOpen &&
         <div className="md:hidden bg-white border-t border-gray-100 shadow-xl">
             <div className="px-4 py-5 space-y-1">
+              <Link
+                to={createPageUrl("Home")}
+                className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
+                currentPageName === "Home" ? "bg-accent text-primary" : "text-foreground hover:bg-gray-50"}`}>
+                Home
+              </Link>
               <div className="px-3 py-2">
                 <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Services</p>
                 {serviceLinks.map((link) =>
