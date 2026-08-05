@@ -11,7 +11,7 @@ module.exports = {
   		},
   		fontFamily: {
   			heading: ['var(--font-heading)'],
-  			body: ['var(--font-body)'],
+  			body: ['var(--font-body)']
   		},
   		colors: {
   			background: 'hsl(var(--background))',
