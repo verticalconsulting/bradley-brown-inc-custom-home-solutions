@@ -47,7 +47,7 @@ export default function ProTips() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-20">
+    <div className="min-h-screen bg-background pt-20">
       <SEOHead
         title="Pro Tips — Home Remodeling Advice | Bradley Brown Inc."
         description="Expert remodeling tips for Brandon, MS homeowners — kitchens, baths, additions & more from Rankin County's trusted contractor since 1995. Call (844) 351-4154."
@@ -55,7 +55,7 @@ export default function ProTips() {
       />
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+      <div className="bg-foreground py-14 md:py-20 relative overflow-hidden">
         {heroImage && (
           <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage.url}')` }} />
         )}
@@ -84,7 +84,7 @@ export default function ProTips() {
       {/* Keyword-gap pages */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-2">
         <div className="bg-sky-50 border border-sky-200 rounded-xl p-5">
-          <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Featured Guides</h2>
+          <h2 className="font-bold text-foreground text-sm mb-3">Featured Guides</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
               { label: "Small Bathroom Remodeling Ideas", to: "/protips/small-bathroom-ideas", desc: "6 contractor-tested ideas to maximize a small bath" },
@@ -96,7 +96,7 @@ export default function ProTips() {
               { label: "Emergency Home Repairs — Brandon, MS", to: "/services/emergency-repairs", desc: "Urgent? Call (601) 954-1306 — same-week service available" },
             ].map((g) => (
               <Link key={g.to} to={g.to} className="block bg-white border border-sky-100 rounded-lg p-4 hover:border-sky-400 transition-colors">
-                <p className="font-semibold text-[#1E2D3D] text-xs mb-1">{g.label}</p>
+                <p className="font-semibold text-foreground text-xs mb-1">{g.label}</p>
                 <p className="text-slate-500 text-xs">{g.desc}</p>
               </Link>
             ))}
@@ -106,7 +106,7 @@ export default function ProTips() {
 
       {/* Blog Post Cards */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 pb-20">
-        <h2 className="font-bold text-[#1E2D3D] text-lg mb-5">All Pro Tips</h2>
+        <h2 className="font-bold text-foreground text-lg mb-5">All Pro Tips</h2>
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -156,7 +156,7 @@ export default function ProTips() {
                       </span>
                     )}
                   </div>
-                  <h3 className="text-lg font-bold text-[#1E2D3D] mb-2 leading-snug">
+                  <h3 className="text-lg font-bold text-foreground mb-2 leading-snug">
                     <Link to={`/protips/${post.slug}`} className="hover:text-sky-600 transition-colors">
                       {post.title}
                     </Link>
