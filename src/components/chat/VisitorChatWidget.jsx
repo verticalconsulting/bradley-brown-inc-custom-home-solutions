@@ -121,7 +121,7 @@ export default function VisitorChatWidget() {
   return (
     <div className="fixed bottom-20 left-4 md:bottom-6 md:left-6 z-[60] flex flex-col items-start gap-3">
       {open && (
-        <div className="w-80 md:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden" style={{ maxHeight: "520px" }}>
+        <div className="w-80 md:w-96 h-[520px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden">
           {/* Header */}
           <div className="bg-[#1E2D3D] text-white px-4 py-3 flex items-center justify-between flex-shrink-0">
             <div className="flex items-center gap-2">
