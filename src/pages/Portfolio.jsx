@@ -68,13 +68,13 @@ export default function Portfolio() {
 
   return (
     <PullToRefresh onRefresh={handleRefresh}>
-    <div className="min-h-screen bg-[#FAFAF8] pt-20">
+    <div className="min-h-screen bg-background pt-20">
       <SEOHead
         title="Project Portfolio | Bradley Brown Inc — Brandon, MS"
         description="Browse our portfolio of custom homes, kitchen & bath renovations, additions & outdoor living across Brandon, Madison & Central MS. Call (844) 351-4154."
         canonical="https://bradleybrowninc.com/portfolio"
       />
-      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+      <div className="bg-foreground py-14 md:py-20 relative overflow-hidden">
         {heroImage && (
           <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage.url}')` }} />
         )}
@@ -128,7 +128,7 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-[#1E2D3D] text-lg mb-2">{project.title}</h3>
+                  <h3 className="font-bold text-foreground text-lg mb-2">{project.title}</h3>
                   <div className="flex flex-wrap gap-3 text-slate-400 text-sm">
                     {project.location && (
                       <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" />{project.location}</span>
@@ -155,7 +155,7 @@ export default function Portfolio() {
         )}
 
         {/* Featured Project Story */}
-        <div className="mt-10 bg-gradient-to-br from-[#1E2D3D] to-slate-800 rounded-2xl overflow-hidden shadow-xl">
+        <div className="mt-10 bg-gradient-to-br from-foreground to-slate-800 rounded-2xl overflow-hidden shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
             <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
               <img src={featuredImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"} alt="Historic home restoration by Bradley Brown Inc. — Brandon, MS" className="w-full h-full object-cover" loading="lazy" />
@@ -180,7 +180,7 @@ export default function Portfolio() {
               <p className="text-sky-500 font-semibold text-sm uppercase tracking-wider mb-1 flex items-center gap-2">
                 <Instagram className="w-4 h-4" /> Follow Along
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#1E2D3D]">Latest from Instagram</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Latest from Instagram</h2>
               <p className="text-slate-500 text-sm mt-1">Behind-the-scenes shots & finished projects, straight from the field.</p>
             </div>
             <a
@@ -197,7 +197,7 @@ export default function Portfolio() {
 
         {/* Internal links */}
         <div className="mt-12 bg-slate-50 border border-gray-200 rounded-xl p-5">
-          <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h2>
+          <h2 className="font-bold text-foreground text-sm mb-3">Explore More</h2>
           <div className="flex flex-wrap gap-2">
             {exploreLinks.map(navItem => (
               <Link key={navItem.to} to={navItem.to} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
