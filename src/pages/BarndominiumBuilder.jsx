@@ -80,7 +80,7 @@ const trackCall = () => {
 
 export default function BarndominiumBuilder() {
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
+    <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Barndominium Builder in Brandon, MS | Built Right the First Time"
         description="Licensed Brandon, MS barndominium builder. Steel-frame homes combining living + workshop, built to last by a contractor trusted since 1995. Free estimates — call (844) 351-4154."
@@ -97,12 +97,12 @@ export default function BarndominiumBuilder() {
       </div>
 
       {/* ===== HERO — Problem + Outcome headline, CTA above the fold ===== */}
-      <section className="relative bg-[#1E2D3D] overflow-hidden">
+      <section className="relative bg-foreground overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-25"
           style={{ backgroundImage: "url('https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/7b34280a-4da6-4735-a990-074941b06e00/large')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1E2D3D]/80 via-[#1E2D3D]/70 to-[#1E2D3D]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/80 via-foreground/70 to-foreground" />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-24 text-center">
           <p className="inline-flex items-center gap-1.5 bg-sky-400/20 border border-sky-400/40 text-sky-200 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
@@ -129,7 +129,7 @@ export default function BarndominiumBuilder() {
             </a>
             <Link
               to={"/estimate"}
-              className="flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl"
+              className="flex items-center justify-center gap-2 bg-primary hover:bg-accent text-white px-8 py-4 rounded-full font-bold text-base md:text-lg transition-colors shadow-xl"
             >
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
@@ -161,7 +161,7 @@ export default function BarndominiumBuilder() {
                 <Icon className="w-5 h-5 text-sky-500" />
               </div>
               <div>
-                <p className="font-bold text-[#1E2D3D] text-sm">{title}</p>
+                <p className="font-bold text-foreground text-sm">{title}</p>
                 <p className="text-slate-500 text-xs leading-snug">{desc}</p>
               </div>
             </div>
@@ -173,7 +173,7 @@ export default function BarndominiumBuilder() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
         <div className="text-center mb-8">
           <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">Featured Barndominium Build</p>
-          <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">One Project. Every Detail.</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">One Project. Every Detail.</h2>
           <p className="text-slate-500 mt-2 max-w-xl mx-auto">A real Mississippi barndominium — from the nighttime exterior to the wide-open interior and custom workspace.</p>
         </div>
 
@@ -188,7 +188,7 @@ export default function BarndominiumBuilder() {
             />
           </div>
           <div className="p-4 md:p-5">
-            <p className="text-sm md:text-base font-semibold text-[#1E2D3D]">Custom Barndominium — Rankin County, MS</p>
+            <p className="text-sm md:text-base font-semibold text-foreground">Custom Barndominium — Rankin County, MS</p>
             <p className="text-xs text-slate-500 mt-1">Steel-frame construction · stone wainscot · custom wood accents · integrated garage + living quarters</p>
           </div>
         </div>
@@ -212,7 +212,7 @@ export default function BarndominiumBuilder() {
                 <img src={p.url} alt={p.label} className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="p-4">
-                <p className="text-sm font-bold text-[#1E2D3D]">{p.label}</p>
+                <p className="text-sm font-bold text-foreground">{p.label}</p>
                 <p className="text-xs text-slate-500 mt-1">{p.desc}</p>
               </div>
             </div>
@@ -221,7 +221,7 @@ export default function BarndominiumBuilder() {
 
         {/* Repeated CTA */}
         <div className="mt-8 text-center">
-          <Link to={"/estimate"} className="inline-flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow">
+          <Link to={"/estimate"} className="inline-flex items-center gap-2 bg-primary hover:bg-accent text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow">
             <Sparkles className="w-4 h-4" /> Price Out My Barndominium
           </Link>
         </div>
@@ -232,7 +232,7 @@ export default function BarndominiumBuilder() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
           <div className="text-center mb-8">
             <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">What Our Clients Say</p>
-            <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">Straight From Mississippi Homeowners</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground">Straight From Mississippi Homeowners</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
@@ -245,7 +245,7 @@ export default function BarndominiumBuilder() {
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
                 </div>
                 <p className="text-slate-600 text-sm italic leading-relaxed" dangerouslySetInnerHTML={{ __html: `"${t.quote}"` }} />
-                <p className="text-xs font-bold text-[#1E2D3D] mt-3" dangerouslySetInnerHTML={{ __html: `— ${t.name}, ${t.loc}` }} />
+                <p className="text-xs font-bold text-foreground mt-3" dangerouslySetInnerHTML={{ __html: `— ${t.name}, ${t.loc}` }} />
               </div>
             ))}
           </div>
@@ -256,7 +256,7 @@ export default function BarndominiumBuilder() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
         <div className="text-center mb-10">
           <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">Our Process</p>
-          <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">From Bare Land to Move-In Day</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">From Bare Land to Move-In Day</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
@@ -265,8 +265,8 @@ export default function BarndominiumBuilder() {
             { n: "3", title: "Build &amp; Move In", desc: "Slab, steel, roof, interior finish — managed under one contractor. Final walk-through, keys, done." },
           ].map((s) => (
             <div key={s.n} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-[#C4922A] text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
-              <h3 className="font-bold text-[#1E2D3D] text-lg" dangerouslySetInnerHTML={{ __html: s.title }} />
+              <div className="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
+              <h3 className="font-bold text-foreground text-lg" dangerouslySetInnerHTML={{ __html: s.title }} />
               <p className="text-slate-500 text-sm mt-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: s.desc }} />
             </div>
           ))}
@@ -281,7 +281,7 @@ export default function BarndominiumBuilder() {
       </section>
 
       {/* ===== PRICING TRANSPARENCY ===== */}
-      <section className="bg-[#1E2D3D] py-14">
+      <section className="bg-foreground py-14">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-2">Honest Barndominium Pricing</h2>
           <p className="text-slate-300 text-center text-sm mb-8">Typical Central MS ranges — exact price depends on your site &amp; finishes.</p>
@@ -290,7 +290,7 @@ export default function BarndominiumBuilder() {
           <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-6">
             <table className="w-full text-sm md:text-base">
               <thead>
-                <tr className="bg-[#1E2D3D] text-white">
+                <tr className="bg-foreground text-white">
                   <th className="text-left p-4 font-semibold">Build Type</th>
                   <th className="text-left p-4 font-semibold">Typical Price Range</th>
                   <th className="text-left p-4 font-semibold">Cost Per Sq Ft</th>
@@ -303,7 +303,7 @@ export default function BarndominiumBuilder() {
                   { type: "Premium Turnkey with Shop (2,000–3,000 sq ft)", range: "$200,000 – $350,000", psf: "$100 – $130 / sq ft" },
                 ].map((row, i) => (
                   <tr key={row.type} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                    <td className="p-4 font-semibold text-[#1E2D3D]">{row.type}</td>
+                    <td className="p-4 font-semibold text-foreground">{row.type}</td>
                     <td className="p-4 text-slate-600">{row.range}</td>
                     <td className="p-4 text-sky-600 font-bold">{row.psf}</td>
                   </tr>
@@ -321,7 +321,7 @@ export default function BarndominiumBuilder() {
               { label: "Luxury Finishes &amp; Custom Layouts", range: "$150+ / sq ft" },
             ].map((row, i) => (
               <div key={row.label} className={`flex justify-between items-center p-5 ${i < 2 ? "border-b border-gray-100" : ""}`}>
-                <span className="text-sm md:text-base text-[#1E2D3D] font-semibold" dangerouslySetInnerHTML={{ __html: row.label }} />
+                <span className="text-sm md:text-base text-foreground font-semibold" dangerouslySetInnerHTML={{ __html: row.label }} />
                 <span className="text-sky-600 font-black text-sm md:text-lg">{row.range}</span>
               </div>
             ))}
@@ -342,7 +342,7 @@ export default function BarndominiumBuilder() {
       <section className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
         <div className="text-center mb-8">
           <p className="text-sky-600 font-bold text-sm uppercase tracking-wider mb-2">Questions</p>
-          <h2 className="text-2xl md:text-4xl font-bold text-[#1E2D3D]">Barndominium FAQs</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">Barndominium FAQs</h2>
         </div>
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-2 md:p-4">
           <LandingFAQ faqs={faqs} />
@@ -353,7 +353,7 @@ export default function BarndominiumBuilder() {
       <BarndominiumFinancing />
 
       {/* ===== FINAL CTA ===== */}
-      <section className="bg-gradient-to-br from-[#C4922A] to-[#A37820] py-16">
+      <section className="bg-gradient-to-br from-primary to-accent py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
             Ready to Build on Your Land?
@@ -362,10 +362,10 @@ export default function BarndominiumBuilder() {
             Free estimates. Fixed written prices. Built by a contractor your neighbors already trust.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-white text-[#1E2D3D] px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl hover:bg-slate-100 transition-colors">
+            <a href={PHONE_HREF} onClick={trackCall} className="flex items-center justify-center gap-2 bg-white text-foreground px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl hover:bg-slate-100 transition-colors">
               <Phone className="w-5 h-5" /> Call {PHONE}
             </a>
-            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-[#1E2D3D] hover:bg-black text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-foreground hover:bg-black text-white px-8 py-4 rounded-full font-black text-base md:text-lg shadow-xl transition-colors">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
           </div>
