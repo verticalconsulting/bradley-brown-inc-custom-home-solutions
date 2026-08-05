@@ -161,13 +161,13 @@ export default function Portfolio() {
               <img src={featuredImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"} alt="Historic home restoration by Bradley Brown Inc. — Brandon, MS" className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div className="p-8 md:p-10">
-              <p className="text-[#C4922A] font-semibold text-xs uppercase tracking-wider mb-2">Featured Project Story</p>
-              <h3 className="text-2xl font-bold text-white mb-3">Historic Home Restoration in Brandon, MS</h3>
+              <p className="text-sky-400 font-semibold text-xs uppercase tracking-wider mb-2">Featured Project Story</p>
+              <h3 className="text-2xl font-bold text-white mb-3">Custom Barndominium in Brandon, MS</h3>
               <p className="text-slate-300 text-sm leading-relaxed mb-5">
-                See how we preserved a 1920s craftsman home — restoring original heart pine floors, rebuilding the wraparound porch, and modernizing every system while honoring its history.
+                Explore how we transformed a steel-frame shell into a modern barndominium — open-concept living, vaulted ceilings, and energy-efficient finishes tailored to the homeowner's vision.
               </p>
-              <Link to="/projects/historic-home-restoration" className="inline-flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-colors">
-                Read the Full Story <ChevronRight className="w-4 h-4" />
+              <Link to="/services/barndominiums" className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-colors">
+                See Barndominium Services <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
