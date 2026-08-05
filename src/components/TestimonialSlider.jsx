@@ -91,7 +91,7 @@ export default function TestimonialSlider({
               <p className="text-slate-600 text-sm leading-relaxed italic flex-1 mb-4">"{t.text}"</p>
               <div className="flex items-center gap-3">
                 {t.photo_url ? (
-                  <img src={t.photo_url} alt={t.client_name} className="w-9 h-9 rounded-full object-cover border-2 border-sky-100" />
+                  <img src={t.photo_url} alt={t.client_name} width="36" height="36" loading="lazy" decoding="async" className="w-9 h-9 rounded-full object-cover border-2 border-sky-100" />
                 ) : (
                   <div className="w-9 h-9 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 font-bold text-sm flex-shrink-0">
                     {t.client_name.charAt(0)}
@@ -131,7 +131,7 @@ export default function TestimonialSlider({
           </div>
           <div className="flex items-center gap-3 justify-center mt-1">
             {t.photo_url && (
-              <img src={t.photo_url} alt={t.client_name} className="w-10 h-10 rounded-full object-cover border-2 border-sky-400/30" />
+              <img src={t.photo_url} alt={t.client_name} width="40" height="40" loading="lazy" decoding="async" className="w-10 h-10 rounded-full object-cover border-2 border-sky-400/30" />
             )}
             <div>
               <p className="font-bold text-white">{t.client_name}</p>

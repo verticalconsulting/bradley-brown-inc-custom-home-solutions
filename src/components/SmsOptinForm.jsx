@@ -57,7 +57,7 @@ export default function SmsOptinForm() {
     <form onSubmit={handleSubmit} className="bg-white rounded-2xl border-2 border-sky-300 shadow-md overflow-hidden">
       {/* Header with logo + business name */}
       <div className="bg-[#1E2D3D] px-6 py-4 flex items-center gap-3">
-        <img src={LOGO_URL} alt="Bradley Brown Inc." className="h-10 w-auto object-contain brightness-0 invert" />
+        <img src={LOGO_URL} alt="Bradley Brown Inc." width="167" height="70" loading="lazy" decoding="async" className="h-10 w-auto object-contain brightness-0 invert" />
         <div>
           <p className="text-white font-bold text-sm leading-tight">Bradley Brown Inc.</p>
           <p className="text-slate-300 text-xs">SMS Opt-In Form</p>

@@ -38,7 +38,7 @@ export default function LiveJobsitesSection() {
           <Link key={it.id} to={`/jobsites/${it.slug}`} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100">
             <div className="aspect-[4/3] bg-slate-100 overflow-hidden">
               {it.photos?.[0] ? (
-                <img src={it.photos[0]} alt={it.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <img src={it.photos[0]} alt={it.title} width="400" height="300" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-slate-300"><MapPin className="w-10 h-10" /></div>
               )}

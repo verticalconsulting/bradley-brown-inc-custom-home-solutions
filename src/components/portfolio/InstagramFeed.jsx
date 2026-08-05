@@ -59,8 +59,11 @@ export default function InstagramFeed() {
             <img
               src={imgSrc}
               alt={post.caption?.slice(0, 80) || "Instagram post"}
+              width="400"
+              height="400"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
+              decoding="async"
               referrerPolicy="no-referrer"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';

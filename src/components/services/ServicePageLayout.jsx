@@ -132,7 +132,7 @@ export default function ServicePageLayout({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {allImages.map((img, i) =>
             <div key={i} className="rounded-xl overflow-hidden shadow-md bg-white">
-                  <img src={img.url} alt={img.alt} className="w-full h-64 object-cover" loading="lazy" />
+                  <img src={img.url} alt={img.alt} width="400" height="256" className="w-full h-64 object-cover" loading="lazy" decoding="async" />
                   {img.caption && <p className="text-sm text-slate-500 p-3">{img.caption}</p>}
                 </div>
             )}
