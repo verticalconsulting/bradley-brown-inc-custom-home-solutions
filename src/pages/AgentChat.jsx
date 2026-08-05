@@ -72,17 +72,17 @@ export default function AgentChat() {
   const closedSessions = sessions.filter(s => s.status === "closed");
 
   return (
-    <div className="min-h-screen bg-[#F3F4F6] pt-20">
+    <div className="min-h-screen bg-muted pt-20">
       <div className="max-w-6xl mx-auto px-4 py-6">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 bg-[#003D82] rounded-xl flex items-center justify-center">
+          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
             <MessageCircle className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-[#1E2D3D]">Live Chat — Agent Dashboard</h1>
+            <h1 className="text-xl font-bold text-foreground">Live Chat — Agent Dashboard</h1>
             <p className="text-sm text-gray-500">{activeSessions.length} active conversation{activeSessions.length !== 1 ? "s" : ""}</p>
           </div>
-          <button onClick={fetchSessions} className="ml-auto p-2 text-gray-400 hover:text-[#003D82] transition-colors" title="Refresh">
+          <button onClick={fetchSessions} className="ml-auto p-2 text-gray-400 hover:text-primary transition-colors" title="Refresh">
             <RefreshCw className="w-4 h-4" />
           </button>
         </div>
@@ -108,7 +108,7 @@ export default function AgentChat() {
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <span className={`w-2 h-2 rounded-full flex-shrink-0 ${statusColor[s.status] || "bg-gray-400"}`} />
-                    <span className="font-medium text-sm text-[#1E2D3D] truncate">{s.visitor_name}</span>
+                    <span className="font-medium text-sm text-foreground truncate">{s.visitor_name}</span>
                     <span className="ml-auto text-xs text-gray-400 capitalize">{s.status}</span>
                   </div>
                   {lastMsg && (
@@ -135,11 +135,11 @@ export default function AgentChat() {
               <>
                 {/* Chat header */}
                 <div className="px-5 py-4 border-b border-gray-100 flex items-center gap-3 flex-shrink-0">
-                  <div className="w-9 h-9 bg-[#003D82]/10 rounded-full flex items-center justify-center">
-                    <span className="text-[#003D82] font-bold text-sm">{selected.visitor_name[0]?.toUpperCase()}</span>
+                  <div className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center">
+                    <span className="text-primary font-bold text-sm">{selected.visitor_name[0]?.toUpperCase()}</span>
                   </div>
                   <div className="flex-1">
-                    <div className="font-semibold text-[#1E2D3D] text-sm">{selected.visitor_name}</div>
+                    <div className="font-semibold text-foreground text-sm">{selected.visitor_name}</div>
                     {selected.visitor_email && <div className="text-xs text-gray-400">{selected.visitor_email}</div>}
                     {selected.page_url && <div className="text-xs text-gray-400 truncate">Page: {selected.page_url}</div>}
                   </div>
@@ -167,7 +167,7 @@ export default function AgentChat() {
                     <div key={i} className={`flex ${msg.role === "agent" ? "justify-end" : "justify-start"}`}>
                       <div className={`max-w-[70%] rounded-xl px-4 py-2.5 text-sm ${
                         msg.role === "agent"
-                          ? "bg-[#003D82] text-white rounded-br-sm"
+                          ? "bg-primary text-white rounded-br-sm"
                           : "bg-gray-100 text-gray-800 rounded-bl-sm"
                       }`}>
                         <p>{msg.text}</p>
@@ -191,7 +191,7 @@ export default function AgentChat() {
                 {selected.status !== "closed" && !selected.transferred_to_whatsapp && (
                   <div className="p-4 border-t border-gray-100 flex gap-2 flex-shrink-0">
                     <input
-                      className="flex-1 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#003D82]/30"
+                      className="flex-1 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
                       value={input}
                       onChange={e => setInput(e.target.value)}
                       placeholder={`Reply to ${selected.visitor_name}...`}
@@ -200,7 +200,7 @@ export default function AgentChat() {
                     <button
                       onClick={sendReply}
                       disabled={!input.trim()}
-                      className="bg-[#003D82] disabled:opacity-40 text-white px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-[#002855] transition-colors"
+                      className="bg-primary disabled:opacity-40 text-white px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-primary transition-colors"
                     >
                       <Send className="w-4 h-4" />
                     </button>
