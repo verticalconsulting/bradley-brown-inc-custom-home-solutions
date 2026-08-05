@@ -36,7 +36,7 @@ export default function About() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Story</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Building Mississippi,<br />One Home at a Time</h1>
-          <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-lg">For over 30 years, Bradley Brown Inc. has been the trusted builder for families across Central Mississippi.</p>
+          <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-lg">For over 20 years, Bradley Brown Inc. has been the trusted builder for families across Central Mississippi.</p>
         </div>
       </div>
 
