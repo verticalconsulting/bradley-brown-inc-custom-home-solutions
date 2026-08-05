@@ -12,7 +12,7 @@ const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/pub
 const associations = [
 {
   name: "Licensed & Insured",
-  img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/a21f22f37_licensed-insured.png",
+  img: "https://media.base44.com/images/public/699c758479c46f0580553750/f7e570d9e_generated_image.png",
   url: null
 },
 {
@@ -261,7 +261,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             <div className="sm:col-span-2 lg:col-span-2">
               <div className="mb-4">
-                <img src={LOGO_URL} alt="Bradley Brown Inc." className="h-14 w-auto object-contain brightness-0 invert" />
+                <img src={LOGO_URL} alt="Bradley Brown Inc." width="167" height="70" className="h-14 w-auto object-contain brightness-0 invert" decoding="async" />
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
                 Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 1995.
@@ -355,11 +355,11 @@ export default function Layout({ children, currentPageName }) {
               a.url ?
               <a key={a.name} href={a.url} target="_blank" rel="noopener noreferrer" title={a.name}
               className="opacity-70 hover:opacity-100 transition-opacity">
-                    <img src={a.img} alt={a.name} className="h-12 w-auto object-contain" />
+                    <img src={a.img} alt={a.name} width="96" height="48" className="h-12 w-auto object-contain" loading="lazy" decoding="async" />
                   </a> :
 
               <div key={a.name} title={a.name} className="opacity-70">
-                    <img src={a.img} alt={a.name} className="h-12 w-auto object-contain" />
+                    <img src={a.img} alt={a.name} width="96" height="48" className="h-12 w-auto object-contain" loading="lazy" decoding="async" />
                   </div>
 
               )}
