@@ -65,15 +65,36 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Google Tag Manager (only — move GA4 + Ads tags inside GTM) -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N4STLGGN');</script>
+    <!-- Google Tag Manager — deferred to after load to reduce main-thread blocking -->
+    <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var loadGTM = function() {
+        var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      };
+      if (document.readyState === 'complete') { loadGTM(); }
+      else { window.addEventListener('load', loadGTM); }
+    })(window,document,'script','dataLayer','GTM-N4STLGGN');
+    </script>
 
-    <!-- Ahrefs Web Analytics -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="VM/GzVbadCR3Wg+Qegt+eg" async></script>
+    <!-- Ahrefs Web Analytics — deferred to idle -->
+    <script>
+    (function() {
+      var loadAhrefs = function() {
+        var s = document.createElement('script');
+        s.src = 'https://analytics.ahrefs.com/analytics.js';
+        s.setAttribute('data-key', 'VM/GzVbadCR3Wg+Qegt+eg');
+        s.async = true;
+        document.head.appendChild(s);
+      };
+      if ('requestIdleCallback' in window) { window.requestIdleCallback(loadAhrefs, { timeout: 4000 }); }
+      else if (document.readyState === 'complete') { loadAhrefs(); }
+      else { window.addEventListener('load', loadAhrefs); }
+    })();
+    </script>
 
     <!-- Norton Safe Web verification -->
     <meta name="norton-safeweb-site-verification" content="HNRK0ZBTER7OXPE45T3OKX91Y894PKFL1ITJYYA-MXUA2P49WMHR4X1PH8NVOCBNDOSA5YR5NV2979OP3JDKPKBATZXCSDHVSWAPEIBHW475PZPDG323NNA2H9J0N4UE" />

@@ -19,6 +19,11 @@ const slides = [
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
   const [fading, setFading] = useState(false);
+  const [loaded, setLoaded] = useState(() => new Set([0]));
+
+  useEffect(() => {
+    setLoaded(prev => new Set([...prev, current]));
+  }, [current]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,8 +46,8 @@ export default function HeroSection() {
         key={i}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
         style={{
-          backgroundImage: `url('${s.image}')`,
-          opacity: i === current ? 1 : 0
+        backgroundImage: loaded.has(i) ? `url('${s.image}')` : 'none',
+        opacity: i === current ? 1 : 0
         }} />
 
       )}

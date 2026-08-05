@@ -4,43 +4,43 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import NavigationTracker from '@/lib/NavigationTracker'
 import { pagesConfig } from './pages.config'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import PageNotFound from './lib/PageNotFound';
 import RedirectHandler from './lib/RedirectHandler';
 import ErrorBoundary from './lib/ErrorBoundary';
 import ServerError from './lib/ServerError';
-import SEODashboard from './pages/SEODashboard';
-import SiteImages from './pages/SiteImages';
-import BlogAdmin from './pages/BlogAdmin';
-import ConversionDashboard from './pages/ConversionDashboard';
-import CRM from './pages/CRM';
-import AgentChat from './pages/AgentChat';
-import TikTokSync from './pages/TikTokSync';
-import Estimate from './pages/Estimate';
-import LandingCoreServices from './pages/LandingCoreServices';
-import LandingPricing from './pages/LandingPricing';
-import BathroomRemodelingBrandon from './pages/BathroomRemodelingBrandon';
-import MadisonRemodeling from './pages/MadisonRemodeling';
-import SmsOptin from './pages/SmsOptin';
-import LandingBrandonCustomHomeBuilder from './pages/LandingBrandonCustomHomeBuilder';
-import CustomHomeBuilding from './pages/services/CustomHomeBuilding';
-import KitchenBathroomRemodeling from './pages/services/KitchenBathroomRemodeling';
-import RoomAdditions from './pages/services/RoomAdditions';
-import OutdoorLiving from './pages/services/OutdoorLiving';
-import BarndominiumsService from './pages/services/BarndominiumsService';
-import EmergencyRepairs from './pages/services/EmergencyRepairs';
-import KitchenRemodeling from './pages/services/KitchenRemodeling';
-import BathroomRemodeling from './pages/services/BathroomRemodeling';
-import HistoricHomeRestoration from './pages/HistoricHomeRestoration';
-import RemodelingBrandonMS from './pages/RemodelingBrandonMS';
-import ProTipDetail from './pages/ProTipDetail';
-import JobCheckin from './pages/JobCheckin';
-import JobsiteDetail from './pages/JobsiteDetail';
-import { Navigate } from 'react-router-dom';
-import Leads from './pages/Leads';
-import FunnelAnalysis from './pages/FunnelAnalysis';
+// Lazy-loaded pages (reduces initial bundle size — ~475 KiB savings on Home page)
+const SEODashboard = lazy(() => import('./pages/SEODashboard'));
+const SiteImages = lazy(() => import('./pages/SiteImages'));
+const BlogAdmin = lazy(() => import('./pages/BlogAdmin'));
+const ConversionDashboard = lazy(() => import('./pages/ConversionDashboard'));
+const CRM = lazy(() => import('./pages/CRM'));
+const AgentChat = lazy(() => import('./pages/AgentChat'));
+const TikTokSync = lazy(() => import('./pages/TikTokSync'));
+const Estimate = lazy(() => import('./pages/Estimate'));
+const LandingCoreServices = lazy(() => import('./pages/LandingCoreServices'));
+const LandingPricing = lazy(() => import('./pages/LandingPricing'));
+const BathroomRemodelingBrandon = lazy(() => import('./pages/BathroomRemodelingBrandon'));
+const MadisonRemodeling = lazy(() => import('./pages/MadisonRemodeling'));
+const SmsOptin = lazy(() => import('./pages/SmsOptin'));
+const LandingBrandonCustomHomeBuilder = lazy(() => import('./pages/LandingBrandonCustomHomeBuilder'));
+const CustomHomeBuilding = lazy(() => import('./pages/services/CustomHomeBuilding'));
+const RoomAdditions = lazy(() => import('./pages/services/RoomAdditions'));
+const OutdoorLiving = lazy(() => import('./pages/services/OutdoorLiving'));
+const BarndominiumsService = lazy(() => import('./pages/services/BarndominiumsService'));
+const EmergencyRepairs = lazy(() => import('./pages/services/EmergencyRepairs'));
+const KitchenRemodeling = lazy(() => import('./pages/services/KitchenRemodeling'));
+const BathroomRemodeling = lazy(() => import('./pages/services/BathroomRemodeling'));
+const HistoricHomeRestoration = lazy(() => import('./pages/HistoricHomeRestoration'));
+const RemodelingBrandonMS = lazy(() => import('./pages/RemodelingBrandonMS'));
+const ProTipDetail = lazy(() => import('./pages/ProTipDetail'));
+const JobCheckin = lazy(() => import('./pages/JobCheckin'));
+const JobsiteDetail = lazy(() => import('./pages/JobsiteDetail'));
+const Leads = lazy(() => import('./pages/Leads'));
+const FunnelAnalysis = lazy(() => import('./pages/FunnelAnalysis'));
+const ThankYou = lazy(() => import('./pages/ThankYou'));
 import AdminRoute from './components/AdminRoute';
-import ThankYou from './pages/ThankYou';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import HeadingHierarchyChecker from '@/components/seo/HeadingHierarchyChecker';
@@ -53,9 +53,15 @@ const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
 const MainPage = mainPageKey ? Pages[mainPageKey] : <></>;
 
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-[60vh]">
+    <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+  </div>
+);
+
 const LayoutWrapper = ({ children, currentPageName }) => Layout ?
-  <Layout currentPageName={currentPageName}>{children}</Layout>
-  : <>{children}</>;
+  <Layout currentPageName={currentPageName}><Suspense fallback={<PageLoader />}>{children}</Suspense></Layout>
+  : <Suspense fallback={<PageLoader />}>{children}</Suspense>;
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
