@@ -68,7 +68,7 @@ export default function MadisonRemodeling() {
   const { hero: heroImage } = usePageImages("MadisonRemodeling");
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
+    <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling in Madison, MS | Bradley Brown Inc"
         description="Madison, MS home remodeling — kitchen, bath, additions & whole-home renovations. Licensed & insured since 1995. Free estimates — call (844) 351-4154."
@@ -84,7 +84,7 @@ export default function MadisonRemodeling() {
       </div>
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+      <div className="bg-foreground py-14 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80"}')` }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2">Madison, MS & Madison County</p>
@@ -111,7 +111,7 @@ export default function MadisonRemodeling() {
 
         {/* Services */}
         <div>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Our Remodeling Services in Madison</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Our Remodeling Services in Madison</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { title: "Kitchen Renovation", desc: "Custom cabinets, quartz countertops, islands, and full kitchen redesigns starting at $25,000.", link: "/services" },
@@ -122,7 +122,7 @@ export default function MadisonRemodeling() {
               <div key={s.title} className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
                 <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-bold text-[#1E2D3D] text-sm">{s.title}</h3>
+                  <h3 className="font-bold text-foreground text-sm">{s.title}</h3>
                   <p className="text-slate-500 text-xs mt-1 leading-snug">{s.desc}</p>
                   <Link to={s.link} className="inline-flex items-center gap-1 text-sky-600 text-xs font-semibold mt-2 hover:text-sky-500">
                     Learn More <ChevronRight className="w-3 h-3" />
@@ -135,7 +135,7 @@ export default function MadisonRemodeling() {
 
         {/* Body copy */}
         <div className="prose prose-slate max-w-none">
-          <h2 className="text-xl font-bold text-[#1E2D3D]">Why Madison Homeowners Choose Bradley Brown Inc.</h2>
+          <h2 className="text-xl font-bold text-foreground">Why Madison Homeowners Choose Bradley Brown Inc.</h2>
           <p className="text-slate-600 leading-relaxed">Madison, Mississippi is one of the fastest-growing cities in the state, and homeowners here expect quality. Since 1995, Bradley Brown Inc. has served the Madison County area with the same craftsmanship and attention to detail that built our reputation in Brandon — just 20 minutes down the road.</p>
           <p className="text-slate-600 leading-relaxed">From kitchen renovations in Strawberry Park to bathroom remodels in Reunion, room additions in Gluckstadt, and whole-home renovations throughout Madison County, our team brings licensed tradespeople, transparent pricing, and a project manager on-site every day. We pull all Madison County permits and handle inspections.</p>
           <p className="text-slate-600 leading-relaxed">Whether you're updating a master bath, building a kitchen island, or adding an in-law suite, we deliver on time and on budget. Call us at <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to schedule your free Madison consultation.</p>
@@ -143,7 +143,7 @@ export default function MadisonRemodeling() {
 
         {/* Internal links */}
         <div className="bg-white border border-sky-100 rounded-2xl p-6 md:p-8 shadow-sm">
-          <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-3">Serving All of Central Mississippi</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">Serving All of Central Mississippi</h2>
           <p className="text-slate-600 leading-relaxed mb-5">
             We serve Madison, Brandon, Ridgeland, Flowood, Pearl, Clinton, Gluckstadt, and the wider Rankin and Madison County area.
           </p>
@@ -151,10 +151,10 @@ export default function MadisonRemodeling() {
             <Link to="/bathroom-remodeling-brandon-ms" className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
               Bathroom Remodeling <ChevronRight className="w-4 h-4" />
             </Link>
-            <Link to="/remodeling-ms" className="inline-flex items-center gap-2 bg-[#1E2D3D] hover:bg-[#2C3E50] text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
+            <Link to="/remodeling-ms" className="inline-flex items-center gap-2 bg-foreground hover:bg-secondary-foreground text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
               Core Services — Brandon, MS <ChevronRight className="w-4 h-4" />
             </Link>
-            <Link to="/custom-home-builder-brandon-ms" className="inline-flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
+            <Link to="/custom-home-builder-brandon-ms" className="inline-flex items-center gap-2 bg-primary hover:bg-accent text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
               Custom Home Builder <ChevronRight className="w-4 h-4" />
             </Link>
             <Link to="/services/barndominiums" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
@@ -165,7 +165,7 @@ export default function MadisonRemodeling() {
 
         {/* FAQ */}
         <div>
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions</h2>
           <LandingFAQ faqs={faqs} />
         </div>
       </div>
