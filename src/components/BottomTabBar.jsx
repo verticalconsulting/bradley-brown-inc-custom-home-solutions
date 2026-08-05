@@ -50,23 +50,23 @@ export default function BottomTabBar({ currentPageName }) {
               aria-selected={active}
               aria-label={`Navigate to ${label}`}
               onClick={() => handleTabClick(page)}
-              className={`flex flex-col items-center justify-center gap-0.5 min-h-[56px] min-w-[44px] py-2 flex-1 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 relative ${
+              className={`flex flex-col items-center justify-center gap-0.5 min-h-[56px] min-w-[44px] py-2 flex-1 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 relative ${
                 highlight
-                  ? active ? "text-[#C4922A]" : "text-[#C4922A]"
-                  : active ? "text-sky-500" : "text-slate-500"
+                  ? active ? "text-primary" : "text-primary"
+                  : active ? "text-sky-600" : "text-slate-600"
               }`}
             >
               {highlight ? (
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-0.5 shadow-md transition-colors ${active ? "bg-[#A37820]" : "bg-[#C4922A]"}`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-0.5 shadow-md transition-colors ${active ? "bg-primary/80" : "bg-primary"}`}>
                   <Icon className="w-5 h-5 text-white" aria-hidden="true" />
                 </div>
               ) : (
                 <Icon
-                  className={`w-5 h-5 ${active ? "text-sky-500" : "text-slate-400"}`}
+                  className={`w-5 h-5 ${active ? "text-sky-600" : "text-slate-600"}`}
                   aria-hidden="true"
                 />
               )}
-              <span className={highlight ? "font-bold text-[#C4922A]" : ""}>{label}</span>
+              <span className={highlight ? "font-bold text-primary" : ""}>{label}</span>
             </button>
           );
         })}

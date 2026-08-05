@@ -65,6 +65,8 @@ export default function FeaturedProjects() {
                 <img
                   src={project.images?.[0] || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/hiresthumb"}
                   alt={buildAltText(project)}
+                  width="400"
+                  height="256"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                   decoding="async"

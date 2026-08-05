@@ -17,12 +17,12 @@
     --secondary: 211 34% 25%;
     --secondary-foreground: 215 19% 35%;
     --muted: 220 14% 96%;
-    --muted-foreground: 203 20% 55%;
+    --muted-foreground: 203 20% 42%;
     --accent: 40 67% 38%;
     --accent-foreground: 215 25% 27%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 80%;
+    --border: 211 16% 70%;
     --input: 210 20% 85%;
     --ring: 198 82% 57%;
     --chart-1: 142 76% 36%;

@@ -145,8 +145,8 @@ export default function VisitorChatWidget() {
                 <div className="text-xs text-sky-300">Instant answers · Cost estimates</div>
               </div>
             </div>
-            <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white transition-colors">
-              <ChevronDown className="w-5 h-5" />
+            <button onClick={() => setOpen(false)} aria-label="Close chat" className="text-white/70 hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg">
+              <ChevronDown className="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
 
@@ -154,8 +154,9 @@ export default function VisitorChatWidget() {
             <div className="p-5 flex flex-col gap-4 flex-1">
               <p className="text-sm text-gray-600">👋 Hi there! Ask our AI assistant anything about home building, renovations, or cost estimates.</p>
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Your Name *</label>
+                <label htmlFor="chat-name" className="block text-xs font-medium text-gray-700 mb-1">Your Name *</label>
                 <input
+                  id="chat-name"
                   className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30"
                   value={name}
                   onChange={e => setName(e.target.value)}
@@ -164,8 +165,9 @@ export default function VisitorChatWidget() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Email (optional)</label>
+                <label htmlFor="chat-email" className="block text-xs font-medium text-gray-700 mb-1">Email (optional)</label>
                 <input
+                  id="chat-email"
                   className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -243,6 +245,7 @@ export default function VisitorChatWidget() {
               </div>
               <div className="p-3 border-t border-gray-100 flex gap-2 flex-shrink-0">
                 <input
+                  aria-label="Type your message"
                   className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30"
                   value={input}
                   onChange={e => setInput(e.target.value)}
@@ -253,9 +256,10 @@ export default function VisitorChatWidget() {
                 <button
                   onClick={sendMessage}
                   disabled={sending || !input.trim()}
-                  className="bg-sky-500 disabled:opacity-40 text-white p-2 rounded-lg transition-colors hover:bg-sky-600"
+                  aria-label="Send message"
+                  className="bg-sky-500 disabled:opacity-40 text-white p-2.5 rounded-lg transition-colors hover:bg-sky-600 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4" aria-hidden="true" />
                 </button>
               </div>
             </>

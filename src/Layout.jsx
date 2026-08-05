@@ -84,6 +84,12 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen bg-background">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-br-lg focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -120,10 +126,10 @@ export default function Layout({ children, currentPageName }) {
                 <div className="absolute top-full left-0 pt-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                   <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
                     {serviceLinks.map((link) =>
-                    <Link key={link.to} to={link.to} className="block px-4 py-3 text-sm text-foreground hover:bg-accent hover:text-primary transition-colors">
-                        {link.label}
-                      </Link>
-                    )}
+                    <Link key={link.to} to={link.to} className="block px-4 py-3 text-sm text-foreground hover:bg-accent hover:text-primary underline-offset-2 hover:underline transition-colors">
+                            {link.label}
+                          </Link>
+                        )}
                   </div>
                 </div>
               </div>
@@ -131,8 +137,9 @@ export default function Layout({ children, currentPageName }) {
               <Link
                 key={link.label}
                 to={link.to || link.path || createPageUrl(link.page)}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                currentPageName === link.page ? "text-primary" : textColor}`
+                aria-current={currentPageName === link.page ? "page" : undefined}
+                className={`text-sm font-medium transition-colors hover:text-primary underline-offset-4 hover:underline ${
+                currentPageName === link.page ? "text-primary underline" : textColor}`
                 }>
 
                   {link.label}
@@ -237,7 +244,7 @@ export default function Layout({ children, currentPageName }) {
         }
       </nav>
 
-      <main className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">
+      <main id="main-content" className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={location.pathname}
@@ -322,7 +329,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Emergency Repairs", to: "/services/emergency-repairs" }].
                 map((item) =>
                 <li key={item.label}>
-                    <Link to={item.to} className="text-muted-foreground hover:text-primary text-sm transition-colors">{item.label}</Link>
+                    <Link to={item.to} className="text-muted-foreground hover:text-primary text-sm underline-offset-2 hover:underline transition-colors">{item.label}</Link>
                   </li>
                 )}
               </ul>
@@ -340,7 +347,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "Legal", page: "Legal" }].
                 map((item) =>
                 <li key={item.label}>
-                    <Link to={item.to || createPageUrl(item.page)} className="text-muted-foreground hover:text-primary text-sm transition-colors">{item.label}</Link>
+                    <Link to={item.to || createPageUrl(item.page)} className="text-muted-foreground hover:text-primary text-sm underline-offset-2 hover:underline transition-colors">{item.label}</Link>
                   </li>
                 )}
               </ul>

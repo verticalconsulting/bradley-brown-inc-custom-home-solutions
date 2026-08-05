@@ -95,9 +95,9 @@ export default function ProTips() {
               { label: "Bathroom Remodeling", to: "/services/bathroom-remodeling", desc: "Walk-in showers, tub-to-shower conversions & vanities" },
               { label: "Emergency Home Repairs — Brandon, MS", to: "/services/emergency-repairs", desc: "Urgent? Call (601) 954-1306 — same-week service available" },
             ].map((g) => (
-              <Link key={g.to} to={g.to} className="block bg-white border border-sky-100 rounded-lg p-4 hover:border-sky-400 transition-colors">
+              <Link key={g.to} to={g.to} className="block bg-white border border-sky-100 rounded-lg p-4 hover:border-sky-400 hover:underline underline-offset-2 transition-colors">
                 <p className="font-semibold text-foreground text-xs mb-1">{g.label}</p>
-                <p className="text-slate-500 text-xs">{g.desc}</p>
+                <p className="text-slate-600 text-xs">{g.desc}</p>
               </Link>
             ))}
           </div>
@@ -121,7 +121,7 @@ export default function ProTips() {
             ))}
           </div>
         ) : posts.length === 0 ? (
-          <div className="text-center py-20 text-slate-400">
+          <div className="text-center py-20 text-slate-600">
             <Lightbulb className="w-12 h-12 mx-auto mb-4 opacity-30" />
             <p className="text-lg font-medium">No tips yet.</p>
             {isAdmin && <p className="text-sm mt-1">Click "Generate New Pro Tip" to create the first one.</p>}
@@ -138,7 +138,11 @@ export default function ProTips() {
                     <img
                       src={post.image_url}
                       alt={post.image_alt_text || post.title}
+                      width="400"
+                      height="192"
                       className="w-full h-48 object-cover group-hover:scale-[1.02] transition-transform"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="w-full h-48 bg-gradient-to-br from-sky-50 to-slate-100 flex items-center justify-center">
@@ -147,7 +151,7 @@ export default function ProTips() {
                   )}
                 </Link>
                 <div className="p-5 flex-1 flex flex-col">
-                  <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
+                  <div className="flex items-center gap-2 text-slate-600 text-xs mb-2">
                     <Calendar className="w-3.5 h-3.5" />
                     {format(new Date(post.created_date), "MMM d, yyyy")}
                     {post.topic && (
@@ -157,7 +161,7 @@ export default function ProTips() {
                     )}
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2 leading-snug">
-                    <Link to={`/protips/${post.slug}`} className="hover:text-sky-600 transition-colors">
+                    <Link to={`/protips/${post.slug}`} className="hover:text-sky-600 transition-colors underline-offset-2 hover:underline">
                       {post.title}
                     </Link>
                   </h3>
@@ -169,17 +173,18 @@ export default function ProTips() {
                   <div className="mt-auto flex items-center justify-between">
                     <Link
                       to={`/protips/${post.slug}`}
-                      className="text-sky-600 hover:text-sky-800 text-sm font-semibold"
+                      className="text-sky-600 hover:text-sky-800 text-sm font-semibold underline-offset-2 hover:underline"
                     >
                       Read more →
                     </Link>
                     {isAdmin && (
                       <button
                         onClick={() => handleDelete(post.id)}
-                        className="flex items-center gap-1 text-xs bg-red-50 hover:bg-red-100 text-red-500 px-2 py-1 rounded-md font-medium"
+                        aria-label={`Delete tip: ${post.title}`}
+                        className="flex items-center gap-1 text-xs bg-red-50 hover:bg-red-100 text-red-500 px-2.5 py-2 rounded-md font-medium min-w-[44px] min-h-[44px] justify-center"
                         title="Delete"
                       >
-                        <Trash2 className="w-3 h-3" />
+                        <Trash2 className="w-4 h-4" aria-hidden="true" />
                       </button>
                     )}
                   </div>
