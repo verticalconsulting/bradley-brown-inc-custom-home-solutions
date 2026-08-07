@@ -73,7 +73,7 @@ function ImageModal({ image, onClose, onSave }) {
           {/* Preview */}
           {form.url ? (
             <div className="mb-4 rounded-xl overflow-hidden h-40 bg-gray-100 relative group">
-              <img src={form.url} alt={form.label} className="w-full h-full object-cover" onError={e => e.target.style.display = 'none'} />
+              <img src={form.url} alt={form.label} width="400" height="160" loading="lazy" decoding="async" className="w-full h-full object-cover" onError={e => e.target.style.display = 'none'} />
               <button
                 onClick={() => update("url", "")}
                 className="absolute top-2 right-2 bg-black/60 text-white rounded-lg p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -181,7 +181,7 @@ function ImageCard({ img, onEdit, onDelete, onCopyUrl }) {
   return (
     <div className={`bg-white rounded-xl border shadow-sm overflow-hidden flex flex-col group ${!img.active ? "opacity-50" : ""}`}>
       <div className="relative h-36 bg-gray-100">
-        <img src={img.url} alt={img.label} className="w-full h-full object-cover" onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }} />
+        <img src={img.url} alt={img.label} width="400" height="144" loading="lazy" decoding="async" className="w-full h-full object-cover" onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }} />
         <div className="hidden absolute inset-0 items-center justify-center text-slate-300">
           <ImageOff className="w-8 h-8" />
         </div>

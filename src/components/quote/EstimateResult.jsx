@@ -113,6 +113,7 @@ export default function EstimateResult({
                   key={i}
                   src={url}
                   alt={`AI design concept ${i + 1}`}
+                  width="800" height="600" loading="lazy" decoding="async"
                   className="w-full rounded-lg border border-[#E2D9CC] object-cover"
                 />
               ))}

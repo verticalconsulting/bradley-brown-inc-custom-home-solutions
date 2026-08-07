@@ -142,6 +142,7 @@ export default function DesignInspirationStep({ data, onChange }) {
                   <img
                     src={data.design_photo}
                     alt="Current room"
+                    width="128" height="128" loading="lazy" decoding="async"
                     className="h-32 w-auto rounded-lg object-cover"
                   />
                   <span className="text-xs text-slate-500">Click to replace</span>
@@ -187,7 +188,7 @@ export default function DesignInspirationStep({ data, onChange }) {
               <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 mt-3">
                 {data.inspiration_images.map((url, i) => (
                   <div key={i} className="relative group">
-                    <img src={url} alt={`Inspiration ${i + 1}`} className="w-full aspect-square object-cover rounded-lg border border-[#E2D9CC]" />
+                    <img src={url} alt={`Inspiration ${i + 1}`} width="200" height="200" loading="lazy" decoding="async" className="w-full aspect-square object-cover rounded-lg border border-[#E2D9CC]" />
                     <button
                       type="button"
                       onClick={() => removeInspo(i)}

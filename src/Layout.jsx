@@ -280,7 +280,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             <div className="sm:col-span-2 lg:col-span-2">
               <div className="mb-4">
-                <img src={LOGO_URL} alt="Bradley Brown Inc." width="167" height="70" className="h-14 w-auto object-contain brightness-0 invert" decoding="async" />
+                <img src={LOGO_URL} alt="Bradley Brown Inc." width="167" height="70" loading="lazy" decoding="async" className="h-14 w-auto object-contain brightness-0 invert" />
               </div>
               <p className="text-sm leading-relaxed max-w-sm text-[hsl(var(--background))]">Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 2005.
 

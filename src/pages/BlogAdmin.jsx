@@ -90,7 +90,7 @@ function PostModal({ post, onClose, onSave }) {
               prose-strong:text-foreground
               prose-li:my-1">
               <h1>{form.title}</h1>
-              {form.image_url && <img src={form.image_url} alt="" className="rounded-xl w-full object-cover h-56 my-4" />}
+              {form.image_url && <img src={form.image_url} alt="" width="800" height="224" loading="lazy" decoding="async" className="rounded-xl w-full object-cover h-56 my-4" />}
               <ReactMarkdown>{form.content}</ReactMarkdown>
             </div>
           ) : (
@@ -113,7 +113,7 @@ function PostModal({ post, onClose, onSave }) {
                   placeholder="https://..."
                 />
                 {form.image_url && (
-                  <img src={form.image_url} alt="preview" className="mt-2 h-28 w-full object-cover rounded-lg" />
+                  <img src={form.image_url} alt="preview" width="800" height="112" loading="lazy" decoding="async" className="mt-2 h-28 w-full object-cover rounded-lg" />
                 )}
               </div>
               <div className="grid grid-cols-2 gap-3">
@@ -293,7 +293,7 @@ export default function BlogAdmin() {
             {posts.map(post => (
               <div key={post.id} className="bg-white border border-gray-100 rounded-xl shadow-sm p-5 flex flex-col sm:flex-row sm:items-center gap-4">
                 {post.image_url && (
-                  <img src={post.image_url} alt={post.title} className="w-full sm:w-20 h-20 object-cover rounded-lg flex-shrink-0" />
+                  <img src={post.image_url} alt={post.title} width="80" height="80" loading="lazy" decoding="async" className="w-full sm:w-20 h-20 object-cover rounded-lg flex-shrink-0" />
                 )}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-1">

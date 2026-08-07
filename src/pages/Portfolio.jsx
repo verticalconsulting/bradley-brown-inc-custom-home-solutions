@@ -160,7 +160,7 @@ export default function Portfolio() {
         <div className="mt-10 bg-gradient-to-br from-[#1E2D3D] to-slate-800 rounded-2xl overflow-hidden shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
             <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
-              <img src={featuredImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"} alt="Historic home restoration by Bradley Brown Inc. — Brandon, MS" className="w-full h-full object-cover" loading="lazy" />
+              <img src={featuredImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"} alt="Historic home restoration by Bradley Brown Inc. — Brandon, MS" width="600" height="450" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
             <div className="p-8 md:p-10">
               <p className="text-sky-400 font-semibold text-xs uppercase tracking-wider mb-2">Featured Project Story</p>

@@ -97,7 +97,7 @@ export default function JobsiteDetail() {
         <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
           {item.photos?.[0] && (
             <div className="aspect-[16/9] bg-slate-100">
-              <img src={item.photos[0]} alt={item.title} className="w-full h-full object-cover" />
+              <img src={item.photos[0]} alt={item.title} width="800" height="450" decoding="async" className="w-full h-full object-cover" />
             </div>
           )}
 
@@ -119,7 +119,7 @@ export default function JobsiteDetail() {
               <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
                 {item.photos.slice(1).map((p, i) => (
                   <div key={i} className="aspect-square rounded-lg overflow-hidden bg-slate-100">
-                    <img src={p} alt={`${item.title} ${i + 2}`} className="w-full h-full object-cover" loading="lazy" />
+                    <img src={p} alt={`${item.title} ${i + 2}`} width="300" height="300" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
                 ))}
               </div>

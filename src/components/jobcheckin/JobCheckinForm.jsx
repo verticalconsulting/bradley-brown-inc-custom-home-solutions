@@ -205,7 +205,7 @@ export default function JobCheckinForm() {
           <div className="grid grid-cols-4 gap-2 mt-3">
             {photos.map((p, i) => (
               <div key={i} className="relative aspect-square rounded-lg overflow-hidden bg-slate-100">
-                <img src={p} alt="" className="w-full h-full object-cover" />
+                <img src={p} alt="" width="100" height="100" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 <button type="button" onClick={() => setPhotos(arr => arr.filter((_, j) => j !== i))} className="absolute top-1 right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full">×</button>
               </div>
             ))}

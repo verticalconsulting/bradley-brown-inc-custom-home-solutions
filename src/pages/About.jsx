@@ -43,7 +43,7 @@ export default function About() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
-            <img src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/medium" alt="Bradley Brown and wife" className="rounded-xl shadow-lg w-full h-80 object-cover" />
+            <img src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/d5dba6f2-b3dd-4c9c-518c-83e8ef6af000/medium" alt="Bradley Brown and wife" width="640" height="480" loading="lazy" decoding="async" className="rounded-xl shadow-lg w-full h-80 object-cover" />
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">A Builder You Can Trust</h2>
@@ -80,7 +80,7 @@ export default function About() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
           {team.map((member) =>
           <div key={member.name} className="text-center">
-              <img src={member.image} alt={member.name} className="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-sky-400/20" />
+              <img src={member.image} alt={member.name} width="112" height="112" loading="lazy" decoding="async" className="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-sky-400/20" />
               <h3 className="font-bold text-foreground">{member.name}</h3>
               <p className="text-sky-500 text-sm font-medium mb-2">{member.title}</p>
               <p className="text-slate-500 text-sm leading-relaxed">{member.bio}</p>

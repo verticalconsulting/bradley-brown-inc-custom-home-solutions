@@ -158,7 +158,7 @@ export default function BathroomRemodelingBrandon() {
           {projects.map((p) => (
             <div key={p.label} className="rounded-xl overflow-hidden shadow-md bg-white">
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={p.img} alt={p.label} className="w-full h-full object-cover" loading="lazy" />
+                <img src={p.img} alt={p.label} width="400" height="300" loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
               <div className="p-4">
                 <p className="text-sm font-bold text-foreground">{p.label}</p>

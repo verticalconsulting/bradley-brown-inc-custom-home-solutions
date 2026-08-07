@@ -89,7 +89,7 @@ export default function HistoricHomeRestoration() {
       <div
         className="relative bg-[#1E2D3D] py-20 md:py-28 overflow-hidden"
         style={{
-          backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80"}')`,
+          backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1200&q=80"}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -165,7 +165,7 @@ export default function HistoricHomeRestoration() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {galleryImages.map((src, i) => (
               <div key={i} className="rounded-xl overflow-hidden aspect-square bg-slate-100">
-                <img src={src} alt={`Historic home restoration photo ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <img src={src} alt={`Historic home restoration photo ${i + 1}`} width="400" height="400" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
               </div>
             ))}
           </div>

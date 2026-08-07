@@ -63,31 +63,31 @@ const CATEGORY_IMAGE_DIRECTION = {
 // Category-matched Unsplash fallbacks (used only if AI image generation fails).
 const FALLBACK_IMAGES = {
   'kitchen-remodeling': {
-    url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80',
     alt: 'Bright modern remodeled kitchen with white cabinets, large island, and pendant lighting',
   },
   'bathroom-remodeling': {
-    url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80',
     alt: 'Renovated modern bathroom with walk-in tile shower and vanity',
   },
   'outdoor-living': {
-    url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
     alt: 'Covered backyard patio with outdoor seating and warm lighting',
   },
   'curb-appeal': {
-    url: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=1200&q=80',
     alt: 'Southern home exterior with manicured landscaping and welcoming front porch',
   },
   'home-value': {
-    url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80',
     alt: 'Polished two-story home with strong curb appeal and clean landscaping',
   },
   'interior-updates': {
-    url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80',
     alt: 'Updated interior living space with fresh paint, modern lighting, and refinished flooring',
   },
   'home-remodeling': {
-    url: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80',
     alt: 'Beautifully finished custom home remodeling project',
   },
 };
