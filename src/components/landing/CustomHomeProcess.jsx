@@ -33,8 +33,8 @@ const steps = [
   },
   {
     number: "7",
-    title: "Move-In & Warranty Activation",
-    body: "On move-in day, we hand over the keys, warranty documents, and a maintenance guide tailored to your home. Our Rankin County warranty covers workmanship and structural elements, and our team remains a phone call away for questions after you've settled in. Building a home in Brandon is a relationship, not just a transaction."
+    title: "Move-In & Ongoing Support",
+    body: "On move-in day, we hand over the keys and a maintenance guide tailored to your home. Our team remains a phone call away for questions or anything that needs attention after you've settled in. Building a home in Brandon is a relationship, not just a transaction."
   },
 ];
 

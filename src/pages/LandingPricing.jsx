@@ -57,7 +57,7 @@ const faqs = [
   { question: "How much does a home renovation cost in Mississippi?", answer: "Renovation costs in the Brandon and Rankin County area typically range from $50–$150 per sq ft. Kitchen remodels start at $25,000 and bathrooms from $10,000. The best way to know is to call us at (844) 351-4154 — estimates are always free." },
   { question: "Why isn't your pricing more specific?", answer: "Every home is different. Costs depend on design choices, existing conditions, materials, and site access. We give transparent, itemized quotes — not ballpark guesses — after seeing your project in person." },
   { question: "How do you price a project?", answer: "We visit your home, review your goals, and build a detailed line-item estimate. You'll see exactly what you're paying for before any work begins." },
-  { question: "Do you offer any warranties?", answer: "Yes. We stand behind our work. All projects include a workmanship warranty, and material warranties pass through directly from manufacturers." },
+  { question: "Do you offer any warranties?", answer: "Yes. We stand behind our work. We stand behind our work, and material warranties pass through directly from manufacturers." },
   { question: "Can I get a rough estimate online?", answer: "Yes — use our AI-powered Quote Assistant for a ballpark estimate, then call us to refine it with a site visit." },
 ];
 

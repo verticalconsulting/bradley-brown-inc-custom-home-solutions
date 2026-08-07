@@ -19,7 +19,7 @@ const reviews = [
   {
     name: "Jennifer M.",
     city: "Brandon, MS",
-    quote: "Bradley Brown built our dream home in Brandon on time and within budget. The team communicated every step of the way and treated our project like it was their own. Even after move-in, they followed up on warranty items promptly. That kind of accountability is hard to find in Central Mississippi.",
+    quote: "Bradley Brown built our dream home in Brandon on time and within budget. The team communicated every step of the way and treated our project like it was their own. Even after move-in, they followed up promptly on any items that needed attention. That kind of accountability is hard to find in Central Mississippi.",
   },
 ];
 

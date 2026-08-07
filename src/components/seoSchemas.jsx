@@ -37,12 +37,6 @@ export const localBusinessSchema = {
       "credentialCategory": "license",
       "url": "https://www.msboc.us",
       "recognizedBy": { "@type": "Organization", "name": "Mississippi State Board of Contractors", "url": "https://www.msboc.us" }
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "BBB Accredited Business",
-      "credentialCategory": "accreditation",
-      "url": "https://www.bbb.org/us/ms/brandon/profile/remodeling/bradley-brown-inc-0523-235908473"
     }
   ],
   "sameAs": [

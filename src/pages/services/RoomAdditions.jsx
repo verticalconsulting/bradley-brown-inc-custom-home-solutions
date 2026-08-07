@@ -48,7 +48,7 @@ export default function RoomAdditions() {
           heading: "Seamless Integration & Full Permitting",
           paragraphs: [
             "The biggest concern homeowners have about additions is whether it will look like an obvious add-on. It won't. We match your existing brick or siding, roof pitch and shingle color, window style and size, trim profile, and paint color. We match the interior flooring, baseboards, casing, and door style. Our goal is an addition that looks original to the home.",
-            "We pull all required permits from Brandon City Hall or Rankin County, submit engineered plans when needed, and schedule all inspections from foundation to final. Our additions meet or exceed the International Residential Code and all local amendments — and we stand behind our work with a comprehensive workmanship warranty.",
+            "We pull all required permits from Brandon City Hall or Rankin County, submit engineered plans when needed, and schedule all inspections from foundation to final. Our additions meet or exceed the International Residential Code and all local amendments — and we stand behind every job we do.",
             "Ready to add space to your home? Call (844) 351-4154 or request a free estimate online. We'll visit your home, discuss your needs, and provide a detailed, written estimate for your addition project.",
           ],
         },
