@@ -4,7 +4,7 @@ import { Award, Home, Star, Shield } from "lucide-react";
 const stats = [
   { icon: Home, value: "500+", label: "Projects Built" },
   { icon: Award, value: "30+", label: "Years Experience" },
-  { icon: Star, value: "4.9★", label: "Average Rating" },
+  { icon: Star, value: "5.0★", label: "Average Rating" },
   { icon: Shield, value: "100%", label: "Licensed & Insured" },
 ];
 

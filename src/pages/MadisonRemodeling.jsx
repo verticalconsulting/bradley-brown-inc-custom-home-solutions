@@ -23,7 +23,7 @@ const schema = {
       "geo": { "@type": "GeoCoordinates", "latitude": 32.4635, "longitude": -90.0219 },
       "areaServed": { "@type": "City", "name": "Madison, Mississippi" },
       "priceRange": "$$",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87", "bestRating": "5" }
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "8", "bestRating": "5" }
     },
     {
       "@type": "Service",

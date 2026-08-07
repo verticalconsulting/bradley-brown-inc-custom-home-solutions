@@ -67,8 +67,8 @@ export const localBusinessSchema = {
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": 87,
+    "ratingValue": "5.0",
+    "reviewCount": 8,
     "bestRating": "5"
   },
   "hasOfferCatalog": {

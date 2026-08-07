@@ -8,6 +8,7 @@ import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import { base44 } from "@/api/base44Client";
 import { usePageImages } from "@/lib/usePageImages";
+import { useGoogleReviews } from "@/hooks/useGoogleReviews";
 
 const PHONE = "(844) 351-4154";
 const PHONE_HREF = "tel:+18443514154";
@@ -23,7 +24,7 @@ const schema = {
       "url": "https://bradleybrowninc.com/bathroom-remodeling-brandon-ms",
       "address": { "@type": "PostalAddress", "streetAddress": "104 Tiffany Drive", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
       "priceRange": "$$",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87", "bestRating": "5" }
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "8", "bestRating": "5" }
     },
     {
       "@type": "Service",
@@ -77,6 +78,7 @@ const trackCall = () => {
 
 export default function BathroomRemodelingBrandon() {
   const { hero: heroImage } = usePageImages("BathroomRemodelingBrandon");
+  const { reviews: googleReviews } = useGoogleReviews();
   return (
     <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
@@ -121,7 +123,7 @@ export default function BathroomRemodelingBrandon() {
           <div className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
             <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-sky-400" /> Licensed &amp; Insured</span>
             <span className="flex items-center gap-1.5"><Award className="w-4 h-4 text-sky-400" /> 20+ Years Experience</span>
-            <span className="flex items-center gap-1.5"><Star className="w-4 h-4 text-yellow-400 fill-yellow-400" /> 4.9★ · 87 Reviews</span>
+            <span className="flex items-center gap-1.5"><Star className="w-4 h-4 text-yellow-400 fill-yellow-400" /> 5.0★ · 8 Reviews</span>
             <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-sky-400" /> 200+ Baths Remodeled</span>
           </div>
         </div>
@@ -229,11 +231,12 @@ export default function BathroomRemodelingBrandon() {
             <h2 className="text-2xl md:text-4xl font-bold text-foreground">From Mississippi Homeowners</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
+            {(googleReviews.length > 0 ? googleReviews.map((r) => ({ name: r.author_name, loc: "Google Review", quote: r.text })) : [
               { name: "Jennifer R.", loc: "Flowood, MS", quote: "They remodeled our master bath — it looks like a spa. Frameless glass shower, heated floors, custom vanity. Finished in 3 weeks and on budget." },
               { name: "David &amp; Lisa K.", loc: "Brandon, MS", quote: "Converted our old tub to a walk-in shower. Best decision we made for this house. The tile work is flawless and the crew was clean and professional." },
               { name: "Marcus L.", loc: "Madison, MS", quote: "Bradley Brown remodeled our guest bath and powder room. Fixed pricing, showed up every day, and the finish work is incredible." },
-            ].map((t) => (
+            ]
+            ).map((t) => (
               <div key={t.name} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
                 <div className="flex gap-0.5 mb-3">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}

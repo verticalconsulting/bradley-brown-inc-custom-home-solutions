@@ -22,7 +22,7 @@ export default function AboutTrustSection() {
   return (
     <>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14">
-        {[{ v: "20+", l: "Years in Business" }, { v: "Many", l: "Renovations & Custom Homes" }, { v: "4.9★", l: "Average Rating" }, { v: "100%", l: "Licensed & Insured" }].map(s => (
+        {[{ v: "20+", l: "Years in Business" }, { v: "Many", l: "Renovations & Custom Homes" }, { v: "5.0★", l: "Average Rating" }, { v: "100%", l: "Licensed & Insured" }].map(s => (
           <div key={s.l} className="bg-white border border-gray-100 rounded-xl p-5 text-center shadow-sm">
             <p className="text-2xl font-bold text-sky-600">{s.v}</p><p className="text-xs text-slate-500 mt-1">{s.l}</p>
           </div>

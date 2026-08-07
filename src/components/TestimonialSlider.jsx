@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { base44 } from "@/api/base44Client";
+import { useGoogleReviews } from "@/hooks/useGoogleReviews";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const PROJECT_LABELS = {
@@ -37,18 +38,35 @@ export default function TestimonialSlider({
   title = "What Our Clients Say",
   subtitle = "Trusted by homeowners across Central Mississippi since 2005.",
 }) {
+  const { reviews: gReviews, loading: gLoading } = useGoogleReviews();
   const [testimonials, setTestimonials] = useState([]);
   const [current, setCurrent] = useState(0);
   const [loading, setLoading] = useState(true);
   const autoRef = useRef(null);
 
   useEffect(() => {
+    if (gLoading) return;
+
+    if (gReviews.length > 0) {
+      const mapped = gReviews.map((r) => ({
+        client_name: r.author_name,
+        location: "Google Review",
+        rating: r.rating,
+        text: r.text,
+        photo_url: r.profile_photo_url || null,
+      }));
+      setTestimonials(mapped.slice(0, limit));
+      setLoading(false);
+      return;
+    }
+
+    // Fallback to Testimonial entity
     const filters = featuredOnly ? { featured: true } : {};
     base44.entities.Testimonial.filter(filters, "-created_date", limit)
       .then((data) => setTestimonials(data.length ? data : PLACEHOLDERS.slice(0, limit)))
       .catch(() => setTestimonials(PLACEHOLDERS.slice(0, limit)))
       .finally(() => setLoading(false));
-  }, [limit, featuredOnly]);
+  }, [limit, featuredOnly, gLoading, gReviews.length]);
 
   // Auto-advance for dark variant
   useEffect(() => {

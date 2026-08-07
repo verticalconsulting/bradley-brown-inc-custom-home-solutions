@@ -114,7 +114,7 @@ export default function Services() {
           <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
             <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-sky-400" /> Licensed & Insured</span>
             <span className="flex items-center gap-1.5"><Award className="w-4 h-4 text-sky-400" /> 20+ Years</span>
-            <span className="flex items-center gap-1.5"><Star className="w-4 h-4 text-yellow-400 fill-yellow-400" /> 4.9★ Rated</span>
+            <span className="flex items-center gap-1.5"><Star className="w-4 h-4 text-yellow-400 fill-yellow-400" /> 5.0★ Rated</span>
             <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-sky-400" /> Renovations &amp; Custom Homes</span>
           </div>
         </div>

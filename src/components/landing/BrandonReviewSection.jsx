@@ -1,6 +1,7 @@
 import React from "react";
+import { useGoogleReviews } from "@/hooks/useGoogleReviews";
 
-const reviews = [
+const FALLBACK_REVIEWS = [
   {
     name: "Michael R.",
     city: "Brandon, MS",
@@ -23,8 +24,8 @@ const reviews = [
   },
 ];
 
-const ratingValue = 4.9;
-const reviewCount = reviews.length;
+const ratingValue = 5.0;
+const reviewCount = 8;
 
 export const brandonReviewSchema = {
   "@type": "HomeAndConstructionBusiness",
@@ -45,12 +46,6 @@ export const brandonReviewSchema = {
     bestRating: "5",
     worstRating: "1",
   },
-  review: reviews.map((r) => ({
-    "@type": "Review",
-    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5", worstRating: "1" },
-    author: { "@type": "Person", name: r.name },
-    reviewBody: r.quote,
-  })),
 };
 
 function StarRow() {
@@ -66,6 +61,18 @@ function StarRow() {
 }
 
 export default function BrandonReviewSection() {
+  const { reviews: googleReviews, loading } = useGoogleReviews();
+
+  const displayReviews = !loading && googleReviews.length > 0
+    ? googleReviews.map((r) => ({
+        name: r.author_name,
+        city: "Google Review",
+        quote: r.text,
+      }))
+    : FALLBACK_REVIEWS;
+
+  if (loading) return null;
+
   return (
     <div>
       <h2 className="text-2xl font-bold text-[#1E2D3D] mb-2">What Brandon, MS Homeowners Say About Us</h2>
@@ -77,11 +84,11 @@ export default function BrandonReviewSection() {
             </svg>
           ))}
         </div>
-        <span className="text-sm font-semibold text-slate-600">{ratingValue} · {reviewCount} reviews</span>
+        <span className="text-sm font-semibold text-slate-600">{ratingValue} · Google Reviews</span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {reviews.map((r) => (
-          <div key={r.name} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+        {displayReviews.map((r, i) => (
+          <div key={i} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
             <StarRow />
             <p className="text-slate-600 text-sm leading-relaxed mb-4">"{r.quote}"</p>
             <p className="text-sm font-semibold text-[#1E2D3D]">{r.name}</p>
