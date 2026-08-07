@@ -18,7 +18,7 @@ export default function StickyCallButton() {
     <a
       href="tel:+18443514154"
       onClick={handleClick}
-      className="fixed bottom-20 right-4 z-50 md:hidden flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-xl font-bold text-sm transition-colors"
+      className="fixed bottom-20 right-4 z-50 md:hidden flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-4 min-h-[48px] rounded-full shadow-xl font-bold text-sm transition-colors"
       aria-label="Call Bradley Brown Inc."
     >
       <Phone className="w-5 h-5" />

@@ -173,7 +173,7 @@ export default function Layout({ children, currentPageName }) {
               </a>
               {/* Desktop estimate CTA */}
               <Link
-                to="/estimate" className="text-white px-5 py-2.5 text-sm min-h-[44px] font-semibold rounded hidden md:inline-flex items-center gap-1 hover:opacity-90 transition-colors bg-primary">Get My Free Estimate
+                to="/estimate" className="text-white px-5 py-3 text-sm min-h-[48px] font-semibold rounded hidden md:inline-flex items-center gap-1 hover:opacity-90 transition-colors bg-primary">Get My Free Estimate
 
 
               </Link>
@@ -182,7 +182,7 @@ export default function Layout({ children, currentPageName }) {
               <Link
                 to="/estimate"
                 onClick={() => base44.analytics.track({ eventName: "mobile_header_estimate_clicked", properties: { source: "mobile_header_sticky", page: currentPageName || "unknown" } })}
-                className="md:hidden inline-flex items-center gap-1 bg-primary hover:opacity-90 text-white px-3.5 py-2.5 min-h-[44px] rounded-lg text-sm font-bold shadow-sm transition-colors"
+                className="md:hidden inline-flex items-center gap-1 bg-primary hover:opacity-90 text-white px-4 py-3 min-h-[48px] rounded-lg text-sm font-bold shadow-sm transition-colors"
                 aria-label="Get a free estimate">
                 Estimate
               </Link>

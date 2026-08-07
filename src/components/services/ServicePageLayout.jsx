@@ -87,10 +87,10 @@ export default function ServicePageLayout({
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">{h1}</h1>
           {subtitle && <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">{subtitle}</p>}
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg bg-[hsl(var(--secondary))]">Get My Free Estimate
+            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 hover:bg-[#A37820] text-white px-8 py-5 min-h-[52px] rounded-full font-bold text-base transition-colors shadow-lg bg-[hsl(var(--secondary))]">Get My Free Estimate
 
             </Link>
-            <a href={callHref} onClick={trackCall} className="inline-flex items-center justify-center gap-2 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-base transition-colors bg-[hsl(var(--ring))]">
+            <a href={callHref} onClick={trackCall} className="inline-flex items-center justify-center gap-2 hover:bg-green-600 text-white px-8 py-5 min-h-[52px] rounded-full font-bold text-base transition-colors bg-[hsl(var(--ring))]">
               <Phone className="w-5 h-5" /> Call {callNumber}
             </a>
           </div>
@@ -186,10 +186,10 @@ export default function ServicePageLayout({
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to Start Your Project?</h2>
           <p className="text-slate-300 mb-8 text-base">Join 500+ Mississippi homeowners who've trusted Bradley Brown Inc. with their most important investment.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg">
+            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-5 min-h-[52px] rounded-full font-bold text-base transition-colors shadow-lg">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
-            <a href={callHref} onClick={trackCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-base transition-colors">
+            <a href={callHref} onClick={trackCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-5 min-h-[52px] rounded-full font-bold text-base transition-colors">
               <Phone className="w-5 h-5" /> Call {callNumber}
             </a>
           </div>

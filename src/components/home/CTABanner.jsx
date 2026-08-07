@@ -19,12 +19,12 @@ export default function CTABanner() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            to="/estimate" className="bg-background text-primary px-8 py-4 text-lg font-bold rounded-3xl inline-flex items-center justify-center gap-2 hover:bg-accent transition-colors shadow-lg">
+            to="/estimate" className="bg-background text-primary px-8 py-5 min-h-[52px] text-lg font-bold rounded-3xl inline-flex items-center justify-center gap-2 hover:bg-accent transition-colors shadow-lg">
 
             Get My Free Estimate <Sparkles className="w-5 h-5" /> <ChevronRight className="w-5 h-5" />
           </Link>
           <a
-            href="tel:+18443514154" className="text-white px-8 py-4 text-lg font-bold rounded-2xl inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 transition-colors">
+            href="tel:+18443514154" className="text-white px-8 py-5 min-h-[52px] text-lg font-bold rounded-2xl inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 transition-colors">
             <Phone className="w-5 h-5" /> Call (844) 351-4154
           </a>
         </div>

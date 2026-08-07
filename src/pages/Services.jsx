@@ -104,10 +104,10 @@ export default function Services() {
             Licensed, insured, and trusted since 2005. From custom homes to emergency repairs, we bring Central Mississippi homeowners' visions to life.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg">
+            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-5 min-h-[52px] rounded-full font-bold text-base transition-colors shadow-lg">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
-            <a href="tel:+18443514154" onClick={trackCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-base transition-colors">
+            <a href="tel:+18443514154" onClick={trackCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-5 min-h-[52px] rounded-full font-bold text-base transition-colors">
               <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
           </div>
@@ -140,7 +140,7 @@ export default function Services() {
                   <p className="text-sm font-semibold text-slate-400">{service.price}</p>
                 </div>
                 <div className="px-6 pb-6">
-                  <span className={`inline-flex items-center gap-1.5 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${colors.btn}`}>
+                  <span className={`inline-flex items-center gap-1.5 text-white px-5 py-3 min-h-[44px] rounded-lg text-sm font-semibold transition-colors ${colors.btn}`}>
                     Learn More <ChevronRight className="w-4 h-4" />
                   </span>
                 </div>
@@ -179,10 +179,10 @@ export default function Services() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to Start Your Project?</h2>
           <p className="text-slate-300 mb-8 text-base">Join 500+ Mississippi homeowners who've trusted Bradley Brown Inc. with their most important investment.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-4 rounded-full font-bold text-base transition-colors shadow-lg">
+            <Link to="/estimate" className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-5 min-h-[52px] rounded-full font-bold text-base transition-colors shadow-lg">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
             </Link>
-            <a href="tel:+18443514154" onClick={trackCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-base transition-colors">
+            <a href="tel:+18443514154" onClick={trackCall} className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-5 min-h-[52px] rounded-full font-bold text-base transition-colors">
               <Phone className="w-5 h-5" /> Call (844) 351-4154
             </a>
           </div>

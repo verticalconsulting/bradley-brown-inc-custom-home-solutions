@@ -22,13 +22,13 @@ export default function LandingCTABar({ headline = "Ready to Get Started?" }) {
       <a
         href="tel:+18443514154"
         onClick={handleCall}
-        className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-base transition-colors shadow-md"
+        className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-4 min-h-[48px] rounded-full font-bold text-base transition-colors shadow-md"
       >
         <Phone className="w-5 h-5" /> (844) 351-4154
       </a>
       <Link
         to="/estimate"
-        className="flex items-center gap-1.5 bg-sky-400 hover:bg-sky-500 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+        className="flex items-center gap-1.5 bg-sky-400 hover:bg-sky-500 text-white px-5 py-4 min-h-[48px] rounded-full font-semibold text-sm transition-colors"
       >
         Free Estimate <ChevronRight className="w-4 h-4" />
       </Link>

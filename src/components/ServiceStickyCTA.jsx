@@ -44,14 +44,14 @@ export default function ServiceStickyCTA({ source = "service_page", label = "Get
         <a
           href="tel:+18443514154"
           onClick={handleCall}
-          className="flex-1 md:flex-initial inline-flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-bold text-sm px-4 py-3.5 min-h-[44px] rounded-lg transition-colors"
+          className="flex-1 md:flex-initial inline-flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-bold text-sm px-4 py-4 min-h-[48px] rounded-lg transition-colors"
         >
           <Phone className="w-4 h-4" /> Call Now
         </a>
         <Link
           to="/estimate"
           onClick={handleQuote}
-          className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#C4922A] hover:bg-[#A37820] text-white font-bold text-sm px-4 py-3.5 min-h-[44px] rounded-lg transition-colors"
+          className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#C4922A] hover:bg-[#A37820] text-white font-bold text-sm px-4 py-4 min-h-[48px] rounded-lg transition-colors"
         >
           <Sparkles className="w-4 h-4" /> {label}
         </Link>
