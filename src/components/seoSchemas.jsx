@@ -36,7 +36,7 @@ export const localBusinessSchema = {
       "name": "Mississippi Residential Builder License #08290",
       "credentialCategory": "license",
       "url": "https://www.msboc.us",
-      "recognizedBy": { "@type": "Organization", "name": "Mississippi State Board of Contractors", "url": "https://www.msboc.us" }
+      "recognizedBy": { "@type": "Organization", "name": "Mississippi State Board of Residential Builders", "url": "https://www.msboc.us" }
     }
   ],
   "sameAs": [

@@ -19,7 +19,7 @@ export default function EmergencyRepairs() {
           paragraphs: [
             "When your home is damaged, every hour matters. A roof leak at 2 AM during a spring storm. A tree branch through your living room window. A water heater that fails and floods your hallway. These situations can't wait for a contractor who calls you back next week — you need someone who picks up the phone and shows up fast.",
             "Bradley Brown Inc. has been responding to urgent repair calls across Brandon, Flowood, Pearl, Jackson, Madison, Ridgeland, and all of Rankin County since 2005. Our licensed crews know how to assess damage quickly, stabilize the situation, and get to work immediately — whether it's tarping a roof, extracting water, boarding up broken windows, or shoring up structural damage.",
-            "We're a licensed Mississippi General Contractor (MS Board of Contractors license #08290), fully insured. We have 20+ years of experience and are fully qualified for all structural and major repair work. When you call (601) 954-1306, you're calling a contractor who can handle the full scope of your emergency — not just a patch.",
+            "We're a licensed Mississippi General Contractor (MS Board of Residential Builders license #08290), fully insured. We have 20+ years of experience and are fully qualified for all structural and major repair work. When you call (601) 954-1306, you're calling a contractor who can handle the full scope of your emergency — not just a patch.",
           ],
         },
         {

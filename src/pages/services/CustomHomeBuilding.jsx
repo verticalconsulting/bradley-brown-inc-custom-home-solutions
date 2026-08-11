@@ -32,7 +32,7 @@ export default function CustomHomeBuilding() {
           heading: "Why Brandon Homeowners Choose Bradley Brown",
           paragraphs: [
             "Brandon homeowners choose us because we deliver what other contractors promise but rarely deliver: a home built on time, on budget, and to a standard that exceeds expectations. Our 20-year track record in Rankin County means we know the local soil conditions, the permitting process at Brandon City Hall, and the inspectors by name. That local knowledge saves you time and money.",
-            "We're licensed, insured, and bonded — Mississippi State Board of Contractors license #08290, fully insured. We stand behind every job we do, and we provide post-build support long after you've moved in. If something needs attention a year after completion, we're a phone call away.",
+            "We're licensed, insured, and bonded — Mississippi State Board of Residential Builders license #08290, fully insured. We stand behind every job we do, and we provide post-build support long after you've moved in. If something needs attention a year after completion, we're a phone call away.",
             "Our pricing is transparent and competitive. We use premium materials — not builder-grade shortcuts — and we pass our supplier relationships and volume discounts directly to you. You get the quality of a luxury custom home at a price that respects your budget.",
           ],
         },
