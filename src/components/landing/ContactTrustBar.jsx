@@ -1,7 +1,5 @@
 import React from "react";
-import { Shield, CheckCircle, Calendar, Award } from "lucide-react";
-
-const BBB_URL = "https://www.bbb.org/us/ms/brandon/profile/remodeling/bradley-brown-inc-0523-235908473";
+import { Shield, CheckCircle, Calendar } from "lucide-react";
 
 export default function ContactTrustBar() {
   return (
@@ -41,24 +39,6 @@ export default function ContactTrustBar() {
             </div>
           </div>
 
-          {/* Better Business Bureau — clickable */}
-          <a
-            href={BBB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 flex-1 min-w-[200px] hover:border-sky-300 hover:shadow-md transition-all group"
-            aria-label="Better Business Bureau — view profile"
-          >
-            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-              <Award className="w-5 h-5 text-blue-600" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">BBB Profile</p>
-              <p className="text-sm font-bold text-[#1E2D3D] leading-tight group-hover:text-sky-600 transition-colors">
-                Better Business Bureau
-              </p>
-            </div>
-          </a>
         </div>
       </div>
     </section>

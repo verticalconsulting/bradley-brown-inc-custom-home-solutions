@@ -30,11 +30,7 @@ const associations = [
   img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/532a0ecba_nahb.png",
   url: "https://www.nahb.org"
 },
-{
-  name: "Better Business Bureau",
-  img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/f47b53e12_bbb.png",
-  url: "https://www.bbb.org"
-}];
+];
 
 
 export default function Layout({ children, currentPageName }) {

@@ -23,7 +23,7 @@ const schema = {
       "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
       "foundingDate": "2005",
       "priceRange": "$$$",
-      "sameAs": ["https://www.facebook.com/BradleyBrownInc", "https://www.tiktok.com/@bb859876", "https://www.bbb.org"],
+      "sameAs": ["https://www.facebook.com/BradleyBrownInc", "https://www.tiktok.com/@bb859876"],
       "areaServed": [{ "@type": "City", "name": "Brandon, Mississippi" }, { "@type": "AdministrativeArea", "name": "Rankin County, Mississippi" }]
     },
     {

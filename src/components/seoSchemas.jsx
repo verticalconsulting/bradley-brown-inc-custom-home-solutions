@@ -42,7 +42,6 @@ export const localBusinessSchema = {
   "sameAs": [
     "https://www.facebook.com/BradleyBrownInc",
     "https://www.tiktok.com/@bb859876",
-    "https://www.bbb.org",
     "https://g.co/kgs/bradleybrowninc"
   ],
   "areaServed": [
