@@ -76,13 +76,13 @@ export default function ServiceAreaSection() {
                 });
               }
             }}
-            className="flex items-center gap-2 hover:opacity-90 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md bg-primary">
+            className="flex items-center gap-2 hover:opacity-90 text-white px-6 py-3 min-h-[48px] rounded-full font-bold text-sm transition-colors shadow-md bg-primary">
             
             <Phone className="w-4 h-4" /> Call (844) 351-4154
           </a>
           <Link
             to="/estimate"
-            className="flex items-center gap-2 bg-primary hover:opacity-90 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md">
+            className="flex items-center gap-2 bg-primary hover:opacity-90 text-white px-6 py-3 min-h-[48px] rounded-full font-bold text-sm transition-colors shadow-md">
             
             Get My Free Estimate <ChevronRight className="w-4 h-4" />
           </Link>

@@ -161,7 +161,7 @@ export default function TestimonialSlider({
         </div>
 
         <div className="flex items-center justify-center gap-4 mt-8">
-          <button onClick={prev} className="w-10 h-10 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 hover:border-[#C4922A] hover:text-[#C4922A] transition-colors">
+          <button onClick={prev} aria-label="Previous testimonial" className="w-11 h-11 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 hover:border-[#C4922A] hover:text-[#C4922A] transition-colors">
             <ChevronLeft className="w-5 h-5" />
           </button>
           <div className="flex gap-2">
@@ -169,11 +169,14 @@ export default function TestimonialSlider({
               <button
                 key={i}
                 onClick={() => { clearInterval(autoRef.current); setCurrent(i); }}
-                className={`w-2 h-2 rounded-full transition-colors ${i === current ? "bg-[#C4922A]" : "bg-slate-600 hover:bg-slate-400"}`}
-              />
+                aria-label={`Go to testimonial ${i + 1}`}
+                className={`min-w-[44px] min-h-[44px] flex items-center justify-center -mx-3 rounded-full transition-colors`}
+              >
+                <span className={`block w-2 h-2 rounded-full transition-colors ${i === current ? "bg-[#C4922A]" : "bg-slate-600"}`} />
+              </button>
             ))}
           </div>
-          <button onClick={next} className="w-10 h-10 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 hover:border-[#C4922A] hover:text-[#C4922A] transition-colors">
+          <button onClick={next} aria-label="Next testimonial" className="w-11 h-11 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 hover:border-[#C4922A] hover:text-[#C4922A] transition-colors">
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>

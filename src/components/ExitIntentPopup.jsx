@@ -40,7 +40,7 @@ export default function ExitIntentPopup({ source = "home" }) {
       }
     };
 
-    // Mobile fallback — show after 25s of scrolling
+    // Mobile fallback — show after 45s of scrolling (delayed to reduce intrusiveness)
     const mobileTimer = setTimeout(() => {
       if (armed && !sessionStorage.getItem(STORAGE_KEY) && window.innerWidth < 768) {
         setVisible(true);
@@ -50,7 +50,7 @@ export default function ExitIntentPopup({ source = "home" }) {
           properties: { source: window.location.pathname, trigger: "mobile_timer" },
         });
       }
-    }, 25000);
+    }, 45000);
 
     document.addEventListener("mouseleave", handleMouseLeave);
 
@@ -86,12 +86,12 @@ export default function ExitIntentPopup({ source = "home" }) {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center sm:px-4 bg-black/60 sm:backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
         <button
           onClick={handleClose}
           aria-label="Close"
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors"
+          className="absolute top-3 right-3 z-10 w-11 h-11 rounded-full bg-white/80 hover:bg-white text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors"
         >
           <X className="w-4 h-4" />
         </button>

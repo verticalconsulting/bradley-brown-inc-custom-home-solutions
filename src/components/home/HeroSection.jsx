@@ -39,7 +39,7 @@ export default function HeroSection() {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
       {/* Background images */}
       {slides.map((s, i) =>
       <div
@@ -116,7 +116,7 @@ export default function HeroSection() {
           )}
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
           <div className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-1">
             <div className="w-1.5 h-3 bg-white/60 rounded-full" />
           </div>
