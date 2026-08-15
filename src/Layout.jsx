@@ -300,7 +300,7 @@ export default function Layout({ children, currentPageName }) {
                     href="https://www.facebook.com/BradleyBrownInc"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-slate-300 hover:text-primary transition-colors"
                     aria-label="Facebook">
                     
                     <Facebook className="w-5 h-5" />
@@ -309,7 +309,7 @@ export default function Layout({ children, currentPageName }) {
                     href="https://www.tiktok.com/@bb859876"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-slate-300 hover:text-primary transition-colors"
                     aria-label="TikTok">
                     
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -359,7 +359,7 @@ export default function Layout({ children, currentPageName }) {
 
           {/* Associations */}
           <div className="mt-10 pt-8 border-t border-slate-700">
-            <p className="text-muted-foreground text-xs uppercase tracking-wider mb-4">Memberships & Certifications</p>
+            <p className="text-slate-300 text-xs uppercase tracking-wider mb-4">Memberships & Certifications</p>
             <div className="flex flex-wrap items-center gap-4 md:gap-6">
               {associations.map((a) =>
               a.url ?
@@ -377,17 +377,17 @@ export default function Layout({ children, currentPageName }) {
           </div>
 
           <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground text-sm">
+            <p className="text-slate-300 text-sm">
               © 2026 Designed by{" "}
               <a href="https://verticalconsulting.net" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-foreground transition-colors">
                 Five Hughes LLC
               </a>
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
-              <Link to="/seodashboard" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+              <Link to="/seodashboard" className="text-slate-300 hover:text-primary text-sm transition-colors">
                 Employee Portal
               </Link>
-              <p className="text-muted-foreground text-sm">Licensed & Insured · Mississippi General Contractor · 104 Tiffany Drive, Brandon, MS 39042</p>
+              <p className="text-slate-300 text-sm">Licensed & Insured · Mississippi General Contractor · 104 Tiffany Drive, Brandon, MS 39042</p>
             </div>
           </div>
         </div>

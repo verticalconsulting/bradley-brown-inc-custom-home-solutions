@@ -134,7 +134,7 @@ export default function ExitIntentPopup({ source = "home" }) {
 
           <button
             onClick={handleClose}
-            className="block mx-auto mt-3 text-slate-400 text-sm hover:text-slate-600 transition-colors"
+            className="block mx-auto mt-3 text-slate-600 text-sm hover:text-slate-800 transition-colors"
           >
             No thanks, I'll keep looking
           </button>

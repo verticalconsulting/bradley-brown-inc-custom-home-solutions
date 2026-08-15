@@ -21,7 +21,7 @@ export default function TrustSignals() {
                 </div>
               </div>
               <div className="text-2xl md:text-3xl font-bold text-white">{value}</div>
-              <div className="text-muted-foreground text-sm mt-1">{label}</div>
+              <div className="text-slate-300 text-sm mt-1">{label}</div>
             </div>
           ))}
         </div>
