@@ -5,6 +5,8 @@ import ReactMarkdown from "react-markdown";
 
 const WHATSAPP_NUMBER = "18443514154";
 
+const isVisibleMsg = (m) => m.role === "user" || m.role === "assistant";
+
 export default function VisitorChatWidget() {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState("intro"); // intro | chat
@@ -14,6 +16,7 @@ export default function VisitorChatWidget() {
   const [conversation, setConversation] = useState(null);
   const [messages, setMessages] = useState([]);
   const [sending, setSending] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
   const [unread, setUnread] = useState(0);
   const bottomRef = useRef(null);
   const openRef = useRef(open);
@@ -44,8 +47,12 @@ export default function VisitorChatWidget() {
       const incoming = data?.messages;
       if (!Array.isArray(incoming)) return;
 
-      // Don't let an early/empty streaming frame wipe the visible history.
-      setMessages((prev) => (incoming.length >= prev.length ? incoming : prev));
+      // Don't let a streaming frame with fewer *visible* messages wipe the chat history.
+      setMessages((prev) => {
+        const incomingVisible = incoming.filter(isVisibleMsg).length;
+        const prevVisible = prev.filter(isVisibleMsg).length;
+        return incomingVisible >= prevVisible ? incoming : prev;
+      });
 
       if (!openRef.current) {
         const agentMsgs = incoming.filter((m) => m.role === "assistant").length;
@@ -63,6 +70,7 @@ export default function VisitorChatWidget() {
   const startChat = async () => {
     if (!name.trim()) return;
     setSending(true);
+    setHasStarted(true);
     try {
       const conv = await base44.agents.createConversation({
         agent_name: "home_advisor",
@@ -109,7 +117,11 @@ export default function VisitorChatWidget() {
         content: text,
       });
       const newMessages = updated.messages || [];
-      setMessages(newMessages);
+      setMessages(prev =>
+        newMessages.filter(isVisibleMsg).length >= prev.filter(isVisibleMsg).length
+          ? newMessages
+          : prev
+      );
 
       // Check if agent triggered escalation
       const lastAssistant = [...newMessages].reverse().find(m => m.role === "assistant");
@@ -128,7 +140,7 @@ export default function VisitorChatWidget() {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
   };
 
-  const visibleMessages = messages.filter(m => m.role === "user" || m.role === "assistant");
+  const visibleMessages = messages.filter(isVisibleMsg);
 
   return (
     <div className="fixed bottom-20 left-4 md:bottom-6 md:left-6 z-[60] flex flex-col items-start gap-3">
@@ -193,8 +205,22 @@ export default function VisitorChatWidget() {
           ) : (
             <>
               <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ minHeight: 0 }}>
-                {visibleMessages.length === 0 && (
+                {visibleMessages.length === 0 && !hasStarted && (
                   <p className="text-xs text-gray-400 text-center">Starting conversation...</p>
+                )}
+                {visibleMessages.length === 0 && hasStarted && (
+                  <div className="flex justify-start">
+                    <div className="w-6 h-6 bg-sky-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                      <Sparkles className="w-3 h-3 text-sky-500" />
+                    </div>
+                    <div className="bg-gray-100 rounded-xl px-4 py-2.5">
+                      <div className="flex gap-1">
+                        <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                        <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                        <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                      </div>
+                    </div>
+                  </div>
                 )}
                 {visibleMessages.map((msg, i) => (
                   <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
