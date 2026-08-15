@@ -75,7 +75,6 @@ export default function RoomAdditions() {
       }]}
       images={[
         { url: "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/ed62ffc6-b48e-4c79-2b3a-0cc96426b300/medium", alt: "Room addition by Bradley Brown Inc. in Madison, MS", caption: "In-law suite addition — Madison, MS" },
-        { url: "https://images.unsplash.com/photo-1600585154340-be6161a4a017?w=800&q=80", alt: "Home addition exterior matching existing house", caption: "Seamless roofline and brick match" },
       ]}
       relatedLinks={[
         { to: "/protips/home-addition-ideas", label: "Home Addition Ideas & ROI Guide" },
