@@ -42,6 +42,7 @@ const FunnelAnalysis = lazy(() => import('./pages/FunnelAnalysis'));
 const ThankYou = lazy(() => import('./pages/ThankYou'));
 const ScheduleVisit = lazy(() => import('./pages/ScheduleVisit'));
 const RenovationPlanner = lazy(() => import('./pages/RenovationPlanner'));
+const FinishPackageStudio = lazy(() => import('./pages/FinishPackageStudio'));
 import AdminRoute from './components/AdminRoute';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
@@ -148,7 +149,7 @@ const AuthenticatedApp = () => {
       <Route path="/barndominium-builder" element={<Navigate to="/services/barndominiums" replace />} />
       <Route path="/barndominiums-ms" element={<Navigate to="/services/barndominiums" replace />} />
       <Route path="/barndominium-cost-mississippi" element={<Navigate to="/services/barndominiums" replace />} />
-      <Route path="/finish-package-studio" element={<Navigate to="/estimate" replace />} />
+      <Route path="/finish-package-studio" element={<LayoutWrapper currentPageName="FinishPackageStudio"><FinishPackageStudio /></LayoutWrapper>} />
       <Route path="/custom-home-builder-brandon-ms" element={<LayoutWrapper currentPageName="LandingBrandonCustomHomeBuilder"><LandingBrandonCustomHomeBuilder /></LayoutWrapper>} />
 
       {/* Legacy / alternate URL redirects (Google Ads + old backlinks) */}

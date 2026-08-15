@@ -81,6 +81,26 @@ export default function Estimate() {
         }
       } catch { /* ignore parse errors */ }
     }
+
+    // Load finish package attached from the Finish Package Studio
+    const fromFinishPackage = urlParams.get("from") === "finishpackage";
+    if (fromFinishPackage) {
+      try {
+        const stored = sessionStorage.getItem("finishPackage");
+        if (stored) {
+          const { summary, project_type } = JSON.parse(stored);
+          setData((d) => ({
+            ...d,
+            project_type: project_type || d.project_type,
+            description: d.description
+              ? `${d.description}\n\n${summary}`
+              : summary,
+          }));
+          setStep(1);
+          sessionStorage.removeItem("finishPackage");
+        }
+      } catch { /* ignore parse errors */ }
+    }
   }, []);
 
   const canProceed = () => {

@@ -56,6 +56,7 @@ export default function Layout({ children, currentPageName }) {
   { label: "Portfolio", page: "Portfolio" },
   { label: "Pricing", to: "/pricing" },
   { label: "Planner", to: "/renovation-planner" },
+  { label: "Finish Studio", to: "/finish-package-studio" },
   { label: "Pro Tips", page: "ProTips" },
   { label: "Contact", page: "Contact" }];
 
@@ -345,6 +346,7 @@ export default function Layout({ children, currentPageName }) {
                 { label: "About Us", page: "About" },
                 { label: "Portfolio", page: "Portfolio" },
                 { label: "Renovation Planner", to: "/renovation-planner" },
+                { label: "Finish Package Studio", to: "/finish-package-studio" },
                 { label: "Pro Tips", page: "ProTips" },
                 { label: "Pricing", to: "/pricing" },
                 { label: "Remodeling in MS", to: "/remodeling-ms" },
