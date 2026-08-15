@@ -9,7 +9,7 @@ import DesignInspirationStep from "@/components/quote/DesignInspirationStep";
 import ContactStep from "@/components/quote/ContactStep";
 import EstimateResult from "@/components/quote/EstimateResult";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
-import { ChevronLeft, ChevronRight, Sparkles, Phone } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles, Phone, CalendarClock } from "lucide-react";
 
 const STEPS = ["Project Type", "Details", "Design Inspiration", "Your Info", "Estimate"];
 const RESULT_STEP = 4;
@@ -61,6 +61,26 @@ export default function Estimate() {
       .filter(Boolean)
       .join("&");
     if (captured) setUtmParams(captured);
+
+    // Load planner results attached from the Renovation Planner
+    const fromPlanner = urlParams.get("from") === "planner";
+    if (fromPlanner) {
+      try {
+        const stored = sessionStorage.getItem("plannerResults");
+        if (stored) {
+          const { summary, project_type } = JSON.parse(stored);
+          setData((d) => ({
+            ...d,
+            project_type: project_type || d.project_type,
+            description: d.description
+              ? `${d.description}\n\n${summary}`
+              : summary,
+          }));
+          setStep(1); // jump to the Details step so the user sees the attached plan
+          sessionStorage.removeItem("plannerResults");
+        }
+      } catch { /* ignore parse errors */ }
+    }
   }, []);
 
   const canProceed = () => {
@@ -251,6 +271,22 @@ export default function Estimate() {
 
       {/* AI Estimator Wizard */}
       <div className="max-w-xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+        {/* Cross-link to Renovation Planner */}
+        <div className="bg-[#1E2D3D]/5 border border-[#1E2D3D]/10 rounded-xl p-4 mb-6 flex items-center gap-3">
+          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C4922A]/15 flex items-center justify-center">
+            <CalendarClock className="w-5 h-5 text-[#C4922A]" />
+          </div>
+          <div className="flex-1">
+            <p className="text-sm font-semibold text-[#1E2D3D]">Planning a renovation?</p>
+            <p className="text-xs text-slate-500">Get a personalized timeline, disruption score & checklist before you commit.</p>
+          </div>
+          <Link
+            to="/renovation-planner"
+            className="flex-shrink-0 text-[#C4922A] text-sm font-semibold hover:underline whitespace-nowrap"
+          >
+            Try Planner →
+          </Link>
+        </div>
         <StepIndicator steps={STEPS} currentStep={step} />
 
         <div className="bg-white rounded-2xl shadow-md border border-[#E2D9CC] p-6 md:p-8">
