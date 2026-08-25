@@ -1,9 +1,8 @@
 import React from "react";
-import { CheckCircle, ShieldCheck } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import LandingFAQ from "@/components/landing/LandingFAQ";
-
-const CERTIFICATE_URL = "https://media.base44.com/images/public/699c758479c46f0580553750/89acaab27_bradleybrowncontractor.png";
+import CertificateBadge from "@/components/CertificateBadge";
 
 const trustFaqs = [
   { question: "Is Bradley Brown Inc. licensed in Mississippi?", answer: "Yes. We are a licensed Mississippi General Contractor, fully insured with general liability and workers' compensation coverage on every project." },
@@ -26,13 +25,7 @@ export default function AboutTrustSection() {
       <div className="mb-14">
         <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Certifications</h2>
         <div className="flex flex-wrap items-center justify-center gap-6 bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
-          <a href={CERTIFICATE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <ShieldCheck className="w-10 h-10 text-sky-600 flex-shrink-0" aria-hidden="true" />
-            <div className="text-left">
-              <p className="text-sm font-semibold text-[#1E2D3D]">Mississippi Certified Residential Builder</p>
-              <p className="text-xs text-slate-500">License No. R08290 · Active · Click to view certificate</p>
-            </div>
-          </a>
+          <CertificateBadge variant="light" />
         </div>
       </div>
 

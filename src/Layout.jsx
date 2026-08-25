@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook, ShieldCheck } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import BottomTabBar from "@/components/BottomTabBar";
 import VisitorChatWidget from "@/components/chat/VisitorChatWidget";
+import CertificateBadge from "@/components/CertificateBadge";
 
 const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png";
-
-const CERTIFICATE_URL = "https://media.base44.com/images/public/699c758479c46f0580553750/89acaab27_bradleybrowncontractor.png";
 
 
 export default function Layout({ children, currentPageName }) {
@@ -348,13 +347,7 @@ export default function Layout({ children, currentPageName }) {
           {/* Certifications */}
           <div className="mt-10 pt-8 border-t border-slate-700">
             <p className="text-slate-300 text-xs uppercase tracking-wider mb-4">Certifications</p>
-            <a href={CERTIFICATE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-slate-600 rounded-lg px-4 py-3 transition-colors">
-              <ShieldCheck className="w-8 h-8 text-sky-400 flex-shrink-0" aria-hidden="true" />
-              <div className="text-left">
-                <p className="text-sm font-semibold text-white">Mississippi Certified Residential Builder</p>
-                <p className="text-xs text-slate-400">License No. R08290 · Active · Click to view certificate</p>
-              </div>
-            </a>
+            <CertificateBadge variant="dark" />
           </div>
 
           <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">
