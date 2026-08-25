@@ -61,7 +61,7 @@ function CanonicalRow({ item }) {
             <div className="flex items-center gap-1.5">
               <FileText className="w-3 h-3 text-slate-400" />
               <span className="text-slate-400">Referring sitemap:</span>
-              <span className="font-mono text-slate-600">{item.sitemap.replace("https://bradleybrowninc.com", "")}</span>
+              <span className="font-mono text-slate-600">{String(item.sitemap).replace("https://bradleybrowninc.com", "")}</span>
             </div>
           )}
         </div>
