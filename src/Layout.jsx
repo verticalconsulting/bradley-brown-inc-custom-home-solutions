@@ -383,7 +383,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-slate-300 text-sm">
               © 2026 Designed by{" "}
-              <a href="https://verticalconsulting.net" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-foreground transition-colors">
+              <a href="https://verticalconsulting.net" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-400 transition-colors">
                 Five Hughes LLC
               </a>
             </p>
