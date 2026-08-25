@@ -1,14 +1,9 @@
 import React from "react";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, ShieldCheck } from "lucide-react";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 
-const badges = [
-  { name: "Licensed & Insured", img: "https://media.base44.com/images/public/699c758479c46f0580553750/f7e570d9e_generated_image.png" },
-  { name: "MS Board of Residential Builders", img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/f98532894_ms-contractor.png" },
-  { name: "Home Builders Association of MS", img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/103c2c527_mshba.png" },
-  { name: "NAHB", img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/532a0ecba_nahb.png" },
-];
+const CERTIFICATE_URL = "https://media.base44.com/images/public/699c758479c46f0580553750/89acaab27_bradleybrowncontractor.png";
 
 const trustFaqs = [
   { question: "Is Bradley Brown Inc. licensed in Mississippi?", answer: "Yes. We are a licensed Mississippi General Contractor, fully insured with general liability and workers' compensation coverage on every project." },
@@ -29,9 +24,15 @@ export default function AboutTrustSection() {
       </div>
 
       <div className="mb-14">
-        <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Certifications &amp; Memberships</h2>
+        <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Certifications</h2>
         <div className="flex flex-wrap items-center justify-center gap-6 bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
-          {badges.map(b => <img key={b.name} src={b.img} alt={b.name} width="56" height="56" className="h-14 w-auto object-contain" loading="lazy" decoding="async" />)}
+          <a href={CERTIFICATE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <ShieldCheck className="w-10 h-10 text-sky-600 flex-shrink-0" aria-hidden="true" />
+            <div className="text-left">
+              <p className="text-sm font-semibold text-[#1E2D3D]">Mississippi Certified Residential Builder</p>
+              <p className="text-xs text-slate-500">License No. R08290 · Active · Click to view certificate</p>
+            </div>
+          </a>
         </div>
       </div>
 
