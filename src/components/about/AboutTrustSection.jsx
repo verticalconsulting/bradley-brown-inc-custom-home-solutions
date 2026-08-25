@@ -36,7 +36,7 @@ export default function AboutTrustSection() {
       <div className="mb-14">
         <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Our Commitments to You</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {["Licensed Mississippi General Contractor (MC-2024)", "Full general liability insurance on every project", "Workers' compensation coverage for all crew", "Transparent, itemized written quotes — no surprises", "We stand behind every completed project", "Committed to ethical, honest business practices"].map(item => (
+          {["Licensed Mississippi Residential Builder (R08290)", "Full general liability insurance on every project", "Workers' compensation coverage for all crew", "Transparent, itemized written quotes — no surprises", "We stand behind every completed project", "Committed to ethical, honest business practices"].map(item => (
             <div key={item} className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
               <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" /><span className="text-sm text-slate-700">{item}</span>
             </div>

@@ -361,7 +361,7 @@ export default function Layout({ children, currentPageName }) {
               <Link to="/seodashboard" className="text-slate-300 hover:text-primary text-sm transition-colors">
                 Employee Portal
               </Link>
-              <p className="text-slate-300 text-sm">Licensed & Insured · Mississippi General Contractor · 104 Tiffany Drive, Brandon, MS 39042</p>
+              <p className="text-slate-300 text-sm">Licensed & Insured · Mississippi Residential Builder · 104 Tiffany Drive, Brandon, MS 39042</p>
             </div>
           </div>
         </div>
