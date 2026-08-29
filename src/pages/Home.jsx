@@ -11,6 +11,7 @@ import CTABanner from "@/components/home/CTABanner";
 import ServiceAreaSection from "@/components/home/ServiceAreaSection";
 import PullToRefresh from "@/components/PullToRefresh";
 import HomeFAQ, { homeFaqs } from "@/components/home/HomeFAQ";
+import SocialFollow from "@/components/home/SocialFollow";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 const faqPageSchema = {
@@ -53,6 +54,7 @@ export default function Home() {
           <TestimonialSlider featuredOnly={true} limit={6} />
         </div>
         <HomeFAQ />
+        <SocialFollow />
         <CTABanner />
         <ExitIntentPopup source="home" />
       </div>
