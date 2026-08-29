@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import SEOHead from "@/components/SEOHead";
 import { Download } from "lucide-react";
 
-const TARGET_URL = "https://bradleybrowinc.com";
+const TARGET_URL = "https://bradleybrowninc.com";
 // High-resolution QR code generated via the goqr.me API (returns a real PNG)
 const QR_IMAGE_URL = `https://api.qrserver.com/v1/create-qr-code/?size=1024x1024&data=${encodeURIComponent(
   TARGET_URL,
@@ -42,7 +42,7 @@ export default function QRCode() {
             Bradley Brown Inc. QR Code
           </h1>
           <p className="text-sm text-muted-foreground mb-6">
-            Scan to visit <span className="font-medium text-foreground">bradleybrowinc.com</span>
+            Scan to visit <span className="font-medium text-foreground">bradleybrowninc.com</span>
           </p>
 
           <div className="inline-block p-4 bg-white rounded-xl border border-border shadow-sm">
