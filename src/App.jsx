@@ -43,6 +43,7 @@ const ThankYou = lazy(() => import('./pages/ThankYou'));
 const ScheduleVisit = lazy(() => import('./pages/ScheduleVisit'));
 const RenovationPlanner = lazy(() => import('./pages/RenovationPlanner'));
 const FinishPackageStudio = lazy(() => import('./pages/FinishPackageStudio'));
+const QRCode = lazy(() => import('./pages/QRCode'));
 import AdminRoute from './components/AdminRoute';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
@@ -175,6 +176,7 @@ const AuthenticatedApp = () => {
       <Route path="/historichomerestoration" element={<Navigate to="/projects/historic-home-restoration" replace />} />
 
       <Route path="/sms-optin" element={<LayoutWrapper currentPageName="SmsOptin"><SmsOptin /></LayoutWrapper>} />
+      <Route path="/qrcode" element={<LayoutWrapper currentPageName="QRCode"><QRCode /></LayoutWrapper>} />
       <Route path="/jobsite-checkin" element={<LayoutWrapper currentPageName="JobCheckin"><JobCheckin /></LayoutWrapper>} />
       <Route path="/jobsites" element={<Navigate to="/about" replace />} />
       <Route path="/jobsites/:slug" element={<LayoutWrapper currentPageName="JobsiteDetail"><JobsiteDetail /></LayoutWrapper>} />
