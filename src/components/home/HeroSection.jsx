@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { ChevronRight, Play, Sparkles, Phone } from "lucide-react";
+import { ChevronRight, Play, Sparkles, Phone, Facebook, Instagram } from "lucide-react";
 
 const slides = [
 {
@@ -97,6 +97,26 @@ export default function HeroSection() {
           <a
             href="tel:+18443514154" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-5 min-h-[52px] rounded-lg font-semibold text-lg transition-all">
             <Phone className="w-5 h-5" /> Call (844) 351-4154
+          </a>
+        </div>
+
+        {/* Social icons */}
+        <div className="flex justify-center gap-3 mt-8">
+          <a
+            href="https://www.facebook.com/BradleyBrownInc"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Bradley Brown Inc. on Facebook"
+            className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white/10 hover:bg-[#1877F2] border border-white/30 backdrop-blur-sm flex items-center justify-center text-white transition-colors">
+            <Facebook className="w-5 h-5" />
+          </a>
+          <a
+            href="https://www.instagram.com/bradleybrowninc"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Bradley Brown Inc. on Instagram"
+            className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white/10 hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#962fbf] border border-white/30 backdrop-blur-sm flex items-center justify-center text-white transition-colors">
+            <Instagram className="w-5 h-5" />
           </a>
         </div>
 
