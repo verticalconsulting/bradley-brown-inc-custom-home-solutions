@@ -39,8 +39,8 @@ export default function Home() {
     <PullToRefresh onRefresh={handleRefresh}>
       <div>
         <SEOHead
-          title="Home Remodeling & Custom Builds | Bradley Brown Inc, MS"
-          description="Brandon MS's top-rated remodeler & home builder since 2005. Kitchens, baths, additions & custom homes. Licensed & insured. Call (844) 351-4154 for a free estimate."
+          title="Custom Home Builder & Remodeler in Brandon, MS | Bradley Brown Inc."
+          description="Custom homes, remodeling, additions, and outdoor living in Brandon and Central Mississippi. Explore Bradley Brown Inc.'s work and request a free estimate."
           schema={homeSchemaGraph}
           canonical="https://bradleybrowninc.com"
         />
