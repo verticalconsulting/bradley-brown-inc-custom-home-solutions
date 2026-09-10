@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Home, Wrench, Image, Sparkles, Phone } from "lucide-react";
+import { base44 } from "@/api/base44Client";
 
 const tabs = [
   { label: "Home",      page: "Home",        icon: Home  },
@@ -30,7 +31,20 @@ export default function BottomTabBar({ currentPageName }) {
     // Navigate to last known path for the tapped tab, or its root
     const remembered = tabStack.current[page];
     const tab = tabs.find(t => t.page === page);
-    navigate(remembered || tab?.path || createPageUrl(page));
+    const destination = remembered || tab?.path || createPageUrl(page);
+
+    if (page === "Estimate") {
+      base44.analytics.track({
+        eventName: currentPageName === "Home" ? "homepage_estimate_clicked" : "nav_estimate_clicked",
+        properties: {
+          placement: "bottom_tab",
+          destination,
+          source_page: currentPageName || "unknown"
+        }
+      });
+    }
+
+    navigate(destination);
   };
 
   return (

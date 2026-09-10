@@ -149,15 +149,29 @@ export default function Layout({ children, currentPageName }) {
               </a>
               {/* Desktop estimate CTA */}
               <Link
-                to="/estimate" className="text-white px-5 py-3 text-sm min-h-[48px] font-semibold rounded hidden md:inline-flex items-center gap-1 hover:opacity-90 transition-colors bg-primary">Get My Free Estimate
-
-
+                to="/estimate"
+                onClick={() => base44.analytics.track({
+                  eventName: currentPageName === "Home" ? "homepage_estimate_clicked" : "nav_estimate_clicked",
+                  properties: {
+                    placement: "header_desktop",
+                    destination: "/estimate",
+                    page: currentPageName || "unknown"
+                  }
+                })}
+                className="text-white px-5 py-3 text-sm min-h-[48px] font-semibold rounded hidden md:inline-flex items-center gap-1 hover:opacity-90 transition-colors bg-primary">Get My Free Estimate
               </Link>
 
               {/* Mobile estimate CTA — thumb-sized, always visible in the header */}
               <Link
                 to="/estimate"
-                onClick={() => base44.analytics.track({ eventName: "mobile_header_estimate_clicked", properties: { source: "mobile_header_sticky", page: currentPageName || "unknown" } })}
+                onClick={() => base44.analytics.track({
+                  eventName: currentPageName === "Home" ? "homepage_estimate_clicked" : "nav_estimate_clicked",
+                  properties: {
+                    placement: "header_mobile",
+                    destination: "/estimate",
+                    page: currentPageName || "unknown"
+                  }
+                })}
                 className="md:hidden inline-flex items-center gap-1 bg-primary hover:opacity-90 text-white px-4 py-3 min-h-[48px] rounded-lg text-sm font-bold shadow-sm transition-colors"
                 aria-label="Get a free estimate">
                 Estimate
@@ -221,7 +235,14 @@ export default function Layout({ children, currentPageName }) {
                 </a>
                 <Link
                 to="/estimate"
-                onClick={() => base44.analytics.track({ eventName: "mobile_menu_estimate_clicked", properties: { source: "mobile_menu", page: currentPageName || "unknown" } })}
+                onClick={() => base44.analytics.track({
+                  eventName: currentPageName === "Home" ? "homepage_estimate_clicked" : "nav_estimate_clicked",
+                  properties: {
+                    placement: "mobile_menu",
+                    destination: "/estimate",
+                    page: currentPageName || "unknown"
+                  }
+                })}
                 className="block bg-primary text-white px-4 py-3.5 min-h-[48px] rounded-lg text-center font-semibold hover:opacity-90 transition-colors">
 
                   Get My Free Estimate →

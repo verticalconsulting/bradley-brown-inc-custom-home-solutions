@@ -81,6 +81,14 @@ export default function ExitIntentPopup({ source = "home" }) {
       eventName: "exit_intent_clicked",
       properties: { source: window.location.pathname },
     });
+    base44.analytics.track({
+      eventName: window.location.pathname === "/" ? "homepage_estimate_clicked" : "exit_intent_estimate_clicked",
+      properties: {
+        placement: "exit_intent",
+        destination: "/estimate",
+        source_page: window.location.pathname,
+      },
+    });
   };
 
   if (!visible) return null;

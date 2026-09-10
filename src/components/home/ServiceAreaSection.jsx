@@ -1,6 +1,7 @@
 import React from "react";
 import { MapPin, Phone, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { base44 } from "@/api/base44Client";
 
 const cities = [
 "Brandon", "Flowood", "Richland", "Pearl",
@@ -65,27 +66,33 @@ export default function ServiceAreaSection() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <Link
+            to="/estimate"
+            onClick={() => base44.analytics.track({
+              eventName: "homepage_estimate_clicked",
+              properties: { placement: "service_area", destination: "/estimate" }
+            })}
+            className="flex items-center gap-2 bg-primary hover:opacity-90 text-white px-6 py-3 min-h-[48px] rounded-full font-bold text-sm transition-colors shadow-md">
+            Get My Free Estimate <ChevronRight className="w-4 h-4" />
+          </Link>
           <a
             href="tel:+18443514154"
             onClick={() => {
-              if (typeof window.gtag === 'function') {
-                window.gtag('event', 'conversion', {
-                  send_to: 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
+              base44.analytics.track({
+                eventName: "homepage_phone_clicked",
+                properties: { placement: "service_area", destination: "tel:+18443514154" }
+              });
+              if (typeof window.gtag === "function") {
+                window.gtag("event", "conversion", {
+                  send_to: "AW-17864041271/21TJCO2Bj5ccELfGnsZC",
                   value: 30,
-                  currency: 'USD'
+                  currency: "USD"
                 });
               }
             }}
-            className="flex items-center gap-2 hover:opacity-90 text-white px-6 py-3 min-h-[48px] rounded-full font-bold text-sm transition-colors shadow-md bg-primary">
-            
+            className="flex items-center gap-2 text-[hsl(var(--input))] px-6 py-3 min-h-[48px] rounded-full font-bold text-sm transition-colors border-2 border-[hsl(var(--input))] hover:bg-white/10">
             <Phone className="w-4 h-4" /> Call (844) 351-4154
           </a>
-          <Link
-            to="/estimate"
-            className="flex items-center gap-2 bg-primary hover:opacity-90 text-white px-6 py-3 min-h-[48px] rounded-full font-bold text-sm transition-colors shadow-md">
-            
-            Get My Free Estimate <ChevronRight className="w-4 h-4" />
-          </Link>
         </div>
       </div>
     </section>);
