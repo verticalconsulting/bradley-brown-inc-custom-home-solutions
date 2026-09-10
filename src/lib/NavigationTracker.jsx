@@ -36,6 +36,11 @@ export default function NavigationTracker() {
                 // Silently fail - logging shouldn't break the app
             });
         }
+
+        // Meta Pixel — fire a PageView on every SPA route change
+        if (typeof window.fbq === 'function') {
+            window.fbq('track', 'PageView');
+        }
     }, [location, isAuthenticated, Pages, mainPageKey]);
 
     return null;

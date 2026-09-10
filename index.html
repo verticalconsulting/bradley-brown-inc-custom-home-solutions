@@ -98,6 +98,20 @@
     })();
     </script>
 
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '865625803104097');
+      fbq('track', 'PageView');
+    </script>
+
     <!-- Norton Safe Web verification -->
     <meta name="norton-safeweb-site-verification" content="HNRK0ZBTER7OXPE45T3OKX91Y894PKFL1ITJYYA-MXUA2P49WMHR4X1PH8NVOCBNDOSA5YR5NV2979OP3JDKPKBATZXCSDHVSWAPEIBHW475PZPDG323NNA2H9J0N4UE" />
 
@@ -124,6 +138,11 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4STLGGN"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Meta Pixel (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=865625803104097&ev=PageView&noscript=1"
+    /></noscript>
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
