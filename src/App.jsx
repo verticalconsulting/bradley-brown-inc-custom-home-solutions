@@ -200,9 +200,9 @@ function App() {
             <LowercaseRedirect />
             <CanonicalRedirect />
             <NavigationTracker />
-            <HeadingHierarchyChecker />
+            {import.meta.env.DEV && <HeadingHierarchyChecker />}
             <WebVitalsReporter />
-            <PerformanceAuditor />
+            {import.meta.env.DEV && <PerformanceAuditor />}
             <ErrorBoundary>
               <AuthenticatedApp />
             </ErrorBoundary>

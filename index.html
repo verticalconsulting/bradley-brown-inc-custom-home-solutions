@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) — deferred to after load to reduce main-thread blocking -->
+    <!-- Google tag (gtag.js) — ONE combined load for GA4 + Google Ads, deferred to after page load -->
     <script>
       (function() {
         window.dataLayer = window.dataLayer || [];
@@ -11,12 +11,9 @@
         gtag('config', 'G-M16SZNFJYP');
         gtag('config', 'AW-17864041271');
         var loadGtag = function() {
-          var s1 = document.createElement('script'); s1.async = true;
-          s1.src = 'https://www.googletagmanager.com/gtag/js?id=G-M16SZNFJYP';
-          document.head.appendChild(s1);
-          var s2 = document.createElement('script'); s2.async = true;
-          s2.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17864041271';
-          document.head.appendChild(s2);
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-M16SZNFJYP';
+          document.head.appendChild(s);
         };
         if (document.readyState === 'complete') { loadGtag(); }
         else { window.addEventListener('load', loadGtag); }
@@ -27,19 +24,6 @@
     <title>Bradley Brown Inc. — Custom Home Builder in Central Mississippi</title>
     <meta name="description" content="Bradley Brown Inc. builds custom homes across Central Mississippi. Quality craftsmanship, transparent pricing, and a builder you can trust." />
     <link rel="canonical" href="https://www.bradleybrowninc.com/" />
-    <!-- Clarity tracking code for https://bradleybrowninc.com/ — deferred to idle -->
-<script>
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        var s=function(){
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        };
-        if ('requestIdleCallback' in c) { c.requestIdleCallback(s, { timeout: 3000 }); }
-        else { s(); }
-    })(window, document, "clarity", "script", "wq4qcw02kz");
-</script>
-
     <!-- Favicon (self-hosted) -->
     <link rel="icon" type="image/svg+xml" href="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/464ec574-e409-45b3-0abc-1e510f3de300/logo" />
     <link rel="apple-touch-icon" href="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/7a5b58fc-ec8d-45ea-0868-bebdc9ff4100/logo" />
@@ -55,50 +39,24 @@
 
     <!-- Performance: preconnect to third parties -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://analytics.ahrefs.com" />
     <link rel="preconnect" href="https://imagedelivery.net" />
     <link rel="preconnect" href="https://qtrypzzcjebvfcihiynt.supabase.co" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://scripts.clarity.ms" />
-    <link rel="preload" as="image" href="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/herocover" fetchpriority="high" />
+
+    <!-- Google Fonts — non-blocking load (font-display: swap, renders with fallback immediately) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" /></noscript>
+
+    <!-- Hero image — responsive preload matching the hero <img> srcset (314 KiB → 51–120 KiB) -->
+    <link rel="preload" as="image" fetchpriority="high" href="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/w=1200,q=75" imagesrcset="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/w=800,q=75 800w, https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/w=1200,q=75 1200w, https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/w=1920,q=75 1920w" imagesizes="100vw" />
 
     <!-- Manifest & sitemap -->
     <link rel="manifest" href="/manifest.json" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Google Tag Manager — deferred to after load to reduce main-thread blocking -->
-    <script>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var loadGTM = function() {
-        var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        f.parentNode.insertBefore(j,f);
-      };
-      if (document.readyState === 'complete') { loadGTM(); }
-      else { window.addEventListener('load', loadGTM); }
-    })(window,document,'script','dataLayer','GTM-N4STLGGN');
-    </script>
-
-    <!-- Ahrefs Web Analytics — deferred to idle -->
-    <script>
-    (function() {
-      var loadAhrefs = function() {
-        var s = document.createElement('script');
-        s.src = 'https://analytics.ahrefs.com/analytics.js';
-        s.setAttribute('data-key', 'VM/GzVbadCR3Wg+Qegt+eg');
-        s.async = true;
-        document.head.appendChild(s);
-      };
-      if ('requestIdleCallback' in window) { window.requestIdleCallback(loadAhrefs, { timeout: 4000 }); }
-      else if (document.readyState === 'complete') { loadAhrefs(); }
-      else { window.addEventListener('load', loadAhrefs); }
-    })();
-    </script>
-
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code — base code queued immediately, library loads after page load -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -106,7 +64,10 @@
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
       n.queue=[];t=b.createElement(e);t.async=!0;
       t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      var loadFbq=function(){s.parentNode.insertBefore(t,s)};
+      if(document.readyState==='complete'){loadFbq()}
+      else{window.addEventListener('load',loadFbq)}
+      }(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '865625803104097');
       fbq('track', 'PageView');
@@ -135,10 +96,6 @@
     </script>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4STLGGN"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
     <!-- Meta Pixel (noscript) -->
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=865625803104097&ev=PageView&noscript=1"

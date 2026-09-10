@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { createPageUrl } from "@/utils";
 import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import BottomTabBar from "@/components/BottomTabBar";
-import VisitorChatWidget from "@/components/chat/VisitorChatWidget";
+
+// Heavy chat widget — code-split and mount only when the browser is idle
+const VisitorChatWidget = lazy(() => import("@/components/chat/VisitorChatWidget"));
 import CertificateBadge from "@/components/CertificateBadge";
 
 const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png";
@@ -14,8 +16,21 @@ const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/pub
 export default function Layout({ children, currentPageName }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [chatReady, setChatReady] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Mount the chat widget when the main thread is idle so it never
+  // competes with first paint / hero rendering on mobile.
+  useEffect(() => {
+    const start = () => setChatReady(true);
+    if ("requestIdleCallback" in window) {
+      const id = window.requestIdleCallback(start, { timeout: 4000 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const t = setTimeout(start, 3000);
+    return () => clearTimeout(t);
+  }, []);
 
 
 
@@ -269,8 +284,12 @@ export default function Layout({ children, currentPageName }) {
 
       <BottomTabBar currentPageName={currentPageName} />
 
-      {/* Global chat widget (hidden on agent page) */}
-      {currentPageName !== "AgentChat" && <VisitorChatWidget />}
+      {/* Global chat widget (hidden on agent page) — mounted when idle */}
+      {currentPageName !== "AgentChat" && chatReady && (
+        <Suspense fallback={null}>
+          <VisitorChatWidget />
+        </Suspense>
+      )}
 
       <footer className="bg-foreground text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">

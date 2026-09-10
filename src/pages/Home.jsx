@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema } from "@/components/seoSchemas";
 import HeroSection from "@/components/home/HeroSection";
@@ -12,7 +12,9 @@ import ServiceAreaSection from "@/components/home/ServiceAreaSection";
 import PullToRefresh from "@/components/PullToRefresh";
 import HomeFAQ, { homeFaqs } from "@/components/home/HomeFAQ";
 import SocialFollow from "@/components/home/SocialFollow";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
+
+// Heavy, non-critical popup — code-split and mount after the hero is interactive
+const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
 
 const faqPageSchema = {
   "@context": "https://schema.org",
@@ -30,6 +32,15 @@ const homeSchemaGraph = {
 };
 
 export default function Home() {
+  const [deferredReady, setDeferredReady] = useState(false);
+
+  // Mount the (lazy-loaded) exit-intent popup after first paint so it never
+  // competes with the hero for main-thread time on mobile.
+  useEffect(() => {
+    const t = setTimeout(() => setDeferredReady(true), 2500);
+    return () => clearTimeout(t);
+  }, []);
+
   const handleRefresh = async () => {
     // Simulate refresh
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -56,7 +67,11 @@ export default function Home() {
         <HomeFAQ />
         <SocialFollow />
         <CTABanner />
-        <ExitIntentPopup source="home" />
+        {deferredReady && (
+          <Suspense fallback={null}>
+            <ExitIntentPopup source="home" />
+          </Suspense>
+        )}
       </div>
     </PullToRefresh>
   );
