@@ -203,11 +203,16 @@ export default function BlogAdmin() {
 
   const handleGenerate = async () => {
     setGenerating(true);
-    setGenStatus("Asking AI for a trending topic…");
+    setGenStatus("Researching live search trends…");
     try {
-      await base44.functions.invoke("generateProTip", {});
-      setGenStatus("Done! Post created.");
-      await loadPosts();
+      const res = await base44.functions.invoke("generateProTip", {});
+      const payload = res?.data || res || {};
+      if (payload.success === false) {
+        setGenStatus(payload.message || "No fresh topic found — all candidates are already covered.");
+      } else {
+        setGenStatus("Done! Post created.");
+        await loadPosts();
+      }
     } catch (e) {
       setGenStatus("Error: " + e.message);
     }

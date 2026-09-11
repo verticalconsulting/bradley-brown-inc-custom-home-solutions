@@ -1,5 +1,4 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
-import OpenAI from 'npm:openai';
 
 function slugify(text) {
   return text
@@ -114,16 +113,80 @@ Deno.serve(async (req) => {
     if (!user) return Response.json({ error: 'Unauthorized' }, { status: 401 });
     if (user.role !== 'admin') return Response.json({ error: 'Forbidden' }, { status: 403 });
 
-    const openai = new OpenAI({ apiKey: Deno.env.get('OPENAI_API_KEY') });
+    // ─── Step 0: Load every existing post so we never duplicate a topic ──────
+    const existingPosts = await base44.asServiceRole.entities.BlogPost.list('-created_date', 200);
+    const existingSlugs = new Set(existingPosts.map(p => (p.slug || '').toLowerCase()).filter(Boolean));
+    const existingList = existingPosts
+      .map(p => `- "${p.title}"${p.topic ? ` (topic: ${p.topic})` : ''}`)
+      .join('\n');
 
-    // ─── Step 1: Generate the full blog post in one structured call ──────────
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4o',
-      response_format: { type: 'json_object' },
-      messages: [
-        {
-          role: 'system',
-          content: `You are a remodeling SEO writer for Bradley Brown Inc., a custom home builder and remodeling contractor in Central Mississippi.
+    // ─── Step 1: Live SEO research across kitchen / remodel / home-build terms ─
+    const research = await base44.asServiceRole.integrations.Core.InvokeLLM({
+      add_context_from_internet: true,
+      prompt: `You are doing SEO keyword research for Bradley Brown Inc., a custom home builder and remodeling contractor in Brandon, Mississippi (Central Mississippi, Jackson metro, Rankin County).
+
+Search the web for what homeowners are actively searching for right now in these three areas:
+1. KITCHEN: kitchen remodeling ideas, costs, layouts, and trends
+2. REMODEL: home remodeling projects, room additions, bathroom remodels, and renovations that add value
+3. HOME BUILDS: custom home building, cost to build a house, barndominiums, and new construction
+
+Find specific, high-volume search-style topics (1,000+ searches/month) that a homeowner would search BEFORE hiring a contractor. Prefer seasonal and trending angles. Avoid generic head terms like "kitchen remodel" — the topic should read like a real Google search.
+
+Return your 6 best candidates. These posts already exist on the blog — do NOT return any topic that repeats or closely paraphrases an existing one:
+${existingList || '(the blog has no posts yet)'}
+
+For custom home building / new construction topics, use category "home-remodeling" or "home-value" (whichever fits better).`,
+      response_json_schema: {
+        type: 'object',
+        properties: {
+          topics: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                topic: { type: 'string' },
+                title: { type: 'string' },
+                category: { type: 'string' },
+                why: { type: 'string' },
+              },
+              required: ['topic', 'title'],
+            },
+          },
+        },
+        required: ['topics'],
+      },
+    });
+
+    // ─── Step 2: Reject any candidate too close to an existing post ─────────
+    const STOP_WORDS = new Set(['the', 'and', 'for', 'that', 'with', 'your', 'how', 'why', 'not', 'are', 'can', 'you', 'best', 'top', 'new']);
+    const significantWords = (s) =>
+      String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(' ')
+        .filter(w => w.length > 2 && !STOP_WORDS.has(w));
+    const similarity = (a, b) => {
+      const wa = significantWords(a), wb = significantWords(b);
+      if (!wa.length || !wb.length) return 0;
+      const set = new Set(wb);
+      return wa.filter(w => set.has(w)).length / Math.min(wa.length, wb.length);
+    };
+    const candidates = (research?.topics || []).filter(c => c && c.topic && c.title);
+    const freshTopics = candidates.filter(c => {
+      if (existingSlugs.has(slugify(c.title))) return false;
+      return !existingPosts.some(p => similarity(`${p.title} ${p.topic || ''}`, `${c.title} ${c.topic}`) >= 0.6);
+    });
+
+    if (freshTopics.length === 0) {
+      return Response.json({
+        success: false,
+        message: 'Keyword research only found topics already covered on the blog — no duplicate post was created.',
+        candidates_considered: candidates.length,
+      });
+    }
+    const pick = freshTopics[0];
+    const chosenTopic = String(pick.topic).trim();
+    const chosenTitle = String(pick.title).trim();
+
+    // ─── Step 3: Draft the full blog post in one structured call ───────────
+    const SYSTEM_PROMPT = `You are a remodeling SEO writer for Bradley Brown Inc., a custom home builder and remodeling contractor in Central Mississippi.
 
 Write visually polished, SEO-friendly blog content using clean markdown that renders beautifully on a website.
 
@@ -165,33 +228,18 @@ The blog should include:
 - ## When to Call a Professional Contractor
 - ## Final Takeaway
 
-The article should include practical advice homeowners can actually use, explain how the project can improve appeal or home value, and end with a subtle call to action for Bradley Brown Inc. at (844) 351-4154.
+The article should include practical advice homeowners can actually use, explain how the project can improve appeal or home value, and end with a subtle call to action for Bradley Brown Inc. at (844) 351-4154.`;
 
-You always return valid JSON.`,
-        },
-        {
-          role: 'user',
-          content: `Generate ONE new SEO-focused "Pro Tips" blog post for homeowners. Pick a fresh, specific topic homeowners are actively searching for right now — something that reads like a real Google search (e.g. "kitchen remodel ideas that add the most value", "small bathroom remodel ideas on a budget", "outdoor kitchen designs for Southern homes", "curb appeal upgrades that increase home value"). Avoid generic titles.
+    const USER_PROMPT = `Write ONE new SEO-focused "Pro Tips" blog post for homeowners about this exact topic, chosen from live keyword research:
 
-Before writing, mentally research what homeowners are searching for right now in the home improvement space. Focus on topics with HIGH search volume. Think about seasonal relevance (outdoor living in spring, energy efficiency in fall), current trends, and specific questions real homeowners ask contractors.
+TOPIC: "${chosenTopic}"
+SUGGESTED TITLE DIRECTION: "${chosenTitle}"
+CATEGORY HINT: ${pick.category || 'none — choose the best match'}
 
-Pick a topic that:
-1. Has high monthly search volume (estimate 1,000+ searches/month)
-2. Matches an intent a homeowner searches BEFORE hiring a contractor
-3. Is specific enough to rank for (not "kitchen remodel" but "kitchen island ideas for small kitchens")
-4. Has relevance to the Mississippi / Southern home market
+This topic was already vetted for search volume and freshness — do NOT switch to a different topic. Write to the intent behind the search phrase, with relevance to the Mississippi / Southern home market.
 
-Topic areas to draw from:
-- remodeling ideas that add value
-- kitchen remodeling ideas
-- bathroom remodeling ideas
-- outdoor living upgrades (patios, decks, porches, outdoor kitchens)
-- curb appeal upgrades
-- interior updates
-- energy-efficient home upgrades
-- budget-friendly remodeling
-- projects that increase home value / resale value
-- Central Mississippi / Southern home improvement needs
+Avoid overlapping with these existing posts (already published on the blog):
+${existingList || '(none yet)'}
 
 Naturally include relevant search phrases ONLY when they fit (do not keyword stuff): home remodeling tips, remodeling ideas that add value, curb appeal upgrades, kitchen remodeling ideas, bathroom remodeling ideas, outdoor living upgrades, Central Mississippi remodeling contractor.
 
@@ -216,22 +264,29 @@ Return a JSON object with EXACTLY these fields:
   "category": "ONE of: home-remodeling, kitchen-remodeling, bathroom-remodeling, outdoor-living, curb-appeal, home-value, interior-updates"
 }
 
-Choose the category that BEST matches the actual subject of the post. If the post is about an outdoor kitchen or patio, category MUST be outdoor-living, not kitchen-remodeling.`,
-        },
-      ],
-    });
+Choose the category that BEST matches the actual subject of the post. If the post is about an outdoor kitchen or patio, category MUST be outdoor-living, not kitchen-remodeling.`;
 
-    const raw = completion.choices[0].message.content;
-    let data;
-    try {
-      data = JSON.parse(raw);
-    } catch (e) {
-      return Response.json({ error: 'Invalid JSON from model', raw }, { status: 500 });
-    }
+    const data = await base44.asServiceRole.integrations.Core.InvokeLLM({
+      prompt: `${SYSTEM_PROMPT}\n\n---\n\n${USER_PROMPT}`,
+      response_json_schema: {
+        type: 'object',
+        properties: {
+          topic: { type: 'string' },
+          title: { type: 'string' },
+          slug: { type: 'string' },
+          excerpt: { type: 'string' },
+          meta_description: { type: 'string' },
+          content: { type: 'string' },
+          category: { type: 'string' },
+        },
+        required: ['title', 'content'],
+      },
+    });
 
     const title = String(data.title || '').trim().replace(/^"|"$/g, '');
     const topic = String(data.topic || title).trim();
-    const slug = slugify(data.slug || title);
+    let slug = slugify(data.slug || title);
+    if (!slug || existingSlugs.has(slug)) slug = `${slugify(title) || 'post'}-${Date.now().toString(36)}`;
     const excerpt = String(data.excerpt || '').trim();
     const meta_description = String(data.meta_description || excerpt).trim().slice(0, 160);
     const content = String(data.content || '').trim();
@@ -241,7 +296,7 @@ Choose the category that BEST matches the actual subject of the post. If the pos
       return Response.json({ error: 'Model returned incomplete post', data }, { status: 500 });
     }
 
-    // ─── Step 2: Build category-aware image prompt + generate the image ──────
+    // ─── Step 4: Build category-aware image prompt + generate the image ──────
     const imagePrompt = buildImagePrompt({ title, topic, category, excerpt });
 
     let imageUrl = null;
@@ -260,21 +315,15 @@ Choose the category that BEST matches the actual subject of the post. If the pos
 
     // Generate a concise SEO alt text for whichever image we end up using
     try {
-      const altRes = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
-        messages: [
-          {
-            role: 'user',
-            content: `Write a single sentence (max 120 characters) of SEO-friendly alt text describing the hero image for a blog post titled "${title}" in the category "${category}". Describe what the image shows literally and concretely. No quotes, no period at the end.`,
-          },
-        ],
+      const altRes = await base44.asServiceRole.integrations.Core.InvokeLLM({
+        prompt: `Write a single sentence (max 120 characters) of SEO-friendly alt text describing the hero image for a blog post titled "${title}" in the category "${category}". Describe what the image shows literally and concretely. Return only the alt text itself — no quotes, no period at the end.`,
       });
-      imageAlt = altRes.choices[0].message.content.trim().replace(/^"|"$/g, '').slice(0, 140);
+      imageAlt = String(altRes || '').trim().replace(/^"|"$/g, '').slice(0, 140);
     } catch {
       imageAlt = '';
     }
 
-    // ─── Step 3: Fallback if AI image generation failed ──────────────────────
+    // ─── Step 5: Fallback if AI image generation failed ──────────────────────
     if (!imageUrl) {
       const fb = FALLBACK_IMAGES[category] || FALLBACK_IMAGES['home-remodeling'];
       imageUrl = fb.url;
@@ -285,7 +334,7 @@ Choose the category that BEST matches the actual subject of the post. If the pos
       imageAlt = `${title} — Bradley Brown Inc.`;
     }
 
-    // ─── Step 4: Save the post ───────────────────────────────────────────────
+    // ─── Step 6: Save the post ───────────────────────────────────────────────
     const post = await base44.asServiceRole.entities.BlogPost.create({
       title,
       slug,
@@ -302,6 +351,7 @@ Choose the category that BEST matches the actual subject of the post. If the pos
 
     return Response.json({
       success: true,
+      chosen_topic: chosenTopic,
       post,
       image_generated: !imageError,
       image_error: imageError,
