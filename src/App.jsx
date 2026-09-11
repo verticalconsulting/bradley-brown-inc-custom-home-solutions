@@ -6,10 +6,8 @@ import NavigationTracker from '@/lib/NavigationTracker'
 import { pagesConfig } from './pages.config'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import PageNotFound from './lib/PageNotFound';
 import RedirectHandler from './lib/RedirectHandler';
 import ErrorBoundary from './lib/ErrorBoundary';
-import ServerError from './lib/ServerError';
 // Lazy-loaded pages (reduces initial bundle size — ~475 KiB savings on Home page)
 const SEODashboard = lazy(() => import('./pages/SEODashboard'));
 const SiteImages = lazy(() => import('./pages/SiteImages'));
@@ -48,9 +46,14 @@ const ProjectsAdmin = lazy(() => import('./pages/ProjectsAdmin'));
 import AdminRoute from './components/AdminRoute';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
-import HeadingHierarchyChecker from '@/components/seo/HeadingHierarchyChecker';
 import WebVitalsReporter from '@/components/perf/WebVitalsReporter';
-import PerformanceAuditor from '@/components/perf/PerformanceAuditor';
+
+// Dev-only audit helpers — dynamic imports keep them out of the production bundle
+const HeadingHierarchyChecker = import.meta.env.DEV ? lazy(() => import('@/components/seo/HeadingHierarchyChecker')) : () => null;
+const PerformanceAuditor = import.meta.env.DEV ? lazy(() => import('@/components/perf/PerformanceAuditor')) : () => null;
+// Error UI — only needed when something goes wrong; code-split out of the entry chunk
+const PageNotFound = lazy(() => import('@/lib/PageNotFound'));
+const ServerError = lazy(() => import('@/lib/ServerError'));
 import LowercaseRedirect from '@/components/LowercaseRedirect';
 import CanonicalRedirect from '@/components/CanonicalRedirect';
 
@@ -183,8 +186,8 @@ const AuthenticatedApp = () => {
       <Route path="/jobsites" element={<Navigate to="/about" replace />} />
       <Route path="/jobsites/:slug" element={<LayoutWrapper currentPageName="JobsiteDetail"><JobsiteDetail /></LayoutWrapper>} />
       <Route path="/protips/:slug" element={<LayoutWrapper currentPageName="ProTipDetail"><ProTipDetail /></LayoutWrapper>} />
-      <Route path="/error" element={<LayoutWrapper currentPageName="ServerError"><ServerError /></LayoutWrapper>} />
-      <Route path="*" element={<RedirectHandler><PageNotFound /></RedirectHandler>} />
+      <Route path="/error" element={<LayoutWrapper currentPageName="ServerError"><Suspense fallback={<PageLoader />}><ServerError /></Suspense></LayoutWrapper>} />
+      <Route path="*" element={<RedirectHandler><Suspense fallback={null}><PageNotFound /></Suspense></RedirectHandler>} />
     </Routes>
   );
 };
@@ -200,9 +203,9 @@ function App() {
             <LowercaseRedirect />
             <CanonicalRedirect />
             <NavigationTracker />
-            {import.meta.env.DEV && <HeadingHierarchyChecker />}
             <WebVitalsReporter />
-            {import.meta.env.DEV && <PerformanceAuditor />}
+            {import.meta.env.DEV && <Suspense fallback={null}><HeadingHierarchyChecker /></Suspense>}
+            {import.meta.env.DEV && <Suspense fallback={null}><PerformanceAuditor /></Suspense>}
             <ErrorBoundary>
               <AuthenticatedApp />
             </ErrorBoundary>

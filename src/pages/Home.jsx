@@ -1,19 +1,21 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import React, { lazy } from "react";
 import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema } from "@/components/seoSchemas";
 import HeroSection from "@/components/home/HeroSection";
-import TrustSignals from "@/components/home/TrustSignals";
-import ServicesPreview from "@/components/home/ServicesPreview";
-import FeaturedProjects from "@/components/home/FeaturedProjects";
-import FeaturedResources from "@/components/home/FeaturedResources";
-import TestimonialSlider from "@/components/TestimonialSlider";
-import CTABanner from "@/components/home/CTABanner";
-import ServiceAreaSection from "@/components/home/ServiceAreaSection";
-import PullToRefresh from "@/components/PullToRefresh";
 import HomeFAQ, { homeFaqs } from "@/components/home/HomeFAQ";
-import SocialFollow from "@/components/home/SocialFollow";
+import PullToRefresh from "@/components/PullToRefresh";
+import IdleMount from "@/components/IdleMount";
 
-// Heavy, non-critical popup — code-split and mount after the hero is interactive
+// Below-the-fold sections — code-split out of the homepage entry chunk and
+// mounted when the main thread is idle (after the hero is interactive).
+const TrustSignals = lazy(() => import("@/components/home/TrustSignals"));
+const ServicesPreview = lazy(() => import("@/components/home/ServicesPreview"));
+const FeaturedProjects = lazy(() => import("@/components/home/FeaturedProjects"));
+const FeaturedResources = lazy(() => import("@/components/home/FeaturedResources"));
+const ServiceAreaSection = lazy(() => import("@/components/home/ServiceAreaSection"));
+const TestimonialSlider = lazy(() => import("@/components/TestimonialSlider"));
+const SocialFollow = lazy(() => import("@/components/home/SocialFollow"));
+const CTABanner = lazy(() => import("@/components/home/CTABanner"));
 const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
 
 const faqPageSchema = {
@@ -32,15 +34,6 @@ const homeSchemaGraph = {
 };
 
 export default function Home() {
-  const [deferredReady, setDeferredReady] = useState(false);
-
-  // Mount the (lazy-loaded) exit-intent popup after first paint so it never
-  // competes with the hero for main-thread time on mobile.
-  useEffect(() => {
-    const t = setTimeout(() => setDeferredReady(true), 2500);
-    return () => clearTimeout(t);
-  }, []);
-
   const handleRefresh = async () => {
     // Simulate refresh
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -55,23 +48,24 @@ export default function Home() {
           schema={homeSchemaGraph}
           canonical="https://bradleybrowninc.com"
         />
+        {/* Above the fold — eager, lightweight, immediate */}
         <HeroSection />
-        <TrustSignals />
-        <ServicesPreview />
-        <FeaturedProjects />
-        <FeaturedResources />
-        <ServiceAreaSection />
-        <div id="testimonials">
-          <TestimonialSlider featuredOnly={true} limit={6} />
-        </div>
-        <HomeFAQ />
-        <SocialFollow />
-        <CTABanner />
-        {deferredReady && (
-          <Suspense fallback={null}>
-            <ExitIntentPopup source="home" />
-          </Suspense>
-        )}
+
+        {/* Below the fold — lazy chunks mounted when idle */}
+        <IdleMount>
+          <TrustSignals />
+          <ServicesPreview />
+          <FeaturedProjects />
+          <FeaturedResources />
+          <ServiceAreaSection />
+          <div id="testimonials">
+            <TestimonialSlider featuredOnly={true} limit={6} />
+          </div>
+          <HomeFAQ />
+          <SocialFollow />
+          <CTABanner />
+          <ExitIntentPopup source="home" />
+        </IdleMount>
       </div>
     </PullToRefresh>
   );
