@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { MapPin, ChevronRight } from "lucide-react";
@@ -44,14 +45,16 @@ const buildAltText = (project) => {
   return `${type} by Bradley Brown Inc — ${city}`;
 };
 
+// Stable portfolio content — cached by react-query (staleTime 10 min) so revisits
+// and back-navigation don't refetch. Home only mounts this section near the
+// viewport (VisibleMount), keeping the call out of the initial load chain.
 export default function FeaturedProjects() {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    base44.entities.Project.filter({ featured: true, status: "published" }, "-created_date", 3).
-    then((data) => setProjects(data.length ? data : placeholderProjects)).
-    catch(() => setProjects(placeholderProjects));
-  }, []);
+  const { data: projects = [] } = useQuery({
+    queryKey: ["home", "featuredProjects"],
+    queryFn: () =>
+      base44.entities.Project.filter({ featured: true, status: "published" }, "-created_date", 3),
+    staleTime: 10 * 60 * 1000,
+  });
 
   const display = projects.length ? projects : placeholderProjects;
 

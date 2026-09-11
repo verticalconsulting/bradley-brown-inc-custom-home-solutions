@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { base44 } from "@/api/base44Client";
@@ -51,14 +52,15 @@ const defaultServices = [
   { name: "Barndominiums", short_description: "Custom steel-frame barndominiums combining living space, garages & workshops — built for Mississippi.", icon: "barndominiums", link: "/services/barndominiums" },
 ];
 
+// Stable marketing content — cached by react-query (staleTime 10 min) so revisits
+// and back-navigation don't refetch. Home only mounts this section near the
+// viewport (VisibleMount), so the call never runs during initial page load.
 export default function ServicesPreview() {
-  const [services, setServices] = useState([]);
-
-  useEffect(() => {
-    base44.entities.Service.filter({ active: true }, "order", 4)
-      .then(data => setServices(data.length ? data : defaultServices))
-      .catch(() => setServices(defaultServices));
-  }, []);
+  const { data: services = [] } = useQuery({
+    queryKey: ["home", "services"],
+    queryFn: () => base44.entities.Service.filter({ active: true }, "order", 4),
+    staleTime: 10 * 60 * 1000,
+  });
 
   const display = services.length ? services : defaultServices;
 

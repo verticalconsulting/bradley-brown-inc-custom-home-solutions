@@ -5,6 +5,7 @@ import HeroSection from "@/components/home/HeroSection";
 import HomeFAQ, { homeFaqs } from "@/components/home/HomeFAQ";
 import PullToRefresh from "@/components/PullToRefresh";
 import IdleMount from "@/components/IdleMount";
+import VisibleMount from "@/components/VisibleMount";
 
 // Below-the-fold sections — code-split out of the homepage entry chunk and
 // mounted when the main thread is idle (after the hero is interactive).
@@ -51,15 +52,17 @@ export default function Home() {
         {/* Above the fold — eager, lightweight, immediate */}
         <HeroSection />
 
-        {/* Below the fold — lazy chunks mounted when idle */}
+        {/* Below the fold — lazy chunks mounted when idle. Data-fetching sections
+            (services, projects, reviews) additionally wait until near the viewport,
+            keeping their API calls out of the initial load dependency chain. */}
         <IdleMount>
           <TrustSignals />
-          <ServicesPreview />
-          <FeaturedProjects />
+          <VisibleMount><ServicesPreview /></VisibleMount>
+          <VisibleMount><FeaturedProjects /></VisibleMount>
           <FeaturedResources />
           <ServiceAreaSection />
           <div id="testimonials">
-            <TestimonialSlider featuredOnly={true} limit={6} />
+            <VisibleMount><TestimonialSlider featuredOnly={true} limit={6} /></VisibleMount>
           </div>
           <HomeFAQ />
           <SocialFollow />

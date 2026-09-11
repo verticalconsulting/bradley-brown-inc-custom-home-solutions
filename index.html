@@ -37,8 +37,8 @@
     <meta property="og:image" content="https://www.bradleybrowninc.com/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Performance: preconnect to third parties -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <!-- Performance: preconnect ONLY first-paint-critical origins (hero image CDN + header logo).
+         gtag and the Meta Pixel load after the load event, so preconnecting them is overuse. -->
     <link rel="preconnect" href="https://imagedelivery.net" />
     <link rel="preconnect" href="https://qtrypzzcjebvfcihiynt.supabase.co" />
 

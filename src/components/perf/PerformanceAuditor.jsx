@@ -145,24 +145,16 @@ function runAudit() {
     detail: `${stylesheets.length} stylesheet link(s)`,
   });
 
-  // 5. Resource hints — preconnect to known 3rd parties
+  // 5. Resource hints — preconnects only for first-paint-critical origins.
+  //    Analytics/pixel scripts load after the load event; preconnecting them is overuse.
   const preconnects = Array.from(head.querySelectorAll('link[rel="preconnect"]'))
     .map((l) => l.href);
-  const knownThirdParties = [
-    { name: "GTM/GA", match: "googletagmanager" },
-    { name: "Clarity", match: "clarity" },
-  ];
-  knownThirdParties.forEach((tp) => {
-    const usesIt = Array.from(document.scripts).some((s) =>
-      (s.src || "").includes(tp.match)
-    );
-    if (!usesIt) return;
-    const has = preconnects.some((h) => h.includes(tp.match.split(".")[0]));
-    checks.push({
-      name: `Preconnect to ${tp.name}`,
-      pass: has,
-      detail: has ? "present" : `add <link rel=preconnect href=...${tp.match}>`,
-    });
+  checks.push({
+    name: "Preconnects limited to first-paint origins",
+    pass: preconnects.length <= 2 && !preconnects.some((h) => h.includes("googletagmanager")),
+    detail: preconnects.length
+      ? `${preconnects.length} preconnect(s): ${preconnects.join(", ")}`
+      : "none",
   });
 
   const passed = checks.filter((c) => c.pass).length;
