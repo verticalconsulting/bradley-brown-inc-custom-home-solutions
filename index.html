@@ -41,13 +41,10 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://imagedelivery.net" />
     <link rel="preconnect" href="https://qtrypzzcjebvfcihiynt.supabase.co" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google Fonts — non-blocking load (font-display: swap, renders with fallback immediately) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" /></noscript>
+    <!-- Fonts: self-hosted Latin-subset WOFF2 (defined in the app stylesheet).
+         Preload the one critical file — Space Grotesk 700 powers the hero headline (LCP). -->
+    <link rel="preload" as="font" type="font/woff2" href="https://base44.app/api/apps/699c758479c46f0580553750/files/mp/public/699c758479c46f0580553750/3e18ab794_space-grotesk-700-latin.woff2" crossorigin />
 
     <!-- Hero image — responsive preload matching the hero <img> srcset (314 KiB → 51–120 KiB) -->
     <link rel="preload" as="image" fetchpriority="high" href="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/w=1200,q=75" imagesrcset="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/w=800,q=75 800w, https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/w=1200,q=75 1200w, https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/w=1920,q=75 1920w" imagesizes="100vw" />

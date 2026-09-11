@@ -1,3 +1,56 @@
+/* Self-hosted, Latin-subset WOFF2 fonts — no Google Fonts request on the critical path.
+   Only the weights actually used in the source are shipped (Space Grotesk 500/600/700,
+   Manrope 400/500/600/700); font-display: swap renders the fallback immediately. */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://base44.app/api/apps/699c758479c46f0580553750/files/mp/public/699c758479c46f0580553750/a7ac91725_space-grotesk-500-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://base44.app/api/apps/699c758479c46f0580553750/files/mp/public/699c758479c46f0580553750/243781d5c_space-grotesk-600-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://base44.app/api/apps/699c758479c46f0580553750/files/mp/public/699c758479c46f0580553750/3e18ab794_space-grotesk-700-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://base44.app/api/apps/699c758479c46f0580553750/files/mp/public/699c758479c46f0580553750/07a58fe9e_manrope-400-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://base44.app/api/apps/699c758479c46f0580553750/files/mp/public/699c758479c46f0580553750/e56f21503_manrope-500-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://base44.app/api/apps/699c758479c46f0580553750/files/mp/public/699c758479c46f0580553750/1e4f480aa_manrope-600-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://base44.app/api/apps/699c758479c46f0580553750/files/mp/public/699c758479c46f0580553750/0a784e078_manrope-700-latin.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

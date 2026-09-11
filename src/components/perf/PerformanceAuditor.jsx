@@ -98,11 +98,8 @@ function runAudit() {
     detail: imgsMissingAlt.length ? `${imgsMissingAlt.length} missing alt` : "all OK",
   });
 
-  // 2. Fonts — preconnect to gstatic / font-display swap
+  // 2. Fonts — self-hosted WOFF2 with critical preload (Google Fonts is intentionally absent)
   const head = document.head;
-  const hasFontPreconnect = !!head.querySelector(
-    'link[rel="preconnect"][href*="fonts.gstatic"], link[rel="preconnect"][href*="fonts.googleapis"]'
-  );
   const hasFontPreload = !!head.querySelector('link[rel="preload"][as="font"]');
   const usesGoogleFonts =
     !!head.querySelector('link[href*="fonts.googleapis"]') ||
@@ -114,17 +111,15 @@ function runAudit() {
       }
     });
   checks.push({
-    name: "Font preconnect (if using web fonts)",
-    pass: !usesGoogleFonts || hasFontPreconnect,
+    name: "No Google Fonts on critical path (self-hosted)",
+    pass: !usesGoogleFonts,
     detail: usesGoogleFonts
-      ? hasFontPreconnect
-        ? "preconnect present"
-        : "missing <link rel=preconnect> to fonts.gstatic.com"
-      : "no web fonts detected",
+      ? "fonts.googleapis.com stylesheet found — self-host instead"
+      : "self-hosted fonts",
   });
   checks.push({
     name: "Critical font preload",
-    pass: !usesGoogleFonts || hasFontPreload,
+    pass: hasFontPreload,
     detail: hasFontPreload ? "preload present" : "consider preloading critical font",
   });
 
