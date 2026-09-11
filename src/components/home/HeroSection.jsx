@@ -7,11 +7,13 @@ import { base44 } from "@/api/base44Client";
 // (full "herocover" variant is 314 KiB; w=800,q=75 is ~51 KiB)
 const HERO_BASE =
   "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00";
-const HERO_IMAGE = `${HERO_BASE}/w=1200,q=75`;
+// f=auto → Cloudflare negotiates AVIF/WebP from the browser's Accept header,
+// re-encoded from the stored original (w=1200 AVIF ≈ 79 KiB vs 103 KiB JPEG).
+const HERO_IMAGE = `${HERO_BASE}/w=1200,q=75,f=auto`;
 const HERO_SRCSET = [
-  `${HERO_BASE}/w=800,q=75 800w`,
-  `${HERO_BASE}/w=1200,q=75 1200w`,
-  `${HERO_BASE}/w=1920,q=75 1920w`,
+  `${HERO_BASE}/w=800,q=75,f=auto 800w`,
+  `${HERO_BASE}/w=1200,q=75,f=auto 1200w`,
+  `${HERO_BASE}/w=1920,q=75,f=auto 1920w`,
 ].join(", ");
 
 export default function HeroSection() {

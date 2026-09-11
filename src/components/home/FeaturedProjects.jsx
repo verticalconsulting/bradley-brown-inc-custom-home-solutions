@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { MapPin, ChevronRight } from "lucide-react";
+import { cfResponsive } from "@/lib/responsiveImage";
 
 const placeholderProjects = [
 {
@@ -29,6 +30,11 @@ const placeholderProjects = [
   images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/medium"]
 }];
 
+
+const FALLBACK_PROJECT_IMAGE = "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/medium";
+
+// Card grid: 1 column mobile → 2 columns at sm → 3 columns at md
+const CARD_SIZES = "(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw";
 
 const categoryLabels = { custom_home: "Custom Home", renovation: "Renovation", addition: "Addition", outdoor: "Outdoor Living" };
 
@@ -59,11 +65,15 @@ export default function FeaturedProjects() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {display.map((project, i) =>
+          {display.map((project, i) => {
+          const { src, srcSet } = cfResponsive(project.images?.[0] || FALLBACK_PROJECT_IMAGE, [400, 800]);
+          return (
           <div key={i} className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
               <div className="relative h-56 md:h-64 overflow-hidden">
                 <img
-                src={project.images?.[0] || "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/medium"}
+                src={src}
+                srcSet={srcSet || undefined}
+                sizes={srcSet ? CARD_SIZES : undefined}
                 alt={buildAltText(project)}
                 width="400"
                 height="256"
@@ -90,7 +100,8 @@ export default function FeaturedProjects() {
               }
               </div>
             </div>
-          )}
+          );
+          })}
         </div>
 
         <div className="text-center mt-10">

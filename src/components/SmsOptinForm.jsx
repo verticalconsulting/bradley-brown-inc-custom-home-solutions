@@ -4,7 +4,7 @@ import { createPageUrl } from "@/utils";
 import { base44 } from "@/api/base44Client";
 import { CheckCircle, Send } from "lucide-react";
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png";
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png?width=336&height=140&quality=100&format=webp";
 
 export default function SmsOptinForm() {
   const [name, setName] = useState("");

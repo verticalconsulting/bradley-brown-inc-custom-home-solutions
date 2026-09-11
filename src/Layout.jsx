@@ -10,7 +10,9 @@ import BottomTabBar from "@/components/BottomTabBar";
 const VisitorChatWidget = lazy(() => import("@/components/chat/VisitorChatWidget"));
 import CertificateBadge from "@/components/CertificateBadge";
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png";
+// Logo served through Supabase image rendering at 2–3× display size (167×70):
+// ~9 KB near-lossless WebP (quality=100) instead of the 109 KB 1024×428 PNG.
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png?width=336&height=140&quality=100&format=webp";
 
 
 export default function Layout({ children, currentPageName }) {
