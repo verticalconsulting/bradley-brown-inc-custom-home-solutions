@@ -1,52 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useGoogleReviews } from "@/hooks/useGoogleReviews";
-
-const FALLBACK_REVIEWS = [
-  {
-    name: "Michael R.",
-    city: "Brandon, MS",
-    quote: "Bradley Brown Inc. built our custom home in Brandon and the experience was outstanding from start to finish. They listened to every idea we had, kept us informed through each construction milestone, and delivered a home that exceeds what we imagined. The craftsmanship is genuinely top-notch and the finish work is flawless.",
-  },
-  {
-    name: "Sarah L.",
-    city: "Brandon, MS",
-    quote: "We could not be happier with our new home in Rankin County. Bradley Brown's team was professional, punctual, and transparent about pricing the entire way through. When we had questions during the build, someone always picked up the phone. That level of communication is rare with contractors around Brandon.",
-  },
-  {
-    name: "David T.",
-    city: "Brandon, MS",
-    quote: "From the first consultation to the final walkthrough, Bradley Brown Inc. made building our custom home feel manageable. They handled all the permitting with Rankin County, coordinated every subcontractor, and finished on schedule. The quality inspection before move-in caught details we never would have noticed ourselves. We recommend them constantly.",
-  },
-  {
-    name: "Jennifer M.",
-    city: "Brandon, MS",
-    quote: "Bradley Brown built our dream home in Brandon on time and within budget. The team communicated every step of the way and treated our project like it was their own. Even after move-in, they followed up promptly on any items that needed attention. That kind of accountability is hard to find in Central Mississippi.",
-  },
-];
-
-const ratingValue = 5.0;
-const reviewCount = 8;
-
-export const brandonReviewSchema = {
-  "@type": "HomeAndConstructionBusiness",
-  name: "Bradley Brown Inc.",
-  telephone: "+18443514154",
-  url: "https://bradleybrowninc.com/custom-home-builder-brandon-ms",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Brandon",
-    addressRegion: "MS",
-    postalCode: "39042",
-    addressCountry: "US",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: String(ratingValue),
-    reviewCount: String(reviewCount),
-    bestRating: "5",
-    worstRating: "1",
-  },
-};
 
 function StarRow() {
   return (
@@ -61,17 +15,15 @@ function StarRow() {
 }
 
 export default function BrandonReviewSection() {
-  const { reviews: googleReviews, loading } = useGoogleReviews();
+  const { reviews: googleReviews, rating, count, loading } = useGoogleReviews();
 
-  const displayReviews = !loading && googleReviews.length > 0
-    ? googleReviews.map((r) => ({
-        name: r.author_name,
-        city: "Google Review",
-        quote: r.text,
-      }))
-    : FALLBACK_REVIEWS;
+  if (loading || googleReviews.length === 0) return null;
 
-  if (loading) return null;
+  const displayReviews = googleReviews.slice(0, 4).map((r) => ({
+    name: r.author_name,
+    city: "Google Review",
+    quote: r.text,
+  }));
 
   return (
     <div>
@@ -84,7 +36,7 @@ export default function BrandonReviewSection() {
             </svg>
           ))}
         </div>
-        <span className="text-sm font-semibold text-slate-600">{ratingValue} · Google Reviews</span>
+        <span className="text-sm font-semibold text-slate-600">{rating} · {count} Google reviews</span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {displayReviews.map((r, i) => (
@@ -96,6 +48,9 @@ export default function BrandonReviewSection() {
           </div>
         ))}
       </div>
+      <Link to="/reviews" className="inline-flex mt-5 text-sm font-semibold text-sky-700 hover:text-sky-600">
+        See all available Google reviews →
+      </Link>
     </div>
   );
 }

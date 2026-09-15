@@ -154,8 +154,8 @@ export default function MadisonRemodeling() {
             <Link to="/remodeling-ms" className="inline-flex items-center gap-2 bg-foreground hover:bg-secondary-foreground text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
               Core Services — Brandon, MS <ChevronRight className="w-4 h-4" />
             </Link>
-            <Link to="/custom-home-builder-brandon-ms" className="inline-flex items-center gap-2 bg-primary hover:bg-accent text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
-              Custom Home Builder <ChevronRight className="w-4 h-4" />
+            <Link to="/custom-home-builder-madison-ms" className="inline-flex items-center gap-2 bg-primary hover:bg-accent text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
+              Custom Homes near Madison <ChevronRight className="w-4 h-4" />
             </Link>
             <Link to="/services/barndominiums" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
               Barndominium Builder <ChevronRight className="w-4 h-4" />

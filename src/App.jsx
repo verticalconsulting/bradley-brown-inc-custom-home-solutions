@@ -21,6 +21,8 @@ const LandingCoreServices = lazy(() => import('./pages/LandingCoreServices'));
 const LandingPricing = lazy(() => import('./pages/LandingPricing'));
 const BathroomRemodelingBrandon = lazy(() => import('./pages/BathroomRemodelingBrandon'));
 const MadisonRemodeling = lazy(() => import('./pages/MadisonRemodeling'));
+const MadisonCustomHomeBuilder = lazy(() => import('./pages/MadisonCustomHomeBuilder'));
+const Reviews = lazy(() => import('./pages/Reviews'));
 const SmsOptin = lazy(() => import('./pages/SmsOptin'));
 const LandingBrandonCustomHomeBuilder = lazy(() => import('./pages/LandingBrandonCustomHomeBuilder'));
 const CustomHomeBuilding = lazy(() => import('./pages/services/CustomHomeBuilding'));
@@ -149,6 +151,8 @@ const AuthenticatedApp = () => {
 
       <Route path="/bathroom-remodeling-brandon-ms" element={<LayoutWrapper currentPageName="BathroomRemodelingBrandon"><BathroomRemodelingBrandon /></LayoutWrapper>} />
       <Route path="/madison-ms-home-remodeling" element={<LayoutWrapper currentPageName="MadisonRemodeling"><MadisonRemodeling /></LayoutWrapper>} />
+      <Route path="/custom-home-builder-madison-ms" element={<LayoutWrapper currentPageName="MadisonCustomHomeBuilder"><MadisonCustomHomeBuilder /></LayoutWrapper>} />
+      <Route path="/reviews" element={<LayoutWrapper currentPageName="Reviews"><Reviews /></LayoutWrapper>} />
 
       {/* Barndominium redirects → /services/barndominiums */}
       <Route path="/barndominium-builder" element={<Navigate to="/services/barndominiums" replace />} />
