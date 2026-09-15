@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import {
   Plus, Sparkles, Pencil, Trash2, X, Check, RefreshCw,
-  LogIn, FileText, Eye, EyeOff
+  LogIn, FileText, Eye, EyeOff, CalendarDays, List
 } from "lucide-react";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";
+import BlogCalendar from "@/components/blog/BlogCalendar";
 
 const emptyPost = { title: "", content: "", image_url: "", topic: "", category: "home-remodeling", published: true };
 
@@ -176,6 +177,7 @@ export default function BlogAdmin() {
   const [modal, setModal] = useState(null); // null | {} | existing post
   const [generating, setGenerating] = useState(false);
   const [genStatus, setGenStatus] = useState("");
+  const [view, setView] = useState("list");
 
   useEffect(() => {
     base44.auth.me()
@@ -257,7 +259,29 @@ export default function BlogAdmin() {
             <h1 className="text-2xl md:text-3xl font-bold text-white">Blog Admin</h1>
             <p className="text-slate-400 text-sm mt-1">{posts.length} posts published</p>
           </div>
-          <div className="flex gap-3 flex-wrap">
+          <div className="flex gap-3 flex-wrap items-center">
+            <div className="flex bg-slate-700/60 rounded-lg p-1" role="tablist" aria-label="Blog view">
+              <button
+                onClick={() => setView("list")}
+                role="tab"
+                aria-selected={view === "list"}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold min-h-[44px] transition-colors ${
+                  view === "list" ? "bg-white text-foreground" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                <List className="w-4 h-4" /> List
+              </button>
+              <button
+                onClick={() => setView("calendar")}
+                role="tab"
+                aria-selected={view === "calendar"}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold min-h-[44px] transition-colors ${
+                  view === "calendar" ? "bg-white text-foreground" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                <CalendarDays className="w-4 h-4" /> Calendar
+              </button>
+            </div>
             <button
               onClick={handleGenerate}
               disabled={generating}
@@ -284,7 +308,9 @@ export default function BlogAdmin() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-        {loading ? (
+        {view === "calendar" && !loading ? (
+          <BlogCalendar posts={posts} onEdit={setModal} />
+        ) : loading ? (
           <div className="space-y-3">
             {[1, 2, 3].map(i => <div key={i} className="h-20 bg-white rounded-xl animate-pulse" />)}
           </div>
