@@ -1,6 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
 import { createPageUrl } from "@/utils";
 import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook } from "lucide-react";
 import { base44 } from "@/api/base44Client";
@@ -272,17 +271,7 @@ export default function Layout({ children, currentPageName }) {
       </nav>
 
       <main id="main-content" className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={location.pathname}
-            initial={{ x: 40, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -40, opacity: 0 }}
-            transition={{ duration: 0.22, ease: "easeInOut" }}>
-            
-            {children}
-          </motion.div>
-        </AnimatePresence>
+        {children}
       </main>
 
       <BottomTabBar currentPageName={currentPageName} />
