@@ -7,7 +7,7 @@ import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
 import CustomHomeProcess from "@/components/landing/CustomHomeProcess";
-import BrandonReviewSection, { brandonReviewSchema } from "@/components/landing/BrandonReviewSection";
+import BrandonReviewSection from "@/components/landing/BrandonReviewSection";
 import { base44 } from "@/api/base44Client";
 import { usePageImages } from "@/lib/usePageImages";
 
@@ -66,8 +66,6 @@ const schema = {
         { "@type": "City", "name": "Ridgeland, Mississippi" },
         { "@type": "City", "name": "Clinton, Mississippi" },
       ],
-      "aggregateRating": brandonReviewSchema.aggregateRating,
-      "review": brandonReviewSchema.review,
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Custom Home Building Services in Brandon, MS",
@@ -278,13 +276,27 @@ export default function LandingBrandonCustomHomeBuilder() {
             Bradley Brown Inc. also provides kitchen remodeling, bathroom remodeling, additions, and whole-home
             renovations in Brandon, MS and Rankin County.
           </p>
-          <Link
-            to="/remodeling-brandon-ms"
-            className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
-          >
-            <Hammer className="w-4 h-4" /> Home Remodeling in Brandon, MS
-            <ChevronRight className="w-4 h-4" />
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/remodeling-brandon-ms"
+              className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              <Hammer className="w-4 h-4" /> Home Remodeling in Brandon, MS
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/custom-home-builder-madison-ms"
+              className="inline-flex items-center gap-2 border border-sky-200 text-sky-700 hover:bg-sky-50 px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Custom Homes near Madison, MS <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/reviews"
+              className="inline-flex items-center gap-2 border border-sky-200 text-sky-700 hover:bg-sky-50 px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Read Verified Reviews <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
 
         {/* What Brandon, MS Homeowners Say About Us */}
