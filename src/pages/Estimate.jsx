@@ -357,10 +357,12 @@ export default function Estimate() {
                 <button
                   onClick={handleNext}
                   disabled={!canProceed()}
-                  className="flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-2.5 min-h-[44px] rounded-lg font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {step === 3 ? (
                     <><Sparkles className="w-4 h-4" /> Generate My Estimate</>
+                  ) : step === 2 && !data.generate_design_concept ? (
+                    <>Skip to Your Info <ChevronRight className="w-4 h-4" /></>
                   ) : (
                     <>Next <ChevronRight className="w-4 h-4" /></>
                   )}

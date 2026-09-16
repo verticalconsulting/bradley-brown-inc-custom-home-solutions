@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Sparkles } from "lucide-react";
+import { Phone, Sparkles, ChevronRight } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 
 // Cloudflare Images flexible variants — serve a device-appropriate, compressed size
@@ -21,6 +21,13 @@ export default function HeroSection() {
     base44.analytics.track({
       eventName: "homepage_estimate_clicked",
       properties: { placement: "hero", destination: "/estimate" },
+    });
+  };
+
+  const trackServicesClick = () => {
+    base44.analytics.track({
+      eventName: "homepage_services_clicked",
+      properties: { placement: "hero", destination: "/services" },
     });
   };
 
@@ -82,6 +89,13 @@ export default function HeroSection() {
             className="hover:opacity-90 text-white px-6 sm:px-8 py-5 min-h-[52px] text-base sm:text-lg font-bold rounded-xl inline-flex items-center justify-center gap-2 transition-all sm:hover:scale-105 shadow-lg bg-primary"
           >
             <Sparkles className="w-5 h-5" /> Get My Free Estimate
+          </Link>
+          <Link
+            to="/services"
+            onClick={trackServicesClick}
+            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/50 text-white px-6 sm:px-8 py-5 min-h-[52px] rounded-xl font-semibold text-base sm:text-lg transition-all"
+          >
+            View Our Services <ChevronRight className="w-5 h-5" />
           </Link>
           <a
             href="tel:+18443514154"

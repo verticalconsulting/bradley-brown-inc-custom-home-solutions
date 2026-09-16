@@ -64,7 +64,7 @@ export default function ProjectDetailsStep({ data, onChange }) {
                 key={opt.value}
                 type="button"
                 onClick={() => update("budget_range", data.budget_range === opt.value ? "" : opt.value)}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-all ${
+                className={`px-3 py-2.5 min-h-[44px] rounded-full text-sm font-medium border transition-all ${
                   data.budget_range === opt.value
                     ? "bg-[#C4922A] text-white border-[#C4922A]"
                     : "bg-white text-slate-600 border-[#E2D9CC] hover:border-[#C4922A]/50"
@@ -84,7 +84,7 @@ export default function ProjectDetailsStep({ data, onChange }) {
                 key={opt.value}
                 type="button"
                 onClick={() => update("timeline", data.timeline === opt.value ? "" : opt.value)}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-all ${
+                className={`px-3 py-2.5 min-h-[44px] rounded-full text-sm font-medium border transition-all ${
                   data.timeline === opt.value
                     ? "bg-[#C4922A] text-white border-[#C4922A]"
                     : "bg-white text-slate-600 border-[#E2D9CC] hover:border-[#C4922A]/50"
