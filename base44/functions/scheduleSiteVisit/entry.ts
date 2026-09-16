@@ -1,4 +1,5 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.44';
+import { secrets } from 'base44:runtime';
 
 const TIME_LABELS = {
     "08:00": "8:00 AM", "09:00": "9:00 AM", "10:00": "10:00 AM",
@@ -6,7 +7,19 @@ const TIME_LABELS = {
     "15:00": "3:00 PM", "16:00": "4:00 PM",
 };
 
-Deno.serve(async (req) => {
+// UTC offset (e.g. "-05:00") of America/Chicago on a given YYYY-MM-DD, so the
+// calendar event is created at the locally-selected time (handles DST shifts).
+function chicagoOffset(dateStr) {
+    const dt = new Date(`${dateStr}T12:00:00Z`);
+    const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Chicago',
+        timeZoneName: 'longOffset',
+    }).formatToParts(dt);
+    const tz = parts.find(p => p.type === 'timeZoneName')?.value || 'GMT-05:00';
+    return tz.replace('GMT', '') || '+00:00';
+}
+
+export default async function(req) {
     try {
         const base44 = createClientFromRequest(req);
 
@@ -23,61 +36,68 @@ Deno.serve(async (req) => {
             return Response.json({ error: 'Missing required fields: name, email, date, time' }, { status: 400 });
         }
 
-        const accessToken = await base44.asServiceRole.connectors.getAccessToken("googlecalendar");
+        // Create the calendar event best-effort: if Google Calendar is
+        // unavailable, the booking is still saved and confirmed instead of
+        // hard-failing with a 500 (the visitor's request is never lost).
+        let createdEvent = null;
+        try {
+            const accessToken = await base44.asServiceRole.connectors.getAccessToken("googlecalendar");
 
-        // Build start/end datetime
-        const startDateTime = new Date(`${date}T${time}:00`);
-        const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // 1 hour
+            const startDateTime = new Date(`${date}T${time}:00${chicagoOffset(date)}`);
+            const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // 1 hour
 
-        const event = {
-            summary: `Site Visit - ${name}`,
-            description: [
-                `Client: ${name}`,
-                `Email: ${email}`,
-                phone ? `Phone: ${phone}` : null,
-                project_type ? `Project Type: ${project_type}` : null,
-                location ? `Location: ${location}` : null,
-                notes ? `Notes: ${notes}` : null,
-            ].filter(Boolean).join('\n'),
-            start: {
-                dateTime: startDateTime.toISOString(),
-                timeZone: 'America/Chicago',
-            },
-            end: {
-                dateTime: endDateTime.toISOString(),
-                timeZone: 'America/Chicago',
-            },
-            attendees: [{ email }],
-            reminders: {
-                useDefault: false,
-                overrides: [
-                    { method: 'email', minutes: 24 * 60 },
-                    { method: 'popup', minutes: 60 },
-                ],
-            },
-        };
+            const event = {
+                summary: `Site Visit - ${name}`,
+                description: [
+                    `Client: ${name}`,
+                    `Email: ${email}`,
+                    phone ? `Phone: ${phone}` : null,
+                    project_type ? `Project Type: ${project_type}` : null,
+                    location ? `Location: ${location}` : null,
+                    notes ? `Notes: ${notes}` : null,
+                ].filter(Boolean).join('\n'),
+                start: {
+                    dateTime: startDateTime.toISOString(),
+                    timeZone: 'America/Chicago',
+                },
+                end: {
+                    dateTime: endDateTime.toISOString(),
+                    timeZone: 'America/Chicago',
+                },
+                attendees: [{ email }],
+                reminders: {
+                    useDefault: false,
+                    overrides: [
+                        { method: 'email', minutes: 24 * 60 },
+                        { method: 'popup', minutes: 60 },
+                    ],
+                },
+            };
 
-        const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events?sendUpdates=all', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${accessToken}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(event),
-        });
+            const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events?sendUpdates=all', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(event),
+            });
 
-        if (!response.ok) {
-            const err = await response.json();
-            return Response.json({ error: err.error?.message || 'Failed to create calendar event' }, { status: 500 });
+            if (response.ok) {
+                createdEvent = await response.json();
+            } else {
+                const err = await response.json().catch(() => ({}));
+                console.error('Calendar event creation failed:', err.error?.message || `HTTP ${response.status}`);
+            }
+        } catch (calError) {
+            console.error('Calendar booking failed:', calError.message);
         }
 
-        const createdEvent = await response.json();
-
         // Send SMS notification to admin
-        const twilioSid = Deno.env.get("TWILIO_ACCOUNT_SID");
-        const twilioAuth = Deno.env.get("TWILIO_AUTH_TOKEN");
-        const twilioFrom = Deno.env.get("TWILIO_FROM_NUMBER");
-        const adminPhone = Deno.env.get("ADMIN_PHONE_NUMBER");
+        const twilioSid = secrets.get("TWILIO_ACCOUNT_SID");
+        const twilioAuth = secrets.get("TWILIO_AUTH_TOKEN");
+        const twilioFrom = secrets.get("TWILIO_FROM_NUMBER");
+        const adminPhone = secrets.get("ADMIN_PHONE_NUMBER");
 
         if (twilioSid && twilioAuth && twilioFrom && adminPhone) {
             const smsBody = `New Site Visit Booked!\nClient: ${name}\nEmail: ${email}\nDate: ${date}\nTime: ${TIME_LABELS[time] || time}${phone ? `\nPhone: ${phone}` : ""}`;
@@ -91,7 +111,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        // Save to QuoteRequest entity if applicable
+        // Save the booking as a lead regardless of the calendar outcome
         await base44.asServiceRole.entities.QuoteRequest.create({
             name,
             email,
@@ -104,11 +124,14 @@ Deno.serve(async (req) => {
 
         return Response.json({
             success: true,
-            eventId: createdEvent.id,
-            eventLink: createdEvent.htmlLink,
-            message: `Site visit scheduled for ${date} at ${time}. A calendar invite has been sent to ${email}.`,
+            eventId: createdEvent?.id || null,
+            eventLink: createdEvent?.htmlLink || null,
+            calendarBooked: !!createdEvent,
+            message: createdEvent
+                ? `Site visit scheduled for ${date} at ${time}. A calendar invite has been sent to ${email}.`
+                : `Site visit request received for ${date} at ${time}. We'll confirm your appointment by phone or email shortly.`,
         });
     } catch (error) {
         return Response.json({ error: error.message }, { status: 500 });
     }
-});
+}
