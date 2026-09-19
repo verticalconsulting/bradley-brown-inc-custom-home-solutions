@@ -1,15 +1,19 @@
 import React from "react";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
+import { serviceAnswerFirstContent } from "@/content/aiAnswerFirstContent";
 
 export default function RoomAdditions() {
+  const answerFirst = serviceAnswerFirstContent.roomAdditions;
+
   return (
     <ServicePageLayout
       title="Room Additions in Brandon, MS | Bradley Brown Inc"
-      description="Room additions in Brandon, MS — master suites, in-law suites, sunrooms & home offices. Licensed contractor since 2005. Call (844) 351-4154."
+      description={answerFirst.description}
       canonical="https://bradleybrowninc.com/services/room-additions"
       h1="Room Additions & Home Expansions in Brandon, MS"
       subtitle="More space, more possibilities — without moving. We design and build additions that blend seamlessly with your existing home's architecture."
       serviceName="Room Additions"
+      answerFirstOpening={answerFirst.opening}
       pageKey="RoomAdditions"
       bodySections={[
         {
@@ -63,11 +67,7 @@ export default function RoomAdditions() {
         "Full permitting & code compliance",
         "Foundation, framing, roofing, electrical & plumbing handled",
       ]}
-      faqs={[
-        { question: "Will an addition match my existing home in Brandon?", answer: "Absolutely — we match materials, rooflines, brick or siding, window style, and interior finishes so the addition looks like it was always there. It's what we do best." },
-        { question: "Can I add a home office or in-law suite to my existing floor plan?", answer: "Yes. We specialize in garage conversions, bonus room finishing, purpose-built home office additions, and in-law suites with private entrances and kitchenettes." },
-        { question: "How much does a room addition cost in Rankin County?", answer: "Room additions start around $50,000 for a simple bedroom and scale up based on size, complexity, and finishes. Call (844) 351-4154 for a free, site-specific estimate." },
-      ]}
+      faqs={answerFirst.faqs}
       testimonials={[{
         text: "We added a mother-in-law suite and a home office. Bradley Brown matched the brick and roofline perfectly — you'd never know it wasn't original to the house.",
         author: "Marcus & Dana L.",

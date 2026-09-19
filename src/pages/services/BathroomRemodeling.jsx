@@ -1,15 +1,19 @@
 import React from "react";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
+import { serviceAnswerFirstContent } from "@/content/aiAnswerFirstContent";
 
 export default function BathroomRemodeling() {
+  const answerFirst = serviceAnswerFirstContent.bathroomRemodeling;
+
   return (
     <ServicePageLayout
       title="Bathroom Remodeling in Brandon, MS | Bradley Brown Inc"
-      description="Bathroom remodeling in Brandon, MS since 2005. Walk-in showers, tub-to-shower conversions, tile & vanities. Licensed & insured. Call (844) 351-4154."
+      description={answerFirst.description}
       canonical="https://bradleybrowninc.com/services/bathroom-remodeling"
       h1="Bathroom Remodeling in Brandon, MS"
       subtitle="From walk-in showers to freestanding tubs, we design and build bathrooms that combine beauty with proper waterproofing — built to last in Mississippi's humid climate."
       serviceName="Bathroom Remodeling"
+      answerFirstOpening={answerFirst.opening}
       pageKey="BathroomRemodeling"
       bodySections={[
         {
@@ -70,11 +74,7 @@ export default function BathroomRemodeling() {
         "All permits & inspections handled",
         "Heated floors & spa-grade fixtures",
       ]}
-      faqs={[
-        { question: "What's included in a bathroom remodel from Bradley Brown Inc.?", answer: "Every bathroom remodel includes demolition, proper waterproofing (cement board, membrane, and sloped pan), licensed plumbing and electrical work, tile installation, vanity and fixture installation, exhaust fan venting, and all permits and inspections. We handle tile selection, vanity sourcing, and the final punch list — one contractor, no finger-pointing." },
-        { question: "Do you waterproof bathroom showers for Mississippi humidity?", answer: "Yes — proper waterproofing is the most important part of a bathroom remodel. We use liquid waterproofing membrane over cement board on every shower wall, a tested membrane beneath the shower pan, and mildew-resistant caulk at all transitions. We also install exhaust fans ducted to the exterior, not into the attic, to prevent condensation and mold in Mississippi's humid climate." },
-        { question: "Can you make my bathroom accessible for aging in place?", answer: "Absolutely. We design accessible bathrooms with curbless walk-in showers, grab bar blocking inside the walls, comfort-height toilets, lever-style faucets, and wider doorways. We can also add ramps and zero-threshold entries for mobility assistance. Every accessible modification meets ADA guidelines where applicable and passes Mississippi building inspection." },
-      ]}
+      faqs={answerFirst.faqs}
       testimonials={[{
         text: "They converted our old tub to a walk-in shower — best decision we made for this house. The tile work is flawless, the glass enclosure is beautiful, and the crew was clean and professional every day.",
         author: "David K.",

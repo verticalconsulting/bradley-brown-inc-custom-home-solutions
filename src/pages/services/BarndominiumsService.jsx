@@ -1,15 +1,19 @@
 import React from "react";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
+import { serviceAnswerFirstContent } from "@/content/aiAnswerFirstContent";
 
 export default function BarndominiumsService() {
+  const answerFirst = serviceAnswerFirstContent.barndominiums;
+
   return (
     <ServicePageLayout
       title="Barndominium Builder in Brandon, MS | Bradley Brown Inc"
-      description="Custom barndominiums in Brandon, MS. Steel-frame builds with living space, workshops & garages. Licensed since 2005. Call (844) 351-4154."
+      description={answerFirst.description}
       canonical="https://bradleybrowninc.com/services/barndominiums"
       h1="Custom Barndominium Builder in Brandon, MS"
       subtitle="Steel-frame barndominiums combining living space, garages, and workshops — built to last by Mississippi's trusted contractor since 2005. On your land, on budget, on schedule."
       serviceName="Barndominium Construction"
+      answerFirstOpening={answerFirst.opening}
       pageKey="Barndominiums"
       bodySections={[
         {
@@ -63,13 +67,7 @@ export default function BarndominiumsService() {
         "Shell builds or full turnkey — you choose",
         "Rural acreage specialists across Central Mississippi",
       ]}
-      faqs={[
-        { question: "How much does a barndominium cost in Brandon, MS?", answer: "Most Brandon and Rankin County area barndos fall between $75–$150 per square foot depending on finishes and site. Call (844) 351-4154 for a free custom estimate on your land." },
-        { question: "How long does it take to build a barndominium?", answer: "Typical timeline is 4–8 months from permit to move-in. Steel shells erect in weeks; the interior finish work — insulation, drywall, cabinets, electrical, and HVAC — is what takes the most time." },
-        { question: "Can I get a loan to build a barndominium in Mississippi?", answer: "Yes. USDA Rural Development loans, construction-to-permanent loans, and Farm Credit financing all work for barndominiums in Mississippi. We provide the draw plans, permits, and builder documentation most lenders require to close." },
-        { question: "Can you combine a shop, garage, and home under one roof?", answer: "Yes — that's exactly what we specialize in. Living quarters, workshops, RV bays, and garages all under one steel-frame structure, designed exactly to your needs." },
-        { question: "Do you handle permits and site prep for barndominiums?", answer: "Yes. We pull all permits, schedule inspections, and manage site prep, concrete, plumbing, electrical, and HVAC from start to finish so you don't have to." },
-      ]}
+      faqs={answerFirst.faqs}
       testimonials={[
         { text: "Bradley Brown built our barndo in 6 months — shop, living, and guest suite. Steel shell went up in 3 weeks. No surprises on the final bill.", author: "Chris B.", location: "Brandon, MS" },
         { text: "We got three quotes. Brad was the only one who gave us a fixed written price and stuck to it. Craftsmanship inside is incredible.", author: "Sarah & Tom M.", location: "Pelahatchie, MS" },

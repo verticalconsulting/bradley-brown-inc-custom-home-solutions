@@ -1,15 +1,19 @@
 import React from "react";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
+import { serviceAnswerFirstContent } from "@/content/aiAnswerFirstContent";
 
 export default function OutdoorLiving() {
+  const answerFirst = serviceAnswerFirstContent.outdoorLiving;
+
   return (
     <ServicePageLayout
       title="Outdoor Living Spaces in Brandon, MS | Bradley Brown Inc"
-      description="Outdoor living, covered patios, outdoor kitchens, decks & pergolas in Brandon, MS. Built for Mississippi. Licensed since 2005. Call (844) 351-4154."
+      description={answerFirst.description}
       canonical="https://bradleybrowninc.com/services/outdoor-living"
       h1="Outdoor Living Spaces & Decks in Brandon, MS"
       subtitle="Mississippi's climate is made for outdoor living. We design and build covered patios, outdoor kitchens, custom decks, and pergolas that extend your home's footprint year-round."
       serviceName="Outdoor Living Spaces"
+      answerFirstOpening={answerFirst.opening}
       pageKey="OutdoorLiving"
       bodySections={[
         {
@@ -63,11 +67,7 @@ export default function OutdoorLiving() {
         "Integrated outdoor lighting & electrical systems",
         "Full permitting & code-compliant construction",
       ]}
-      faqs={[
-        { question: "What's the most popular outdoor project in Mississippi?", answer: "Covered back porches with outdoor kitchens are the most popular — perfect for year-round entertaining in Central Mississippi's climate. They give you shade, shelter, and a full cooking space in one structure." },
-        { question: "Do decks and outdoor structures need permits in Rankin County?", answer: "Yes — most decks over 200 square feet and all structures with electrical, plumbing, or gas connections require permits. We handle all permits and inspections from Brandon City Hall or Rankin County." },
-        { question: "Should I choose wood or composite decking in Mississippi?", answer: "Composite decking (like Trex) is ideal for Mississippi's humid climate — it won't rot, warp, or need annual staining. Pressure-treated wood is more budget-friendly but requires regular maintenance. We offer both and help you choose based on your budget and maintenance preferences." },
-      ]}
+      faqs={answerFirst.faqs}
       testimonials={[{
         text: "Our new covered porch with an outdoor kitchen is the best investment we've ever made. The whole family lives out there on weekends. Absolutely beautiful work.",
         author: "Chris & Amy B.",
