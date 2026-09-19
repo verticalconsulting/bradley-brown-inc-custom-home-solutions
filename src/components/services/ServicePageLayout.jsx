@@ -14,7 +14,7 @@ export default function ServicePageLayout({
   h1, subtitle, location = "Brandon, MS",
   bodySections, features, faqs, testimonials, images,
   relatedLinks, serviceName, emergencyPhone, bannerText,
-  pageKey
+  answerFirstOpening, pageKey
 }) {
   const { hero: heroImage, cta: ctaImage, gallery: galleryManaged } = usePageImages(pageKey);
 
@@ -104,6 +104,13 @@ export default function ServicePageLayout({
       </section>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 space-y-10">
+        {answerFirstOpening &&
+        <section aria-label={`${serviceName} overview`} className="bg-sky-50 border border-sky-100 rounded-xl p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-[#1E2D3D] mb-3">What to Know Before You Start</h2>
+            <p className="text-slate-700 leading-relaxed">{answerFirstOpening}</p>
+          </section>
+        }
+
         {bodySections.map((section, i) =>
         <div key={i}>
             <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">{section.heading}</h2>

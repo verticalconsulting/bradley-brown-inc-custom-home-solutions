@@ -2,7 +2,8 @@ import React, { lazy } from "react";
 import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema } from "@/components/seoSchemas";
 import HeroSection from "@/components/home/HeroSection";
-import HomeFAQ, { homeFaqs } from "@/components/home/HomeFAQ";
+import HomeFAQ from "@/components/home/HomeFAQ";
+import { homeAnswerOpening, homeAnswerFaqs } from "@/content/aiAnswerFirstContent";
 import PullToRefresh from "@/components/PullToRefresh";
 import IdleMount from "@/components/IdleMount";
 import VisibleMount from "@/components/VisibleMount";
@@ -22,10 +23,10 @@ const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
 const faqPageSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": homeFaqs.map((f) => ({
+  "mainEntity": homeAnswerFaqs.map((f) => ({
     "@type": "Question",
     "name": f.question,
-    "acceptedAnswer": { "@type": "Answer", "text": f.schemaAnswer || f.answer }
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
   }))
 };
 
@@ -52,6 +53,13 @@ export default function Home() {
         {/* Above the fold — eager, lightweight, immediate */}
         <HeroSection />
 
+        <section className="bg-sky-50 border-y border-sky-100 py-10 md:py-12">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Custom Homes and Remodeling in Brandon and Central Mississippi</h2>
+            <p className="text-foreground/75 leading-relaxed">{homeAnswerOpening}</p>
+          </div>
+        </section>
+
         {/* Below the fold — lazy chunks mounted when idle. Data-fetching sections
             (services, projects, reviews) additionally wait until near the viewport,
             keeping their API calls out of the initial load dependency chain. */}
@@ -64,7 +72,7 @@ export default function Home() {
           <div id="testimonials">
             <VisibleMount><TestimonialSlider featuredOnly={true} limit={6} /></VisibleMount>
           </div>
-          <HomeFAQ />
+          <HomeFAQ faqs={homeAnswerFaqs} />
           <SocialFollow />
           <CTABanner />
           <ExitIntentPopup source="home" />

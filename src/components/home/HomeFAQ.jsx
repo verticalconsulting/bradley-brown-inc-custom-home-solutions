@@ -101,7 +101,7 @@ export const homeFaqs = [
   }
 ];
 
-export default function HomeFAQ() {
+export default function HomeFAQ({ faqs = homeFaqs }) {
   const [open, setOpen] = useState(0);
 
   return (
@@ -117,7 +117,7 @@ export default function HomeFAQ() {
         </div>
 
         <div className="divide-y divide-border border-t border-b border-border">
-          {homeFaqs.map((faq, i) => {
+          {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (
               <div key={i} className="py-4">

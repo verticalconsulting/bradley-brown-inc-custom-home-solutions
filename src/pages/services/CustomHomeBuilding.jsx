@@ -1,15 +1,19 @@
 import React from "react";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
+import { serviceAnswerFirstContent } from "@/content/aiAnswerFirstContent";
 
 export default function CustomHomeBuilding() {
+  const answerFirst = serviceAnswerFirstContent.customHomeBuilding;
+
   return (
     <ServicePageLayout
       title="Custom Home Building in Brandon, MS | Bradley Brown Inc"
-      description="Custom home builder in Brandon, MS since 2005. Full design-build, premium materials & energy-efficient construction across Rankin County. Call (844) 351-4154."
+      description={answerFirst.description}
       canonical="https://bradleybrowninc.com/services/custom-home-building"
       h1="Custom Home Building in Brandon, MS"
       subtitle="Your vision. Our craftsmanship. From blueprint to final walkthrough, we manage every detail of your custom home build across Brandon and Central Mississippi."
       serviceName="Custom Home Building"
+      answerFirstOpening={answerFirst.opening}
       pageKey="CustomHomeBuilding"
       bodySections={[
         {
@@ -63,11 +67,7 @@ export default function CustomHomeBuilding() {
         "We stand behind every project",
         "Post-build support and service",
       ]}
-      faqs={[
-        { question: "How long does a custom home build take in Brandon, MS?", answer: "Typically 8–14 months depending on size and complexity. We provide a detailed project timeline before breaking ground and give you regular progress updates throughout construction." },
-        { question: "Can I make changes during construction?", answer: "Yes — we use a written change order process to handle modifications while keeping the project on track and within budget. Every change is documented and priced before work begins." },
-        { question: "What does a custom home cost in Rankin County?", answer: "Custom homes in the Brandon area typically start around $250,000 and scale up based on square footage, finishes, and site conditions. Call (844) 351-4154 for a free, site-specific estimate." },
-      ]}
+      faqs={answerFirst.faqs}
       testimonials={[{
         text: "Bradley Brown built our custom home in Brandon and the craftsmanship is absolutely incredible. They kept us informed every step of the way. We couldn't be happier!",
         author: "Sarah & Tom M.",

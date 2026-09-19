@@ -1,15 +1,19 @@
 import React from "react";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
+import { serviceAnswerFirstContent } from "@/content/aiAnswerFirstContent";
 
 export default function KitchenRemodeling() {
+  const answerFirst = serviceAnswerFirstContent.kitchenRemodeling;
+
   return (
     <ServicePageLayout
       title="Kitchen Remodeling in Brandon, MS | Bradley Brown Inc"
-      description="Kitchen remodeling in Brandon, MS since 2005. Custom cabinetry, granite & quartz countertops, tile & islands. Licensed & insured. Call (844) 351-4154."
+      description={answerFirst.description}
       canonical="https://bradleybrowninc.com/services/kitchen-remodeling"
       h1="Kitchen Remodeling in Brandon, MS"
       subtitle="Your kitchen is the heart of your home. We design and build kitchens that match how your family actually cooks, gathers, and lives — with premium materials and craftsmanship that adds real value."
       serviceName="Kitchen Remodeling"
+      answerFirstOpening={answerFirst.opening}
       pageKey="KitchenRemodeling"
       bodySections={[
         {
@@ -70,11 +74,7 @@ export default function KitchenRemodeling() {
         "Energy-efficient LED lighting",
         "Appliance integration & pot fillers",
       ]}
-      faqs={[
-        { question: "How long does a kitchen remodel take in Brandon, MS?", answer: "Most kitchen remodels in the Brandon and Rankin County area take 4–8 weeks depending on scope. A cabinet-and-countertop refresh can finish in 3–4 weeks, while a full gut with layout changes typically runs 6–8 weeks. We give you a realistic timeline upfront and provide regular progress updates." },
-        { question: "How much does a kitchen remodel cost in Brandon, MS?", answer: "Kitchen remodels in the Brandon area typically range from $15,000 for a basic refresh to $60,000+ for a luxury gut renovation. The biggest cost drivers are cabinetry, countertops, and appliances. We provide a fixed written estimate before any work starts — no vague ranges or surprise change orders." },
-        { question: "What countertops do you offer for kitchen remodels?", answer: "We fabricate and install granite, quartz, marble, and butcher block countertops. Quartz is our most popular choice for Brandon homeowners — it's durable, non-porous, and available in patterns that mimic natural marble. All countertops are cut and polished on-site for precision seams and proper support." },
-      ]}
+      faqs={answerFirst.faqs}
       testimonials={[{
         text: "They completely transformed our kitchen — new cabinets, quartz countertops, a custom island. The team was professional, clean, and finished on schedule. It's the kitchen I always wanted.",
         author: "Jennifer R.",
