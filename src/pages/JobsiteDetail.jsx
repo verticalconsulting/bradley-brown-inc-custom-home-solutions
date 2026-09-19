@@ -55,7 +55,7 @@ export default function JobsiteDetail() {
           "name": "Bradley Brown Inc.",
           "logo": { "@type": "ImageObject", "url": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png" }
         },
-        "mainEntityOfPage": url,
+        "mainEntityOfPage": { "@type": "WebPage", "@id": url },
         "contentLocation": {
           "@type": "Place",
           "name": locationStr,
@@ -68,7 +68,7 @@ export default function JobsiteDetail() {
       {
         "@type": "Service",
         "name": serviceLabel,
-        "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc.", "telephone": "+18443514154" },
+        "provider": { "@type": "HomeAndConstructionBusiness", "name": "Bradley Brown Inc.", "telephone": "+18443514154" },
         "areaServed": item.latitude && item.longitude ? {
           "@type": "GeoCircle",
           "geoMidpoint": { "@type": "GeoCoordinates", "latitude": item.latitude, "longitude": item.longitude },
@@ -79,10 +79,10 @@ export default function JobsiteDetail() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-20">
+    <div className="min-h-screen bg-background pt-20">
       <SEOHead
         title={`${item.title} | ${serviceLabel} in ${locationStr}`}
-        description={item.description || `${serviceLabel} completed by Bradley Brown Inc. in ${locationStr}. See photos and project details from this Mississippi jobsite.`}
+        description={item.meta_description || item.description || `${serviceLabel} completed by Bradley Brown Inc. in ${locationStr}. See photos and project details from this Mississippi jobsite.`}
         canonical={url}
         schema={schema}
       />
@@ -97,13 +97,13 @@ export default function JobsiteDetail() {
         <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
           {item.photos?.[0] && (
             <div className="aspect-[16/9] bg-slate-100">
-              <img src={item.photos[0]} alt={item.title} className="w-full h-full object-cover" />
+              <img src={item.photos[0]} alt={item.title} width="800" height="450" decoding="async" className="w-full h-full object-cover" />
             </div>
           )}
 
           <div className="p-6 md:p-8">
             <span className="inline-block bg-sky-50 text-sky-700 text-xs font-bold uppercase px-2.5 py-1 rounded mb-3">{serviceLabel}</span>
-            <h1 className="text-2xl md:text-3xl font-bold text-[#1E2D3D]">{item.title}</h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground">{item.title}</h1>
             <div className="flex flex-wrap gap-4 text-sm text-slate-500 mt-3">
               <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-sky-500" />{locationStr}</span>
               {item.checkin_date && <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4 text-sky-500" />{format(new Date(item.checkin_date), "MMMM d, yyyy")}</span>}
@@ -119,7 +119,7 @@ export default function JobsiteDetail() {
               <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
                 {item.photos.slice(1).map((p, i) => (
                   <div key={i} className="aspect-square rounded-lg overflow-hidden bg-slate-100">
-                    <img src={p} alt={`${item.title} ${i + 2}`} className="w-full h-full object-cover" loading="lazy" />
+                    <img src={p} alt={`${item.title} ${i + 2}`} width="300" height="300" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
                 ))}
               </div>
@@ -127,20 +127,20 @@ export default function JobsiteDetail() {
 
             <div className="mt-8 p-5 bg-slate-50 border border-gray-100 rounded-xl">
               <p className="text-sm text-slate-600">
-                <strong className="text-[#1E2D3D]">Servicing {item.city}, {item.state}</strong> — Bradley Brown Inc. is a licensed Mississippi contractor with crews working across {item.city} and the surrounding {item.state} area. We've built or remodeled hundreds of homes since 1995.
+                <strong className="text-foreground">Servicing {item.city}, {item.state}</strong> — Bradley Brown Inc. is a licensed Mississippi contractor with crews working across {item.city} and the surrounding {item.state} area. We've built or remodeled hundreds of homes since 2005.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 bg-[#1E2D3D] rounded-2xl p-6 md:p-8 text-center text-white">
+        <div className="mt-6 bg-foreground rounded-2xl p-6 md:p-8 text-center text-white">
           <h2 className="text-xl md:text-2xl font-bold">Need similar work in {item.city}?</h2>
           <p className="text-slate-300 text-sm mt-2 mb-5">Free estimates. Licensed &amp; insured. Same crew, same craftsmanship.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="tel:+18443514154" className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm flex items-center justify-center gap-2">
               <Phone className="w-4 h-4" /> (844) 351-4154
             </a>
-            <Link to="/QuoteAssistant" className="bg-[#C4922A] hover:bg-[#A37820] text-white px-6 py-3 rounded-full font-bold text-sm flex items-center justify-center gap-2">
+            <Link to="/QuoteAssistant" className="bg-primary hover:bg-accent text-white px-6 py-3 rounded-full font-bold text-sm flex items-center justify-center gap-2">
               <Sparkles className="w-4 h-4" /> Get Free Estimate
             </Link>
           </div>

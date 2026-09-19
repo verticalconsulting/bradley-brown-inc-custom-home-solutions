@@ -5,6 +5,8 @@ import ReactMarkdown from "react-markdown";
 
 const WHATSAPP_NUMBER = "18443514154";
 
+const isVisibleMsg = (m) => m.role === "user" || m.role === "assistant";
+
 export default function VisitorChatWidget() {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState("intro"); // intro | chat
@@ -14,48 +16,82 @@ export default function VisitorChatWidget() {
   const [conversation, setConversation] = useState(null);
   const [messages, setMessages] = useState([]);
   const [sending, setSending] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
   const [unread, setUnread] = useState(0);
   const bottomRef = useRef(null);
+  const openRef = useRef(open);
+  const lastAgentCountRef = useRef(0);
 
   useEffect(() => {
+    openRef.current = open;
     if (open) setUnread(0);
   }, [open]);
+
+  // Allow other components (e.g. Contact page "Live Chat" button) to open the widget
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-chat-widget", handler);
+    return () => window.removeEventListener("open-chat-widget", handler);
+  }, []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
 
+  // Subscribe ONCE per conversation. Re-subscribing on `open`/`messages` changes
+  // was causing the chat to momentarily flash back to "Starting conversation..."
+  // every time the panel re-rendered.
   useEffect(() => {
     if (!conversation) return;
     const unsubscribe = base44.agents.subscribeToConversation(conversation.id, (data) => {
-      setMessages(data.messages || []);
-      if (!open) {
-        const agentMsgs = (data.messages || []).filter(m => m.role === "assistant").length;
-        const prevAgent = messages.filter(m => m.role === "assistant").length;
-        if (agentMsgs > prevAgent) setUnread(u => u + (agentMsgs - prevAgent));
+      const incoming = data?.messages;
+      if (!Array.isArray(incoming)) return;
+
+      // Don't let a streaming frame with fewer *visible* messages wipe the chat history.
+      setMessages((prev) => {
+        const incomingVisible = incoming.filter(isVisibleMsg).length;
+        const prevVisible = prev.filter(isVisibleMsg).length;
+        return incomingVisible >= prevVisible ? incoming : prev;
+      });
+
+      if (!openRef.current) {
+        const agentMsgs = incoming.filter((m) => m.role === "assistant").length;
+        if (agentMsgs > lastAgentCountRef.current) {
+          setUnread((u) => u + (agentMsgs - lastAgentCountRef.current));
+        }
+        lastAgentCountRef.current = agentMsgs;
+      } else {
+        lastAgentCountRef.current = incoming.filter((m) => m.role === "assistant").length;
       }
     });
     return () => unsubscribe();
-  }, [conversation?.id, open]);
+  }, [conversation?.id]);
 
   const startChat = async () => {
     if (!name.trim()) return;
     setSending(true);
-    const conv = await base44.agents.createConversation({
-      agent_name: "home_advisor",
-      metadata: { name, email, page_url: window.location.href },
-    });
-    setConversation(conv);
-    setMessages(conv.messages || []);
-    setStep("chat");
+    setHasStarted(true);
+    try {
+      const conv = await base44.agents.createConversation({
+        agent_name: "home_advisor",
+        metadata: { name, email, page_url: window.location.href },
+      });
+      setConversation(conv);
+      setMessages(conv.messages || []);
+      setStep("chat");
 
-    // Send greeting message
-    const updated = await base44.agents.addMessage(conv, {
-      role: "user",
-      content: `Hi! I'm ${name}. I have some questions about home building and renovations.`,
-    });
-    setMessages(updated.messages || []);
-    setSending(false);
+      // Send greeting message
+      const updated = await base44.agents.addMessage(conv, {
+        role: "user",
+        content: `Hi! I'm ${name}. I have some questions about home building and renovations.`,
+      });
+      setMessages(updated.messages || []);
+    } catch (err) {
+      console.error("Chat failed to start:", err);
+      setMessages(prev => [...prev, { role: "assistant", content: "Sorry, I'm having trouble connecting right now. Please call or text us at (844) 351-4154." }]);
+    } finally {
+      setSending(false);
+    }
   };
 
   const forwardToBrad = async (allMessages) => {
@@ -75,18 +111,28 @@ export default function VisitorChatWidget() {
     setInput("");
     // Optimistically add user message
     setMessages(prev => [...prev, { role: "user", content: text }]);
-    const updated = await base44.agents.addMessage(conversation, {
-      role: "user",
-      content: text,
-    });
-    const newMessages = updated.messages || [];
-    setMessages(newMessages);
-    setSending(false);
+    try {
+      const updated = await base44.agents.addMessage(conversation, {
+        role: "user",
+        content: text,
+      });
+      const newMessages = updated.messages || [];
+      setMessages(prev =>
+        newMessages.filter(isVisibleMsg).length >= prev.filter(isVisibleMsg).length
+          ? newMessages
+          : prev
+      );
 
-    // Check if agent triggered escalation
-    const lastAssistant = [...newMessages].reverse().find(m => m.role === "assistant");
-    if (lastAssistant?.content?.includes("[ESCALATE_TO_BRAD]")) {
-      await forwardToBrad(newMessages);
+      // Check if agent triggered escalation
+      const lastAssistant = [...newMessages].reverse().find(m => m.role === "assistant");
+      if (lastAssistant?.content?.includes("[ESCALATE_TO_BRAD]")) {
+        await forwardToBrad(newMessages);
+      }
+    } catch (err) {
+      console.error("Message failed:", err);
+      setMessages(prev => [...prev, { role: "assistant", content: "Sorry, I lost connection for a moment. Could you try sending that again?" }]);
+    } finally {
+      setSending(false);
     }
   };
 
@@ -94,12 +140,12 @@ export default function VisitorChatWidget() {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
   };
 
-  const visibleMessages = messages.filter(m => m.role === "user" || m.role === "assistant");
+  const visibleMessages = messages.filter(isVisibleMsg);
 
   return (
     <div className="fixed bottom-20 left-4 md:bottom-6 md:left-6 z-[60] flex flex-col items-start gap-3">
       {open && (
-        <div className="w-80 md:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden" style={{ maxHeight: "520px" }}>
+        <div className="w-80 md:w-96 h-[520px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden">
           {/* Header */}
           <div className="bg-[#1E2D3D] text-white px-4 py-3 flex items-center justify-between flex-shrink-0">
             <div className="flex items-center gap-2">
@@ -111,8 +157,8 @@ export default function VisitorChatWidget() {
                 <div className="text-xs text-sky-300">Instant answers · Cost estimates</div>
               </div>
             </div>
-            <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white transition-colors">
-              <ChevronDown className="w-5 h-5" />
+            <button onClick={() => setOpen(false)} aria-label="Close chat" className="text-white/70 hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg">
+              <ChevronDown className="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
 
@@ -120,8 +166,9 @@ export default function VisitorChatWidget() {
             <div className="p-5 flex flex-col gap-4 flex-1">
               <p className="text-sm text-gray-600">👋 Hi there! Ask our AI assistant anything about home building, renovations, or cost estimates.</p>
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Your Name *</label>
+                <label htmlFor="chat-name" className="block text-xs font-medium text-gray-700 mb-1">Your Name *</label>
                 <input
+                  id="chat-name"
                   className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30"
                   value={name}
                   onChange={e => setName(e.target.value)}
@@ -130,8 +177,9 @@ export default function VisitorChatWidget() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Email (optional)</label>
+                <label htmlFor="chat-email" className="block text-xs font-medium text-gray-700 mb-1">Email (optional)</label>
                 <input
+                  id="chat-email"
                   className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -148,19 +196,31 @@ export default function VisitorChatWidget() {
                 {sending ? "Starting..." : "Chat with AI Assistant"}
               </button>
               <a
-                href={base44.agents.getWhatsAppConnectURL("home_advisor")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
+                href="/Contact#send-message"
+                className="w-full bg-[#1E2D3D] hover:bg-[#2a3f56] text-white py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
               >
-                <Phone className="w-4 h-4" /> Chat with AI on WhatsApp
+                <MessageCircle className="w-4 h-4" /> Send a Text Message to Brad
               </a>
             </div>
           ) : (
             <>
               <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ minHeight: 0 }}>
-                {visibleMessages.length === 0 && (
+                {visibleMessages.length === 0 && !hasStarted && (
                   <p className="text-xs text-gray-400 text-center">Starting conversation...</p>
+                )}
+                {visibleMessages.length === 0 && hasStarted && (
+                  <div className="flex justify-start">
+                    <div className="w-6 h-6 bg-sky-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                      <Sparkles className="w-3 h-3 text-sky-500" />
+                    </div>
+                    <div className="bg-gray-100 rounded-xl px-4 py-2.5">
+                      <div className="flex gap-1">
+                        <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                        <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                        <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                      </div>
+                    </div>
+                  </div>
                 )}
                 {visibleMessages.map((msg, i) => (
                   <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
@@ -176,10 +236,10 @@ export default function VisitorChatWidget() {
                     }`}>
                       {msg.role === "assistant" ? (
                         <ReactMarkdown className="prose prose-sm max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 text-gray-800">
-                          {msg.content.replace("[ESCALATE_TO_BRAD]", "").trim()}
+                          {(msg.content || "").replace("[ESCALATE_TO_BRAD]", "").trim()}
                         </ReactMarkdown>
                       ) : (
-                        <p>{msg.content}</p>
+                        <p>{msg.content || ""}</p>
                       )}
                     </div>
                   </div>
@@ -211,6 +271,7 @@ export default function VisitorChatWidget() {
               </div>
               <div className="p-3 border-t border-gray-100 flex gap-2 flex-shrink-0">
                 <input
+                  aria-label="Type your message"
                   className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30"
                   value={input}
                   onChange={e => setInput(e.target.value)}
@@ -221,9 +282,10 @@ export default function VisitorChatWidget() {
                 <button
                   onClick={sendMessage}
                   disabled={sending || !input.trim()}
-                  className="bg-sky-500 disabled:opacity-40 text-white p-2 rounded-lg transition-colors hover:bg-sky-600"
+                  aria-label="Send message"
+                  className="bg-sky-500 disabled:opacity-40 text-white p-2.5 rounded-lg transition-colors hover:bg-sky-600 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4" aria-hidden="true" />
                 </button>
               </div>
             </>
@@ -232,18 +294,25 @@ export default function VisitorChatWidget() {
       )}
 
       {/* FAB */}
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="w-14 h-14 bg-[#1E2D3D] hover:bg-sky-600 text-white rounded-full shadow-xl flex items-center justify-center transition-all relative"
-        aria-label="Open chat"
-      >
-        {open ? <X className="w-6 h-6" /> : <Sparkles className="w-6 h-6" />}
-        {!open && unread > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
-            {unread}
+      <div className="flex flex-col items-center gap-1.5">
+        {!open && (
+          <span className="bg-[#1E2D3D] text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-md">
+            Message Us
           </span>
         )}
-      </button>
+        <button
+          onClick={() => setOpen(o => !o)}
+          className="w-14 h-14 bg-[#1E2D3D] hover:bg-sky-600 text-white rounded-full shadow-xl flex items-center justify-center transition-all relative"
+          aria-label="Open chat"
+        >
+          {open ? <X className="w-6 h-6" /> : <Sparkles className="w-6 h-6" />}
+          {!open && unread > 0 && (
+            <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
+              {unread}
+            </span>
+          )}
+        </button>
+      </div>
     </div>
   );
 }

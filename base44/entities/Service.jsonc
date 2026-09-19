@@ -48,17 +48,14 @@
       }
     },
     "read": {
-      "$and": [
+      "$or": [
         {
           "data.active": true
         },
         {
-          "$or": [
-            {},
-            {
-              "user_authenticated": false
-            }
-          ]
+          "user_condition": {
+            "role": "admin"
+          }
         }
       ]
     },

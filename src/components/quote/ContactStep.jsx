@@ -44,6 +44,21 @@ export default function ContactStep({ data, onChange }) {
             <span className="text-slate-400">Message frequency varies. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase.</span>
           </label>
         </div>
+
+        {/* Schedule a site visit */}
+        <div className="flex items-start gap-3 p-4 bg-sky-50 border border-sky-200 rounded-xl">
+          <input
+            type="checkbox"
+            id="schedule-visit-quote"
+            checked={data.schedule_visit || false}
+            onChange={e => update("schedule_visit", e.target.checked)}
+            className="mt-0.5 w-4 h-4 accent-sky-500 flex-shrink-0 cursor-pointer"
+          />
+          <label htmlFor="schedule-visit-quote" className="text-sm text-slate-700 leading-relaxed cursor-pointer">
+            <span className="font-semibold text-[#1E2D3D]">Yes, I'd also like to schedule a free site visit.</span>{" "}
+            <span className="text-slate-500">Our team will reach out to arrange a convenient time for an on-site consultation at no cost or obligation.</span>
+          </label>
+        </div>
       </div>
     </div>
   );

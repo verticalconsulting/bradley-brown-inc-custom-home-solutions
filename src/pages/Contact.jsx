@@ -6,6 +6,8 @@ import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight, MessageCircle, Calendar, Zap } from "lucide-react";
+import ContactTrustBar from "@/components/landing/ContactTrustBar";
+import { usePageImages } from "@/lib/usePageImages";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", project_type: "custom_home" });
@@ -14,6 +16,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
 
   const update = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
+  const { hero: heroImage } = usePageImages("Contact");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,15 +58,18 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-20">
+    <div className="min-h-screen bg-background pt-20">
       <SEOHead
         title="Contact Bradley Brown Inc. — Brandon, MS Contractor"
-        description="Contact Central Mississippi's trusted home remodeler. Call (844) 351-4154 or message us — serving Brandon, Flowood, Pearl, Madison & surrounding areas. Free estimates."
+        description="Contact Bradley Brown Inc. for remodeling in Brandon, MS. Call (844) 351-4154 or message us — serving Flowood, Pearl, Madison & Central MS. Free estimates."
         schema={localBusinessSchema}
-        canonical="https://bradleybrowninc.com/Contact"
+        canonical="https://bradleybrowninc.com/contact"
       />
-      <div className="bg-[#1E2D3D] py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="bg-foreground py-12 md:py-16 relative overflow-hidden">
+        {heroImage && (
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage.url}')` }} />
+        )}
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Get in Touch</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Let's Talk About Your Project</h1>
           <p className="text-slate-300 mt-3 max-w-xl mx-auto">Free estimates — no obligation. Choose how you'd like to reach us:</p>
@@ -118,7 +124,7 @@ export default function Contact() {
                 if (chatBtn) chatBtn.click();
                 else window.dispatchEvent(new CustomEvent('open-chat-widget'));
               }}
-              className="flex items-center gap-4 bg-[#1E2D3D] hover:bg-[#2a3f56] text-white px-5 py-4 rounded-xl transition-colors shadow-md group"
+              className="flex items-center gap-4 bg-foreground hover:bg-secondary text-white px-5 py-4 rounded-xl transition-colors shadow-md group"
             >
               <div className="w-11 h-11 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                 <MessageCircle className="w-6 h-6" />
@@ -134,26 +140,29 @@ export default function Contact() {
           {/* Quick trust signals */}
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 mt-5 text-xs text-slate-500">
             <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Free estimates, no obligation</span>
-            <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Licensed & insured since 1995</span>
+            <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Licensed & insured since 2005</span>
             <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Replies within 1 business day</span>
             <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-sky-500" /> Mon–Fri 8am–6pm · Sat 9am–3pm</span>
           </div>
         </div>
       </div>
 
+      {/* Trust bar — license, insurance, experience */}
+      <ContactTrustBar />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           <div>
-            <h2 className="text-xl font-bold text-[#1E2D3D] mb-5">Other Ways to Connect</h2>
+            <h2 className="text-xl font-bold text-foreground mb-5">Other Ways to Connect</h2>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Calendar className="w-5 h-5 text-amber-500" />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#1E2D3D] mb-0.5">Schedule a Free Site Visit</p>
+                  <p className="font-semibold text-foreground mb-0.5">Schedule a Free Site Visit</p>
                   <p className="text-slate-500 text-sm mb-2">We'll come to you — no commitment required.</p>
-                  <Link to={createPageUrl("ScheduleVisit")} className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
+                  <Link to="/schedulevisit" className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
                     Book a visit <ChevronRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -163,9 +172,9 @@ export default function Contact() {
                   <Zap className="w-5 h-5 text-purple-500" />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#1E2D3D] mb-0.5">Get an AI Estimate Instantly</p>
+                  <p className="font-semibold text-foreground mb-0.5">Get an AI Estimate Instantly</p>
                   <p className="text-slate-500 text-sm mb-2">Answer a few questions and get a personalized cost range in seconds.</p>
-                  <Link to={createPageUrl("QuoteAssistant")} className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
+                  <Link to="/estimate" className="inline-flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
                     Try the AI Estimator <ChevronRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -175,7 +184,7 @@ export default function Contact() {
                   <MapPin className="w-5 h-5 text-sky-500" />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#1E2D3D] mb-0.5">Our Location</p>
+                  <p className="font-semibold text-foreground mb-0.5">Our Location</p>
                   <p className="text-slate-500 text-sm">104 Tiffany Drive, Brandon, MS 39042</p>
                   <p className="text-slate-400 text-xs mt-1">Serving Brandon, Flowood, Pearl, Madison, Ridgeland, Jackson, Clinton, Byram & all of Central MS</p>
                 </div>
@@ -183,41 +192,41 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
+          <div id="send-message" className="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100 scroll-mt-24">
             {submitted ? (
               <div className="text-center py-10">
                 <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-[#1E2D3D] mb-2">Message Received!</h3>
+                <h3 className="text-xl font-bold text-foreground mb-2">Message Received!</h3>
                 <p className="text-slate-500">We'll get back to you within one business day.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="mb-2">
-                  <h3 className="text-xl font-bold text-[#1E2D3D]">Send Us a Message</h3>
+                  <h3 className="text-xl font-bold text-foreground">Send Us a Message</h3>
                   <p className="text-slate-400 text-sm mt-1">We reply within 1 business day — usually same day.</p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Your Name *</label>
+                    <label className="block text-sm font-medium text-foreground mb-1">Your Name *</label>
                     <input required type="text" value={form.name} onChange={e => update("name", e.target.value)}
                       className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400"
                       placeholder="John Smith" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Phone</label>
+                    <label className="block text-sm font-medium text-foreground mb-1">Phone</label>
                     <input type="tel" value={form.phone} onChange={e => update("phone", e.target.value)}
                       className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400"
                       placeholder="(601) 000-0000" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Email *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">Email *</label>
                   <input required type="email" value={form.email} onChange={e => update("email", e.target.value)}
                     className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400"
                     placeholder="john@example.com" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Project Type</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">Project Type</label>
                   <MobileSelectDrawer
                     label="Project Type"
                     placeholder="Select project type"
@@ -233,7 +242,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#1E2D3D] mb-1">Tell Us About Your Project</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">Tell Us About Your Project</label>
                   <textarea value={form.message} onChange={e => update("message", e.target.value)} rows={4}
                     className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400 resize-none"
                     placeholder="Tell us about your project, budget range, timeline, etc." />
@@ -266,23 +275,23 @@ export default function Contact() {
       {/* Internal links */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-6">
         <div className="bg-slate-50 border border-gray-200 rounded-xl p-5">
-          <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h2>
+          <h2 className="font-bold text-foreground text-sm mb-3">Explore More</h2>
           <div className="flex flex-wrap gap-2">
             {[
-              { label: "Our Services", page: "Services" },
-              { label: "View Portfolio", page: "Portfolio" },
-              { label: "AI Cost Estimator", page: "QuoteAssistant" },
-              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-              { label: "Why Trust Us", page: "LandingTrust" },
-              { label: "Pricing Guide", page: "LandingPricing" },
-              { label: "Pro Tips & Advice", page: "ProTips" },
-              { label: "Core Services — Brandon", page: "LandingCoreServices" },
-              { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
-              { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-              { label: "Renovation Loans", page: "RenovationLoans" },
-              { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
+              { label: "Our Services", to: "/services" },
+              { label: "View Portfolio", to: "/portfolio" },
+              { label: "Get a Free Estimate", to: "/estimate" },
+              { label: "Pro Tips & Advice", to: "/protips" },
+              { label: "Pricing Guide", to: "/pricing" },
+              { label: "Emergency Repairs", to: "/services/emergency-repairs" },
+              { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
+              { label: "Renovation Loans", to: "/protips/renovation-loans" },
+              { label: "Energy-Efficient Upgrades", to: "/protips/energy-efficient-upgrades" },
+              { label: "Remodeling in MS", to: "/remodeling-ms" },
+              { label: "Madison, MS Remodeling", to: "/madison-ms-home-remodeling" },
+              { label: "Bathroom Remodeling — Brandon", to: "/bathroom-remodeling-brandon-ms" },
             ].map((link) => (
-              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+              <Link key={link.to} to={link.to} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
                 <ChevronRight className="w-3 h-3" /> {link.label}
               </Link>
             ))}
@@ -290,14 +299,53 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Google Map embed */}
+      {/* Service Area — expanded */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
-        <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">Our Service Area — Brandon, MS & Central Mississippi</h2>
-        <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm h-72">
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">Our Service Area — Brandon, MS & Central Mississippi</h2>
+        <p className="text-slate-600 text-sm mb-6 max-w-2xl">
+          Bradley Brown Inc. serves homeowners within 50 miles of Brandon, MS — contact us to confirm availability in your area.
+        </p>
+
+        {/* City chips grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+          {[
+          { label: "Brandon, MS", link: "/remodeling-brandon-ms" },
+          { label: "Flowood, MS", link: null },
+          { label: "Pearl, MS", link: null },
+          { label: "Madison, MS", link: "/madison-ms-home-remodeling" },
+          { label: "Ridgeland, MS", link: null },
+          { label: "Jackson, MS", link: null },
+          { label: "Clinton, MS", link: null },
+          { label: "Byram, MS", link: null },
+          { label: "Rankin County, MS", link: "/remodeling-ms" },
+          { label: "Simpson County, MS", link: null },
+          { label: "Hinds County, MS", link: null },
+          { label: "Madison County, MS", link: null },
+          ].map((chip) => (
+          <div key={chip.label} className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-sky-500 flex-shrink-0" />
+            {chip.link ? (
+              <Link
+                to={chip.link}
+                className="inline-flex items-center gap-1.5 bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 text-sm font-medium px-3.5 py-2 rounded-full transition-colors"
+              >
+                {chip.label}
+              </Link>
+            ) : (
+                <span className="inline-flex items-center bg-gray-50 border border-gray-200 text-slate-600 text-sm font-medium px-3.5 py-2 rounded-full">
+                  {chip.label}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Google Map — centered on 104 Tiffany Drive, Brandon, MS 39042 */}
+        <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm h-80">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d218083.47153490375!2d-90.24965!3d32.27291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x862834f7b56a0d85%3A0x3f2ac15e9f9d90!2sBrandon%2C%20MS!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            src="https://www.google.com/maps?q=104+Tiffany+Drive,+Brandon,+MS+39042&output=embed"
             width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
-            title="Bradley Brown Inc. service area — Brandon, MS and Central Mississippi"
+            title="Bradley Brown Inc. — 104 Tiffany Drive, Brandon, MS 39042"
           />
         </div>
         {/* NAP */}

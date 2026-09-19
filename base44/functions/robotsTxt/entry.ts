@@ -4,36 +4,31 @@ Deno.serve(async (_req) => {
   const content = `User-agent: *
 Allow: /
 
-# Important pages
-Allow: /Services
-Allow: /Portfolio
-Allow: /Contact
-Allow: /About
-Allow: /QuoteAssistant
-Allow: /ScheduleVisit
-Allow: /ContactForm
-Allow: /ProTips
-Allow: /LandingCoreServices
-Allow: /LandingEmergencyRepair
-Allow: /LandingBrandonRemodelers
-Allow: /LandingPricing
-Allow: /LandingTrust
-Allow: /SmallBathroomIdeas
-Allow: /LuxuryHomeRenovations
-Allow: /RenovationLoans
-Allow: /HomeAdditionIdeas
-Allow: /EnergyEfficientUpgrades
+# Disallow admin / internal pages only
+Disallow: /seodashboard
+Disallow: /blogadmin
+Disallow: /leads
+Disallow: /crm
+Disallow: /jobsite-checkin
+Disallow: /accountsettings
+Disallow: /agentchat
+Disallow: /tiktoksync
+Disallow: /thank-you
+Disallow: /error
+Disallow: /siteimages
+Disallow: /conversiondashboard
+Disallow: /funnelanalysis
 
-# Block admin/internal pages
-Disallow: /SEODashboard
-Disallow: /BlogAdmin
-Disallow: /SiteImages
-Disallow: /ConversionDashboard
-Disallow: /Leads
-Disallow: /FunnelAnalysis
-Disallow: /CRM
-Disallow: /TikTokSync
-Disallow: /AccountSettings
+# Block dotfile / config probes
+Disallow: /*.env
+Disallow: /*.git
+Disallow: /*.htaccess
+Disallow: /*.htpasswd
+Disallow: /*.DS_Store
+
+# Block API / function routes
+Disallow: /api/
+Disallow: /_functions/
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;

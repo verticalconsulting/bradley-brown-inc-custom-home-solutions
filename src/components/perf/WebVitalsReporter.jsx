@@ -3,19 +3,22 @@ import { useEffect } from "react";
 /**
  * Core Web Vitals reporter.
  *
- * Uses the native PerformanceObserver API (no deps) to log LCP, INP, CLS,
- * FCP, and TTFB. Sends events to:
+ * Uses the native PerformanceObserver API (no deps) to measure LCP, INP, CLS,
+ * FCP, and TTFB, then reports each metric exactly ONCE per page load — at the
+ * first time the page becomes hidden (the same reporting model as Google's
+ * web-vitals library).
+ *
+ * Sends events to:
  *   - window.gtag (if present) as Google Analytics events
  *   - console.info in development
  *   - optional `onMetric` callback for custom backends
  *
- * Thresholds (Google "good" cutoffs):
- *   LCP   <= 2500ms
- *   INP   <= 200ms
- *   CLS   <= 0.1
- *
- * Regression alerts: any metric exceeding the "poor" threshold logs a
- * console.warn so the team can see it during testing.
+ * Metric model:
+ *   LCP — latest largest-contentful-paint entry, reported once at first hide
+ *   CLS — sum of unexpected layout shifts, reported once at first hide
+ *   INP — worst interaction duration (interactionId-based, the standard
+ *         approximation of the real INP metric), reported once at first hide
+ *   FCP / TTFB — single-entry metrics reported immediately
  *
  * Mount once near the app root:
  *   <WebVitalsReporter />
@@ -64,39 +67,46 @@ export default function WebVitalsReporter({ onMetric }) {
     };
 
     const observers = [];
+    let lcp = 0;
+    let lcpSeen = false;
+    let cls = 0;
+    let reported = false;
+    const interactions = new Map();
 
-    // LCP
+    // LCP — track the latest entry; report the final value once
     try {
       const lcpObs = new PerformanceObserver((list) => {
         const entries = list.getEntries();
         const last = entries[entries.length - 1];
-        if (last) report("LCP", last.renderTime || last.loadTime || last.startTime);
+        if (last) {
+          lcp = last.renderTime || last.loadTime || last.startTime;
+          lcpSeen = true;
+        }
       });
       lcpObs.observe({ type: "largest-contentful-paint", buffered: true });
       observers.push(lcpObs);
     } catch (_e) {}
 
-    // CLS (sum of unexpected layout shifts)
+    // CLS — accumulate unexpected layout shifts; report the sum once
     try {
-      let cls = 0;
       const clsObs = new PerformanceObserver((list) => {
         list.getEntries().forEach((entry) => {
           if (!entry.hadRecentInput) cls += entry.value;
         });
-        report("CLS", cls);
       });
       clsObs.observe({ type: "layout-shift", buffered: true });
       observers.push(clsObs);
     } catch (_e) {}
 
-    // INP (closest available: longest event duration so far)
+    // INP — standard interaction-based model: keep the worst duration per
+    // interaction, then report the maximum across all interactions once.
     try {
-      let worst = 0;
       const inpObs = new PerformanceObserver((list) => {
         list.getEntries().forEach((entry) => {
-          if (entry.duration > worst) {
-            worst = entry.duration;
-            report("INP", worst);
+          if (!entry.interactionId) return;
+          const prev = interactions.get(entry.interactionId) || 0;
+          if (entry.duration > prev) {
+            interactions.set(entry.interactionId, entry.duration);
           }
         });
       });
@@ -104,7 +114,7 @@ export default function WebVitalsReporter({ onMetric }) {
       observers.push(inpObs);
     } catch (_e) {}
 
-    // FCP
+    // FCP — single paint entry, reported immediately
     try {
       const fcpObs = new PerformanceObserver((list) => {
         list.getEntries().forEach((entry) => {
@@ -115,13 +125,34 @@ export default function WebVitalsReporter({ onMetric }) {
       observers.push(fcpObs);
     } catch (_e) {}
 
-    // TTFB
+    // TTFB — single navigation entry, reported immediately
     try {
       const nav = performance.getEntriesByType("navigation")[0];
       if (nav) report("TTFB", nav.responseStart);
     } catch (_e) {}
 
-    return () => observers.forEach((o) => o.disconnect());
+    // Report LCP / CLS / INP exactly once, at the first time the page is hidden
+    const flush = () => {
+      if (reported) return;
+      reported = true;
+      if (lcpSeen) report("LCP", lcp);
+      report("CLS", cls);
+      if (interactions.size > 0) {
+        report("INP", Math.max(...interactions.values()));
+      }
+    };
+
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") flush();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pagehide", flush);
+
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pagehide", flush);
+      observers.forEach((o) => o.disconnect());
+    };
   }, [onMetric]);
 
   return null;

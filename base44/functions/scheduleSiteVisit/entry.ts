@@ -9,7 +9,15 @@ const TIME_LABELS = {
 Deno.serve(async (req) => {
     try {
         const base44 = createClientFromRequest(req);
-        const { name, email, phone, project_type, location, date, time, notes } = await req.json();
+
+        const body = await req.json();
+
+        // Honeypot — real users never see/fill this hidden field; bots do.
+        if (body.website) {
+            return Response.json({ success: true, message: 'Scheduled.' });
+        }
+
+        const { name, email, phone, project_type, location, date, time, notes } = body;
 
         if (!name || !email || !date || !time) {
             return Response.json({ error: 'Missing required fields: name, email, date, time' }, { status: 400 });

@@ -22,12 +22,12 @@ export default function TikTokSync() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-24 pb-12">
+    <div className="min-h-screen bg-background pt-24 pb-12">
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#1E2D3D] mb-2">TikTok Sync</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">TikTok Sync</h1>
         <p className="text-slate-600 mb-8">Sync your TikTok follower data to the CRM and view recent videos.</p>
 
-        <div className="bg-white rounded-2xl shadow-md border border-[#E2D9CC] p-6 md:p-8">
+        <div className="bg-white rounded-2xl shadow-md border border-muted-foreground p-6 md:p-8">
           <Button
             onClick={handleSync}
             disabled={loading}
@@ -71,11 +71,11 @@ export default function TikTokSync() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-[#1E2D3D] mb-3">Recent Videos</h3>
+                <h3 className="font-semibold text-foreground mb-3">Recent Videos</h3>
                 <div className="space-y-2">
                   {data.recentVideos.slice(0, 5).map((video) => (
                     <div key={video.id} className="p-3 bg-slate-50 rounded-lg border border-gray-200">
-                      <p className="text-sm font-medium text-[#1E2D3D]">{video.title}</p>
+                      <p className="text-sm font-medium text-foreground">{video.title}</p>
                       <p className="text-xs text-slate-500 mt-1">
                         {new Date(video.createTime * 1000).toLocaleDateString()}
                       </p>

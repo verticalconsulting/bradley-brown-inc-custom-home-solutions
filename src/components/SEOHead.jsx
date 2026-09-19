@@ -18,6 +18,7 @@ import {
   getCurrentCanonicalUrl,
   getPaginationLinks,
 } from "@/components/seo/canonicalUrl";
+import { buildOgImageUrl, articleOgImageUrl } from "@/components/seo/ogImage";
 
 const TWITTER_HANDLE = "@bradleybrowninc";
 
@@ -28,8 +29,14 @@ const truncate = (str, max = 160) => {
 
 const buildTitle = (title) => {
   if (!title) return SITE_NAME;
-  if (title.includes(SITE_NAME)) return title;
-  return `${title} | ${SITE_NAME}`;
+  if (/Bradley Brown/i.test(title)) {
+    return title.length > 60 ? title.slice(0, 57).trimEnd() + "…" : title;
+  }
+  const suffix = ` | ${SITE_NAME}`;
+  if (title.length + suffix.length > 60) {
+    title = title.slice(0, 60 - suffix.length - 1).trimEnd() + "…";
+  }
+  return `${title}${suffix}`;
 };
 
 
@@ -85,7 +92,6 @@ export default function SEOHead({
           totalPages,
         )
       : { prev: null, next: null };
-  const finalImage = ogImage || DEFAULT_OG_IMAGE;
   const finalNoindex = noindex || noIndex || false;
   const keywordsContent = Array.isArray(keywords) ? keywords.join(", ") : keywords;
 
@@ -95,6 +101,23 @@ export default function SEOHead({
   const readingTime = isArticle
     ? estimateReadingTime(article.content || article.wordCount || 0)
     : null;
+
+  // OG image priority: explicit ogImage > article-template dynamic OG > default dynamic OG > static fallback.
+  const dynamicOgImage = ogImage
+    ? null
+    : isArticle
+      ? articleOgImageUrl({
+          title: title || SITE_NAME,
+          description: finalDescription,
+          author: authorList[0]?.name,
+          publishedTime: article.publishedTime,
+        })
+      : buildOgImageUrl({
+          title: title || SITE_NAME,
+          description: finalDescription,
+          type: "default",
+        });
+  const finalImage = ogImage || dynamicOgImage || DEFAULT_OG_IMAGE;
 
   // Auto-build article JSON-LD if caller didn't pass their own structuredData.
   const autoArticleSchema =

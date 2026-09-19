@@ -75,10 +75,10 @@ export default function CRM() {
   );
 
   return (
-    <div className="min-h-screen bg-[#F3F4F6] pt-20">
+    <div className="min-h-screen bg-muted pt-20">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-[#1E2D3D] flex items-center gap-3">
+          <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
             <Building2 className="w-8 h-8 text-sky-400" />
             Client CRM
           </h1>
@@ -93,7 +93,7 @@ export default function CRM() {
         {/* Add Client Form */}
         {showForm && (
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
-            <h2 className="text-lg font-semibold text-[#1E2D3D] mb-4">New Client</h2>
+            <h2 className="text-lg font-semibold text-foreground mb-4">New Client</h2>
             <form onSubmit={handleAddClient} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Input
                 placeholder="Name *"
@@ -196,7 +196,7 @@ export default function CRM() {
                 className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 hover:shadow-md transition-shadow"
               >
                 <div className="mb-3">
-                  <h3 className="text-lg font-semibold text-[#1E2D3D]">{client.name}</h3>
+                  <h3 className="text-lg font-semibold text-foreground">{client.name}</h3>
                   {client.company && (
                     <p className="text-sm text-gray-600">{client.company}</p>
                   )}

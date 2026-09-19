@@ -1,124 +1,69 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
 
 const SITE_URL = "https://bradleybrowninc.com";
 
 Deno.serve(async (req) => {
   const base44 = createClientFromRequest(req);
 
-  // Fetch published projects for dynamic URLs
-  let projects = [];
-  try {
-    projects = await base44.asServiceRole.entities.Project.filter({ status: "published" });
-  } catch (_) {
-    // Continue with static pages only
-  }
-
-  // Fetch published jobsite check-ins
-  let jobsites = [];
-  try {
-    jobsites = await base44.asServiceRole.entities.JobCheckin.filter({ status: "published" });
-  } catch (_) {
-    // Continue
-  }
-
-  // Fetch published blog posts
+  // Fetch published blog posts (for /protips/:slug dynamic URLs)
   let blogPosts = [];
   try {
     blogPosts = await base44.asServiceRole.entities.BlogPost.filter({ published: true });
-  } catch (_) {
-    // Continue
-  }
+  } catch (_) {}
 
-  // Fetch active services
-  let services = [];
+  // Fetch published jobsite check-ins (for /jobsites/:slug dynamic URLs)
+  let jobsites = [];
   try {
-    services = await base44.asServiceRole.entities.Service.filter({ active: true });
-  } catch (_) {
-    // Continue
-  }
+    jobsites = await base44.asServiceRole.entities.JobCheckin.filter({ status: "published" });
+  } catch (_) {}
 
   const today = new Date().toISOString().split("T")[0];
 
+  // ── Canonical static pages — only URLs that return HTTP 200 (no redirects) ──
   const staticPages = [
     { url: "/", priority: "1.0", changefreq: "weekly" },
-    { url: "/Services", priority: "0.9", changefreq: "monthly" },
-    { url: "/Portfolio", priority: "0.8", changefreq: "weekly" },
-    { url: "/About", priority: "0.7", changefreq: "monthly" },
-    { url: "/Contact", priority: "0.8", changefreq: "monthly" },
-    { url: "/QuoteAssistant", priority: "0.9", changefreq: "monthly" },
-    { url: "/ProTips", priority: "0.8", changefreq: "weekly" },
-    { url: "/ScheduleVisit", priority: "0.8", changefreq: "monthly" },
-    { url: "/ContactForm", priority: "0.8", changefreq: "monthly" },
-    { url: "/SmallBathroomIdeas", priority: "0.8", changefreq: "monthly" },
-    { url: "/LuxuryHomeRenovations", priority: "0.8", changefreq: "monthly" },
-    { url: "/LandingCoreServices", priority: "0.9", changefreq: "monthly" },
-    { url: "/LandingEmergencyRepair", priority: "0.9", changefreq: "monthly" },
-    { url: "/LandingBrandonRemodelers", priority: "0.9", changefreq: "monthly" },
-    { url: "/LandingPricing", priority: "0.8", changefreq: "monthly" },
-    { url: "/LandingTrust", priority: "0.8", changefreq: "monthly" },
-    { url: "/RenovationLoans", priority: "0.7", changefreq: "monthly" },
-    { url: "/HomeAdditionIdeas", priority: "0.7", changefreq: "monthly" },
-    { url: "/EnergyEfficientUpgrades", priority: "0.7", changefreq: "monthly" },
-    { url: "/projects/historic-home-restoration", priority: "0.8", changefreq: "monthly" },
-    { url: "/barndominium-builder", priority: "0.9", changefreq: "monthly" },
-    { url: "/thank-you", priority: "0.9", changefreq: "monthly" },
-    { url: "/legal", priority: "0.9", changefreq: "monthly" },
-    { url: "/sms-optin", priority: "0.9", changefreq: "monthly" },
-    { url: "/jobsites", priority: "0.8", changefreq: "weekly" },
-    { url: "/", priority: "0.9", changefreq: "monthly" },
+    { url: "/services", priority: "0.9", changefreq: "monthly" },
+    { url: "/services/custom-home-building", priority: "0.8", changefreq: "monthly" },
+    { url: "/services/kitchen-remodeling", priority: "0.8", changefreq: "monthly" },
+    { url: "/services/bathroom-remodeling", priority: "0.8", changefreq: "monthly" },
+    { url: "/services/room-additions", priority: "0.8", changefreq: "monthly" },
+    { url: "/services/outdoor-living", priority: "0.8", changefreq: "monthly" },
+    { url: "/services/barndominiums", priority: "0.8", changefreq: "monthly" },
+    { url: "/services/emergency-repairs", priority: "0.8", changefreq: "monthly" },
+    { url: "/portfolio", priority: "0.8", changefreq: "weekly" },
+    { url: "/projects/historic-home-restoration", priority: "0.7", changefreq: "monthly" },
+    { url: "/about", priority: "0.7", changefreq: "monthly" },
+    { url: "/contact", priority: "0.8", changefreq: "monthly" },
+    { url: "/pricing", priority: "0.8", changefreq: "monthly" },
+    { url: "/remodeling-brandon-ms", priority: "0.9", changefreq: "monthly" },
+    { url: "/remodeling-ms", priority: "0.8", changefreq: "monthly" },
+    { url: "/custom-home-builder-brandon-ms", priority: "0.9", changefreq: "monthly" },
+    { url: "/bathroom-remodeling-brandon-ms", priority: "0.8", changefreq: "monthly" },
+    { url: "/madison-ms-home-remodeling", priority: "0.8", changefreq: "monthly" },
+    { url: "/protips", priority: "0.8", changefreq: "weekly" },
+    { url: "/estimate", priority: "0.9", changefreq: "monthly" },
+    { url: "/legal", priority: "0.3", changefreq: "yearly" },
   ];
-
-  // Paths that should NEVER appear in the sitemap (noindex / internal / deprecated)
-  const NOINDEX_PATHS = [
-    "/barndominiums-ms",      // deprecated — replaced by /barndominium-builder
-    "/ThankYou",
-    "/AccountSettings",
-    "/Leads",
-    "/CRM",
-    "/SEODashboard",
-    "/FunnelAnalysis",
-    "/BlogAdmin",
-    "/SiteImages",
-    "/ConversionDashboard",
-    "/AgentChat",
-    "/TikTokSync",
-    "/jobsite-checkin",
-  ];
-  const filteredStaticPages = staticPages.filter(p => !NOINDEX_PATHS.includes(p.url));
 
   const urlEntries = [
-    ...filteredStaticPages.map(page => `
+    ...staticPages.map(page => `
   <url>
     <loc>${SITE_URL}${page.url}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`),
-    ...projects.map(p => `
+    ...blogPosts.filter(b => b.slug).map(b => `
   <url>
-    <loc>${SITE_URL}/portfolio/${p.id}</loc>
-    <lastmod>${p.updated_date ? p.updated_date.split("T")[0] : today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>`),
-    ...jobsites.map(j => `
-  <url>
-    <loc>${SITE_URL}/jobsites/${j.slug}</loc>
-    <lastmod>${(j.updated_date || j.published_date || j.created_date || today).split("T")[0]}</lastmod>
+    <loc>${SITE_URL}/protips/${b.slug}</loc>
+    <lastmod>${(b.updated_date || b.created_date || today).split("T")[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`),
-    ...blogPosts.filter(b => b.slug).map(b => `
+    ...jobsites.filter(j => j.slug).map(j => `
   <url>
-    <loc>${SITE_URL}/ProTips#${b.slug}</loc>
-    <lastmod>${(b.updated_date || b.created_date || today).split("T")[0]}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>`),
-    ...services.filter(s => s.slug).map(s => `
-  <url>
-    <loc>${SITE_URL}/Services#${s.slug}</loc>
-    <lastmod>${(s.updated_date || s.created_date || today).split("T")[0]}</lastmod>
+    <loc>${SITE_URL}/jobsites/${j.slug}</loc>
+    <lastmod>${(j.updated_date || j.published_date || j.created_date || today).split("T")[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`)

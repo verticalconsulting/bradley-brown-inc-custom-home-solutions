@@ -1,117 +1,53 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Sparkles, DollarSign, Star, Warehouse, Hammer, FileText, ChevronRight, Crown, Banknote, Plus, Bath, Leaf, MapPin, AlertTriangle } from "lucide-react";
+import { Home, Wrench, Plus, Leaf, Warehouse, AlertTriangle, ChevronRight } from "lucide-react";
 
 const resources = [
   {
-    to: "/quote",
-    icon: Sparkles,
-    title: "Get a Free Quote",
-    desc: "Fast, no-obligation project estimate from our team.",
-    color: "text-sky-500",
+    to: "/services/custom-home-building",
+    icon: Home,
+    title: "Custom Home Building",
+    desc: "Design and build your dream home from the ground up in Brandon & Rankin County.",
+    color: "text-primary",
     bg: "bg-sky-50",
   },
   {
-    to: "/home-remodeling-cost",
-    icon: DollarSign,
-    title: "Home Remodeling Cost Guide",
-    desc: "Transparent pricing for kitchens, baths, additions & more.",
-    color: "text-green-600",
-    bg: "bg-green-50",
-  },
-  {
-    to: "/customertestimonials",
-    icon: Star,
-    title: "Customer Testimonials",
-    desc: "See why Brandon homeowners trust Bradley Brown Inc.",
-    color: "text-amber-500",
-    bg: "bg-amber-50",
-  },
-  {
-    to: "/barndominium-builder",
-    icon: Warehouse,
-    title: "Barndominium Builder",
-    desc: "Custom steel-frame barndominiums built across Mississippi.",
-    color: "text-orange-500",
-    bg: "bg-orange-50",
-  },
-  {
-    to: "/barndominiums-ms",
-    icon: Warehouse,
-    title: "Barndominiums in MS",
-    desc: "Why Mississippi families are choosing barndominiums.",
-    color: "text-orange-600",
-    bg: "bg-orange-50",
-  },
-  {
-    to: "/remodeling-ms",
-    icon: Hammer,
-    title: "Remodeling in MS",
-    desc: "Core remodeling services serving Central Mississippi.",
+    to: "/services/kitchen-remodeling",
+    icon: Wrench,
+    title: "Kitchen & Bath Remodeling",
+    desc: "Custom cabinets, countertops, tile & premium finishes that add real value.",
     color: "text-indigo-500",
     bg: "bg-indigo-50",
   },
   {
-    to: "/projects/historic-home-restoration",
-    icon: FileText,
-    title: "Historic Home Restoration",
-    desc: "Featured project: a 1920s craftsman home in Brandon.",
-    color: "text-rose-500",
-    bg: "bg-rose-50",
-  },
-  {
-    to: "/LuxuryHomeRenovations",
-    icon: Crown,
-    title: "Luxury Home Renovations",
-    desc: "High-end renovations with premium finishes and custom millwork.",
-    color: "text-purple-600",
-    bg: "bg-purple-50",
-  },
-  {
-    to: "/RenovationLoans",
-    icon: Banknote,
-    title: "Renovation Loans",
-    desc: "Financing options to make your remodel affordable.",
-    color: "text-emerald-600",
+    to: "/services/room-additions",
+    icon: Plus,
+    title: "Room Additions",
+    desc: "Master suites, in-law suites, home offices & sunrooms — seamless expansions.",
+    color: "text-emerald-500",
     bg: "bg-emerald-50",
   },
   {
-    to: "/HomeAdditionIdeas",
-    icon: Plus,
-    title: "Home Addition Ideas",
-    desc: "Inspiration for room additions, sunrooms & in-law suites.",
-    color: "text-teal-600",
-    bg: "bg-teal-50",
-  },
-  {
-    to: "/SmallBathroomIdeas",
-    icon: Bath,
-    title: "Small Bathroom Ideas",
-    desc: "Design ideas to maximize style in a compact bathroom.",
-    color: "text-cyan-600",
-    bg: "bg-cyan-50",
-  },
-  {
-    to: "/EnergyEfficientUpgrades",
+    to: "/services/outdoor-living",
     icon: Leaf,
-    title: "Energy-Efficient Upgrades",
-    desc: "Save on bills with smart energy upgrades for your home.",
-    color: "text-lime-600",
-    bg: "bg-lime-50",
+    title: "Outdoor Living",
+    desc: "Covered patios, outdoor kitchens, custom decks & pergolas for Mississippi living.",
+    color: "text-green-600",
+    bg: "bg-green-50",
   },
   {
-    to: "/LandingBrandonRemodelers",
-    icon: MapPin,
-    title: "Brandon, MS Remodelers",
-    desc: "Local remodelers serving Brandon and Rankin County.",
-    color: "text-sky-600",
-    bg: "bg-sky-50",
+    to: "/services/barndominiums",
+    icon: Warehouse,
+    title: "Barndominiums",
+    desc: "Steel-frame barndominiums combining living space, workshops & garages.",
+    color: "text-orange-500",
+    bg: "bg-orange-50",
   },
   {
-    to: "/LandingEmergencyRepair",
+    to: "/services/emergency-repairs",
     icon: AlertTriangle,
-    title: "Emergency Home Repairs",
-    desc: "Fast response for storm damage and urgent repairs.",
+    title: "Emergency Repairs",
+    desc: "Storm damage, roof leaks & urgent structural repairs — fast response.",
     color: "text-red-600",
     bg: "bg-red-50",
   },
@@ -119,13 +55,13 @@ const resources = [
 
 export default function FeaturedResources() {
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="py-16 md:py-20 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Helpful Resources</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1E2D3D]">Plan Your Project</h2>
-          <p className="text-slate-500 mt-3 max-w-xl mx-auto">
-            Free tools, pricing guides, and real stories to help you make confident decisions about your home.
+          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Our Services</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Plan Your Project</h2>
+          <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
+            Explore our full range of construction and remodeling services for Brandon, MS and Central Mississippi.
           </p>
         </div>
 
@@ -136,14 +72,14 @@ export default function FeaturedResources() {
               <Link
                 key={r.to}
                 to={r.to}
-                className="group p-6 border border-[#E2D9CC] rounded-xl hover:border-sky-400 hover:shadow-lg transition-all duration-300 bg-white"
+                className="group p-6 border border-border rounded-xl hover:border-primary hover:shadow-lg transition-all duration-300 bg-white"
               >
                 <div className={`w-12 h-12 ${r.bg} rounded-lg flex items-center justify-center mb-4`}>
                   <Icon className={`w-6 h-6 ${r.color}`} />
                 </div>
-                <h3 className="font-bold text-[#1E2D3D] mb-2">{r.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-3">{r.desc}</p>
-                <span className="inline-flex items-center gap-1 text-sky-500 text-sm font-semibold group-hover:gap-2 transition-all">
+                <h3 className="font-bold text-foreground mb-2">{r.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-3">{r.desc}</p>
+                <span className="inline-flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition-all">
                   Learn more <ChevronRight className="w-3.5 h-3.5" />
                 </span>
               </Link>

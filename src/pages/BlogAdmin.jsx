@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import {
   Plus, Sparkles, Pencil, Trash2, X, Check, RefreshCw,
-  LogIn, FileText, Eye, EyeOff
+  LogIn, FileText, Eye, EyeOff, CalendarDays, List
 } from "lucide-react";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";
+import BlogCalendar from "@/components/blog/BlogCalendar";
 
 const emptyPost = { title: "", content: "", image_url: "", topic: "", category: "home-remodeling", published: true };
 
@@ -23,17 +24,17 @@ function LoginGate({ onLogin }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-10 max-w-sm w-full text-center">
-        <div className="w-14 h-14 bg-[#1E2D3D] rounded-xl flex items-center justify-center mx-auto mb-5">
+        <div className="w-14 h-14 bg-foreground rounded-xl flex items-center justify-center mx-auto mb-5">
           <FileText className="w-7 h-7 text-sky-400" />
         </div>
-        <h1 className="text-xl font-bold text-[#1E2D3D] mb-2">Blog Admin</h1>
+        <h1 className="text-xl font-bold text-foreground mb-2">Blog Admin</h1>
         <p className="text-slate-500 text-sm mb-6">Sign in as an admin to manage and publish blog posts.</p>
         <button
           onClick={handleLogin}
           disabled={loading}
-          className="w-full bg-[#1E2D3D] hover:bg-[#2C3E50] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors disabled:opacity-60"
+          className="w-full bg-foreground hover:bg-secondary-foreground text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors disabled:opacity-60"
         >
           <LogIn className="w-4 h-4" />
           {loading ? "Redirecting…" : "Sign In"}
@@ -66,7 +67,7 @@ function PostModal({ post, onClose, onSave }) {
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[92vh] flex flex-col">
         <div className="flex items-center justify-between p-5 border-b">
-          <h2 className="font-bold text-[#1E2D3D]">{form.id ? "Edit Post" : "New Blog Post"}</h2>
+          <h2 className="font-bold text-foreground">{form.id ? "Edit Post" : "New Blog Post"}</h2>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setPreview(p => !p)}
@@ -81,9 +82,16 @@ function PostModal({ post, onClose, onSave }) {
 
         <div className="overflow-y-auto p-5 space-y-4 flex-1">
           {preview ? (
-            <div className="prose prose-slate prose-sm max-w-none">
+            <div className="prose prose-slate max-w-none
+              prose-headings:text-foreground prose-headings:font-bold
+              prose-h1:text-3xl prose-h1:mb-4
+              prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-3
+              prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-2
+              prose-p:text-slate-700 prose-p:leading-relaxed
+              prose-strong:text-foreground
+              prose-li:my-1">
               <h1>{form.title}</h1>
-              {form.image_url && <img src={form.image_url} alt="" className="rounded-xl w-full object-cover h-48" />}
+              {form.image_url && <img src={form.image_url} alt="" width="800" height="224" loading="lazy" decoding="async" className="rounded-xl w-full object-cover h-56 my-4" />}
               <ReactMarkdown>{form.content}</ReactMarkdown>
             </div>
           ) : (
@@ -106,7 +114,7 @@ function PostModal({ post, onClose, onSave }) {
                   placeholder="https://..."
                 />
                 {form.image_url && (
-                  <img src={form.image_url} alt="preview" className="mt-2 h-28 w-full object-cover rounded-lg" />
+                  <img src={form.image_url} alt="preview" width="800" height="112" loading="lazy" decoding="async" className="mt-2 h-28 w-full object-cover rounded-lg" />
                 )}
               </div>
               <div className="grid grid-cols-2 gap-3">
@@ -169,6 +177,7 @@ export default function BlogAdmin() {
   const [modal, setModal] = useState(null); // null | {} | existing post
   const [generating, setGenerating] = useState(false);
   const [genStatus, setGenStatus] = useState("");
+  const [view, setView] = useState("list");
 
   useEffect(() => {
     base44.auth.me()
@@ -196,11 +205,16 @@ export default function BlogAdmin() {
 
   const handleGenerate = async () => {
     setGenerating(true);
-    setGenStatus("Asking AI for a trending topic…");
+    setGenStatus("Researching live search trends…");
     try {
-      await base44.functions.invoke("generateProTip", {});
-      setGenStatus("Done! Post created.");
-      await loadPosts();
+      const res = await base44.functions.invoke("generateProTip", {});
+      const payload = res?.data || res || {};
+      if (payload.success === false) {
+        setGenStatus(payload.message || "No fresh topic found — all candidates are already covered.");
+      } else {
+        setGenStatus("Done! Post created.");
+        await loadPosts();
+      }
     } catch (e) {
       setGenStatus("Error: " + e.message);
     }
@@ -211,7 +225,7 @@ export default function BlogAdmin() {
   if (!authChecked) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-slate-200 border-t-[#1E2D3D] rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-foreground rounded-full animate-spin" />
       </div>
     );
   }
@@ -220,9 +234,9 @@ export default function BlogAdmin() {
 
   if (user.role !== "admin") {
     return (
-      <div className="min-h-screen bg-[#FAFAF8] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="text-center">
-          <p className="text-2xl font-bold text-[#1E2D3D] mb-2">Access Denied</p>
+          <p className="text-2xl font-bold text-foreground mb-2">Access Denied</p>
           <p className="text-slate-500">You need admin privileges to access this page.</p>
         </div>
       </div>
@@ -230,7 +244,7 @@ export default function BlogAdmin() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-20">
+    <div className="min-h-screen bg-background pt-20">
       {modal !== null && (
         <PostModal
           post={modal?.id ? modal : null}
@@ -239,13 +253,35 @@ export default function BlogAdmin() {
         />
       )}
 
-      <div className="bg-[#1E2D3D] py-10">
+      <div className="bg-foreground py-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold text-white">Blog Admin</h1>
             <p className="text-slate-400 text-sm mt-1">{posts.length} posts published</p>
           </div>
-          <div className="flex gap-3 flex-wrap">
+          <div className="flex gap-3 flex-wrap items-center">
+            <div className="flex bg-slate-700/60 rounded-lg p-1" role="tablist" aria-label="Blog view">
+              <button
+                onClick={() => setView("list")}
+                role="tab"
+                aria-selected={view === "list"}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold min-h-[44px] transition-colors ${
+                  view === "list" ? "bg-white text-foreground" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                <List className="w-4 h-4" /> List
+              </button>
+              <button
+                onClick={() => setView("calendar")}
+                role="tab"
+                aria-selected={view === "calendar"}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold min-h-[44px] transition-colors ${
+                  view === "calendar" ? "bg-white text-foreground" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                <CalendarDays className="w-4 h-4" /> Calendar
+              </button>
+            </div>
             <button
               onClick={handleGenerate}
               disabled={generating}
@@ -272,7 +308,9 @@ export default function BlogAdmin() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-        {loading ? (
+        {view === "calendar" && !loading ? (
+          <BlogCalendar posts={posts} onEdit={setModal} />
+        ) : loading ? (
           <div className="space-y-3">
             {[1, 2, 3].map(i => <div key={i} className="h-20 bg-white rounded-xl animate-pulse" />)}
           </div>
@@ -286,11 +324,11 @@ export default function BlogAdmin() {
             {posts.map(post => (
               <div key={post.id} className="bg-white border border-gray-100 rounded-xl shadow-sm p-5 flex flex-col sm:flex-row sm:items-center gap-4">
                 {post.image_url && (
-                  <img src={post.image_url} alt={post.title} className="w-full sm:w-20 h-20 object-cover rounded-lg flex-shrink-0" />
+                  <img src={post.image_url} alt={post.title} width="80" height="80" loading="lazy" decoding="async" className="w-full sm:w-20 h-20 object-cover rounded-lg flex-shrink-0" />
                 )}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-1">
-                    <h3 className="font-bold text-[#1E2D3D] text-sm leading-tight">{post.title}</h3>
+                    <h3 className="font-bold text-foreground text-sm leading-tight">{post.title}</h3>
                     <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${post.published ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"}`}>
                       {post.published ? "Live" : "Draft"}
                     </span>

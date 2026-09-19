@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
+import SEOHead from "@/components/SEOHead";
 
 export default function Legal() {
   const scrollToSection = (id) => {
@@ -11,6 +12,13 @@ export default function Legal() {
   };
 
   return (
+    <>
+    <SEOHead
+      title="Privacy Policy & Terms | Bradley Brown Inc"
+      description="Bradley Brown Inc. Privacy Policy and Terms & Conditions for our website, SMS messaging service, and custom home building services in Mississippi."
+      canonicalUrl="https://bradleybrowninc.com/legal"
+      noindex={false}
+    />
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       {/* Navigation Bar */}
       <div className="sticky top-20 bg-white border-b border-gray-200 shadow-sm z-40">
@@ -225,7 +233,7 @@ export default function Legal() {
         <div className="mt-16 pt-8 border-t border-gray-200">
           <div className="flex gap-6 justify-center flex-wrap">
             <Link
-              to={createPageUrl("Home")}
+              to="/"
               className="text-sm text-gray-600 hover:text-sky-400 transition-colors"
             >
               ← Back to Home
@@ -240,5 +248,6 @@ export default function Legal() {
         </div>
       </div>
     </div>
+    </>
   );
 }

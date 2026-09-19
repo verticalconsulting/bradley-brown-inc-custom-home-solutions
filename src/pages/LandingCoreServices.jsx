@@ -8,14 +8,23 @@ import LocalProofPoints from "@/components/landing/LocalProofPoints";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
+
+const faqs = [
+  { question: "How long does a kitchen remodel take?", answer: "Most kitchen remodels take 4–8 weeks depending on scope. We provide a detailed timeline before work begins so you always know what to expect." },
+  { question: "Do you serve Brandon, MS and surrounding areas?", answer: "Yes — we're centrally located and serve Brandon, Madison, Jackson, Flowood, Pearl, Ridgeland, Clinton, and the wider 50-mile radius." },
+  { question: "What licenses does Bradley Brown Inc. hold for Mississippi remodeling?", answer: "Bradley Brown Inc. is a licensed Mississippi General Contractor (license #08290) with full liability insurance and workers' comp on every job. We pull all required permits for remodeling projects statewide." },
+  { question: "What energy-efficient upgrades do you offer?", answer: "We install energy-efficient windows, upgrade insulation, improve HVAC airflow, and can frame for solar-readiness — all in one project." },
+  { question: "How do I get a free remodeling estimate in Mississippi?", answer: "Call us at (844) 351-4154 or use our online estimate tool for a free, no-obligation project estimate. We serve homeowners across Central Mississippi." },
+];
 
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@type": "HomeAndConstructionBusiness",
       "name": "Bradley Brown Inc.",
-      "telephone": "+16019541306",
+      "telephone": "+18443514154",
       "email": "bradleybrowninc@gmail.com",
       "url": "https://bradleybrowninc.com",
       "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
@@ -30,7 +39,7 @@ const schema = {
     {
       "@type": "Service",
       "name": "Home Remodeling & Renovation",
-      "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
+      "provider": { "@type": "HomeAndConstructionBusiness", "name": "Bradley Brown Inc." },
       "areaServed": "Brandon, MS and surrounding 50-mile radius",
       "description": "Kitchen renovation, bathroom remodeling, whole-home renovations, and energy-efficient upgrades in the Brandon and Rankin County area."
     },
@@ -38,36 +47,25 @@ const schema = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Core Services", "item": "https://bradleybrowninc.com/LandingCoreServices" }
+        { "@type": "ListItem", "position": 2, "name": "Core Services", "item": "https://bradleybrowninc.com/remodeling-ms" }
       ]
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "How long does a kitchen remodel take?", "acceptedAnswer": { "@type": "Answer", "text": "Most kitchen remodels take 4–8 weeks depending on scope. We'll give you a realistic timeline before we start." } },
-        { "@type": "Question", "name": "Do you serve Brandon, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we're based in Brandon, MS and serve the Rankin County area including Brandon, Madison, Jackson, Flowood, Pearl, and surrounding areas within 50 miles." } },
-        { "@type": "Question", "name": "What's included in an energy-efficient upgrade?", "acceptedAnswer": { "@type": "Answer", "text": "We offer insulation upgrades, energy-efficient windows, HVAC-ready builds, and solar-prep framing. Call us to discuss what makes sense for your home." } }
-      ]
+      "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } }))
     }
   ]
 };
 
-const faqs = [
-  { question: "How long does a kitchen remodel take?", answer: "Most kitchen remodels take 4–8 weeks depending on scope. We provide a detailed timeline before work begins so you always know what to expect." },
-  { question: "Do you serve Brandon, MS and surrounding areas?", answer: "Yes — we're centrally located and serve Brandon, Madison, Jackson, Flowood, Pearl, Ridgeland, Clinton, and the wider 50-mile radius." },
-  { question: "Are you licensed and insured in Mississippi?", answer: "Absolutely. Bradley Brown Inc. is a licensed Mississippi General Contractor with full liability insurance and workers' comp on every job." },
-  { question: "What energy-efficient upgrades do you offer?", answer: "We install energy-efficient windows, upgrade insulation, improve HVAC airflow, and can frame for solar-readiness — all in one project." },
-  { question: "Do you offer free estimates?", answer: "Yes. Call us at (601) 954-1306 or use our online Quote Assistant for a free, no-obligation project estimate." },
-];
-
 export default function LandingCoreServices() {
   const handleCall = () => base44.analytics.track({ eventName: "phone_click", properties: { source: "core_services_landing" } });
+  const { hero: heroImage } = usePageImages("LandingCoreServices");
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
+    <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
-        title="Home Remodeling in Brandon, MS — Bradley Brown Inc"
-        description="Licensed builder for kitchens, baths & whole-home renovations. Call now for a free estimate!"
+        title="Home Remodeling in Mississippi | Bradley Brown Inc"
+        description="Mississippi home remodelers — kitchen, bath & whole-home renovations across Central MS. Licensed since 2005. Free estimates — call (844) 351-4154."
         schema={schema}
         canonical="https://bradleybrowninc.com/remodeling-ms"
       />
@@ -75,27 +73,27 @@ export default function LandingCoreServices() {
 
       {/* Top sticky call bar */}
       <div className="sticky top-16 md:top-20 z-40 bg-green-500 text-white py-2 px-4 text-center text-sm font-semibold">
-        <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2">
-          <Phone className="w-4 h-4" /> Call Now: (601) 954-1306 — Free Estimates, Mon–Fri 8am–6pm
+        <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2">
+          <Phone className="w-4 h-4" /> Call Now: (844) 351-4154 — Free Estimates, Mon–Fri 8am–6pm
         </a>
       </div>
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80')" }} />
+      <div className="bg-foreground py-14 md:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80"}')` }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2">Brandon, MS & Surrounding Areas</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
             Home Remodeling in Brandon, MS<br className="hidden md:block" /> — Done Right
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Kitchen renovations, bathroom remodels, whole-home upgrades, and energy-efficient improvements. Licensed. Insured. 30+ years of Mississippi craftsmanship.
+            Kitchen renovations, bathroom remodels, whole-home upgrades, and energy-efficient improvements. Licensed. Insured. 20+ years of Mississippi craftsmanship.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
-              <Phone className="w-5 h-5" /> (601) 954-1306
+            <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+              <Phone className="w-5 h-5" /> (844) 351-4154
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
+            <Link to="/estimate" className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Free Estimate <ChevronRight className="w-5 h-5" />
             </Link>
           </div>
@@ -109,7 +107,7 @@ export default function LandingCoreServices() {
 
         {/* Services list */}
         <div>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Our Remodeling Services</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Our Remodeling Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { title: "Kitchen Renovation", desc: "Custom cabinets, countertops, islands, and full kitchen redesigns starting at $25,000." },
@@ -122,7 +120,7 @@ export default function LandingCoreServices() {
               <div key={s.title} className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
                 <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-bold text-[#1E2D3D] text-sm">{s.title}</h3>
+                  <h3 className="font-bold text-foreground text-sm">{s.title}</h3>
                   <p className="text-slate-500 text-xs mt-1 leading-snug">{s.desc}</p>
                 </div>
               </div>
@@ -132,15 +130,49 @@ export default function LandingCoreServices() {
 
         {/* Body copy */}
         <div className="prose prose-slate max-w-none">
-          <h2 className="text-xl font-bold text-[#1E2D3D]">Why Brandon, MS Homeowners Choose Bradley Brown Inc.</h2>
-          <p className="text-slate-600 leading-relaxed">Since 1995, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
+          <h2 className="text-xl font-bold text-foreground">Why Brandon, MS Homeowners Choose Bradley Brown Inc.</h2>
+          <p className="text-slate-600 leading-relaxed">Since 2005, Bradley Brown Inc. has been the contractor Brandon and Rankin County area homeowners trust for quality remodeling work. Whether you're updating a single bathroom or transforming your entire home, our team brings the same level of craftsmanship and attention to detail to every project.</p>
           <p className="text-slate-600 leading-relaxed">We serve Brandon, Flowood, Pearl, Richland, Madison, Ridgeland, and all of Rankin, Hinds, and Madison counties. Every estimate is free, every quote is transparent, and every project is backed by our quality guarantee.</p>
-          <p className="text-slate-600 leading-relaxed">From energy-efficient window replacements to complete kitchen gut-and-rebuilds, we handle it all with licensed tradespeople and a project manager on-site every day. Call us at <a href="tel:+16019541306" onClick={handleCall} className="text-sky-600 font-semibold">(601) 954-1306</a> to schedule your free consultation.</p>
+          <p className="text-slate-600 leading-relaxed">From energy-efficient window replacements to complete kitchen gut-and-rebuilds, we handle it all with licensed tradespeople and a project manager on-site every day. Call us at <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to schedule your free consultation.</p>
+        </div>
+
+        {/* Local internal links */}
+        <div className="bg-white border border-sky-100 rounded-2xl p-6 md:p-8 shadow-sm">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">Looking for a Local Brandon, MS Contractor?</h2>
+          <p className="text-slate-600 leading-relaxed mb-5">
+            Bradley Brown Inc. serves homeowners across Mississippi, with a strong local focus on Brandon and Rankin County.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/remodeling-brandon-ms"
+              className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Home Remodeling in Brandon, MS <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/custom-home-builder-brandon-ms"
+              className="inline-flex items-center gap-2 bg-foreground hover:bg-secondary-foreground text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Custom Home Builder in Brandon, MS <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/madison-ms-home-remodeling"
+              className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Home Remodeling in Madison, MS <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/bathroom-remodeling-brandon-ms"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-accent text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
+            >
+              Bathroom Remodeling — Brandon, MS <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
 
         {/* FAQ */}
         <div>
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-6 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions</h2>
           <LandingFAQ faqs={faqs} />
         </div>
       </div>

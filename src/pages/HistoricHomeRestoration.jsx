@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { Phone, ChevronRight, CheckCircle, Home, Clock, DollarSign, MapPin, Star } from "lucide-react";
+import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
 
 const schema = {
   "@context": "https://schema.org",
@@ -16,9 +18,9 @@ const schema = {
     "logo": { "@type": "ImageObject", "url": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png" }
   },
   "mainEntityOfPage": "https://bradleybrowninc.com/projects/historic-home-restoration"
-};
+  };
 
-const highlights = [
+  const highlights = [
   "Restored original heart pine hardwood floors to like-new condition",
   "Rebuilt wraparound front porch with period-accurate millwork",
   "Updated electrical, plumbing & HVAC while preserving wall integrity",
@@ -63,12 +65,23 @@ const phases = [
 ];
 
 export default function HistoricHomeRestoration() {
+  const { hero: heroImage, gallery: managedGallery } = usePageImages("HistoricHomeRestoration");
+  const fallbackGallery = [
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+    "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
+    "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80",
+    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80",
+    "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80",
+    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80",
+  ];
+  const galleryImages = managedGallery.length > 0 ? managedGallery.map((img) => img.url) : fallbackGallery;
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
-        title="Historic Home Restoration Project — Bradley Brown Inc. | Brandon, MS"
-        description="Bradley Brown Inc. restored a 1920s historic home in Brandon, MS — preserving original hardwood floors, millwork, and character while fully modernizing all systems. See the full project breakdown."
+        title="Historic Home Restoration | Bradley Brown Inc — Brandon, MS"
+        description="See how Bradley Brown Inc. restored a 1920s historic home in Brandon, MS — preserving original floors & millwork while modernizing all systems."
         canonical="https://bradleybrowninc.com/projects/historic-home-restoration"
+        noindex={false}
         schema={schema}
       />
 
@@ -76,7 +89,7 @@ export default function HistoricHomeRestoration() {
       <div
         className="relative bg-[#1E2D3D] py-20 md:py-28 overflow-hidden"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80')",
+          backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1200&q=80"}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -106,7 +119,7 @@ export default function HistoricHomeRestoration() {
               <Phone className="w-4 h-4" /> (844) 351-4154
             </a>
             <Link
-              to="/ContactForm"
+              to="/estimate"
               className="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-colors"
             >
               Get a Free Estimate <ChevronRight className="w-4 h-4" />
@@ -150,16 +163,9 @@ export default function HistoricHomeRestoration() {
         <section>
           <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">Project Gallery</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {[
-              "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
-              "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
-              "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80",
-              "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80",
-              "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80",
-              "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80",
-            ].map((src, i) => (
+            {galleryImages.map((src, i) => (
               <div key={i} className="rounded-xl overflow-hidden aspect-square bg-slate-100">
-                <img src={src} alt={`Historic home restoration photo ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <img src={src} alt={`Historic home restoration photo ${i + 1}`} width="400" height="400" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
               </div>
             ))}
           </div>
@@ -216,7 +222,7 @@ export default function HistoricHomeRestoration() {
               <Phone className="w-4 h-4" /> Call (844) 351-4154
             </a>
             <Link
-              to="/ContactForm"
+              to="/estimate"
               className="inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
             >
               Get a Free Estimate <ChevronRight className="w-4 h-4" />
@@ -229,10 +235,10 @@ export default function HistoricHomeRestoration() {
           <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">Related Projects & Resources</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
-              { label: "Renovation Services", to: "/Services" },
-              { label: "Portfolio", to: "/Portfolio" },
-              { label: "Home Addition Ideas", to: "/HomeAdditionIdeas" },
-              { label: "Renovation Loans", to: "/RenovationLoans" },
+              { label: "Our Services", to: "/services" },
+              { label: "Portfolio", to: "/portfolio" },
+              { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
+              { label: "Renovation Loans", to: "/protips/renovation-loans" },
             ].map(item => (
               <Link
                 key={item.to}
@@ -246,6 +252,7 @@ export default function HistoricHomeRestoration() {
         </section>
 
       </div>
+      <ServiceStickyCTA source="historic_restoration_page" label="Get a Free Quote" />
     </div>
   );
 }

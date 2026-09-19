@@ -4,7 +4,7 @@ import { createPageUrl } from "@/utils";
 import { base44 } from "@/api/base44Client";
 import { CheckCircle, Send } from "lucide-react";
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png";
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png?width=336&height=140&quality=100&format=webp";
 
 export default function SmsOptinForm() {
   const [name, setName] = useState("");
@@ -57,7 +57,7 @@ export default function SmsOptinForm() {
     <form onSubmit={handleSubmit} className="bg-white rounded-2xl border-2 border-sky-300 shadow-md overflow-hidden">
       {/* Header with logo + business name */}
       <div className="bg-[#1E2D3D] px-6 py-4 flex items-center gap-3">
-        <img src={LOGO_URL} alt="Bradley Brown Inc." className="h-10 w-auto object-contain brightness-0 invert" />
+        <img src={LOGO_URL} alt="Bradley Brown Inc." width="167" height="70" loading="lazy" decoding="async" className="h-10 w-auto object-contain brightness-0 invert" />
         <div>
           <p className="text-white font-bold text-sm leading-tight">Bradley Brown Inc.</p>
           <p className="text-slate-300 text-xs">SMS Opt-In Form</p>

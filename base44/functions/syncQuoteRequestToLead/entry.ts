@@ -3,6 +3,20 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
+
+    // Require an authenticated caller. This function is triggered by an internal
+    // QuoteRequest create automation. Blocking anonymous callers prevents
+    // unauthorized Lead record creation through the service-role write below.
+    let caller = null;
+    try {
+      caller = await base44.auth.me();
+    } catch {
+      caller = null;
+    }
+    if (!caller) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const body = await req.json();
 
     // Support direct calls with quote data, or entity automation payload

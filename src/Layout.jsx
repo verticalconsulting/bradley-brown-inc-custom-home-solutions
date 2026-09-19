@@ -1,75 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook, Settings } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import BottomTabBar from "@/components/BottomTabBar";
-import VisitorChatWidget from "@/components/chat/VisitorChatWidget";
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png";
+// Heavy chat widget — code-split and mount only when the browser is idle
+const VisitorChatWidget = lazy(() => import("@/components/chat/VisitorChatWidget"));
+import CertificateBadge from "@/components/CertificateBadge";
 
-const associations = [
-{
-  name: "Licensed & Insured",
-  img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/a21f22f37_licensed-insured.png",
-  url: null
-},
-{
-  name: "MS Board of Contractors",
-  img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/f98532894_ms-contractor.png",
-  url: "https://www.msboc.us"
-},
-{
-  name: "Home Builders Association of MS",
-  img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/103c2c527_mshba.png",
-  url: "https://www.mshba.com"
-},
-{
-  name: "NAHB",
-  img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/532a0ecba_nahb.png",
-  url: "https://www.nahb.org"
-},
-{
-  name: "Better Business Bureau",
-  img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/f47b53e12_bbb.png",
-  url: "https://www.bbb.org"
-}];
+// Logo served through Supabase image rendering at 2–3× display size (167×70):
+// ~9 KB near-lossless WebP (quality=100) instead of the 109 KB 1024×428 PNG.
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png?width=336&height=140&quality=100&format=webp";
 
 
 export default function Layout({ children, currentPageName }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [chatReady, setChatReady] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Mount the chat widget when the main thread is idle so it never
+  // competes with first paint / hero rendering on mobile.
   useEffect(() => {
-    if (document.getElementById("formspree-btn-script")) return;
-    const script = document.createElement("script");
-    script.id = "formspree-btn-script";
-    script.src = "https://formspree.io/js/formbutton-v1.min.js";
-    script.defer = true;
-    script.onload = () => {
-      window.formbutton = window.formbutton || function () {(window.formbutton.q = window.formbutton.q || []).push(arguments);};
-      window.formbutton("create", {
-        action: "https://formspree.io/f/xeeranrd",
-        title: "Get a Quick Quote",
-        fields: [
-        { type: "text", label: "Name:", name: "name", required: true, placeholder: "Your name" },
-        { type: "email", label: "Email:", name: "email", required: true, placeholder: "your@email.com" },
-        { type: "tel", label: "Phone:", name: "phone", placeholder: "(601) 000-0000" },
-        { type: "select", label: "Project Type:", name: "project_type", options: ["Custom Home", "Renovation", "Room Addition", "Outdoor Living", "Other"] },
-        { type: "textarea", label: "Tell us about your project:", name: "message", placeholder: "Describe your project, budget, timeline..." },
-        { type: "submit", value: "Send My Request" }],
-
-        styles: {
-          title: { backgroundColor: "#1E2D3D" },
-          button: { backgroundColor: "#38bdf8" }
-        }
-      });
-    };
-    document.body.appendChild(script);
+    const start = () => setChatReady(true);
+    if ("requestIdleCallback" in window) {
+      const id = window.requestIdleCallback(start, { timeout: 4000 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const t = setTimeout(start, 3000);
+    return () => clearTimeout(t);
   }, []);
+
+
 
   const isHomePage = currentPageName === "Home";
   const topLevelPages = ["Home", "Services", "Portfolio", "About", "Contact"];
@@ -87,29 +51,44 @@ export default function Layout({ children, currentPageName }) {
   }, [location.pathname]);
 
   const navLinks = [
-  { label: "Home", page: "Home" },
-  { label: "Services", page: "Services" },
-  { label: "Portfolio", page: "Portfolio" },
-  { label: "Jobsites", page: "Jobsites", path: "/jobsites" },
   { label: "About", page: "About" },
-  { label: "Contact", page: "Contact" },
+  { label: "Portfolio", page: "Portfolio" },
+  { label: "Reviews", to: "/reviews" },
+  { label: "Pricing", to: "/pricing" },
+  { label: "Planner", to: "/renovation-planner" },
+  { label: "Finish Studio", to: "/finish-package-studio" },
   { label: "Pro Tips", page: "ProTips" },
-  { label: "Schedule Visit", page: "ScheduleVisit" }];
+  { label: "Contact", page: "Contact" }];
+
+  const serviceLinks = [
+  { label: "Custom Home Building", to: "/services/custom-home-building" },
+  { label: "Kitchen Remodeling", to: "/services/kitchen-remodeling" },
+  { label: "Bathroom Remodeling", to: "/services/bathroom-remodeling" },
+  { label: "Room Additions", to: "/services/room-additions" },
+  { label: "Outdoor Living", to: "/services/outdoor-living" },
+  { label: "Barndominiums", to: "/services/barndominiums" },
+  { label: "Emergency Repairs", to: "/services/emergency-repairs" }];
 
 
   const transparent = isHomePage && !scrolled;
-  const navBg = transparent ? "bg-transparent" : "bg-white shadow-md";
-  const textColor = transparent ? "text-white" : "text-[#1E2D3D]";
+  const navBg = transparent ? "bg-transparent" : "bg-background shadow-md";
+  const textColor = transparent ? "text-white" : "text-foreground";
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8]">
+    <div className="min-h-screen bg-background">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-br-lg focus:shadow-lg">
+        
+        Skip to main content
+      </a>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {isChildPage &&
             <button
               onClick={() => navigate(-1)}
-              className={`md:hidden flex items-center gap-1 text-sm font-medium mr-2 transition-colors ${transparent ? "text-white" : "text-[#1E2D3D]"} hover:text-sky-400`}
+              className={`md:hidden flex items-center gap-1 text-sm font-medium mr-2 transition-colors ${transparent ? "text-white" : "text-foreground"} hover:text-primary`}
               aria-label="Go back">
 
                 <ChevronLeft className="w-5 h-5" />
@@ -120,30 +99,51 @@ export default function Layout({ children, currentPageName }) {
               <img
                 src={LOGO_URL}
                 alt="Bradley Brown Inc."
-                className={`h-10 md:h-12 w-auto object-contain transition-all ${transparent ? "brightness-0 invert" : ""}`} />
+                width="167"
+                height="70"
+                className={`h-10 md:h-12 w-auto object-contain transition-all ${transparent ? "brightness-0 invert" : ""}`}
+                decoding="async" />
 
             </Link>
 
             <div className="hidden md:flex items-center gap-6 lg:gap-8">
+              <Link
+                to={createPageUrl("Home")}
+                aria-current={currentPageName === "Home" ? "page" : undefined}
+                className={`text-sm font-medium transition-colors hover:text-primary underline-offset-4 hover:underline text-[hsl(var(--card))] ${
+                currentPageName === "Home" ? "underline" : textColor}`}>
+                Home
+              </Link>
+              <div className="relative group">
+                <Link
+                  to="/services"
+                  className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-0.5 ${
+                  currentPageName === "Services" ? "text-primary" : textColor}`}>
+
+                  Services <ChevronRight className="w-3 h-3 rotate-90" />
+                </Link>
+                <div className="absolute top-full left-0 pt-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                    {serviceLinks.map((link) =>
+                    <Link key={link.to} to={link.to} className="block px-4 py-3 text-sm text-foreground hover:bg-accent hover:text-primary underline-offset-2 hover:underline transition-colors">
+                            {link.label}
+                          </Link>
+                    )}
+                  </div>
+                </div>
+              </div>
               {navLinks.map((link) =>
               <Link
-                key={link.page}
-                to={link.path || createPageUrl(link.page)}
-                className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                currentPageName === link.page ? "text-sky-400" : textColor}`
+                key={link.label}
+                to={link.to || link.path || createPageUrl(link.page)}
+                aria-current={currentPageName === link.page ? "page" : undefined}
+                className={`text-sm font-medium transition-colors hover:text-primary underline-offset-4 hover:underline ${
+                currentPageName === link.page ? "text-primary underline" : textColor}`
                 }>
 
                   {link.label}
                 </Link>
               )}
-              <Link
-                to={createPageUrl("AccountSettings")}
-                className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                currentPageName === "AccountSettings" ? "text-sky-400" : textColor}`}
-                title="Account Settings">
-                
-                <Settings className="w-5 h-5" />
-              </Link>
             </div>
 
             <div className="flex items-center gap-3">
@@ -159,16 +159,39 @@ export default function Layout({ children, currentPageName }) {
                     });
                   }
                 }}
-                className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-sky-400 ${textColor}`}>
+                className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-primary ${textColor}`}>
 
                 <Phone className="w-4 h-4" />
                 (844) 351-4154
               </a>
+              {/* Desktop estimate CTA */}
               <Link
-                to={createPageUrl("ContactForm")} className="text-white px-4 py-2 text-sm font-semibold rounded hidden md:inline-flex items-center gap-1 hover:bg-sky-500 transition-colors bg-[#37b5eb]/[0.7]">
+                to="/estimate"
+                onClick={() => base44.analytics.track({
+                  eventName: currentPageName === "Home" ? "homepage_estimate_clicked" : "nav_estimate_clicked",
+                  properties: {
+                    placement: "header_desktop",
+                    destination: "/estimate",
+                    page: currentPageName || "unknown"
+                  }
+                })}
+                className="text-white px-5 py-3 text-sm min-h-[48px] font-semibold rounded hidden md:inline-flex items-center gap-1 hover:opacity-90 transition-colors bg-primary">Get My Free Estimate
+              </Link>
 
-
-                Get a Quote <ChevronRight className="w-3 h-3" />
+              {/* Mobile estimate CTA — thumb-sized, always visible in the header */}
+              <Link
+                to="/estimate"
+                onClick={() => base44.analytics.track({
+                  eventName: currentPageName === "Home" ? "homepage_estimate_clicked" : "nav_estimate_clicked",
+                  properties: {
+                    placement: "header_mobile",
+                    destination: "/estimate",
+                    page: currentPageName || "unknown"
+                  }
+                })}
+                className="md:hidden inline-flex items-center gap-1 bg-primary hover:opacity-90 text-white px-4 py-3 min-h-[48px] rounded-lg text-sm font-bold shadow-sm transition-colors"
+                aria-label="Get a free estimate">
+                Estimate
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -184,14 +207,28 @@ export default function Layout({ children, currentPageName }) {
         {mobileMenuOpen &&
         <div className="md:hidden bg-white border-t border-gray-100 shadow-xl">
             <div className="px-4 py-5 space-y-1">
+              <Link
+              to={createPageUrl("Home")}
+              className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
+              currentPageName === "Home" ? "bg-accent text-primary" : "text-foreground hover:bg-gray-50"}`}>
+                Home
+              </Link>
+              <div className="px-3 py-2">
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Services</p>
+                {serviceLinks.map((link) =>
+              <Link key={link.to} to={link.to} className="block px-3 py-2 rounded-lg text-sm text-foreground hover:bg-gray-50 transition-colors">
+                    {link.label}
+                  </Link>
+              )}
+              </div>
               {navLinks.map((link) =>
             <Link
-              key={link.page}
-              to={link.path || createPageUrl(link.page)}
+              key={link.label}
+              to={link.to || link.path || createPageUrl(link.page)}
               className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
               currentPageName === link.page ?
-              "bg-amber-50 text-sky-400" :
-              "text-[#1E2D3D] hover:bg-gray-50"}`
+              "bg-accent text-primary" :
+              "text-foreground hover:bg-gray-50"}`
               }>
 
                   {link.label}
@@ -209,15 +246,23 @@ export default function Layout({ children, currentPageName }) {
                     });
                   }
                 }}
-                className="flex items-center gap-2 px-3 py-2 text-[#1E2D3D] font-medium">
-                  <Phone className="w-4 h-4 text-sky-400" />
+                className="flex items-center gap-2 px-3 py-2 text-foreground font-medium">
+                  <Phone className="w-4 h-4 text-primary" />
                   (844) 351-4154
                 </a>
                 <Link
-                to={createPageUrl("ContactForm")}
-                className="block bg-sky-400 text-white px-4 py-3 rounded-lg text-center font-semibold hover:bg-sky-500 transition-colors">
+                to="/estimate"
+                onClick={() => base44.analytics.track({
+                  eventName: currentPageName === "Home" ? "homepage_estimate_clicked" : "nav_estimate_clicked",
+                  properties: {
+                    placement: "mobile_menu",
+                    destination: "/estimate",
+                    page: currentPageName || "unknown"
+                  }
+                })}
+                className="block bg-primary text-white px-4 py-3.5 min-h-[48px] rounded-lg text-center font-semibold hover:opacity-90 transition-colors">
 
-                  Get a Free Quote →
+                  Get My Free Estimate →
                 </Link>
               </div>
             </div>
@@ -225,34 +270,28 @@ export default function Layout({ children, currentPageName }) {
         }
       </nav>
 
-      <main className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={location.pathname}
-            initial={{ x: 40, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -40, opacity: 0 }}
-            transition={{ duration: 0.22, ease: "easeInOut" }}>
-            
-            {children}
-          </motion.div>
-        </AnimatePresence>
+      <main id="main-content" className="pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">
+        {children}
       </main>
 
       <BottomTabBar currentPageName={currentPageName} />
 
-      {/* Global chat widget (hidden on agent page) */}
-      {currentPageName !== "AgentChat" && <VisitorChatWidget />}
+      {/* Global chat widget (hidden on agent page) — mounted when idle */}
+      {currentPageName !== "AgentChat" && chatReady && (
+        <Suspense fallback={null}>
+          <VisitorChatWidget />
+        </Suspense>
+      )}
 
-      <footer className="bg-[#1E2D3D] text-white">
+      <footer className="bg-foreground text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             <div className="sm:col-span-2 lg:col-span-2">
               <div className="mb-4">
-                <img src={LOGO_URL} alt="Bradley Brown Inc." className="h-14 w-auto object-contain brightness-0 invert" />
+                <img src={LOGO_URL} alt="Bradley Brown Inc." width="167" height="70" loading="lazy" decoding="async" className="h-14 w-auto object-contain brightness-0 invert" />
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-                Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 1995.
+              <p className="text-sm leading-relaxed max-w-sm text-[hsl(var(--background))]">Building Brandon and the Rankin County area's dream homes with craftsmanship, integrity, and attention to detail since 2005.
+
               </p>
               <div className="mt-5 space-y-2">
                 <a
@@ -266,19 +305,19 @@ export default function Layout({ children, currentPageName }) {
                       });
                     }
                   }}
-                  className="flex items-center gap-2 text-slate-300 hover:text-sky-400 text-sm transition-colors">
+                  className="flex items-center gap-2 hover:text-primary text-sm transition-colors text-[hsl(var(--ring))]">
                   <Phone className="w-4 h-4" /> (844) 351-4154
                 </a>
-                <a href="mailto:bradleybrowninc@gmail.com" className="block text-slate-300 hover:text-sky-400 text-sm transition-colors">
-                  bradleybrowninc@gmail.com
-                </a>
-                <p className="text-slate-500 text-sm">104 Tiffany Drive, Brandon, MS 39042</p>
+                <Link to="/contact" className="block hover:text-primary text-sm transition-colors text-[hsl(var(--ring))]">Email Us Online
+
+                </Link>
+                <p className="text-sm text-[hsl(var(--ring))]">104 Tiffany Drive, Brandon, MS 39042</p>
                 <div className="mt-5 flex gap-3">
                   <a
                     href="https://www.facebook.com/BradleyBrownInc"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-sky-400 transition-colors"
+                    className="text-slate-300 hover:text-primary transition-colors"
                     aria-label="Facebook">
                     
                     <Facebook className="w-5 h-5" />
@@ -287,7 +326,7 @@ export default function Layout({ children, currentPageName }) {
                     href="https://www.tiktok.com/@bb859876"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-sky-400 transition-colors"
+                    className="text-slate-300 hover:text-primary transition-colors"
                     aria-label="TikTok">
                     
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -298,73 +337,65 @@ export default function Layout({ children, currentPageName }) {
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h3>
+              <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-[hsl(var(--ring))]">SERVICES</h3>
               <ul className="space-y-2">
                 {[
-                { label: "Custom Home Building", page: "Services" },
-                { label: "Home Renovations", page: "Services" },
-                { label: "Room Additions", page: "Services" },
-                { label: "Outdoor Living Spaces", page: "Services" },
-                { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
-                { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
-                { label: "Core Services — Brandon", page: "LandingCoreServices" }].
+                { label: "Custom Home Building", to: "/services/custom-home-building" },
+                { label: "Kitchen Remodeling", to: "/services/kitchen-remodeling" },
+                { label: "Bathroom Remodeling", to: "/services/bathroom-remodeling" },
+                { label: "Room Additions", to: "/services/room-additions" },
+                { label: "Outdoor Living", to: "/services/outdoor-living" },
+                { label: "Barndominiums", to: "/services/barndominiums" },
+                { label: "Emergency Repairs", to: "/services/emergency-repairs" }].
                 map((item) =>
                 <li key={item.label}>
-                    <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
+                    <Link to={item.to} className="hover:text-primary text-sm underline-offset-2 hover:underline transition-colors text-[hsl(var(--input))]">{item.label}</Link>
                   </li>
                 )}
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Company</h3>
+              <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-[hsl(var(--ring))]">COMPANY</h3>
               <ul className="space-y-2">
                 {[
                 { label: "About Us", page: "About" },
                 { label: "Portfolio", page: "Portfolio" },
-                { label: "Pro Tips & Advice", page: "ProTips" },
-                { label: "Why Trust Us", page: "LandingTrust" },
+                { label: "Reviews", to: "/reviews" },
+                { label: "Renovation Planner", to: "/renovation-planner" },
+                { label: "Finish Package Studio", to: "/finish-package-studio" },
+                { label: "Pro Tips", page: "ProTips" },
+                { label: "Pricing", to: "/pricing" },
+                { label: "Remodeling in MS", to: "/remodeling-ms" },
                 { label: "Contact Us", page: "Contact" },
-                { label: "Get a Free Quote", page: "ContactForm" },
-                { label: "AI Cost Estimator", page: "QuoteAssistant" },
-                { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-                { label: "Pricing Guide", page: "LandingPricing" },
-                { label: "Renovation Loans", page: "RenovationLoans" },
-                { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-                { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
-                { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
-                { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
                 { label: "Legal", page: "Legal" }].
                 map((item) =>
-                <li key={item.page + item.label}>
-                    <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-sky-400 text-sm transition-colors">{item.label}</Link>
+                <li key={item.label}>
+                    <Link to={item.to || createPageUrl(item.page)} className="hover:text-primary text-sm underline-offset-2 hover:underline transition-colors text-[hsl(var(--input))]">{item.label}</Link>
                   </li>
                 )}
               </ul>
             </div>
           </div>
 
-          {/* Associations */}
+          {/* Certifications */}
           <div className="mt-10 pt-8 border-t border-slate-700">
-            <p className="text-slate-500 text-xs uppercase tracking-wider mb-4">Memberships & Certifications</p>
-            <div className="flex flex-wrap items-center gap-4 md:gap-6">
-              {associations.map((a) =>
-              a.url ?
-              <a key={a.name} href={a.url} target="_blank" rel="noopener noreferrer" title={a.name}
-              className="opacity-70 hover:opacity-100 transition-opacity">
-                    <img src={a.img} alt={a.name} className="h-12 w-auto object-contain" />
-                  </a> :
-
-              <div key={a.name} title={a.name} className="opacity-70">
-                    <img src={a.img} alt={a.name} className="h-12 w-auto object-contain" />
-                  </div>
-
-              )}
-            </div>
+            <p className="text-slate-300 text-xs uppercase tracking-wider mb-4">Certifications</p>
+            <CertificateBadge variant="dark" />
           </div>
 
           <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-sm">© 2026 Bradley Brown Inc. All rights reserved.</p>
-            <p className="text-slate-500 text-sm">Licensed & Insured · Mississippi General Contractor · 104 Tiffany Drive, Brandon, MS 39042</p>
+            <p className="text-slate-300 text-sm">
+              © 2026 Designed by{" "}
+              <a href="https://verticalconsulting.net" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-400 transition-colors">
+                Five Hughes LLC
+              </a>
+            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+              <Link to="/seodashboard" className="text-slate-300 hover:text-primary text-sm transition-colors">
+                Employee Portal
+              </Link>
+              <p className="text-slate-300 text-sm">Licensed & Insured · Mississippi Residential Builder · 104 Tiffany Drive, Brandon, MS 39042</p>
+            </div>
           </div>
         </div>
       </footer>

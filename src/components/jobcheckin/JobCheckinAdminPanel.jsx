@@ -59,7 +59,7 @@ export default function JobCheckinAdminPanel() {
           {items.map(it => (
             <div key={it.id} className="border border-gray-200 rounded-lg p-4 flex flex-col md:flex-row gap-4">
               {it.photos?.[0] && (
-                <img src={it.photos[0]} alt={it.title} className="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0" />
+                <img src={it.photos[0]} alt={it.title} width="128" height="128" loading="lazy" decoding="async" className="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0" />
               )}
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-3 flex-wrap">

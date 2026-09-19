@@ -9,7 +9,7 @@ export default function PullToRefresh({ onRefresh, children }) {
   const isRefreshingRef = useRef(false);
 
   const handleTouchStart = (e) => {
-    if (containerRef.current?.scrollTop === 0) {
+    if (window.scrollY === 0) {
       startYRef.current = e.touches[0].clientY;
       setIsPulling(true);
     }

@@ -1,31 +1,29 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) - GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M16SZNFJYP"></script>
-    <!-- Google tag (gtag.js) - Google Ads -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17864041271"></script>
+    <!-- Google tag (gtag.js) — ONE combined load for GA4 + Google Ads, deferred to after page load -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-M16SZNFJYP');
-      gtag('config', 'AW-17864041271');
+      (function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-M16SZNFJYP');
+        gtag('config', 'AW-17864041271');
+        var loadGtag = function() {
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-M16SZNFJYP';
+          document.head.appendChild(s);
+        };
+        if (document.readyState === 'complete') { loadGtag(); }
+        else { window.addEventListener('load', loadGtag); }
+      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bradley Brown Inc. — Custom Home Builder in Central Mississippi</title>
     <meta name="description" content="Bradley Brown Inc. builds custom homes across Central Mississippi. Quality craftsmanship, transparent pricing, and a builder you can trust." />
     <link rel="canonical" href="https://www.bradleybrowninc.com/" />
-    <!-- Clarity tracking code for https://bradleybrowninc.com/ -->
-<script>
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wq4qcw02kz");
-</script>
-
     <!-- Favicon (self-hosted) -->
     <link rel="icon" type="image/svg+xml" href="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/464ec574-e409-45b3-0abc-1e510f3de300/logo" />
     <link rel="apple-touch-icon" href="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/7a5b58fc-ec8d-45ea-0868-bebdc9ff4100/logo" />
@@ -39,23 +37,39 @@
     <meta property="og:image" content="https://www.bradleybrowninc.com/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Performance: preconnect to third parties -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://analytics.ahrefs.com" />
+    <!-- Performance: preconnect ONLY first-paint-critical origins (hero image CDN + header logo).
+         gtag and the Meta Pixel load after the load event, so preconnecting them is overuse. -->
+    <link rel="preconnect" href="https://imagedelivery.net" />
+    <link rel="preconnect" href="https://qtrypzzcjebvfcihiynt.supabase.co" />
+
+    <!-- Fonts: self-hosted Latin-subset WOFF2 (defined in the app stylesheet).
+         Preload the one critical file — Space Grotesk 700 powers the hero headline (LCP). -->
+    <link rel="preload" as="font" type="font/woff2" href="https://base44.app/api/apps/699c758479c46f0580553750/files/mp/public/699c758479c46f0580553750/3e18ab794_space-grotesk-700-latin.woff2" crossorigin />
+
+    <!-- Hero image: deliberately NOT preloaded. The trace showed the asset transferring
+         twice (preload + <img>); the hero <img> carries fetchpriority="high" and is now the
+         single, top-priority fetch of the asset. -->
 
     <!-- Manifest & sitemap -->
     <link rel="manifest" href="/manifest.json" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Google Tag Manager (only — move GA4 + Ads tags inside GTM) -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N4STLGGN');</script>
-
-    <!-- Ahrefs Web Analytics -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="VM/GzVbadCR3Wg+Qegt+eg" async></script>
+    <!-- Meta Pixel Code — base code queued immediately, library loads after page load -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      var loadFbq=function(){s.parentNode.insertBefore(t,s)};
+      if(document.readyState==='complete'){loadFbq()}
+      else{window.addEventListener('load',loadFbq)}
+      }(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '865625803104097');
+      fbq('track', 'PageView');
+    </script>
 
     <!-- Norton Safe Web verification -->
     <meta name="norton-safeweb-site-verification" content="HNRK0ZBTER7OXPE45T3OKX91Y894PKFL1ITJYYA-MXUA2P49WMHR4X1PH8NVOCBNDOSA5YR5NV2979OP3JDKPKBATZXCSDHVSWAPEIBHW475PZPDG323NNA2H9J0N4UE" />
@@ -80,9 +94,10 @@
     </script>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4STLGGN"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- Meta Pixel (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=865625803104097&ev=PageView&noscript=1"
+    /></noscript>
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

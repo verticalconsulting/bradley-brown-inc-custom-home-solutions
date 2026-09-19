@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { base44 } from "@/api/base44Client";
+import { useGoogleReviews } from "@/hooks/useGoogleReviews";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const PROJECT_LABELS = {
@@ -35,20 +36,37 @@ export default function TestimonialSlider({
   limit = 6,
   featuredOnly = false,
   title = "What Our Clients Say",
-  subtitle = "Trusted by homeowners across Central Mississippi since 1995.",
+  subtitle = "Trusted by homeowners across Central Mississippi since 2005.",
 }) {
+  const { reviews: gReviews, loading: gLoading } = useGoogleReviews();
   const [testimonials, setTestimonials] = useState([]);
   const [current, setCurrent] = useState(0);
   const [loading, setLoading] = useState(true);
   const autoRef = useRef(null);
 
   useEffect(() => {
+    if (gLoading) return;
+
+    if (gReviews.length > 0) {
+      const mapped = gReviews.map((r) => ({
+        client_name: r.author_name,
+        location: "Google Review",
+        rating: r.rating,
+        text: r.text,
+        photo_url: r.profile_photo_url || null,
+      }));
+      setTestimonials(mapped.slice(0, limit));
+      setLoading(false);
+      return;
+    }
+
+    // Fallback to Testimonial entity
     const filters = featuredOnly ? { featured: true } : {};
     base44.entities.Testimonial.filter(filters, "-created_date", limit)
       .then((data) => setTestimonials(data.length ? data : PLACEHOLDERS.slice(0, limit)))
       .catch(() => setTestimonials(PLACEHOLDERS.slice(0, limit)))
       .finally(() => setLoading(false));
-  }, [limit, featuredOnly]);
+  }, [limit, featuredOnly, gLoading, gReviews.length]);
 
   // Auto-advance for dark variant
   useEffect(() => {
@@ -91,7 +109,7 @@ export default function TestimonialSlider({
               <p className="text-slate-600 text-sm leading-relaxed italic flex-1 mb-4">"{t.text}"</p>
               <div className="flex items-center gap-3">
                 {t.photo_url ? (
-                  <img src={t.photo_url} alt={t.client_name} className="w-9 h-9 rounded-full object-cover border-2 border-sky-100" />
+                  <img src={t.photo_url} alt={t.client_name} width="36" height="36" loading="lazy" decoding="async" className="w-9 h-9 rounded-full object-cover border-2 border-sky-100" />
                 ) : (
                   <div className="w-9 h-9 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 font-bold text-sm flex-shrink-0">
                     {t.client_name.charAt(0)}
@@ -131,7 +149,7 @@ export default function TestimonialSlider({
           </div>
           <div className="flex items-center gap-3 justify-center mt-1">
             {t.photo_url && (
-              <img src={t.photo_url} alt={t.client_name} className="w-10 h-10 rounded-full object-cover border-2 border-sky-400/30" />
+              <img src={t.photo_url} alt={t.client_name} width="40" height="40" loading="lazy" decoding="async" className="w-10 h-10 rounded-full object-cover border-2 border-sky-400/30" />
             )}
             <div>
               <p className="font-bold text-white">{t.client_name}</p>
@@ -143,7 +161,7 @@ export default function TestimonialSlider({
         </div>
 
         <div className="flex items-center justify-center gap-4 mt-8">
-          <button onClick={prev} className="w-10 h-10 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 hover:border-[#C4922A] hover:text-[#C4922A] transition-colors">
+          <button onClick={prev} aria-label="Previous testimonial" className="w-11 h-11 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 hover:border-[#C4922A] hover:text-[#C4922A] transition-colors">
             <ChevronLeft className="w-5 h-5" />
           </button>
           <div className="flex gap-2">
@@ -151,11 +169,14 @@ export default function TestimonialSlider({
               <button
                 key={i}
                 onClick={() => { clearInterval(autoRef.current); setCurrent(i); }}
-                className={`w-2 h-2 rounded-full transition-colors ${i === current ? "bg-[#C4922A]" : "bg-slate-600 hover:bg-slate-400"}`}
-              />
+                aria-label={`Go to testimonial ${i + 1}`}
+                className={`min-w-[44px] min-h-[44px] flex items-center justify-center -mx-3 rounded-full transition-colors`}
+              >
+                <span className={`block w-2 h-2 rounded-full transition-colors ${i === current ? "bg-[#C4922A]" : "bg-slate-600"}`} />
+              </button>
             ))}
           </div>
-          <button onClick={next} className="w-10 h-10 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 hover:border-[#C4922A] hover:text-[#C4922A] transition-colors">
+          <button onClick={next} aria-label="Next testimonial" className="w-11 h-11 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 hover:border-[#C4922A] hover:text-[#C4922A] transition-colors">
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>

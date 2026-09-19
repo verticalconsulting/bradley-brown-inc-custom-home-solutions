@@ -5,32 +5,39 @@ import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
 import LocalProofPoints from "@/components/landing/LocalProofPoints";
+import TierPricing from "@/components/landing/TierPricing";
+import FinancingOptions from "@/components/landing/FinancingOptions";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
+import { usePageImages } from "@/lib/usePageImages";
 
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@type": "HomeAndConstructionBusiness",
       "name": "Bradley Brown Inc.",
-      "telephone": "+16019541306",
-      "address": { "@type": "PostalAddress", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
-      "priceRange": "$$$"
+      "telephone": "+18443514154",
+      "address": { "@type": "PostalAddress", "streetAddress": "104 Tiffany Drive", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
+      "foundingDate": "2005",
+      "priceRange": "$$$",
+      "sameAs": ["https://www.facebook.com/BradleyBrownInc", "https://www.tiktok.com/@bb859876"],
+      "areaServed": [{ "@type": "City", "name": "Brandon, Mississippi" }, { "@type": "AdministrativeArea", "name": "Rankin County, Mississippi" }]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://bradleybrowninc.com/LandingPricing" }
+        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://bradleybrowninc.com/pricing" }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "How much does a home renovation cost in Mississippi?", "acceptedAnswer": { "@type": "Answer", "text": "Renovation costs in the Brandon and Rankin County area typically range from $50–$150 per sq ft depending on scope and materials. Kitchen remodels start around $25,000 and bathrooms from $10,000. Call us for a free, detailed estimate specific to your home." } },
-        { "@type": "Question", "name": "Do you offer financing options?", "acceptedAnswer": { "@type": "Answer", "text": "We can discuss flexible payment schedules on larger projects. Call (601) 954-1306 to talk through options." } }
+        { "@type": "Question", "name": "Do you offer financing options?", "acceptedAnswer": { "@type": "Answer", "text": "We can discuss flexible payment schedules on larger projects. Call (844) 351-4154 to talk through options." } }
       ]
     }
   ]
@@ -47,35 +54,39 @@ const pricing = [
 ];
 
 const faqs = [
-  { question: "How much does a home renovation cost in Mississippi?", answer: "Renovation costs in the Brandon and Rankin County area typically range from $50–$150 per sq ft. Kitchen remodels start at $25,000 and bathrooms from $10,000. The best way to know is to call us at (601) 954-1306 — estimates are always free." },
+  { question: "How much does a home renovation cost in Mississippi?", answer: "Renovation costs in the Brandon and Rankin County area typically range from $50–$150 per sq ft. Kitchen remodels start at $25,000 and bathrooms from $10,000. The best way to know is to call us at (844) 351-4154 — estimates are always free." },
   { question: "Why isn't your pricing more specific?", answer: "Every home is different. Costs depend on design choices, existing conditions, materials, and site access. We give transparent, itemized quotes — not ballpark guesses — after seeing your project in person." },
   { question: "How do you price a project?", answer: "We visit your home, review your goals, and build a detailed line-item estimate. You'll see exactly what you're paying for before any work begins." },
-  { question: "Do you offer any warranties?", answer: "Yes. We stand behind our work. All projects include a workmanship warranty, and material warranties pass through directly from manufacturers." },
+  { question: "Do you offer any warranties?", answer: "Yes. We stand behind our work. We stand behind our work, and material warranties pass through directly from manufacturers." },
   { question: "Can I get a rough estimate online?", answer: "Yes — use our AI-powered Quote Assistant for a ballpark estimate, then call us to refine it with a site visit." },
 ];
 
 export default function LandingPricing() {
   const handleCall = () => base44.analytics.track({ eventName: "phone_click", properties: { source: "pricing_landing" } });
+  const { hero: heroImage } = usePageImages("Pricing");
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-16 md:pt-20">
       <SEOHead
         title="Home Remodeling Cost in Brandon, MS — Bradley Brown"
-        description="Transparent pricing for kitchens, baths & custom homes in Brandon, MS. Call (601) 954-1306 for a free estimate."
+        description="Transparent pricing for kitchens, baths & custom homes in Brandon, MS. See cost ranges for every project type. Licensed since 2005. Call (844) 351-4154."
         schema={schema}
-        canonical="https://bradleybrowninc.com/home-remodeling-cost"
+        canonical="https://bradleybrowninc.com/pricing"
       />
       <StickyCallButton />
 
       <div className="sticky top-16 md:top-20 z-40 bg-green-500 text-white py-2 px-4 text-center text-sm font-semibold">
-        <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2">
-          <Phone className="w-4 h-4" /> Free Estimates — Call (601) 954-1306
+        <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2">
+          <Phone className="w-4 h-4" /> Free Estimates — Call (844) 351-4154
         </a>
       </div>
 
       {/* Hero */}
-      <div className="bg-[#1E2D3D] py-14 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+        {heroImage && (
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage.url}')` }} />
+        )}
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-sky-400/20 border border-sky-400/40 rounded-full px-3 py-1 mb-3">
             <DollarSign className="w-3.5 h-3.5 text-sky-400" />
             <span className="text-sky-300 text-xs font-medium">Transparent Pricing</span>
@@ -87,10 +98,10 @@ export default function LandingPricing() {
             Honest, transparent pricing ranges — and free detailed estimates for your specific project.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+16019541306" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+            <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
               <Phone className="w-5 h-5" /> Call for Free Estimate
             </a>
-            <Link to={createPageUrl("QuoteAssistant")} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
+            <Link to={"/estimate"} className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
               Online Quote <ChevronRight className="w-5 h-5" />
             </Link>
           </div>
@@ -126,6 +137,12 @@ export default function LandingPricing() {
           <p className="text-xs text-slate-400 mt-3">* These are illustrative estimates only. Not a quote or guarantee. Call for accurate pricing specific to your project.</p>
         </div>
 
+        {/* Tier pricing breakdown */}
+        <TierPricing />
+
+        {/* Financing options */}
+        <FinancingOptions />
+
         {/* How we price */}
         <div>
           <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">How We Price Your Project</h2>
@@ -160,17 +177,17 @@ export default function LandingPricing() {
           <h3 className="font-bold text-[#1E2D3D] text-sm mb-3">Related Pages</h3>
           <div className="flex flex-wrap gap-2">
             {[
-              { label: "View All Services", page: "Services" },
-              { label: "Our Portfolio", page: "Portfolio" },
-              { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-              { label: "AI Estimator", page: "QuoteAssistant" },
-              { label: "Renovation Loans", page: "RenovationLoans" },
-              { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-              { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
-              { label: "About Us", page: "About" },
-              { label: "Contact Us", page: "Contact" },
+              { label: "View All Services", to: "/services" },
+              { label: "Our Portfolio", to: "/portfolio" },
+              { label: "Get a Free Estimate", to: "/estimate" },
+              { label: "AI Estimator", to: "/estimate" },
+              { label: "Renovation Loans", to: "/protips/renovation-loans" },
+              { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
+              { label: "Small Bathroom Ideas", to: "/protips/small-bathroom-ideas" },
+              { label: "About Us", to: "/about" },
+              { label: "Contact Us", to: "/contact" },
             ].map((link) => (
-              <Link key={link.page} to={createPageUrl(link.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+              <Link key={link.to} to={link.to} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
                 <ChevronRight className="w-3 h-3" /> {link.label}
               </Link>
             ))}

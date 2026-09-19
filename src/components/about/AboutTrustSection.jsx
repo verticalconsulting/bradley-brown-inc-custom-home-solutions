@@ -1,0 +1,53 @@
+import React from "react";
+import { CheckCircle } from "lucide-react";
+import TestimonialSlider from "@/components/TestimonialSlider";
+import LandingFAQ from "@/components/landing/LandingFAQ";
+import CertificateBadge from "@/components/CertificateBadge";
+
+const trustFaqs = [
+  { question: "Is Bradley Brown Inc. licensed in Mississippi?", answer: "Yes. We are a licensed Mississippi General Contractor, fully insured with general liability and workers' compensation coverage on every project." },
+  { question: "How long have you been in business?", answer: "Since 2005 — over 20 years serving Brandon and Rankin County area homeowners. We've completed countless renovations and many custom homes in the area." },
+  { question: "Do you have references I can call?", answer: "Absolutely. Call us at (844) 351-4154 and we'll connect you with past clients in your area who are happy to share their experience." },
+  { question: "What warranty do you offer?", answer: "We stand behind every job we do. Material warranties pass through directly from manufacturers." },
+];
+
+export default function AboutTrustSection() {
+  return (
+    <>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14">
+        {[{ v: "20+", l: "Years in Business" }, { v: "Many", l: "Renovations & Custom Homes" }, { v: "5.0★", l: "Average Rating" }, { v: "100%", l: "Licensed & Insured" }].map(s => (
+          <div key={s.l} className="bg-white border border-gray-100 rounded-xl p-5 text-center shadow-sm">
+            <p className="text-2xl font-bold text-sky-600">{s.v}</p><p className="text-xs text-slate-500 mt-1">{s.l}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mb-14">
+        <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Certifications</h2>
+        <div className="flex flex-wrap items-center justify-center gap-6 bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
+          <CertificateBadge variant="light" />
+        </div>
+      </div>
+
+      <div id="testimonials" className="mb-14">
+        <TestimonialSlider variant="light" limit={6} title="What Our Clients Say" subtitle="Renovations and many custom homes across the Brandon and Rankin County area. Here's what homeowners say about working with us." />
+      </div>
+
+      <div className="mb-14">
+        <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Our Commitments to You</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {["Licensed Mississippi Residential Builder (R08290)", "Full general liability insurance on every project", "Workers' compensation coverage for all crew", "Transparent, itemized written quotes — no surprises", "We stand behind every completed project", "Committed to ethical, honest business practices"].map(item => (
+            <div key={item} className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+              <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" /><span className="text-sm text-slate-700">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mb-14">
+        <h2 className="text-xl font-bold text-[#1E2D3D] mb-6 text-center">Frequently Asked Questions</h2>
+        <LandingFAQ faqs={trustFaqs} />
+      </div>
+    </>
+  );
+}

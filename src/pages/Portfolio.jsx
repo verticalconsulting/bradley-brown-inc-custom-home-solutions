@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import SEOHead from "@/components/SEOHead";
 import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import { MapPin, Maximize2, Calendar, SlidersHorizontal, ChevronRight, Instagram } from "lucide-react";
 import PullToRefresh from "@/components/PullToRefresh";
 import InstagramFeed from "@/components/portfolio/InstagramFeed";
+import { usePageImages } from "@/lib/usePageImages";
 
 const categoryFilters = [
   { value: "all", label: "All Projects" },
@@ -18,36 +18,34 @@ const categoryFilters = [
 const categoryLabels = { custom_home: "Custom Home", renovation: "Renovation", addition: "Addition", outdoor: "Outdoor Living" };
 
 const placeholderProjects = [
-  { title: "Office Addition", category: "addition", location: "Brandon, MS", square_footage: 500, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6c9b1767-038f-4dfc-fcc3-a97c611b7700/heromobile"] },
-  { title: "County Custom Built", category: "custom_home", location: "Canton, MS", square_footage: 3200, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/large"] },
-  { title: "Luxury Kitchen", category: "renovation", location: "Madison, MS", square_footage: 800, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/large"] },
-  { title: "Belhaven Master Bath", category: "renovation", location: "Jackson, MS", square_footage: 550, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/large"] },
-  { title: "Outdoor Oasis", category: "outdoor", location: "Ridgeland, MS", square_footage: 900, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/a550b013-bf54-4156-5f21-ebabe8869600/large"] },
+  { title: "Office Addition", category: "addition", location: "Brandon, MS", square_footage: 500, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/6c9b1767-038f-4dfc-fcc3-a97c611b7700/medium"] },
+  { title: "County Custom Built", category: "custom_home", location: "Canton, MS", square_footage: 3200, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cf31ad9a-e08a-4158-ddd3-ca127b735b00/medium"] },
+  { title: "Luxury Kitchen", category: "renovation", location: "Madison, MS", square_footage: 800, year_completed: 2024, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/932d74d8-4f05-4b52-fa85-6903e1e42b00/medium"] },
+  { title: "Belhaven Master Bath", category: "renovation", location: "Jackson, MS", square_footage: 550, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/466141bd-cb8b-493a-6dce-ce29737aa600/medium"] },
+  { title: "Outdoor Oasis", category: "outdoor", location: "Ridgeland, MS", square_footage: 900, year_completed: 2023, images: ["https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/a550b013-bf54-4156-5f21-ebabe8869600/medium"] },
 ];
 
 const exploreLinks = [
-  { label: "Our Services", page: "Services" },
-  { label: "Get a Free AI Estimate", page: "QuoteAssistant" },
-  { label: "Schedule a Site Visit", page: "ScheduleVisit" },
-  { label: "Contact Us", page: "Contact" },
-  { label: "Why Trust Us", page: "LandingTrust" },
-  { label: "Pricing Guide", page: "LandingPricing" },
-  { label: "Luxury Renovations", page: "LuxuryHomeRenovations" },
-  { label: "Home Addition Ideas", page: "HomeAdditionIdeas" },
-  { label: "Small Bathroom Ideas", page: "SmallBathroomIdeas" },
-  { label: "Energy-Efficient Upgrades", page: "EnergyEfficientUpgrades" },
-  { label: "Renovation Loans & Financing", page: "RenovationLoans" },
-  { label: "Barndominium Builder", page: "BarndominiumBuilder" },
-  { label: "Barndominiums in MS", page: "Barndominiums" },
-  { label: "Brandon MS Remodelers", page: "LandingBrandonRemodelers" },
-  { label: "Core Remodeling Services (MS)", page: "LandingCoreServices" },
-  { label: "Emergency Repairs", page: "LandingEmergencyRepair" },
+  { label: "Our Services", to: "/services" },
+  { label: "Get a Free Estimate", to: "/estimate" },
+  { label: "Contact Us", to: "/contact" },
+  { label: "Pricing Guide", to: "/pricing" },
+  { label: "Pro Tips Blog", to: "/protips" },
+  { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
+  { label: "Small Bathroom Ideas", to: "/protips/small-bathroom-ideas" },
+  { label: "Energy-Efficient Upgrades", to: "/protips/energy-efficient-upgrades" },
+  { label: "Renovation Loans & Financing", to: "/protips/renovation-loans" },
+  { label: "Barndominiums", to: "/services/barndominiums" },
+  { label: "Brandon MS Remodelers", to: "/remodeling-brandon-ms" },
+  { label: "Custom Home Builder", to: "/custom-home-builder-brandon-ms" },
+  { label: "Emergency Repairs", to: "/services/emergency-repairs" },
 ];
 
 export default function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
   const [loading, setLoading] = useState(true);
+  const { hero: heroImage, cta: featuredImage } = usePageImages("Portfolio");
 
   const loadProjects = () => {
     base44.entities.Project.filter({ status: "published" }, "-year_completed", 50)
@@ -72,12 +70,15 @@ export default function Portfolio() {
     <PullToRefresh onRefresh={handleRefresh}>
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
-        title="Project Portfolio – Custom Homes & Renovations in Mississippi"
-        description="Browse our portfolio of custom homes, kitchen & bath renovations, room additions, and outdoor living projects built across Jackson, Madison, Ridgeland, Brandon, and Central Mississippi."
-        canonical="https://bradleybrowninc.com/Portfolio"
+        title="Project Portfolio | Bradley Brown Inc — Brandon, MS"
+        description="Browse our portfolio of custom homes, kitchen & bath renovations, additions & outdoor living across Brandon, Madison & Central MS. Call (844) 351-4154."
+        canonical="https://bradleybrowninc.com/portfolio"
       />
-      <div className="bg-[#1E2D3D] py-14 md:py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <div className="bg-[#1E2D3D] py-14 md:py-20 relative overflow-hidden">
+        {heroImage && (
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url('${heroImage.url}')` }} />
+        )}
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sky-400 font-semibold text-sm uppercase tracking-wider mb-2">Our Portfolio</p>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Our Work Speaks For Itself</h1>
           <p className="text-slate-300 mt-4 max-w-xl mx-auto">Browse through our completed projects across Central Mississippi.</p>
@@ -117,8 +118,10 @@ export default function Portfolio() {
                 <div className="relative h-56 overflow-hidden">
                   <img
                     src={project.images?.[0] || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"}
-                    alt={project.title}
+                    alt={`${categoryLabels[project.category] || project.category || "Project"} by Bradley Brown Inc — ${project.location || "Mississippi"}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-3 left-3">
                     <span className="bg-sky-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
@@ -153,23 +156,23 @@ export default function Portfolio() {
           </div>
         )}
 
-        {/* Featured project story — internal link to HistoricHomeRestoration */}
-        <div className="mt-14">
-          <Link
-            to="/projects/historic-home-restoration"
-            className="group block bg-gradient-to-r from-rose-50 to-amber-50 border border-rose-100 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all"
-          >
-            <p className="text-rose-600 font-semibold text-xs uppercase tracking-wider mb-2">Featured Project Story</p>
-            <h2 className="text-xl md:text-2xl font-bold text-[#1E2D3D] mb-2">
-              Historic Home Restoration in Brandon — 1920s Craftsman
-            </h2>
-            <p className="text-slate-600 text-sm leading-relaxed mb-3">
-              See how we restored a century-old Brandon craftsman home — preserving original character while bringing in modern function. Read the full project breakdown with photos.
-            </p>
-            <span className="inline-flex items-center gap-1 text-rose-600 text-sm font-semibold group-hover:gap-2 transition-all">
-              Read the story <ChevronRight className="w-4 h-4" />
-            </span>
-          </Link>
+        {/* Featured Project Story */}
+        <div className="mt-10 bg-gradient-to-br from-[#1E2D3D] to-slate-800 rounded-2xl overflow-hidden shadow-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
+            <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
+              <img src={featuredImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"} alt="Historic home restoration by Bradley Brown Inc. — Brandon, MS" width="600" height="450" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+            </div>
+            <div className="p-8 md:p-10">
+              <p className="text-sky-400 font-semibold text-xs uppercase tracking-wider mb-2">Featured Project Story</p>
+              <h3 className="text-2xl font-bold text-white mb-3">Custom Barndominium in Brandon, MS</h3>
+              <p className="text-slate-300 text-sm leading-relaxed mb-5">
+                Explore how we transformed a steel-frame shell into a modern barndominium — open-concept living, vaulted ceilings, and energy-efficient finishes tailored to the homeowner's vision.
+              </p>
+              <Link to="/services/barndominiums" className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-colors">
+                See Barndominium Services <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Instagram Feed */}
@@ -199,9 +202,9 @@ export default function Portfolio() {
           <h2 className="font-bold text-[#1E2D3D] text-sm mb-3">Explore More</h2>
           <div className="flex flex-wrap gap-2">
             {exploreLinks.map(navItem => (
-              <a key={navItem.page} href={createPageUrl(navItem.page)} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
+              <Link key={navItem.to} to={navItem.to} className="inline-flex items-center gap-1 bg-white border border-gray-200 text-sky-700 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-sky-50 transition-colors">
                 <ChevronRight className="w-3 h-3" /> {navItem.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

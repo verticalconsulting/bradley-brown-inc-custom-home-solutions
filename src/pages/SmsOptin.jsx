@@ -7,14 +7,14 @@ import SmsOptinForm from "@/components/SmsOptinForm";
 
 export default function SmsOptin() {
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-20">
+    <div className="min-h-screen bg-background pt-20">
       <SEOHead
         title="SMS Opt-In Policy — Bradley Brown Inc."
         description="Bradley Brown Inc. SMS consent policy. Learn how we collect consent, what messages you'll receive, and how to opt out."
         canonical="https://bradleybrowninc.com/sms-optin"
       />
 
-      <div className="bg-[#1E2D3D] py-10 md:py-14">
+      <div className="bg-foreground py-10 md:py-14">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-sky-400/20 border border-sky-400/40 rounded-full px-3 py-1 mb-3">
             <MessageSquare className="w-3.5 h-3.5 text-sky-300" />
@@ -34,7 +34,7 @@ export default function SmsOptin() {
 
         {/* Consent Checkbox Example */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-4 flex items-center gap-2">
+          <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-sky-500" /> 1. How You Opt In
           </h2>
           <p className="text-slate-600 text-sm leading-relaxed mb-6">
@@ -44,7 +44,7 @@ export default function SmsOptin() {
           <div className="space-y-6">
             {/* Method 1 */}
             <div className="border border-sky-200 bg-sky-50 rounded-xl p-5">
-              <p className="font-bold text-[#1E2D3D] mb-2">Method 1 — Web Form Opt-In</p>
+              <p className="font-bold text-foreground mb-2">Method 1 — Web Form Opt-In</p>
               <p className="text-slate-600 text-sm mb-4">
                 Users must explicitly check a consent box on our quote request form. The checkbox reads exactly:
               </p>
@@ -64,7 +64,7 @@ export default function SmsOptin() {
 
             {/* Method 2 */}
             <div className="border border-gray-200 bg-slate-50 rounded-xl p-5">
-              <p className="font-bold text-[#1E2D3D] mb-2">Method 2 — Keyword Opt-In</p>
+              <p className="font-bold text-foreground mb-2">Method 2 — Keyword Opt-In</p>
               <p className="text-slate-600 text-sm">
                 Users may opt in by texting <strong>"START"</strong> to our business number. This triggers a confirmation message requesting explicit consent before any messaging begins.
               </p>
@@ -74,7 +74,7 @@ export default function SmsOptin() {
 
         {/* What Messages You'll Receive */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">2. What Messages You'll Receive</h2>
+          <h2 className="text-xl font-bold text-foreground mb-4">2. What Messages You'll Receive</h2>
           <ul className="space-y-2 text-slate-600 text-sm">
             <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" /> Quote follow-ups and project estimate details</li>
             <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" /> Project updates and scheduling confirmations</li>
@@ -86,7 +86,7 @@ export default function SmsOptin() {
 
         {/* Opt-In Confirmation Message */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">3. Opt-In Confirmation Message</h2>
+          <h2 className="text-xl font-bold text-foreground mb-4">3. Opt-In Confirmation Message</h2>
           <p className="text-slate-600 text-sm mb-4">After opting in, you will receive the following confirmation SMS:</p>
           <div className="bg-slate-100 border-l-4 border-sky-400 rounded-r-xl p-4">
             <p className="text-sm text-slate-700 font-mono">
@@ -97,7 +97,7 @@ export default function SmsOptin() {
 
         {/* Sample Message */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">4. Sample Message</h2>
+          <h2 className="text-xl font-bold text-foreground mb-4">4. Sample Message</h2>
           <p className="text-slate-600 text-sm mb-4">An example of a message you may receive from us:</p>
           <div className="bg-slate-100 border-l-4 border-green-400 rounded-r-xl p-4">
             <p className="text-sm text-slate-700 font-mono">
@@ -108,7 +108,7 @@ export default function SmsOptin() {
 
         {/* STOP / HELP */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-4">5. How to Stop or Get Help</h2>
+          <h2 className="text-xl font-bold text-foreground mb-4">5. How to Stop or Get Help</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-red-50 border border-red-200 rounded-xl p-5">
               <p className="text-2xl font-black text-red-600 mb-2">STOP</p>
@@ -127,13 +127,13 @@ export default function SmsOptin() {
 
         {/* Message & Data Rates */}
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 text-sm text-slate-700">
-          <p className="font-semibold text-[#1E2D3D] mb-1">Message &amp; Data Rates</p>
+          <p className="font-semibold text-foreground mb-1">Message &amp; Data Rates</p>
           <p>Message and data rates may apply depending on your mobile carrier plan. Bradley Brown Inc. does not charge for messages, but your carrier's standard rates apply. Message frequency varies.</p>
         </div>
 
         {/* Privacy Policy link */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-xl font-bold text-[#1E2D3D] mb-2">6. Privacy Policy</h2>
+          <h2 className="text-xl font-bold text-foreground mb-2">6. Privacy Policy</h2>
           <p className="text-slate-600 text-sm">
             Your information is never sold or shared with third parties for marketing purposes. SMS opt-in data is not shared with any third party. For full details, see our{" "}
             <Link to={createPageUrl("Legal")} className="text-sky-600 font-medium hover:underline">Privacy Policy</Link>.
@@ -141,7 +141,7 @@ export default function SmsOptin() {
         </div>
 
         {/* Contact */}
-        <div className="bg-[#1E2D3D] rounded-2xl p-6 md:p-8 text-center">
+        <div className="bg-foreground rounded-2xl p-6 md:p-8 text-center">
           <h2 className="text-lg font-bold text-white mb-2">Questions About SMS Messaging?</h2>
           <p className="text-slate-300 text-sm mb-4">Contact us directly and we'll help right away.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
