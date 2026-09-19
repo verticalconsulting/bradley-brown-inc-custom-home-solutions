@@ -3,6 +3,7 @@ import { CheckCircle } from "lucide-react";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import CertificateBadge from "@/components/CertificateBadge";
+import BBBAccreditedBadge from "@/components/BBBAccreditedBadge";
 
 const trustFaqs = [
   { question: "Is Bradley Brown Inc. licensed in Mississippi?", answer: "Yes. We are a licensed Mississippi General Contractor, fully insured with general liability and workers' compensation coverage on every project." },
@@ -26,6 +27,7 @@ export default function AboutTrustSection() {
         <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Certifications</h2>
         <div className="flex flex-wrap items-center justify-center gap-6 bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
           <CertificateBadge variant="light" />
+          <BBBAccreditedBadge variant="light" />
         </div>
       </div>
 

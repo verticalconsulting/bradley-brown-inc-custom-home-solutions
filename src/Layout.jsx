@@ -8,6 +8,7 @@ import BottomTabBar from "@/components/BottomTabBar";
 // Heavy chat widget — code-split and mount only when the browser is idle
 const VisitorChatWidget = lazy(() => import("@/components/chat/VisitorChatWidget"));
 import CertificateBadge from "@/components/CertificateBadge";
+import BBBAccreditedBadge from "@/components/BBBAccreditedBadge";
 
 // Logo served through Supabase image rendering at 2–3× display size (167×70):
 // ~9 KB near-lossless WebP (quality=100) instead of the 109 KB 1024×428 PNG.
@@ -380,7 +381,10 @@ export default function Layout({ children, currentPageName }) {
           {/* Certifications */}
           <div className="mt-10 pt-8 border-t border-slate-700">
             <p className="text-slate-300 text-xs uppercase tracking-wider mb-4">Certifications</p>
-            <CertificateBadge variant="dark" />
+            <div className="flex flex-wrap items-center gap-4">
+              <CertificateBadge variant="dark" />
+              <BBBAccreditedBadge variant="dark" />
+            </div>
           </div>
 
           <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-4">

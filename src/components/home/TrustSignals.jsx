@@ -1,5 +1,6 @@
 import React from "react";
 import { Hammer, Home, MapPin, Shield } from "lucide-react";
+import BBBAccreditedBadge from "@/components/BBBAccreditedBadge";
 
 const signals = [
   { icon: MapPin, title: "Brandon, Mississippi", label: "Locally Based" },
@@ -26,6 +27,9 @@ export default function TrustSignals() {
               <div className="text-slate-300 text-sm mt-1">{label}</div>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center mt-10">
+          <BBBAccreditedBadge variant="dark" />
         </div>
       </div>
     </section>

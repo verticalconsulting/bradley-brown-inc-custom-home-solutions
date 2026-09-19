@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight, MessageCircle, Calendar, Zap } from "lucide-react";
 import ContactTrustBar from "@/components/landing/ContactTrustBar";
+import BBBAccreditedBadge from "@/components/BBBAccreditedBadge";
 import { usePageImages } from "@/lib/usePageImages";
 
 export default function Contact() {
@@ -143,6 +144,9 @@ export default function Contact() {
             <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Licensed & insured since 2005</span>
             <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Replies within 1 business day</span>
             <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-sky-500" /> Mon–Fri 8am–6pm · Sat 9am–3pm</span>
+          </div>
+          <div className="flex justify-center mt-4">
+            <BBBAccreditedBadge variant="light" />
           </div>
         </div>
       </div>
