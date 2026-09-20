@@ -60,7 +60,7 @@ const withSharedQuestions = ({ process, design, start }) => [
 export const serviceAnswerFirstContent = {
   customHomeBuilding: {
     description:
-      "Plan a personalized custom home in Brandon or Central Mississippi with Bradley Brown Inc. Explore the service, prepare your project details, and request a free estimate.",
+      "Plan a personalized custom home in Brandon or Central Mississippi with Bradley Brown Inc. Share your property and goals to request a free estimate.",
     opening:
       "Bradley Brown Inc. builds personalized custom homes for homeowners in Brandon and Central Mississippi. The service is intended for people who want a home shaped around their property, household, space needs, and design priorities. The next step is to request an estimate and share the location, goals, and plans already available.",
     faqs: withSharedQuestions({
@@ -74,7 +74,7 @@ export const serviceAnswerFirstContent = {
   },
   kitchenRemodeling: {
     description:
-      "Kitchen remodeling for Brandon and Central Mississippi homeowners, from layout and storage improvements to cabinetry, surfaces, lighting, fixtures, and finishes. Request a free estimate.",
+      "Kitchen remodeling in Brandon and Central Mississippi: improve layout, storage, cabinetry, surfaces, lighting, and finishes. Request a free estimate.",
     opening:
       "Bradley Brown Inc. remodels kitchens for homeowners in Brandon and Central Mississippi. A project can focus on improving layout, storage, work areas, gathering space, cabinetry, surfaces, lighting, fixtures, and finishes, with the final scope based on the existing kitchen and the homeowner's priorities. Request an estimate to begin.",
     faqs: withSharedQuestions({
@@ -88,7 +88,7 @@ export const serviceAnswerFirstContent = {
   },
   bathroomRemodeling: {
     description:
-      "Bathroom remodeling for Brandon and Central Mississippi homeowners, including showers, tubs, vanities, tile, storage, fixtures, accessibility, and finish updates. Request an estimate.",
+      "Bathroom remodeling in Brandon and Central Mississippi: update showers, tubs, vanities, tile, storage, and fixtures. Request an estimate.",
     opening:
       "Bradley Brown Inc. remodels bathrooms for homeowners in Brandon and Central Mississippi. Projects may address showers, tubs, vanities, tile, storage, fixtures, ventilation, accessibility, and finishes, with the final scope based on the existing room and homeowner's priorities. Request an estimate to discuss the space and next step.",
     faqs: withSharedQuestions({
@@ -102,7 +102,7 @@ export const serviceAnswerFirstContent = {
   },
   roomAdditions: {
     description:
-      "Explore room additions and home expansions for Brandon and Central Mississippi, including bedrooms, suites, offices, sunrooms, and garage conversions. Request an estimate.",
+      "Explore room additions in Brandon and Central Mississippi, including bedrooms, suites, offices, and sunrooms. Request an estimate.",
     opening:
       "Bradley Brown Inc. plans and builds room additions for homeowners in Brandon and Central Mississippi who need more usable space without leaving their current home. The current site presents bedrooms, primary suites, in-law suites, home offices, sunrooms, and garage conversions as possible project types. Request an estimate to review the property and scope.",
     faqs: withSharedQuestions({
@@ -116,7 +116,7 @@ export const serviceAnswerFirstContent = {
   },
   outdoorLiving: {
     description:
-      "Outdoor living projects for Brandon and Central Mississippi, including patios, porches, outdoor kitchens, decks, pergolas, and related gathering spaces. Request an estimate.",
+      "Outdoor living in Brandon and Central Mississippi: patios, porches, outdoor kitchens, decks, and pergolas. Request an estimate.",
     opening:
       "Bradley Brown Inc. creates outdoor living spaces for homeowners in Brandon and Central Mississippi. The current site presents covered patios, porches, outdoor kitchens, decks, pergolas, pavilions, pool-area features, fire features, and lighting as possible project types. Request an estimate to discuss the property, intended use, and desired scope.",
     faqs: withSharedQuestions({
@@ -130,7 +130,7 @@ export const serviceAnswerFirstContent = {
   },
   barndominiums: {
     description:
-      "Plan a barndominium with living, garage, workshop, storage, or hobby space in Brandon or Central Mississippi. Share the property and project goals to request an estimate.",
+      "Plan a barndominium with living, garage, workshop, or storage space in Brandon or Central Mississippi. Share your goals to request an estimate.",
     opening:
       "Bradley Brown Inc. offers barndominium construction for homeowners in Brandon and Central Mississippi. The current site presents barndominiums as personalized structures that may combine living space with a garage, workshop, storage, or hobby space. Request an estimate to discuss the land, intended use, space needs, and desired finish level.",
     faqs: withSharedQuestions({
