@@ -69,6 +69,11 @@ export default function ScheduleVisit() {
       // Fire only after the backend confirms the booking. This replaces the
       // inaccurate Google Ads URL rule that counts visits to /schedulevisit.
       if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          value: 100,
+          currency: "USD",
+          lead_source: "site_visit_booking",
+        });
         window.gtag("event", "conversion", {
           send_to: "AW-17864041271/xdzhCPzmwZwcELfGnsZC",
           value: 100,

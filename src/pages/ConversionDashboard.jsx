@@ -76,9 +76,10 @@ Disconnect G-FEQZWHQV5K and AW-17766361797.`,
   {
     severity: "warning",
     title: "Remove automatic page-view conversions",
-    detail: "Google Ads still contains URL-based conversion rules for /schedulevisit, /thank-you, and the legacy /Contact path. These can count visits without a successful lead action.",
+    detail: "Google Ads still contains URL-based conversion rules for /schedulevisit, /thank-you, and the legacy /Contact path. GA4 also creates generate_lead automatically from form_submit. These can count visits or attempted forms without a successful lead action.",
     fix: `Remove or set to Secondary the URL/page-load rules.
-Keep the success-based events implemented in the website code.`,
+Remove the GA4 rule that creates generate_lead from form_submit.
+Keep generate_lead as a key event; the website now sends it only after success.`,
     page: "Google Ads → Goals → Conversions",
   },
 ];

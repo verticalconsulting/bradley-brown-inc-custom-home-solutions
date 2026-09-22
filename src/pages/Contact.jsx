@@ -44,6 +44,11 @@ export default function Contact() {
       });
 
       if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          value: 75,
+          currency: "USD",
+          lead_source: "contact_form",
+        });
         window.gtag("event", "conversion", {
           send_to: "AW-17864041271/aquote_form",
           value: 75,

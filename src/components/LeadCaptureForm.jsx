@@ -51,6 +51,11 @@ export default function LeadCaptureForm({ source = "Website", onSuccess }) {
 
       // Fire Google Ads conversion pixel (best-effort — never block success)
       if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          value: 75,
+          currency: "USD",
+          lead_source: source,
+        });
         window.gtag("event", "conversion", {
           send_to: "AW-17864041271/aquote_form",
           value: 75,

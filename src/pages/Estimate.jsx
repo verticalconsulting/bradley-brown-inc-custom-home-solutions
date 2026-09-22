@@ -208,6 +208,11 @@ export default function Estimate() {
       // has already been captured. transaction_id prevents accidental retries
       // from being counted twice by Google Ads.
       if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          value: 75,
+          currency: 'USD',
+          lead_source: 'ai_estimator',
+        });
         window.gtag('event', 'conversion', {
           send_to: 'AW-17864041271/aquote_form',
           value: 75,
