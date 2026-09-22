@@ -41,9 +41,29 @@ const initialData = {
   schedule_visit: false,
 };
 
+const WIZARD_STORAGE_KEY = "estimateWizardState";
+
+// Restore an in-progress wizard so a remount / accidental reload
+// (e.g. dismissing the native file picker) never loses the visitor's answers.
+const restoreWizardState = () => {
+  try {
+    const saved = sessionStorage.getItem(WIZARD_STORAGE_KEY);
+    if (!saved) return null;
+    const parsed = JSON.parse(saved);
+    if (!parsed || typeof parsed !== "object") return null;
+    const step =
+      typeof parsed.step === "number" && parsed.step >= 0 && parsed.step < RESULT_STEP
+        ? parsed.step
+        : 0;
+    return { step, data: { ...initialData, ...(parsed.data || {}) } };
+  } catch {
+    return null;
+  }
+};
+
 export default function Estimate() {
-  const [step, setStep] = useState(0);
-  const [data, setData] = useState(initialData);
+  const [step, setStep] = useState(() => restoreWizardState()?.step ?? 0);
+  const [data, setData] = useState(() => restoreWizardState()?.data ?? initialData);
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -102,6 +122,13 @@ export default function Estimate() {
       } catch { /* ignore parse errors */ }
     }
   }, []);
+
+  // Keep the wizard's progress in session storage so it survives remounts/reloads
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(WIZARD_STORAGE_KEY, JSON.stringify({ step, data }));
+    } catch { /* storage full or unavailable — ignore */ }
+  }, [step, data]);
 
   const canProceed = () => {
     if (step === 0) return !!data.project_type;
@@ -260,6 +287,12 @@ export default function Estimate() {
           design_concept_prompt: designResult?.prompt_used || undefined,
         });
       }
+
+      // Estimate generated successfully — clear saved wizard progress
+      // so the next visit starts a fresh wizard instead of the old answers.
+      try {
+        sessionStorage.removeItem(WIZARD_STORAGE_KEY);
+      } catch { /* ignore */ }
     } catch (err) {
       console.error(err);
       setError(err.message || "Something went wrong generating your estimate.");
