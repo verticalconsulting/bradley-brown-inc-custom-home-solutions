@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.44';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.49';
 import { secrets } from 'base44:runtime';
 
 const TIME_LABELS = {
@@ -99,16 +99,22 @@ export default async function(req) {
         const twilioFrom = secrets.get("TWILIO_FROM_NUMBER");
         const adminPhone = secrets.get("ADMIN_PHONE_NUMBER");
 
-        if (twilioSid && twilioAuth && twilioFrom && adminPhone) {
-            const smsBody = `New Site Visit Booked!\nClient: ${name}\nEmail: ${email}\nDate: ${date}\nTime: ${TIME_LABELS[time] || time}${phone ? `\nPhone: ${phone}` : ""}`;
-            await fetch(`https://api.twilio.com/2010-04-01/Accounts/${twilioSid}/Messages.json`, {
-                method: "POST",
-                headers: {
-                    "Authorization": "Basic " + btoa(`${twilioSid}:${twilioAuth}`),
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: new URLSearchParams({ From: twilioFrom, To: adminPhone, Body: smsBody }),
-            });
+        // Admin SMS is a best-effort notification — a Twilio outage must never
+        // fail the visitor's booking (the record save below is the source of truth).
+        try {
+            if (twilioSid && twilioAuth && twilioFrom && adminPhone) {
+                const smsBody = `New Site Visit Booked!\nClient: ${name}\nEmail: ${email}\nDate: ${date}\nTime: ${TIME_LABELS[time] || time}${phone ? `\nPhone: ${phone}` : ""}`;
+                await fetch(`https://api.twilio.com/2010-04-01/Accounts/${twilioSid}/Messages.json`, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": "Basic " + btoa(`${twilioSid}:${twilioAuth}`),
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: new URLSearchParams({ From: twilioFrom, To: adminPhone, Body: smsBody }),
+                });
+            }
+        } catch (smsError) {
+            console.error('Admin SMS notification failed:', smsError.message);
         }
 
         // Save the booking as a lead regardless of the calendar outcome
