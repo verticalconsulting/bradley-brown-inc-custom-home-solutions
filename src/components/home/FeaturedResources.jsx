@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Home, Wrench, Plus, Leaf, Warehouse, AlertTriangle, ChevronRight, Palette } from "lucide-react";
+import { Home, Wrench, Plus, Leaf, Warehouse, AlertTriangle, ChevronRight, Palette, CalendarClock } from "lucide-react";
 
 const resources = [
   {
@@ -58,6 +58,14 @@ const resources = [
     desc: "Upload an inspiration photo and our AI suggests three themed finish packages — each with a signature and budget option you can save with your quote.",
     color: "text-[#C4922A]",
     bg: "bg-amber-50",
+  },
+  {
+    to: "/renovation-planner",
+    icon: CalendarClock,
+    title: "Renovation Planner",
+    desc: "Answer a few lifestyle and project questions to get a personalized timeline, disruption score, and prep checklist — export to PDF or attach to your quote.",
+    color: "text-sky-600",
+    bg: "bg-sky-50",
   },
 ];
 
