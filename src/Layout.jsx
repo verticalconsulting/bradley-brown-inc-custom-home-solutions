@@ -395,7 +395,7 @@ export default function Layout({ children, currentPageName }) {
               </a>
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
-              <Link to="/seodashboard" className="text-slate-300 hover:text-primary text-sm transition-colors">
+              <Link to="/accountsettings" className="text-slate-300 hover:text-primary text-sm transition-colors">
                 Employee Portal
               </Link>
               <p className="text-slate-300 text-sm">Licensed & Insured · Mississippi Residential Builder · 104 Tiffany Drive, Brandon, MS 39042</p>
