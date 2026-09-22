@@ -8,17 +8,24 @@ import {
 // ── All known tags & conversions extracted from the codebase ─────────────────
 const TAGS = [
   {
-    id: "AW-17864041271",
-    type: "Google Ads",
-    description: "Google Ads Base Tag — fires on every page load",
-    location: "index.html (global)",
+    id: "GT-NCGLDK7F",
+    type: "Google tag",
+    description: "Bradley Brown Google tag associated with the Ads configuration",
+    location: "Google tag settings (remote)",
+    critical: true,
+  },
+  {
+    id: "G-1QRCJ0WQK4",
+    type: "Google Analytics 4",
+    description: "Bradley Brown GA4 destination",
+    location: "Destination of the Bradley Brown Google tag",
     critical: true,
   },
   {
     id: "AW-17864041271",
-    type: "Google Ads Config",
-    description: "gtag('config') call — initialises remarketing & conversion linker",
-    location: "index.html (global)",
+    type: "Google Ads",
+    description: "Bradley Brown Ads destination and the single on-page loader/config ID",
+    location: "index.html + Google tag settings",
     critical: true,
   },
 ];
@@ -34,73 +41,45 @@ const CONVERSIONS = [
     type: "phone_call",
   },
   {
-    name: "Thank-You Page Load",
-    send_to: "AW-17864041271/ZBa_CIf-jpccELfGnsZC",
-    value: 50,
+    name: "Successful Quote / Contact Lead",
+    send_to: "AW-17864041271/aquote_form",
+    value: 75,
     currency: "USD",
-    location: "pages/ThankYou.jsx",
-    trigger: "User lands on /thank-you after submitting contact form",
-    type: "page_load",
-    note: "⚠️ Uses dangerouslySetInnerHTML script tag — gtag may not be defined at render time. Recommend converting to useEffect.",
+    location: "pages/Estimate.jsx + pages/Contact.jsx + components/LeadCaptureForm.jsx",
+    trigger: "A lead record is saved successfully",
+    type: "form_submit",
   },
   {
-    name: "Schedule Site Visit",
-    send_to: "AW-17864041271/wbLkCPOBj5ccELfGnsZC",
+    name: "Successful Site Visit Booking",
+    send_to: "AW-17864041271/xdzhCPzmwZwcELfGnsZC",
     value: 100,
     currency: "USD",
     location: "pages/ScheduleVisit.jsx",
-    trigger: "User successfully submits the schedule-a-visit form",
+    trigger: "The scheduling backend confirms the booking request",
     type: "form_submit",
+    note: "Disable the old URL-based /schedulevisit conversion rule in Google Ads to prevent duplicates.",
   },
 ];
 
 const ISSUES = [
   {
-    severity: "error",
-    title: "Thank-You conversion uses dangerouslySetInnerHTML",
-    detail: "The ThankYou page fires a conversion via an inline <script> tag using dangerouslySetInnerHTML. React does NOT execute inline scripts. The gtag call on that page is likely never firing. Fix: move the conversion call into a useEffect() hook.",
-    fix: `useEffect(() => {
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', 'conversion', {
-      send_to: 'AW-17864041271/ZBa_CIf-jpccELfGnsZC',
-      value: 50,
-      currency: 'USD'
-    });
-  }
-}, []);`,
-    page: "pages/ThankYou.jsx",
+    severity: "warning",
+    title: "Google Admin cleanup required",
+    detail: "Vehicle Donation tag G-FEQZWHQV5K is remotely connected to the Bradley Brown Google tag. This cannot be repaired in website code and must be disconnected in Google tag administration.",
+    fix: `Keep only these Bradley Brown destinations:
+G-1QRCJ0WQK4
+AW-17864041271
+
+Disconnect G-FEQZWHQV5K and AW-17766361797.`,
+    page: "Google tag Admin → Manage Google tag",
   },
   {
     severity: "warning",
-    title: "No GA4 Measurement ID configured",
-    detail: "Only a Google Ads tag (AW-*) is present in index.html. There is no GA4 Measurement ID (G-XXXXXXXX) configured. Without GA4, you have no audience data, session tracking, or funnel analysis in Google Analytics 4.",
-    fix: `// Add to index.html after the existing AW tag:
-gtag('config', 'G-XXXXXXXXXX'); // Replace with your GA4 ID`,
-    page: "index.html",
-  },
-  {
-    severity: "warning",
-    title: "Phone click conversion guard missing gtag check",
-    detail: "The Layout.jsx phone links call window.gtag() directly without a typeof check in some instances. If gtag hasn't loaded (slow connection / ad blocker) this may throw a JS error.",
-    fix: `// Always guard with:
-if (typeof window.gtag === 'function') {
-  window.gtag('event', 'conversion', { ... });
-}`,
-    page: "layout/Layout.jsx",
-  },
-  {
-    severity: "info",
-    title: "No conversion for AI Quote Estimator completion",
-    detail: "The QuoteAssistant page generates AI estimates and captures leads — a high-value action — but has no conversion event. Consider adding a gtag conversion when the AI estimate is returned.",
-    fix: `// In QuoteAssistant after AI estimate success:
-if (typeof window.gtag === 'function') {
-  window.gtag('event', 'conversion', {
-    send_to: 'AW-17864041271/<new_label>',
-    value: 75,
-    currency: 'USD'
-  });
-}`,
-    page: "pages/QuoteAssistant.jsx",
+    title: "Remove automatic page-view conversions",
+    detail: "Google Ads still contains URL-based conversion rules for /schedulevisit, /thank-you, and the legacy /Contact path. These can count visits without a successful lead action.",
+    fix: `Remove or set to Secondary the URL/page-load rules.
+Keep the success-based events implemented in the website code.`,
+    page: "Google Ads → Goals → Conversions",
   },
 ];
 
@@ -145,23 +124,11 @@ function RuntimeChecker() {
             : "Config event for AW-17864041271 NOT found in dataLayer. The Ads tag may not be firing.",
         },
         {
-          name: "No GA4 config present",
-          pass: !(Array.isArray(window.dataLayer) && window.dataLayer.some(
-            e => e[0] === "config" && typeof e[1] === "string" && e[1].startsWith("G-")
-          )),
-          isWarning: true,
-          detail: Array.isArray(window.dataLayer) && window.dataLayer.some(
-            e => e[0] === "config" && typeof e[1] === "string" && e[1].startsWith("G-")
-          )
-            ? "GA4 config detected in dataLayer. ✓"
-            : "No GA4 Measurement ID (G-XXXXX) found. Google Analytics 4 is not configured.",
-        },
-        {
           name: "Google tag script loaded",
           pass: !!document.querySelector('script[src*="googletagmanager.com/gtag"]'),
           detail: !!document.querySelector('script[src*="googletagmanager.com/gtag"]')
-            ? "Google Tag Manager script tag found in DOM."
-            : "Google Tag Manager script NOT found. Check index.html.",
+            ? "Google tag script found in DOM. GA4 is delivered through the tag's G-1QRCJ0WQK4 destination."
+            : "Google tag script NOT found. Check index.html.",
         },
       ];
       setResults(checks);
@@ -308,7 +275,7 @@ export default function ConversionDashboard() {
             <AlertTriangle className="w-5 h-5 text-amber-500" />
             <div>
               <h2 className="font-bold text-[#1E2D3D]">Detected Issues & Fixes</h2>
-              <p className="text-xs text-slate-400 mt-0.5">Static analysis of your codebase tracking implementation</p>
+              <p className="text-xs text-slate-400 mt-0.5">Code checks plus required Google-account cleanup</p>
             </div>
           </div>
           <div className="p-5 space-y-4">
@@ -392,27 +359,6 @@ export default function ConversionDashboard() {
                 </a>
               </div>
             ))}
-            {/* Missing GA4 row */}
-            <div className="p-5 flex items-start gap-4 bg-amber-50">
-              <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
-                <AlertTriangle className="w-5 h-5 text-amber-500" />
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-bold text-amber-800 text-sm">GA4 Measurement ID</span>
-                  <span className="text-xs bg-amber-200 text-amber-800 px-2 py-0.5 rounded-full font-medium">Missing</span>
-                </div>
-                <p className="text-xs text-amber-700 mb-1">No G-XXXXXXXX tag found. Add a GA4 property to enable audience, event, and funnel tracking in Google Analytics 4.</p>
-                <a
-                  href="https://analytics.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs text-amber-700 font-semibold hover:underline"
-                >
-                  Set up GA4 → <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-            </div>
           </div>
         </div>
 

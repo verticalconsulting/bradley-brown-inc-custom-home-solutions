@@ -201,25 +201,41 @@ export default function Estimate() {
           source: `Estimate Page (AI Wizard)${utmParams ? ` | ${utmParams}` : ""}`,
           status: "new",
         }),
-        fetch("https://formspree.io/f/xeeranrd", {
-          method: "POST",
-          headers: { "Accept": "application/json", "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            project_type: data.project_type,
-            location: data.location,
-            budget_range: data.budget_range || "",
-            timeline: data.timeline || "",
-            description: data.description,
-            features_selected: (data.features_selected || []).join(", "),
-            design_concept_requested: data.generate_design_concept ? "yes" : "no",
-            schedule_visit_requested: data.schedule_visit ? "yes" : "no",
-            source: "Estimate Page (AI Wizard)",
-          }),
-        }),
       ]);
+
+      // The lead is now safely stored. Count the conversion here instead of
+      // waiting for optional AI generation, which may fail after a valid lead
+      // has already been captured. transaction_id prevents accidental retries
+      // from being counted twice by Google Ads.
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-17864041271/aquote_form',
+          value: 75,
+          currency: 'USD',
+          transaction_id: record?.id,
+        });
+      }
+
+      // Notification delivery is best-effort and must not invalidate a saved
+      // lead or block conversion measurement.
+      fetch("https://formspree.io/f/xeeranrd", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          project_type: data.project_type,
+          location: data.location,
+          budget_range: data.budget_range || "",
+          timeline: data.timeline || "",
+          description: data.description,
+          features_selected: (data.features_selected || []).join(", "),
+          design_concept_requested: data.generate_design_concept ? "yes" : "no",
+          schedule_visit_requested: data.schedule_visit ? "yes" : "no",
+          source: "Estimate Page (AI Wizard)",
+        }),
+      }).catch(() => { /* lead is already stored */ });
 
       const quoteResponse = await base44.functions.invoke("generateQuoteEstimate", {
         project_type: data.project_type,
@@ -238,14 +254,6 @@ export default function Estimate() {
       }
 
       setAnalysis(result.analysis);
-
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
-          send_to: 'AW-17864041271/aquote_form',
-          value: 75,
-          currency: 'USD'
-        });
-      }
 
       let designResult = null;
       if (data.generate_design_concept && data.design_photo) {

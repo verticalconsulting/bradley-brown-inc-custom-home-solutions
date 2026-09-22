@@ -4,7 +4,6 @@ import SEOHead from "@/components/SEOHead";
 import { localBusinessSchema } from "@/components/seoSchemas";
 import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronRight, MessageCircle, Calendar, Zap } from "lucide-react";
 import ContactTrustBar from "@/components/landing/ContactTrustBar";
 import BBBAccreditedBadge from "@/components/BBBAccreditedBadge";
@@ -15,47 +14,63 @@ export default function Contact() {
   const [smsConsent, setSmsConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const update = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
   const { hero: heroImage } = usePageImages("Contact");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
+    setError("");
     setLoading(true);
 
-    await Promise.all([
-      base44.entities.QuoteRequest.create({
+    try {
+      const record = await base44.entities.QuoteRequest.create({
         name: form.name,
         email: form.email,
         phone: form.phone,
         description: form.message,
         project_type: form.project_type,
         status: "new",
-      }),
-      (() => {
-        const fd = new FormData();
-        fd.append("name", form.name);
-        fd.append("email", form.email);
-        fd.append("phone", form.phone);
-        fd.append("project_type", form.project_type);
-        fd.append("message", form.message);
-        return fetch("https://formspree.io/f/xeeranrd", {
-          method: "POST",
-          headers: { "Accept": "application/json" },
-          body: fd,
-        });
-      })(),
-    ]);
+      });
 
-    base44.analytics.track({
-      eventName: "contact_form_submitted",
-      properties: {
-        project_type: form.project_type,
-        has_phone: !!form.phone,
-      },
-    });
-    setSubmitted(true);
-    setLoading(false);
+      base44.analytics.track({
+        eventName: "contact_form_submitted",
+        properties: {
+          project_type: form.project_type,
+          has_phone: !!form.phone,
+        },
+      });
+
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "conversion", {
+          send_to: "AW-17864041271/aquote_form",
+          value: 75,
+          currency: "USD",
+          transaction_id: record?.id,
+        });
+      }
+
+      const fd = new FormData();
+      fd.append("name", form.name);
+      fd.append("email", form.email);
+      fd.append("phone", form.phone);
+      fd.append("project_type", form.project_type);
+      fd.append("message", form.message);
+      fetch("https://formspree.io/f/xeeranrd", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: fd,
+      }).catch(() => { /* lead is already stored */ });
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Contact form submission failed:", err);
+      setError("We couldn't send your request. Please try again or call (844) 351-4154.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -209,6 +224,11 @@ export default function Contact() {
                   <h3 className="text-xl font-bold text-foreground">Send Us a Message</h3>
                   <p className="text-slate-400 text-sm mt-1">We reply within 1 business day — usually same day.</p>
                 </div>
+                {error && (
+                  <div role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    {error}
+                  </div>
+                )}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1">Your Name *</label>

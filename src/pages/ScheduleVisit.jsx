@@ -66,6 +66,16 @@ export default function ScheduleVisit() {
         eventName: "site_visit_scheduled",
         properties: { project_type: form.project_type, date: form.date, time: form.time },
       });
+      // Fire only after the backend confirms the booking. This replaces the
+      // inaccurate Google Ads URL rule that counts visits to /schedulevisit.
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "conversion", {
+          send_to: "AW-17864041271/xdzhCPzmwZwcELfGnsZC",
+          value: 100,
+          currency: "USD",
+          transaction_id: result.eventId || undefined,
+        });
+      }
       setSuccess({
         date: form.date,
         time: TIME_SLOTS.find((s) => s.value === form.time)?.label || form.time,

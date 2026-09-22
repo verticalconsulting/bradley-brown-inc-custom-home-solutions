@@ -31,7 +31,7 @@ export default function LeadCaptureForm({ source = "Website", onSuccess }) {
     setLoading(true);
 
     try {
-      await base44.entities.Lead.create({
+      const record = await base44.entities.Lead.create({
         name: form.name,
         email: form.email,
         phone: form.phone,
@@ -55,6 +55,7 @@ export default function LeadCaptureForm({ source = "Website", onSuccess }) {
           send_to: "AW-17864041271/aquote_form",
           value: 75,
           currency: "USD",
+          transaction_id: record?.id,
         });
       }
 
