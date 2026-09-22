@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Home, Wrench, Plus, Leaf, Warehouse, AlertTriangle, ChevronRight } from "lucide-react";
+import { Home, Wrench, Plus, Leaf, Warehouse, AlertTriangle, ChevronRight, Palette } from "lucide-react";
 
 const resources = [
   {
@@ -50,6 +50,14 @@ const resources = [
     desc: "Storm damage, roof leaks & urgent structural repairs — fast response.",
     color: "text-red-600",
     bg: "bg-red-50",
+  },
+  {
+    to: "/finish-package-studio",
+    icon: Palette,
+    title: "Finish Package Studio",
+    desc: "Upload an inspiration photo and our AI suggests three themed finish packages — each with a signature and budget option you can save with your quote.",
+    color: "text-[#C4922A]",
+    bg: "bg-amber-50",
   },
 ];
 
