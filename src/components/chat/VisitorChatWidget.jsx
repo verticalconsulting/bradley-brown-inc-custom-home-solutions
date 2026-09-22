@@ -136,7 +136,18 @@ export default function VisitorChatWidget() {
     }
   };
 
-  const goToWhatsApp = () => {
+  const goToWhatsApp = async () => {
+    // Confirm the handoff inside the chat, and forward the transcript to Brad
+    // so the team has the visitor's info even if they don't finish on WhatsApp.
+    setMessages(prev => [...prev, {
+      role: "assistant",
+      content: `Got it — I've passed your info to our team. You can also reach Brad directly on WhatsApp at [(844) 351-4154](tel:+18443514154). We'll get back with you shortly!`,
+    }]);
+    try {
+      await forwardToBrad(messages);
+    } catch (err) {
+      console.error("WhatsApp handoff forward failed:", err);
+    }
     window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
   };
 
