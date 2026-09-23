@@ -1,7 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, ChevronLeft, Facebook, Instagram } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import BottomTabBar from "@/components/BottomTabBar";
 
@@ -322,6 +322,14 @@ export default function Layout({ children, currentPageName }) {
                     aria-label="Facebook">
                     
                     <Facebook className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/bradleybrowninc/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-300 hover:text-primary transition-colors"
+                    aria-label="Instagram">
+                    <Instagram className="w-5 h-5" />
                   </a>
                   <a
                     href="https://www.tiktok.com/@bb859876"
