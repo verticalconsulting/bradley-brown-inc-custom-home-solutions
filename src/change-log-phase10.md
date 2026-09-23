@@ -112,9 +112,9 @@ A codebase-wide grep was performed for every redirect-source path from the redir
 
 | User Action | Conversion Event | Value | Fires On |
 |---|---|---|---|
-| Submit AI estimator wizard (Estimate.jsx) | `AW-17864041271/aquote_form` | $75 | Submit action ✅ |
-| Submit fallback LeadCaptureForm (Estimate.jsx) | `AW-17864041271/aquote_form` | $75 | Submit action ✅ |
-| Click phone number (Estimate.jsx) | `AW-17864041271/21TJCO2Bj5ccELfGnsZC` | $30 | Click action ✅ |
+| Submit AI estimator wizard (Estimate.jsx) | `AW-17864041271/oJthCNukv4IdELfGnsZC` | $75 | Submit action ✅ |
+| Submit fallback LeadCaptureForm (Estimate.jsx) | `AW-17864041271/oJthCNukv4IdELfGnsZC` | $75 | Submit action ✅ |
+| Click phone number (Estimate.jsx) | `AW-17864041271/CKLvCOWk3_IbELfGnsZC` | $30 | Click action ✅ |
 | Visit /thank-you (any source) | **None** | — | Pageview (removed) ✅ |
 
 **Files changed:** `src/pages/ThankYou.jsx` (full rewrite), `src/pages/Estimate.jsx` (added `onSuccess` to LeadCaptureForm → `navigate("/thank-you?from=submit")`).
@@ -165,9 +165,9 @@ A codebase-wide import scan confirmed:
 
 | Conversion | Send-To ID | Value | Trigger | Fires After Tasks 1-5? |
 |---|---|---|---|---|
-| Form submit (AI wizard) | `AW-17864041271/aquote_form` | $75 | `submitAndGenerate()` in Estimate.jsx | ✅ Yes |
-| Form submit (fallback form) | `AW-17864041271/aquote_form` | $75 | `handleSubmit()` in LeadCaptureForm.jsx | ✅ Yes |
-| Phone click | `AW-17864041271/21TJCO2Bj5ccELfGnsZC` | $30 | Phone button `onClick` in Estimate.jsx | ✅ Yes |
+| Form submit (AI wizard) | `AW-17864041271/oJthCNukv4IdELfGnsZC` | $75 | `submitAndGenerate()` in Estimate.jsx | ✅ Yes |
+| Form submit (fallback form) | `AW-17864041271/oJthCNukv4IdELfGnsZC` | $75 | `handleSubmit()` in LeadCaptureForm.jsx | ✅ Yes |
+| Phone click | `AW-17864041271/CKLvCOWk3_IbELfGnsZC` | $30 | Phone button `onClick` in Estimate.jsx | ✅ Yes |
 
 All three conversion tags are intact and fire on user actions (not pageviews). Tasks 1-5 did not modify these conversion calls.
 

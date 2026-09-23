@@ -322,7 +322,7 @@ SEOHead auto-truncates descriptions >160 chars (appends "…" at 159).
 | `estimator_started` | User selects project type and clicks "Next" (step 0 → 1) | `Estimate.jsx` → `handleNext()` (line 63-68) | ✅ PASS — fires `base44.analytics.track({ eventName: "estimator_started", properties: { project_type } })` |
 | `estimate_request_submitted` | User clicks "Generate My Estimate" (step 3 → 4) | `Estimate.jsx` → `submitAndGenerate()` (line 84-94) | ✅ PASS — fires with project_type, location, budget_range, has_phone, requested_design_concept, requested_site_visit |
 | `phone_click` (source: `estimate_page`) | User clicks "Call (844) 351-4154" button | `Estimate.jsx` → call button `onClick` (line 342) | ✅ PASS — fires `base44.analytics.track` + Google Ads conversion ($30) |
-| Google Ads conversion (`aquote_form`) | Form submitted successfully | `Estimate.jsx` → `submitAndGenerate()` (line 163-169) | ✅ PASS — fires `window.gtag('event', 'conversion', ...)` with value $75 |
+| Google Ads conversion (`oJthCNukv4IdELfGnsZC`) | Form submitted successfully | `Estimate.jsx` → `submitAndGenerate()` (line 163-169) | ✅ PASS — fires `window.gtag('event', 'conversion', ...)` with value $75 |
 
 **Result: ✅ All 3 required funnel events fire correctly.** The `estimator_started` event (added in Phase 5) fires when the user advances past step 0.
 

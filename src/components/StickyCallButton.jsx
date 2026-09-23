@@ -7,7 +7,7 @@ export default function StickyCallButton() {
     base44.analytics.track({ eventName: "phone_click", properties: { source: "sticky_button" } });
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', {
-        send_to: 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
+        send_to: 'AW-17864041271/CKLvCOWk3_IbELfGnsZC',
         value: 30,
         currency: 'USD'
       });

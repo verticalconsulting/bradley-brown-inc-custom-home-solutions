@@ -57,7 +57,7 @@ export default function LeadCaptureForm({ source = "Website", onSuccess }) {
           lead_source: source,
         });
         window.gtag("event", "conversion", {
-          send_to: "AW-17864041271/aquote_form",
+          send_to: "AW-17864041271/oJthCNukv4IdELfGnsZC",
           value: 75,
           currency: "USD",
           transaction_id: record?.id,

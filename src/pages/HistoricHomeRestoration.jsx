@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { Phone, ChevronRight, CheckCircle, Home, Clock, DollarSign, MapPin, Star } from "lucide-react";
 import ServiceStickyCTA from "@/components/ServiceStickyCTA";
-import { base44 } from "@/api/base44Client";
 import { usePageImages } from "@/lib/usePageImages";
 
 const schema = {
@@ -111,7 +110,7 @@ export default function HistoricHomeRestoration() {
               href="tel:+18443514154"
               onClick={() => {
                 if (typeof window.gtag === "function") {
-                  window.gtag("event", "conversion", { send_to: "AW-17864041271/21TJCO2Bj5ccELfGnsZC", value: 30, currency: "USD" });
+                  window.gtag("event", "conversion", { send_to: "AW-17864041271/CKLvCOWk3_IbELfGnsZC", value: 30, currency: "USD" });
                 }
               }}
               className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-colors"
@@ -214,7 +213,7 @@ export default function HistoricHomeRestoration() {
               href="tel:+18443514154"
               onClick={() => {
                 if (typeof window.gtag === "function") {
-                  window.gtag("event", "conversion", { send_to: "AW-17864041271/21TJCO2Bj5ccELfGnsZC", value: 30, currency: "USD" });
+                  window.gtag("event", "conversion", { send_to: "AW-17864041271/CKLvCOWk3_IbELfGnsZC", value: 30, currency: "USD" });
                 }
               }}
               className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"

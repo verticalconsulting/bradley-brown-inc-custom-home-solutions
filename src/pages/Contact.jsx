@@ -50,7 +50,7 @@ export default function Contact() {
           lead_source: "contact_form",
         });
         window.gtag("event", "conversion", {
-          send_to: "AW-17864041271/aquote_form",
+          send_to: "AW-17864041271/oJthCNukv4IdELfGnsZC",
           value: 75,
           currency: "USD",
           transaction_id: record?.id,
@@ -106,7 +106,7 @@ export default function Contact() {
               href="tel:+18443514154"
               onClick={() => {
                 base44.analytics.track({ eventName: "contact_phone_clicked" });
-                if (typeof window.gtag === 'function') window.gtag('event', 'conversion', { send_to: 'AW-17864041271/21TJCO2Bj5ccELfGnsZC', value: 30, currency: 'USD' });
+                if (typeof window.gtag === 'function') window.gtag('event', 'conversion', { send_to: 'AW-17864041271/CKLvCOWk3_IbELfGnsZC', value: 30, currency: 'USD' });
               }}
               className="flex items-center gap-4 bg-green-500 hover:bg-green-600 text-white px-5 py-4 rounded-xl transition-colors shadow-md group"
             >

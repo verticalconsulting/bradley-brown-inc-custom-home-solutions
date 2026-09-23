@@ -1,7 +1,6 @@
 import React from "react";
 import { Phone, CheckCircle, ChevronRight, Star, Shield, Award, Clock, MapPin, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import StickyCallButton from "@/components/StickyCallButton";
 import ServiceStickyCTA from "@/components/ServiceStickyCTA";
@@ -72,7 +71,7 @@ const projects = [
 const trackCall = () => {
   base44.analytics.track({ eventName: "phone_click", properties: { source: "bathroom_remodeling_brandon" } });
   if (typeof window.gtag === "function") {
-    window.gtag("event", "conversion", { send_to: "AW-17864041271/21TJCO2Bj5ccELfGnsZC", value: 30, currency: "USD" });
+    window.gtag("event", "conversion", { send_to: "AW-17864041271/CKLvCOWk3_IbELfGnsZC", value: 30, currency: "USD" });
   }
 };
 

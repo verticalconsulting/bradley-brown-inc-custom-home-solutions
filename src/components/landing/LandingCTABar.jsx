@@ -1,7 +1,6 @@
 import React from "react";
 import { Phone, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import { base44 } from "@/api/base44Client";
 
 export default function LandingCTABar({ headline = "Ready to Get Started?" }) {
@@ -9,7 +8,7 @@ export default function LandingCTABar({ headline = "Ready to Get Started?" }) {
     base44.analytics.track({ eventName: "phone_click", properties: { source: "landing_cta_bar" } });
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', {
-        send_to: 'AW-17864041271/21TJCO2Bj5ccELfGnsZC',
+        send_to: 'AW-17864041271/CKLvCOWk3_IbELfGnsZC',
         value: 30,
         currency: 'USD'
       });

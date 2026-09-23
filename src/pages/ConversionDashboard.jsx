@@ -33,7 +33,7 @@ const TAGS = [
 const CONVERSIONS = [
   {
     name: "Phone Click — Nav / Footer",
-    send_to: "AW-17864041271/21TJCO2Bj5ccELfGnsZC",
+    send_to: "AW-17864041271/CKLvCOWk3_IbELfGnsZC",
     value: 30,
     currency: "USD",
     location: "Layout.jsx (nav phone link + footer phone link)",
@@ -42,7 +42,7 @@ const CONVERSIONS = [
   },
   {
     name: "Successful Quote / Contact Lead",
-    send_to: "AW-17864041271/aquote_form",
+    send_to: "AW-17864041271/oJthCNukv4IdELfGnsZC",
     value: 75,
     currency: "USD",
     location: "pages/Estimate.jsx + pages/Contact.jsx + components/LeadCaptureForm.jsx",

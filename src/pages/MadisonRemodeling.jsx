@@ -1,7 +1,6 @@
 import React from "react";
 import { Phone, CheckCircle, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
 import LocalProofPoints from "@/components/landing/LocalProofPoints";
@@ -62,7 +61,7 @@ export default function MadisonRemodeling() {
   const handleCall = () => {
     base44.analytics.track({ eventName: "phone_click", properties: { source: "madison_remodeling_page" } });
     if (typeof window.gtag === "function") {
-      window.gtag("event", "conversion", { send_to: "AW-17864041271/21TJCO2Bj5ccELfGnsZC", value: 30, currency: "USD" });
+      window.gtag("event", "conversion", { send_to: "AW-17864041271/CKLvCOWk3_IbELfGnsZC", value: 30, currency: "USD" });
     }
   };
   const { hero: heroImage } = usePageImages("MadisonRemodeling");
