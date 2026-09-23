@@ -36,6 +36,20 @@ export default async function(req) {
             return Response.json({ error: 'Missing required fields: name, email, date, time' }, { status: 400 });
         }
 
+        // Input hardening — this endpoint accepts anonymous bookings, so only
+        // sane values reach the calendar / CRM / SMS side effects.
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return Response.json({ error: 'Invalid email address' }, { status: 400 });
+        }
+        if (!TIME_LABELS[time]) {
+            return Response.json({ error: 'Invalid time slot' }, { status: 400 });
+        }
+        const slotTime = new Date(`${date}T${time}:00`).getTime();
+        const nowMs = Date.now();
+        if (Number.isNaN(slotTime) || slotTime < nowMs - 24 * 60 * 60 * 1000 || slotTime > nowMs + 365 * 24 * 60 * 60 * 1000) {
+            return Response.json({ error: 'Date must be a valid date within the next 12 months' }, { status: 400 });
+        }
+
         // Create the calendar event best-effort: if Google Calendar is
         // unavailable, the booking is still saved and confirmed instead of
         // hard-failing with a 500 (the visitor's request is never lost).
@@ -64,7 +78,10 @@ export default async function(req) {
                     dateTime: endDateTime.toISOString(),
                     timeZone: 'America/Chicago',
                 },
-                attendees: [{ email }],
+                // No attendee emails: this is an anonymous endpoint, so a
+                // caller-supplied address must never receive a calendar invite
+                // (invite spam / phishing vector). The booking still lands on
+                // the owner's calendar; the visitor is confirmed by phone/email.
                 reminders: {
                     useDefault: false,
                     overrides: [
@@ -74,7 +91,7 @@ export default async function(req) {
                 },
             };
 
-            const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events?sendUpdates=all', {
+            const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events?sendUpdates=none', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`,
@@ -134,7 +151,7 @@ export default async function(req) {
             eventLink: createdEvent?.htmlLink || null,
             calendarBooked: !!createdEvent,
             message: createdEvent
-                ? `Site visit scheduled for ${date} at ${time}. A calendar invite has been sent to ${email}.`
+                ? `Site visit scheduled for ${date} at ${time}. We've reserved the time on our calendar — we'll confirm your appointment by phone or email shortly.`
                 : `Site visit request received for ${date} at ${time}. We'll confirm your appointment by phone or email shortly.`,
         });
     } catch (error) {

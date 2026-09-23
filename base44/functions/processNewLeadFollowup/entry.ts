@@ -50,7 +50,16 @@ Deno.serve(async (req) => {
     // Resolve lead data (handle large-payload case)
     let lead = payload.data;
     if (!lead && payload.event?.entity_id) {
-      const entityName = payload.event.entity_name; // "Lead" or "QuoteRequest"
+      // Allowlist: the automation only ever runs for these two entities. An
+      // arbitrary entity_name must never index asServiceRole — that bypasses
+      // RLS and would expose admin-only records (User, Client, logs).
+      const entityName = payload.event.entity_name;
+      if (entityName !== "Lead" && entityName !== "QuoteRequest") {
+        return Response.json({ success: false, error: "Unsupported entity" }, { status: 400 });
+      }
+      if (typeof payload.event.entity_id !== "string" || payload.event.entity_id.length > 100) {
+        return Response.json({ success: false, error: "Invalid entity id" }, { status: 400 });
+      }
       lead = await base44.asServiceRole.entities[entityName].get(payload.event.entity_id);
     }
     if (!lead) return Response.json({ success: false, error: "No lead data" }, { status: 200 });

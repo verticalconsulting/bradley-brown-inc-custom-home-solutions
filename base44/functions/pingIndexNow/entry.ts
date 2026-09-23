@@ -12,15 +12,27 @@ Deno.serve(async (req) => {
     let urls: string[] = [];
     let submitSitemap = false;
 
-    // Mode 1: Entity automation payload (JobCheckin published)
-    if (body.event?.entity_name === "JobCheckin" && body.data?.status === "published") {
-      if (body.old_data?.status !== "published" && body.data.slug) {
-        urls.push(`${SITE_URL}/jobsites/${body.data.slug}`);
+    // Mode 1: Entity automation payload — verify against the database so an
+    // anonymous caller can't submit an arbitrary slug to search engines: the
+    // ping URL always comes from the stored record, never from the request.
+    if (body.event?.entity_name === "JobCheckin") {
+      const entityId = body.event.entity_id;
+      if (typeof entityId !== "string" || !entityId) {
+        return Response.json({ error: "Missing entity id" }, { status: 400 });
+      }
+      const record = await base44.asServiceRole.entities.JobCheckin.get(entityId);
+      if (record?.status === "published" && body.old_data?.status !== "published" && record.slug) {
+        urls.push(`${SITE_URL}/jobsites/${record.slug}`);
         submitSitemap = true;
       }
-    } else if (body.event?.entity_name === "BlogPost" && body.data?.published === true) {
-      if (body.old_data?.published !== true && body.data.slug) {
-        urls.push(`${SITE_URL}/protips/${body.data.slug}`);
+    } else if (body.event?.entity_name === "BlogPost") {
+      const entityId = body.event.entity_id;
+      if (typeof entityId !== "string" || !entityId) {
+        return Response.json({ error: "Missing entity id" }, { status: 400 });
+      }
+      const record = await base44.asServiceRole.entities.BlogPost.get(entityId);
+      if (record?.published === true && body.old_data?.published !== true && record.slug) {
+        urls.push(`${SITE_URL}/protips/${record.slug}`);
         submitSitemap = true;
       }
     } else if (body.urls && Array.isArray(body.urls)) {

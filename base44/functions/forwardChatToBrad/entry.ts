@@ -1,7 +1,33 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.20';
 
+// Anonymous endpoint: sliding-window rate limit per client IP so an attacker
+// cannot relay unlimited content to the admin phone. Best-effort (per-isolate),
+// but it stops bulk spam while leaving the normal handoff flow untouched.
+const FORWARD_LIMIT_PER_HOUR = 3;
+const forwardLog = new Map(); // ip -> [timestamps]
+function isRateLimited(ip) {
+  const now = Date.now();
+  const windowMs = 60 * 60 * 1000;
+  const hits = (forwardLog.get(ip) || []).filter((t) => now - t < windowMs);
+  if (hits.length >= FORWARD_LIMIT_PER_HOUR) {
+    forwardLog.set(ip, hits);
+    return true;
+  }
+  hits.push(now);
+  forwardLog.set(ip, hits);
+  return false;
+}
+
 Deno.serve(async (req) => {
   try {
+    const clientIp =
+      req.headers.get("CF-Connecting-IP") ||
+      (req.headers.get("X-Forwarded-For") || "").split(",")[0].trim() ||
+      "unknown";
+    if (isRateLimited(clientIp)) {
+      return Response.json({ error: "Too many requests." }, { status: 429 });
+    }
+
     const base44 = createClientFromRequest(req);
     const { visitorName, visitorEmail, conversationSummary, messages, pageUrl } = await req.json();
 
