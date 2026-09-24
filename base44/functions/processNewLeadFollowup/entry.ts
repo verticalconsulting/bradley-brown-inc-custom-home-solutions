@@ -47,20 +47,25 @@ Deno.serve(async (req) => {
 
     const payload = await req.json();
 
-    // Resolve lead data (handle large-payload case)
-    let lead = payload.data;
-    if (!lead && payload.event?.entity_id) {
+    // Lead data comes ONLY from the database, fetched by entity id. The
+    // request body's `data` field is never trusted: any signed-in user could
+    // otherwise drive the admin-only Client CRM writes and the branded
+    // thank-you email with attacker-chosen recipients (open email relay +
+    // CRM corruption). Only the automation's own stored records are used.
+    const entityId = payload.event?.entity_id || payload.entity_id;
+    const entityName = payload.event?.entity_name || payload.entity_name;
+    let lead = null;
+    if (entityId) {
       // Allowlist: the automation only ever runs for these two entities. An
       // arbitrary entity_name must never index asServiceRole — that bypasses
       // RLS and would expose admin-only records (User, Client, logs).
-      const entityName = payload.event.entity_name;
       if (entityName !== "Lead" && entityName !== "QuoteRequest") {
         return Response.json({ success: false, error: "Unsupported entity" }, { status: 400 });
       }
-      if (typeof payload.event.entity_id !== "string" || payload.event.entity_id.length > 100) {
+      if (typeof entityId !== "string" || entityId.length > 100) {
         return Response.json({ success: false, error: "Invalid entity id" }, { status: 400 });
       }
-      lead = await base44.asServiceRole.entities[entityName].get(payload.event.entity_id);
+      lead = await base44.asServiceRole.entities[entityName].get(entityId);
     }
     if (!lead) return Response.json({ success: false, error: "No lead data" }, { status: 200 });
 
