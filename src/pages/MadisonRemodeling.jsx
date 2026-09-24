@@ -3,11 +3,33 @@ import { Phone, CheckCircle, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
-import LocalProofPoints from "@/components/landing/LocalProofPoints";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
 import { base44 } from "@/api/base44Client";
 import { usePageImages } from "@/lib/usePageImages";
+
+const faqs = [
+  {
+    question: "Does Bradley Brown Inc. remodel homes in Madison, MS?",
+    answer: "Yes. Bradley Brown Inc. publicly serves Madison-area homeowners from its Brandon base. Its documented residential services include kitchen remodeling, bathroom remodeling, room additions, and broader home renovations. Current availability should be confirmed when the homeowner requests an estimate.",
+  },
+  {
+    question: "Which remodeling services are available in Madison?",
+    answer: "The documented service scope includes kitchens, bathrooms, room additions, and substantial residential renovations. A consultation can confirm whether the requested work fits Bradley Brown Inc.'s current services and whether related custom-home or outdoor-living work should be handled separately.",
+  },
+  {
+    question: "What information helps Bradley Brown Inc. understand a remodeling project?",
+    answer: "Share the property location, the rooms or areas involved, what is not working today, and the result you want. Photos, measurements, plans, or inspiration may help explain the idea, but Bradley Brown Inc. can confirm what is needed for the next step.",
+  },
+  {
+    question: "How much does a Madison home remodel cost?",
+    answer: "Cost depends on the rooms involved, the condition of the home, design choices, materials, structural changes, and overall scope. Request a project-specific estimate instead of relying on a generic public price.",
+  },
+  {
+    question: "Does Bradley Brown Inc. also build custom homes near Madison?",
+    answer: "Bradley Brown Inc. serves Central Mississippi with custom home building. Homeowners near Madison should use the custom-home page or request a consultation to confirm the property, proposed scope, and current service availability.",
+  },
+];
 
 const schema = {
   "@context": "https://schema.org",
@@ -16,20 +38,16 @@ const schema = {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "name": "Bradley Brown Inc.",
       "telephone": "+18443514154",
-      "email": "bradleybrowninc@gmail.com",
       "url": "https://bradleybrowninc.com/madison-ms-home-remodeling",
       "address": { "@type": "PostalAddress", "streetAddress": "104 Tiffany Drive", "addressLocality": "Brandon", "addressRegion": "MS", "postalCode": "39042", "addressCountry": "US" },
-      "geo": { "@type": "GeoCoordinates", "latitude": 32.4635, "longitude": -90.0219 },
-      "areaServed": { "@type": "City", "name": "Madison, Mississippi" },
-      "priceRange": "$$",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "8", "bestRating": "5" }
+      "areaServed": { "@type": "City", "name": "Madison, Mississippi" }
     },
     {
       "@type": "Service",
       "name": "Home Remodeling in Madison, MS",
       "provider": { "@type": "LocalBusiness", "name": "Bradley Brown Inc." },
       "areaServed": { "@type": "City", "name": "Madison, Mississippi" },
-      "description": "Kitchen renovations, bathroom remodeling, room additions, and whole-home renovations in Madison, MS — by a licensed Mississippi contractor since 2005."
+      "description": "Kitchen remodeling, bathroom remodeling, room additions, and broader residential renovations for Madison-area homeowners."
     },
     {
       "@type": "BreadcrumbList",
@@ -40,22 +58,14 @@ const schema = {
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "Do you serve Madison, MS for home remodeling?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Bradley Brown Inc. serves Madison, Ridgeland, Gluckstadt, and the entire Madison County area — just a short drive from our Brandon headquarters. We've completed numerous kitchen, bath, and addition projects in Madison." } },
-        { "@type": "Question", "name": "How much does a bathroom remodel cost in Madison, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Bathroom remodels in Madison typically range from $10,000–$30,000 depending on size, tile selection, and fixture upgrades. Call (844) 351-4154 for a free estimate." } },
-        { "@type": "Question", "name": "Are you licensed to work in Madison, MS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Bradley Brown Inc. is a licensed Mississippi General Contractor with full liability insurance. We pull all required permits for Madison and Madison County projects." } }
-      ]
+      "mainEntity": faqs.map((item) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+      }))
     }
   ]
 };
-
-const faqs = [
-  { question: "Do you serve Madison, MS for home remodeling?", answer: "Yes. Bradley Brown Inc. serves Madison, Ridgeland, Gluckstadt, and the wider Madison County area. We're based in Brandon — just 20 minutes away — and have completed numerous kitchen, bath, and addition projects throughout Madison." },
-  { question: "How much does a bathroom remodel cost in Madison, MS?", answer: "Bathroom remodels in Madison typically range from $10,000–$30,000. Small guest baths start around $8,000, while master suite renovations with custom tile and premium fixtures can reach $40,000+. Every estimate is free and in writing." },
-  { question: "How long does a kitchen remodel take in Madison?", answer: "Most kitchen remodels take 4–8 weeks depending on scope. We provide a detailed timeline before work begins so you always know what to expect." },
-  { question: "Are you licensed to work in Madison, MS?", answer: "Yes. Bradley Brown Inc. is a licensed Mississippi General Contractor with full liability insurance and workers' comp. We pull all required permits for Madison and Madison County projects." },
-  { question: "Do you offer free estimates in Madison?", answer: "Yes. Call (844) 351-4154 to schedule a free in-home consultation in Madison, or use our online Quote Assistant for a quick estimate." },
-];
 
 export default function MadisonRemodeling() {
   const handleCall = () => {
@@ -69,8 +79,8 @@ export default function MadisonRemodeling() {
   return (
     <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
-        title="Home Remodeling in Madison, MS | Bradley Brown Inc"
-        description="Madison, MS home remodeling — kitchen, bath, additions & whole-home renovations. Licensed & insured since 2005. Free estimates — call (844) 351-4154."
+        title="Home Remodeling for Madison, MS Homeowners | Bradley Brown Inc"
+        description="Bradley Brown Inc. serves Madison-area homeowners with kitchen, bathroom, addition, and broader remodeling options. Request an estimate."
         schema={schema}
         canonical="https://bradleybrowninc.com/madison-ms-home-remodeling"
       />
@@ -91,7 +101,7 @@ export default function MadisonRemodeling() {
             Home Remodeling in Madison, MS<br className="hidden md:block" /> — Done Right
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Kitchen renovations, bathroom remodels, room additions, and whole-home upgrades. Licensed. Insured. 20+ years of Mississippi craftsmanship — serving Madison from our Brandon headquarters.
+            Bradley Brown Inc. provides home remodeling for Madison-area homeowners from its Brandon base. Documented services include kitchen and bathroom remodeling, room additions, and broader residential renovations. Request a free estimate to discuss your property, priorities, and scope before cost or schedule expectations are set.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
@@ -105,18 +115,16 @@ export default function MadisonRemodeling() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-14">
-        {/* Local proof */}
-        <LocalProofPoints />
-
         {/* Services */}
         <div>
-          <h2 className="text-2xl font-bold text-foreground mb-6">Our Remodeling Services in Madison</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-3">Remodeling Services for Madison Homeowners</h2>
+          <p className="text-slate-600 leading-relaxed mb-6">Bradley Brown Inc. can discuss kitchen and bathroom remodeling, room additions, and broader renovation needs with Madison-area homeowners. The specific scope is confirmed after reviewing the property and project priorities.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { title: "Kitchen Renovation", desc: "Custom cabinets, quartz countertops, islands, and full kitchen redesigns starting at $25,000.", link: "/services" },
-              { title: "Bathroom Remodeling", desc: "Walk-in showers, tub-to-shower conversions, tile work, and vanities from $10,000.", link: "/bathroom-remodeling-brandon-ms" },
-              { title: "Room Additions", desc: "Master suites, in-law suites, sunrooms, and home office additions that blend seamlessly.", link: "/services" },
-              { title: "Whole-Home Renovation", desc: "Complete interior renovations matching your lifestyle and budget. Custom quote.", link: "/estimate" },
+              { title: "Kitchen Remodeling", desc: "Discuss layout, storage, finishes, and the changes needed to make the kitchen work better for your household.", link: "/services/kitchen-remodeling" },
+              { title: "Bathroom Remodeling", desc: "Discuss the room's current condition, priorities, desired fixtures, accessibility needs, and finish preferences.", link: "/bathroom-remodeling-brandon-ms" },
+              { title: "Room Additions", desc: "Explore additional space for bedrooms, suites, offices, sunrooms, or another household need.", link: "/services/room-additions" },
+              { title: "Whole-Home Renovation", desc: "Review the areas that need to function differently and the goals for a broader renovation. Request a project-specific estimate.", link: "/estimate" },
             ].map((s) => (
               <div key={s.title} className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
                 <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -134,17 +142,17 @@ export default function MadisonRemodeling() {
 
         {/* Body copy */}
         <div className="prose prose-slate max-w-none">
-          <h2 className="text-xl font-bold text-foreground">Why Madison Homeowners Choose Bradley Brown Inc.</h2>
-          <p className="text-slate-600 leading-relaxed">Madison, Mississippi is one of the fastest-growing cities in the state, and homeowners here expect quality. Since 2005, Bradley Brown Inc. has served the Madison County area with the same craftsmanship and attention to detail that built our reputation in Brandon — just 20 minutes down the road.</p>
-          <p className="text-slate-600 leading-relaxed">From kitchen renovations in Strawberry Park to bathroom remodels in Reunion, room additions in Gluckstadt, and whole-home renovations throughout Madison County, our team brings licensed tradespeople, transparent pricing, and a project manager on-site every day. We pull all Madison County permits and handle inspections.</p>
-          <p className="text-slate-600 leading-relaxed">Whether you're updating a master bath, building a kitchen island, or adding an in-law suite, we deliver on time and on budget. Call us at <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to schedule your free Madison consultation.</p>
+          <h2 className="text-xl font-bold text-foreground">Planning a Remodel Around Your Home and Priorities</h2>
+          <p className="text-slate-600 leading-relaxed">Start with the property location, the rooms or areas involved, what is not working today, and the result you want. Photos, measurements, plans, or inspiration can help explain the idea, but the appropriate scope, schedule, and budget depend on the property and requested work.</p>
+          <p className="text-slate-600 leading-relaxed">Bradley Brown Inc. is based in Brandon and serves Central Mississippi, including Madison-area homeowners. A conversation about the property and priorities helps determine whether the project is a fit and what information is needed next.</p>
+          <p className="text-slate-600 leading-relaxed">Use the estimate form or call <a href="tel:+18443514154" onClick={handleCall} className="text-sky-600 font-semibold">(844) 351-4154</a> to start the discussion.</p>
         </div>
 
         {/* Internal links */}
         <div className="bg-white border border-sky-100 rounded-2xl p-6 md:p-8 shadow-sm">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">Serving All of Central Mississippi</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">Related Services and Verified Project Work</h2>
           <p className="text-slate-600 leading-relaxed mb-5">
-            We serve Madison, Brandon, Ridgeland, Flowood, Pearl, Clinton, Gluckstadt, and the wider Rankin and Madison County area.
+            Explore the related services below, then request an estimate to discuss the property, priorities, and the work that may fit your project.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link to="/bathroom-remodeling-brandon-ms" className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
@@ -164,7 +172,7 @@ export default function MadisonRemodeling() {
 
         {/* FAQ */}
         <div>
-          <h2 className="text-xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions About Remodeling in Madison</h2>
           <LandingFAQ faqs={faqs} />
         </div>
       </div>

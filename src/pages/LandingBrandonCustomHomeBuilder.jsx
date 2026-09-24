@@ -1,7 +1,6 @@
 import React from "react";
 import { Phone, MapPin, CheckCircle, ChevronRight, Hammer } from "lucide-react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
 import LandingFAQ from "@/components/landing/LandingFAQ";
@@ -13,29 +12,29 @@ import { usePageImages } from "@/lib/usePageImages";
 
 const faqs = [
   {
-    question: "Do you build custom homes in Brandon, MS?",
+    question: "Does Bradley Brown Inc. build custom homes in Brandon, MS?",
     answer:
-      "Yes. Bradley Brown Inc. builds custom homes, new construction homes, additions, and residential projects in Brandon, MS and throughout Rankin County.",
+      "Yes. Bradley Brown Inc. is based in Brandon and provides custom home building for homeowners in Brandon and nearby Central Mississippi communities. The service focuses on creating a home around the owner's vision, lifestyle, and functional needs rather than offering a one-size-fits-all plan.",
   },
   {
-    question: "Do you serve all of Rankin County?",
+    question: "What is the first step in planning a custom home?",
     answer:
-      "Yes. Bradley Brown Inc. serves Brandon, Flowood, Pearl, Richland, Madison, Ridgeland, Clinton, Jackson, and surrounding Central Mississippi communities.",
+      "Start by sharing the property, goals, priorities, and questions you already have. Bradley Brown Inc. invites homeowners to request a free estimate or schedule a consultation so the project's scope can be discussed before detailed decisions are made.",
   },
   {
-    question: "Can you help with both new construction and remodeling?",
+    question: "Can Bradley Brown Inc. build a home around my family's needs?",
     answer:
-      "Yes. Bradley Brown Inc. provides custom home building, new construction, remodeling, renovations, additions, and general contractor services.",
+      "Personalization is central to Bradley Brown Inc.'s custom-home approach. The planning conversation should cover how the household uses the home, what spaces matter most, and which functional or design priorities should shape the project.",
   },
   {
-    question: "Can you help with new construction homes in Brandon?",
+    question: "How much does a custom home in Brandon cost?",
     answer:
-      "Yes. We help homeowners plan and build new construction homes in Brandon, MS and the surrounding Rankin County area.",
+      "A custom home's budget depends on the property, size, design, materials, site conditions, and project scope. Homeowners should request an estimate based on their specific plans rather than rely on a generic cost range.",
   },
   {
-    question: "Do you build luxury custom homes in Brandon?",
+    question: "Where can I see Bradley Brown Inc. projects?",
     answer:
-      "Yes. Bradley Brown Inc. builds high-quality custom homes and luxury residential projects in Brandon, Rankin County, and Central Mississippi.",
+      "Visit the portfolio to review available Bradley Brown Inc. project examples. Each project should be considered alongside its documented service type, location, scope, and photographs.",
   },
 ];
 
@@ -154,7 +153,7 @@ export default function LandingBrandonCustomHomeBuilder() {
     <div className="min-h-screen bg-background pt-16 md:pt-20">
       <SEOHead
         title="Custom Home Builder in Brandon, MS | Bradley Brown Inc."
-        description="Custom home builder in Brandon, MS & Rankin County since 2005. New construction, luxury homes & design-build. Licensed & insured. Call (844) 351-4154."
+        description="Bradley Brown Inc. builds personalized custom homes in Brandon and Central Mississippi. Explore the service and request a free estimate."
         schema={schema}
         canonical="https://bradleybrowninc.com/custom-home-builder-brandon-ms"
       />
@@ -184,8 +183,7 @@ export default function LandingBrandonCustomHomeBuilder() {
             Custom Home Builder in Brandon, MS
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Bradley Brown Inc. builds custom homes, new construction homes, and residential projects for families in
-            Brandon, Rankin County, and Central Mississippi.
+            Bradley Brown Inc. builds custom homes for homeowners in Brandon and Central Mississippi. The company manages residential construction from early planning through the finishing stages, with each home shaped around the owner's vision, lifestyle, and space needs. Request a free estimate or schedule a consultation to begin.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a

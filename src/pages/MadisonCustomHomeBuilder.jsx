@@ -10,23 +10,23 @@ import { base44 } from "@/api/base44Client";
 const faqs = [
   {
     question: "Does Bradley Brown Inc. build custom homes near Madison, MS?",
-    answer: "Yes. Bradley Brown Inc. provides custom home building for homeowners in Madison and nearby Central Mississippi communities from its Brandon headquarters.",
+    answer: "Bradley Brown Inc. serves Central Mississippi and publicly identifies Madison within its service area. Because availability and project fit can change, homeowners should request a consultation to confirm that their Madison-area property and proposed scope are a match.",
   },
   {
-    question: "What is the first step in planning a custom home?",
-    answer: "Start with a consultation to discuss your vision, property, priorities, and budget. Bradley Brown Inc. can then help define the appropriate next steps for your project.",
+    question: "Is Bradley Brown Inc. based in Madison?",
+    answer: "No. Bradley Brown Inc. is based in Brandon, Mississippi and serves homeowners across Central Mississippi. This page describes the company as serving Madison from Brandon, not as having a Madison office or local address.",
   },
   {
-    question: "Can Bradley Brown Inc. help with both custom homes and remodeling?",
-    answer: "Yes. Bradley Brown Inc. works on custom homes as well as substantial remodeling, room additions, and outdoor living projects in Central Mississippi.",
+    question: "What should I prepare for an initial custom-home conversation?",
+    answer: "Bring the property address or general location, the type of home you are considering, your space priorities, and any plans or inspiration you already have. Bradley Brown Inc. can then discuss the project at a high level and identify what information is needed next.",
   },
   {
-    question: "Where can I see Bradley Brown Inc. projects and customer feedback?",
-    answer: "Visit the portfolio for completed-project examples and the reviews page for customer feedback returned by Bradley Brown Inc.'s connected Google review source.",
+    question: "Can Bradley Brown Inc. help me choose or evaluate land near Madison?",
+    answer: "Ask Bradley Brown Inc. whether land or site evaluation is available for the property before making that service part of the plan. The appropriate pre-construction support depends on the current project scope and the property.",
   },
   {
     question: "How do I request an estimate for a Madison custom home?",
-    answer: "Use the online estimate form or call (844) 351-4154 to start a conversation about your Madison-area custom home project.",
+    answer: "Use the free-estimate form or contact Bradley Brown Inc. to request a consultation. Include the property location and a short description of the proposed home so the team can confirm service availability and discuss the appropriate next step.",
   },
 ];
 
@@ -103,7 +103,7 @@ export default function MadisonCustomHomeBuilder() {
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-white">Custom Home Builder near Madison, MS</h1>
           <p className="text-slate-300 mt-5 max-w-2xl mx-auto text-lg leading-relaxed">
-            Bradley Brown Inc. provides custom home building for homeowners in Madison and nearby Central Mississippi communities. From its Brandon headquarters, the company helps families turn a vision for their property into a tailored home.
+            Bradley Brown Inc. serves Central Mississippi homeowners who are planning personalized custom homes, including homeowners near Madison. The Brandon-based builder focuses on residential construction shaped around each owner's vision, lifestyle, and space needs. Request a consultation to confirm the property, project scope, and current service availability.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/estimate" className="inline-flex items-center justify-center gap-2 bg-primary text-white px-7 py-4 rounded-full font-bold hover:opacity-90">
@@ -118,9 +118,9 @@ export default function MadisonCustomHomeBuilder() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 space-y-14">
         <section>
-          <h2 className="text-2xl font-bold text-foreground">Custom Home Services for Madison-Area Homeowners</h2>
+          <h2 className="text-2xl font-bold text-foreground">Custom Home Building for Madison-Area Homeowners</h2>
           <p className="text-slate-600 leading-relaxed mt-3">
-            Bradley Brown Inc. is a Brandon-based residential builder serving Madison and Central Mississippi. Each project begins with a conversation about the homeowner's vision, lifestyle, property, and priorities.
+            Bradley Brown Inc. is a Brandon-based residential builder serving Central Mississippi, including Madison-area homeowners. Each project begins with a conversation about the homeowner's vision, lifestyle, property, and priorities.
           </p>
           <div className="grid sm:grid-cols-2 gap-3 mt-6">
             {services.map((service) => (
@@ -133,14 +133,18 @@ export default function MadisonCustomHomeBuilder() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-foreground">How to Start</h2>
+          <h2 className="text-2xl font-bold text-foreground">What Bradley Brown Inc. Can Help You Plan</h2>
           <p className="text-slate-600 leading-relaxed mt-3">
             Share the location, project type, and what you want the finished home to support. Bradley Brown Inc. can review those priorities with you and explain the next appropriate step. A detailed scope, schedule, and budget depend on the property and approved design.
+          </p>
+          <h2 className="text-2xl font-bold text-foreground mt-8">A Home Shaped Around Your Property and Lifestyle</h2>
+          <p className="text-slate-600 leading-relaxed mt-3">
+            An early conversation should cover the spaces that matter most, how the household will use the home, and the design or finish priorities that should guide planning. Site-specific services and project details should be confirmed before they are treated as part of the scope.
           </p>
         </section>
 
         <section className="bg-sky-50 border border-sky-100 rounded-2xl p-6 md:p-8">
-          <h2 className="text-2xl font-bold text-foreground">Explore Relevant Proof and Services</h2>
+          <h2 className="text-2xl font-bold text-foreground">Custom Home Work and Verified Project Examples</h2>
           <div className="flex flex-wrap gap-3 mt-5">
             <Link to="/services/custom-home-building" className="inline-flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-full font-semibold">Custom Home Building <ChevronRight className="w-4 h-4" /></Link>
             <Link to="/portfolio" className="inline-flex items-center gap-2 bg-white border border-sky-200 text-sky-700 px-5 py-3 rounded-full font-semibold">View the Portfolio <ChevronRight className="w-4 h-4" /></Link>
