@@ -60,7 +60,7 @@ export default function Portfolio() {
 
   const filtered = activeFilter === "all"
     ? projects
-    : projects.filter(p => p.category === activeFilter);
+    : projects.filter(p => p.category === activeFilter || (p.tags || []).includes(categoryLabels[activeFilter]));
 
   const handleRefresh = async () => {
     loadProjects();
@@ -116,17 +116,34 @@ export default function Portfolio() {
             {filtered.map((project, i) => (
               <div key={project.id || i} className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
                 <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={project.images?.[0] || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"}
-                    alt={`${categoryLabels[project.category] || project.category || "Project"} by Bradley Brown Inc — ${project.location || "Mississippi"}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-sky-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
-                      {categoryLabels[project.category] || project.category}
-                    </span>
+                  {project.images?.length > 1 ? (
+                    <div className="flex w-full h-full">
+                      {project.images.slice(0, 2).map((img, idx) => (
+                        <img
+                          key={idx}
+                          src={img}
+                          alt={`${project.title} — ${idx === 0 ? "before" : "after"} view by Bradley Brown Inc, ${project.location || "Mississippi"}`}
+                          className="w-1/2 h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <img
+                      src={project.images?.[0] || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"}
+                      alt={`${categoryLabels[project.category] || project.category || "Project"} by Bradley Brown Inc — ${project.location || "Mississippi"}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-1">
+                    {(project.tags?.length ? project.tags : [categoryLabels[project.category] || project.category]).map(tag => (
+                      <span key={tag} className="bg-sky-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
                 <div className="p-5">
@@ -143,7 +160,7 @@ export default function Portfolio() {
                     )}
                   </div>
                   {project.short_description && (
-                    <p className="text-slate-500 text-sm mt-3 line-clamp-2">{project.short_description}</p>
+                    <p className="text-slate-500 text-sm mt-3">{project.short_description}</p>
                   )}
                 </div>
               </div>
