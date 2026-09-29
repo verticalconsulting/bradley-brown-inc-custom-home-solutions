@@ -9,6 +9,7 @@ const ALL_PAGES = [
   "/remodeling-brandon-ms", "/remodeling-ms", "/custom-home-builder-brandon-ms",
   "/bathroom-remodeling-brandon-ms", "/madison-ms-home-remodeling",
   "/protips", "/estimate", "/projects/historic-home-restoration",
+  "/projects/barndominium-office-shop-brandon-ms",
 ];
 
 export default function SEOPageKeywords({ data, loading, onLoad, onFilterPage }) {

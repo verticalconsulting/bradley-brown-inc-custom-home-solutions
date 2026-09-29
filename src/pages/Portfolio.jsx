@@ -36,6 +36,7 @@ const exploreLinks = [
   { label: "Energy-Efficient Upgrades", to: "/protips/energy-efficient-upgrades" },
   { label: "Renovation Loans & Financing", to: "/protips/renovation-loans" },
   { label: "Barndominiums", to: "/services/barndominiums" },
+  { label: "Brandon Barndominium Office & Shop", to: "/projects/barndominium-office-shop-brandon-ms" },
   { label: "Brandon MS Remodelers", to: "/remodeling-brandon-ms" },
   { label: "Custom Home Builder", to: "/custom-home-builder-brandon-ms" },
   { label: "Emergency Repairs", to: "/services/emergency-repairs" },
@@ -45,7 +46,7 @@ export default function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
   const [loading, setLoading] = useState(true);
-  const { hero: heroImage, cta: featuredImage } = usePageImages("Portfolio");
+  const { hero: heroImage } = usePageImages("Portfolio");
 
   const loadProjects = () => {
     base44.entities.Project.filter({ status: "published" }, "-year_completed", 50)
@@ -177,16 +178,16 @@ export default function Portfolio() {
         <div className="mt-10 bg-gradient-to-br from-[#1E2D3D] to-slate-800 rounded-2xl overflow-hidden shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
             <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
-              <img src={featuredImage?.url || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"} alt="Historic home restoration by Bradley Brown Inc. — Brandon, MS" width="600" height="450" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+              <img src="https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b3a782a9-ca3b-4d50-622d-0992951eca00/medium" alt="Barndominium custom office and shop built by Bradley Brown Inc. in Brandon, MS" width="600" height="450" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
             <div className="p-8 md:p-10">
               <p className="text-sky-400 font-semibold text-xs uppercase tracking-wider mb-2">Featured Project Story</p>
-              <h3 className="text-2xl font-bold text-white mb-3">Custom Barndominium in Brandon, MS</h3>
+              <h3 className="text-2xl font-bold text-white mb-3">Barndominium Custom Office &amp; Shop in Brandon, MS</h3>
               <p className="text-slate-300 text-sm leading-relaxed mb-5">
-                Explore how we transformed a steel-frame shell into a modern barndominium — open-concept living, vaulted ceilings, and energy-efficient finishes tailored to the homeowner's vision.
+                A 3,200 sq ft post-frame barndominium with a climate-controlled workshop, finished office suite, spray-foam insulation, and polished concrete shop floors — built to the client's custom drawings.
               </p>
-              <Link to="/services/barndominiums" className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-colors">
-                See Barndominium Services <ChevronRight className="w-4 h-4" />
+              <Link to="/projects/barndominium-office-shop-brandon-ms" className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-colors">
+                View the Project <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

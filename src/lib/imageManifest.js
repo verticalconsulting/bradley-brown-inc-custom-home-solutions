@@ -51,6 +51,7 @@ export const PAGE_GROUPS = [
       { key: "BathroomRemodelingBrandon", label: "Bathroom Remodeling Brandon", path: "/bathroom-remodeling-brandon-ms" },
       { key: "MadisonRemodeling", label: "Madison MS Remodeling", path: "/madison-ms-home-remodeling" },
       { key: "HistoricHomeRestoration", label: "Historic Home Restoration", path: "/projects/historic-home-restoration" },
+      { key: "BarndominiumOfficeShopBrandon", label: "Barndominium Office & Shop (Brandon)", path: "/projects/barndominium-office-shop-brandon-ms" },
     ],
   },
   {
