@@ -33,6 +33,7 @@ const EmergencyRepairs = lazy(() => import('./pages/services/EmergencyRepairs'))
 const KitchenRemodeling = lazy(() => import('./pages/services/KitchenRemodeling'));
 const BathroomRemodeling = lazy(() => import('./pages/services/BathroomRemodeling'));
 const HistoricHomeRestoration = lazy(() => import('./pages/HistoricHomeRestoration'));
+const BarndominiumOfficeShopBrandon = lazy(() => import('./pages/BarndominiumOfficeShopBrandon'));
 const RemodelingBrandonMS = lazy(() => import('./pages/RemodelingBrandonMS'));
 const ProTipDetail = lazy(() => import('./pages/ProTipDetail'));
 const JobCheckin = lazy(() => import('./pages/JobCheckin'));
@@ -129,6 +130,7 @@ const AuthenticatedApp = () => {
       <Route path="/blogadmin" element={<LayoutWrapper currentPageName="BlogAdmin"><AdminRoute><BlogAdmin /></AdminRoute></LayoutWrapper>} />
       <Route path="/conversiondashboard" element={<LayoutWrapper currentPageName="ConversionDashboard"><AdminRoute><ConversionDashboard /></AdminRoute></LayoutWrapper>} />
       <Route path="/projects/historic-home-restoration" element={<LayoutWrapper currentPageName="HistoricHomeRestoration"><HistoricHomeRestoration /></LayoutWrapper>} />
+      <Route path="/projects/barndominium-office-shop-brandon-ms" element={<LayoutWrapper currentPageName="BarndominiumOfficeShopBrandon"><BarndominiumOfficeShopBrandon /></LayoutWrapper>} />
       <Route path="/quote" element={<Navigate to="/estimate" replace />} />
       <Route path="/customertestimonials" element={<Navigate to="/about" replace />} />
       <Route path="/landingtrust" element={<Navigate to="/about" replace />} />
