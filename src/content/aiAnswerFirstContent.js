@@ -60,31 +60,69 @@ const withSharedQuestions = ({ process, design, start }) => [
 export const serviceAnswerFirstContent = {
   customHomeBuilding: {
     description:
-      "Plan a personalized custom home in Brandon or Central Mississippi with Bradley Brown Inc. Share your property and goals to request a free estimate.",
+      "Explore Bradley Brown Inc.'s personalized custom home building service for Brandon and Central Mississippi, then request a free estimate.",
     opening:
-      "Bradley Brown Inc. builds personalized custom homes for homeowners in Brandon and Central Mississippi. The service is intended for people who want a home shaped around their property, household, space needs, and design priorities. The next step is to request an estimate and share the location, goals, and plans already available.",
-    faqs: withSharedQuestions({
-      process:
-        "Begin with the property location, household needs, desired spaces, design direction, and planning constraints. The current site describes a path from early planning through construction and finishing details.",
-      design:
-        "The current site positions custom homes as being built around the homeowner's vision. Share how the household uses the home, the spaces that matter most, accessibility needs, and finish priorities.",
-      start:
-        "Use /estimate and include the property address or general location, whether land is already owned, the desired spaces, plans or inspiration available, and the main questions you want answered.",
-    }),
+      "Bradley Brown Inc. builds personalized homes for homeowners in Brandon and Central Mississippi. Its custom-home service connects planning, residential construction, and finishing work around the homeowner's property, lifestyle, and goals. The service hub explains the current scope and directs homeowners to request an estimate.",
+    faqs: [
+      {
+        question: "What does custom home building include?",
+        answer:
+          "Custom home building creates a residence around a specific owner, property, and set of needs. Bradley Brown Inc.'s approved positioning covers personalized residential construction from the foundation through finishing touches. The final process and deliverables depend on the confirmed project scope.",
+      },
+      {
+        question: "How is a custom-home plan shaped around a homeowner's lifestyle?",
+        answer:
+          "Planning should begin with how the household uses the home: daily routines, desired rooms, storage, gathering spaces, accessibility needs, and indoor-outdoor living priorities. Those needs can then guide layout and finish decisions.",
+      },
+      {
+        question: "Can Bradley Brown Inc. build on a lot I already own?",
+        answer:
+          "That may be possible, but lot-evaluation and build-on-your-land details depend on the property and must be confirmed for the project. Share the location when requesting a consultation so Bradley Brown Inc. can review the site and next step.",
+      },
+      {
+        question: "How long does a custom home take to build?",
+        answer:
+          "No single timeline fits every custom home. Design decisions, property conditions, project scope, approvals, material availability, and construction sequencing can all affect timing. Bradley Brown Inc. can provide project-specific guidance after reviewing the work.",
+      },
+      {
+        question: "Which Central Mississippi communities does Bradley Brown Inc. serve?",
+        answer:
+          "Bradley Brown Inc. is based in Brandon and serves Central Mississippi. Project fit and availability may vary by location and scope, so homeowners should share their property location when requesting an estimate.",
+      },
+    ],
   },
   kitchenRemodeling: {
     description:
-      "Kitchen remodeling in Brandon and Central Mississippi: improve layout, storage, cabinetry, surfaces, lighting, and finishes. Request a free estimate.",
+      "Bradley Brown Inc. remodels kitchens for Brandon and Central Mississippi homeowners, from focused updates to broader layout changes.",
     opening:
-      "Bradley Brown Inc. remodels kitchens for homeowners in Brandon and Central Mississippi. A project can focus on improving layout, storage, work areas, gathering space, cabinetry, surfaces, lighting, fixtures, and finishes, with the final scope based on the existing kitchen and the homeowner's priorities. Request an estimate to begin.",
-    faqs: withSharedQuestions({
-      process:
-        "Start by identifying what does not work in the current kitchen and what the finished space needs to improve. Share photos, layout concerns, inspiration, and must-have features.",
-      design:
-        "Layout and material choices can be discussed as part of planning, but feasibility depends on the home and approved scope. Share cabinetry, countertop, backsplash, flooring, lighting, and fixture preferences.",
-      start:
-        "Use /estimate and include the property location, photos of the current kitchen, the problems to solve, desired changes, and any inspiration or known constraints.",
-    }),
+      "Bradley Brown Inc. remodels kitchens for homeowners in Brandon and Central Mississippi. Projects can focus on improving the room's function, layout, storage, gathering space, and finishes according to the homeowner's priorities. The appropriate scope, cost, and schedule should be determined from the existing kitchen and requested changes.",
+    faqs: [
+      {
+        question: "Does Bradley Brown Inc. remodel kitchens in Brandon, MS?",
+        answer:
+          "Yes. Kitchen remodeling is a documented Bradley Brown Inc. service for homeowners in Brandon and Central Mississippi. The company's approach focuses on creating spaces that improve daily function and fit the homeowner's vision and lifestyle.",
+      },
+      {
+        question: "What can be included in a kitchen remodel?",
+        answer:
+          "A kitchen remodel may address layout, storage, cabinetry, work surfaces, fixtures, lighting, finishes, and the way the kitchen connects with nearby living areas. Bradley Brown Inc. can confirm the exact work included after reviewing the existing space and requested scope.",
+      },
+      {
+        question: "What affects the cost of a kitchen remodel?",
+        answer:
+          "Cost can vary with the room's condition, the amount of layout change, cabinetry, surfaces, fixtures, materials, and any structural or system work. Request a project-specific estimate rather than relying on a generic public range.",
+      },
+      {
+        question: "How long does a kitchen remodel take?",
+        answer:
+          "Timing depends on the work being performed, design decisions, material availability, and the condition of the existing kitchen. Bradley Brown Inc. can discuss timing after reviewing the proposed scope.",
+      },
+      {
+        question: "Can walls, plumbing, or electrical layouts be changed?",
+        answer:
+          "Those changes may be possible, but capabilities and requirements must be confirmed for the property and scope. Discuss structural or system changes during the project review before treating them as part of the work.",
+      },
+    ],
   },
   bathroomRemodeling: {
     description:
@@ -116,30 +154,68 @@ export const serviceAnswerFirstContent = {
   },
   outdoorLiving: {
     description:
-      "Outdoor living in Brandon and Central Mississippi: patios, porches, outdoor kitchens, decks, and pergolas. Request an estimate.",
+      "Bradley Brown Inc. creates personalized patios, decks, outdoor kitchens, and related outdoor living spaces in Central Mississippi.",
     opening:
-      "Bradley Brown Inc. creates outdoor living spaces for homeowners in Brandon and Central Mississippi. The current site presents covered patios, porches, outdoor kitchens, decks, pergolas, pavilions, pool-area features, fire features, and lighting as possible project types. Request an estimate to discuss the property, intended use, and desired scope.",
-    faqs: withSharedQuestions({
-      process:
-        "Begin with how the space will be used, where it should connect to the home, desired shade or cover, cooking and seating needs, utilities, drainage, and maintenance preferences.",
-      design:
-        "The design can be discussed around the home's existing form, circulation, intended use, appearance, maintenance preferences, and project scope.",
-      start:
-        "Use /estimate and share the address, photos of the area, project type, how the space should be used, preferred features, and known utility or drainage concerns.",
-    }),
+      "Bradley Brown Inc. creates outdoor living spaces for homeowners in Brandon and Central Mississippi. Documented project types include patios, decks, and outdoor kitchens designed to expand usable space and support the way a household relaxes or entertains. Homeowners can request an estimate to discuss the property and desired scope.",
+    faqs: [
+      {
+        question: "What outdoor living spaces does Bradley Brown Inc. build?",
+        answer:
+          "Bradley Brown Inc.'s documented scope includes patios, decks, and outdoor kitchens, along with broader outdoor living work. The exact structures, features, and materials should be confirmed for the current project.",
+      },
+      {
+        question: "Can an outdoor addition be designed to fit an existing home?",
+        answer:
+          "That is the goal of a well-planned outdoor project. The design should consider the home's existing form, how people will move between indoor and outdoor areas, and how the new space will be used. Project-specific structural details require review.",
+      },
+      {
+        question: "What should be planned for an outdoor kitchen?",
+        answer:
+          "Start with how the space will be used, the cooking and serving functions needed, seating, storage, shade or cover, and the relationship to the house. Utility, appliance, material, and code requirements should be confirmed for the specific property.",
+      },
+      {
+        question: "Which materials work best for Central Mississippi weather?",
+        answer:
+          "Material selection depends on the structure, exposure, maintenance expectations, appearance, and budget. Bradley Brown Inc. can discuss appropriate options after reviewing the property and project scope.",
+      },
+      {
+        question: "How do I request an outdoor living estimate?",
+        answer:
+          "Use the estimate form or contact Bradley Brown Inc. with the property location, desired project type, and a short description of how you want to use the space. The company can then confirm the appropriate next step.",
+      },
+    ],
   },
   barndominiums: {
     description:
-      "Plan a barndominium with living, garage, workshop, or storage space in Brandon or Central Mississippi. Share your goals to request an estimate.",
+      "Explore personalized barndominium planning and construction with Bradley Brown Inc. in Central Mississippi, then request a consultation.",
     opening:
-      "Bradley Brown Inc. offers barndominium construction for homeowners in Brandon and Central Mississippi. The current site presents barndominiums as personalized structures that may combine living space with a garage, workshop, storage, or hobby space. Request an estimate to discuss the land, intended use, space needs, and desired finish level.",
-    faqs: withSharedQuestions({
-      process:
-        "Start with the land, intended uses, desired mix of living and work space, access, utilities, layout, and finish priorities. The property and proposed scope need review before the building approach is finalized.",
-      design:
-        "The current site presents a combination of home, shop, garage, storage, and hobby space as a possible barndominium concept. The exact layout and feasibility depend on the property, intended use, structure, utilities, and approved scope.",
-      start:
-        "Use /estimate and include the property location, whether land is already owned, intended living and work uses, approximate space needs, finish priorities, and any plans or site information available.",
-    }),
+      "Bradley Brown Inc. offers barndominium construction for homeowners in Brandon and Central Mississippi. A barndominium can combine residential space with a garage, workshop, or other functional areas in one personalized plan. The right design depends on the property, intended use, desired finishes, and confirmed project scope.",
+    faqs: [
+      {
+        question: "Does Bradley Brown Inc. build barndominiums in Central Mississippi?",
+        answer:
+          "Yes. Barndominiums are a documented Bradley Brown Inc. service for Brandon and Central Mississippi. Share the property location and intended mix of living, garage, workshop, or storage space so the company can confirm project fit.",
+      },
+      {
+        question: "Can a barndominium combine a home, garage, and workshop?",
+        answer:
+          "Yes, those uses can be planned within one barndominium concept. The exact layout, structure, access, utilities, and finish level depend on the property and the owner's priorities. The final design should be based on a project-specific review.",
+      },
+      {
+        question: "What property factors should be considered first?",
+        answer:
+          "The starting questions include where the property is located, how the building will be used, what access and utilities are available, and how much residential and work space is needed. Site-specific requirements should be reviewed before work is defined.",
+      },
+      {
+        question: "How much does a barndominium cost?",
+        answer:
+          "There is no universal price. Size, site conditions, structural approach, amount of finished living space, garage or workshop requirements, materials, and utilities can all affect cost. Request a project-specific estimate rather than rely on a generic range.",
+      },
+      {
+        question: "How long does a barndominium take to build?",
+        answer:
+          "Timing varies with the property, design, approvals, materials, site work, and finish scope. Bradley Brown Inc. can discuss project-specific timing after reviewing the proposed work.",
+      },
+    ],
   },
 };

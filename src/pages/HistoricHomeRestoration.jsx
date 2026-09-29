@@ -1,67 +1,59 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
-import { Phone, ChevronRight, CheckCircle, Home, Clock, DollarSign, MapPin, Star } from "lucide-react";
+import { Phone, ChevronRight, CheckCircle, Star } from "lucide-react";
+import LandingFAQ from "@/components/landing/LandingFAQ";
 import ServiceStickyCTA from "@/components/ServiceStickyCTA";
 import { usePageImages } from "@/lib/usePageImages";
 
+const faqs = [
+  {
+    question: "Does Bradley Brown Inc. work on historic homes?",
+    answer: "Yes. Bradley Brown Inc. has an existing historic-home restoration project page and provides residential remodeling in Central Mississippi. The work for a specific property should be confirmed after reviewing the home and owner priorities.",
+  },
+  {
+    question: "What is the difference between restoration and remodeling?",
+    answer: "Restoration prioritizes preserving or recreating a home's defining existing character. Remodeling changes a space to improve its function, appearance, or use. Many historic-home projects combine both approaches, but the right balance depends on the property and the homeowner's goals.",
+  },
+  {
+    question: "Can a historic home be updated for modern living?",
+    answer: "Often, yes, but the appropriate work depends on the home's condition, construction, and character. Bradley Brown Inc. should assess the requested changes before committing to specific structural, mechanical, preservation, or code-related work.",
+  },
+  {
+    question: "What should homeowners assess before starting a historic-home project?",
+    answer: "Start with the home's current condition, the features the owner wants to preserve, the spaces that need to function differently, and any known structural or system concerns. A project-specific review is more reliable than applying a standard remodeling plan.",
+  },
+  {
+    question: "Are special approvals sometimes required for historic-home work?",
+    answer: "Requirements vary by property and jurisdiction. A homeowner should confirm whether local rules, district requirements, or specialist reviews apply before work begins. This page does not promise an approval outcome or provide legal guidance.",
+  },
+];
+
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Historic Home Restoration in Brandon, MS — Bradley Brown Inc.",
-  "description": "See how Bradley Brown Inc. restored a historic Mississippi home, preserving original character while modernizing systems and finishes.",
-  "author": { "@type": "Organization", "name": "Bradley Brown Inc." },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Bradley Brown Inc.",
-    "logo": { "@type": "ImageObject", "url": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png" }
-  },
-  "mainEntityOfPage": "https://bradleybrowninc.com/projects/historic-home-restoration"
-  };
-
-  const highlights = [
-  "Restored original heart pine hardwood floors to like-new condition",
-  "Rebuilt wraparound front porch with period-accurate millwork",
-  "Updated electrical, plumbing & HVAC while preserving wall integrity",
-  "Restored original window frames with energy-efficient glazing inserts",
-  "Refinished original brick fireplace surround and mantel",
-  "Sourced period-matching trim, moldings, and hardware throughout",
-];
-
-const stats = [
-  { icon: Home, label: "Home Size", value: "2,800 sq ft" },
-  { icon: Clock, label: "Duration", value: "7 months" },
-  { icon: MapPin, label: "Location", value: "Brandon, MS" },
-  { icon: DollarSign, label: "Investment", value: "$380,000–$420,000" },
-];
-
-const phases = [
-  {
-    phase: "Phase 1",
-    title: "Assessment & Planning",
-    description: "We conducted a thorough structural and historical assessment, working with the homeowner to identify original materials, document existing conditions, and develop a restoration plan that honored the home's 1920s heritage.",
-  },
-  {
-    phase: "Phase 2",
-    title: "Structural Stabilization",
-    description: "Foundation piers were reinforced, load-bearing walls evaluated, and any compromised structural members were sistered or replaced using matching-era lumber. The roof decking and rafters were inspected and selectively replaced.",
-  },
-  {
-    phase: "Phase 3",
-    title: "Systems Modernization",
-    description: "All mechanical systems—electrical panel, plumbing supply and drain lines, and HVAC—were brought to current code. We used a mini-split system to avoid damaging original plaster walls with ductwork.",
-  },
-  {
-    phase: "Phase 4",
-    title: "Interior Restoration",
-    description: "Original heart pine floors were sanded and refinished. Damaged plaster was repaired with matching texture. Period-accurate trim, baseboard, and crown molding were sourced and installed throughout.",
-  },
-  {
-    phase: "Phase 5",
-    title: "Exterior & Curb Appeal",
-    description: "The wraparound porch was fully rebuilt with pressure-treated framing and clear-heart cedar decking, matching the original profile. Exterior siding was repaired, primed, and painted in historically appropriate colors.",
-  },
-];
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Historic Home Restoration in Central Mississippi — Bradley Brown Inc.",
+      "description": "Explore Bradley Brown Inc.'s approach to historic home restoration in Central Mississippi and request a conversation about your property.",
+      "author": { "@type": "Organization", "name": "Bradley Brown Inc." },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bradley Brown Inc.",
+        "logo": { "@type": "ImageObject", "url": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c758479c46f0580553750/0990d7b76_bradleybrowninc-logo2.png" }
+      },
+      "mainEntityOfPage": "https://bradleybrowninc.com/projects/historic-home-restoration"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((item) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+      }))
+    }
+  ]
+};
 
 export default function HistoricHomeRestoration() {
   const { hero: heroImage, gallery: managedGallery } = usePageImages("HistoricHomeRestoration");
@@ -77,8 +69,8 @@ export default function HistoricHomeRestoration() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] pt-20">
       <SEOHead
-        title="Historic Home Restoration | Bradley Brown Inc — Brandon, MS"
-        description="See how Bradley Brown Inc. restored a 1920s historic home in Brandon, MS — preserving original floors & millwork while modernizing all systems."
+        title="Historic Home Restoration in Central Mississippi | Bradley Brown Inc"
+        description="Explore Bradley Brown Inc.'s approach to historic home restoration in Central Mississippi and request a conversation about your property."
         canonical="https://bradleybrowninc.com/projects/historic-home-restoration"
         noindex={false}
         schema={schema}
@@ -100,10 +92,10 @@ export default function HistoricHomeRestoration() {
             <span className="text-[#F5D78E] text-xs font-medium">Featured Project</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-            Historic Home Restoration
+            Historic Home Restoration in Central Mississippi
           </h1>
           <p className="text-slate-300 mt-4 text-base md:text-lg max-w-2xl mx-auto">
-            Preserving a century of Mississippi history while creating a fully modern, comfortable family home in Brandon, MS.
+            Bradley Brown Inc. documents historic home restoration work in Brandon and serves homeowners across Central Mississippi. Its approach connects residential remodeling craftsmanship with the goal of preserving a home's existing character while improving how the space functions.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 justify-center">
             <a
@@ -127,40 +119,18 @@ export default function HistoricHomeRestoration() {
         </div>
       </div>
 
-      {/* Stats bar */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map(({ icon: Icon, label, value }) => (
-            <div key={label} className="text-center">
-              <Icon className="w-5 h-5 text-[#C4922A] mx-auto mb-1" />
-              <p className="text-sm font-bold text-[#1E2D3D]">{value}</p>
-              <p className="text-xs text-slate-400">{label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
 
-        {/* Overview */}
         <section>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">Project Overview</h2>
+          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">Historic Home Restoration in Central Mississippi</h2>
           <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
-            <p>
-              When the owners of this 1920s craftsman-style home in Brandon, Mississippi contacted Bradley Brown Inc., the house had sat largely untouched for decades. While structurally sound, the home needed every mechanical system replaced, extensive wood rot repairs, and careful cosmetic restoration to return it to its original splendor.
-            </p>
-            <p>
-              Our challenge—and our mission—was to treat this home as the piece of Mississippi history it is. That meant sourcing matching heart pine flooring boards, hand-milling replacement trim profiles to match originals, and partnering with a local millwork shop to recreate porch columns and balustrades that had deteriorated beyond repair.
-            </p>
-            <p>
-              The result is a home that feels authentically historic yet performs like a new build: energy-efficient windows, a modern HVAC system, updated plumbing and 200-amp electrical service—all hidden behind walls that look exactly as they did when the house was first built.
-            </p>
+            <p>Historic-home work should begin with the property's current condition, the features the owner wants to preserve, the spaces that need to function differently, and any known structural or system concerns.</p>
+            <p>Restoration prioritizes preserving or recreating a home's defining existing character. Remodeling changes a space to improve its function, appearance, or use. Many historic-home projects combine both approaches, but the right balance depends on the property and the homeowner's goals.</p>
           </div>
         </section>
 
-        {/* Gallery placeholder */}
         <section>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">Project Gallery</h2>
+          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">A Documented Historic Home Project</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {galleryImages.map((src, i) => (
               <div key={i} className="rounded-xl overflow-hidden aspect-square bg-slate-100">
@@ -170,12 +140,16 @@ export default function HistoricHomeRestoration() {
           </div>
         </section>
 
-        {/* Project Highlights */}
         <section>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">Project Highlights</h2>
+          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-4">What to Assess Before Work Begins</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {highlights.map((item, i) => (
-              <div key={i} className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl p-4">
+            {[
+              "The home's current condition and known structural or system concerns",
+              "Existing features the homeowner wants to preserve",
+              "Rooms or functions that need to work differently",
+              "Property-specific requirements that may affect the project",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl p-4">
                 <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-slate-700">{item}</p>
               </div>
@@ -183,23 +157,9 @@ export default function HistoricHomeRestoration() {
           </div>
         </section>
 
-        {/* Restoration Phases */}
         <section>
-          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Our Restoration Process</h2>
-          <div className="space-y-4">
-            {phases.map((p, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-xl p-5 flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#1E2D3D] text-white text-xs font-bold flex items-center justify-center">
-                  {i + 1}
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-[#C4922A] uppercase tracking-wider">{p.phase}</p>
-                  <h3 className="font-bold text-[#1E2D3D] mt-0.5">{p.title}</h3>
-                  <p className="text-sm text-slate-600 mt-1 leading-relaxed">{p.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-2xl font-bold text-[#1E2D3D] mb-6">Frequently Asked Questions About Historic Homes</h2>
+          <LandingFAQ faqs={faqs} />
         </section>
 
         {/* CTA */}
