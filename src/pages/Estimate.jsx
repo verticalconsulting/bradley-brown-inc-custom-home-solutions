@@ -43,11 +43,33 @@ const initialData = {
 
 const WIZARD_STORAGE_KEY = "estimateWizardState";
 
+// In-memory fallback for environments where web storage is unavailable or
+// ephemeral (embedded/automation browsers) — a remount still restores progress.
+let wizardMemoryCache = null;
+
+const readWizardStorage = () => {
+  try {
+    const saved = sessionStorage.getItem(WIZARD_STORAGE_KEY);
+    if (saved) return saved;
+  } catch { /* storage unavailable */ }
+  return wizardMemoryCache ? JSON.stringify(wizardMemoryCache) : null;
+};
+
+const writeWizardStorage = (value) => {
+  wizardMemoryCache = JSON.parse(value);
+  try { sessionStorage.setItem(WIZARD_STORAGE_KEY, value); } catch { /* ignore */ }
+};
+
+const clearWizardStorage = () => {
+  wizardMemoryCache = null;
+  try { sessionStorage.removeItem(WIZARD_STORAGE_KEY); } catch { /* ignore */ }
+};
+
 // Restore an in-progress wizard so a remount / accidental reload
 // (e.g. dismissing the native file picker) never loses the visitor's answers.
 const restoreWizardState = () => {
   try {
-    const saved = sessionStorage.getItem(WIZARD_STORAGE_KEY);
+    const saved = readWizardStorage();
     if (!saved) return null;
     const parsed = JSON.parse(saved);
     if (!parsed || typeof parsed !== "object") return null;
@@ -123,11 +145,9 @@ export default function Estimate() {
     }
   }, []);
 
-  // Keep the wizard's progress in session storage so it survives remounts/reloads
+  // Keep the wizard's progress persisted so it survives remounts/reloads
   useEffect(() => {
-    try {
-      sessionStorage.setItem(WIZARD_STORAGE_KEY, JSON.stringify({ step, data }));
-    } catch { /* storage full or unavailable — ignore */ }
+    writeWizardStorage(JSON.stringify({ step, data }));
   }, [step, data]);
 
   const canProceed = () => {
@@ -303,9 +323,7 @@ export default function Estimate() {
 
       // Estimate generated successfully — clear saved wizard progress
       // so the next visit starts a fresh wizard instead of the old answers.
-      try {
-        sessionStorage.removeItem(WIZARD_STORAGE_KEY);
-      } catch { /* ignore */ }
+      clearWizardStorage();
     } catch (err) {
       console.error(err);
       setError(err.message || "Something went wrong generating your estimate.");
