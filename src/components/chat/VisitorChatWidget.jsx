@@ -18,6 +18,8 @@ export default function VisitorChatWidget() {
   const [sending, setSending] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [unread, setUnread] = useState(0);
+  const [failures, setFailures] = useState(0);
+  const [whatsappReady, setWhatsappReady] = useState(false);
   const bottomRef = useRef(null);
   const openRef = useRef(open);
   const lastAgentCountRef = useRef(0);
@@ -122,6 +124,7 @@ export default function VisitorChatWidget() {
           ? newMessages
           : prev
       );
+      setFailures(0);
 
       // Check if agent triggered escalation
       const lastAssistant = [...newMessages].reverse().find(m => m.role === "assistant");
@@ -130,25 +133,32 @@ export default function VisitorChatWidget() {
       }
     } catch (err) {
       console.error("Message failed:", err);
-      setMessages(prev => [...prev, { role: "assistant", content: "Sorry, I lost connection for a moment. Could you try sending that again?" }]);
+      const failed = failures + 1;
+      setFailures(failed);
+      setMessages(prev => [...prev, {
+        role: "assistant",
+        content: failed >= 2
+          ? "I'm still having trouble connecting. Please call or text Brad directly at [(844) 351-4154](tel:+18443514154), or tap \"Talk to a person on WhatsApp\" below — our team will follow up with you."
+          : "Sorry, I lost connection for a moment. Could you try sending that again?",
+      }]);
     } finally {
       setSending(false);
     }
   };
 
   const goToWhatsApp = async () => {
-    // Confirm the handoff inside the chat, and forward the transcript to Brad
-    // so the team has the visitor's info even if they don't finish on WhatsApp.
+    // Confirm the handoff inside the chat, forward the transcript to Brad,
+    // and show a tappable WhatsApp link — no forced navigation away.
     setMessages(prev => [...prev, {
       role: "assistant",
-      content: `Got it — I've passed your info to our team. You can also reach Brad directly on WhatsApp at [(844) 351-4154](tel:+18443514154). We'll get back with you shortly!`,
+      content: `Got it — I've passed your info to Brad and the team. You can also reach us directly on WhatsApp or at [(844) 351-4154](tel:+18443514154). We'll get back with you shortly!`,
     }]);
+    setWhatsappReady(true);
     try {
       await forwardToBrad(messages);
     } catch (err) {
       console.error("WhatsApp handoff forward failed:", err);
     }
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
   };
 
   const visibleMessages = messages.filter(isVisibleMsg);
@@ -272,13 +282,23 @@ export default function VisitorChatWidget() {
                 <div ref={bottomRef} />
               </div>
 
-              <div className="px-3 pb-1">
+              <div className="px-3 pb-1 space-y-1.5">
                 <button
                   onClick={goToWhatsApp}
                   className="w-full text-xs bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#128C7E] py-1.5 rounded-lg font-medium flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" /> Talk to a person on WhatsApp
                 </button>
+                {whatsappReady && (
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white py-2 rounded-lg text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                  >
+                    <Phone className="w-3.5 h-3.5" /> Continue on WhatsApp →
+                  </a>
+                )}
               </div>
               <div className="p-3 border-t border-gray-100 flex gap-2 flex-shrink-0">
                 <input
