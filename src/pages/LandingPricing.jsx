@@ -181,6 +181,7 @@ export default function LandingPricing() {
               { label: "Our Portfolio", to: "/portfolio" },
               { label: "Get a Free Estimate", to: "/estimate" },
               { label: "AI Estimator", to: "/estimate" },
+              { label: "Renovation Planner", to: "/renovation-planner" },
               { label: "Renovation Loans", to: "/protips/renovation-loans" },
               { label: "Home Addition Ideas", to: "/protips/home-addition-ideas" },
               { label: "Small Bathroom Ideas", to: "/protips/small-bathroom-ideas" },

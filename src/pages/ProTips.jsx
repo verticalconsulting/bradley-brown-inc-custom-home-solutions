@@ -91,6 +91,7 @@ export default function ProTips() {
               { label: "Home Addition Ideas", to: "/protips/home-addition-ideas", desc: "Master suites, sunrooms, in-law suites & more" },
               { label: "Energy-Efficient Home Upgrades", to: "/protips/energy-efficient-upgrades", desc: "Save on bills & claim federal tax credits" },
               { label: "Renovation Loan Options", to: "/protips/renovation-loans", desc: "FHA 203k, HELOC, home equity loans & more" },
+              { label: "Free Renovation Planner", to: "/renovation-planner", desc: "Personalized timeline, disruption score & prep checklist" },
               { label: "Kitchen Remodeling", to: "/services/kitchen-remodeling", desc: "Custom cabinets, countertops, tile & premium finishes" },
               { label: "Bathroom Remodeling", to: "/services/bathroom-remodeling", desc: "Walk-in showers, tub-to-shower conversions & vanities" },
               { label: "Emergency Home Repairs — Brandon, MS", to: "/services/emergency-repairs", desc: "Urgent? Call (601) 954-1306 — same-week service available" },
