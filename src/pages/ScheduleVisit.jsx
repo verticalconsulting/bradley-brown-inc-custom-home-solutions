@@ -53,6 +53,16 @@ export default function ScheduleVisit() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!canSubmit) return;
+
+    // Guard the date range client-side so an out-of-range date gets a clear,
+    // immediate message instead of relying on the server response to explain it.
+    const min = formatDate(new Date(Date.now() + 86400000));
+    const max = formatDate(new Date(Date.now() + 30 * 86400000));
+    if (form.date < min || form.date > max) {
+      setError("Please pick a date between tomorrow and 30 days from today.");
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
@@ -86,7 +96,10 @@ export default function ScheduleVisit() {
         time: TIME_SLOTS.find((s) => s.value === form.time)?.label || form.time,
       });
     } catch (err) {
-      setError(err.message || "Something went wrong. Please call us instead.");
+      // Surface the server's actual error detail (e.g. an expired/out-of-range
+      // date) instead of axios's generic "Request failed with status code N".
+      const detail = err?.response?.data?.error || err?.message || "Something went wrong. Please call us instead.";
+      setError(detail || "Something went wrong. Please call us instead.");
     } finally {
       setLoading(false);
     }
