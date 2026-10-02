@@ -111,10 +111,17 @@ export default async function(req) {
         }
 
         // Send SMS notification to admin
-        const twilioSid = secrets.get("TWILIO_ACCOUNT_SID");
-        const twilioAuth = secrets.get("TWILIO_AUTH_TOKEN");
-        const twilioFrom = secrets.get("TWILIO_FROM_NUMBER");
-        const adminPhone = secrets.get("ADMIN_PHONE_NUMBER");
+        // Secrets are read defensively — a missing/unprovisioned secret in any
+        // runtime must never throw an uncaught 500 on the visitor's booking.
+        let twilioSid = null, twilioAuth = null, twilioFrom = null, adminPhone = null;
+        try {
+            twilioSid = secrets.get("TWILIO_ACCOUNT_SID");
+            twilioAuth = secrets.get("TWILIO_AUTH_TOKEN");
+            twilioFrom = secrets.get("TWILIO_FROM_NUMBER");
+            adminPhone = secrets.get("ADMIN_PHONE_NUMBER");
+        } catch (secError) {
+            console.error('Notification secrets unavailable:', secError.message);
+        }
 
         // Admin SMS is a best-effort notification — a Twilio outage must never
         // fail the visitor's booking (the record save below is the source of truth).
