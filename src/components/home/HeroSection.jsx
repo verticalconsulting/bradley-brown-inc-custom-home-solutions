@@ -62,34 +62,43 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-foreground/75 via-foreground/55 to-foreground/85" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
-        <div className="mb-6 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-primary/40 bg-[hsl(var(--sidebar-accent))]">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center pt-24 pb-28 md:pb-16">
+        <div className="mb-4 sm:mb-6 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-primary/40 bg-[hsl(var(--sidebar-accent))]">
           <span className="bg-primary rounded-full w-2 h-2" />
           <span className="text-primary text-sm font-medium">
             Custom Homes &amp; Remodeling in Brandon, Mississippi
           </span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6">
           Brandon, MS Home Remodeling &amp;
           <span className="block text-[hsl(var(--sidebar-ring))]">
             Custom Home Builder
           </span>
         </h1>
 
-        <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-[hsl(var(--sidebar-background))]">
-          Custom homes, renovations, additions, and outdoor living spaces
-          managed with local experience, integrity, and attention to detail.
+        <p className="text-base sm:text-xl max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed text-[hsl(var(--sidebar-background))]">
+          Planning a custom home in Brandon or Central Mississippi? Share what
+          you want to build, your property location, and your priorities. Request
+          a free estimate to start the conversation.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full max-w-xs sm:max-w-none mx-auto">
+        <div className="w-full max-w-sm mx-auto mb-5">
           <Link
             to="/estimate"
             onClick={trackEstimateClick}
-            className="hover:opacity-90 text-white px-6 sm:px-8 py-5 min-h-[52px] text-base sm:text-lg font-bold rounded-xl inline-flex items-center justify-center gap-2 transition-all sm:hover:scale-105 shadow-lg bg-primary"
+            aria-describedby="hero-estimate-help"
+            className="w-full bg-[#003D82] hover:bg-[#002855] text-white px-5 sm:px-6 py-4 min-h-[52px] text-base sm:text-lg font-bold rounded-xl inline-flex items-center justify-center gap-2 transition-colors shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
-            <Sparkles className="w-5 h-5" /> Get My Free Estimate
+            <Sparkles className="w-5 h-5 shrink-0" aria-hidden="true" />
+            <span className="min-w-0">Request a Custom Home Estimate</span>
           </Link>
+          <p id="hero-estimate-help" className="mt-3 text-sm leading-relaxed text-white">
+            Share your property location, project type, and priorities.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 justify-center w-full max-w-xs sm:max-w-none mx-auto">
           <Link
             to="/services"
             onClick={trackServicesClick}
