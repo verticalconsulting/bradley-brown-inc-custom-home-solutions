@@ -1,88 +1,116 @@
-import React from "react";
-import ServicePageLayout from "@/components/services/ServicePageLayout";
-import { serviceAnswerFirstContent } from "@/content/aiAnswerFirstContent";
+import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
+import { base44 } from "@/api/base44Client";
+import { barndominiums as page, barndominiumsSchema } from "@/content/barndominiums";
+import "./barndominiums.css";
+
+const PHONE = "(844) 351-4154";
+const trackCall = () => {
+  base44.analytics.track({ eventName: "phone_click", properties: { source: "Barndominium Construction" } });
+};
+
+function EstimateLinks() {
+  return (
+    <div className="barndo-actions">
+      <Link to="/estimate" className="barndo-button barndo-button-primary">Request a Barndominium Estimate</Link>
+      <a href="tel:+18443514154" onClick={trackCall} className="barndo-button barndo-button-outline">Call {PHONE}</a>
+    </div>
+  );
+}
 
 export default function BarndominiumsService() {
-  const answerFirst = serviceAnswerFirstContent.barndominiums;
+  useEffect(() => {
+    // The host injects unmanaged fallback tags before React runs. Helmet does
+    // not own those nodes, so remove only conflicting fallbacks on this route.
+    // Restore them on navigation; other pages retain their existing behavior.
+    const selector = [
+      'meta[name="description"]', 'meta[name="robots"]',
+      'meta[property^="og:"]', 'meta[name^="twitter:"]',
+      'link[rel="canonical"]'
+    ].join(',');
+    const fallbacks = [...document.head.querySelectorAll(selector)]
+      .filter((node) => !node.hasAttribute('data-rh'));
+    fallbacks.forEach((node) => node.remove());
+    return () => fallbacks.forEach((node) => document.head.appendChild(node));
+  }, []);
 
   return (
-    <ServicePageLayout
-      title="Barndominium Builder in Brandon, MS | Bradley Brown Inc"
-      description={answerFirst.description}
-      canonical="https://bradleybrowninc.com/services/barndominiums"
-      h1="Custom Barndominium Builder in Brandon, MS"
-      subtitle="Steel-frame barndominiums combining living space, garages, and workshops — built to last by Mississippi's trusted contractor since 2005. On your land, on budget, on schedule."
-      serviceName="Barndominium Construction"
-      answerFirstOpening={answerFirst.opening}
-      pageKey="Barndominiums"
-      bodySections={[
-        {
-          heading: "Barndominiums Built for Mississippi Living",
-          paragraphs: [
-            "A barndominium gives you the best of both worlds: the durability and open space of a steel-frame metal building, combined with the comfort and finish of a custom home. Whether you want a shop on one end and living quarters on the other, a full workshop with a luxury apartment, or a wide-open living space with soaring ceilings, a barndo delivers — often at a lower cost per square foot than a traditional stick-built home.",
-            "Bradley Brown Inc. has been building across the Brandon and Rankin County area since 2005, and we bring that same craftsmanship and accountability to every barndominium project. From the concrete slab and steel erection to the custom kitchen and bathroom finishes inside, we manage the entire build under one contract — one point of contact, one timeline, one fixed written price.",
-            "We serve Brandon, Flowood, Richland, Florence, Pelahatchie, Forest, Morton, and all of Rankin, Smith, Simpson, and Scott counties. If you have rural acreage in Central Mississippi, we can build on it.",
-          ],
-        },
-        {
-          heading: "Steel Frame Construction & Open-Concept Design",
-          paragraphs: [
-            "Our barndominiums start with an engineered steel frame — a metal building shell that goes up in a fraction of the time of traditional construction. The steel frame is durable, low-maintenance, and stands up to Mississippi weather for decades. Once the shell is up, we finish the interior with the same craftsmanship as any custom home: spray foam insulation, drywall, custom cabinets, tile, hardwood flooring, and premium fixtures.",
-            "The beauty of a barndominium is the open-concept layout. Without load-bearing interior walls, you get soaring ceilings, wide-open living spaces, and the flexibility to design the floor plan exactly to your lifestyle. Want a 40-foot great room with a stone fireplace? A shop with 14-foot overhead doors? An RV bay with a pull-through design? All of it fits under one steel-frame roof.",
-            "We design custom layouts that blend living quarters, garages, workshops, and hobby rooms seamlessly. Living space on one end, shop on the other, with a mudroom connecting them — or a full open floor plan with the kitchen overlooking the great room. Your barndo, your way.",
-          ],
-        },
-        {
-          heading: "Honest Barndominium Pricing in Mississippi",
-          paragraphs: [
-            "Barndominium builds in the Brandon and Rankin County area typically range from $75 to $150 per square foot, depending on size, finishes, and site conditions. A basic shell — slab, steel frame, roof, and exterior — runs $45,000–$80,000. A standard turnkey barndo (1,200–1,800 sq ft) runs $120,000–$180,000. A premium turnkey with shop (2,000–3,000 sq ft) runs $200,000–$350,000.",
-            "We give you a fixed written estimate before we start. No vague ranges, no change-order games, no surprise costs. The price you see is the price you pay. We also provide the draw schedules, permits, and builder documentation your lender needs — USDA Rural Development loans, construction-to-permanent loans, and Farm Credit financing all work for barndominiums in Mississippi.",
-            "We offer both shell builds (you finish the interior) and full turnkey builds (we handle everything from slab to move-in). You choose how much you want us to handle. Either way, the steel shell goes up fast — typically within a few weeks of the slab being poured — and the finish-out timeline depends on your selected finishes.",
-          ],
-        },
-        {
-          heading: "Permits, Zoning & Insurance — Handled for You",
-          paragraphs: [
-            "Barndominiums are permitted in agricultural and residential zones across Rankin County, though setback and minimum square footage rules vary by district. We handle the permit application, submit engineered plans to the county, and coordinate with Rankin County inspectors from slab to final so your build stays compliant. We also pull permits in Hinds, Simpson, Scott, and Smith counties.",
-            "Insurance is a common concern. Some carriers initially treat barndominiums as outbuildings, but proper final inspections and a certificate of occupancy usually qualify them for standard homeowner coverage. We recommend contacting a Mississippi-licensed insurer who writes farm-and-ranch policies, and we provide the documentation underwriters need to classify the build as a residence.",
-            "You do need to own land before starting. If you're still shopping for acreage, we're happy to walk a parcel with you and flag any site-prep, access, or utility concerns before you close — at no charge.",
-          ],
-        },
-        {
-          heading: "Built on Your Land, On Your Schedule",
-          paragraphs: [
-            "Most barndominiums take 4–8 months from permit to move-in. The engineered steel shell erects in a few weeks once the slab is poured; the finish-out — insulation, drywall, cabinets, electrical, and HVAC — is the variable that depends on your finishes and the weather. We give you a clear schedule upfront and keep you updated throughout.",
-            "Our process is simple: free consultation, design and permits, build and move in. We visit your land, talk through your vision — living plus shop, size, finishes — and give you a fixed written estimate. Then we design the custom floor plan, engineer the steel package, and pull all Mississippi permits. Finally, we build: slab, steel, roof, interior finish — managed under one contractor. Final walkthrough, keys, done.",
-            "Ready to build on your land? Call (844) 351-4154 or request a free estimate online. We'll schedule a no-obligation site visit to walk your acreage and discuss your barndominium vision.",
-          ],
-        },
-      ]}
-      features={[
-        "Engineered steel-frame construction — durable, low-maintenance",
-        "Open-concept living with soaring ceilings",
-        "Combined living + workshop + garage under one roof",
-        "Custom interior finishes — same quality as a custom home",
-        "Spray foam insulation & energy-efficient HVAC",
-        "Full permitting & Rankin County inspections handled",
-        "Shell builds or full turnkey — you choose",
-        "Rural acreage specialists across Central Mississippi",
-      ]}
-      faqs={answerFirst.faqs}
-      testimonials={[
-        { text: "Bradley Brown built our barndo in 6 months — shop, living, and guest suite. Steel shell went up in 3 weeks. No surprises on the final bill.", author: "Chris B.", location: "Brandon, MS" },
-        { text: "We got three quotes. Brad was the only one who gave us a fixed written price and stuck to it. Craftsmanship inside is incredible.", author: "Sarah & Tom M.", location: "Pelahatchie, MS" },
-        { text: "Built exactly what we drew on a napkin. Shop on one end, 2,400 sq ft of house on the other. Worth every dollar.", author: "Marcus L.", location: "Rankin Co., MS" },
-      ]}
-      images={[
-        { url: "https://media.base44.com/images/public/699c758479c46f0580553750/106b7349c_nighttime.png", alt: "Custom barndominium exterior at dusk in Rankin County, MS", caption: "Custom barndominium — Rankin County, MS" },
-        { url: "https://media.base44.com/images/public/699c758479c46f0580553750/345f5b642_barndo.png", alt: "Barndominium open interior with exposed steel trusses", caption: "Open interior shell with vaulted ceilings" },
-        { url: "https://media.base44.com/images/public/699c758479c46f0580553750/97a6460ae_insidecomputer.png", alt: "Barndominium custom workspace with wood beams", caption: "Custom workspace with barn doors and natural light" },
-      ]}
-      relatedLinks={[
-        { to: "/pricing", label: "Pricing & Cost Guide" },
-        { to: "/services/custom-home-building", label: "Custom Home Building" },
-        { to: "/protips", label: "Pro Tips & Remodeling Advice" },
-      ]}
-    />
+    <div className="barndo-page">
+      <SEOHead
+        title={page.title}
+        description={page.description}
+        canonical={page.canonical}
+        ogImage={page.proof.image}
+        structuredData={barndominiumsSchema}
+      />
+      <Helmet>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" />
+      </Helmet>
+
+      <section className="barndo-hero" aria-labelledby="barndo-title">
+        <div className="barndo-container">
+          <nav aria-label="Breadcrumb" className="barndo-breadcrumb">
+            <Link to="/">Home</Link><span aria-hidden="true"> / </span>
+            <Link to="/services">Services</Link><span aria-hidden="true"> / </span>
+            <span>Barndominiums</span>
+          </nav>
+          <p className="barndo-eyebrow">Brandon &amp; Central Mississippi</p>
+          <h1 id="barndo-title">{page.h1}</h1>
+          <p className="barndo-opening">{page.opening}</p>
+          <EstimateLinks />
+        </div>
+      </section>
+
+      <div className="barndo-container barndo-content">
+        {page.sections.map(({ heading, paragraphs }) => (
+          <section key={heading}>
+            <h2>{heading}</h2>
+            {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </section>
+        ))}
+
+        <section className="barndo-proof" aria-labelledby="barndo-proof-title">
+          <div>
+            <h2 id="barndo-proof-title">{page.proof.heading}</h2>
+            <p>{page.proof.text}</p>
+            <Link to="/portfolio">View the project portfolio</Link>
+          </div>
+          <img src={page.proof.image} alt={page.proof.alt} width="640" height="480" loading="lazy" decoding="async" />
+        </section>
+
+        <section aria-labelledby="barndo-faq-title" id="faq">
+          <h2 id="barndo-faq-title">Mississippi barndominium questions</h2>
+          <p>These answers describe Bradley Brown Inc.'s published services and next steps. Confirm availability and the agreed scope for your property.</p>
+          <div className="barndo-faqs">
+            {page.faqs.map(({ question, answer }) => (
+              <section key={question}>
+                <h3>{question}</h3>
+                <p>{answer}</p>
+              </section>
+            ))}
+          </div>
+        </section>
+
+        <nav aria-label="Related services and customer information" className="barndo-related">
+          <h2>Explore Bradley Brown Inc.</h2>
+          <ul>
+            <li><Link to="/services/custom-home-building">Custom home building</Link></li>
+            <li><Link to="/portfolio">Project portfolio</Link></li>
+            <li><Link to="/reviews">Customer reviews</Link></li>
+            <li><Link to="/contact">Contact the team</Link></li>
+          </ul>
+        </nav>
+      </div>
+
+      <section className="barndo-cta" aria-labelledby="barndo-cta-title">
+        <div className="barndo-container">
+          <h2 id="barndo-cta-title">Discuss your barndominium plans</h2>
+          <p>Tell Bradley Brown Inc. where you want to build and how you want to use the space. Use the estimate page's message form and select Other if no listed project type fits.</p>
+          <EstimateLinks />
+        </div>
+      </section>
+    </div>
   );
 }
