@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Maximize2, Calendar, SlidersHorizontal, ChevronRight, Instagram } from "lucide-react";
 import PullToRefresh from "@/components/PullToRefresh";
 import InstagramFeed from "@/components/portfolio/InstagramFeed";
+import PortfolioShare from "@/components/portfolio/PortfolioShare";
 import { usePageImages } from "@/lib/usePageImages";
 
 const categoryFilters = [
@@ -106,6 +107,7 @@ export default function Portfolio() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+        <PortfolioShare />
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {Array.from({ length: 6 }).map((_, i) => (
