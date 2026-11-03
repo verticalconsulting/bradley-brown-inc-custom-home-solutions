@@ -1,313 +1,121 @@
-import React from "react";
-import { Phone, MapPin, CheckCircle, ChevronRight, Hammer } from "lucide-react";
+import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import LandingCTABar from "@/components/landing/LandingCTABar";
-import LandingFAQ from "@/components/landing/LandingFAQ";
 import StickyCallButton from "@/components/StickyCallButton";
-import CustomHomeProcess from "@/components/landing/CustomHomeProcess";
-import BrandonReviewSection from "@/components/landing/BrandonReviewSection";
 import { base44 } from "@/api/base44Client";
-import { usePageImages } from "@/lib/usePageImages";
+import { brandonCustomHomes as page, brandonCustomHomesSchema } from "@/content/brandonCustomHomes";
+import "./brandon-custom-homes.css";
 
-const faqs = [
-  {
-    question: "Does Bradley Brown Inc. build custom homes in Brandon, MS?",
-    answer:
-      "Yes. Bradley Brown Inc. is based in Brandon and provides custom home building for homeowners in Brandon and nearby Central Mississippi communities. The service focuses on creating a home around the owner's vision, lifestyle, and functional needs rather than offering a one-size-fits-all plan.",
-  },
-  {
-    question: "What is the first step in planning a custom home?",
-    answer:
-      "Start by sharing the property, goals, priorities, and questions you already have. Bradley Brown Inc. invites homeowners to request a free estimate or schedule a consultation so the project's scope can be discussed before detailed decisions are made.",
-  },
-  {
-    question: "Can Bradley Brown Inc. build a home around my family's needs?",
-    answer:
-      "Personalization is central to Bradley Brown Inc.'s custom-home approach. The planning conversation should cover how the household uses the home, what spaces matter most, and which functional or design priorities should shape the project.",
-  },
-  {
-    question: "How much does a custom home in Brandon cost?",
-    answer:
-      "A custom home's budget depends on the property, size, design, materials, site conditions, and project scope. Homeowners should request an estimate based on their specific plans rather than rely on a generic cost range.",
-  },
-  {
-    question: "Where can I see Bradley Brown Inc. projects?",
-    answer:
-      "Visit the portfolio to review available Bradley Brown Inc. project examples. Each project should be considered alongside its documented service type, location, scope, and photographs.",
-  },
-];
-
-const schema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "HomeAndConstructionBusiness",
-      "name": "Bradley Brown Inc.",
-      "telephone": "+18443514154",
-      "url": "https://bradleybrowninc.com/custom-home-builder-brandon-ms",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Brandon",
-        "addressRegion": "MS",
-        "postalCode": "39042",
-        "addressCountry": "US",
-      },
-      "geo": { "@type": "GeoCoordinates", "latitude": 32.2729, "longitude": -89.9923 },
-      "priceRange": "$$$",
-      "areaServed": [
-        { "@type": "City", "name": "Brandon, Mississippi" },
-        { "@type": "City", "name": "Flowood, Mississippi" },
-        { "@type": "City", "name": "Pearl, Mississippi" },
-        { "@type": "City", "name": "Richland, Mississippi" },
-        { "@type": "City", "name": "Jackson, Mississippi" },
-        { "@type": "City", "name": "Madison, Mississippi" },
-        { "@type": "City", "name": "Ridgeland, Mississippi" },
-        { "@type": "City", "name": "Clinton, Mississippi" },
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Custom Home Building Services in Brandon, MS",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Custom Home Building in Brandon, MS",
-              "areaServed": "Brandon, MS",
-            },
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "New Construction Homes in Brandon, MS",
-              "areaServed": "Brandon, MS",
-            },
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Residential General Contractor in Brandon, MS",
-              "areaServed": "Brandon, MS",
-            },
-          },
-        ],
-      },
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bradleybrowninc.com" },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Custom Home Builder in Brandon, MS",
-          "item": "https://bradleybrowninc.com/custom-home-builder-brandon-ms",
-        },
-      ],
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": faqs.map((f) => ({
-        "@type": "Question",
-        "name": f.question,
-        "acceptedAnswer": { "@type": "Answer", "text": f.answer },
-      })),
-    },
-  ],
-};
-
-const services = [
-  "Custom Home Building in Brandon, MS",
-  "New Construction Homes",
-  "Luxury Custom Homes",
-  "Residential General Contracting",
-  "Design-Build Coordination",
-  "Home Additions & Expansions",
-  "Whole-Home Renovations",
-  "Outdoor Living Spaces",
-];
-
-const cities = [
-  "Brandon, MS",
-  "Flowood, MS",
-  "Pearl, MS",
-  "Richland, MS",
-  "Jackson, MS",
-  "Madison, MS",
-  "Ridgeland, MS",
-  "Clinton, MS",
-];
+const handleCall = () => base44.analytics.track({
+  eventName: "phone_click",
+  properties: { source: "brandon_custom_home_landing" }
+});
 
 export default function LandingBrandonCustomHomeBuilder() {
-  const handleCall = () =>
-    base44.analytics.track({
-      eventName: "phone_click",
-      properties: { source: "brandon_custom_home_landing" },
-    });
-  const { hero: heroImage } = usePageImages("LandingBrandonCustomHomeBuilder");
+  useEffect(() => {
+    // Remove only conflicting host fallback tags on this route. Helmet owns
+    // data-rh nodes. Restore fallbacks when leaving; do not change other pages.
+    const selector = [
+      'meta[name="description"]', 'meta[name="robots"]',
+      'meta[property^="og:"]', 'meta[name^="twitter:"]',
+      'link[rel="canonical"]'
+    ].join(',');
+    const fallbacks = [...document.head.querySelectorAll(selector)]
+      .filter((node) => !node.hasAttribute('data-rh'));
+    fallbacks.forEach((node) => node.remove());
+    return () => fallbacks.forEach((node) => document.head.appendChild(node));
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background pt-16 md:pt-20">
+    <div className="brandon-homes-page">
       <SEOHead
-        title="Custom Home Builder in Brandon, MS | Bradley Brown Inc."
-        description="Bradley Brown Inc. builds personalized custom homes in Brandon and Central Mississippi. Explore the service and request a free estimate."
-        schema={schema}
-        canonical="https://bradleybrowninc.com/custom-home-builder-brandon-ms"
+        title={page.title}
+        description={page.description}
+        canonical={page.canonical}
+        ogImage={page.projects[0].image}
+        structuredData={brandonCustomHomesSchema}
       />
+      <Helmet>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" />
+      </Helmet>
       <StickyCallButton />
 
-      {/* Sticky call bar */}
-      <div className="sticky top-16 md:top-20 z-40 bg-green-500 text-white py-2 px-4 text-center text-sm font-semibold">
-        <a href="tel:+18443514154" onClick={handleCall} className="flex items-center justify-center gap-2">
-          <Phone className="w-4 h-4" /> Brandon, MS Custom Home Builder — Call: (844) 351-4154
-        </a>
-      </div>
-
-      {/* Hero */}
-      <div className="bg-foreground py-14 md:py-20 relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-15"
-          style={{
-            backgroundImage: `url('${heroImage?.url || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"}')`,
-          }}
-        />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-sky-400/20 border border-sky-400/40 rounded-full px-3 py-1 mb-3">
-            <MapPin className="w-3.5 h-3.5 text-sky-400" />
-            <span className="text-sky-300 text-xs font-medium">Serving Brandon, MS & Rankin County</span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-            Custom Home Builder in Brandon, MS
-          </h1>
-          <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            Bradley Brown Inc. builds custom homes for homeowners in Brandon and Central Mississippi. The company manages residential construction from early planning through the finishing stages, with each home shaped around the owner's vision, lifestyle, and space needs. Request a free estimate or schedule a consultation to begin.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="tel:+18443514154"
-              onClick={handleCall}
-              className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg"
-            >
-              <Phone className="w-5 h-5" /> (844) 351-4154
-            </a>
-            <Link
-              to={"/estimate"}
-              className="flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
-            >
-              Start Your Custom Home Estimate <ChevronRight className="w-5 h-5" />
-            </Link>
+      <section className="brandon-homes-hero" aria-labelledby="brandon-homes-title">
+        <div className="brandon-homes-container">
+          <nav aria-label="Breadcrumb" className="brandon-homes-breadcrumb">
+            <Link to="/">Home</Link><span aria-hidden="true"> / </span><span>{page.h1}</span>
+          </nav>
+          <p className="brandon-homes-eyebrow">Brandon, Rankin County &amp; Central Mississippi</p>
+          <h1 id="brandon-homes-title">{page.h1}</h1>
+          <p className="brandon-homes-opening">{page.opening}</p>
+          <div className="brandon-homes-actions">
+            <Link to="/estimate" className="brandon-homes-button brandon-homes-primary">Request a Custom-Home Estimate</Link>
+            <a href="tel:+18443514154" onClick={handleCall} className="brandon-homes-button brandon-homes-outline">Call (844) 351-4154</a>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-14">
-        {/* Services */}
-        <div>
-          <h2 className="text-2xl font-bold text-foreground mb-6">Custom Home Building Services in Brandon</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {services.map((s) => (
-              <div key={s} className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
-                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                <span className="text-sm font-medium text-slate-700">{s}</span>
-              </div>
+      <div className="brandon-homes-container brandon-homes-content">
+        <section aria-labelledby="brandon-homes-service-title">
+          <h2 id="brandon-homes-service-title">{page.sections[0].heading}</h2>
+          {page.sections[0].paragraphs.map((text) => <p key={text}>{text}</p>)}
+          <Link to="/services/custom-home-building">Explore the custom-home building service</Link>
+        </section>
+
+        <section aria-labelledby="brandon-homes-projects-title">
+          <h2 id="brandon-homes-projects-title">Brandon project examples from our portfolio</h2>
+          <p>These are the project names, locations, sizes, and years listed in Bradley Brown Inc.'s portfolio. The remodel and addition is identified separately from the new-home build.</p>
+          <div className="brandon-homes-projects">
+            {page.projects.map((project) => (
+              <article key={project.title} className="brandon-homes-project">
+                <img src={project.image} alt={project.alt} width="640" height="480" loading="lazy" decoding="async" />
+                <div>
+                  <p className="brandon-homes-project-type">{project.type}</p>
+                  <h3>{project.title}</h3>
+                  <p className="brandon-homes-project-meta">{project.location} · {project.squareFeet.toLocaleString('en-US')} sq ft · {project.year}</p>
+                  <p>{project.description}</p>
+                  <Link to="/portfolio">View {project.title} in the portfolio</Link>
+                </div>
+              </article>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Brandon, MS Custom Home Construction */}
-        <div className="prose prose-slate max-w-none">
-          <h2 className="text-2xl font-bold text-foreground">Brandon, MS Custom Home Construction</h2>
-          <p className="text-slate-600 leading-relaxed">
-            Building a custom home in Brandon takes the right planning, craftsmanship, and local experience. Bradley
-            Brown Inc. helps homeowners turn ideas into finished homes with a process built around quality,
-            communication, and long-term value.
-          </p>
-          <p className="text-slate-600 leading-relaxed">
-            Whether you are building on your own land, planning a new construction home in Rankin County, or looking for
-            a residential general contractor to manage the full project, our team can help.
-          </p>
-        </div>
+        {page.sections.slice(1).map(({ heading, paragraphs }) => (
+          <section key={heading}>
+            <h2>{heading}</h2>
+            {paragraphs.map((text) => <p key={text}>{text}</p>)}
+          </section>
+        ))}
 
-        {/* Our Custom Home Building Process */}
-        <CustomHomeProcess />
-
-        {/* New Construction Homes in Brandon, MS */}
-        <div className="prose prose-slate max-w-none">
-          <h2 className="text-2xl font-bold text-foreground">New Construction Homes in Brandon, MS</h2>
-          <p className="text-slate-600 leading-relaxed">
-            If you are planning a new construction home in Brandon, Bradley Brown Inc. can help with the full residential
-            building process — from early planning and budgeting to construction management and final project completion.
-          </p>
-        </div>
-
-        {/* Residential General Contractor in Brandon and Rankin County */}
-        <div className="prose prose-slate max-w-none">
-          <h2 className="text-2xl font-bold text-foreground">Residential General Contractor in Brandon and Rankin County</h2>
-          <p className="text-slate-600 leading-relaxed">
-            Homeowners choose Bradley Brown Inc. when they need an experienced general contractor in Brandon, MS who
-            understands custom homes, remodeling, additions, and residential construction in Central Mississippi.
-          </p>
-        </div>
-
-        {/* Areas We Serve */}
-        <div>
-          <h2 className="text-2xl font-bold text-foreground mb-4">Areas We Serve</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {cities.map((city) => (
-              <div
-                key={city}
-                className="flex items-center gap-2 bg-sky-50 border border-sky-100 rounded-lg px-3 py-2 text-sm text-sky-700 font-medium"
-              >
-                <MapPin className="w-3.5 h-3.5 flex-shrink-0" /> {city}
-              </div>
+        <section id="faq" aria-labelledby="brandon-homes-faq-title">
+          <h2 id="brandon-homes-faq-title">Questions about custom homes in Brandon</h2>
+          <div className="brandon-homes-faqs">
+            {page.faqs.map(({ question, answer }) => (
+              <section key={question}>
+                <h3>{question}</h3>
+                <p>{answer}</p>
+              </section>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Cross-link to remodeling */}
-        <div className="bg-white border border-sky-100 rounded-2xl p-6 md:p-8 shadow-sm">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">Need Remodeling Instead?</h2>
-          <p className="text-slate-600 leading-relaxed mb-5">
-            Bradley Brown Inc. also provides kitchen remodeling, bathroom remodeling, additions, and whole-home
-            renovations in Brandon, MS and Rankin County.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              to="/remodeling-brandon-ms"
-              className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors"
-            >
-              <Hammer className="w-4 h-4" /> Home Remodeling in Brandon, MS
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/custom-home-builder-madison-ms"
-              className="inline-flex items-center gap-2 border border-sky-200 text-sky-700 hover:bg-sky-50 px-5 py-3 rounded-full font-semibold text-sm transition-colors"
-            >
-              Custom Homes near Madison, MS <ChevronRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/reviews"
-              className="inline-flex items-center gap-2 border border-sky-200 text-sky-700 hover:bg-sky-50 px-5 py-3 rounded-full font-semibold text-sm transition-colors"
-            >
-              Read Verified Reviews <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-
-        {/* What Brandon, MS Homeowners Say About Us */}
-        <BrandonReviewSection />
-
-        {/* FAQ */}
-        <div>
-          <h2 className="text-xl font-bold text-foreground mb-6 text-center">Frequently Asked Questions</h2>
-          <LandingFAQ faqs={faqs} />
-        </div>
+        <nav aria-label="Related services and customer information" className="brandon-homes-related">
+          <h2>Explore projects, remodeling, and customer reviews</h2>
+          <p>Visit the Reviews page for customer feedback across the company's work. Remodeling feedback should not be treated as a new-home project description.</p>
+          <ul>
+            <li><Link to="/portfolio">Project portfolio</Link></li>
+            <li><Link to="/reviews">Customer reviews</Link></li>
+            <li><Link to="/remodeling-brandon-ms">Home remodeling in Brandon</Link></li>
+            <li><Link to="/estimate">Request a Custom-Home Estimate</Link></li>
+          </ul>
+        </nav>
       </div>
 
-      <LandingCTABar headline="Building a custom home in Brandon, MS? Let's talk." />
+      {/* Keep the existing bottom phone/conversion handler and estimate route. */}
+      <LandingCTABar headline="Planning a custom home in Brandon? Tell us about your project." />
     </div>
   );
 }
