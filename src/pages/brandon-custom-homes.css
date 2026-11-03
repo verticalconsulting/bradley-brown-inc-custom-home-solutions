@@ -1,0 +1,56 @@
+.brandon-homes-page {
+  --brandon-blue: #003D82;
+  --brandon-navy: #002855;
+  --brandon-accent: #0066CC;
+  padding-top: 5rem;
+  color: #243647;
+  background: #fff;
+  font-family: 'Open Sans', sans-serif;
+  overflow-wrap: anywhere;
+}
+.brandon-homes-page h1, .brandon-homes-page h2, .brandon-homes-page h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.brandon-homes-container { width: min(100%, 64rem); margin-inline: auto; padding-inline: 1.25rem; }
+.brandon-homes-hero { background: var(--brandon-navy); color: #fff; padding-block: 3rem; }
+.brandon-homes-breadcrumb { margin-bottom: 1.5rem; font-size: .875rem; }
+.brandon-homes-page .brandon-homes-breadcrumb a { color: #fff; text-decoration: underline; text-underline-offset: .2em; }
+.brandon-homes-eyebrow { font-weight: 700; margin-bottom: .75rem; }
+.brandon-homes-page h1 { font-size: clamp(1.875rem, 5vw, 3rem); max-width: 24ch; margin-bottom: 1.25rem; }
+.brandon-homes-opening { font-size: 1.125rem; line-height: 1.8; max-width: 54rem; }
+.brandon-homes-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.75rem; }
+.brandon-homes-page .brandon-homes-button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: .875rem 1.25rem; border: 2px solid #fff; border-radius: .5rem; font-weight: 700; text-decoration: none; text-align: center; line-height: 1.5; }
+.brandon-homes-page .brandon-homes-primary { background: #fff; color: var(--brandon-blue); }
+.brandon-homes-page .brandon-homes-outline { color: #fff; }
+.brandon-homes-page .brandon-homes-primary:hover { background: #eaf3ff; }
+.brandon-homes-page .brandon-homes-outline:hover { background: var(--brandon-blue); }
+.brandon-homes-page a:focus-visible { outline: 3px solid #f8bd42; outline-offset: 4px; }
+.brandon-homes-content { padding-block: 3rem; }
+.brandon-homes-content > section, .brandon-homes-related { margin-bottom: 2.75rem; }
+.brandon-homes-page h2 { font-size: clamp(1.375rem, 3vw, 1.75rem); margin-bottom: 1rem; }
+.brandon-homes-content h2, .brandon-homes-content h3 { color: var(--brandon-navy); }
+.brandon-homes-content p { line-height: 1.85; margin-bottom: 1rem; }
+.brandon-homes-content a { color: var(--brandon-accent); text-decoration: underline; text-underline-offset: .2em; font-weight: 600; }
+.brandon-homes-projects { display: grid; gap: 1.5rem; }
+.brandon-homes-project { min-width: 0; border: 1px solid #d6e2f0; border-radius: .75rem; overflow: hidden; background: #f4f8fd; }
+.brandon-homes-project > div { padding: 1.5rem; }
+.brandon-homes-project img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.brandon-homes-project-type { font-weight: 700; color: var(--brandon-blue); }
+.brandon-homes-project-meta { font-size: .875rem; }
+.brandon-homes-faqs > section { border-bottom: 1px solid #d6e2f0; padding-block: 1.5rem; }
+.brandon-homes-page h3 { font-size: 1.125rem; margin-bottom: .75rem; }
+.brandon-homes-faqs p { margin-bottom: 0; }
+.brandon-homes-related ul { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; list-style: none; padding: 0; }
+.brandon-homes-related a { display: inline-block; padding-block: .75rem; }
+@media (min-width: 768px) {
+  .brandon-homes-hero { padding-block: 4rem; }
+  .brandon-homes-container { padding-inline: 2rem; }
+  .brandon-homes-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 639px) {
+  .brandon-homes-page { padding-top: 4rem; }
+  .brandon-homes-actions { flex-direction: column; }
+  .brandon-homes-page .brandon-homes-button { width: 100%; }
+}
