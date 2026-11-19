@@ -14,7 +14,8 @@ export default function ServicePageLayout({
   h1, subtitle, location = "Brandon, MS",
   bodySections, features, faqs, testimonials, images,
   relatedLinks, serviceName, emergencyPhone, bannerText,
-  answerFirstOpening, pageKey
+  answerFirstOpening, pageKey,
+  answerFirstCta, showTrustBar = true, ctaBody
 }) {
   const { hero: heroImage, cta: ctaImage, gallery: galleryManaged } = usePageImages(pageKey);
 
@@ -94,12 +95,14 @@ export default function ServicePageLayout({
               <Phone className="w-5 h-5" /> Call {callNumber}
             </a>
           </div>
+          {showTrustBar &&
           <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
             <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-sky-400" /> Licensed &amp; Insured</span>
             <span className="flex items-center gap-1.5"><Award className="w-4 h-4 text-sky-400" /> 20+ Years</span>
             <span className="flex items-center gap-1.5"><Star className="w-4 h-4 text-yellow-400 fill-yellow-400" /> 5.0★ Rated</span>
             <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-sky-400" /> Renovations &amp; Custom Homes</span>
           </div>
+          }
         </div>
       </section>
 
@@ -108,6 +111,11 @@ export default function ServicePageLayout({
         <section aria-label={`${serviceName} overview`} className="bg-sky-50 border border-sky-100 rounded-xl p-6 md:p-8">
             <h2 className="text-2xl font-bold text-[#1E2D3D] mb-3">What to Know Before You Start</h2>
             <p className="text-slate-700 leading-relaxed">{answerFirstOpening}</p>
+            {answerFirstCta &&
+            <Link to={answerFirstCta.to} className="inline-flex items-center gap-1.5 mt-4 min-h-[44px] text-sky-700 font-semibold underline underline-offset-2 hover:text-sky-900">
+                {answerFirstCta.label} <ChevronRight className="w-4 h-4" />
+              </Link>
+            }
           </section>
         }
 
@@ -117,6 +125,15 @@ export default function ServicePageLayout({
             {section.paragraphs.map((p, j) =>
           <p key={j} className="text-slate-600 leading-relaxed mb-3">{p}</p>
           )}
+            {section.links && section.links.length > 0 &&
+          <div className="flex flex-wrap gap-3 mt-4">
+                {section.links.map((link) =>
+            <Link key={link.to + link.label} to={link.to} className="inline-flex items-center gap-1.5 min-h-[44px] text-sky-700 font-semibold underline underline-offset-2 hover:text-sky-900">
+                    {link.label} <ChevronRight className="w-4 h-4" />
+                  </Link>
+            )}
+              </div>
+          }
           </div>
         )}
 
@@ -191,7 +208,7 @@ export default function ServicePageLayout({
         }
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to Start Your Project?</h2>
-          <p className="text-slate-300 mb-8 text-base">Join 500+ Mississippi homeowners who've trusted Bradley Brown Inc. with their most important investment.</p>
+          <p className="text-slate-300 mb-8 text-base">{ctaBody || "Join 500+ Mississippi homeowners who've trusted Bradley Brown Inc. with their most important investment."}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/estimate" className="inline-flex items-center justify-center gap-2 bg-[#C4922A] hover:bg-[#A37820] text-white px-8 py-5 min-h-[52px] rounded-full font-bold text-base transition-colors shadow-lg">
               <Sparkles className="w-5 h-5" /> Get My Free Estimate
